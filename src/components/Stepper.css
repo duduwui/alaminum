@@ -1,0 +1,163 @@
+.outer-container {
+  display: flex;
+  min-height: 100%;
+  flex: 1 1 0%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.step-circle-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 44rem;
+  border-radius: 1.5rem;
+  background-color: #ffffff;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.08),
+    0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+.step-indicator-row {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1.5rem 1.75rem 1rem 1.75rem;
+}
+
+.step-content-default {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.step-default {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.footer-container {
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav.spread {
+  justify-content: space-between;
+}
+
+.footer-nav.end {
+  justify-content: flex-end;
+}
+
+.back-button {
+  transition: all 250ms ease;
+  border-radius: 0.75rem;
+  padding: 0.6rem 1.2rem;
+  color: #475569;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+.back-button.inactive {
+  pointer-events: none;
+  opacity: 0.4;
+  color: #94a3b8;
+}
+
+.next-button {
+  transition: all 250ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: #0284c7;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.next-button:hover {
+  background-color: #0369a1;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}
+
+.next-button:active {
+  background-color: #075985;
+  transform: translateY(1px);
+}
+
+.step-indicator {
+  position: relative;
+  cursor: pointer;
+  outline: none;
+}
+
+.step-indicator-inner {
+  display: flex;
+  height: 2.25rem;
+  width: 2.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.active-dot {
+  height: 0.65rem;
+  width: 0.65rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+}
+
+.step-number {
+  font-size: 0.875rem;
+}
+
+.step-connector {
+  position: relative;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 0.175rem;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+}
+
+.step-connector-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.check-icon {
+  height: 1.1rem;
+  width: 1.1rem;
+  color: #ffffff;
+}

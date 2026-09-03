@@ -89,6 +89,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               </li>
               <li>
                 <button
+                  onClick={() => onNavigate('products')}
+                  className="text-sky-400 font-semibold hover:text-sky-300 transition-colors"
+                >
+                  All Products Shop (30+)
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onNavigate('aluminum')}
                   className="hover:text-white transition-colors"
                 >

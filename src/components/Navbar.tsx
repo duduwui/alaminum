@@ -1,19 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { WINHOME_CONTACT } from '../data/winhomeData';
-import { Phone, ChevronDown, Search, Menu, X, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
+import {
+  Phone,
+  ChevronDown,
+  Search,
+  Menu,
+  X,
+  ArrowRight,
+  ShieldCheck,
+  Mail,
+  ClipboardList
+} from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   onOpenQuoteModal: () => void;
   onOpenSearch: () => void;
+  cartCount?: number;
+  onOpenCart?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   activeTab,
   setActiveTab,
   onOpenQuoteModal,
-  onOpenSearch
+  onOpenSearch,
+  cartCount = 0,
+  onOpenCart
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -157,23 +171,45 @@ export const Navbar: React.FC<NavbarProps> = ({
               onMouseEnter={() => setProductsDropdownOpen(true)}
               onMouseLeave={() => setProductsDropdownOpen(false)}
             >
-              <button
-                id="nav-tab-products"
-                onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
-                className={`inline-flex items-center gap-1.5 text-xs xl:text-sm font-bold tracking-wider uppercase transition-colors ${
-                  isProductTab
-                    ? 'text-sky-600'
-                    : 'text-slate-800 hover:text-sky-600'
-                }`}
-              >
-                <span>PRODUCTS</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-sky-600' : ''}`} />
-              </button>
+              <div className="flex items-center">
+                <button
+                  id="nav-tab-products"
+                  onClick={() => handleNavClick('products')}
+                  className={`inline-flex items-center gap-1 text-xs xl:text-sm font-bold tracking-wider uppercase transition-colors ${
+                    isProductTab
+                      ? 'text-sky-600'
+                      : 'text-slate-800 hover:text-sky-600'
+                  }`}
+                >
+                  <span>PRODUCTS</span>
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setProductsDropdownOpen(!productsDropdownOpen);
+                  }}
+                  className="p-1 text-slate-500 hover:text-sky-600 focus:outline-none"
+                  aria-label="Toggle products dropdown"
+                >
+                  <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsDropdownOpen ? 'rotate-180 text-sky-600' : ''}`} />
+                </button>
+              </div>
 
               {/* Dropdown Menu matching image */}
               {productsDropdownOpen && (
-                <div className="absolute top-full left-0 pt-2 z-50 w-48 animate-in fade-in slide-in-from-top-2 duration-150">
-                  <div className="bg-white rounded-lg shadow-xl border border-slate-200 py-2 overflow-hidden">
+                <div className="absolute top-full left-0 pt-2 z-50 w-52 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="bg-white rounded-xl shadow-xl border border-slate-200 py-2 overflow-hidden">
+                    <button
+                      id="dropdown-item-all-products"
+                      onClick={() => handleNavClick('products')}
+                      className={`w-full text-left px-4 py-2 text-xs font-bold uppercase tracking-wider transition-colors block border-b border-slate-100 ${
+                        activeTab === 'products'
+                          ? 'text-sky-600 bg-sky-50'
+                          : 'text-sky-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      Browse Full Shop (30+)
+                    </button>
                     <button
                       id="dropdown-item-aluminum"
                       onClick={() => handleNavClick('aluminum')}
@@ -183,7 +219,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           : 'text-slate-700 hover:bg-slate-50 hover:text-sky-600'
                       }`}
                     >
-                      Aluminum
+                      Aluminum Systems
                     </button>
                     <button
                       id="dropdown-item-upvc"
@@ -194,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           : 'text-slate-700 hover:bg-slate-50 hover:text-sky-600'
                       }`}
                     >
-                      uPVC
+                      uPVC Profiles
                     </button>
                     <button
                       id="dropdown-item-accessories"
@@ -205,7 +241,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                           : 'text-slate-700 hover:bg-slate-50 hover:text-sky-600'
                       }`}
                     >
-                      Accessories
+                      Accessories & Hardware
                     </button>
                   </div>
                 </div>
@@ -248,6 +284,24 @@ export const Navbar: React.FC<NavbarProps> = ({
               CONTACT
             </button>
 
+            {/* Request Cart Button */}
+            {onOpenCart && (
+              <button
+                id="nav-cart-button"
+                onClick={onOpenCart}
+                className="relative inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-all border border-sky-200"
+                title="View Architectural Request Cart"
+              >
+                <ClipboardList className="w-4 h-4 text-sky-600" />
+                <span className="hidden xl:inline">Request Cart</span>
+                {cartCount > 0 && (
+                  <span className="w-5 h-5 rounded-full bg-sky-600 text-white text-[10px] font-extrabold flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+            )}
+
             {/* Search Icon */}
             <button
               id="nav-search-button"
@@ -260,11 +314,25 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </nav>
 
-          {/* Mobile Right Controls: Search + Hamburger */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Right Controls: Cart + Search + Hamburger */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            {onOpenCart && (
+              <button
+                onClick={onOpenCart}
+                className="relative p-2 text-slate-700 hover:text-sky-600 hover:bg-slate-100 rounded-lg"
+                aria-label="Request Cart"
+              >
+                <ClipboardList className="w-5 h-5 text-sky-600" />
+                {cartCount > 0 && (
+                  <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-sky-600 text-white text-[9px] font-bold flex items-center justify-center">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+            )}
             <button
               onClick={onOpenSearch}
-              className="p-2.5 text-slate-700 hover:text-sky-600 hover:bg-slate-100 rounded-lg"
+              className="p-2 text-slate-700 hover:text-sky-600 hover:bg-slate-100 rounded-lg"
               aria-label="Search systems"
             >
               <Search className="w-5 h-5" />
@@ -316,6 +384,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               {mobileProductsOpen && (
                 <div className="pl-4 pr-2 py-1 space-y-1 bg-slate-50 rounded-lg mt-1 border-l-2 border-sky-500">
                   <button
+                    onClick={() => handleNavClick('products')}
+                    className="w-full text-left py-2.5 px-3 text-sm font-bold text-sky-600 hover:text-sky-700 block"
+                  >
+                    • Browse Full Shop (30+)
+                  </button>
+                  <button
                     onClick={() => handleNavClick('aluminum')}
                     className="w-full text-left py-2.5 px-3 text-sm font-semibold text-slate-700 hover:text-sky-600 block"
                   >
@@ -364,8 +438,32 @@ export const Navbar: React.FC<NavbarProps> = ({
               CONTACT
             </button>
 
+            {/* Mobile Request Cart & Admin Links */}
+            <div className="pt-2 border-t border-slate-100 space-y-1.5">
+              {onOpenCart && (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenCart();
+                  }}
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-lg bg-sky-50 text-sky-800 text-xs font-bold"
+                >
+                  <div className="flex items-center gap-2">
+                    <ClipboardList className="w-4 h-4 text-sky-600" />
+                    <span>Architectural Request Cart</span>
+                  </div>
+                  {cartCount > 0 && (
+                    <span className="w-5 h-5 rounded-full bg-sky-600 text-white text-[10px] font-bold flex items-center justify-center">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              )}
+
+            </div>
+
             {/* Mobile Call & Quote Actions */}
-            <div className="pt-3 border-t border-slate-100 grid grid-cols-2 gap-2">
+            <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2">
               <a
                 href={`tel:${WINHOME_CONTACT.hotlineRaw}`}
                 className="flex items-center justify-center gap-1.5 py-3 rounded-lg bg-slate-100 text-slate-900 font-bold text-xs uppercase tracking-wider"
