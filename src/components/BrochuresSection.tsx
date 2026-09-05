@@ -18,19 +18,19 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
   };
 
   return (
-    <section id="brochures" className="py-20 text-white border-b border-slate-800 relative overflow-hidden">
+    <section id="brochures" className="py-20 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-slate-100">
       {/* Mobile background image */}
       <div
-        className="block md:hidden absolute inset-0 bg-cover bg-center pointer-events-none"
+        className="block md:hidden absolute inset-0 bg-cover bg-center pointer-events-none z-0"
         style={{ backgroundImage: "url('/assets/winhome/mobileV.jpg')" }}
       />
       {/* Laptop / Desktop background image */}
       <div
-        className="hidden md:block absolute inset-0 bg-cover bg-center pointer-events-none"
+        className="hidden md:block absolute inset-0 bg-cover bg-center pointer-events-none z-0"
         style={{ backgroundImage: "url('/assets/winhome/laptopv.jpg')" }}
       />
-      {/* Light translucent overlay for high image visibility and text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-slate-950/30 to-slate-950/55 backdrop-blur-[1px] pointer-events-none" />
+      {/* Soft overlay for crisp contrast */}
+      <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] pointer-events-none z-0" />
 
       {/* Subtle Blueprint Mesh Glow */}
       <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -38,10 +38,10 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
             Official Technical Catalogues & Brochures
           </h2>
-          <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed font-medium">
+          <p className="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed font-semibold">
             Download comprehensive profile CAD drawings, inertia tables, CE certificates, and European hardware installation guides for your architectural projects.
           </p>
         </div>
