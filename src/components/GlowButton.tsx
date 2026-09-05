@@ -12,30 +12,29 @@ export const GlowButton: React.FC<GlowButtonProps> = ({
   children,
   variant = 'primary',
   size = 'md',
-  isDarkTheme,
+  isDarkTheme = false,
   className = '',
   ...props
 }) => {
+  const isDark = isDarkTheme || variant === 'accent';
+
   const sizeClasses = {
-    sm: 'py-2 px-4 text-xs gap-1.5 rounded-xl',
-    md: 'py-2.5 px-5 text-xs sm:text-sm gap-2 rounded-xl',
-    lg: 'py-3 px-6 text-sm sm:text-base gap-2.5 rounded-2xl'
+    sm: 'py-2 px-3.5 text-xs gap-1.5 min-w-[90px]',
+    md: 'py-2.5 px-5 text-xs sm:text-sm gap-2 min-w-[110px]',
+    lg: 'py-3.5 px-7 text-sm sm:text-base gap-2.5 min-w-[140px]'
   }[size];
 
-  const variantClasses = {
-    primary: 'bg-sky-600 hover:bg-sky-700 text-white shadow-md shadow-sky-600/20 font-bold border border-sky-600',
-    secondary: 'bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold border border-slate-200/80',
-    accent: 'bg-slate-900 hover:bg-slate-800 text-white font-bold border border-slate-800 shadow-sm',
-    active: 'bg-sky-600 text-white font-extrabold shadow-md shadow-sky-600/25 border border-sky-600',
-    outline: 'bg-white hover:bg-slate-50 text-slate-800 font-bold border border-slate-300'
-  }[variant];
+  const colorClass = isDark ? 'cornerstone-box-white' : 'cornerstone-box-black';
+  const activeClass = variant === 'active' ? 'cornerstone-box-active' : '';
 
   return (
     <button
-      className={`inline-flex items-center justify-center font-sans tracking-wide transition-all duration-200 active:scale-98 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/40 ${sizeClasses} ${variantClasses} ${className}`.trim()}
+      className={`cornerstone-btn ${className}`.trim()}
       {...props}
     >
-      {children}
+      <span className={`cornerstone-box ${colorClass} ${activeClass} ${sizeClasses}`}>
+        {children}
+      </span>
     </button>
   );
 };

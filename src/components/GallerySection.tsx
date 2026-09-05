@@ -129,6 +129,7 @@ export const GallerySection: React.FC = () => {
                 key={f.id}
                 onClick={() => setActiveFilter(f.id)}
                 variant={activeFilter === f.id ? 'active' : 'outline'}
+                isDarkTheme={true}
                 size="sm"
               >
                 {f.label}
