@@ -18,44 +18,42 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
   };
 
   return (
-    <section id="brochures" className="py-20 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-slate-100">
-      {/* Mobile background image */}
+    <section id="brochures" className="py-16 sm:py-24 text-slate-900 border-b border-slate-200 relative overflow-hidden bg-slate-100">
+      {/* Responsive Background Image (_ (4).jpeg) */}
       <div
-        className="block md:hidden absolute inset-0 bg-cover bg-center pointer-events-none z-0"
-        style={{ backgroundImage: "url('/assets/winhome/mobileV.jpg')" }}
+        className="absolute inset-0 bg-cover bg-center pointer-events-none z-0"
+        style={{ backgroundImage: "url('/assets/winhome/_ (4).jpeg')" }}
       />
-      {/* Laptop / Desktop background image */}
-      <div
-        className="hidden md:block absolute inset-0 bg-cover bg-center pointer-events-none z-0"
-        style={{ backgroundImage: "url('/assets/winhome/laptopv.jpg')" }}
-      />
-      {/* Soft overlay for crisp contrast */}
-      <div className="absolute inset-0 bg-white/20 backdrop-blur-[1px] pointer-events-none z-0" />
+      {/* Light translucent backdrop overlay for high image visibility and text readability */}
+      <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px] pointer-events-none z-0" />
 
-      {/* Subtle Blueprint Mesh Glow */}
-      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* Subtle Ambient Glow */}
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900">
-            Official Technical Catalogues & Brochures
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span className="text-xs font-black text-sky-700 uppercase tracking-widest bg-sky-50 px-3.5 py-1 rounded-full border border-sky-100 shadow-xs inline-block mb-3">
+            TECHNICAL ARCHIVE & CAD SPECIFICATIONS
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+            Official Catalogues & Brochures
           </h2>
           <p className="text-sm sm:text-base text-slate-700 mt-3 leading-relaxed font-semibold">
             Download comprehensive profile CAD drawings, inertia tables, CE certificates, and European hardware installation guides for your architectural projects.
           </p>
         </div>
 
-        {/* Brochures Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Compact & Sleek Brochures Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {BROCHURES_DATA.map((item) => (
             <div
               key={item.id}
-              className="bg-slate-900/90 rounded-2xl border border-slate-800 hover:border-blue-500/60 hover:shadow-2xl transition-all duration-200 flex flex-col justify-between overflow-hidden group"
+              className="bg-white/90 backdrop-blur-md rounded-3xl border border-slate-200/90 shadow-md hover:shadow-2xl hover:border-sky-400 transition-all duration-300 flex flex-col justify-between overflow-hidden group p-5 sm:p-6"
             >
               <div>
-                {/* Cover Image */}
-                <div className="relative aspect-[4/3] bg-slate-950 p-6 flex items-center justify-center border-b border-slate-800 overflow-hidden">
+                {/* Compact Cover Image Stage */}
+                <div className="relative h-44 sm:h-52 w-full bg-slate-50/80 rounded-2xl p-4 flex items-center justify-center border border-slate-100 overflow-hidden mb-4">
                   <img
                     src={item.coverImage}
                     alt={item.title}
@@ -65,56 +63,58 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
                         target.src = item.fallbackCover;
                       }
                     }}
-                    className="max-h-full max-w-full object-contain rounded-md shadow-sm transition-transform duration-300 group-hover:scale-105"
+                    className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold uppercase px-2.5 py-0.5 rounded shadow-xs">
+                  <div className="absolute top-3 left-3 bg-sky-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
                     {item.origin}
                   </div>
-                  <div className="absolute bottom-4 right-4 bg-slate-900/90 text-slate-300 text-[11px] font-semibold px-2.5 py-0.5 rounded border border-slate-700 shadow-xs">
+                  <div className="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
                     {item.fileSize}
                   </div>
                 </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <div>
-                    <div className="text-xs font-bold text-blue-400 uppercase tracking-wider">
-                      {item.brand}
-                    </div>
-                    <h3 className="text-lg font-bold text-white mt-1 leading-snug group-hover:text-blue-400 transition-colors">
-                      {item.title}
-                    </h3>
-                  </div>
+                {/* Card Title & Brand */}
+                <div className="space-y-1">
+                  <span className="text-[11px] font-extrabold text-sky-600 uppercase tracking-wider block">
+                    {item.brand}
+                  </span>
+                  <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug group-hover:text-sky-600 transition-colors line-clamp-2">
+                    {item.title}
+                  </h3>
+                </div>
 
-                  <p className="text-xs text-slate-300 leading-relaxed">
-                    {item.description}
-                  </p>
+                {/* Short Description */}
+                <p className="text-xs text-slate-600 font-medium leading-relaxed mt-2 line-clamp-2">
+                  {item.description}
+                </p>
 
-                  <div className="space-y-1.5 pt-2 border-t border-slate-800">
-                    <span className="text-[11px] font-bold text-slate-400 block uppercase tracking-wider">
-                      Included Specifications:
-                    </span>
-                    <ul className="space-y-1">
-                      {item.highlights.map((h, i) => (
-                        <li key={i} className="text-xs text-slate-300 flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
+                {/* Included Specifications Pills */}
+                <div className="mt-3.5 pt-3 border-t border-slate-100">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">
+                    Key Specifications Included:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {item.highlights.map((h, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] font-semibold text-slate-700 bg-slate-100/90 border border-slate-200/80 px-2.5 py-0.5 rounded-lg truncate max-w-full"
+                      >
+                        {h}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="p-6 pt-0 space-y-2">
+              {/* Compact Action Buttons */}
+              <div className="mt-5 space-y-2">
                 <button
                   onClick={() => handleDownload(item)}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md ${
+                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md active:scale-[0.98] ${
                     downloadSuccess === item.id
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-blue-600 hover:bg-blue-500 text-white'
+                      ? 'bg-emerald-600 text-white shadow-emerald-600/20'
+                      : 'bg-sky-600 hover:bg-sky-500 text-white shadow-sky-600/20'
                   }`}
                 >
                   {downloadSuccess === item.id ? (
@@ -134,9 +134,9 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
                   href={`https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=Hello%20Winhome,%20please%20send%20me%20the%20technical%20CAD%20drawings%20for%20${encodeURIComponent(item.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-2 px-4 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-slate-800 flex items-center justify-center gap-1.5 border border-slate-800 transition-colors"
+                  className="w-full py-2 px-3 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center justify-center gap-1.5 border border-slate-200/80 transition-colors"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-blue-400" />
+                  <MessageSquare className="w-3.5 h-3.5 text-sky-600" />
                   <span>Request Full CAD Archive via WhatsApp</span>
                 </a>
               </div>
