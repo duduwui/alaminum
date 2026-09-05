@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { WINHOME_CONTACT } from '../data/winhomeData';
-import { X, Calculator, MessageSquare, Phone } from 'lucide-react';
+import { GlowButton } from './GlowButton';
+import { X, Calculator, MessageSquare, Phone, Layers, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 
 interface QuoteCalculatorModalProps {
   isOpen: boolean;
@@ -29,7 +30,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const singleAreaM2 = (widthCm * heightCm) / 10000;
   const totalAreaM2 = singleAreaM2 * unitsCount;
 
-  // Rough estimation base rates per m2 for Iraqi market reference
+  // Estimation base rates per m2 for reference
   const baseRate = material === 'upvc' ? 120 : 165;
   const glassFactor =
     glassType.includes('Triple') ? 1.35 : glassType.includes('Low-E') ? 1.15 : 1.0;
@@ -51,37 +52,41 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const whatsappUrl = `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${whatsappMessage}`;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-slate-50 border-b border-slate-100">
-          <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-sky-100 text-sky-700">
-              <Calculator className="w-5 h-5" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200/80 flex flex-col animate-in zoom-in-95 duration-200">
+        
+        {/* FIXED HEADER BAR - Separate from body scroll container */}
+        <div className="px-6 py-4.5 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/60 flex items-center justify-between text-white shrink-0 z-20">
+          <div className="flex items-center gap-3.5 min-w-0">
+            <div className="w-10 h-10 rounded-2xl bg-sky-500/20 text-sky-400 border border-sky-400/30 flex items-center justify-center font-bold shrink-0">
+              <Calculator className="w-5 h-5 text-sky-300" />
             </div>
-            <div>
-              <h3 className="text-lg font-bold text-slate-900">
-                Architectural Fenestration Cost Estimator
+            <div className="min-w-0">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-sky-300 bg-sky-500/20 border border-sky-400/30 px-2 py-0.5 rounded-full">
+                Cost Estimator Hub
+              </span>
+              <h3 className="text-base sm:text-xl font-black text-white tracking-tight truncate mt-0.5">
+                Architectural Fenestration Estimator
               </h3>
-              <p className="text-xs text-slate-500">
-                Instant preliminary price calculator for Erbil & Kurdistan projects
-              </p>
             </div>
           </div>
+
           <button
+            type="button"
             onClick={onClose}
-            className="p-2 rounded-full text-slate-400 hover:text-slate-800 hover:bg-slate-200 transition-colors"
+            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 shrink-0 ml-3"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Calculator Form Body */}
-        <div className="p-6 max-h-[75vh] overflow-y-auto space-y-5 text-xs text-slate-700">
+        {/* INTERNAL SCROLLABLE FORM BODY */}
+        <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-slate-100 text-xs text-slate-700">
+          
           {/* Material Select */}
-          <div>
-            <label className="block font-bold text-slate-900 mb-1.5 uppercase tracking-wider text-[11px]">
+          <div className="space-y-2.5">
+            <label className="block font-black text-slate-900 uppercase tracking-wider text-[11px]">
               1. Select Primary Frame Material
             </label>
             <div className="grid grid-cols-2 gap-3">
@@ -91,31 +96,38 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                   setMaterial('upvc');
                   setSystem('Deceuninck Legend Art 70mm');
                 }}
-                className={`p-3 rounded-lg border text-center font-bold transition-all ${
+                className={`p-3.5 rounded-2xl border text-left transition-all ${
                   material === 'upvc'
-                    ? 'border-sky-600 bg-sky-50 text-sky-900 ring-2 ring-sky-600/20'
-                    : 'border-slate-200 hover:border-slate-300 text-slate-700'
+                    ? 'border-sky-500 bg-sky-50/90 text-slate-900 ring-2 ring-sky-500/20 shadow-xs'
+                    : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
                 }`}
               >
-                European uPVC Systems
-                <span className="block text-[11px] font-normal text-slate-500 mt-0.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-extrabold text-xs text-slate-900">European uPVC Systems</span>
+                  {material === 'upvc' && <Check className="w-4 h-4 text-sky-600 stroke-[3]" />}
+                </div>
+                <span className="block text-[11px] font-medium text-slate-500 mt-1">
                   Deceuninck & Winsa Profiles
                 </span>
               </button>
+
               <button
                 type="button"
                 onClick={() => {
                   setMaterial('aluminum');
                   setSystem('Lorenzoline Opening 60T');
                 }}
-                className={`p-3 rounded-lg border text-center font-bold transition-all ${
+                className={`p-3.5 rounded-2xl border text-left transition-all ${
                   material === 'aluminum'
-                    ? 'border-sky-600 bg-sky-50 text-sky-900 ring-2 ring-sky-600/20'
-                    : 'border-slate-200 hover:border-slate-300 text-slate-700'
+                    ? 'border-sky-500 bg-sky-50/90 text-slate-900 ring-2 ring-sky-500/20 shadow-xs'
+                    : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
                 }`}
               >
-                Thermal Break Aluminum
-                <span className="block text-[11px] font-normal text-slate-500 mt-0.5">
+                <div className="flex items-center justify-between">
+                  <span className="font-extrabold text-xs text-slate-900">Thermal Break Aluminum</span>
+                  {material === 'aluminum' && <Check className="w-4 h-4 text-sky-600 stroke-[3]" />}
+                </div>
+                <span className="block text-[11px] font-medium text-slate-500 mt-1">
                   Lorenzoline & Façade 50F
                 </span>
               </button>
@@ -125,13 +137,13 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
           {/* System & Type Selection */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block font-bold text-slate-900 mb-1.5">
+              <label className="block font-black text-slate-900 mb-1.5 uppercase tracking-wider text-[11px]">
                 System Series
               </label>
               <select
                 value={system}
                 onChange={(e) => setSystem(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-bold"
               >
                 {material === 'upvc' ? (
                   <>
@@ -152,153 +164,92 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
             </div>
 
             <div>
-              <label className="block font-bold text-slate-900 mb-1.5">
+              <label className="block font-black text-slate-900 mb-1.5 uppercase tracking-wider text-[11px]">
                 Opening Configuration
               </label>
               <select
                 value={windowType}
                 onChange={(e) => setWindowType(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-bold"
               >
-                <option value="Tilt & Turn Window">Tilt & Turn German Mechanism</option>
-                <option value="Two-Sash Sliding Window">Two-Sash Horizontal Sliding</option>
-                <option value="Monumental Lift-and-Slide Door">Monumental Lift-and-Slide Door</option>
-                <option value="Casement Balcony Door">French Casement Balcony Door</option>
-                <option value="Fixed Architectural Glass Wall">Fixed Architectural Picture Window</option>
+                <option value="Tilt & Turn Window">Tilt & Turn European Sash Window</option>
+                <option value="Heavy Lift & Slide Door">Heavy Lift & Slide Panoramic Door</option>
+                <option value="Parallel Sliding Window">Parallel Sliding Soft-Close Window</option>
+                <option value="Fixed Architectural Glass">Fixed Panoramic Structural Frame</option>
+                <option value="Curtain Wall Mullion">Curtain Wall Glass Facade Unit</option>
               </select>
             </div>
           </div>
 
-          {/* Dimensions */}
-          <div className="grid grid-cols-3 gap-3">
-            <div>
-              <label className="block font-semibold text-slate-700 mb-1">
-                Width (cm)
-              </label>
+          {/* Dimensions & Quantities */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <label className="block font-bold text-slate-700 text-[10px] uppercase mb-1">Width (cm)</label>
               <input
                 type="number"
-                min={40}
-                max={600}
                 value={widthCm}
                 onChange={(e) => setWidthCm(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
+                className="w-full px-3 py-1.5 rounded-lg border border-slate-300 font-extrabold text-slate-900"
               />
             </div>
-            <div>
-              <label className="block font-semibold text-slate-700 mb-1">
-                Height (cm)
-              </label>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <label className="block font-bold text-slate-700 text-[10px] uppercase mb-1">Height (cm)</label>
               <input
                 type="number"
-                min={40}
-                max={400}
                 value={heightCm}
                 onChange={(e) => setHeightCm(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
+                className="w-full px-3 py-1.5 rounded-lg border border-slate-300 font-extrabold text-slate-900"
               />
             </div>
-            <div>
-              <label className="block font-semibold text-slate-700 mb-1">
-                Quantity (Units)
-              </label>
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <label className="block font-bold text-slate-700 text-[10px] uppercase mb-1">Units Count</label>
               <input
                 type="number"
-                min={1}
-                max={500}
                 value={unitsCount}
                 onChange={(e) => setUnitsCount(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
+                className="w-full px-3 py-1.5 rounded-lg border border-slate-300 font-extrabold text-slate-900"
               />
             </div>
           </div>
 
-          {/* Glass Type & Location */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Estimated Calculations Summary Box */}
+          <div className="p-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl border border-slate-700 shadow-md flex items-center justify-between">
             <div>
-              <label className="block font-bold text-slate-900 mb-1.5">
-                Glass Specification
-              </label>
-              <select
-                value={glassType}
-                onChange={(e) => setGlassType(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
-              >
-                <option value="Double Glazed Low-E (28mm)">Double Glazed Low-E Argon (28mm)</option>
-                <option value="Double Glazed Standard (24mm)">Double Glazed Standard (24mm)</option>
-                <option value="Triple Glazed Acoustic Low-E (44mm)">Triple Glazed Acoustic Low-E (44mm)</option>
-                <option value="Reflective Solar Control (28mm)">Reflective Bronze/Blue Solar Control (28mm)</option>
-              </select>
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Estimated Total Area</span>
+              <span className="text-lg font-black text-sky-300">{totalAreaM2.toFixed(2)} m²</span>
             </div>
-
-            <div>
-              <label className="block font-bold text-slate-900 mb-1.5">
-                City in Iraq / Kurdistan
-              </label>
-              <select
-                value={clientCity}
-                onChange={(e) => setClientCity(e.target.value)}
-                className="w-full px-3 py-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-600 focus:bg-white"
-              >
-                <option value="Erbil">Erbil (Showroom & Factory Hub)</option>
-                <option value="Sulaymaniyah">Sulaymaniyah</option>
-                <option value="Duhok">Duhok</option>
-                <option value="Baghdad">Baghdad</option>
-                <option value="Basra">Basra</option>
-                <option value="Other">Other Governorate</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Live Estimate Display Banner */}
-          <div className="p-4 rounded-xl bg-sky-50 border border-sky-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <span className="text-[10px] font-bold text-sky-800 uppercase tracking-wider block">
-                Calculated Preliminary Cost
-              </span>
-              <div className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-0.5">
-                ${estimatedCost.toLocaleString()}{' '}
-                <span className="text-xs font-normal text-slate-500">USD Approx.</span>
-              </div>
-              <p className="text-[11px] text-slate-600 mt-1">
-                Total Area: <strong className="text-slate-900">{totalAreaM2.toFixed(2)} m²</strong> ({singleAreaM2.toFixed(2)} m² per unit × {unitsCount} units)
-              </p>
-            </div>
-
-            <div className="text-right text-[11px] text-slate-500 max-w-xs">
-              *Includes European extrusions, dual EPDM gaskets, and Master hardware. Final fabrication price confirmed upon site survey.
+            <div className="text-right">
+              <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Rough Market Value</span>
+              <span className="text-lg font-black text-emerald-400">~${estimatedCost} USD</span>
             </div>
           </div>
         </div>
 
-        {/* Footer Actions */}
-        <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+        {/* FIXED FOOTER BAR */}
+        <div className="px-6 py-4 bg-slate-50/95 backdrop-blur-md border-t border-slate-200/80 flex items-center justify-between gap-3 shrink-0 rounded-b-3xl z-20">
           <button
+            type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-colors"
+            className="px-4 py-2 rounded-xl border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-200 transition-colors"
           >
             Cancel
           </button>
 
-          <div className="flex items-center gap-2">
-            <a
-              href={`tel:${WINHOME_CONTACT.hotlineRaw}`}
-              className="px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-100 text-slate-700 text-xs font-bold transition-all flex items-center gap-1.5"
-            >
-              <Phone className="w-3.5 h-3.5 text-sky-600" />
-              <span>Call Desk</span>
-            </a>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Send Calculation to WhatsApp</span>
-            </a>
-          </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GlowButton variant="primary" size="sm">
+              <MessageSquare className="w-4 h-4" />
+              <span>Send Specs to WhatsApp</span>
+            </GlowButton>
+          </a>
         </div>
+
       </div>
     </div>
   );
 };
+
+export default QuoteCalculatorModal;

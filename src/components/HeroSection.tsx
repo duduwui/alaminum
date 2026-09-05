@@ -1,89 +1,105 @@
-import React, { useState, useEffect } from 'react';
-import { WINHOME_CONTACT } from '../data/winhomeData';
-import { ArrowRight, Phone, Calculator, ShieldCheck } from 'lucide-react';
-import ScrollExpand from './ScrollExpand';
+import React from 'react';
+import { ArrowRight } from 'lucide-react';
+import ShinyText from './ShinyText';
+import MaskedHeading from './MaskedHeading';
+import GlowButton from './GlowButton';
 
 interface HeroSectionProps {
-  onExploreProducts: () => void;
-  onOpenQuoteModal: () => void;
+  onOpenQuoteModal?: () => void;
+  onExploreProducts?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onExploreProducts,
-  onOpenQuoteModal
-}) => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
+const HERO_QUOTES = [
+  "Modern architectural design.",
+  "Smart fenestration solutions.",
+  "Reliable European quality.",
+  "Extreme 50°C climate protection.",
+  "Precision Erbil CNC fabrication."
+];
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  onOpenQuoteModal,
+  onExploreProducts
+}) => {
+  const [quoteIdx, setQuoteIdx] = React.useState(0);
+
+  const handleShineEnd = React.useCallback(() => {
+    setQuoteIdx((prev) => (prev + 1) % HERO_QUOTES.length);
   }, []);
 
   return (
-    <section id="home" className="relative w-full bg-slate-950">
-      <ScrollExpand
-        src="/assets/winhome/03-2.jpg"
-        alt="Winhome European Architectural uPVC and Aluminum Systems in Erbil, Iraq"
-        title="WINHOME"
-        scrollHint="Scroll to expand"
-        startWidth={isMobile ? 90 : 48}
-        startHeight={isMobile ? 65 : 56}
-        startRadius={isMobile ? 16 : 22}
-        endRadius={0}
-        mediaZoom={1.2}
-        scrollDistance={isMobile ? 0.75 : 1.0}
-        holdDistance={isMobile ? 0.35 : 0.45}
-        smoothing={0.08}
-        overlayScrim={0.6}
-        useWindowScroll={true}
-      >
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center text-white space-y-3 sm:space-y-5">
-          {/* Main Headline */}
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            European Architectural <br className="hidden sm:inline" />
-            <span className="text-sky-400">uPVC & Aluminum</span> Systems
-          </h1>
+    <section id="home" className="relative w-full min-h-screen flex flex-col justify-start overflow-hidden bg-slate-50 pt-12 sm:pt-16 md:pt-20 pb-12">
+      {/* Subtle Background Glow Accent */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Subtitle */}
-          <p className="text-xs sm:text-base lg:text-lg text-slate-200 font-normal leading-relaxed max-w-xl mx-auto line-clamp-2 sm:line-clamp-none">
-            High-precision CNC fabrication and certified distribution of Deceuninck, Winsa, Lorenzoline & Master Italy fenestration in Erbil, Iraq.
+      {/* Responsive Background Images */}
+      {/* Mobile Raw Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-bottom md:hidden opacity-95"
+        style={{ backgroundImage: `url('/assets/winhome/hero-mobile-bg.jpg')` }}
+      />
+      {/* Desktop Raw Background Image */}
+      <div
+        className="absolute inset-0 z-0 hidden md:block bg-cover bg-right-bottom opacity-95"
+        style={{ backgroundImage: `url('/assets/winhome/hero-desktop-bg.jpg')` }}
+      />
+
+      {/* Main Hero Content Container - Positioned higher up on mobile & laptops */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full mt-0 sm:mt-2 md:mt-4 py-0 sm:py-2">
+        <div className="max-w-2xl text-left space-y-4 sm:space-y-6">
+          {/* Subtitle Badge (Mobile Only) */}
+          <div className="inline-block md:hidden">
+            <span className="text-blue-600 font-bold text-xs tracking-widest uppercase bg-white/80 backdrop-blur-md px-3 py-1 rounded-full border border-blue-200/60 shadow-xs">
+              WINHOME
+            </span>
+          </div>
+
+          {/* Main Professional Masked Heading */}
+          <MaskedHeading
+            text="European Fenestration & Architectural Systems"
+            tag="h1"
+            src="/assets/winhome/photo_2023-07-03_15-40-04-1104x720.jpg"
+            fillScale={1.35}
+            parallax={35}
+            brightness={0.75}
+            saturation={1.2}
+            reveal="rise"
+            trigger="view"
+            align="left"
+            weight={900}
+            textScale={0.125}
+            className="text-slate-900 font-black tracking-tight leading-[1.05]"
+          />
+
+          {/* Subtitle Paragraph with Swapping Short ShinyText Quotes */}
+          <p className="text-lg sm:text-2xl lg:text-3xl max-w-xl font-extrabold leading-snug text-slate-800 min-h-[3rem]">
+            <ShinyText
+              key={quoteIdx}
+              text={HERO_QUOTES[quoteIdx]}
+              color="#334155"
+              shineColor="#ffffff"
+              speed={2.2}
+              delay={0.1}
+              spread={120}
+              mode="word"
+              onEnd={handleShineEnd}
+            />
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-2 sm:pt-4 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4">
-            <button
-              id="hero-explore-btn"
-              onClick={onExploreProducts}
-              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-lg shadow-sky-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+          {/* Desktop Only Primary Action Button (Hidden on Mobile) */}
+          <div className="hidden md:flex items-center gap-4 pt-2">
+            <GlowButton
+              onClick={onExploreProducts || onOpenQuoteModal}
+              variant="secondary"
+              isDarkTheme={false}
+              size="lg"
             >
-              <span>Explore Systems</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-
-            <button
-              id="hero-quote-btn"
-              onClick={onOpenQuoteModal}
-              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-lg bg-white text-slate-900 hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-md transition-all transform hover:-translate-y-0.5"
-            >
-              <Calculator className="w-4 h-4 text-sky-600" />
-              <span>Cost Calculator</span>
-            </button>
-
-            <a
-              id="hero-call-btn"
-              href={`tel:${WINHOME_CONTACT.hotlineRaw}`}
-              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm backdrop-blur-md border border-white/20 transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-400" />
-              <span>{WINHOME_CONTACT.hotline}</span>
-            </a>
+              <span className="text-slate-900 font-black">Explore Our Services</span>
+              <ArrowRight className="w-5 h-5 shrink-0 text-slate-900" />
+            </GlowButton>
           </div>
         </div>
-      </ScrollExpand>
+      </div>
     </section>
   );
 };

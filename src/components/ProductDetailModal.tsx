@@ -1,48 +1,58 @@
 import React from 'react';
 import { ProductItem, WINHOME_CONTACT } from '../data/winhomeData';
-import { X, Check, Phone, MessageSquare, Calculator } from 'lucide-react';
+import { GlowButton } from './GlowButton';
+import { X, Check, Phone, MessageSquare, Calculator, Layers, ShieldCheck } from 'lucide-react';
 
 interface ProductDetailModalProps {
   product: ProductItem | null;
   onClose: () => void;
   onOpenQuote: (productName: string) => void;
+  onConfigureProduct?: (product: ProductItem) => void;
 }
 
-export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClose, onOpenQuote }) => {
+export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
+  product,
+  onClose,
+  onOpenQuote,
+  onConfigureProduct
+}) => {
   if (!product) return null;
 
-  const whatsappMessage = encodeURIComponent(
-    `Hello Winhome, I am interested in technical specifications and pricing for: ${product.name}`
-  );
-  const whatsappUrl = `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${whatsappMessage}`;
-
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-950/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="relative w-full max-w-3xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50">
-          <div>
-            <span className="text-[10px] font-bold tracking-wider text-sky-700 uppercase bg-sky-100 px-2.5 py-0.5 rounded">
-              {product.category.toUpperCase()} • {product.subCategory || 'Architectural System'}
-            </span>
-            <h3 className="text-xl font-bold text-slate-900 mt-1">
-              {product.name}
-            </h3>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/70 backdrop-blur-xs animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl max-h-[90vh] bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col animate-in zoom-in-95 duration-200">
+        
+        {/* SEAMLESS LIGHT HEADER */}
+        <div className="px-5 py-4 sm:px-6 sm:py-4.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80 shrink-0 z-20">
+          <div className="flex items-center gap-3 min-w-0">
+            <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold shrink-0 border border-sky-200">
+              <Layers className="w-5 h-5" />
+            </div>
+            <div className="min-w-0">
+              <span className="text-[10px] font-bold text-sky-700 uppercase bg-sky-50 border border-sky-200 px-2 py-0.5 rounded">
+                {product.category.toUpperCase()} • {product.subCategory || 'Architectural System'}
+              </span>
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 leading-snug truncate mt-0.5">
+                {product.name}
+              </h3>
+            </div>
           </div>
+
           <button
+            type="button"
             onClick={onClose}
-            className="p-2 rounded-full text-slate-400 hover:text-slate-800 hover:bg-slate-200 transition-colors"
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors shrink-0 ml-3"
             aria-label="Close modal"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-6 max-h-[75vh] overflow-y-auto space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        {/* SCROLLABLE BODY */}
+        <div className="flex-1 overflow-y-auto p-5 sm:p-6 space-y-5 scrollbar-thin scrollbar-thumb-slate-300">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
             {/* Image Preview */}
-            <div className="relative aspect-square rounded-xl bg-slate-50 p-4 flex items-center justify-center border border-slate-100 overflow-hidden">
+            <div className="relative aspect-square rounded-xl bg-slate-50 p-4 flex items-center justify-center border border-slate-200 overflow-hidden">
               <img
                 src={product.image}
                 alt={product.name}
@@ -55,56 +65,57 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
                 className="max-h-full max-w-full object-contain"
               />
               {product.depth && (
-                <div className="absolute top-3 left-3 bg-white/95 border border-slate-200 text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded shadow-xs">
+                <div className="absolute top-3 left-3 bg-white/95 border border-slate-200 text-slate-800 text-[10px] font-bold px-2.5 py-1 rounded shadow-2xs">
                   Depth: {product.depth}
                 </div>
               )}
             </div>
 
             {/* Quick Metrics */}
-            <div className="space-y-4">
-              <p className="text-sm text-slate-700 leading-relaxed">
+            <div className="space-y-3 text-xs text-slate-700">
+              <p className="leading-relaxed">
                 {product.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-3 pt-2">
+              <div className="grid grid-cols-2 gap-2.5 pt-1">
                 {product.chambers && (
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Chamber Count</span>
-                    <span className="text-sm font-bold text-slate-900">{product.chambers} Insulation Chambers</span>
+                  <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold">Chamber Count</span>
+                    <span className="text-xs font-bold text-slate-900">{product.chambers} Chambers</span>
                   </div>
                 )}
                 {product.depth && (
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Profile Depth</span>
-                    <span className="text-sm font-bold text-slate-900">{product.depth}</span>
+                  <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block font-semibold">Profile Depth</span>
+                    <span className="text-xs font-bold text-slate-900">{product.depth}</span>
                   </div>
                 )}
                 {product.insulationValue && (
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Thermal Rating</span>
-                    <span className="text-sm font-bold text-sky-700">{product.insulationValue}</span>
+                  <div className="p-2.5 rounded-lg bg-sky-50 border border-sky-200">
+                    <span className="text-[10px] text-sky-700 uppercase tracking-wider block font-semibold">Thermal Rating</span>
+                    <span className="text-xs font-bold text-sky-900">{product.insulationValue}</span>
                   </div>
                 )}
                 {product.acousticValue && (
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase tracking-wider block">Acoustic Barrier</span>
-                    <span className="text-sm font-bold text-slate-900">{product.acousticValue}</span>
+                  <div className="p-2.5 rounded-lg bg-indigo-50 border border-indigo-200">
+                    <span className="text-[10px] text-indigo-700 uppercase tracking-wider block font-semibold">Acoustic Shield</span>
+                    <span className="text-xs font-bold text-indigo-900">{product.acousticValue}</span>
                   </div>
                 )}
               </div>
             </div>
           </div>
 
-          {/* Features Checklist */}
+          {/* Key Features */}
           {product.features && product.features.length > 0 && (
-            <div className="space-y-3 pt-4 border-t border-slate-100">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                Key Engineering Specifications & Strengths
+            <div className="space-y-2.5 pt-3 border-t border-slate-100">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
+                <ShieldCheck className="w-4 h-4 text-sky-600" />
+                <span>Key Engineering Specifications & Strengths</span>
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {product.features.map((feat, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
+                  <div key={idx} className="flex items-start gap-2 text-xs text-slate-700 p-2 rounded-lg bg-slate-50 border border-slate-100">
                     <Check className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </div>
@@ -112,57 +123,37 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               </div>
             </div>
           )}
-
-          {/* Detailed Specs Matrix */}
-          {product.specs && Object.keys(product.specs).length > 0 && (
-            <div className="space-y-3 pt-4 border-t border-slate-100">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-800">
-                Technical Data Sheet
-              </h4>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
-                {Object.entries(product.specs).map(([key, val]) => (
-                  <div key={key} className="p-2.5 rounded bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase block">{key}</span>
-                    <span className="text-xs font-semibold text-slate-900">{val}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
 
-        {/* Action Buttons */}
-        <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+        {/* FIXED FOOTER */}
+        <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3 shrink-0 z-20">
           <button
+            type="button"
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200 transition-colors"
+            className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 transition-colors border border-slate-200"
           >
             Close
           </button>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => {
-                onClose();
-                onOpenQuote(product.name);
-              }}
-              className="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
-            >
-              <Calculator className="w-3.5 h-3.5" />
-              <span>Calculate Quote</span>
-            </button>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
-            >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span>Inquire on WhatsApp</span>
-            </a>
+            {onConfigureProduct && (
+              <GlowButton
+                onClick={() => {
+                  onClose();
+                  onConfigureProduct(product);
+                }}
+                variant="primary"
+                size="sm"
+              >
+                <span>Configure Specs</span>
+              </GlowButton>
+            )}
           </div>
         </div>
+
       </div>
     </div>
   );
 };
+
+export default ProductDetailModal;

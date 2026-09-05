@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ACCESSORIES_LINES, ProductItem } from '../data/winhomeData';
 import { ChevronRight, Calculator, Search } from 'lucide-react';
+import { GlowButton } from './GlowButton';
 
 interface AccessoriesSectionProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -108,13 +109,15 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
 
               {/* Action Buttons */}
               <div className="px-4 pb-4 pt-1 flex items-center gap-2">
-                <button
+                <GlowButton
                   onClick={() => onSelectProduct(line)}
-                  className="flex-1 py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1"
+                  variant="primary"
+                  size="sm"
+                  className="flex-1"
                 >
                   <span>Specs</span>
                   <ChevronRight className="w-3.5 h-3.5" />
-                </button>
+                </GlowButton>
                 <button
                   onClick={() => onOpenQuote(line.name)}
                   className="py-2 px-3 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-colors flex items-center justify-center gap-1"

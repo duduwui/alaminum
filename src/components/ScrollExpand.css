@@ -52,7 +52,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.5));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.55));
   opacity: 0;
 }
 
@@ -64,21 +64,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 1.25rem 1rem;
+  padding: 6%;
   opacity: 0;
   will-change: opacity, transform;
-}
-
-@media (min-width: 640px) {
-  .scroll-expand__overlay {
-    padding: 2.5rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .scroll-expand__overlay {
-    padding: 4rem 3rem;
-  }
 }
 
 .scroll-expand__title {
@@ -88,16 +76,11 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  padding: 0 5%;
+  padding: 0 6%;
   text-align: center;
-  font-size: clamp(1.75rem, 6.5vw, 4.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: #fff;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
   pointer-events: none;
   will-change: opacity, transform;
+  z-index: 20;
 }
 
 .scroll-expand__hint {
@@ -106,17 +89,9 @@
   right: 0;
   bottom: 1.25rem;
   text-align: center;
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
   color: rgba(255, 255, 255, 0.75);
   pointer-events: none;
   will-change: opacity, transform;
-}
-
-@media (min-width: 640px) {
-  .scroll-expand__hint {
-    bottom: 2rem;
-    font-size: 0.875rem;
-  }
 }

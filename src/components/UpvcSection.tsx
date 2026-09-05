@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UPVC_PRODUCTS, ProductItem } from '../data/winhomeData';
-import { Search, ChevronRight, Calculator } from 'lucide-react';
+import { Search, ChevronRight, Calculator, SlidersHorizontal, ShieldCheck } from 'lucide-react';
+import { GlowButton } from './GlowButton';
 
 interface UpvcSectionProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -58,17 +59,15 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
           {/* Category Filter Pills */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
             {categories.map((cat) => (
-              <button
+              <GlowButton
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all ${
-                  selectedCategory === cat.id
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                }`}
+                variant={selectedCategory === cat.id ? 'active' : 'secondary'}
+                size="sm"
+                className="whitespace-nowrap shrink-0"
               >
                 {cat.label}
-              </button>
+              </GlowButton>
             ))}
           </div>
 
@@ -153,13 +152,15 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
 
               {/* Action Buttons */}
               <div className="px-5 pb-5 pt-2 flex items-center gap-2">
-                <button
+                <GlowButton
                   onClick={() => onSelectProduct(product)}
-                  className="flex-1 py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
+                  variant="primary"
+                  size="sm"
+                  className="flex-1"
                 >
                   <span>Specifications</span>
                   <ChevronRight className="w-3.5 h-3.5" />
-                </button>
+                </GlowButton>
                 <button
                   onClick={() => onOpenQuote(product.name)}
                   className="py-2.5 px-3 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-colors flex items-center justify-center gap-1"

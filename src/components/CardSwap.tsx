@@ -92,24 +92,14 @@ const CardSwap: React.FC<CardSwapProps> = ({
     return () => window.removeEventListener('resize', handleResize);
   }, [width]);
 
-  const config =
-    easing === 'elastic'
-      ? {
-          ease: 'elastic.out(0.6,0.9)',
-          durDrop: 2,
-          durMove: 2,
-          durReturn: 2,
-          promoteOverlap: 0.9,
-          returnDelay: 0.05
-        }
-      : {
-          ease: 'power1.inOut',
-          durDrop: 0.8,
-          durMove: 0.8,
-          durReturn: 0.8,
-          promoteOverlap: 0.45,
-          returnDelay: 0.2
-        };
+  const config = {
+    ease: 'power2.out',
+    durDrop: 0.45,
+    durMove: 0.45,
+    durReturn: 0.45,
+    promoteOverlap: 0.8,
+    returnDelay: 0.02
+  };
 
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
@@ -138,8 +128,15 @@ const CardSwap: React.FC<CardSwapProps> = ({
       const tl = gsap.timeline();
       tlRef.current = tl;
 
+      const currentSlot = makeSlot(0, cardDistance, verticalDistance, refs.length);
+      const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
+
+      // Smooth slide out front card (lift slightly up and right instead of dropping 500px down)
       tl.to(elFront, {
-        y: '+=500',
+        x: currentSlot.x + 90,
+        y: currentSlot.y - 20,
+        scale: 1.03,
+        opacity: 0.85,
         duration: config.durDrop,
         ease: config.ease
       });
@@ -156,14 +153,15 @@ const CardSwap: React.FC<CardSwapProps> = ({
             x: slot.x,
             y: slot.y,
             z: slot.z,
+            scale: 1,
+            opacity: 1,
             duration: config.durMove,
             ease: config.ease
           },
-          `promote+=${i * 0.15}`
+          `promote+=${i * 0.08}`
         );
       });
 
-      const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
       tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
       tl.call(
         () => {
@@ -178,6 +176,8 @@ const CardSwap: React.FC<CardSwapProps> = ({
           x: backSlot.x,
           y: backSlot.y,
           z: backSlot.z,
+          scale: 1,
+          opacity: 1,
           duration: config.durReturn,
           ease: config.ease
         },
@@ -195,19 +195,30 @@ const CardSwap: React.FC<CardSwapProps> = ({
     if (pauseOnHover) {
       const node = container.current;
       if (!node) return;
+      let resumeTimeout: number | undefined = undefined;
+
       const pause = () => {
+        if (resumeTimeout) clearTimeout(resumeTimeout);
         tlRef.current?.pause();
         clearInterval(intervalRef.current);
       };
+
       const resume = () => {
-        tlRef.current?.play();
-        intervalRef.current = window.setInterval(swap, delay);
+        if (resumeTimeout) clearTimeout(resumeTimeout);
+        resumeTimeout = window.setTimeout(() => {
+          tlRef.current?.play();
+          intervalRef.current = window.setInterval(swap, delay);
+        }, 1000);
       };
+
       node.addEventListener('mouseenter', pause);
       node.addEventListener('mouseleave', resume);
+      node.addEventListener('click', pause);
       return () => {
         node.removeEventListener('mouseenter', pause);
         node.removeEventListener('mouseleave', resume);
+        node.removeEventListener('click', pause);
+        if (resumeTimeout) clearTimeout(resumeTimeout);
         clearInterval(intervalRef.current);
       };
     }

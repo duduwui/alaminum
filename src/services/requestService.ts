@@ -101,7 +101,7 @@ const INITIAL_SAMPLE_REQUESTS: QuotationRequest[] = [
 export async function fetchAllRequests(): Promise<QuotationRequest[]> {
   try {
     const res = await fetch('/api/requests');
-    if (res.ok) {
+    if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
       const data = await res.json();
       if (Array.isArray(data) && data.length > 0) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -160,7 +160,7 @@ export async function submitQuotationRequest(
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newRequest)
     });
-    if (res.ok) {
+    if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
       const saved = await res.json();
       await updateLocalCache(saved);
       return saved;

@@ -17,10 +17,10 @@ import { ConfigureItemModal } from './components/ConfigureItemModal';
 import { RequestCartDrawer } from './components/RequestCartDrawer';
 import { QuotationRequestStepperModal } from './components/QuotationRequestStepperModal';
 import { AdminPortalPage } from './components/AdminPortalPage';
+import { AdminGuardModal } from './components/AdminGuardModal';
 import { ProductItem, WINHOME_CONTACT } from './data/winhomeData';
 import { RequestItem, QuotationRequest } from './types/requests';
 import { loadActiveCart, saveActiveCart } from './services/requestService';
-import { MessageSquare, Calculator, ClipboardList } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>('home');
@@ -30,10 +30,22 @@ export default function App() {
   const [initialQuoteProduct, setInitialQuoteProduct] = useState<string>('');
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
 
+  // Admin Access Security Gate State
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(false);
+  const [isAdminAuthModalOpen, setIsAdminAuthModalOpen] = useState<boolean>(false);
+
   // E-Commerce Architectural Request Cart State
   const [cartItems, setCartItems] = useState<RequestItem[]>(() => loadActiveCart());
   const [configuringProduct, setConfiguringProduct] = useState<ProductItem | null>(null);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState<boolean>(false);
+  // Disable browser scroll restoration on refresh so page loads cleanly at top
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isStepperModalOpen, setIsStepperModalOpen] = useState<boolean>(false);
 
   // Sync cart with localStorage
@@ -49,34 +61,76 @@ export default function App() {
       const route = hash || path;
 
       if (route === 'admin') {
-        setActiveTab('admin');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (isAdminAuthenticated) {
+          setActiveTab('admin');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          setIsAdminAuthModalOpen(true);
+        }
       } else if (['products', 'upvc', 'aluminum', 'accessories'].includes(route)) {
         setActiveTab(route);
-        setShopCategory(route === 'products' ? 'all' : route);
+        setShopCategory(route);
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (route === 'home' || route === '') {
-        setActiveTab('home');
-      } else {
-        setActiveTab('home');
-        setTimeout(() => {
-          const el = document.getElementById(route);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 80);
+      } else if (['home', 'about', 'gallery', 'brochures', 'contact'].includes(route)) {
+        setActiveTab(route);
+        if (route !== 'home') {
+          const element = document.getElementById(route);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
       }
     };
 
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
+  }, [isAdminAuthenticated]);
 
-  const isProductShopView = ['products', 'upvc', 'aluminum', 'accessories'].includes(activeTab);
-  const isAdminView = activeTab === 'admin';
+  const handleNavigate = (id: string) => {
+    if (id === 'admin') {
+      if (isAdminAuthenticated) {
+        setActiveTab('admin');
+        window.location.hash = '#admin';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        setIsAdminAuthModalOpen(true);
+      }
+      return;
+    }
 
-  const handleOpenQuoteWithProduct = (productName: string) => {
-    setInitialQuoteProduct(productName);
-    setQuoteModalOpen(true);
+    if (['products', 'upvc', 'aluminum', 'accessories'].includes(id)) {
+      setActiveTab(id);
+      setShopCategory(id);
+      window.location.hash = `#${id}`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    setActiveTab(id);
+    window.location.hash = `#${id}`;
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleGoToProductShop = (category = 'all') => {
+    setActiveTab(category === 'all' ? 'products' : category);
+    setShopCategory(category);
+    window.location.hash = category === 'all' ? '#products' : `#${category}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToHome = () => {
+    setActiveTab('home');
+    window.location.hash = '#home';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleOpenGeneralQuote = () => {
@@ -84,77 +138,24 @@ export default function App() {
     setQuoteModalOpen(true);
   };
 
-  const handleNavigate = (sectionId: string) => {
-    if (sectionId === 'admin') {
-      setActiveTab('admin');
-      window.location.hash = '#admin';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    if (['products', 'upvc', 'aluminum', 'accessories'].includes(sectionId)) {
-      setShopCategory(sectionId === 'products' ? 'all' : sectionId);
-      setActiveTab(sectionId);
-      window.location.hash = `#${sectionId}`;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    // Navigating to a homepage section
-    setActiveTab(sectionId);
-    window.location.hash = `#${sectionId}`;
-    if (sectionId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    // If coming from shop or admin, wait for re-render before scrolling
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 50);
+  const handleOpenQuoteWithProduct = (productTitle: string) => {
+    setInitialQuoteProduct(productTitle);
+    setQuoteModalOpen(true);
   };
 
-  const handleGoToProductShop = (category?: string) => {
-    const cat = category || 'all';
-    setShopCategory(cat);
-    const target = cat === 'all' ? 'products' : cat;
-    setActiveTab(target);
-    window.location.hash = `#${target}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleBackToHome = () => {
-    handleNavigate('home');
-  };
-
-  // Cart operations
+  // Cart Management Handlers
   const handleAddToCart = (newItem: RequestItem) => {
     setCartItems((prev) => {
-      // Check if identical spec exists, otherwise append
-      const existingIdx = prev.findIndex(
-        (it) =>
-          it.productId === newItem.productId &&
-          it.widthMm === newItem.widthMm &&
-          it.heightMm === newItem.heightMm &&
-          it.color === newItem.color &&
-          it.glazing === newItem.glazing &&
-          it.openingType === newItem.openingType
-      );
-
-      if (existingIdx !== -1) {
+      const existingIdx = prev.findIndex((it) => it.id === newItem.id);
+      if (existingIdx > -1) {
         const updated = [...prev];
+        const prevItem = updated[existingIdx];
+        const nextQty = prevItem.quantity + newItem.quantity;
+        const singleArea = (newItem.widthMm * newItem.heightMm) / 1000000;
         updated[existingIdx] = {
-          ...updated[existingIdx],
-          quantity: updated[existingIdx].quantity + newItem.quantity,
-          estimatedAreaSqm: Number(
-            (
-              ((newItem.widthMm * newItem.heightMm) / 1000000) *
-              (updated[existingIdx].quantity + newItem.quantity)
-            ).toFixed(2)
-          )
+          ...prevItem,
+          quantity: nextQty,
+          estimatedAreaSqm: Number((singleArea * nextQty).toFixed(2))
         };
         return updated;
       }
@@ -204,22 +205,23 @@ export default function App() {
   };
 
   const totalCartCount = cartItems.reduce((acc, it) => acc + (it.quantity || 1), 0);
-
-  const whatsappDirectUrl = `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${encodeURIComponent(
-    'Hello Winhome Company, I would like to consult with an engineer regarding your uPVC & Aluminum systems.'
-  )}`;
+  const isProductShopView = ['products', 'upvc', 'aluminum', 'accessories'].includes(activeTab);
+  const isAdminView = activeTab === 'admin';
 
   return (
     <div className="min-h-screen bg-white text-slate-900 selection:bg-sky-600 selection:text-white flex flex-col font-sans relative overflow-x-clip">
-      {/* Top Navbar */}
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={handleNavigate}
-        onOpenQuoteModal={handleOpenGeneralQuote}
-        onOpenSearch={() => setSearchModalOpen(true)}
-        cartCount={totalCartCount}
-        onOpenCart={() => setIsCartDrawerOpen(true)}
-      />
+      {/* Top Standardized Liquid Glass Navbar (Hidden on Admin Portal) */}
+      {!isAdminView && (
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={handleNavigate}
+          onOpenQuoteModal={handleOpenGeneralQuote}
+          onOpenSearch={() => setSearchModalOpen(true)}
+          cartCount={totalCartCount}
+          onOpenCart={() => setIsCartDrawerOpen(true)}
+          isVisible={true}
+        />
+      )}
 
       {/* Main Content Area */}
       <main className="flex-1 w-full relative">
@@ -242,39 +244,41 @@ export default function App() {
             onOpenCart={() => setIsCartDrawerOpen(true)}
           />
         ) : (
-          /* Homepage (#home): Includes Hero, Partners, 3D Deck, MagicBento Showcase, About, Gallery, Brochures & Contact */
+          /* Homepage (#home): Hero with Boomerang video playback, Partners, Showcase, About, Gallery, Brochures & Contact */
           <>
-            {/* 1. Hero Section with parallax reveal */}
+            {/* 1. Boomerang Video Hero Section */}
             <HeroSection
-              onExploreProducts={() => handleGoToProductShop('all')}
               onOpenQuoteModal={handleOpenGeneralQuote}
+              onExploreProducts={() => handleGoToProductShop('all')}
             />
 
-            {/* 2. Partner Brand Carousel */}
+            {/* 2. Official Brand Partners & Certifications */}
             <PartnerLogos />
 
-            {/* 3. Signature Systems Showcase with 3D CardSwap Deck */}
+            {/* 3. Interactive 3D Card Deck - European Architectural Showcase */}
             <SignatureShowcase
               onSelectProduct={(p) => setSelectedProduct(p)}
-              onOpenQuote={handleOpenQuoteWithProduct}
+              onOpenQuoteModal={handleOpenGeneralQuote}
+              onGoToProducts={handleGoToProductShop}
             />
 
-            {/* 4. MagicBento Showcase Gallery: Visual examples with spotlights, 3D tilt and direct link to shop */}
+            {/* 4. MagicBento Interactive Grid Showcase */}
             <HomeSystemsBentoSection
-              onViewAllProducts={handleGoToProductShop}
+              onSelectProduct={(p) => setSelectedProduct(p)}
+              onGoToShop={handleGoToProductShop}
             />
 
-            {/* 5. About Winhome & Nafza Almanzl Holding */}
-            <AboutSection />
+            {/* 5. Company Overview & Manufacturing Excellence */}
+            <AboutSection onOpenQuoteModal={handleOpenGeneralQuote} />
 
-            {/* 6. Project Gallery (Installed Villas & Commercial Towers) */}
+            {/* 6. High-Definition Architectural Project Gallery */}
             <GallerySection />
 
-            {/* 7. Technical Catalogues & Brochures */}
-            <BrochuresSection onOpenQuote={handleOpenQuoteWithProduct} />
+            {/* 7. Technical Catalogs & Official Downloads */}
+            <BrochuresSection />
 
-            {/* 8. Contact & Branch Details */}
-            <ContactSection />
+            {/* 8. Verified Direct Contact & Erbil Factory Location */}
+            <ContactSection onOpenQuoteModal={handleOpenGeneralQuote} />
           </>
         )}
       </main>
@@ -282,8 +286,9 @@ export default function App() {
       {/* Footer */}
       {!isAdminView && (
         <Footer
-          onNavigate={handleNavigate}
-          onOpenQuote={handleOpenGeneralQuote}
+          activeTab={activeTab}
+          setActiveTab={handleNavigate}
+          onOpenQuoteModal={handleOpenGeneralQuote}
         />
       )}
 
@@ -292,23 +297,27 @@ export default function App() {
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
         onOpenQuote={handleOpenQuoteWithProduct}
+        onConfigureProduct={(p) => {
+          setSelectedProduct(null);
+          setConfiguringProduct(p);
+        }}
       />
 
-      {/* Interactive Cost & Specification Calculator Modal */}
+      {/* Instant Estimation & Price Calculator Modal */}
       <QuoteCalculatorModal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}
-        initialProduct={initialQuoteProduct}
+        initialProductName={initialQuoteProduct}
       />
 
-      {/* Universal Search Modal */}
+      {/* Search Modal */}
       <SearchModal
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
         onSelectProduct={(p) => setSelectedProduct(p)}
       />
 
-      {/* Configure Custom Specifications Modal (Width, Height, Glazing, Color, Quantity) */}
+      {/* Configure Specifications Modal */}
       <ConfigureItemModal
         product={configuringProduct}
         isOpen={Boolean(configuringProduct)}
@@ -316,7 +325,7 @@ export default function App() {
         onAddToCart={handleAddToCart}
       />
 
-      {/* Request Cart Drawer (Side Drawer with Itemized List & Calculations) */}
+      {/* Request Cart Drawer */}
       <RequestCartDrawer
         isOpen={isCartDrawerOpen}
         onClose={() => setIsCartDrawerOpen(false)}
@@ -324,14 +333,14 @@ export default function App() {
         onUpdateQuantity={handleUpdateCartQuantity}
         onRemoveItem={handleRemoveCartItem}
         onClearCart={handleClearCart}
-        onOpenStepperModal={handleStartQuotationStepper}
+        onSuccessfulSubmission={handleSuccessfulRequestSubmission}
         onBrowseMore={() => {
           setIsCartDrawerOpen(false);
           handleGoToProductShop('all');
         }}
       />
 
-      {/* 4-Step React Bits Stepper Modal (Form: Review -> Project Specs -> Contact Info -> Confirm) */}
+      {/* Quotation Request Stepper Modal */}
       <QuotationRequestStepperModal
         isOpen={isStepperModalOpen}
         onClose={() => setIsStepperModalOpen(false)}
@@ -339,46 +348,24 @@ export default function App() {
         onSuccessfulSubmission={handleSuccessfulRequestSubmission}
       />
 
-      {/* Floating Action Buttons: Cost Estimator, Request Cart & WhatsApp */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
-        {/* Floating Cart Indicator if items exist */}
-        {cartItems.length > 0 && !isAdminView && (
-          <button
-            id="fab-request-cart-btn"
-            onClick={() => setIsCartDrawerOpen(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-sky-600 hover:bg-sky-500 text-white text-xs font-extrabold shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:scale-95 animate-bounce"
-            title="Open Architectural Request Cart"
-          >
-            <ClipboardList className="w-4 h-4" />
-            <span>Request List ({totalCartCount} items)</span>
-          </button>
-        )}
-
-        {!isAdminView && (
-          <button
-            id="fab-cost-estimator-btn"
-            onClick={handleOpenGeneralQuote}
-            className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-white text-slate-800 hover:text-sky-700 text-xs font-bold shadow-lg transition-all border border-slate-200 hover:border-sky-300 hover:shadow-xl transform hover:-translate-y-0.5"
-            title="Open Cost Estimator"
-          >
-            <Calculator className="w-4 h-4 text-sky-600" />
-            <span>Cost Estimator</span>
-          </button>
-        )}
-
-        <a
-          id="fab-whatsapp-btn"
-          href={whatsappDirectUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl hover:scale-105 transition-all"
-          aria-label="Direct WhatsApp Message"
-          title="Chat on WhatsApp"
-        >
-          <MessageSquare className="w-5 h-5" />
-        </a>
-      </div>
+      {/* Security Gate Passcode Modal for Admin Access */}
+      <AdminGuardModal
+        isOpen={isAdminAuthModalOpen}
+        onSuccess={() => {
+          setIsAdminAuthenticated(true);
+          setIsAdminAuthModalOpen(false);
+          setActiveTab('admin');
+          window.location.hash = '#admin';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        onCancel={() => {
+          setIsAdminAuthModalOpen(false);
+          if (activeTab === 'admin') {
+            setActiveTab('home');
+            window.location.hash = '#home';
+          }
+        }}
+      />
     </div>
   );
 }
-

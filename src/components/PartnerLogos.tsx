@@ -1,6 +1,7 @@
 import React from 'react';
 import LogoLoop, { LogoItem } from './LogoLoop';
 import { PARTNER_LOGOS } from '../data/winhomeData';
+import { Award } from 'lucide-react';
 
 export const PartnerLogos: React.FC = () => {
   const formattedLogos: LogoItem[] = PARTNER_LOGOS.map((item) => ({
@@ -11,34 +12,42 @@ export const PartnerLogos: React.FC = () => {
   }));
 
   return (
-    <section className="py-14 bg-white border-b border-slate-200 overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider mb-2.5">
-          <span>Global Manufacturing Standards</span>
-        </div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+    <section className="py-14 sm:py-16 bg-[#1B4EF5] text-white overflow-hidden relative">
+      {/* Background subtle glow accent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-32 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center relative z-10">
+        <h3 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
           Authorized European Partners & System Houses
         </h3>
-        <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mt-2 leading-relaxed">
-          Certified regional distribution and technical fabrication of world-class Belgian, German, Italian, and Turkish fenestration systems.
-        </p>
       </div>
 
-      {/* LogoLoop Component with clean light background */}
-      <div className="relative py-4 bg-slate-50 border-y border-slate-200">
+      {/* LogoLoop Component - Floating Pristine White Pill Cards */}
+      <div className="relative py-4 bg-transparent border-0">
         <LogoLoop
           logos={formattedLogos}
-          speed={60}
+          speed={50}
           direction="left"
-          logoHeight={46}
-          gap={52}
+          logoHeight={64}
+          gap={28}
           hoverSpeed={0}
-          scaleOnHover={true}
+          scaleOnHover={false}
           fadeOut={true}
-          fadeOutColor="#F8FAFC"
+          fadeOutColor="#1B4EF5"
           ariaLabel="Winhome Strategic European Partners"
+          renderItem={(item: any) => (
+            <div className="bg-white/95 hover:bg-white px-6 py-3 rounded-2xl shadow-lg shadow-blue-900/20 border border-white/40 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer min-w-[140px] h-[60px]">
+              <img
+                src={item.src}
+                alt={item.alt || item.title}
+                title={item.title}
+                className="max-h-9 max-w-[120px] w-auto object-contain pointer-events-none"
+              />
+            </div>
+          )}
         />
       </div>
     </section>
   );
 };
+

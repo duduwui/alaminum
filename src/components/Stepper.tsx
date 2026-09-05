@@ -1,9 +1,9 @@
-import React, { useState, Children, useRef, useLayoutEffect, ReactNode } from 'react';
+import React, { useState, Children, useRef, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import './Stepper.css';
 
 export interface StepperProps {
-  children: ReactNode;
+  children: React.ReactNode;
   initialStep?: number;
   onStepChange?: (step: number) => void;
   onFinalStepCompleted?: () => void;
@@ -16,13 +16,12 @@ export interface StepperProps {
   backButtonText?: string;
   nextButtonText?: string;
   disableStepIndicators?: boolean;
-  canProceedToNext?: boolean;
-  onBeforeNext?: () => boolean | Promise<boolean>;
-  renderStepIndicator?: (params: {
+  renderStepIndicator?: (props: {
     step: number;
     currentStep: number;
     onStepClick: (step: number) => void;
-  }) => ReactNode;
+  }) => React.ReactNode;
+  [key: string]: any;
 }
 
 export default function Stepper({
@@ -39,8 +38,6 @@ export default function Stepper({
   backButtonText = 'Back',
   nextButtonText = 'Continue',
   disableStepIndicators = false,
-  canProceedToNext = true,
-  onBeforeNext,
   renderStepIndicator,
   ...rest
 }: StepperProps) {
@@ -67,22 +64,14 @@ export default function Stepper({
     }
   };
 
-  const handleNext = async () => {
-    if (onBeforeNext) {
-      const allowed = await onBeforeNext();
-      if (!allowed) return;
-    }
+  const handleNext = () => {
     if (!isLastStep) {
       setDirection(1);
       updateStep(currentStep + 1);
     }
   };
 
-  const handleComplete = async () => {
-    if (onBeforeNext) {
-      const allowed = await onBeforeNext();
-      if (!allowed) return;
-    }
+  const handleComplete = () => {
     setDirection(1);
     updateStep(totalSteps + 1);
   };
@@ -150,11 +139,10 @@ export default function Stepper({
               <button
                 type="button"
                 onClick={isLastStep ? handleComplete : handleNext}
-                disabled={!canProceedToNext}
-                className={`next-button ${!canProceedToNext ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className="next-button"
                 {...nextButtonProps}
               >
-                {isLastStep ? 'Submit Quotation Request' : nextButtonText}
+                {isLastStep ? 'Submit Request' : nextButtonText}
               </button>
             </div>
           </div>
@@ -168,18 +156,12 @@ interface StepContentWrapperProps {
   isCompleted: boolean;
   currentStep: number;
   direction: number;
-  children: ReactNode;
-  className: string;
+  children: React.ReactNode;
+  className?: string;
 }
 
-function StepContentWrapper({
-  isCompleted,
-  currentStep,
-  direction,
-  children,
-  className
-}: StepContentWrapperProps) {
-  const [parentHeight, setParentHeight] = useState<number | 'auto'>('auto');
+function StepContentWrapper({ isCompleted, currentStep, direction, children, className }: StepContentWrapperProps) {
+  const [parentHeight, setParentHeight] = useState(0);
 
   return (
     <motion.div
@@ -190,11 +172,7 @@ function StepContentWrapper({
     >
       <AnimatePresence initial={false} mode="sync" custom={direction}>
         {!isCompleted && (
-          <SlideTransition
-            key={currentStep}
-            direction={direction}
-            onHeightReady={(h) => setParentHeight(h)}
-          >
+          <SlideTransition key={currentStep} direction={direction} onHeightReady={(h) => setParentHeight(h)}>
             {children}
           </SlideTransition>
         )}
@@ -205,7 +183,7 @@ function StepContentWrapper({
 
 interface SlideTransitionProps {
   key?: React.Key;
-  children: ReactNode;
+  children: React.ReactNode;
   direction: number;
   onHeightReady: (height: number) => void;
 }
@@ -214,9 +192,7 @@ function SlideTransition({ children, direction, onHeightReady }: SlideTransition
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (containerRef.current) {
-      onHeightReady(containerRef.current.offsetHeight);
-    }
+    if (containerRef.current) onHeightReady(containerRef.current.offsetHeight);
   }, [children, onHeightReady]);
 
   return (
@@ -227,8 +203,8 @@ function SlideTransition({ children, direction, onHeightReady }: SlideTransition
       initial="enter"
       animate="center"
       exit="exit"
-      transition={{ duration: 0.35, ease: 'easeInOut' }}
-      style={{ width: '100%' }}
+      transition={{ duration: 0.4 }}
+      style={{ position: 'absolute', left: 0, right: 0, top: 0 }}
     >
       {children}
     </motion.div>
@@ -237,7 +213,7 @@ function SlideTransition({ children, direction, onHeightReady }: SlideTransition
 
 const stepVariants = {
   enter: (dir: number) => ({
-    x: dir >= 0 ? '40%' : '-40%',
+    x: dir >= 0 ? '100%' : '-100%',
     opacity: 0
   }),
   center: {
@@ -245,12 +221,12 @@ const stepVariants = {
     opacity: 1
   },
   exit: (dir: number) => ({
-    x: dir >= 0 ? '-40%' : '40%',
+    x: dir >= 0 ? '-100%' : '100%',
     opacity: 0
   })
 };
 
-export function Step({ children }: { children: ReactNode }) {
+export function Step({ children }: { children: React.ReactNode }) {
   return <div className="step-default">{children}</div>;
 }
 
@@ -261,36 +237,29 @@ interface StepIndicatorProps {
   disableStepIndicators?: boolean;
 }
 
-function StepIndicator({
-  step,
-  currentStep,
-  onClickStep,
-  disableStepIndicators
-}: StepIndicatorProps) {
+function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }: StepIndicatorProps) {
   const status = currentStep === step ? 'active' : currentStep < step ? 'inactive' : 'complete';
 
   const handleClick = () => {
-    if (step !== currentStep && !disableStepIndicators) {
-      onClickStep(step);
-    }
+    if (step !== currentStep && !disableStepIndicators) onClickStep(step);
   };
 
   return (
     <motion.div
       onClick={handleClick}
       className="step-indicator"
-      style={disableStepIndicators ? { pointerEvents: 'none', opacity: 0.6 } : {}}
+      style={disableStepIndicators ? { pointerEvents: 'none', opacity: 0.5 } : {}}
       animate={status}
       initial={false}
     >
       <motion.div
         variants={{
-          inactive: { scale: 1, backgroundColor: '#f1f5f9', color: '#64748b' },
-          active: { scale: 1.08, backgroundColor: '#0284c7', color: '#ffffff' },
-          complete: { scale: 1, backgroundColor: '#0284c7', color: '#ffffff' }
+          inactive: { scale: 1, backgroundColor: '#e2e8f0', color: '#64748b' },
+          active: { scale: 1, backgroundColor: '#1b4ef5', color: '#ffffff' },
+          complete: { scale: 1, backgroundColor: '#10b981', color: '#ffffff' }
         }}
-        transition={{ duration: 0.25 }}
-        className="step-indicator-inner shadow-xs"
+        transition={{ duration: 0.3 }}
+        className="step-indicator-inner"
       >
         {status === 'complete' ? (
           <CheckIcon className="check-icon" />
@@ -307,7 +276,7 @@ function StepIndicator({
 function StepConnector({ isComplete }: { isComplete: boolean }) {
   const lineVariants = {
     incomplete: { width: 0, backgroundColor: 'transparent' },
-    complete: { width: '100%', backgroundColor: '#0284c7' }
+    complete: { width: '100%', backgroundColor: '#10b981' }
   };
 
   return (
@@ -317,7 +286,7 @@ function StepConnector({ isComplete }: { isComplete: boolean }) {
         variants={lineVariants}
         initial={false}
         animate={isComplete ? 'complete' : 'incomplete'}
-        transition={{ duration: 0.35 }}
+        transition={{ duration: 0.4 }}
       />
     </div>
   );

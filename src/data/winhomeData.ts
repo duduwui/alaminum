@@ -13,6 +13,9 @@ export interface ProductItem {
   features: string[];
   colors?: string[];
   specs?: Record<string, string>;
+  basePrice?: number;
+  pricePerSqm?: number;
+  profitMargin?: number;
 }
 
 export interface BrochureItem {

@@ -8,13 +8,13 @@ const smoothstep = (edge0: number, edge1: number, x: number) => {
   return t * t * (3 - 2 * t);
 };
 
-export interface ScrollExpandProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ScrollExpandProps {
   src?: string;
   mediaType?: 'image' | 'video';
   poster?: string;
   alt?: string;
-  title?: string;
-  scrollHint?: string;
+  title?: React.ReactNode;
+  scrollHint?: React.ReactNode;
   startWidth?: number;
   startHeight?: number;
   startRadius?: number;
@@ -26,9 +26,11 @@ export interface ScrollExpandProps extends React.HTMLAttributes<HTMLDivElement> 
   overlayScrim?: number;
   useWindowScroll?: boolean;
   enabled?: boolean;
+  onExpandChange?: (isExpanded: boolean) => void;
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  [key: string]: any;
 }
 
 export const ScrollExpand: React.FC<ScrollExpandProps> = ({
@@ -38,46 +40,34 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
   alt = '',
   title = '',
   scrollHint = '',
-  startWidth = 42,
-  startHeight = 58,
+  startWidth = 70,
+  startHeight = 70,
   startRadius = 24,
   endRadius = 0,
-  mediaZoom = 1.35,
+  mediaZoom = 1.1,
   scrollDistance = 1.2,
   holdDistance = 0.35,
   smoothing = 0.1,
-  overlayScrim = 0.45,
+  overlayScrim = 0,
   useWindowScroll = false,
   enabled = true,
+  onExpandChange,
   children,
   className = '',
   style,
   ...rest
 }) => {
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  const trackRef = useRef<HTMLDivElement | null>(null);
-  const stageRef = useRef<HTMLDivElement | null>(null);
-  const frameRef = useRef<HTMLDivElement | null>(null);
-  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement | null>(null);
-  const titleRef = useRef<HTMLDivElement | null>(null);
-  const overlayRef = useRef<HTMLDivElement | null>(null);
-  const scrimRef = useRef<HTMLDivElement | null>(null);
-  const hintRef = useRef<HTMLDivElement | null>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const mediaRef = useRef<HTMLImageElement | HTMLVideoElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const scrimRef = useRef<HTMLDivElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
-  const propsRef = useRef({
-    startWidth,
-    startHeight,
-    startRadius,
-    endRadius,
-    mediaZoom,
-    scrollDistance,
-    holdDistance,
-    smoothing,
-    overlayScrim,
-    useWindowScroll,
-    enabled,
-  });
-
+  const propsRef = useRef<any>({});
   propsRef.current = {
     startWidth,
     startHeight,
@@ -89,13 +79,15 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
     smoothing,
     overlayScrim,
     useWindowScroll,
-    enabled,
+    enabled
   };
+
+  const onExpandChangeRef = useRef(onExpandChange);
+  onExpandChangeRef.current = onExpandChange;
 
   const applyProgress = useCallback((p: number) => {
     const frame = frameRef.current;
-    const media = mediaRef.current;
-    if (!frame || !media) return;
+    if (!frame) return;
     const c = propsRef.current;
 
     const e = smoothstep(0, 1, p);
@@ -105,29 +97,39 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
     const ix = Math.max(0, (100 - w) / 2);
     const iy = Math.max(0, (100 - h) / 2);
     const r = c.startRadius + (c.endRadius - c.startRadius) * e;
-    frame.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+    if (frame) {
+      frame.style.clipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+      (frame.style as any).webkitClipPath = `inset(${iy}% ${ix}% ${iy}% ${ix}% round ${r}px)`;
+      frame.style.transform = 'translateZ(0)';
+      frame.style.willChange = 'clip-path, transform';
+    }
 
-    media.style.transform = `scale(${c.mediaZoom + (1 - c.mediaZoom) * e})`;
+    if (mediaRef.current) {
+      mediaRef.current.style.transform = `scale(${c.mediaZoom + (1 - c.mediaZoom) * e})`;
+    }
 
     if (scrimRef.current) scrimRef.current.style.opacity = `${c.overlayScrim * e}`;
 
     if (titleRef.current) {
-      const out = smoothstep(0.4, 0.88, p);
+      const out = smoothstep(0.3, 0.8, p);
       titleRef.current.style.opacity = `${1 - out}`;
       titleRef.current.style.transform = `translate3d(0, ${-28 * out}px, 0) scale(${1 + 0.06 * out})`;
     }
 
     if (hintRef.current) {
-      const gone = smoothstep(0, 0.12, p);
+      const gone = smoothstep(0, 0.15, p);
       hintRef.current.style.opacity = `${1 - gone}`;
       hintRef.current.style.transform = `translate3d(0, ${8 * gone}px, 0)`;
     }
 
     if (overlayRef.current) {
-      const inn = smoothstep(0.68, 1, p);
-      overlayRef.current.style.opacity = `${inn}`;
-      overlayRef.current.style.transform = `translate3d(0, ${18 * (1 - inn)}px, 0)`;
-      overlayRef.current.style.pointerEvents = inn > 0.8 ? 'auto' : 'none';
+      const contentOpacity = smoothstep(0.08, 0.65, p);
+      overlayRef.current.style.opacity = `${contentOpacity}`;
+      overlayRef.current.style.transform = `scale(${0.96 + 0.04 * smoothstep(0.08, 0.65, p)})`;
+    }
+
+    if (onExpandChangeRef.current) {
+      onExpandChangeRef.current(p >= 0.85);
     }
   }, []);
 
@@ -147,13 +149,19 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const measure = () => {
       const c = propsRef.current;
-      stageH = c.useWindowScroll ? window.innerHeight : root.clientHeight;
+      const viewportH = window.innerHeight;
+      const contentEl = overlayRef.current?.firstElementChild as HTMLElement;
+      const contentH = contentEl ? contentEl.scrollHeight : 0;
+
+      stageH = c.useWindowScroll
+        ? Math.max(viewportH, contentH > 0 ? contentH + 30 : viewportH)
+        : root.clientHeight;
       if (stageH <= 0) return;
       stage.style.height = `${stageH}px`;
       track.style.height = `${stageH * (1 + Math.max(0, c.scrollDistance) + Math.max(0, c.holdDistance))}px`;
 
       const w = root.clientWidth || stageH;
-      stage.style.setProperty('--se-title-size', `${clamp(w * 0.06, 24, 76)}px`);
+      stage.style.setProperty('--se-title-size', `${clamp(w * 0.065, 20, 72)}px`);
     };
 
     const readProgress = () => {
@@ -169,9 +177,10 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const tick = () => {
       const c = propsRef.current;
-      const k = c.smoothing <= 0 ? 1 : 1 - Math.exp(-1 / (60 * c.smoothing));
+      const smoothingVal = c.smoothing > 0 ? c.smoothing : 0.08;
+      const k = 1 - Math.exp(-1 / (60 * smoothingVal));
       current += (target - current) * k;
-      if (Math.abs(target - current) < 0.0004) {
+      if (Math.abs(target - current) < 0.0002) {
         current = target;
         running = false;
       }
@@ -187,7 +196,7 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
 
     const onScroll = () => {
       target = readProgress();
-      if (propsRef.current.smoothing <= 0 || reduceMotion) {
+      if (reduceMotion) {
         current = target;
         applyProgress(current);
         return;
@@ -221,31 +230,6 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
     };
   }, [applyProgress, useWindowScroll]);
 
-  const media =
-    mediaType === 'video' ? (
-      <video
-        ref={mediaRef as React.RefObject<HTMLVideoElement>}
-        className="scroll-expand__media"
-        src={src}
-        poster={poster}
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-    ) : (
-      <img
-        ref={mediaRef as React.RefObject<HTMLImageElement>}
-        className="scroll-expand__media"
-        src={src}
-        alt={alt}
-        draggable={false}
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = '/assets/winhome/photo_2023-07-03_15-41-20-1280x820.jpg';
-        }}
-      />
-    );
-
   return (
     <div
       ref={rootRef}
@@ -255,11 +239,32 @@ export const ScrollExpand: React.FC<ScrollExpandProps> = ({
     >
       <div ref={trackRef} className="scroll-expand__track">
         <div ref={stageRef} className="scroll-expand__stage">
-          <div ref={frameRef} className="scroll-expand__frame">
-            {media}
-            <div ref={scrimRef} className="scroll-expand__scrim" />
+          <div ref={frameRef} className="scroll-expand__frame bg-white">
+            {src ? (
+              mediaType === 'video' ? (
+                <video
+                  ref={mediaRef as React.RefObject<HTMLVideoElement>}
+                  className="scroll-expand__media"
+                  src={src}
+                  poster={poster}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              ) : (
+                <img
+                  ref={mediaRef as React.RefObject<HTMLImageElement>}
+                  className="scroll-expand__media"
+                  src={src}
+                  alt={alt}
+                  draggable={false}
+                />
+              )
+            ) : null}
+            {overlayScrim > 0 ? <div ref={scrimRef} className="scroll-expand__scrim" /> : null}
             {children ? (
-              <div ref={overlayRef} className="scroll-expand__overlay">
+              <div ref={overlayRef} className="w-full h-full overflow-hidden">
                 {children}
               </div>
             ) : null}
