@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Stepper, { Step } from './Stepper';
 import { RequestItem, CustomerInfo, QuotationRequest } from '../types/requests';
 import { submitQuotationRequest } from '../services/requestService';
-import { WINHOME_CONTACT } from '../data/winhomeData';
+import { DOORHOME_CONTACT } from '../data/winhomeData';
+import { loadLocalProducts } from '../services/productService';
+import { getLocalizedProduct } from '../utils/localizedContent';
 import {
   X,
   CheckCircle2,
@@ -10,7 +12,7 @@ import {
   MapPin,
   Clock,
   Wrench,
-  User,
+  User as UserIcon,
   Phone,
   Mail,
   Briefcase,
@@ -25,41 +27,63 @@ import {
   Check
 } from 'lucide-react';
 
+import { useLanguage } from '../context/LanguageContext';
+import { User } from '../types/auth';
+
 interface QuotationRequestStepperModalProps {
   isOpen: boolean;
   onClose: () => void;
-  items: RequestItem[];
-  onSuccessfulSubmission: (newRequest: QuotationRequest) => void;
+  items?: RequestItem[];
+  cartItems?: RequestItem[];
+  onSuccessfulSubmission?: (newRequest: QuotationRequest) => void;
+  onSuccess?: (newRequest: QuotationRequest) => void;
   onViewAdminPortal?: () => void;
+  currentUser?: User | null;
 }
 
 export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModalProps> = ({
   isOpen,
   onClose,
-  items,
+  items: propItems,
+  cartItems: propCartItems,
   onSuccessfulSubmission,
-  onViewAdminPortal
+  onSuccess,
+  onViewAdminPortal,
+  currentUser
 }) => {
-  if (!isOpen) return null;
+  const { t, currentLanguage } = useLanguage();
+  const catalog = loadLocalProducts();
+  const itemName = (item: RequestItem) => {
+    const product = catalog.find(product => product.id === item.productId);
+    return product ? getLocalizedProduct(product, currentLanguage.code).name : item.productName;
+  };
+
+  const items = propItems || propCartItems || [];
 
   // Form State
-  const [customer, setCustomer] = useState<CustomerInfo>({
-    fullName: '',
-    phone: '',
-    email: '',
-    company: '',
-    city: 'Erbil (Hawler)',
+  const [customer, setCustomer] = useState<CustomerInfo>(() => ({
+    fullName: currentUser?.name || '',
+    phone: currentUser?.phone || '',
+    email: currentUser?.email || '',
+    company: currentUser?.company || '',
+    city: currentUser?.city || 'Erbil (Hawler)',
     projectType: 'Luxury Private Villa',
     timeline: '1 Month',
-    serviceNeeded: 'Full Fabrication & Installation by Winhome Engineers',
+    serviceNeeded: 'Full Fabrication & Installation by Doorhome Engineers',
     preferredContact: 'whatsapp',
     additionalNotes: ''
-  });
+  }));
 
   const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submittedRequest, setSubmittedRequest] = useState<QuotationRequest | null>(null);
   const [copiedId, setCopiedId] = useState<boolean>(false);
+
+  // Custom text states when "Other" is chosen
+  const [customCity, setCustomCity] = useState('');
+  const [customProjectType, setCustomProjectType] = useState('');
+  const [customTimeline, setCustomTimeline] = useState('');
+  const [customServiceNeeded, setCustomServiceNeeded] = useState('');
 
   const totalQuantity = items.reduce((sum, it) => sum + (it.quantity || 1), 0);
   const totalAreaSqm = items.reduce((sum, it) => {
@@ -87,20 +111,23 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
     'Car Showroom / Commercial Frontage',
     'Hotel & Resort Complex',
     'Renovation & Window Replacement',
-    'Government / Institutional Facility'
+    'Government / Institutional Facility',
+    'Other'
   ];
 
   const timelines = [
     'Immediate (Within 1-2 Weeks)',
     '1 Month',
     '2-3 Months',
-    'Architectural Tender / Planning Phase'
+    'Architectural Tender / Planning Phase',
+    'Other'
   ];
 
   const services = [
-    'Full Fabrication & Installation by Winhome Engineers',
+    'Full Fabrication & Installation by Doorhome Engineers',
     'Fabrication & Direct Delivery to Project Site',
-    'Site Measurement Visit & Technical Consultation Needed'
+    'Site Measurement Visit & Technical Consultation Needed',
+    'Other'
   ];
 
   const validateStep3 = (): boolean => {
@@ -126,9 +153,26 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
     setIsSubmitting(true);
     try {
-      const created = await submitQuotationRequest(customer, items);
+      const resolvedCustomer: CustomerInfo = {
+        ...customer,
+        city: (customer.city === 'Other City in Iraq' || customer.city === 'Other')
+          ? (customCity.trim() || 'Other City in Iraq')
+          : customer.city,
+        projectType: customer.projectType === 'Other'
+          ? (customProjectType.trim() || 'Other')
+          : customer.projectType,
+        timeline: customer.timeline === 'Other'
+          ? (customTimeline.trim() || 'Other')
+          : customer.timeline,
+        serviceNeeded: customer.serviceNeeded === 'Other'
+          ? (customServiceNeeded.trim() || 'Other')
+          : customer.serviceNeeded,
+      };
+
+      const created = await submitQuotationRequest(resolvedCustomer, items);
       setSubmittedRequest(created);
-      onSuccessfulSubmission(created);
+      if (onSuccess) onSuccess(created);
+      if (onSuccessfulSubmission) onSuccessfulSubmission(created);
     } catch (err) {
       console.error('Submission error', err);
       alert('An error occurred submitting your request. Please try again or contact us directly on WhatsApp.');
@@ -147,27 +191,28 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
   const getWhatsAppSubmissionUrl = () => {
     if (!submittedRequest) return '#';
-    const text = `Hello Winhome Company,\n\nI have just submitted a formal Architectural Request on your portal:\n• Request ID: ${submittedRequest.id}\n• Name: ${submittedRequest.customer.fullName}\n• City: ${submittedRequest.customer.city}\n• Project: ${submittedRequest.customer.projectType}\n• Total Systems: ${submittedRequest.totalQuantity} units (${submittedRequest.totalAreaSqm} m²)\n\nPlease verify receipt on the Admin desk and send the engineering bill of quantities (BOQ).`;
-    return `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${encodeURIComponent(text)}`;
+    const text = `Hello Doorhome Company,\n\nI have just submitted a formal Architectural Request on your portal:\n• Request ID: ${submittedRequest.id}\n• Name: ${submittedRequest.customer.fullName}\n• City: ${submittedRequest.customer.city}\n• Project: ${submittedRequest.customer.projectType}\n• Total Systems: ${submittedRequest.totalQuantity} units (${submittedRequest.totalAreaSqm} m²)\n\nPlease verify receipt on the Admin desk and send the engineering bill of quantities (BOQ).`;
+    return `https://wa.me/${(DOORHOME_CONTACT.hotlineRaw || '+9647504440402').replace('+', '')}?text=${encodeURIComponent(text)}`;
   };
 
   return (
+    !isOpen ? null :
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-900/75 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-200">
       <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200 w-full max-w-3xl overflow-hidden my-auto animate-in zoom-in-95 duration-200">
         {/* Modal Top Header */}
         <div className="px-5 py-4 sm:px-6 sm:py-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center font-bold shadow-md shadow-sky-600/20">
+            <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold shadow-md shadow-red-600/20">
               <Building2 className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-sky-700 uppercase bg-sky-100/70 border border-sky-200 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-red-700 uppercase bg-red-50 border border-red-200 px-2 py-0.5 rounded">
                   Official Request For Quotation (RFQ)
                 </span>
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
-                Winhome Technical Quotation Stepper
+                {t('stepper_title')}
               </h2>
             </div>
           </div>
@@ -193,14 +238,14 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   Request Dispatched to Admin!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Your customized architectural specifications have been registered in the Winhome Engineering database.
+                  Your customized architectural specifications have been registered in the Doorhome Engineering database.
                 </p>
               </div>
 
               {/* Request ID Badge */}
               <div className="inline-flex items-center gap-3 bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-2xl">
                 <span className="text-xs text-slate-500 font-medium">Tracking Reference:</span>
-                <span className="text-sm sm:text-base font-extrabold text-sky-700 tracking-wider">
+                <span className="text-sm sm:text-base font-extrabold text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200 tracking-wider">
                   {submittedRequest.id}
                 </span>
                 <button
@@ -226,7 +271,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Architectural Systems:</span>
-                  <span className="font-bold text-sky-700">
+                  <span className="font-bold text-red-700">
                     {submittedRequest.totalQuantity} units ({submittedRequest.totalAreaSqm} m²)
                   </span>
                 </div>
@@ -258,15 +303,15 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
             <Stepper
               initialStep={1}
               onFinalStepCompleted={handleSubmit}
-              backButtonText="Previous Step"
-              nextButtonText="Continue"
+              backButtonText={t('prev_step')}
+              nextButtonText={t('next_step')}
             >
               {/* STEP 1: REVIEW CONFIGURED SYSTEMS */}
               <Step>
                 <div className="space-y-4">
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">
+                      <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
                         Step 1 of 4 • Technical Specifications
                       </span>
                       <span className="text-xs text-slate-400">
@@ -274,7 +319,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                       </span>
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                      Review Configured Fenestration Systems
+                      {t('step1_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
                       Verify your custom dimensions, glass, and finishes before specifying project location.
@@ -288,13 +333,13 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         className="flex items-center justify-between p-3 rounded-xl border border-slate-200 bg-slate-50/50 text-xs"
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="w-5 h-5 rounded-full bg-sky-100 text-sky-700 font-bold text-[10px] flex items-center justify-center">
+                          <span className="w-5 h-5 rounded-full bg-red-100 text-red-800 font-bold text-[10px] flex items-center justify-center">
                             {idx + 1}
                           </span>
                           <div>
-                            <span className="font-bold text-slate-800 block">{it.productName}</span>
+                            <span className="font-bold text-slate-800 block">{itemName(it)}</span>
                             <span className="text-[11px] text-slate-500">
-                              {it.quantity} units • {it.widthMm} × {it.heightMm} mm ({it.color})
+                              {it.quantity} {t('units_label')} • {it.widthMm} × {it.heightMm} mm ({it.color})
                             </span>
                           </div>
                         </div>
@@ -308,9 +353,9 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     ))}
                   </div>
 
-                  <div className="p-3 bg-sky-50/80 rounded-xl border border-sky-200/80 flex items-center justify-between text-xs">
-                    <span className="text-sky-900 font-semibold">Total Glass Area:</span>
-                    <span className="text-sky-800 font-extrabold">{totalAreaSqm.toFixed(2)} m² Insulated Glazing</span>
+                  <div className="p-3 bg-red-50/80 rounded-xl border border-red-200/80 flex items-center justify-between text-xs">
+                    <span className="text-slate-900 font-semibold">Total Glass Area:</span>
+                    <span className="text-red-700 font-extrabold">{totalAreaSqm.toFixed(2)} m² Insulated Glazing</span>
                   </div>
                 </div>
               </Step>
@@ -319,14 +364,14 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
               <Step>
                 <div className="space-y-4">
                   <div>
-                    <span className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">
+                    <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
                       Step 2 of 4 • Project Details
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                      Project Location & Fabrication Scope
+                      {t('step2_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
-                      Help Winhome engineers calculate freight, wind load pressure, and installation requirements.
+                      Help Doorhome engineers calculate freight, wind load pressure, and installation requirements.
                     </p>
                   </div>
 
@@ -334,13 +379,13 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Project Type */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Building2 className="w-3.5 h-3.5 text-sky-600" />
+                        <Building2 className="w-3.5 h-3.5 text-red-600" />
                         <span>Project Archetype</span>
                       </label>
                       <select
                         value={customer.projectType}
                         onChange={(e) => setCustomer({ ...customer, projectType: e.target.value })}
-                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-800 font-medium"
+                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 text-slate-800 font-medium"
                       >
                         {projectTypes.map((pt) => (
                           <option key={pt} value={pt}>
@@ -348,18 +393,31 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           </option>
                         ))}
                       </select>
+
+                      {customer.projectType === 'Other' && (
+                        <div className="pt-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <input
+                            type="text"
+                            required
+                            value={customProjectType}
+                            onChange={(e) => setCustomProjectType(e.target.value)}
+                            placeholder="Specify project type (e.g. Shopping Mall, Hospital)..."
+                            className="w-full py-1.5 px-3 text-xs rounded-lg border-2 border-red-400 bg-red-50/50 focus:bg-white focus:border-red-600 focus:outline-none text-slate-900 font-semibold"
+                          />
+                        </div>
+                      )}
                     </div>
 
                     {/* City / Province */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-sky-600" />
+                        <MapPin className="w-3.5 h-3.5 text-red-600" />
                         <span>City / Province (Iraq)</span>
                       </label>
                       <select
                         value={customer.city}
                         onChange={(e) => setCustomer({ ...customer, city: e.target.value })}
-                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-800 font-medium"
+                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 text-slate-800 font-medium"
                       >
                         {cityOptions.map((c) => (
                           <option key={c} value={c}>
@@ -367,18 +425,31 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           </option>
                         ))}
                       </select>
+
+                      {(customer.city === 'Other City in Iraq' || customer.city === 'Other') && (
+                        <div className="pt-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <input
+                            type="text"
+                            required
+                            value={customCity}
+                            onChange={(e) => setCustomCity(e.target.value)}
+                            placeholder="Specify your city / district name..."
+                            className="w-full py-1.5 px-3 text-xs rounded-lg border-2 border-red-400 bg-red-50/50 focus:bg-white focus:border-red-600 focus:outline-none text-slate-900 font-semibold"
+                          />
+                        </div>
+                      )}
                     </div>
 
                     {/* Timeline */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-sky-600" />
+                        <Clock className="w-3.5 h-3.5 text-red-600" />
                         <span>Project Timeline</span>
                       </label>
                       <select
                         value={customer.timeline}
                         onChange={(e) => setCustomer({ ...customer, timeline: e.target.value })}
-                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-800 font-medium"
+                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 text-slate-800 font-medium"
                       >
                         {timelines.map((tl) => (
                           <option key={tl} value={tl}>
@@ -386,18 +457,31 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           </option>
                         ))}
                       </select>
+
+                      {customer.timeline === 'Other' && (
+                        <div className="pt-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <input
+                            type="text"
+                            required
+                            value={customTimeline}
+                            onChange={(e) => setCustomTimeline(e.target.value)}
+                            placeholder="Specify your expected timeline..."
+                            className="w-full py-1.5 px-3 text-xs rounded-lg border-2 border-red-400 bg-red-50/50 focus:bg-white focus:border-red-600 focus:outline-none text-slate-900 font-semibold"
+                          />
+                        </div>
+                      )}
                     </div>
 
                     {/* Required Service */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Wrench className="w-3.5 h-3.5 text-sky-600" />
+                        <Wrench className="w-3.5 h-3.5 text-red-600" />
                         <span>Service Scope</span>
                       </label>
                       <select
                         value={customer.serviceNeeded}
                         onChange={(e) => setCustomer({ ...customer, serviceNeeded: e.target.value })}
-                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-800 font-medium truncate"
+                        className="w-full py-2 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 text-slate-800 font-medium truncate"
                       >
                         {services.map((sv) => (
                           <option key={sv} value={sv}>
@@ -405,6 +489,19 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           </option>
                         ))}
                       </select>
+
+                      {customer.serviceNeeded === 'Other' && (
+                        <div className="pt-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                          <input
+                            type="text"
+                            required
+                            value={customServiceNeeded}
+                            onChange={(e) => setCustomServiceNeeded(e.target.value)}
+                            placeholder="Specify required service scope..."
+                            className="w-full py-1.5 px-3 text-xs rounded-lg border-2 border-red-400 bg-red-50/50 focus:bg-white focus:border-red-600 focus:outline-none text-slate-900 font-semibold"
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -414,11 +511,11 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
               <Step>
                 <div className="space-y-4">
                   <div>
-                    <span className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">
+                    <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
                       Step 3 of 4 • Contact Information
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                      Client / Contractor Contact Details
+                      {t('step3_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
                       Our Erbil engineering office will send the itemized technical quotation to these credentials.
@@ -429,7 +526,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Full Name */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <User className="w-3.5 h-3.5 text-sky-600" />
+                        <UserIcon className="w-3.5 h-3.5 text-red-600" />
                         <span>Full Name / Contact Person *</span>
                       </label>
                       <input
@@ -443,7 +540,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         placeholder="e.g. Kak Dana Farhad / Eng. Ahmed"
                         className={`w-full px-3 py-2 text-xs sm:text-sm rounded-xl border ${
                           formErrors.fullName ? 'border-rose-400 bg-rose-50/50' : 'border-slate-200 bg-slate-50'
-                        } focus:bg-white focus:outline-none focus:border-sky-500 text-slate-900`}
+                        } focus:bg-white focus:outline-none focus:border-red-600 text-slate-900`}
                       />
                       {formErrors.fullName && (
                         <span className="text-[10px] text-rose-600 block">{formErrors.fullName}</span>
@@ -453,7 +550,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Phone / WhatsApp */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Phone className="w-3.5 h-3.5 text-sky-600" />
+                        <Phone className="w-3.5 h-3.5 text-red-600" />
                         <span>Phone / WhatsApp Number *</span>
                       </label>
                       <input
@@ -467,7 +564,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         placeholder="e.g. +964 750 123 4567"
                         className={`w-full px-3 py-2 text-xs sm:text-sm rounded-xl border ${
                           formErrors.phone ? 'border-rose-400 bg-rose-50/50' : 'border-slate-200 bg-slate-50'
-                        } focus:bg-white focus:outline-none focus:border-sky-500 text-slate-900`}
+                        } focus:bg-white focus:outline-none focus:border-red-600 text-slate-900`}
                       />
                       {formErrors.phone && (
                         <span className="text-[10px] text-rose-600 block">{formErrors.phone}</span>
@@ -477,7 +574,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Email */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Mail className="w-3.5 h-3.5 text-sky-600" />
+                        <Mail className="w-3.5 h-3.5 text-red-600" />
                         <span>Email Address *</span>
                       </label>
                       <input
@@ -491,7 +588,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         placeholder="e.g. yourname@domain.com"
                         className={`w-full px-3 py-2 text-xs sm:text-sm rounded-xl border ${
                           formErrors.email ? 'border-rose-400 bg-rose-50/50' : 'border-slate-200 bg-slate-50'
-                        } focus:bg-white focus:outline-none focus:border-sky-500 text-slate-900`}
+                        } focus:bg-white focus:outline-none focus:border-red-600 text-slate-900`}
                       />
                       {formErrors.email && (
                         <span className="text-[10px] text-rose-600 block">{formErrors.email}</span>
@@ -501,7 +598,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Company / Architecture Firm (Optional) */}
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
-                        <Briefcase className="w-3.5 h-3.5 text-sky-600" />
+                        <Briefcase className="w-3.5 h-3.5 text-red-600" />
                         <span>Company / Architecture Firm (Optional)</span>
                       </label>
                       <input
@@ -509,7 +606,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         value={customer.company || ''}
                         onChange={(e) => setCustomer({ ...customer, company: e.target.value })}
                         placeholder="e.g. Erbil Modern Contracting LLC"
-                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-900"
+                        className="w-full px-3 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 text-slate-900"
                       />
                     </div>
                   </div>
@@ -529,7 +626,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           onClick={() => setCustomer({ ...customer, preferredContact: ch.id as any })}
                           className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all text-center ${
                             customer.preferredContact === ch.id
-                              ? 'bg-sky-50 border-sky-500 text-sky-900 shadow-2xs'
+                              ? 'bg-red-50 border-red-600 text-red-900 shadow-2xs'
                               : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'
                           }`}
                         >
@@ -545,14 +642,14 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
               <Step>
                 <div className="space-y-4">
                   <div>
-                    <span className="text-[11px] font-bold text-sky-600 uppercase tracking-wider">
+                    <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
                       Step 4 of 4 • Final Confirmation
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                      Confirm & Dispatch to Winhome Admin Desk
+                      {t('step4_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
-                      Your request will be delivered directly to the Winhome administration queue for engineering review.
+                      Your request will be delivered directly to the Doorhome administration queue for engineering review.
                     </p>
                   </div>
 
@@ -571,11 +668,11 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                       </div>
                       <div>
                         <span className="text-[10px] text-slate-400 uppercase font-semibold block">Total Systems</span>
-                        <span className="font-bold text-sky-700 block">{totalQuantity} units</span>
+                        <span className="font-bold text-red-700 block">{totalQuantity} units</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-slate-400 uppercase font-semibold block">Glass Area</span>
-                        <span className="font-bold text-sky-700 block">{totalAreaSqm.toFixed(2)} m²</span>
+                        <span className="font-bold text-red-700 block">{totalAreaSqm.toFixed(2)} m²</span>
                       </div>
                     </div>
 
@@ -598,7 +695,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                         value={customer.additionalNotes || ''}
                         onChange={(e) => setCustomer({ ...customer, additionalNotes: e.target.value })}
                         placeholder="e.g. Please also attach thermal calculation certificate for Dream City villa tender..."
-                        className="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-sky-500 text-slate-900 resize-none"
+                        className="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-red-600 text-slate-900 resize-none"
                       />
                     </div>
                   </div>
@@ -606,7 +703,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-800">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>
-                      Guaranteed response within 24 hours with certified technical drawings and BOQ from Winhome Erbil.
+                      Guaranteed response within 24 hours with certified technical drawings and BOQ from Doorhome Erbil.
                     </span>
                   </div>
                 </div>

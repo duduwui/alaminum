@@ -1,7 +1,17 @@
 node_modules/
 build/
 dist/
+uploads/
+cms_homepage_db.json
+cms_gallery_db.json
+cms_products_db.json
+cms_divisions_db.json
+admin_sessions_db.json
+users_db.json
+password_resets_db.json
+visits_db.json
 coverage/
+translation_cache_db.json
 .DS_Store
 *.log
 .env*

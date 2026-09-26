@@ -1,124 +1,68 @@
 import { QuotationRequest, RequestItem, CustomerInfo } from '../types/requests';
+import {
+  db,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  query,
+  orderBy
+} from '../config/firebase';
 
 const STORAGE_KEY = 'winhome_quotation_requests';
-
-const INITIAL_SAMPLE_REQUESTS: QuotationRequest[] = [
-  {
-    id: 'WH-2026-8492',
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 3).toISOString(), // 3 hours ago
-    status: 'new',
-    customer: {
-      fullName: 'Kak Dana Farhad',
-      phone: '+964 750 445 8899',
-      email: 'dana.farhad@kurdoil.com',
-      company: 'Farhad Villa Project',
-      city: 'Erbil (Dream City)',
-      projectType: 'Luxury Private Villa',
-      timeline: '1 Month',
-      serviceNeeded: 'Full Fabrication & Installation by Winhome Engineers',
-      preferredContact: 'whatsapp',
-      additionalNotes: 'Require high thermal insulation against summer heat. Master bedroom requires maximum acoustic isolation.'
-    },
-    items: [
-      {
-        id: 'item-1',
-        productId: 'legend-80',
-        productName: 'Deceuninck Legend 80',
-        category: 'upvc',
-        image: '/assets/winhome/photo_2023-07-03_15-40-04-1104x720.jpg',
-        quantity: 12,
-        widthMm: 1600,
-        heightMm: 2200,
-        color: 'Anthracite Grey (RAL 7016)',
-        glazing: 'Triple Glazed Argon (4+12+4+12+4 Low-E)',
-        openingType: 'Tilt & Turn Double Sash',
-        notes: 'Ground floor and first floor bedrooms',
-        estimatedAreaSqm: 42.24
-      },
-      {
-        id: 'item-2',
-        productId: 'lorenzo-70ls',
-        productName: 'Lorenzoline 70LS Monumental',
-        category: 'aluminum',
-        image: '/assets/winhome/photo_2023-07-03_15-41-20-1280x820.jpg',
-        quantity: 3,
-        widthMm: 3600,
-        heightMm: 2800,
-        color: 'Deep Anodized Black',
-        glazing: 'Double Glazed Solar Control 6mm+16Ar+6mm',
-        openingType: '2-Track Heavy Lift & Slide',
-        notes: 'Direct garden and swimming pool terrace access',
-        estimatedAreaSqm: 30.24
-      }
-    ],
-    totalQuantity: 15,
-    totalAreaSqm: 72.48,
-    adminNotes: 'Contacted client via WhatsApp. Scheduled site measurement visit for tomorrow 11:00 AM in Dream City.',
-    quotedAmount: 18600,
-    currency: 'USD'
-  },
-  {
-    id: 'WH-2026-8480',
-    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 28).toISOString(), // Yesterday
-    status: 'quoted',
-    customer: {
-      fullName: 'Eng. Ahmed Al-Jabouri',
-      phone: '+964 770 123 4567',
-      email: 'ahmed.jabouri@almansour-const.iq',
-      company: 'Al-Mansour Architectural Contracting',
-      city: 'Baghdad (Al-Jadriya)',
-      projectType: 'Commercial Car Showroom & Offices',
-      timeline: '2-3 Months',
-      serviceNeeded: 'Fabrication, Steel Structure Sub-frames & Delivery',
-      preferredContact: 'phone',
-      additionalNotes: 'Need 50F curtain wall facade with high wind resistance structural calculations.'
-    },
-    items: [
-      {
-        id: 'item-3',
-        productId: 'facade-50f',
-        productName: 'Commercial 50F Curtain Wall',
-        category: 'aluminum',
-        image: '/assets/winhome/photo_2023-07-03_15-42-28-1120x716.jpg',
-        quantity: 1,
-        widthMm: 18000,
-        heightMm: 6500,
-        color: 'Silver Metallic Anodized',
-        glazing: 'Laminated Double Glazed Low-E (8+16Ar+8mm)',
-        openingType: 'Fixed Structural Glazing with Concealed Vents',
-        notes: 'Main street frontage on Al-Jadriya',
-        estimatedAreaSqm: 117.0
-      }
-    ],
-    totalQuantity: 1,
-    totalAreaSqm: 117.0,
-    adminNotes: 'Formal BOQ sent with structural calculations. Awaiting client signature.',
-    quotedAmount: 34500,
-    currency: 'USD'
-  }
-];
+const COLLECTION_NAME = 'quotation_requests';
 
 export async function fetchAllRequests(): Promise<QuotationRequest[]> {
+  // The server is the shared source for both cart and contact submissions.
+  try {
+    const token = localStorage.getItem('dh_admin_token');
+    const headers: Record<string, string> = {};
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+
+    const res = await fetch('/api/requests', { headers, credentials: 'include' });
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); return data; }
+    }
+  } catch { /* offline fallback below */ }
+  // Legacy Firestore data remains readable when the server is unavailable.
+  try {
+    const q = query(collection(db, COLLECTION_NAME), orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    if (!snapshot.empty) {
+      const items: QuotationRequest[] = [];
+      snapshot.forEach((d) => {
+        items.push({ ...(d.data() as QuotationRequest), id: d.id });
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      return items;
+    }
+  } catch (firestoreErr) {
+    console.warn('Firestore fetch info (fallback to local):', firestoreErr);
+  }
+
+  // 2. Try Local API Server if running
   try {
     const res = await fetch('/api/requests');
     if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
       const data = await res.json();
-      if (Array.isArray(data) && data.length > 0) {
+      if (Array.isArray(data)) {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         return data;
       }
     }
   } catch (err) {
-    // Network or server endpoint fallback
-    console.log('Serving from local repository', err);
+    // console.log('Serving from local repository', err);
   }
 
-  // Local storage fallback
+  // 3. Local storage fallback
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     try {
       const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         return parsed;
       }
     } catch {
@@ -126,9 +70,7 @@ export async function fetchAllRequests(): Promise<QuotationRequest[]> {
     }
   }
 
-  // Seed sample requests
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_SAMPLE_REQUESTS));
-  return INITIAL_SAMPLE_REQUESTS;
+  return [];
 }
 
 export async function submitQuotationRequest(
@@ -144,6 +86,7 @@ export async function submitQuotationRequest(
   const randomDigits = Math.floor(1000 + Math.random() * 9000);
   const newRequest: QuotationRequest = {
     id: `WH-2026-${randomDigits}`,
+    kind: 'product',
     createdAt: new Date().toISOString(),
     status: 'new',
     customer,
@@ -153,23 +96,18 @@ export async function submitQuotationRequest(
     currency: 'USD'
   };
 
-  // Try API first
+  // The shared API must confirm the request before telling the customer it was sent.
+  const response = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newRequest) });
+  if (!response.ok) throw new Error('Request could not be sent. Please try again.');
+
+  // Retain the legacy Firestore copy when configured.
   try {
-    const res = await fetch('/api/requests', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newRequest)
-    });
-    if (res.ok && res.headers.get('content-type')?.includes('application/json')) {
-      const saved = await res.json();
-      await updateLocalCache(saved);
-      return saved;
-    }
-  } catch (err) {
-    console.log('Saved to local store', err);
+    await setDoc(doc(db, COLLECTION_NAME, newRequest.id), newRequest);
+  } catch (firestoreErr) {
+    console.warn('Firestore save warning:', firestoreErr);
   }
 
-  // Local fallback
+  // Update local browser cache after the server confirms receipt.
   await updateLocalCache(newRequest);
   return newRequest;
 }
@@ -186,23 +124,36 @@ export async function updateRequestStatus(
   adminNotes?: string,
   quotedAmount?: number
 ): Promise<QuotationRequest | null> {
-  // Try API
+  const updatePayload: any = {
+    status,
+    updatedAt: new Date().toISOString()
+  };
+  if (adminNotes !== undefined) updatePayload.adminNotes = adminNotes;
+  if (quotedAmount !== undefined) updatePayload.quotedAmount = quotedAmount;
+
+  // 1. Update Firebase Firestore
   try {
-    const res = await fetch(`/api/requests/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status, adminNotes, quotedAmount })
-    });
-    if (res.ok) {
-      const updated = await res.json();
-      await updateLocalCache(updated);
-      return updated;
-    }
-  } catch (err) {
-    console.log('Update local store fallback', err);
+    await updateDoc(doc(db, COLLECTION_NAME, id), updatePayload);
+  } catch (firestoreErr) {
+    console.warn('Firestore update warning:', firestoreErr);
   }
 
-  // Local fallback
+  // 2. Try Node API
+  try {
+    const token = localStorage.getItem('dh_admin_token');
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    await fetch(`/api/requests/${id}`, {
+      method: 'PATCH',
+      headers,
+      credentials: 'include',
+      body: JSON.stringify({ status, adminNotes, quotedAmount })
+    });
+  } catch (err) {
+    // ignore
+  }
+
+  // 3. Local fallback cache
   const current = await fetchAllRequests();
   const target = current.find((r) => r.id === id);
   if (!target) return null;
@@ -220,19 +171,37 @@ export async function updateRequestStatus(
 }
 
 export async function deleteRequest(id: string): Promise<boolean> {
+  // 1. Delete from Firestore
   try {
-    const res = await fetch(`/api/requests/${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      // success
-    }
-  } catch (err) {
-    console.log('Local delete', err);
+    await deleteDoc(doc(db, COLLECTION_NAME, id));
+  } catch (firestoreErr) {
+    console.warn('Firestore delete warning:', firestoreErr);
   }
 
+  // 2. Try Node API
+  try {
+    const token = localStorage.getItem('dh_admin_token');
+    const headers: Record<string, string> = {};
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    await fetch(`/api/requests/${id}`, { method: 'DELETE', headers, credentials: 'include' });
+  } catch (err) {
+    // ignore
+  }
+
+  // 3. Local cache
   const current = await fetchAllRequests();
   const filtered = current.filter((r) => r.id !== id);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
   return true;
+}
+
+// Poll the shared API so contact messages and cart requests appear together.
+export function subscribeToRequests(onUpdate: (requests: QuotationRequest[]) => void): () => void {
+  let active = true;
+  const refresh = () => { void fetchAllRequests().then((items) => { if (active) onUpdate(items); }).catch(() => {}); };
+  refresh();
+  const timer = window.setInterval(refresh, 15_000);
+  return () => { active = false; window.clearInterval(timer); };
 }
 
 // =================== CSV & EXCEL EXPORT HELPERS ===================
@@ -294,7 +263,7 @@ export function exportRequestsToCSV(requests: QuotationRequest[]): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.setAttribute('href', url);
-  link.setAttribute('download', `Winhome_Quotation_Requests_${new Date().toISOString().slice(0, 10)}.csv`);
+  link.setAttribute('download', `Doorhome_Quotation_Requests_${new Date().toISOString().slice(0, 10)}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -310,7 +279,7 @@ export function exportRequestsToExcel(requests: QuotationRequest[]): void {
         <x:ExcelWorkbook>
           <x:ExcelWorksheets>
             <x:ExcelWorksheet>
-              <x:Name>Winhome Requests</x:Name>
+              <x:Name>Doorhome Requests</x:Name>
               <x:WorksheetOptions>
                 <x:DisplayGridlines/>
               </x:WorksheetOptions>
@@ -334,7 +303,7 @@ export function exportRequestsToExcel(requests: QuotationRequest[]): void {
       <table>
         <tr>
           <td colspan="15" class="title-row" style="background-color: #0f172a; color: #ffffff; font-size: 16pt; font-weight: bold; padding: 12px;">
-            WINHOME COMPANY - Architectural Fenestration Requests Report (Erbil, Kurdistan)
+            DOORHOME COMPANY - Architectural Fenestration Requests Report (Erbil, Kurdistan)
           </td>
         </tr>
         <tr>
@@ -411,7 +380,7 @@ export function exportRequestsToExcel(requests: QuotationRequest[]): void {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.setAttribute('href', url);
-  link.setAttribute('download', `Winhome_Quotation_Report_${new Date().toISOString().slice(0, 10)}.xls`);
+  link.setAttribute('download', `Doorhome_Quotation_Report_${new Date().toISOString().slice(0, 10)}.xls`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

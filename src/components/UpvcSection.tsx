@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { UPVC_PRODUCTS, ProductItem } from '../data/winhomeData';
-import { Search, ChevronRight, Calculator, SlidersHorizontal, ShieldCheck } from 'lucide-react';
+import { Search, ChevronRight, SlidersHorizontal, ShieldCheck } from 'lucide-react';
 import { GlowButton } from './GlowButton';
+import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedProduct } from '../utils/localizedContent';
 
 interface UpvcSectionProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -9,18 +11,21 @@ interface UpvcSectionProps {
 }
 
 export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpenQuote }) => {
+  const { currentLanguage, t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const categories = [
-    { id: 'all', label: 'All Series' },
-    { id: 'Casement Systems', label: 'Casement & Tilt-Turn' },
-    { id: 'Sliding Systems', label: 'Sliding Systems' },
-    { id: 'Hebe-Schiebe Heavy Sliding', label: 'Hebe-Schiebe HS76' },
-    { id: 'Color Laminate Decors', label: 'Woodgrain & Anthracite' },
+    { id: 'all', label: t('tab_all_series') },
+    { id: 'Casement Systems', label: t('tab_casement') },
+    { id: 'Sliding Systems', label: t('tab_sliding') },
+    { id: 'Hebe-Schiebe Heavy Sliding', label: t('tab_hebe') },
+    { id: 'Color Laminate Decors', label: t('tab_colors') },
   ];
 
-  const filteredItems = UPVC_PRODUCTS.filter((item) => {
+  const localizedItems = UPVC_PRODUCTS.map((p) => getLocalizedProduct(p, currentLanguage.code));
+
+  const filteredItems = localizedItems.filter((item) => {
     const matchesCategory = selectedCategory === 'all' || item.subCategory === selectedCategory;
     const matchesQuery =
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -30,24 +35,24 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
 
   return (
     <section id="upvc" className="bg-slate-50 border-b border-slate-200">
-      {/* Category Banner as shown in user's image reference */}
-      <div className="bg-sky-600 text-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8 shadow-sm">
+      {/* Category Banner */}
+      <div className="doorhome-textured-red text-white py-9 sm:py-12 px-4 sm:px-6 lg:px-8 shadow-sm border-b border-red-900/30">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-sky-200 mb-1">
-              European Engineered Profiles • Deceuninck & Winsa
+            <div className="text-xs font-bold uppercase tracking-widest text-red-200 mb-1">
+              {t('upvc_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              uPVC
+              {t('upvc_title')}
             </h2>
-            <p className="text-sm sm:text-base text-sky-100 max-w-2xl mt-1.5 font-normal">
-              Class S severe climate certified multi-chamber window and door profiles. Outstanding thermal isolation with triple-seal acoustic barrier.
+            <p className="text-sm sm:text-base text-red-100 max-w-2xl mt-1.5 font-normal">
+              {t('upvc_desc')}
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="text-xs bg-white/20 px-3 py-1.5 rounded-full font-semibold">
-              {filteredItems.length} Profile Series
+              {filteredItems.length} {t('upvc_series_count')}
             </span>
           </div>
         </div>
@@ -76,10 +81,10 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search uPVC series..."
+              placeholder={t('search_upvc')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-600 transition-all"
+              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-white text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-600 transition-all"
             />
           </div>
         </div>
@@ -89,7 +94,7 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
           {filteredItems.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-xl border border-slate-200 hover:border-sky-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-xl border border-slate-200 hover:border-red-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
             >
               <div>
                 {/* Product Image Stage */}
@@ -111,15 +116,15 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
                     </span>
                   )}
                   {product.chambers && (
-                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-bold uppercase tracking-wider border border-sky-100">
-                      {product.chambers} Chambers
+                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded bg-red-50 text-red-800 text-[10px] font-bold uppercase tracking-wider border border-red-100">
+                      {product.chambers} {t('chambers_label')}
                     </span>
                   )}
                 </div>
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
                     {product.name}
                   </h3>
                   <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
@@ -130,20 +135,20 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
                   <div className="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-slate-100 text-xs text-center">
                     {product.chambers && (
                       <div className="bg-slate-50 p-2 rounded">
-                        <span className="text-[10px] text-slate-500 block">Chambers</span>
+                        <span className="text-[10px] text-slate-500 block">{t('chambers_label')}</span>
                         <span className="font-bold text-slate-900">{product.chambers}</span>
                       </div>
                     )}
                     {product.depth && (
                       <div className="bg-slate-50 p-2 rounded">
-                        <span className="text-[10px] text-slate-500 block">Depth</span>
+                        <span className="text-[10px] text-slate-500 block">{t('depth_label')}</span>
                         <span className="font-bold text-slate-900">{product.depth}</span>
                       </div>
                     )}
                     {product.insulationValue && (
                       <div className="bg-slate-50 p-2 rounded">
-                        <span className="text-[10px] text-slate-500 block">Uf Value</span>
-                        <span className="font-bold text-sky-700">{product.insulationValue.split(' ')[0]}</span>
+                        <span className="text-[10px] text-slate-500 block">{t('insulation_label')}</span>
+                        <span className="font-bold text-red-700">{product.insulationValue.split(' ')[0]}</span>
                       </div>
                     )}
                   </div>
@@ -151,24 +156,16 @@ export const UpvcSection: React.FC<UpvcSectionProps> = ({ onSelectProduct, onOpe
               </div>
 
               {/* Action Buttons */}
-              <div className="px-5 pb-5 pt-2 flex items-center gap-2">
+              <div className="px-5 pb-5 pt-2">
                 <GlowButton
                   onClick={() => onSelectProduct(product)}
                   variant="primary"
                   size="sm"
-                  className="flex-1"
+                  className="w-full"
                 >
-                  <span>Specifications</span>
+                  <span>{t('specs_btn')}</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </GlowButton>
-                <button
-                  onClick={() => onOpenQuote(product.name)}
-                  className="py-2.5 px-3 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-colors flex items-center justify-center gap-1"
-                  title="Estimate this system"
-                >
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>Quote</span>
-                </button>
               </div>
             </div>
           ))}

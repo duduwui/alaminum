@@ -1,0 +1,374 @@
+/* From Uiverse.io by Novaxlo - Adapted to Doorhome Red Theme */
+.novaxlo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0.5rem;
+  width: 100%;
+}
+
+.form,
+.novaxlo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 17.5em;
+  min-height: 27em;
+  border: 2px solid #7f1d1d;
+  border-bottom-left-radius: 1.5em;
+  border-top-right-radius: 1.5em;
+  box-shadow:
+    -10px 0px 0px #7f1d1d,
+    -10px 5px 5px rgb(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 0 auto;
+}
+
+#login-area,
+#email-area,
+#password-area,
+#footer-area,
+#link-circle,
+#signup-area {
+  position: relative;
+  z-index: 2;
+}
+
+#login-area {
+  width: 100%;
+  height: 3.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#login-area p {
+  top: 0.35em;
+  font-size: 1.5em;
+  font-weight: bold;
+  position: absolute;
+  z-index: 2;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+#login-area #behind {
+  top: 60%;
+  font-size: 0.9em;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  left: 1em;
+  color: #dc2626;
+}
+
+#behind {
+  position: absolute;
+  left: 1em;
+  color: #dc2626;
+}
+
+#email-area {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0.8em;
+  transition: all 0.25s ease;
+}
+
+#email-area input {
+  width: 100%;
+  border: 2px solid #dc2626;
+  border-radius: 0.5em;
+  height: 2.5em;
+  padding-left: 1em;
+  font-size: 0.95em;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  outline: none;
+  box-shadow: 0px 5px 5px -3px rgb(0, 0, 0, 0.2);
+  background-color: white;
+  color: #1e293b;
+}
+
+#password-area {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 5.8em;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+#password-area input {
+  width: 100%;
+  border: 2px solid #dc2626;
+  font-size: 0.95em;
+  border-radius: 0.5em;
+  height: 2.5em;
+  padding-left: 1em;
+  transition: all 0.25s ease;
+  outline: none;
+  box-shadow: 0px 5px 5px -3px rgb(0, 0, 0, 0.2);
+  background-color: white;
+  color: #1e293b;
+}
+
+#password-area a {
+  padding-top: 0.5em;
+  font-size: 0.8em;
+  font-weight: bold;
+  transition: all 0.25s ease;
+  color: #dc2626;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#footer-area {
+  margin-top: 0;
+  padding-top: 0;
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  height: 6.2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #dc2626;
+  transition: all 0.25s ease;
+}
+
+#footer-area button {
+  width: 100%;
+  border: 2px solid #dc2626;
+  border-radius: 0.5em;
+  height: 2.5em;
+  padding-left: 1em;
+  font-size: 0.95em;
+  transition: all 0.25s ease;
+  color: white;
+  font-weight: bold;
+  background-color: #dc2626;
+  box-shadow: 0px 5px 5px -3px rgb(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+#footer-area p,
+#footer-area a {
+  font-size: 0.8em;
+  transition: all 0.25s ease;
+  margin: 0;
+}
+
+#text-inside {
+  padding-top: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+#link {
+  padding-left: 0.1em;
+  font-weight: bold;
+  cursor: pointer;
+  color: #dc2626;
+  text-decoration: underline;
+}
+
+#background-color {
+  width: 100%;
+  height: 3.5em;
+  background-color: #dc2626;
+  position: absolute;
+  top: 0em;
+  z-index: 1;
+  transition: all 0.5s ease;
+  box-shadow: inset 5px 0px #7f1d1d;
+}
+
+#link-circle {
+  width: 100%;
+  height: 4.2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+#link-circle a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #dc2626;
+  transition: all 0.25s ease;
+}
+
+#link-circle svg {
+  transition: all 0.25s ease;
+  fill: #dc2626;
+  cursor: pointer;
+}
+
+#link-circle a:hover svg {
+  transform: scale(1.25);
+  fill: #991b1b;
+}
+
+#whitefilter {
+  width: 3.5em;
+  height: 3.5em;
+  top: 2.5px;
+  right: 2.5px;
+  position: absolute;
+  z-index: 2;
+  border-top-right-radius: 1.25em;
+  box-shadow: 35px -35px 0px -1px white;
+}
+
+::placeholder {
+  color: #dc2626;
+  font-weight: bold;
+  opacity: 0.85;
+}
+
+.form:hover,
+.novaxlo-form:hover {
+  width: 18em;
+  min-height: 27.5em;
+}
+
+#email-area:hover ~ #background-color {
+  height: 4.2em;
+  transform: translateY(3.8em);
+}
+
+#email-area:hover,
+#password-area:hover,
+#footer-area:hover,
+#signup-area:hover {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#email-area:hover p {
+  color: white;
+}
+
+#email-area:hover input {
+  color: white;
+  border: 2px solid white;
+  background-color: #dc2626;
+  height: 2.8em;
+}
+
+#email-area:hover input::placeholder {
+  color: white;
+}
+
+#password-area:hover ~ #background-color {
+  height: 5.5em;
+  transform: translateY(7.6em);
+}
+
+#footer-area:hover ~ #background-color {
+  height: 5.9em;
+  transform: translateY(12.8em);
+}
+
+#password-area:hover p {
+  color: white;
+}
+
+#password-area:hover a {
+  color: white;
+  padding-right: 5%;
+}
+
+#password-area:hover input {
+  color: white;
+  border: 2px solid white;
+  background-color: #dc2626;
+  height: 2.8em;
+}
+
+#password-area:hover input::placeholder {
+  color: white;
+}
+
+#footer-area:hover p,
+#footer-area:hover a {
+  color: white;
+}
+
+#footer-area:hover button {
+  border: 2px solid white;
+  background-color: #dc2626;
+  height: 2.8em;
+}
+
+#footer-area button:active {
+  color: #dc2626;
+  background-color: white;
+  width: 90%;
+}
+
+/* Sign Up Mode styling */
+.form.signup-mode,
+.novaxlo-form.signup-mode {
+  min-height: 33em;
+}
+
+.form.signup-mode:hover,
+.novaxlo-form.signup-mode:hover {
+  min-height: 33.5em;
+}
+
+#signup-area {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+  margin-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+
+#signup-area input {
+  width: 100%;
+  border: 2px solid #dc2626;
+  border-radius: 0.5em;
+  height: 2.4em;
+  padding-left: 0.8em;
+  font-size: 0.9em;
+  font-weight: 500;
+  outline: none;
+  background-color: white;
+  color: #1e293b;
+  box-shadow: 0px 5px 5px -3px rgb(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+#signup-area input:hover,
+#signup-area input:focus {
+  border-color: #991b1b;
+}

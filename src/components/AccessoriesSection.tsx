@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ACCESSORIES_LINES, ProductItem } from '../data/winhomeData';
-import { ChevronRight, Calculator, Search } from 'lucide-react';
+import { ChevronRight, Search } from 'lucide-react';
 import { GlowButton } from './GlowButton';
+import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedProduct } from '../utils/localizedContent';
 
 interface AccessoriesSectionProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -10,8 +12,10 @@ interface AccessoriesSectionProps {
 
 export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelectProduct, onOpenQuote }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { currentLanguage, t } = useLanguage();
 
-  const filteredLines = ACCESSORIES_LINES.filter(
+  const localizedLines = ACCESSORIES_LINES.map(line => getLocalizedProduct(line, currentLanguage.code));
+  const filteredLines = localizedLines.filter(
     (line) =>
       line.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       line.description.toLowerCase().includes(searchQuery.toLowerCase())
@@ -20,23 +24,23 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
   return (
     <section id="accessories" className="bg-white border-b border-slate-200">
       {/* Category Banner as shown in user's image reference */}
-      <div className="bg-sky-600 text-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8 shadow-sm">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="doorhome-textured-red text-white py-9 sm:py-12 px-4 sm:px-6 lg:px-8 shadow-sm border-b border-red-900/30">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-sky-200 mb-1">
-              European Architectural Hardware • Master Italy & STAC Spain
+            <div className="text-xs font-bold uppercase tracking-widest text-red-200 mb-1">
+              {t('acc_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Accessories
+              {t('acc_title')}
             </h2>
-            <p className="text-sm sm:text-base text-sky-100 max-w-2xl mt-1.5 font-normal">
-              Certified multi-point perimeter locking systems, heavy-duty tandem stainless steel rollers, 3D adjustable security hinges, and architectural handles.
+            <p className="text-sm sm:text-base text-red-100 max-w-2xl mt-1.5 font-normal">
+              {t('acc_desc')}
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="text-xs bg-white/20 px-3 py-1.5 rounded-full font-semibold">
-              {ACCESSORIES_LINES.length} Certified Hardware Families
+              {ACCESSORIES_LINES.length} {t('acc_count')}
             </span>
           </div>
         </div>
@@ -46,17 +50,17 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
         {/* Controls Bar */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
           <div className="text-sm font-semibold text-slate-700">
-            Engineered hardware tested for over 25,000 opening/closing duty cycles.
+            {t('acc_tested')}
           </div>
 
           <div className="relative w-full sm:w-64 shrink-0">
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search hardware & handles..."
+              placeholder={t('search_acc')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-600 transition-all"
+              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-600 transition-all"
             />
           </div>
         </div>
@@ -66,7 +70,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
           {filteredLines.map((line) => (
             <div
               key={line.id}
-              className="bg-white rounded-xl border border-slate-200 hover:border-sky-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-xl border border-slate-200 hover:border-red-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
             >
               <div>
                 {/* Photo Stage */}
@@ -89,7 +93,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
 
                 {/* Content */}
                 <div className="p-4 space-y-2">
-                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-red-600 transition-colors">
                     {line.name}
                   </h3>
                   <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
@@ -99,7 +103,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                   <ul className="space-y-1 pt-2 text-[11px] text-slate-500 border-t border-slate-100">
                     {line.features.slice(0, 2).map((feat, idx) => (
                       <li key={idx} className="flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-sky-500 shrink-0"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
                         <span className="truncate">{feat}</span>
                       </li>
                     ))}
@@ -108,24 +112,16 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
               </div>
 
               {/* Action Buttons */}
-              <div className="px-4 pb-4 pt-1 flex items-center gap-2">
+              <div className="px-4 pb-4 pt-1">
                 <GlowButton
                   onClick={() => onSelectProduct(line)}
                   variant="primary"
                   size="sm"
-                  className="flex-1"
+                  className="w-full"
                 >
-                  <span>Specs</span>
+                  <span>{t('specs_btn')}</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </GlowButton>
-                <button
-                  onClick={() => onOpenQuote(line.name)}
-                  className="py-2 px-3 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-colors flex items-center justify-center gap-1"
-                  title="Inquire about hardware package"
-                >
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>Quote</span>
-                </button>
               </div>
             </div>
           ))}

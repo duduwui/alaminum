@@ -16,8 +16,24 @@
     color: #191919;
     margin: 0;
     padding: 0;
+    top: 0px !important;
+    position: static !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .goog-te-banner-frame,
+  .goog-te-banner,
+  #goog-gt-tt,
+  .goog-tooltip,
+  .goog-tooltip:hover {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .goog-text-highlight {
+    background-color: transparent !important;
+    box-shadow: none !important;
   }
 
   .font-serif {
@@ -144,6 +160,189 @@ iframe[id*="editor"] {
   pointer-events: none !important;
 }
 
+/* =========================================================
+   GOOGLE TRANSLATE SUPPRESSION & CLEAN HEADER ENFORCEMENT
+   ========================================================= */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+#goog-gt-vt,
+.goog-te-spinner-pos,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-text-highlight,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf-ti6hGc {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
 
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.skiptranslate:not(.allowed-skiptranslate) {
+  display: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+/* Ensure notranslate class is respected by all translation tools */
+.notranslate {
+  translate: no !important;
+}
+
+/* =========================================================
+   ANIMATED MOVING HERO TEXT MASK (ALL-LANGUAGE COMPATIBLE)
+   ========================================================= */
+.hero-masked-heading {
+  background-image: linear-gradient(rgba(15, 23, 42, 0.22), rgba(15, 23, 42, 0.22)), url('/assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg');
+  background-size: 220% 220%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #0F172A;
+  will-change: background-position;
+  filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.16));
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .hero-masked-heading {
+    color: transparent !important;
+  }
+}
+
+/* =========================================================
+   DOORHOME ARCHITECTURAL TEXTURED RED (NON-FLAT RICH RED)
+   ========================================================= */
+.doorhome-textured-red {
+  background-color: #B91C1C;
+  background-image: 
+    radial-gradient(circle at 18% 25%, rgba(255, 255, 255, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(0, 0, 0, 0.28) 0%, transparent 55%),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, #991B1B 0%, #DC2626 50%, #881337 100%),
+    url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 32L32 0H16L0 16M32 32V16L16 32' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: auto, auto, 16px 16px, auto, 32px 32px;
+  background-repeat: no-repeat, no-repeat, repeat, no-repeat, repeat;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.doorhome-textured-red::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.12) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.12) 100%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   From Uiverse.io by TISEPSE - Minimalist Red-Line Navbar Button
+   At rest: Only text + one red line at bottom (NO background, NO container covering it)
+   On hover: Left, right & top borders draw up to form full red box
+   ========================================================= */
+.btn2 {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 3px 8px;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 11px;
+  color: #1e293b;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease, transform 0.15s ease;
+  box-sizing: border-box;
+}
+
+.btn2.hidden {
+  display: none !important;
+}
+
+/* Hide scrollbar utility for Chrome, Safari, Edge and Firefox */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Single red line at bottom - always visible at rest */
+.btn2::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #dc2626;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+/* Side & top box borders that draw up when hovered */
+.btn2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #dc2626;
+  border-bottom: none;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+  transition: clip-path 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn2:hover {
+  color: #dc2626;
+}
+
+.btn2:hover::before {
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.35);
+}
+
+.btn2:hover::after {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.btn2:active {
+  transform: scale(0.97);
+}
+
+.btn2 .spn2 {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
 
 

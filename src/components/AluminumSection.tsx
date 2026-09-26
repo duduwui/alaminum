@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { ALUMINUM_PRODUCTS, ProductItem } from '../data/winhomeData';
-import { Search, ChevronRight, Calculator, SlidersHorizontal } from 'lucide-react';
+import { Search, ChevronRight, SlidersHorizontal } from 'lucide-react';
 import { GlowButton } from './GlowButton';
+import { useLanguage } from '../context/LanguageContext';
+import { getLocalizedProduct } from '../utils/localizedContent';
 
 interface AluminumSectionProps {
   onSelectProduct: (product: ProductItem) => void;
@@ -9,21 +11,24 @@ interface AluminumSectionProps {
 }
 
 export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduct, onOpenQuote }) => {
+  const { currentLanguage, t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const categories = [
-    { id: 'all', label: 'All Systems' },
-    { id: 'Casement Windows', label: 'Casement & Openings' },
-    { id: 'Thermally Broken Casement', label: 'Thermal Break (60T / 74T)' },
-    { id: 'Monumental Panoramic Doors', label: 'Lift & Slide (70LS / 51LS)' },
-    { id: 'Commercial Façades', label: 'Curtain Wall 50F' },
-    { id: 'Glass Roofs & Atriums', label: 'Sky Light 50F' },
-    { id: 'Concertina Bi-Fold Doors', label: 'Folding 77BF' },
-    { id: 'Interior Architecture', label: 'Office Partitions' }
+    { id: 'all', label: t('tab_all_systems') },
+    { id: 'Casement Windows', label: t('tab_casement_openings') },
+    { id: 'Thermally Broken Casement', label: t('tab_thermal_break') },
+    { id: 'Monumental Panoramic Doors', label: t('tab_lift_slide') },
+    { id: 'Commercial Façades', label: t('tab_curtain_wall') },
+    { id: 'Glass Roofs & Atriums', label: t('tab_sky_light') },
+    { id: 'Concertina Bi-Fold Doors', label: t('tab_folding') },
+    { id: 'Interior Architecture', label: t('tab_office_part') }
   ];
 
-  const filteredItems = ALUMINUM_PRODUCTS.filter((item) => {
+  const localizedItems = ALUMINUM_PRODUCTS.map((p) => getLocalizedProduct(p, currentLanguage.code));
+
+  const filteredItems = localizedItems.filter((item) => {
     const matchesCategory = selectedCategory === 'all' || item.subCategory === selectedCategory;
     const matchesQuery =
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -33,24 +38,24 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
 
   return (
     <section id="aluminum" className="bg-white border-b border-slate-200">
-      {/* Category Banner as shown in user's image reference */}
-      <div className="bg-sky-600 text-white py-8 sm:py-10 px-4 sm:px-6 lg:px-8 shadow-sm">
+      {/* Category Banner */}
+      <div className="doorhome-textured-red text-white py-9 sm:py-12 px-4 sm:px-6 lg:px-8 shadow-sm border-b border-red-900/30">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="text-xs font-bold uppercase tracking-widest text-sky-200 mb-1">
-              Architectural Systems • Lorenzoline
+            <div className="text-xs font-bold uppercase tracking-widest text-red-200 mb-1">
+              {t('al_badge')}
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Aluminum
+              {t('al_title')}
             </h2>
-            <p className="text-sm sm:text-base text-sky-100 max-w-2xl mt-1.5 font-normal">
-              High-performance thermal break profiles, panoramic lift-and-slide doors, structural stick curtain wall façades, and glass roof skylights.
+            <p className="text-sm sm:text-base text-red-100 max-w-2xl mt-1.5 font-normal">
+              {t('al_desc')}
             </p>
           </div>
 
           <div className="flex items-center gap-2">
             <span className="text-xs bg-white/20 px-3 py-1.5 rounded-full font-semibold">
-              {filteredItems.length} Available Systems
+              {filteredItems.length} {t('al_available')}
             </span>
           </div>
         </div>
@@ -79,20 +84,20 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
             <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder="Search aluminum series..."
+              placeholder={t('search_al')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-sky-600 focus:bg-white transition-all"
+              className="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 text-xs bg-slate-50 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-600 focus:bg-white transition-all"
             />
           </div>
         </div>
 
-        {/* Product Cards Grid - Clean, Modern, Commercial */}
+        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((product) => (
             <div
               key={product.id}
-              className="bg-white rounded-xl border border-slate-200 hover:border-sky-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
+              className="bg-white rounded-xl border border-slate-200 hover:border-red-500 hover:shadow-lg transition-all duration-200 flex flex-col justify-between overflow-hidden group"
             >
               <div>
                 {/* Product Image Stage */}
@@ -114,7 +119,7 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
                     </span>
                   )}
                   {product.subCategory && (
-                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded bg-sky-50 text-sky-800 text-[10px] font-bold uppercase tracking-wider border border-sky-100">
+                    <span className="absolute top-3 right-3 px-2 py-0.5 rounded bg-red-50 text-red-800 text-[10px] font-bold uppercase tracking-wider border border-red-100">
                       {product.subCategory.split(' ')[0]}
                     </span>
                   )}
@@ -122,7 +127,7 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
 
                 {/* Content */}
                 <div className="p-5">
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
                     {product.name}
                   </h3>
                   <p className="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
@@ -133,13 +138,13 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
                   <div className="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 text-xs">
                     {product.insulationValue && (
                       <div className="bg-slate-50 p-2 rounded">
-                        <span className="text-[10px] text-slate-500 block">Insulation</span>
+                        <span className="text-[10px] text-slate-500 block">{t('insulation_label')}</span>
                         <span className="font-semibold text-slate-800">{product.insulationValue}</span>
                       </div>
                     )}
                     {product.depth && (
                       <div className="bg-slate-50 p-2 rounded">
-                        <span className="text-[10px] text-slate-500 block">Frame Depth</span>
+                        <span className="text-[10px] text-slate-500 block">{t('depth_label')}</span>
                         <span className="font-semibold text-slate-800">{product.depth}</span>
                       </div>
                     )}
@@ -148,24 +153,16 @@ export const AluminumSection: React.FC<AluminumSectionProps> = ({ onSelectProduc
               </div>
 
               {/* Action Buttons */}
-              <div className="px-5 pb-5 pt-2 flex items-center gap-2">
+              <div className="px-5 pb-5 pt-2">
                 <GlowButton
                   onClick={() => onSelectProduct(product)}
                   variant="primary"
                   size="sm"
-                  className="flex-1"
+                  className="w-full"
                 >
-                  <span>Specifications</span>
+                  <span>{t('specs_btn')}</span>
                   <ChevronRight className="w-3.5 h-3.5" />
                 </GlowButton>
-                <button
-                  onClick={() => onOpenQuote(product.name)}
-                  className="py-2.5 px-3 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-700 text-xs font-bold transition-colors flex items-center justify-center gap-1"
-                  title="Estimate this system"
-                >
-                  <Calculator className="w-3.5 h-3.5" />
-                  <span>Quote</span>
-                </button>
               </div>
             </div>
           ))}

@@ -255,7 +255,7 @@ function StepIndicator({ step, currentStep, onClickStep, disableStepIndicators }
       <motion.div
         variants={{
           inactive: { scale: 1, backgroundColor: '#e2e8f0', color: '#64748b' },
-          active: { scale: 1, backgroundColor: '#1b4ef5', color: '#ffffff' },
+          active: { scale: 1, backgroundColor: '#2563EB', color: '#ffffff' },
           complete: { scale: 1, backgroundColor: '#10b981', color: '#ffffff' }
         }}
         transition={{ duration: 0.3 }}

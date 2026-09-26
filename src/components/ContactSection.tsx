@@ -1,341 +1,323 @@
 import React, { useState } from 'react';
-import Stepper, { Step } from './Stepper';
-import { WINHOME_CONTACT } from '../data/winhomeData';
-import { Phone, MapPin, Clock, Send, MessageSquare, CheckCircle2, Building2, Home, Layers, ShieldCheck } from 'lucide-react';
+import { DOORHOME_CONTACT } from '../data/winhomeData';
+import {
+  Send,
+  CheckCircle2,
+  MessageSquare,
+  MapPin,
+  ExternalLink,
+  Clock,
+  Phone
+} from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
-export const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  onOpenQuoteModal?: () => void;
+}
+
+export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal }) => {
+  // Inquiry Form State
   const [formData, setFormData] = useState({
-    projectType: 'Luxury Villa',
-    location: 'Erbil',
-    systemCategory: 'uPVC Systems',
-    projectStage: 'Architectural Drawings Ready',
-    name: '',
+    firstName: '',
+    lastName: '',
+    country: 'Iraq',
+    city: '',
     phone: '',
     email: '',
-    branch: 'sales',
-    notes: ''
+    reason: '',
+    subject: '',
+    comments: '',
+    acceptTerms: false
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const [customCountry, setCustomCountry] = useState('');
+  const [customReason, setCustomReason] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [mapReady, setMapReady] = useState(false);
+  const { currentLanguage, t } = useLanguage();
+  const isRtl = ['ckb', 'kmr', 'ar'].includes(currentLanguage.code);
+  const workHours = currentLanguage.code === 'ar'
+    ? DOORHOME_CONTACT.workHoursArabic
+    : ['ckb', 'kmr'].includes(currentLanguage.code)
+      ? DOORHOME_CONTACT.workHoursKurdish
+      : DOORHOME_CONTACT.workHours;
 
-  const handleFinalSubmit = () => {
-    setSubmitted(true);
+  const handleSubmitInquiry = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const resolvedCountry = formData.country === 'Other' ? (customCountry.trim() || 'Other') : formData.country;
+    const resolvedReason = formData.reason === 'Other' ? (customReason.trim() || 'Other') : formData.reason;
+
+    try {
+      const response = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
+        id: `INQ-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+        kind: 'contact', createdAt: new Date().toISOString(), status: 'new', items: [], totalQuantity: 0, totalAreaSqm: 0,
+        customer: { fullName: `${formData.firstName} ${formData.lastName}`.trim(), firstName: formData.firstName, lastName: formData.lastName, phone: formData.phone, email: formData.email, city: formData.city || resolvedCountry, country: resolvedCountry, projectType: resolvedReason, timeline: '', serviceNeeded: formData.subject, preferredContact: 'phone', additionalNotes: formData.comments }
+      }) });
+      if (!response.ok) throw new Error('Could not send your message. Please try again.');
+      setIsSubmitted(true);
+    } catch (error: any) { setSubmitError(error.message || 'Could not send your message.'); }
+    finally { setIsSubmitting(false); }
   };
 
-  const whatsappDirectUrl = `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${encodeURIComponent(
-    `Hello Winhome, I am inquiring about ${formData.systemCategory} for my ${formData.projectType} project in ${formData.location}. Name: ${formData.name}, Phone: ${formData.phone}.`
+  const activeReason = formData.reason === 'Other' ? (customReason.trim() || 'Other') : formData.reason;
+  const rawPhone = (DOORHOME_CONTACT.hotlineRaw || '+9647507388748').replace('+', '');
+  const whatsappDirectUrl = `https://wa.me/${rawPhone}?text=${encodeURIComponent(
+    `Hello Doorhome, my name is ${formData.firstName || 'Client'} and I would like to inquire about: ${formData.subject || activeReason || 'Architectural Systems'}.`
   )}`;
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900 border-b border-slate-200 relative overflow-hidden">
-      {/* Subtle Background Glow Spheres */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-sky-100/30 rounded-full blur-3xl pointer-events-none" />
+    <section id="contact" className="py-20 bg-gradient-to-b from-slate-50 via-white to-slate-100 text-slate-900 border-t border-slate-200 relative overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-red-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-red-200/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {submitError && <p role="alert" className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">{submitError}</p>}
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Get In Touch with <span className="text-blue-600">Winhome Erbil</span>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
+            <MessageSquare className="w-3.5 h-3.5 text-white" />
+            <span>{t('contact_badge')}</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E4346] tracking-tight">
+            {t('contact_title')}
           </h2>
-          <p className="text-base text-slate-600 mt-3 leading-relaxed font-medium">
-            Answer a few quick questions to guide our architectural sales and engineering teams in providing exact specifications for your villa or commercial project.
+          <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed font-medium">
+            {t('contact_desc')}
           </p>
         </div>
 
-        {/* 2-Column Side-by-Side Executive Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Interactive Multi-Step Stepper Wizard */}
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            {submitted ? (
-              <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 shadow-lg text-center space-y-6 animate-in fade-in duration-300">
-                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-extrabold text-slate-900">
-                    Inquiry Received Successfully!
-                  </h3>
-                  <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-slate-900 font-bold">{formData.name || 'Valued Client'}</strong>. A certified Winhome project engineer will contact you shortly regarding your <span className="text-blue-600 font-semibold">{formData.systemCategory}</span> inquiry.
-                  </p>
-                </div>
+          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5">
+            <div>
+              <span className="text-xs font-black uppercase tracking-widest text-red-600">
+                Inquiry &amp; Request Form
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
+                {t('form_title')}
+              </h3>
+              <p className="text-xs text-slate-500 mt-1">
+                {t('form_desc')}
+              </p>
+            </div>
 
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {isSubmitted ? (
+              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-in fade-in duration-300">
+                <div className="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h4 className="text-xl font-black text-emerald-950">
+                  {t('msg_sent_title')}
+                </h4>
+                <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
+                  Thank you, <span className="font-bold">{formData.firstName} {formData.lastName}</span>. Your inquiry regarding "{formData.subject || formData.reason || 'General Request'}" has been forwarded to our engineering team.
+                </p>
+
+                <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
                   <a
                     href={whatsappDirectUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-md"
+                    rel="noreferrer"
+                    className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm"
                   >
                     <MessageSquare className="w-4 h-4" />
-                    <span>Connect Immediately on WhatsApp</span>
+                    <span>{t('chat_whatsapp_btn')}</span>
                   </a>
+
                   <button
                     type="button"
-                    onClick={() => setSubmitted(false)}
-                    className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-colors"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        firstName: '',
+                        lastName: '',
+                        country: 'Iraq',
+                        city: '',
+                        phone: '',
+                        email: '',
+                        reason: '',
+                        subject: '',
+                        comments: '',
+                        acceptTerms: false
+                      });
+                    }}
+                    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition-all"
                   >
-                    Submit Another Request
+                    Send Another Message
                   </button>
                 </div>
               </div>
             ) : (
-              <Stepper
-                initialStep={1}
-                onFinalStepCompleted={handleFinalSubmit}
-                backButtonText="Back"
-                nextButtonText="Continue"
-              >
-                {/* Step 1: Project Type & Location */}
-                <Step>
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
-                        Step 1 of 3 • Project Scope
-                      </span>
-                      <h3 className="text-xl font-bold text-slate-900">
-                        What type of building are you developing?
-                      </h3>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { id: 'Luxury Villa', label: 'Luxury Villa / Mansion', icon: Home },
-                        { id: 'Commercial High-Rise', label: 'Commercial High-Rise', icon: Building2 },
-                        { id: 'Residential Apartment', label: 'Residential Compound', icon: Layers },
-                        { id: 'Renovation', label: 'Window Replacement', icon: ShieldCheck }
-                      ].map((item) => (
-                        <button
-                          key={item.id}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, projectType: item.id })}
-                          className={`p-3.5 rounded-xl border text-left flex flex-col items-start gap-2 transition-all ${
-                            formData.projectType === item.id
-                              ? 'border-blue-600 bg-blue-50/70 text-blue-900 font-bold shadow-xs'
-                              : 'border-slate-200 bg-white hover:border-slate-300 text-slate-700 font-medium'
-                          }`}
-                        >
-                          <item.icon className={`w-5 h-5 ${formData.projectType === item.id ? 'text-blue-600' : 'text-slate-400'}`} />
-                          <span className="text-xs">{item.label}</span>
-                        </button>
-                      ))}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                        Project Location City
-                      </label>
-                      <select
-                        value={formData.location}
-                        onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs font-semibold focus:outline-none focus:border-blue-600 focus:bg-white"
-                      >
-                        <option value="Erbil">Erbil (Capital Hub)</option>
-                        <option value="Sulaymaniyah">Sulaymaniyah</option>
-                        <option value="Duhok">Duhok</option>
-                        <option value="Baghdad">Baghdad / Federal Iraq</option>
-                      </select>
-                    </div>
+              <form onSubmit={handleSubmitInquiry} className="space-y-4 text-xs font-bold text-slate-700">
+                {/* Row 1: Name */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('first_name_label')}</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.firstName}
+                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      placeholder="e.g. Mohammed"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    />
                   </div>
-                </Step>
-
-                {/* Step 2: System Interest */}
-                <Step>
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
-                        Step 2 of 3 • Technical Interest
-                      </span>
-                      <h3 className="text-xl font-bold text-slate-900">
-                        Which fenestration profile do you require?
-                      </h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {[
-                        { id: 'uPVC Systems', label: 'uPVC Windows & Sliding (Winsa)', sub: 'Acoustic & thermal insulation' },
-                        { id: 'Aluminum Systems', label: 'Thermal Break Aluminum (Lorenzoline)', sub: 'Panoramic doors & curtain wall' },
-                        { id: 'Curtain Wall 50F', label: 'Curtain Wall 50F Façades', sub: 'Structural glass mullion towers' },
-                        { id: 'Hardware & BOQ', label: 'Hardware & Complete BOQ', sub: 'Master Italy hardware packages' }
-                      ].map((sys) => (
-                        <button
-                          key={sys.id}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, systemCategory: sys.id })}
-                          className={`p-3.5 rounded-xl border text-left transition-all ${
-                            formData.systemCategory === sys.id
-                              ? 'border-blue-600 bg-blue-50/70 text-blue-900 font-bold shadow-xs'
-                              : 'border-slate-200 bg-white hover:border-slate-300 text-slate-700 font-medium'
-                          }`}
-                        >
-                          <span className="text-xs block font-bold">{sys.label}</span>
-                          <span className="text-[11px] text-slate-500 block mt-0.5">{sys.sub}</span>
-                        </button>
-                      ))}
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                        Optional Project Notes / Estimated Window Count
-                      </label>
-                      <textarea
-                        rows={3}
-                        value={formData.notes}
-                        onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                        placeholder="Mention approximate window count, desired color finishes (e.g. Anthracite, Golden Oak), or specific thermal requirements..."
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-blue-600 focus:bg-white"
-                      ></textarea>
-                    </div>
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('last_name_label')}</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.lastName}
+                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                      placeholder="e.g. Ali"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    />
                   </div>
-                </Step>
+                </div>
 
-                {/* Step 3: Client Contact Info */}
-                <Step>
-                  <div className="space-y-4">
-                    <div>
-                      <span className="text-xs font-bold text-blue-600 uppercase tracking-wider block mb-1">
-                        Step 3 of 3 • Contact Details
-                      </span>
-                      <h3 className="text-xl font-bold text-slate-900">
-                        Where should our engineer send your proposal?
-                      </h3>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                          Full Name *
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={formData.name}
-                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          placeholder="e.g. Barzan Mohammed"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-blue-600 focus:bg-white"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                          Phone Number (WhatsApp) *
-                        </label>
-                        <input
-                          type="tel"
-                          required
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          placeholder="+964 750 XXX XXXX"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-blue-600 focus:bg-white"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          placeholder="name@company.com"
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs focus:outline-none focus:border-blue-600 focus:bg-white"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                          Branch Destination
-                        </label>
-                        <select
-                          value={formData.branch}
-                          onChange={(e) => setFormData({ ...formData, branch: e.target.value })}
-                          className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 bg-slate-50 text-slate-900 text-xs font-semibold focus:outline-none focus:border-blue-600 focus:bg-white"
-                        >
-                          <option value="sales">Sales & Showroom Branch</option>
-                          <option value="manufacturing">Erbil Manufacturing Plant</option>
-                        </select>
-                      </div>
-                    </div>
+                {/* Row 2: Phone & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('phone_label')}</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="+964 750 XXX XXXX"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    />
                   </div>
-                </Step>
-              </Stepper>
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('email_label')}</label>
+                    <input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="name@example.com"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    />
+                  </div>
+                </div>
+
+                {/* Row 3: Country & Contact Reason */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('country_label')}</label>
+                    <select
+                      value={formData.country}
+                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    >
+                      <option value="Iraq">Iraq</option>
+                      <option value="Turkey">Turkey</option>
+                      <option value="Germany">Germany</option>
+                      <option value="UAE">United Arab Emirates</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {formData.country === 'Other' && (
+                      <input
+                        type="text"
+                        required
+                        value={customCountry}
+                        onChange={(e) => setCustomCountry(e.target.value)}
+                        placeholder="Type your country name..."
+                        className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
+                      />
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('inquiry_label')}</label>
+                    <select
+                      value={formData.reason}
+                      onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
+                    >
+                      <option value="">Select Reason</option>
+                      <option value="Quotation Request">Quotation Request</option>
+                      <option value="Architectural Specification">Architectural Specification</option>
+                      <option value="Showroom Visit">Showroom Visit</option>
+                      <option value="Partnership / Dealer">Partnership / Dealer</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {formData.reason === 'Other' && (
+                      <input
+                        type="text"
+                        required
+                        value={customReason}
+                        onChange={(e) => setCustomReason(e.target.value)}
+                        placeholder="Type your inquiry topic..."
+                        className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
+                      />
+                    )}
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('message_label')}</label>
+                  <textarea
+                    required
+                    rows={3}
+                    value={formData.comments}
+                    onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
+                    placeholder="Describe your window, door, facade, or hardware requirements..."
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-medium"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>{isSubmitting ? '...' : t('send_msg_btn')}</span>
+                </button>
+              </form>
             )}
           </div>
+          </div>
 
-          {/* Right Column: Direct Hotlines & Erbil Location Map */}
-          <div className="lg:col-span-5 space-y-5">
-            {/* Sales & Factory Direct Contact Card */}
-            <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <div className="border-b border-slate-100 pb-3">
-                <span className="text-[11px] font-bold text-blue-600 uppercase tracking-wider block">
-                  Direct Line & Consultations
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 mt-0.5">
-                  Winhome Erbil Headquarters
-                </h3>
+          <aside className="overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-[0_24px_65px_-32px_rgba(159,18,57,0.4)] lg:col-span-5" aria-label={t('showroom_title')}>
+            <div className="bg-gradient-to-br from-[#a9162e] via-[#d31932] to-[#f04448] p-6 text-white sm:p-7">
+              <h3 className="text-2xl font-black">{t('location_card_title')}</h3>
+              <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/90">{t('address_line')}</p>
+            </div>
+            <div className="space-y-4 p-6 sm:p-7">
+              <div className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
+                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
+                <div><span className="block font-extrabold text-slate-900">{t('working_hours_label')}</span><span>{workHours}</span></div>
               </div>
-
-              <div className="space-y-3 text-xs text-slate-700">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-slate-900 block">Factory & Showroom Address:</span>
-                    <span className="text-slate-600">{WINHOME_CONTACT.address}</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5">
-                  <Clock className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-slate-900 block">Working Hours:</span>
-                    <span className="text-slate-600">{WINHOME_CONTACT.workHours}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
-                {WINHOME_CONTACT.branches.sales.phones.map((phone, i) => (
-                  <a
-                    key={i}
-                    href={`tel:${WINHOME_CONTACT.branches.sales.phonesRaw[i]}`}
-                    className="p-2.5 rounded-lg bg-slate-50 hover:bg-blue-50 border border-slate-200 hover:border-blue-300 text-xs font-bold text-slate-900 hover:text-blue-700 flex items-center gap-2 transition-colors"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-blue-600" />
-                    <span>{phone}</span>
-                  </a>
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                {DOORHOME_CONTACT.branches.sales.phones.map((phone, index) => (
+                  <a key={phone} href={`tel:${DOORHOME_CONTACT.branches.sales.phonesRaw[index]}`} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-800 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700"><Phone className="h-4 w-4 shrink-0 text-red-600" />{phone}</a>
                 ))}
               </div>
+              <div className="relative h-48 overflow-hidden rounded-2xl border border-slate-200 bg-[#e8edf0]">
+                <a href={DOORHOME_CONTACT.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(30deg,transparent_45%,#cbd5db_46%,#cbd5db_49%,transparent_50%),linear-gradient(120deg,transparent_42%,#cbd5db_43%,#cbd5db_46%,transparent_47%)] bg-[length:70px_70px] text-slate-700" aria-hidden={mapReady} tabIndex={mapReady ? -1 : 0}>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg"><MapPin className="h-6 w-6" /></span>
+                  <span className="rounded-full bg-white px-3 py-1 text-xs font-bold shadow-sm">{t('open_maps_btn')}</span>
+                </a>
+                <iframe title={t('location_card_title')} src={DOORHOME_CONTACT.mapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" onLoad={(event) => {
+                  try { setMapReady(event.currentTarget.contentDocument === null); } catch { setMapReady(true); }
+                }} className={`absolute inset-0 h-full w-full border-0 transition-opacity ${mapReady ? 'opacity-100' : 'pointer-events-none opacity-0'}`} />
+              </div>
+              <a href={DOORHOME_CONTACT.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-extrabold text-white shadow-md shadow-red-600/15 transition-colors hover:bg-red-700">{t('open_maps_btn')}<ExternalLink className="h-4 w-4" /></a>
             </div>
+          </aside>
 
-            {/* Embedded Erbil Factory Map Card */}
-            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <MapPin className="w-4 h-4 text-blue-600" />
-                  <span>Erbil Factory & Showroom Location</span>
-                </span>
-                <span className="text-[11px] text-slate-500 font-medium">Kurdistan Region</span>
-              </div>
-              <div className="w-full h-56 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-                <iframe
-                  title="Winhome Erbil Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102987.52731804791!2d43.9288764!3d36.1911135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400722fe134333a3%3A0x6a0a0be094e432a6!2sErbil%2C%20Kurdistan%20Region%2C%20Iraq!5e0!3m2!1sen!2siq!4v1700000000000!5m2!1sen!2siq"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   );
 };
+
+export default ContactSection;

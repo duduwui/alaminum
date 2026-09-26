@@ -1,105 +1,136 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Lock, ArrowLeft, KeyRound, AlertCircle } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
+import { loginAdminUser } from '../services/authService';
+import { User } from '../types/auth';
+import './NeumorphicLoginForm.css';
 
 interface AdminGuardModalProps {
   isOpen: boolean;
-  onSuccess: () => void;
-  onCancel: () => void;
+  onSuccess: (user?: User) => void;
+  onCancel?: () => void;
+  onClose?: () => void;
 }
 
-const DEFAULT_DEMO_PASSCODE = 'admin123';
-
-export function AdminGuardModal({ isOpen, onSuccess, onCancel }: AdminGuardModalProps) {
-  const [passcode, setPasscode] = useState('');
+export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminGuardModalProps) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  const handleClose = onCancel || onClose || (() => {});
+
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      if (passcode.trim() === DEFAULT_DEMO_PASSCODE || passcode.trim().toLowerCase() === 'admin') {
+    try {
+      const user = await loginAdminUser({
+        email: email.trim(),
+        password: password.trim()
+      });
+
+      if (user.role !== 'admin' && user.role !== 'super_admin') {
+        setError('Access restricted. This account does not have Administrative privileges.');
         setIsSubmitting(false);
-        setPasscode('');
-        onSuccess();
-      } else {
-        setIsSubmitting(false);
-        setError('Invalid passcode. Access denied. (Demo Key: admin123)');
+        return;
       }
-    }, 400);
+
+      setIsSubmitting(false);
+      setEmail('');
+      setPassword('');
+      onSuccess(user);
+    } catch (err: any) {
+      setIsSubmitting(false);
+      setError(err.message || 'Invalid administrator credentials. Access denied.');
+    }
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-md bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl overflow-hidden text-slate-100 p-6 sm:p-8">
-        {/* Glow Header Accent */}
-        <div className="absolute -top-24 -left-24 w-48 h-48 bg-sky-500/20 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="relative flex flex-col items-center text-center">
-          <div className="w-16 h-16 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-5 shadow-inner">
-            <Lock className="w-8 h-8" />
+      <div className="relative flex flex-col items-center">
+        {/* From Uiverse.io by Harsha2lucky & TISEPSE */}
+        <div className="content">
+          <div className="text">
+            Admin
           </div>
 
-          <h3 className="text-2xl font-black tracking-tight text-white mb-2">
-            Restricted Admin Portal
-          </h3>
-          <p className="text-sm text-slate-400 mb-6">
-            Please enter your management passcode to access Winhome quotation management tools.
-          </p>
+          {error && (
+            <div className="neumorphic-alert error">
+              {error}
+            </div>
+          )}
 
-          <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
-            <div className="relative">
-              <KeyRound className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+          <form onSubmit={handleSubmit} dir="ltr" autoComplete="off">
+            {/* Decoy inputs to prevent browser autofill */}
+            <input type="text" name="decoy_admin_user" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+            <input type="password" name="decoy_admin_pass" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+
+            <div className="field">
               <input
-                type="password"
-                value={passcode}
+                required
+                type="text"
+                name="dh_admin_email_field"
+                id="dh_admin_email_field"
+                autoComplete="off"
+                data-lpignore="true"
+                className={`input ${email ? 'has-val' : ''}`}
+                value={email}
                 onChange={(e) => {
-                  setPasscode(e.target.value);
+                  setEmail(e.target.value);
                   if (error) setError('');
                 }}
-                placeholder="Enter access passcode (admin123)"
-                className="w-full pl-12 pr-4 py-3.5 bg-slate-950/70 border border-slate-700/80 rounded-2xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/30 transition-all font-mono tracking-wider"
-                autoFocus
               />
+              <span className="span">
+                <svg viewBox="0 0 512 512" height="20" width="50" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#595959" d="M256 0c-74.439 0-135 60.561-135 135s60.561 135 135 135 135-60.561 135-135S330.439 0 256 0zM423.966 358.195C387.006 320.667 338.009 300 286 300h-60c-52.008 0-101.006 20.667-137.966 58.195C51.255 395.539 31 444.833 31 497c0 8.284 6.716 15 15 15h420c8.284 0 15-6.716 15-15 0-52.167-20.255-101.461-57.034-138.805z" />
+                </svg>
+              </span>
+      <label className="label">Admin username or email</label>
             </div>
 
-            {error && (
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs text-left">
-                <AlertCircle className="w-4 h-4 shrink-0" />
-                <span>{error}</span>
-              </div>
-            )}
+            <div className="field">
+              <input
+                required
+                type="password"
+                name="dh_admin_pass_field"
+                id="dh_admin_pass_field"
+                autoComplete="new-password"
+                data-lpignore="true"
+                className={`input ${password ? 'has-val' : ''}`}
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (error) setError('');
+                }}
+              />
+              <span className="span">
+                <svg viewBox="0 0 512 512" height="20" width="50" xmlns="http://www.w3.org/2000/svg">
+                  <path fill="#595959" d="M336 192h-16v-64C320 57.406 262.594 0 192 0S64 57.406 64 128v64H48c-26.453 0-48 21.523-48 48v224c0 26.477 21.547 48 48 48h288c26.453 0 48-21.523 48-48V240c0-26.477-21.547-48-48-48zm-229.332-64c0-47.063 38.27-85.332 85.332-85.332s85.332 38.27 85.332 85.332v64H106.668zm0 0" />
+                </svg>
+              </span>
+              <label className="label">Password</label>
+            </div>
 
-            <button
-              type="submit"
-              disabled={!passcode.trim() || isSubmitting}
-              className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-sky-500/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-            >
-              {isSubmitting ? (
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : (
-                <>
-                  <ShieldCheck className="w-5 h-5" />
-                  <span>Authenticate & Enter</span>
-                </>
-              )}
+            <button className="btn2" type="submit" disabled={isSubmitting}>
+              <span className="spn2">{isSubmitting ? 'Verifying...' : 'Sign in'}</span>
             </button>
           </form>
-
-          <button
-            onClick={onCancel}
-            className="mt-5 flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span>Return to Public Homepage</span>
-          </button>
         </div>
+
+        {/* Back link */}
+        <button
+          onClick={handleClose}
+          className="mt-6 flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-colors bg-slate-900/80 px-4 py-2 rounded-full border border-slate-700 hover:border-slate-500 cursor-pointer"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Return to Homepage</span>
+        </button>
       </div>
     </div>
   );
 }
+
+export default AdminGuardModal;

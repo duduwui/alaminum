@@ -1,0 +1,18 @@
+@media (prefers-reduced-motion: no-preference) {
+  button, a, input, select, textarea {
+    transition-duration: 180ms;
+    transition-timing-function: cubic-bezier(.22,1,.36,1);
+  }
+  input, select, textarea { transition-property: border-color, box-shadow, background-color; }
+  .doorhome-products-menu { transform-origin: top center; }
+  main .group img { transition: transform 420ms cubic-bezier(.22,1,.36,1); }
+  main button:active:not(:disabled) { scale: .985; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

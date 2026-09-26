@@ -1,44 +1,190 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
+import { AlumilHeader } from './components/AlumilHeader';
 import { HeroSection } from './components/HeroSection';
 import { PartnerLogos } from './components/PartnerLogos';
 import { SignatureShowcase } from './components/SignatureShowcase';
-import { HomeSystemsBentoSection } from './components/HomeSystemsBentoSection';
 import { AboutSection } from './components/AboutSection';
+import { WindowsSection } from './components/WindowsSection';
+import { DoorsSection } from './components/DoorsSection';
 import { GallerySection } from './components/GallerySection';
-import { BrochuresSection } from './components/BrochuresSection';
 import { ContactSection } from './components/ContactSection';
+import { AlumilContactPage } from './components/AlumilContactPage';
+import { FloatingContactBadge } from './components/FloatingContactBadge';
 import { ProductShopPage } from './components/ProductShopPage';
-import { Footer } from './components/Footer';
-import { ProductDetailModal } from './components/ProductDetailModal';
-import { QuoteCalculatorModal } from './components/QuoteCalculatorModal';
+import { AlumilFooter } from './components/AlumilFooter';
+import { ProductDetailPage } from './components/ProductDetailPage';
 import { SearchModal } from './components/SearchModal';
-import { ConfigureItemModal } from './components/ConfigureItemModal';
 import { RequestCartDrawer } from './components/RequestCartDrawer';
 import { QuotationRequestStepperModal } from './components/QuotationRequestStepperModal';
 import { AdminPortalPage } from './components/AdminPortalPage';
 import { AdminGuardModal } from './components/AdminGuardModal';
-import { ProductItem, WINHOME_CONTACT } from './data/winhomeData';
+import { UserAccountModal } from './components/UserAccountModal';
+import { UserAuthPage } from './components/UserAuthPage';
+import { TranslationLoader } from './components/TranslationLoader';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { useLanguage } from './context/LanguageContext';
+import { ProductItem } from './data/winhomeData';
 import { RequestItem, QuotationRequest } from './types/requests';
 import { loadActiveCart, saveActiveCart } from './services/requestService';
+import { getCurrentUser, logoutUser } from './services/authService';
+import { loadLocalProducts, saveLocalProducts } from './services/productService';
+import { hasAdminCmsSession, loadSharedCmsSection } from './services/cmsService';
+import { normalizeGalleryItems, saveGalleryItems } from './services/galleryContentService';
+import { loadProductDivisions, saveProductDivisions } from './services/productNavigationService';
+import { ProductCategoryDivision } from './data/productNavigationData';
+import { SEARCH_PAGES, SITE_URL, searchPagePath } from './utils/searchMetadata';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<string>('home');
-  const [shopCategory, setShopCategory] = useState<string>('all');
+  const { isTranslating, targetLanguage } = useLanguage();
+  const [activeTab, setActiveTab] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const path = window.location.pathname.replace('/', '').toLowerCase();
+      const route = hash || path;
+      if (route === 'admin') return 'admin';
+      if (route === 'projects') return 'projects';
+      if (route === 'auth' || route === 'login' || route === 'register') return 'auth';
+      if (route === 'products' || loadProductDivisions().some((division) => division.key === route)) return route;
+      if (route === 'contact' || route === 'contactus') return 'contact';
+    }
+    return 'home';
+  });
+
+  const [shopCategory, setShopCategory] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash.replace('#', '').toLowerCase();
+      const path = window.location.pathname.replace('/', '').toLowerCase();
+      const route = hash || path;
+      if (loadProductDivisions().some((division) => division.key === route)) return route;
+      if (route === 'products') return 'all';
+    }
+    return 'all';
+  });
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
-  const [quoteModalOpen, setQuoteModalOpen] = useState<boolean>(false);
-  const [initialQuoteProduct, setInitialQuoteProduct] = useState<string>('');
+  useEffect(() => {
+    const isPrivate = ['admin', 'auth', 'login', 'register'].includes(activeTab);
+    const pathname = window.location.hash === '#contact' ? '/contact' : searchPagePath(activeTab);
+    const page = SEARCH_PAGES[pathname];
+    document.title = isPrivate ? `Doorhome | ${activeTab === 'admin' ? 'Administration' : 'Sign in'}` : page.title;
+    const setMeta = (selector: string, content: string) => document.querySelector(selector)?.setAttribute('content', content);
+    setMeta('meta[name="description"]', page.description);
+    setMeta('meta[name="robots"]', isPrivate ? 'noindex, follow' : 'index, follow, max-image-preview:large');
+    setMeta('meta[property="og:title"]', page.title);
+    setMeta('meta[property="og:description"]', page.description);
+    setMeta('meta[property="og:url"]', `${SITE_URL}${pathname}`);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', `${SITE_URL}${pathname}`);
+  }, [activeTab, selectedProduct]);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
 
-  // Admin Access Security Gate State
-  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(false);
+  // User Authentication Modal State
+  const [isUserAccountModalOpen, setIsUserAccountModalOpen] = useState<boolean>(false);
+
+  // Admin Security Gate State
+  const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
+    const user = getCurrentUser();
+    return user?.role === 'admin' || user?.role === 'super_admin';
+  });
+  const [adminSessionStatus, setAdminSessionStatus] = useState<'checking' | 'valid' | 'missing'>('checking');
   const [isAdminAuthModalOpen, setIsAdminAuthModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (activeTab !== 'admin') return;
+    if (!isAdminAuthenticated) {
+      setAdminSessionStatus('missing');
+      return;
+    }
+
+    let cancelled = false;
+    setAdminSessionStatus('checking');
+    void hasAdminCmsSession().then((valid) => {
+      if (cancelled) return;
+      setAdminSessionStatus(valid ? 'valid' : 'missing');
+    }).catch(() => {
+      if (cancelled) return;
+      setAdminSessionStatus('missing');
+    });
+    return () => { cancelled = true; };
+  }, [activeTab, isAdminAuthenticated]);
 
   // E-Commerce Architectural Request Cart State
   const [cartItems, setCartItems] = useState<RequestItem[]>(() => loadActiveCart());
-  const [configuringProduct, setConfiguringProduct] = useState<ProductItem | null>(null);
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState<boolean>(false);
-  // Disable browser scroll restoration on refresh so page loads cleanly at top
+  const [isStepperModalOpen, setIsStepperModalOpen] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (getCurrentUser()?.role === 'admin' || window.location.hash === '#admin') return;
+    let visitorId = localStorage.getItem('doorhome_visitor_id');
+    if (!visitorId) { visitorId = crypto.randomUUID(); localStorage.setItem('doorhome_visitor_id', visitorId); }
+
+    const sendLeave = () => {
+      try {
+        if (navigator.sendBeacon) {
+          const blob = new Blob([JSON.stringify({ visitorId })], { type: 'application/json' });
+          navigator.sendBeacon('/api/visits/leave', blob);
+        } else {
+          void fetch('/api/visits/leave', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ visitorId }), keepalive: true
+          }).catch(() => {});
+        }
+      } catch { /* ignore */ }
+    };
+
+    const heartbeat = () => {
+      if (getCurrentUser()?.role === 'admin' || window.location.hash === '#admin') return;
+      void fetch('/api/visits/heartbeat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ visitorId })
+      }).catch(() => {});
+    };
+
+    heartbeat();
+    const timer = window.setInterval(heartbeat, 10_000);
+
+    // visibilitychange fires reliably on mobile when tab switches or browser closes
+    const handleVisibility = () => {
+      if (document.visibilityState === 'hidden') {
+        sendLeave();
+      } else {
+        heartbeat(); // user came back — send heartbeat immediately
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    window.addEventListener('beforeunload', sendLeave);
+    window.addEventListener('pagehide', sendLeave);
+
+    return () => {
+      window.clearInterval(timer);
+      document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('beforeunload', sendLeave);
+      window.removeEventListener('pagehide', sendLeave);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (activeTab === 'admin') return;
+    let cancelled = false;
+    void Promise.all([
+      loadSharedCmsSection<Record<string, unknown>>('homepage'),
+      loadSharedCmsSection<unknown>('gallery'),
+      loadSharedCmsSection<unknown>('products'),
+      loadSharedCmsSection<unknown>('divisions')
+    ]).then(([homepage, gallery, products, divisions]) => {
+      if (cancelled) return;
+      if (homepage && typeof homepage === 'object' && !Array.isArray(homepage)) {
+        localStorage.setItem('winhome_cms_homepage_media', JSON.stringify(homepage));
+        window.dispatchEvent(new Event('cms_homepage_updated'));
+      }
+      if (Array.isArray(gallery)) saveGalleryItems(normalizeGalleryItems(gallery));
+      if (Array.isArray(products)) saveLocalProducts(products as ProductItem[]);
+      if (Array.isArray(divisions)) saveProductDivisions(divisions as ProductCategoryDivision[]);
+    }).catch(() => { /* Keep local content when the shared server is unavailable. */ });
+    return () => { cancelled = true; };
+  }, [activeTab]);
+
+  // Disable browser scroll restoration on refresh
   useEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
@@ -46,38 +192,62 @@ export default function App() {
     window.scrollTo(0, 0);
   }, []);
 
-  const [isStepperModalOpen, setIsStepperModalOpen] = useState<boolean>(false);
-
   // Sync cart with localStorage
   useEffect(() => {
     saveActiveCart(cartItems);
   }, [cartItems]);
 
-  // URL routing & Hash synchronization (supports #admin, #products, etc.)
+  // URL routing & Hash synchronization
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').toLowerCase();
       const path = window.location.pathname.replace('/', '').toLowerCase();
       const route = hash || path;
 
-      if (route === 'admin') {
-        if (isAdminAuthenticated) {
-          setActiveTab('admin');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          setIsAdminAuthModalOpen(true);
+      if (route.startsWith('product-')) {
+        const prodId = route.replace('product-', '');
+        const all = loadLocalProducts();
+        const found = all.find((p) => p.id.toLowerCase() === prodId || p.id === prodId);
+        if (found) {
+          setSelectedProduct(found);
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
         }
-      } else if (['products', 'upvc', 'aluminum', 'accessories'].includes(route)) {
+        return;
+      }
+
+      // Clear product view if navigating away from product-*
+      setSelectedProduct(null);
+
+      if (route === 'admin') {
+        setActiveTab('admin');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'projects') {
+        setActiveTab('projects');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'auth' || route === 'login' || route === 'register') {
+        setActiveTab('auth');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'products' || loadProductDivisions().some((division) => division.key === route)) {
         setActiveTab(route);
-        setShopCategory(route);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else if (['home', 'about', 'gallery', 'brochures', 'contact'].includes(route)) {
-        setActiveTab(route);
-        if (route !== 'home') {
-          const element = document.getElementById(route);
+        setShopCategory(route === 'products' ? 'all' : route);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'contact' || route === 'contactus') {
+        setActiveTab('home');
+        setTimeout(() => {
+          const element = document.getElementById('contact');
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
+        }, 120);
+      } else if (['home', 'about', 'typology', 'gallery', 'support', 'services', 'achievements'].includes(route)) {
+        setActiveTab('home');
+        if (route !== 'home') {
+          setTimeout(() => {
+            const element = document.getElementById(route);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 80);
         }
       }
     };
@@ -88,81 +258,119 @@ export default function App() {
   }, [isAdminAuthenticated]);
 
   const handleNavigate = (id: string) => {
+    setSelectedProduct(null);
     if (id === 'admin') {
-      if (isAdminAuthenticated) {
-        setActiveTab('admin');
-        window.location.hash = '#admin';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        setIsAdminAuthModalOpen(true);
-      }
+      setAdminSessionStatus('checking');
+      setActiveTab('admin');
+      window.location.hash = '#admin';
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
 
-    if (['products', 'upvc', 'aluminum', 'accessories'].includes(id)) {
+    if (id === 'auth' || id === 'login' || id === 'register') {
+      setActiveTab('auth');
+      window.location.hash = '#auth';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
+    if (id === 'projects') {
+      setActiveTab('projects');
+      window.location.hash = '#projects';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
+    if (id === 'products' || loadProductDivisions().some((division) => division.key === id)) {
       setActiveTab(id);
-      setShopCategory(id);
+      setShopCategory(id === 'products' ? 'all' : id);
       window.location.hash = `#${id}`;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
 
-    setActiveTab(id);
+    if (id === 'contact' || id === 'contactus') {
+      setActiveTab('home');
+      window.location.hash = '#contact';
+      setTimeout(() => {
+        const element = document.getElementById('contact');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+      return;
+    }
+
+    // Home Section Navigation
+    setActiveTab('home');
     window.location.hash = `#${id}`;
     if (id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
 
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 80);
+  };
+
+  const handleSelectProduct = (product: ProductItem) => {
+    setSelectedProduct(product);
+    window.location.hash = `#product-${product.id}`;
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  };
+
+  const handleBackFromProduct = () => {
+    setSelectedProduct(null);
+    if (activeTab === 'admin') {
+      setActiveTab('home');
+      window.location.hash = '#home';
+    } else if (isProductShopView) {
+      window.location.hash = shopCategory === 'all' ? '#products' : `#${shopCategory}`;
+    } else {
+      setActiveTab('home');
+      window.location.hash = '#home';
     }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
 
   const handleGoToProductShop = (category = 'all') => {
+    setSelectedProduct(null);
     setActiveTab(category === 'all' ? 'products' : category);
     setShopCategory(category);
     window.location.hash = category === 'all' ? '#products' : `#${category}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleBackToHome = () => {
+    setSelectedProduct(null);
     setActiveTab('home');
     window.location.hash = '#home';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleOpenGeneralQuote = () => {
-    setInitialQuoteProduct('');
-    setQuoteModalOpen(true);
-  };
-
-  const handleOpenQuoteWithProduct = (productTitle: string) => {
-    setInitialQuoteProduct(productTitle);
-    setQuoteModalOpen(true);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Cart Management Handlers
   const handleAddToCart = (newItem: RequestItem) => {
     setCartItems((prev) => {
-      const existingIdx = prev.findIndex((it) => it.id === newItem.id);
+      const existingIdx = prev.findIndex((it) => it.productId === newItem.productId);
       if (existingIdx > -1) {
         const updated = [...prev];
         const prevItem = updated[existingIdx];
         const nextQty = prevItem.quantity + newItem.quantity;
-        const singleArea = (newItem.widthMm * newItem.heightMm) / 1000000;
+        const unitPrice = newItem.unitPrice || prevItem.unitPrice || 140;
         updated[existingIdx] = {
           ...prevItem,
           quantity: nextQty,
-          estimatedAreaSqm: Number((singleArea * nextQty).toFixed(2))
+          totalPrice: unitPrice * nextQty
         };
         return updated;
       }
       return [newItem, ...prev];
     });
 
-    setConfiguringProduct(null);
     setIsCartDrawerOpen(true);
   };
 
@@ -173,11 +381,11 @@ export default function App() {
           if (it.id === id) {
             const nextQty = it.quantity + delta;
             if (nextQty <= 0) return null;
-            const singleArea = (it.widthMm * it.heightMm) / 1000000;
+            const unitPrice = it.unitPrice || 140;
             return {
               ...it,
               quantity: nextQty,
-              estimatedAreaSqm: Number((singleArea * nextQty).toFixed(2))
+              totalPrice: unitPrice * nextQty
             };
           }
           return it;
@@ -194,138 +402,192 @@ export default function App() {
     setCartItems([]);
   };
 
-  const handleStartQuotationStepper = () => {
-    setIsCartDrawerOpen(false);
-    setIsStepperModalOpen(true);
-  };
-
   const handleSuccessfulRequestSubmission = (newRequest: QuotationRequest) => {
     setCartItems([]);
     saveActiveCart([]);
   };
 
   const totalCartCount = cartItems.reduce((acc, it) => acc + (it.quantity || 1), 0);
-  const isProductShopView = ['products', 'upvc', 'aluminum', 'accessories'].includes(activeTab);
+  const isProductShopView = activeTab === 'products' || loadProductDivisions().some((division) => division.key === activeTab);
   const isAdminView = activeTab === 'admin';
+  const isAuthView = activeTab === 'auth' || activeTab === 'login' || activeTab === 'register';
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-sky-600 selection:text-white flex flex-col font-sans relative overflow-x-clip">
-      {/* Top Standardized Liquid Glass Navbar (Hidden on Admin Portal) */}
-      {!isAdminView && (
-        <Navbar
+    <div className={`min-h-screen ${isAuthView ? 'bg-[#dde1e7]' : 'bg-white'} text-[#3E4346] flex flex-col font-sans relative overflow-x-clip`}>
+      {/* 1. Alumil Exact Header & Mega Menu */}
+      {!isAdminView && !isAuthView && (
+        <AlumilHeader
           activeTab={activeTab}
           setActiveTab={handleNavigate}
-          onOpenQuoteModal={handleOpenGeneralQuote}
+          onOpenQuoteModal={() => setIsStepperModalOpen(true)}
           onOpenSearch={() => setSearchModalOpen(true)}
+          onOpenUserModal={() => handleNavigate('auth')}
           cartCount={totalCartCount}
           onOpenCart={() => setIsCartDrawerOpen(true)}
-          isVisible={true}
+          onSelectProduct={handleSelectProduct}
         />
       )}
 
-      {/* Main Content Area */}
-      <main className="flex-1 w-full relative">
+      {/* Main Body */}
+      <main className="flex-1 w-full relative" data-doorhome-page={`${activeTab}:${selectedProduct?.id || ''}`}>
         {isAdminView ? (
-          /* Dedicated Admin Dashboard View (#admin) */
-          <AdminPortalPage
-            onBackToHome={handleBackToHome}
-            onGoToProducts={() => handleGoToProductShop('all')}
+          /* Admin Portal View (#admin) */
+          adminSessionStatus === 'checking' ? (
+            <div role="status" className="p-12 text-center text-slate-600">Checking administrator session…</div>
+          ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
+            <ErrorBoundary fallbackTitle="Admin Portal Error">
+              <AdminPortalPage
+                onBackToHome={handleBackToHome}
+                onGoToProducts={() => handleGoToProductShop('all')}
+              />
+            </ErrorBoundary>
+          ) : (
+            <AdminGuardModal
+              isOpen={true}
+              onClose={handleBackToHome}
+              onCancel={handleBackToHome}
+              onSuccess={(user) => {
+                setIsAdminAuthenticated(true);
+                setAdminSessionStatus('valid');
+              }}
+            />
+          )
+        ) : activeTab === 'auth' ? (
+          /* Dedicated User Authentication & Profile Page (#auth) */
+          <ErrorBoundary fallbackTitle="Authentication Error">
+            <UserAuthPage
+              onBackToHome={handleBackToHome}
+              onAuthSuccess={(user) => {
+                if (user.role === 'admin') {
+                  setIsAdminAuthenticated(true);
+                }
+              }}
+              onNavigateToAdmin={() => handleNavigate('admin')}
+              onNavigateToShop={() => handleGoToProductShop('all')}
+            />
+          </ErrorBoundary>
+        ) : selectedProduct ? (
+          /* Dedicated simplified product detail page */
+          <ProductDetailPage
+            product={selectedProduct}
+            onBack={handleBackFromProduct}
+            onAddToCart={handleAddToCart}
+            onSelectProduct={handleSelectProduct}
           />
+        ) : activeTab === 'projects' ? (
+          <GallerySection fullPage onBack={handleBackToHome} />
         ) : isProductShopView ? (
-          /* Dedicated E-Commerce Style Product Shop Page (#products) */
+          /* Full Product Shop View (#products) */
           <ProductShopPage
             key={shopCategory}
             initialCategory={shopCategory}
-            onSelectProduct={(p) => setSelectedProduct(p)}
-            onOpenQuote={handleOpenQuoteWithProduct}
+            onSelectProduct={handleSelectProduct}
             onBackToHome={handleBackToHome}
-            onConfigureProduct={(p) => setConfiguringProduct(p)}
             cartCount={totalCartCount}
             onOpenCart={() => setIsCartDrawerOpen(true)}
           />
         ) : (
-          /* Homepage (#home): Hero with Boomerang video playback, Partners, Showcase, About, Gallery, Brochures & Contact */
+          /* Classic Rich Doorhome Homepage with Masked Hero & 3D Swapping Cards */
           <>
-            {/* 1. Boomerang Video Hero Section */}
+            {/* 1. Hero Section with Responsive Backgrounds & ShinyText */}
             <HeroSection
-              onOpenQuoteModal={handleOpenGeneralQuote}
               onExploreProducts={() => handleGoToProductShop('all')}
+              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
 
-            {/* 2. Official Brand Partners & Certifications */}
+            {/* 2. Partner Brand Carousel */}
             <PartnerLogos />
 
-            {/* 3. Interactive 3D Card Deck - European Architectural Showcase */}
+            {/* 3. 5 Signature Architectural Systems with 3D CardSwap Deck */}
             <SignatureShowcase
-              onSelectProduct={(p) => setSelectedProduct(p)}
-              onOpenQuoteModal={handleOpenGeneralQuote}
+              onSelectProduct={handleSelectProduct}
+              onOpenQuote={(name) => {
+                const found = selectedProduct || null;
+                if (found) setSelectedProduct(found);
+                setIsStepperModalOpen(true);
+              }}
+              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
               onGoToProducts={handleGoToProductShop}
             />
 
-            {/* 4. MagicBento Interactive Grid Showcase */}
-            <HomeSystemsBentoSection
-              onSelectProduct={(p) => setSelectedProduct(p)}
-              onGoToShop={handleGoToProductShop}
+            {/* 4. Material Superiority & Engineering Pillars */}
+            <AboutSection
+              onExploreTypologies={() => handleNavigate('typology')}
+              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
 
-            {/* 5. Company Overview & Manufacturing Excellence */}
-            <AboutSection onOpenQuoteModal={handleOpenGeneralQuote} />
+            {/* 5. Architectural Windows Systems */}
+            <WindowsSection
+              onSelectProduct={handleSelectProduct}
+              onOpenQuote={(name) => {
+                const found = selectedProduct || null;
+                if (found) setSelectedProduct(found);
+                setIsStepperModalOpen(true);
+              }}
+              onExploreCategory={handleGoToProductShop}
+            />
 
-            {/* 6. High-Definition Architectural Project Gallery */}
-            <GallerySection />
+            {/* 6. Architectural Doors & Entrances */}
+            <DoorsSection
+              onSelectProduct={handleSelectProduct}
+              onOpenQuote={(name) => {
+                const found = selectedProduct || null;
+                if (found) setSelectedProduct(found);
+                setIsStepperModalOpen(true);
+              }}
+              onExploreCategory={handleGoToProductShop}
+            />
 
-            {/* 7. Technical Catalogs & Official Downloads */}
-            <BrochuresSection />
+            {/* 8. Project Gallery (Installed Villas & Commercial Towers) */}
+            <GallerySection onShowAll={() => {
+              setSelectedProduct(null);
+              setActiveTab('projects');
+              window.location.hash = '#projects';
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            }} />
 
-            {/* 8. Verified Direct Contact & Erbil Factory Location */}
-            <ContactSection onOpenQuoteModal={handleOpenGeneralQuote} />
+            {/* 9. Contact */}
+            <ContactSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
           </>
         )}
       </main>
 
-      {/* Footer */}
-      {!isAdminView && (
-        <Footer
-          activeTab={activeTab}
-          setActiveTab={handleNavigate}
-          onOpenQuoteModal={handleOpenGeneralQuote}
+      {/* Alumil Exact Footer */}
+      {!isAdminView && !isAuthView && (
+        <AlumilFooter
+          onNavigate={handleNavigate}
+          onOpenQuote={() => setIsStepperModalOpen(true)}
         />
       )}
 
-      {/* Product Detail Modal */}
-      <ProductDetailModal
-        product={selectedProduct}
-        onClose={() => setSelectedProduct(null)}
-        onOpenQuote={handleOpenQuoteWithProduct}
-        onConfigureProduct={(p) => {
-          setSelectedProduct(null);
-          setConfiguringProduct(p);
+      {/* Floating Alumil Contact Badge (Bottom Right) */}
+      {!isAdminView && !isAuthView && (
+        <FloatingContactBadge onClick={() => handleNavigate('contact')} />
+      )}
+
+      {/* User Login & Registration Account Modal */}
+      <UserAccountModal
+        isOpen={isUserAccountModalOpen}
+        onClose={() => setIsUserAccountModalOpen(false)}
+        onAuthSuccess={(user) => {
+          if (user.role === 'admin') {
+            setIsAdminAuthenticated(true);
+          }
         }}
+        onNavigateToAdmin={() => handleNavigate('admin')}
       />
 
-      {/* Instant Estimation & Price Calculator Modal */}
-      <QuoteCalculatorModal
-        isOpen={quoteModalOpen}
-        onClose={() => setQuoteModalOpen(false)}
-        initialProductName={initialQuoteProduct}
-      />
-
-      {/* Search Modal */}
+      {/* Instant Search Modal */}
       <SearchModal
         isOpen={searchModalOpen}
         onClose={() => setSearchModalOpen(false)}
-        onSelectProduct={(p) => setSelectedProduct(p)}
+        onSelectProduct={(p) => {
+          handleSelectProduct(p);
+          setSearchModalOpen(false);
+        }}
       />
 
-      {/* Configure Specifications Modal */}
-      <ConfigureItemModal
-        product={configuringProduct}
-        isOpen={Boolean(configuringProduct)}
-        onClose={() => setConfiguringProduct(null)}
-        onAddToCart={handleAddToCart}
-      />
-
-      {/* Request Cart Drawer */}
+      {/* RFQ Quotation Cart Drawer */}
       <RequestCartDrawer
         isOpen={isCartDrawerOpen}
         onClose={() => setIsCartDrawerOpen(false)}
@@ -333,39 +595,38 @@ export default function App() {
         onUpdateQuantity={handleUpdateCartQuantity}
         onRemoveItem={handleRemoveCartItem}
         onClearCart={handleClearCart}
-        onSuccessfulSubmission={handleSuccessfulRequestSubmission}
-        onBrowseMore={() => {
+        onProceedToQuote={() => {
+          setIsCartDrawerOpen(false);
+          setIsStepperModalOpen(true);
+        }}
+        onExploreMore={() => {
           setIsCartDrawerOpen(false);
           handleGoToProductShop('all');
         }}
       />
 
-      {/* Quotation Request Stepper Modal */}
+      {/* 4-Step Dynamic Quotation Stepper */}
       <QuotationRequestStepperModal
         isOpen={isStepperModalOpen}
         onClose={() => setIsStepperModalOpen(false)}
-        items={cartItems}
-        onSuccessfulSubmission={handleSuccessfulRequestSubmission}
+        cartItems={cartItems}
+        onSuccess={handleSuccessfulRequestSubmission}
       />
 
-      {/* Security Gate Passcode Modal for Admin Access */}
+      {/* Admin Login Modal */}
       <AdminGuardModal
         isOpen={isAdminAuthModalOpen}
+        onClose={() => setIsAdminAuthModalOpen(false)}
         onSuccess={() => {
+          setAdminSessionStatus('checking');
           setIsAdminAuthenticated(true);
           setIsAdminAuthModalOpen(false);
           setActiveTab('admin');
           window.location.hash = '#admin';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        onCancel={() => {
-          setIsAdminAuthModalOpen(false);
-          if (activeTab === 'admin') {
-            setActiveTab('home');
-            window.location.hash = '#home';
-          }
         }}
       />
+      {/* Full Page Translation Loader Overlay */}
+      <TranslationLoader isOpen={isTranslating} targetLanguage={targetLanguage} />
     </div>
   );
 }

@@ -1,0 +1,69 @@
+.doorhome-glass-header {
+  background: #d00024;
+  border-bottom: 1px solid rgba(220,38,38,.23);
+  box-shadow: 0 8px 28px -20px rgba(120,20,32,.28), inset 0 1px 0 rgba(255,255,255,.95);
+  backdrop-filter: blur(24px) saturate(165%);
+  -webkit-backdrop-filter: blur(24px) saturate(165%);
+}
+.doorhome-glass-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 12% 0%, rgba(239,68,68,.2), transparent 48%), repeating-linear-gradient(125deg, transparent 0 28px, rgba(190,18,60,.025) 28px 29px);
+  border-bottom: 1px solid rgba(255,255,255,.65);
+}
+.doorhome-glass-header > div { position: relative; }
+.doorhome-glass-header > div > nav,
+.doorhome-glass-header > div > nav > button,
+.doorhome-glass-header > div > nav > .doorhome-products-trigger > button,
+.doorhome-glass-header > div > div:last-child > button,
+.doorhome-glass-header > div > div:last-child > button svg,
+.doorhome-glass-header > div > div:last-child > button span,
+.doorhome-glass-header > div > nav > .doorhome-products-trigger > button svg,
+.doorhome-glass-header .doorhome-header-brand .doorhome-brand-name { color: white; }
+.doorhome-glass-header > div > div:last-child > button { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.25); }
+.doorhome-glass-header > div > nav > button:hover,
+.doorhome-glass-header > div > div:last-child > button:hover { background: rgba(255,255,255,.18); color: white; }
+.doorhome-glass-header > div > nav > button::after,
+.doorhome-glass-header > div > nav > .doorhome-products-trigger > button::after { background: white; }
+.doorhome-brand-name { font-size: 21px; font-weight: 800; letter-spacing: -.4px; color: #991b32; }
+@media (max-width: 639px) {
+  .doorhome-header-brand img { height: 32px; }
+  .doorhome-header-brand .doorhome-brand-name { font-size: 17px; }
+  .doorhome-glass-header > div { padding-left: 12px; padding-right: 12px; }
+  .doorhome-glass-header span.whitespace-nowrap { white-space: normal; max-width: 72px; font-size: 9px; text-align: center; line-height: 1.5; }
+}
+.doorhome-products-trigger { position: static; }
+.doorhome-products-trigger::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 6px;
+}
+.doorhome-products-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(920px, calc(100vw - 32px));
+  max-height: calc(100dvh - 150px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.doorhome-admin-products table { min-width: 720px; font-size: 14px; }
+.doorhome-admin-products td, .doorhome-admin-products th { padding: 20px; }
+.doorhome-admin-products td img { width: 128px; height: 96px; object-fit: cover; }
+.doorhome-admin-workspace { height: 100dvh; min-height: 0; overflow: hidden; }
+.doorhome-admin-workspace > aside { height: 100%; overflow-y: auto; }
+.doorhome-admin-workspace > div { min-height: 0; overflow: hidden; }
+.doorhome-admin-workspace > div > header { flex-shrink: 0; }
+.doorhome-admin-workspace main { min-height: 0; }
+.doorhome-admin-workspace main:has(.doorhome-admin-products) { display: flex; flex-direction: column; gap: 24px; overflow: hidden; }
+.doorhome-admin-workspace main:has(.doorhome-admin-products) > div:first-child { flex-shrink: 0; }
+.doorhome-admin-workspace .doorhome-admin-products { flex: 1; min-height: 0; margin-top: 0; }
+.doorhome-admin-workspace .doorhome-admin-products > div { height: 100%; overflow: auto; }
+.doorhome-admin-workspace .doorhome-admin-products thead { position: sticky; top: 0; z-index: 1; }
+@supports not (backdrop-filter: blur(1px)) {
+  .doorhome-glass-header { background: #d00024; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .doorhome-glass-header { background: #d00024; backdrop-filter: none; }
+}

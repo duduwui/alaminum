@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WINHOME_CONTACT } from '../data/winhomeData';
+import { DOORHOME_CONTACT } from '../data/winhomeData';
 import { GlowButton } from './GlowButton';
 import { X, Calculator, MessageSquare, Phone, Layers, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 
@@ -37,7 +37,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const estimatedCost = Math.round(totalAreaM2 * baseRate * glassFactor);
 
   const whatsappMessage = encodeURIComponent(
-    `Hello Winhome Erbil,\nI calculated an estimate using your online cost calculator:\n` +
+    `Hello Doorhome Erbil,\nI calculated an estimate using your online cost calculator:\n` +
     `• Material: ${material.toUpperCase()}\n` +
     `• System Series: ${system}\n` +
     `• Type: ${windowType}\n` +
@@ -49,7 +49,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
     `Please provide an official quotation and availability schedule.`
   );
 
-  const whatsappUrl = `https://wa.me/${WINHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/${DOORHOME_CONTACT.hotlineRaw.replace('+', '')}?text=${whatsappMessage}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200">
@@ -58,11 +58,11 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
         {/* FIXED HEADER BAR - Separate from body scroll container */}
         <div className="px-6 py-4.5 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/60 flex items-center justify-between text-white shrink-0 z-20">
           <div className="flex items-center gap-3.5 min-w-0">
-            <div className="w-10 h-10 rounded-2xl bg-sky-500/20 text-sky-400 border border-sky-400/30 flex items-center justify-center font-bold shrink-0">
-              <Calculator className="w-5 h-5 text-sky-300" />
+            <div className="w-10 h-10 rounded-2xl bg-red-500/20 text-red-400 border border-red-400/30 flex items-center justify-center font-bold shrink-0">
+              <Calculator className="w-5 h-5 text-red-300" />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-sky-300 bg-sky-500/20 border border-sky-400/30 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-red-300 bg-red-500/20 border border-red-400/30 px-2 py-0.5 rounded-full">
                 Cost Estimator Hub
               </span>
               <h3 className="text-base sm:text-xl font-black text-white tracking-tight truncate mt-0.5">
@@ -74,7 +74,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-white/10 focus:outline-none focus:ring-2 focus:ring-sky-400 shrink-0 ml-3"
+            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white flex items-center justify-center transition-all border border-white/10 focus:outline-none focus:ring-2 focus:ring-red-400 shrink-0 ml-3"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -98,13 +98,13 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                 }}
                 className={`p-3.5 rounded-2xl border text-left transition-all ${
                   material === 'upvc'
-                    ? 'border-sky-500 bg-sky-50/90 text-slate-900 ring-2 ring-sky-500/20 shadow-xs'
+                    ? 'border-red-500 bg-red-50/90 text-slate-900 ring-2 ring-red-500/20 shadow-xs'
                     : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-extrabold text-xs text-slate-900">European uPVC Systems</span>
-                  {material === 'upvc' && <Check className="w-4 h-4 text-sky-600 stroke-[3]" />}
+                  {material === 'upvc' && <Check className="w-4 h-4 text-red-600 stroke-[3]" />}
                 </div>
                 <span className="block text-[11px] font-medium text-slate-500 mt-1">
                   Deceuninck & Winsa Profiles
@@ -119,13 +119,13 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                 }}
                 className={`p-3.5 rounded-2xl border text-left transition-all ${
                   material === 'aluminum'
-                    ? 'border-sky-500 bg-sky-50/90 text-slate-900 ring-2 ring-sky-500/20 shadow-xs'
+                    ? 'border-red-500 bg-red-50/90 text-slate-900 ring-2 ring-red-500/20 shadow-xs'
                     : 'border-slate-200 hover:border-slate-300 text-slate-700 bg-white'
                 }`}
               >
                 <div className="flex items-center justify-between">
                   <span className="font-extrabold text-xs text-slate-900">Thermal Break Aluminum</span>
-                  {material === 'aluminum' && <Check className="w-4 h-4 text-sky-600 stroke-[3]" />}
+                  {material === 'aluminum' && <Check className="w-4 h-4 text-red-600 stroke-[3]" />}
                 </div>
                 <span className="block text-[11px] font-medium text-slate-500 mt-1">
                   Lorenzoline & Façade 50F
@@ -143,7 +143,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
               <select
                 value={system}
                 onChange={(e) => setSystem(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-bold"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-red-500 focus:bg-white font-bold"
               >
                 {material === 'upvc' ? (
                   <>
@@ -170,7 +170,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
               <select
                 value={windowType}
                 onChange={(e) => setWindowType(e.target.value)}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-sky-500 focus:bg-white font-bold"
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 focus:outline-none focus:border-red-500 focus:bg-white font-bold"
               >
                 <option value="Tilt & Turn Window">Tilt & Turn European Sash Window</option>
                 <option value="Heavy Lift & Slide Door">Heavy Lift & Slide Panoramic Door</option>
@@ -216,7 +216,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
           <div className="p-4 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-2xl border border-slate-700 shadow-md flex items-center justify-between">
             <div>
               <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Estimated Total Area</span>
-              <span className="text-lg font-black text-sky-300">{totalAreaM2.toFixed(2)} m²</span>
+              <span className="text-lg font-black text-red-300">{totalAreaM2.toFixed(2)} m²</span>
             </div>
             <div className="text-right">
               <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Rough Market Value</span>

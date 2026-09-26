@@ -130,12 +130,12 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
         {/* SEAMLESS LIGHT HEADER BAR */}
         <div className="px-5 py-4 sm:px-6 sm:py-4.5 border-b border-slate-100 flex items-center justify-between bg-slate-50/80 shrink-0 z-20">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold shrink-0 border border-sky-200">
+            <div className="w-10 h-10 rounded-xl bg-red-100 text-red-700 flex items-center justify-center font-bold shrink-0 border border-red-200">
               <Sliders className="w-5 h-5" />
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-sky-700 uppercase bg-sky-50 border border-sky-200 px-2 py-0.5 rounded">
+                <span className="text-[10px] font-bold text-red-700 uppercase bg-red-50 border border-red-200 px-2 py-0.5 rounded">
                   {product.category}
                 </span>
                 <span className="text-xs text-slate-400 hidden sm:inline">Custom Engineering</span>
@@ -179,7 +179,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                   </span>
                 )}
                 {product.insulationValue && (
-                  <span className="bg-white px-2 py-0.5 rounded border border-slate-200 text-[10px] font-semibold text-sky-700">
+                  <span className="bg-white px-2 py-0.5 rounded border border-slate-200 text-[10px] font-semibold text-red-700">
                     {product.insulationValue}
                   </span>
                 )}
@@ -190,7 +190,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
           {/* 1. Dimensions & Quantity */}
           <div className="space-y-3">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-              <Ruler className="w-4 h-4 text-sky-600" />
+              <Ruler className="w-4 h-4 text-red-600" />
               <span>1. Dimensions & Quantity</span>
             </label>
 
@@ -207,7 +207,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                   step={10}
                   value={widthMm}
                   onChange={(e) => setWidthMm(Math.max(300, Number(e.target.value)))}
-                  className="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-bold text-slate-900 focus:outline-none focus:border-sky-500"
+                  className="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-bold text-slate-900 focus:outline-none focus:border-red-500"
                 />
                 <span className="text-[10px] text-slate-400 block mt-1">{(widthMm / 1000).toFixed(2)} meters</span>
               </div>
@@ -224,7 +224,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                   step={10}
                   value={heightMm}
                   onChange={(e) => setHeightMm(Math.max(300, Number(e.target.value)))}
-                  className="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-bold text-slate-900 focus:outline-none focus:border-sky-500"
+                  className="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-sm font-bold text-slate-900 focus:outline-none focus:border-red-500"
                 />
                 <span className="text-[10px] text-slate-400 block mt-1">{(heightMm / 1000).toFixed(2)} meters</span>
               </div>
@@ -258,7 +258,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                     <Plus className="w-3.5 h-3.5" />
                   </button>
                 </div>
-                <span className="text-[10px] text-sky-700 font-bold block mt-1">
+                <span className="text-[10px] text-red-700 font-bold block mt-1">
                   Total Area: {areaSqm} m²
                 </span>
               </div>
@@ -268,7 +268,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
           {/* 2. Color / Architectural Finish Swatches */}
           <div className="space-y-2.5">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-              <Palette className="w-4 h-4 text-sky-600" />
+              <Palette className="w-4 h-4 text-red-600" />
               <span>2. Profile Finish & Architectural Color</span>
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -284,7 +284,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                     onClick={() => setSelectedColor(colorLabel)}
                     className={`p-2.5 rounded-xl border text-left text-xs font-bold transition-all flex items-center justify-between gap-2 cursor-pointer ${
                       isSelected
-                        ? 'bg-sky-50 border-sky-500 text-sky-950 shadow-2xs font-extrabold ring-1 ring-sky-500'
+                        ? 'bg-red-50 border-red-500 text-red-950 shadow-2xs font-extrabold ring-1 ring-red-500'
                         : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                     }`}
                   >
@@ -295,7 +295,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                       />
                       <span className="truncate">{colorLabel}</span>
                     </div>
-                    {isSelected && <Check className="w-3.5 h-3.5 text-sky-600 shrink-0 stroke-[3]" />}
+                    {isSelected && <Check className="w-3.5 h-3.5 text-red-600 shrink-0 stroke-[3]" />}
                   </button>
                 );
               })}
@@ -305,7 +305,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
           {/* 3. Glazing Specification */}
           <div className="space-y-2.5">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-sky-600" />
+              <Shield className="w-4 h-4 text-red-600" />
               <span>3. Insulated Glass Unit (IGU) Specification</span>
             </label>
             <div className="space-y-2">
@@ -314,7 +314,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                   key={opt.id}
                   className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
                     selectedGlazing === opt.label
-                      ? 'bg-sky-50/80 border-sky-500 text-sky-950 font-medium ring-1 ring-sky-500'
+                      ? 'bg-red-50/80 border-red-500 text-red-950 font-medium ring-1 ring-red-500'
                       : 'bg-white border-slate-200 hover:bg-slate-50/60 text-slate-700'
                   }`}
                 >
@@ -323,7 +323,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
                     name="glazing-option"
                     checked={selectedGlazing === opt.label}
                     onChange={() => setSelectedGlazing(opt.label)}
-                    className="mt-0.5 text-sky-600 focus:ring-sky-500 w-4 h-4"
+                    className="mt-0.5 text-red-600 focus:ring-red-500 w-4 h-4"
                   />
                   <div>
                     <span className="text-xs font-bold block text-slate-900">{opt.label}</span>
@@ -339,13 +339,13 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
           {/* 4. Opening Mechanism */}
           <div className="space-y-2">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-800 flex items-center gap-1.5">
-              <Layers className="w-4 h-4 text-sky-600" />
+              <Layers className="w-4 h-4 text-red-600" />
               <span>4. Sash Mechanism & Master Italy Hardware</span>
             </label>
             <select
               value={selectedOpening}
               onChange={(e) => setSelectedOpening(e.target.value)}
-              className="w-full py-2.5 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 font-bold text-slate-900"
+              className="w-full py-2.5 px-3 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-500 font-bold text-slate-900"
             >
               {openingOptions.map((op) => (
                 <option key={op} value={op}>
@@ -365,7 +365,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
               value={customNotes}
               onChange={(e) => setCustomNotes(e.target.value)}
               placeholder="e.g. Master Bedroom on 2nd Floor, requires motorized blinds..."
-              className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-sky-500 text-slate-900 font-medium"
+              className="w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-500 text-slate-900 font-medium"
             />
           </div>
 
@@ -375,7 +375,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
         <div className="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3 shrink-0 z-20">
           <div className="text-xs text-slate-600 font-medium">
             Configuring <span className="font-extrabold text-slate-900">{quantity} units</span> • Total{' '}
-            <span className="font-extrabold text-sky-700">{areaSqm} m²</span>
+            <span className="font-extrabold text-red-700">{areaSqm} m²</span>
           </div>
 
           <div className="flex items-center gap-2.5">
@@ -390,7 +390,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
             <button
               type="button"
               onClick={handleSubmit}
-              className="px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-extrabold shadow-md shadow-sky-600/30 transition-all flex items-center gap-1.5 cursor-pointer active:scale-98"
+              className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-extrabold shadow-md shadow-red-600/30 transition-all flex items-center gap-1.5 cursor-pointer active:scale-98"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
               <span>Add to Request List</span>

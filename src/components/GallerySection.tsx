@@ -1,240 +1,113 @@
-import React, { useState } from 'react';
-import { Layers, MapPin, ExternalLink, X, ZoomIn } from 'lucide-react';
-import GlowButton from './GlowButton';
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, Play, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { GalleryMediaItem, loadGalleryItems } from '../services/galleryContentService';
 
-export interface GalleryItem {
-  id: string;
-  title: string;
-  location: string;
-  system: string;
-  category: 'villa' | 'commercial' | 'doors' | 'facade';
-  src: string;
-  description: string;
+const PREVIEW_COUNT = 12;
+
+interface GallerySectionProps {
+  fullPage?: boolean;
+  onShowAll?: () => void;
+  onBack?: () => void;
 }
 
-export const GallerySection: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>('all');
-  const [lightboxImage, setLightboxImage] = useState<GalleryItem | null>(null);
+export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false, onShowAll, onBack }) => {
+  const { currentLanguage, t } = useLanguage();
+  const [items, setItems] = useState<GalleryMediaItem[]>(() => loadGalleryItems());
+  const [selected, setSelected] = useState<GalleryMediaItem | null>(null);
 
-  const defaultItems: GalleryItem[] = [
-    {
-      id: 'proj-1',
-      title: 'Luxury Private Residence - Erbil Dream City',
-      location: 'Dream City, Erbil',
-      system: 'Deceuninck Legend 80 Passive uPVC',
-      category: 'villa',
-      src: '/assets/winhome/photo_2023-07-03_15-41-20-1280x820.jpg',
-      description: 'Custom triple-glazed passive window installation with automated roller shutters engineered for extreme climate control.'
-    },
-    {
-      id: 'proj-2',
-      title: 'Modern Villa Spans - Gulan Street',
-      location: 'Gulan District, Erbil',
-      system: 'Lorenzoline 70LS Lift & Slide Aluminum',
-      category: 'villa',
-      src: '/assets/winhome/photo_2023-07-03_15-40-04-1104x720.jpg',
-      description: '3-meter high monumental thermal lift-and-slide doors seamlessly bridging indoor living spaces with private courtyard pools.'
-    },
-    {
-      id: 'proj-3',
-      title: 'Corporate Headquarters Facade',
-      location: '100m Expressway, Erbil',
-      system: 'Façade 50F Structural Curtain Wall',
-      category: 'commercial',
-      src: '/assets/winhome/photo_2023-07-03_15-42-28-1120x716.jpg',
-      description: 'Structural glass mullion tower facade with solar control reflective double glazing engineered for high wind pressure resistance.'
-    },
-    {
-      id: 'proj-4',
-      title: 'Automobile Showroom Panorama',
-      location: 'Empire World, Erbil',
-      system: '50F Facade & Commercial Glazing',
-      category: 'facade',
-      src: '/assets/winhome/24-1.jpg',
-      description: 'Panoramic ultra-clear glass wall spans providing full street visibility and solar control for vehicle display halls.'
-    },
-    {
-      id: 'proj-5',
-      title: 'VIP Residential Terrace Spans',
-      location: 'Empire Residential Towers, Erbil',
-      system: 'Winsa Heavy Duty Lift & Slide',
-      category: 'doors',
-      src: '/assets/winhome/photo_2023-07-03_15-50-46-1104x700.jpg',
-      description: 'Acoustic soundproof glass sliding doors delivering 44 dB city noise reduction for penthouse balcony suites.'
-    },
-    {
-      id: 'proj-6',
-      title: 'Contemporary Luxury Villa Compound',
-      location: 'Vank City, Erbil',
-      system: 'Winsa Dorado 76 & Italian Master Hardware',
-      category: 'villa',
-      src: '/assets/winhome/photo_2023-07-03_15-49-24-760x485.jpg',
-      description: 'Turnkey fenestration package including concealed hardware tilt-and-turn windows and solar protection Low-E units.'
-    }
-  ];
-
-  const galleryItems: GalleryItem[] = React.useMemo(() => {
-    const saved = localStorage.getItem('winhome_admin_gallery_images');
-    if (saved) {
-      try {
-        const parsed: string[] = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          return parsed.map((src, i) => ({
-            id: `cms-gallery-${i}`,
-            title: `Winhome Architectural Showcase #${i + 1}`,
-            location: 'Erbil & Kurdistan Projects',
-            system: 'Winhome Premium Systems',
-            category: (i % 2 === 0 ? 'villa' : 'commercial') as any,
-            src,
-            description: 'Custom architectural window & door installation engineered by Winhome.'
-          }));
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    return defaultItems;
+  useEffect(() => {
+    const refresh = () => setItems(loadGalleryItems());
+    window.addEventListener('cms_gallery_updated', refresh);
+    window.addEventListener('storage', refresh);
+    return () => {
+      window.removeEventListener('cms_gallery_updated', refresh);
+      window.removeEventListener('storage', refresh);
+    };
   }, []);
 
-  const filteredItems =
-    activeFilter === 'all'
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeFilter);
+  const localize = (item: GalleryMediaItem) => {
+    const text = item.translations?.[currentLanguage.code] || item.translations?.[currentLanguage.code.split('-')[0]];
+    return text ? { ...item, title: text.title || text.name || item.title, description: text.description || item.description } : item;
+  };
+  const visibleItems = (fullPage ? items : items.slice(0, PREVIEW_COUNT)).map(localize);
 
   return (
-    <section id="gallery" className="py-20 sm:py-24 bg-slate-950 text-white relative overflow-hidden border-b border-slate-900">
-      {/* Subtle Background Glow Accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+    <section id={fullPage ? 'projects-page' : 'gallery'} className={`w-full bg-[radial-gradient(ellipse_at_0%_0%,rgba(220,38,38,0.045),transparent_32%),#fff] py-16 sm:py-24 ${fullPage ? 'min-h-screen' : ''}`}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {fullPage && onBack && (
+          <button type="button" onClick={onBack} className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-red-600">
+            <ArrowLeft className="h-4 w-4" /> Doorhome
+          </button>
+        )}
+        <div className="mb-10 max-w-2xl">
+          <h2 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">{t('gallery_title')}</h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600 sm:text-base">{t('gallery_desc')}</p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-            Winhome Project Gallery
-          </h2>
-          <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed font-medium">
-            Take a visual tour of real luxury villas, high-rise towers, and commercial compounds executed by Winhome Company and Nafza Almanzl across Erbil and Kurdistan.
-          </p>
-
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8">
-            {[
-              { id: 'all', label: 'All Projects' },
-              { id: 'villa', label: 'Luxury Villas' },
-              { id: 'commercial', label: 'Commercial Towers' },
-              { id: 'doors', label: 'Lift & Slide Terraces' },
-              { id: 'facade', label: 'Curtain Wall Facades' }
-            ].map((f) => (
-              <GlowButton
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                variant={activeFilter === f.id ? 'active' : 'outline'}
-                isDarkTheme={true}
-                size="sm"
+        {items.length === 0 ? (
+          <p className="rounded-2xl border border-slate-200 bg-slate-50 p-8 text-center text-sm text-slate-600">{t('gallery_empty')}</p>
+        ) : (
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {visibleItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => setSelected(item)}
+                className="group overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-shadow hover:shadow-lg"
+                aria-label={item.title}
               >
-                {f.label}
-              </GlowButton>
+                <div className="relative aspect-[4/3] overflow-hidden bg-slate-900">
+                  {item.mediaType === 'video' ? (
+                    <video src={item.src} muted playsInline preload="metadata" className="h-full w-full object-cover" />
+                  ) : (
+                    <img src={item.src} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  )}
+                  {item.mediaType === 'video' && <Play aria-hidden="true" className="absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 text-white drop-shadow-lg" />}
+                </div>
+                <div className="space-y-2 p-5">
+                  <h3 className="text-lg font-extrabold text-slate-900">{item.title}</h3>
+                  <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">{item.description}</p>
+                </div>
+              </button>
             ))}
           </div>
-        </div>
+        )}
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              onClick={() => setLightboxImage(item)}
-              className="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 shadow-md hover:shadow-2xl hover:border-blue-500/50 transition-all duration-300 cursor-pointer"
-            >
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Hover Details Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-6 flex flex-col justify-end text-white">
-                <span className="text-[11px] font-bold text-blue-400 uppercase tracking-wider mb-1">
-                  {item.system}
-                </span>
-                <h3 className="text-lg font-bold text-white leading-snug">
-                  {item.title}
-                </h3>
-                <div className="flex items-center gap-1.5 text-xs text-slate-300 mt-2">
-                  <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                  <span>{item.location}</span>
-                </div>
-                <div className="mt-3 flex items-center gap-1 text-xs text-blue-300">
-                  <ZoomIn className="w-4 h-4 text-blue-400" />
-                  <span>Click to expand high-resolution</span>
-                </div>
-              </div>
-
-              {/* Bottom Card Summary */}
-              <div className="p-4 bg-slate-900/90 border-t border-slate-800 group-hover:hidden">
-                <h4 className="text-sm font-bold text-white truncate">
-                  {item.title}
-                </h4>
-                <div className="flex items-center justify-between text-xs text-slate-400 mt-1">
-                  <span>{item.location}</span>
-                  <span className="text-blue-400 font-semibold">{item.system.split(' ')[0]}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+        {!fullPage && items.length > PREVIEW_COUNT && onShowAll && (
+          <button
+            type="button"
+            onClick={onShowAll}
+            className="mx-auto mt-8 block rounded-xl border border-slate-300 px-6 py-3 text-sm font-bold text-slate-800 hover:border-red-500 hover:text-red-600"
+          >
+            {t('gallery_show_all').replace('{count}', String(items.length))}
+          </button>
+        )}
       </div>
 
-      {/* Lightbox Modal */}
-      {lightboxImage && (
-        <div
-          className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in duration-200"
-          onClick={() => setLightboxImage(null)}
-        >
+      {selected && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-3 sm:p-6" onClick={() => setSelected(null)}>
           <div
-            className="relative max-w-4xl w-full bg-white rounded-2xl overflow-hidden shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={selected.title}
+            dir={['ckb', 'fa', 'ar'].includes(currentLanguage.code) ? 'rtl' : 'ltr'}
+            className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl md:flex-row"
+            onClick={(event) => event.stopPropagation()}
           >
-            <button
-              onClick={() => setLightboxImage(null)}
-              className="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-5 h-5" />
+            <button type="button" onClick={() => setSelected(null)} aria-label={t('ui_close')} className="absolute right-4 top-4 z-10 rounded-full bg-white p-2.5 text-slate-700 shadow-md hover:bg-slate-100">
+              <X className="h-4 w-4" />
             </button>
-
-            <div className="max-h-[70vh] bg-black flex items-center justify-center overflow-hidden">
-              <img
-                src={lightboxImage.src}
-                alt={lightboxImage.title}
-                className="max-h-full max-w-full object-contain"
-              />
+            <div className="flex min-h-[260px] items-center justify-center bg-slate-900 md:w-1/2">
+              {selected.mediaType === 'video' ? (
+                <video src={selected.src} controls autoPlay playsInline className="max-h-[55vh] w-full" />
+              ) : (
+                <img src={selected.src} alt={selected.title} className="max-h-[55vh] w-full object-contain" />
+              )}
             </div>
-
-            <div className="p-6 bg-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-slate-100">
-              <div>
-                <span className="text-xs font-bold text-sky-600 uppercase tracking-wider">
-                  {lightboxImage.system}
-                </span>
-                <h3 className="text-xl font-bold text-slate-900 mt-1">
-                  {lightboxImage.title}
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5 flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-sky-600" />
-                  <span>{lightboxImage.location}</span>
-                </p>
-              </div>
-
-              <a
-                href={`https://wa.me/9647504440402?text=Hello%20Winhome,%20I%20am%20interested%20in%20the%20${encodeURIComponent(lightboxImage.title)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-5 py-2.5 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs uppercase tracking-wider shrink-0 transition-colors shadow-sm"
-              >
-                Inquire About Similar Design
-              </a>
+            <div className="space-y-4 overflow-y-auto p-6 sm:p-8 md:w-1/2">
+              <h3 className="pr-8 text-xl font-black text-slate-900 sm:text-2xl">{localize(items.find(item => item.id === selected.id) || selected).title}</h3>
+              <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-600">{localize(items.find(item => item.id === selected.id) || selected).description}</p>
             </div>
           </div>
         </div>
