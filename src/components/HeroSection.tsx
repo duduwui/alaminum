@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ArrowRight } from 'lucide-react';
-import GlowButton from './GlowButton';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import mobileHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_37_12 AM.png';
-import desktopHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_35_55 AM.png';
+
+const mobileHeroImage = '/assets/doorhome/hero-mobile-red.png';
+const desktopHeroImage = '/assets/doorhome/hero-desktop-red.png';
 
 interface HeroSectionProps {
   onOpenQuoteModal?: () => void;
@@ -233,127 +233,127 @@ const HERO_QUOTES_BY_LANG: Record<string, string[]> = {
 const HERO_CONTENT_BY_LANG: Record<string, { title: string; exploreBtn: string }> = {
   "en": {
     "title": "European Fenestration & Architectural Systems",
-    "exploreBtn": "Explore Our Systems"
+    "exploreBtn": "See All Products"
   },
   "en-GB": {
     "title": "European Fenestration & Architectural Systems",
-    "exploreBtn": "Explore Our Systems"
+    "exploreBtn": "See All Products"
   },
   "en-US": {
     "title": "European Fenestration & Architectural Systems",
-    "exploreBtn": "Explore Our Systems"
+    "exploreBtn": "See All Products"
   },
   "ar": {
     "title": "الأنظمة المعمارية والأبواب والنوافذ الأوروبية",
-    "exploreBtn": "استكشف أنظمتنا"
+    "exploreBtn": "تصفح جميع المنتجات"
   },
   "ckb": {
     "title": "سیستەمی ئەندازیاری پەنجەرە و دەرگای ئەوروپی",
-    "exploreBtn": "سیستەمەکانمان بپشکنە"
+    "exploreBtn": "بینینی هەموو بەرهەمەکان"
   },
   "kmr": {
     "title": "Pergalên Mîmarî û Pencereyên Ewropî",
-    "exploreBtn": "Pergalên Me Bibîne"
+    "exploreBtn": "Hemû Berheman Bibîne"
   },
   "tr": {
     "title": "Avrupa Doğrama ve Mimari Sistemleri",
-    "exploreBtn": "Sistemlerimizi Keşfedin"
+    "exploreBtn": "Tüm Ürünleri İnceleyin"
   },
   "de": {
     "title": "Europäische Fenster- & Architektursysteme",
-    "exploreBtn": "Systeme entdecken"
+    "exploreBtn": "Alle Produkte anzeigen"
   },
   "fr": {
     "title": "Systèmes de Menuiserie et d'Architecture Européens",
-    "exploreBtn": "Explorer Nos Systèmes"
+    "exploreBtn": "Voir tous les produits"
   },
   "it": {
     "title": "Sistemi di Serramenti e Architetture Europee",
-    "exploreBtn": "Esplora i Nostri Sistemi"
+    "exploreBtn": "Vedi tutti i prodotti"
   },
   "es": {
     "title": "Sistemas de Cerramientos y Arquitectura Europea",
-    "exploreBtn": "Explorar Nuestros Sistemas"
+    "exploreBtn": "Ver todos los productos"
   },
   "es-MX": {
     "title": "Sistemas de Cerramientos y Arquitectura Europea",
-    "exploreBtn": "Explorar Nuestros Sistemas"
+    "exploreBtn": "Ver todos los productos"
   },
   "pt": {
     "title": "Sistemas de Caixilharia e Arquitetura Europeia",
-    "exploreBtn": "Explorar Nossos Sistemas"
+    "exploreBtn": "Ver todos os produtos"
   },
   "pt-BR": {
     "title": "Sistemas de Esquadrias e Arquitetura Europeia",
-    "exploreBtn": "Explorar Nossos Sistemas"
+    "exploreBtn": "Ver todos os produtos"
   },
   "fa": {
     "title": "سیستم‌های مهندسی درب و پنجره و معماری اروپایی",
-    "exploreBtn": "مشاهده سیستم‌های ما"
+    "exploreBtn": "مشاهده تمام محصولات"
   },
   "ru": {
     "title": "Европейские оконные и архитектурные системы",
-    "exploreBtn": "Изучить наши системы"
+    "exploreBtn": "Все продукты"
   },
   "zh-CN": {
     "title": "欧洲顶级门窗与建筑幕墙系统",
-    "exploreBtn": "探索我们的系统"
+    "exploreBtn": "浏览全部产品"
   },
   "nl": {
     "title": "Europese kozijnen- en architectuursystemen",
-    "exploreBtn": "Ontdek onze systemen"
+    "exploreBtn": "Bekijk alle producten"
   },
   "pl": {
     "title": "Europejskie systemy stolarki otworowej i architektonicznej",
-    "exploreBtn": "Poznaj nasze systemy"
+    "exploreBtn": "Zobacz wszystkie produkty"
   },
   "ro": {
     "title": "Sisteme Europene de Tâmplărie și Arhitectură",
-    "exploreBtn": "Explorează Sistemele"
+    "exploreBtn": "Vezi toate produsele"
   },
   "el": {
     "title": "Ευρωπαϊκά Συστήματα Κουφωμάτων & Αρχιτεκτονικής",
-    "exploreBtn": "Εξερευνήστε τα Συστήματά μας"
+    "exploreBtn": "Δείτε όλα τα προϊόντα"
   },
   "sv": {
     "title": "Europeiska fönster- och arkitektursystem",
-    "exploreBtn": "Utforska våra system"
+    "exploreBtn": "Visa alla produkter"
   },
   "hi": {
     "title": "यूरोपीय फेनेस्ट्रेशन और वास्तुशिल्प प्रणाली",
-    "exploreBtn": "हमारी प्रणालियाँ देखें"
+    "exploreBtn": "सभी उत्पाद देखें"
   },
   "ja": {
     "title": "ヨーロッパ基準の窓・ドアおよび建築システム",
-    "exploreBtn": "システムを見る"
+    "exploreBtn": "すべての製品を見る"
   },
   "ko": {
     "title": "유럽 프리미엄 창호 및 건축 시스템",
-    "exploreBtn": "시스템 살펴보기"
+    "exploreBtn": "모든 제품 보기"
   },
   "kk": {
     "title": "Еуропалық терезе-есік және сәулет жүйелері",
-    "exploreBtn": "Жүйелерді қарау"
+    "exploreBtn": "Барлық өнімдерді көру"
   },
   "sr": {
     "title": "Европски системи прозора, врата и архитектуре",
-    "exploreBtn": "Истражите наше системе"
+    "exploreBtn": "Погледајте све производе"
   },
   "hr": {
     "title": "Europski sustavi prozora, vrata i arhitekture",
-    "exploreBtn": "Istražite naše sustave"
+    "exploreBtn": "Pogledajte sve proizvode"
   },
   "bs": {
     "title": "Evropski sistemi prozora, vrata i arhitekture",
-    "exploreBtn": "Istražite naše sisteme"
+    "exploreBtn": "Pogledajte sve proizvode"
   },
   "sq": {
     "title": "Sisteme Evropiane të Dritareve dhe Arkitekturës",
-    "exploreBtn": "Eksploroni Sistemet Tona"
+    "exploreBtn": "Shiko të gjitha produktet"
   },
   "bg": {
     "title": "Европейски архитектурни и прозоречни системи",
-    "exploreBtn": "Разгледайте нашите системи"
+    "exploreBtn": "Вижте всички продукти"
   }
 };
 
@@ -361,8 +361,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
   const { currentLanguage } = useLanguage();
   const [quoteIdx, setQuoteIdx] = useState(0);
   const [fade, setFade] = useState(true);
-  const [maskOffset, setMaskOffset] = useState({ x: 35, y: 45 });
-  const mouseRef = useRef({ x: 0, y: 0 });
   const baseLang = currentLanguage.code.split('-')[0];
   const quotes = HERO_QUOTES_BY_LANG[currentLanguage.code] || HERO_QUOTES_BY_LANG[baseLang] || HERO_QUOTES_BY_LANG.en;
   const heroContent = HERO_CONTENT_BY_LANG[currentLanguage.code] || HERO_CONTENT_BY_LANG[baseLang] || HERO_CONTENT_BY_LANG.en;
@@ -378,37 +376,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
     return () => window.clearInterval(timer);
   }, [quotes.length]);
 
-  useEffect(() => {
-    let rafId = 0;
-    let clock = 0;
-    const animate = () => {
-      clock += 0.007;
-      setMaskOffset({
-        x: Math.round((50 + Math.sin(clock * 0.6) * 32 + mouseRef.current.x * 24) * 10) / 10,
-        y: Math.round((50 + Math.cos(clock * 0.45) * 22 + mouseRef.current.y * 18) * 10) / 10
-      });
-      rafId = requestAnimationFrame(animate);
-    };
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
-  const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    mouseRef.current = {
-      x: ((event.clientX - rect.left) / (rect.width || 1)) * 2 - 1,
-      y: ((event.clientY - rect.top) / (rect.height || 1)) * 2 - 1
-    };
-  };
-
   return (
-    <section id="home" onPointerMove={handlePointerMove} onPointerLeave={() => { mouseRef.current = { x: 0, y: 0 }; }} className="relative flex min-h-screen w-full flex-col justify-start overflow-hidden bg-slate-50 pb-12 pt-10 sm:pt-14 md:pt-18">
+    <section id="home" className="relative flex min-h-screen w-full flex-col justify-start overflow-hidden bg-slate-50 pb-12 pt-10 sm:pt-14 md:pt-18">
       <div className="absolute inset-0 z-0 bg-cover bg-bottom md:hidden" style={{ backgroundImage: `url(${mobileHeroImage})` }} />
       <div className="absolute inset-0 z-0 hidden bg-cover bg-right-bottom md:block" style={{ backgroundImage: `url(${desktopHeroImage})` }} />
 
       <div className="relative z-10 mx-auto mt-0 w-full max-w-7xl px-6 py-0 sm:mt-2 sm:px-10 sm:py-2 md:mt-4 lg:px-12">
         <div className="max-w-2xl space-y-4 text-left sm:space-y-6">
-          <h1 className="hero-masked-heading select-none overflow-visible pb-3 pt-1 text-3xl font-black leading-[1.24] tracking-tight transition-all duration-75 sm:text-5xl sm:leading-[1.18] lg:text-6xl" style={{ backgroundPosition: `${maskOffset.x}% ${maskOffset.y}%` }}>
+          <h1 className="hero-masked-heading select-none overflow-visible pb-3 pt-1 text-3xl font-black leading-[1.24] tracking-tight sm:text-5xl sm:leading-[1.18] lg:text-6xl">
             {heroContent.title}
           </h1>
           <p className="flex min-h-[3.5rem] max-w-xl items-center text-lg font-extrabold leading-snug text-slate-800 sm:text-2xl lg:text-3xl">
@@ -416,11 +391,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
               {quotes[quoteIdx % quotes.length]}
             </span>
           </p>
-          <div className="flex items-center gap-4 pt-2">
-            <GlowButton onClick={onExploreProducts || onOpenQuoteModal} variant="secondary" isDarkTheme={false} size="lg">
-              <span className="font-black text-slate-900">{heroContent.exploreBtn}</span>
-              <ArrowRight className="h-5 w-5 shrink-0 text-slate-900" />
-            </GlowButton>
+          <div className="pt-2">
+            <button
+              type="button"
+              onClick={onExploreProducts || onOpenQuoteModal}
+              className="btn2 btn2-lg !text-base sm:!text-lg !font-black cursor-pointer group"
+            >
+              <span className="spn2 text-slate-900 font-black flex items-center gap-3 py-1">
+                <LayoutGrid className="w-5 h-5 text-red-600" />
+                <span>{heroContent.exploreBtn}</span>
+                <ArrowRight className="w-5 h-5 text-red-600 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
           </div>
         </div>
       </div>

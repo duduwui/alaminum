@@ -2,8 +2,46 @@ import { User, LoginCredentials, RegisterPayload } from '../types/auth';
 
 const STORAGE_KEY_CURRENT_USER = 'winhome_current_user';
 
+export function processGoogleAuthCallback(): User | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const hash = window.location.hash || '';
+    const search = window.location.search || '';
+    let encoded: string | null = null;
+
+    if (hash.includes('google_success=')) {
+      const queryPart = hash.includes('?') ? hash.split('?')[1] : hash.replace('#', '');
+      encoded = new URLSearchParams(queryPart).get('google_success');
+    } else if (search.includes('google_success=')) {
+      encoded = new URLSearchParams(search).get('google_success');
+    }
+
+    if (encoded) {
+      const data = JSON.parse(atob(encoded));
+      if (data.token) {
+        localStorage.setItem('dh_admin_token', data.token);
+      }
+      if (data.user) {
+        localStorage.setItem(STORAGE_KEY_CURRENT_USER, JSON.stringify(data.user));
+        window.dispatchEvent(new CustomEvent('auth-changed', { detail: data.user }));
+        // Clean URL query while preserving hash anchor
+        const cleanHash = hash.startsWith('#auth') || hash.startsWith('#login') || hash.startsWith('#register') ? '#auth' : '';
+        window.history.replaceState(null, '', window.location.pathname + cleanHash);
+        return data.user;
+      }
+    }
+  } catch (e) {
+    console.error('Error processing Google auth callback:', e);
+  }
+  return null;
+}
+
 export function getCurrentUser(): User | null {
   try {
+    // Process any incoming Google callback first
+    const googleUser = processGoogleAuthCallback();
+    if (googleUser) return googleUser;
+
     const raw = localStorage.getItem(STORAGE_KEY_CURRENT_USER);
     if (!raw) return null;
     const user = JSON.parse(raw);

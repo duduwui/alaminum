@@ -15,8 +15,6 @@ interface AlumilFooterProps {
 
 export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQuote }) => {
   const { currentLanguage, t } = useLanguage();
-  const isArabic = currentLanguage.code === 'ar';
-  const isKurdish = ['ckb', 'kmr'].includes(currentLanguage.code);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -30,11 +28,11 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
       {/* 4-Column Personal Links */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="mb-8 max-w-3xl border-l-2 border-red-500 pl-4">
-          <p className="text-sm font-bold text-white">Doorhome Company</p>
+          <p className="text-sm font-bold text-white">{t('brand_name_full') || 'Doorhome Company'}</p>
           <p className="mt-2 text-xs leading-relaxed text-slate-300">
-            {isArabic ? 'أنظمة نوافذ وأبواب الألمنيوم وuPVC، أبواب منزلقة وواجهات معمارية في العراق وكردستان. استكشف المنتجات ومشاريعنا وتواصل مع فريقنا.' : isKurdish ? 'سیستەمی پەنجەرە و دەرگای ئەلۆمنیۆم و uPVC، دەرگای سلایدینگ و ڕووکاری تەلارسازی لە عێراق و کوردستان. بەرهەم و پڕۆژەکانمان ببینە و پەیوەندیمان پێوە بکە.' : 'Aluminum (aluminium) and uPVC window and door systems, sliding doors and architectural facades in Iraq and Kurdistan. Explore our products and projects, or contact our team.'}
+            {t('footer_intro')}
           </p>
-          <nav aria-label="Explore Doorhome" className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold">
+          <nav aria-label={t('footer_col_company')} className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold">
             <a href="/products" className="hover:text-red-300">{t('footer_col_products')}</a>
             <a href="/projects" className="hover:text-red-300">{t('footer_projects')}</a>
             <a href="/contact" className="hover:text-red-300">{t('footer_col_contact')}</a>

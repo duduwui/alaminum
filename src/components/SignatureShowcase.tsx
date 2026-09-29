@@ -3865,7 +3865,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
           {/* Left Column: Title Header + 5 Profile Bullets (Aligned to left edge) */}
           <div className="col-span-6 space-y-5">
             {/* Title Header */}
-            <div>
+            <div className="dh-reveal">
               <h2 className="text-3xl xl:text-4xl font-black text-slate-900 tracking-tight leading-tight">
                 {sectionTitle}
               </h2>
@@ -3876,11 +3876,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
 
             {/* 5 Bullet Cards with comfortable gap */}
             <div className="space-y-3">
-              {showcaseItems.map((item) => (
+              {showcaseItems.map((item, idx) => (
                 <button
                   key={item.id}
                   onClick={() => handleSelectProduct(item.title, item.id)}
-                  className="w-full text-left py-3 px-4 rounded-2xl bg-white/80 backdrop-blur-md hover:bg-white transition-all border border-slate-200/80 hover:border-red-400 shadow-xs hover:shadow-md flex items-center justify-between text-xs group cursor-pointer"
+                  className={`w-full text-left py-3 px-4 rounded-2xl bg-white/80 backdrop-blur-md hover:bg-white transition-all border border-slate-200/80 hover:border-red-400 shadow-xs hover:shadow-md flex items-center justify-between text-xs group cursor-pointer dh-card-hover dh-reveal dh-stagger-${idx + 1}`}
                 >
                   <div>
                     <span className="font-bold text-slate-900 block text-sm sm:text-base group-hover:text-red-600 transition-colors">

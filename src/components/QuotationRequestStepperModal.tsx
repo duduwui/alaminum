@@ -87,7 +87,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
   const totalQuantity = items.reduce((sum, it) => sum + (it.quantity || 1), 0);
   const totalAreaSqm = items.reduce((sum, it) => {
-    const area = it.estimatedAreaSqm || ((it.widthMm * it.heightMm) / 1000000) * it.quantity;
+    const area = it.estimatedAreaSqm || (((it.widthMm || 0) * (it.heightMm || 0)) / 1000000) * it.quantity;
     return sum + area;
   }, 0);
 
@@ -208,7 +208,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold text-red-700 uppercase bg-red-50 border border-red-200 px-2 py-0.5 rounded">
-                  Official Request For Quotation (RFQ)
+                  {t('submit_rfq_btn')}
                 </span>
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-snug">
@@ -218,6 +218,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
           </div>
           <button
             onClick={onClose}
+            aria-label={t('ui_close')}
             className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-800 flex items-center justify-center transition-colors"
           >
             <X className="w-4 h-4" />
@@ -235,23 +236,23 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
               <div className="space-y-1.5 max-w-md mx-auto">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900">
-                  Request Dispatched to Admin!
+                  {t('quotation_submitted_title')}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                  Your customized architectural specifications have been registered in the Doorhome Engineering database.
+                  {t('engineers_review_note')}
                 </p>
               </div>
 
               {/* Request ID Badge */}
               <div className="inline-flex items-center gap-3 bg-slate-50 border border-slate-200 px-4 py-2.5 rounded-2xl">
-                <span className="text-xs text-slate-500 font-medium">Tracking Reference:</span>
+                <span className="text-xs text-slate-500 font-medium">{t('ref_id_label')}</span>
                 <span className="text-sm sm:text-base font-extrabold text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200 tracking-wider">
                   {submittedRequest.id}
                 </span>
                 <button
                   onClick={handleCopyId}
                   className="p-1 text-slate-400 hover:text-slate-700 transition-colors"
-                  title="Copy Tracking ID"
+                  title={t('copy_btn')}
                 >
                   {copiedId ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                 </button>
@@ -260,19 +261,19 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
               {/* Quick Summary Card */}
               <div className="bg-slate-50/80 rounded-2xl p-4 border border-slate-200 max-w-lg mx-auto text-left text-xs space-y-2">
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Client:</span>
+                  <span className="text-slate-500">{t('full_name_label')}</span>
                   <span className="font-bold text-slate-800">{submittedRequest.customer.fullName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Project / City:</span>
+                  <span className="text-slate-500">{t('city_label')}</span>
                   <span className="font-bold text-slate-800">
                     {submittedRequest.customer.projectType} • {submittedRequest.customer.city}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-500">Architectural Systems:</span>
+                  <span className="text-slate-500">{t('selected_systems_label')}</span>
                   <span className="font-bold text-red-700">
-                    {submittedRequest.totalQuantity} units ({submittedRequest.totalAreaSqm} m²)
+                    {submittedRequest.totalQuantity} {t('units_label')}{submittedRequest.totalAreaSqm > 0 ? ` (${submittedRequest.totalAreaSqm} m²)` : ''}
                   </span>
                 </div>
               </div>
@@ -286,7 +287,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   className="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>Notify Engineer on WhatsApp</span>
+                  <span>{t('whatsapp_sales_connect')}</span>
                 </a>
 
                 <button
@@ -294,7 +295,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   className="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2"
                 >
                   <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Done & Return to Catalog</span>
+                  <span>{t('continue_browsing')}</span>
                 </button>
               </div>
             </div>
@@ -305,6 +306,11 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
               onFinalStepCompleted={handleSubmit}
               backButtonText={t('prev_step')}
               nextButtonText={t('next_step')}
+              finalButtonText={isSubmitting ? t('submitting_btn') : t('submit_rfq_btn')}
+              completeOnSubmit={false}
+              nextButtonProps={{ disabled: isSubmitting }}
+              backButtonProps={{ disabled: isSubmitting }}
+              disableStepIndicators={isSubmitting}
             >
               {/* STEP 1: REVIEW CONFIGURED SYSTEMS */}
               <Step>
@@ -312,17 +318,17 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   <div>
                     <div className="flex items-center justify-between">
                       <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
-                        Step 1 of 4 • Technical Specifications
+                        1 / 4 • {t('selected_systems_label')}
                       </span>
                       <span className="text-xs text-slate-400">
-                        {items.length} Systems ({totalQuantity} Units)
+                        {items.length} {t('systems_label')} ({totalQuantity} {t('units_label')})
                       </span>
                     </div>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                       {t('step1_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
-                      Verify your custom dimensions, glass, and finishes before specifying project location.
+                      {t('quotation_summary')}
                     </p>
                   </div>
 
@@ -339,24 +345,24 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                           <div>
                             <span className="font-bold text-slate-800 block">{itemName(it)}</span>
                             <span className="text-[11px] text-slate-500">
-                              {it.quantity} {t('units_label')} • {it.widthMm} × {it.heightMm} mm ({it.color})
+                              {it.quantity} {t('units_label')}{it.widthMm && it.heightMm ? ` • ${it.widthMm} × ${it.heightMm} mm` : ''}{it.color ? ` (${it.color})` : ''}
                             </span>
                           </div>
                         </div>
 
-                        <div className="text-right">
+                        {it.glazing && <div className="text-right">
                           <span className="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded font-semibold text-slate-700 block">
                             {it.glazing.split('(')[0]}
                           </span>
-                        </div>
+                        </div>}
                       </div>
                     ))}
                   </div>
 
-                  <div className="p-3 bg-red-50/80 rounded-xl border border-red-200/80 flex items-center justify-between text-xs">
+                  {totalAreaSqm > 0 && <div className="p-3 bg-red-50/80 rounded-xl border border-red-200/80 flex items-center justify-between text-xs">
                     <span className="text-slate-900 font-semibold">Total Glass Area:</span>
                     <span className="text-red-700 font-extrabold">{totalAreaSqm.toFixed(2)} m² Insulated Glazing</span>
-                  </div>
+                  </div>}
                 </div>
               </Step>
 
@@ -365,7 +371,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                 <div className="space-y-4">
                   <div>
                     <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
-                      Step 2 of 4 • Project Details
+                      2 / 4 • {t('step2_title')}
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                       {t('step2_title')}
@@ -512,13 +518,13 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                 <div className="space-y-4">
                   <div>
                     <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
-                      Step 3 of 4 • Contact Information
+                      3 / 4 • {t('contact_info_title')}
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                       {t('step3_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
-                      Our Erbil engineering office will send the itemized technical quotation to these credentials.
+                      {t('contact_info_subtitle')}
                     </p>
                   </div>
 
@@ -527,7 +533,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
                         <UserIcon className="w-3.5 h-3.5 text-red-600" />
-                        <span>Full Name / Contact Person *</span>
+                        <span>{t('full_name_label')} *</span>
                       </label>
                       <input
                         type="text"
@@ -575,7 +581,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     <div className="space-y-1">
                       <label className="text-xs font-semibold text-slate-700 flex items-center gap-1.5">
                         <Mail className="w-3.5 h-3.5 text-red-600" />
-                        <span>Email Address *</span>
+                        <span>{t('email_label')} *</span>
                       </label>
                       <input
                         type="email"
@@ -643,13 +649,13 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                 <div className="space-y-4">
                   <div>
                     <span className="text-[11px] font-bold text-red-600 uppercase tracking-wider">
-                      Step 4 of 4 • Final Confirmation
+                      4 / 4 • {t('quotation_summary')}
                     </span>
                     <h3 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                       {t('step4_title')}
                     </h3>
                     <p className="text-xs text-slate-500">
-                      Your request will be delivered directly to the Doorhome administration queue for engineering review.
+                      {t('engineers_review_note')}
                     </p>
                   </div>
 
@@ -657,18 +663,18 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                   <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-2.5 text-xs">
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pb-2 border-b border-slate-200">
                       <div>
-                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">Client</span>
+                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">{t('full_name_label')}</span>
                         <span className="font-bold text-slate-900 truncate block">
-                          {customer.fullName || 'Not provided'}
+                          {customer.fullName || '—'}
                         </span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">Location</span>
+                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">{t('city_label')}</span>
                         <span className="font-bold text-slate-900 block">{customer.city}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">Total Systems</span>
-                        <span className="font-bold text-red-700 block">{totalQuantity} units</span>
+                        <span className="text-[10px] text-slate-400 uppercase font-semibold block">{t('total_units_label')}</span>
+                        <span className="font-bold text-red-700 block">{totalQuantity} {t('units_label')}</span>
                       </div>
                       <div>
                         <span className="text-[10px] text-slate-400 uppercase font-semibold block">Glass Area</span>
@@ -678,7 +684,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
                     <div className="text-[11px] text-slate-600 space-y-1">
                       <p>
-                        <strong>Phone / WhatsApp:</strong> {customer.phone || '—'}
+                        <strong>{t('phone_whatsapp_label')}:</strong> {customer.phone || '—'}
                       </p>
                       <p>
                         <strong>Scope:</strong> {customer.serviceNeeded}
@@ -688,13 +694,13 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
                     {/* Additional Notes Field */}
                     <div className="pt-2">
                       <label className="text-[11px] font-bold text-slate-700 block mb-1">
-                        Any specific architectural instructions for the Admin desk? (Optional)
+                        {t('notes_label_opt')}
                       </label>
                       <textarea
                         rows={2}
                         value={customer.additionalNotes || ''}
                         onChange={(e) => setCustomer({ ...customer, additionalNotes: e.target.value })}
-                        placeholder="e.g. Please also attach thermal calculation certificate for Dream City villa tender..."
+                        placeholder={t('notes_placeholder')}
                         className="w-full px-3 py-1.5 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:border-red-600 text-slate-900 resize-none"
                       />
                     </div>
@@ -702,9 +708,7 @@ export const QuotationRequestStepperModal: React.FC<QuotationRequestStepperModal
 
                   <div className="flex items-center gap-2 p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-800">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>
-                      Guaranteed response within 24 hours with certified technical drawings and BOQ from Doorhome Erbil.
-                    </span>
+                    <span>{t('engineers_review_note')}</span>
                   </div>
                 </div>
               </Step>

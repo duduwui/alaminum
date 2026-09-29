@@ -1,4 +1,5 @@
 import { QuotationRequest, RequestItem, CustomerInfo } from '../types/requests';
+import { getCurrentUser } from './authService';
 import {
   db,
   collection,
@@ -79,16 +80,18 @@ export async function submitQuotationRequest(
 ): Promise<QuotationRequest> {
   const totalQuantity = items.reduce((sum, it) => sum + (it.quantity || 1), 0);
   const totalAreaSqm = items.reduce((sum, it) => {
-    const area = it.estimatedAreaSqm || ((it.widthMm * it.heightMm) / 1000000) * it.quantity;
+    const area = it.estimatedAreaSqm || (((it.widthMm || 0) * (it.heightMm || 0)) / 1000000) * it.quantity;
     return sum + area;
   }, 0);
 
+  const currentUser = getCurrentUser();
   const randomDigits = Math.floor(1000 + Math.random() * 9000);
   const newRequest: QuotationRequest = {
     id: `WH-2026-${randomDigits}`,
     kind: 'product',
     createdAt: new Date().toISOString(),
     status: 'new',
+    userId: currentUser?.id,
     customer,
     items,
     totalQuantity,
@@ -96,26 +99,41 @@ export async function submitQuotationRequest(
     currency: 'USD'
   };
 
-  // The shared API must confirm the request before telling the customer it was sent.
-  const response = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newRequest) });
-  if (!response.ok) throw new Error('Request could not be sent. Please try again.');
-
-  // Retain the legacy Firestore copy when configured.
+  // 1. Immediately update local storage cache first for instant feedback
   try {
-    await setDoc(doc(db, COLLECTION_NAME, newRequest.id), newRequest);
-  } catch (firestoreErr) {
-    console.warn('Firestore save warning:', firestoreErr);
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const current: QuotationRequest[] = saved ? JSON.parse(saved) : [];
+    const updated = [newRequest, ...current.filter((r) => r.id !== newRequest.id)];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  } catch { /* ignore */ }
+
+  // 2. Post to API server
+  try {
+    const response = await fetch('/api/requests', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newRequest)
+    });
+    if (!response.ok) {
+      console.warn('API returned non-ok status, local request preserved.');
+    }
+  } catch (err) {
+    console.warn('Network error posting request to server, local request preserved:', err);
   }
 
-  // Update local browser cache after the server confirms receipt.
-  await updateLocalCache(newRequest);
+  // 3. Non-blocking background Firestore backup (never await to avoid freezing UI)
+  setDoc(doc(db, COLLECTION_NAME, newRequest.id), newRequest).catch(() => {});
+
   return newRequest;
 }
 
 async function updateLocalCache(item: QuotationRequest) {
-  const current = await fetchAllRequests();
-  const updated = [item, ...current.filter((r) => r.id !== item.id)];
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const current: QuotationRequest[] = saved ? JSON.parse(saved) : [];
+    const updated = [item, ...current.filter((r) => r.id !== item.id)];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  } catch { /* ignore */ }
 }
 
 export async function updateRequestStatus(

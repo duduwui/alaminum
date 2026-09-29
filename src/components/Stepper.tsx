@@ -15,6 +15,8 @@ export interface StepperProps {
   nextButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
   backButtonText?: string;
   nextButtonText?: string;
+  finalButtonText?: string;
+  completeOnSubmit?: boolean;
   disableStepIndicators?: boolean;
   renderStepIndicator?: (props: {
     step: number;
@@ -37,6 +39,8 @@ export default function Stepper({
   nextButtonProps = {},
   backButtonText = 'Back',
   nextButtonText = 'Continue',
+  finalButtonText = 'Submit Request',
+  completeOnSubmit = true,
   disableStepIndicators = false,
   renderStepIndicator,
   ...rest
@@ -72,6 +76,10 @@ export default function Stepper({
   };
 
   const handleComplete = () => {
+    if (!completeOnSubmit) {
+      onFinalStepCompleted();
+      return;
+    }
     setDirection(1);
     updateStep(totalSteps + 1);
   };
@@ -142,7 +150,7 @@ export default function Stepper({
                 className="next-button"
                 {...nextButtonProps}
               >
-                {isLastStep ? 'Submit Request' : nextButtonText}
+                {isLastStep ? finalButtonText : nextButtonText}
               </button>
             </div>
           </div>

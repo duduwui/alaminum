@@ -1,4 +1,5 @@
 import { getLocalizedProduct } from '../utils/localizedContent';
+import { VisitsHistoryModal } from './VisitsHistoryModal';
 import React, { useState, useEffect, useMemo } from 'react';
 import {
   QuotationRequest,
@@ -192,7 +193,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Requests State
   const [requests, setRequests] = useState<QuotationRequest[]>([]);
-  const [visits, setVisits] = useState<Record<'total' | 'month' | 'week' | 'live', { visits: number; unique: number }> | null>(null);
+  const [visits, setVisits] = useState<Record<'total' | 'today' | 'month' | 'week' | 'live', { visits: number; unique: number }> | null>(null);
+  const [showVisitsModal, setShowVisitsModal] = useState(false);
   const [requestTypeFilter, setRequestTypeFilter] = useState<'all' | 'contact' | 'product'>('all');
   const [loading, setLoading] = useState<boolean>(true);
   const [requestSearchQuery, setRequestSearchQuery] = useState<string>('');
@@ -1190,24 +1192,50 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         {/* SECTION 1: DASHBOARD OVERVIEW */}
         {activeSection === 'dashboard' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            {/* Real visit metrics; counts begin when the tracker is deployed. */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {([['total', 'All visits'], ['month', 'This month'], ['week', 'This week'], ['live', 'Live now']] as const).map(([key, label]) => (
-                <div key={key} className={`bg-white p-5 rounded-2xl border border-slate-200 shadow-sm border-t-[3px] ${key === 'live' ? 'border-t-emerald-500' : 'border-t-red-600'}`}>
+            {/* Real visit metrics */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {([
+                ['live',  'Live Now',    'emerald'],
+                ['today', 'Today',       'blue'],
+                ['week',  'This Week',   'red'],
+                ['month', 'This Month',  'red'],
+                ['total', 'All-Time',    'red'],
+              ] as const).map(([key, label, color]) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setShowVisitsModal(true)}
+                  className={`bg-white p-4 rounded-2xl border border-slate-200 shadow-sm border-t-[3px] text-left w-full transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer ${
+                    color === 'emerald' ? 'border-t-emerald-500' : color === 'blue' ? 'border-t-blue-500' : 'border-t-red-600'
+                  }`}
+                >
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">{label}</span>
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">{label}</span>
                     {key === 'live' && (
-                      <span className="flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                      <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                         LIVE
                       </span>
                     )}
                   </div>
-                  <p className="mt-3 text-3xl font-black text-slate-900">{visits ? visits[key].visits.toLocaleString() : '—'}</p>
-                  <p className="mt-1 text-xs font-medium text-slate-500"><span className={`font-bold ${key === 'live' ? 'text-emerald-700' : 'text-red-700'}`}>{visits ? visits[key].unique.toLocaleString() : '—'}</span> {key === 'live' ? 'active online right now' : 'unique browsers'}</p>
-                </div>
+                  <p className="mt-2 text-2xl font-black text-slate-900">{visits ? visits[key].visits.toLocaleString() : '—'}</p>
+                  <p className="mt-0.5 text-[10px] font-medium text-slate-500">
+                    <span className={`font-bold ${key === 'live' ? 'text-emerald-700' : key === 'today' ? 'text-blue-700' : 'text-red-700'}`}>
+                      {visits ? visits[key].unique.toLocaleString() : '—'}
+                    </span>{' '}
+                    {key === 'live' ? 'online now' : 'unique'}
+                  </p>
+                  <p className="text-[9px] text-slate-400 mt-1">click for details →</p>
+                </button>
               ))}
             </div>
+
+            {/* Visits History Modal */}
+            <VisitsHistoryModal
+              isOpen={showVisitsModal}
+              onClose={() => setShowVisitsModal(false)}
+              adminToken={localStorage.getItem('dh_admin_token')}
+            />
 
             {/* Product distribution and request attention */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">

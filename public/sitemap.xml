@@ -5,20 +5,20 @@
   <!-- Homepage -->
   <url>
     <loc>https://doorhome.company/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://doorhome.company/doorhome-logo.jpg</image:loc>
-      <image:title>Doorhome Company – Aluminum Windows &amp; Doors Iraq</image:title>
-      <image:caption>شركة دور هوم للشبابيك والأبواب الألمنيوم في العراق وكردستان</image:caption>
+      <image:title>Doorhome (Door Home) – باب المنزل – دور هوم – Kapı Ev – Aluminum Windows &amp; Glass Stairs Iraq</image:title>
+      <image:caption>شركة Doorhome (باب المنزل / دور هوم / Kapı Ev) للشبابيك والأبواب الألمنيوم والدرج الزجاجي في العراق وأربيل وكردستان</image:caption>
     </image:image>
   </url>
 
   <!-- Products Catalog -->
   <url>
     <loc>https://doorhome.company/products</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
@@ -26,7 +26,7 @@
   <!-- Projects Gallery -->
   <url>
     <loc>https://doorhome.company/projects</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -34,7 +34,7 @@
   <!-- Contact & Showroom -->
   <url>
     <loc>https://doorhome.company/contact</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -42,12 +42,12 @@
   <!-- Logo / Brand Image -->
   <url>
     <loc>https://doorhome.company/doorhome-logo.jpg</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
     <image:image>
       <image:loc>https://doorhome.company/doorhome-logo.jpg</image:loc>
-      <image:title>Doorhome Company Official Logo</image:title>
+      <image:title>Doorhome Official Logo (Door Home / باب المنزل / Kapı Ev)</image:title>
     </image:image>
   </url>
 

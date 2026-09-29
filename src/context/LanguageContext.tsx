@@ -897,14 +897,54 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const t = (key: string): string => {
+    const code = currentLanguage.code;
+    const isAr = code === 'ar';
+    const isKu = code === 'ckb';
+    const isKmr = code === 'kmr';
+    const isTr = code === 'tr';
+
+    // 1. Localized Brand Names (Doorhome meaning in Arabic, Turkish, Kurdish)
+    if (key === 'brand_name' || key === 'doorhome_brand_name') {
+      if (isAr) return 'باب المنزل';
+      if (isTr) return 'Kapı Ev';
+      if (isKu) return 'دەرگای ماڵ';
+      if (isKmr) return 'Deriyê Malê';
+      return 'Doorhome';
+    }
+    if (key === 'brand_name_full') {
+      if (isAr) return 'باب المنزل (دور هوم)';
+      if (isTr) return 'Kapı Ev (Doorhome)';
+      if (isKu) return 'دەرگای ماڵ (دۆرهۆم)';
+      if (isKmr) return 'Deriyê Malê (Doorhome)';
+      return 'Doorhome';
+    }
+
+    // 2. Crystal-Clear Working Hours (9 AM - 6 PM, Friday Closed)
+    if (key === 'working_hours_simple' || key === 'working_hours_clean') {
+      if (isAr) return 'السبت إلى الخميس: 9:00 صباحاً – 6:00 مساءً (الجمعة عطلة)';
+      if (isKu) return 'شەممە بۆ پێنجشەممە: ٩:٠٠ی بەیانی – ٦:٠٠ی ئێوارە (هەینی پشوو)';
+      if (isKmr) return 'Şemî heta Pêncşem: 09:00 – 18:00 (În girtî ye)';
+      if (isTr) return 'Cumartesi – Perşembe: 09:00 – 18:00 (Yalnızca Cuma Kapalı)';
+      return 'Saturday – Thursday: 9:00 AM – 6:00 PM (Friday Closed)';
+    }
+    if (key === 'working_hours_compact' || key === 'footer_working_hours_time') {
+      if (isAr) return 'السبت – الخميس: 9:00 ص – 6:00 م';
+      if (isKu) return 'شەممە – پێنجشەممە: ٩:٠٠ی بەیانی – ٦:٠٠ی ئێوارە';
+      if (isKmr) return 'Şemî – Pêncşem: 09:00 – 18:00';
+      if (isTr) return 'Cumartesi – Perşembe: 09:00 – 18:00';
+      return 'Saturday – Thursday: 9:00 AM – 6:00 PM';
+    }
+    if (key === 'footer_working_hours_days') {
+      if (isAr) return 'الجمعة: عطلة';
+      if (isKu) return 'هەینی: پشوو';
+      if (isKmr) return 'În: Girtî ye';
+      if (isTr) return 'Cuma: Kapalı';
+      return 'Friday: Closed';
+    }
+
     const common = getCommonText(currentLanguage.code, key);
     if (common) return common;
-    if (key === 'working_hours_compact' || key === 'footer_working_hours_time') {
-      try {
-        const formatter = new Intl.DateTimeFormat(currentLanguage.code, { hour: 'numeric', minute: '2-digit', hour12: true, timeZone: 'UTC' });
-        return `${formatter.format(new Date('2026-01-01T09:00:00Z'))} – ${formatter.format(new Date('2026-01-01T18:00:00Z'))}`;
-      } catch { return '9:00 AM – 6:00 PM'; }
-    }
+
     const baseCode = currentLanguage.code.split('-')[0];
     const appDict =
       APP_TRANSLATIONS[currentLanguage.code] ||

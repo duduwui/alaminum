@@ -42,7 +42,7 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
     <section id="windows" className="bg-[linear-gradient(180deg,rgba(254,242,242,0.4),white_180px)] border-b border-slate-200 scroll-mt-20">
       {/* Category Banner */}
       <div className="doorhome-textured-red text-white py-9 sm:py-12 px-4 sm:px-6 lg:px-8 shadow-sm border-b border-red-900/30">
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 dh-reveal">
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight drop-shadow-sm">
             {t('win_title')}
           </h2>
@@ -60,12 +60,12 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredItems.map((product) => {
+            {filteredItems.map((product, idx) => {
               const displayPrice = product.pricePerSqm ?? product.basePrice ?? product.unitPrice;
               return (
                 <div
                   key={product.id}
-                  className="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+                  className={`group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between dh-reveal dh-stagger-${(idx % 4) + 1} dh-card-hover`}
                 >
                   <div>
                     {/* Image Area (Clean - no badges on image) */}
@@ -126,7 +126,13 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
             })}
           </div>
         )}
-        {localizedItems.length > 0 && onExploreCategory && <div className="mt-8 text-center"><button type="button" onClick={() => onExploreCategory('windows')} className="rounded-xl border border-red-200 bg-white px-6 py-3 text-sm font-bold text-red-700 hover:bg-red-50">{t('view_all_windows')} <ChevronRight className="inline h-4 w-4" /></button></div>}
+        {localizedItems.length > 0 && onExploreCategory && (
+          <div className="mt-8 text-center dh-reveal dh-stagger-2">
+            <button type="button" onClick={() => onExploreCategory('windows')} className="rounded-xl border border-red-200 bg-white px-6 py-3 text-sm font-bold text-red-700 hover:bg-red-50 dh-card-hover cursor-pointer">
+              {t('view_all_windows')} <ChevronRight className="inline h-4 w-4" />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

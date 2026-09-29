@@ -835,7 +835,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.07),transparent_40%),#fff] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 border-l-[3px] border-red-600 pl-5 sm:pl-7">
+        <div className="max-w-3xl mb-12 sm:mb-16 border-l-[3px] border-red-600 pl-5 sm:pl-7 dh-reveal">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             {headerContent.title}
           </h2>
@@ -847,7 +847,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         {/* Alumil-Style 2-Column Split Feature Row */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: High-Impact Photography with Floating Badges */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative dh-reveal-left">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 group">
               <img
                 src={factoryImage}
@@ -871,35 +871,34 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </div>
           </div>
 
-          {/* Right Column: 4 Pillar Features Grid */}
+          {/* Right Column: 4 Pillar Features Grid (Centered) */}
           <div className="lg:col-span-7 space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {pillarItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white border border-slate-200/90 border-t-2 border-t-red-200 hover:border-t-red-500 hover:shadow-lg transition-all duration-300 group"
+                  className={`p-6 rounded-2xl bg-white border border-slate-200/90 border-t-2 border-t-red-200 hover:border-t-red-500 hover:shadow-lg transition-all duration-300 group text-center flex flex-col items-center justify-center dh-reveal dh-stagger-${idx + 1} dh-card-hover`}
                 >
-                  <h4 className="text-sm font-black text-slate-900 group-hover:text-red-600 transition-colors mb-2 leading-snug">
+                  <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors mb-2 leading-snug text-center">
                     {item.title}
                   </h4>
 
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed text-center">
                     {item.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            {/* Bottom Actions */}
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            {/* Bottom Actions Centered */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-4 dh-reveal dh-stagger-5">
               <button
                 onClick={onExploreTypologies}
-                className="px-6 py-3 rounded-xl bg-red-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-red-700 transition-all flex items-center gap-2 shadow-sm cursor-pointer"
+                className="px-7 py-3.5 rounded-xl bg-red-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-red-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
               >
                 <span>{headerContent.exploreBtn}</span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </button>
-
             </div>
           </div>
         </div>

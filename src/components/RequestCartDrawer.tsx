@@ -18,6 +18,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
 import { getLocalizedProduct } from '../utils/localizedContent';
+import { loadProductDivisions } from '../services/productNavigationService';
 
 interface RequestCartDrawerProps {
   isOpen: boolean;
@@ -64,6 +65,14 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
   const itemName = (item: RequestItem) => {
     const product = catalog.find(product => product.id === item.productId);
     return product ? getLocalizedProduct(product, currentLanguage.code).name : item.productName;
+  };
+  const divisions = loadProductDivisions();
+  const itemCategory = (item: RequestItem) => {
+    const division = divisions.find(division => division.key === item.category || division.categoryTarget === item.category);
+    if (!division) return item.category;
+    const locale = currentLanguage.code;
+    const text = division.translations?.[locale] || division.translations?.[locale.split('-')[0]];
+    return text?.name || text?.title || (locale === 'ar' ? division.arabicTitle : locale === 'ckb' ? division.kurdishTitle : '') || division.title;
   };
   const isRtl = ['ckb', 'fa', 'ar'].includes(currentLanguage.code);
 
@@ -187,7 +196,7 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                 type="button"
                 onClick={() => setStep('items')}
                 className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
-                title="Back to cart items"
+                title={t('back_btn')}
               >
                 <ArrowLeft className={`w-4 h-4 ${isRtl ? 'rotate-180' : ''}`} />
               </button>
@@ -444,7 +453,7 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                           />
                           <div className="min-w-0">
                             <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 bg-red-50 border border-red-200 px-2 py-0.5 rounded-md inline-block mb-1">
-                              {item.category}
+                              {itemCategory(item)}
                             </span>
                             <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug truncate">
                               {itemName(item)}
@@ -500,6 +509,7 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                             <button
                               type="button"
                               onClick={() => onUpdateQuantity(item.id, -1)}
+                              aria-label={t('ui_quantity_less')}
                               className="w-6 h-6 rounded-md bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 font-bold text-xs shadow-2xs cursor-pointer transition-colors"
                             >
                               <Minus className="w-3 h-3" />
@@ -510,6 +520,7 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                             <button
                               type="button"
                               onClick={() => onUpdateQuantity(item.id, 1)}
+                              aria-label={t('ui_quantity_more')}
                               className="w-6 h-6 rounded-md bg-white flex items-center justify-center text-slate-700 hover:bg-slate-50 font-bold text-xs shadow-2xs cursor-pointer transition-colors"
                             >
                               <Plus className="w-3 h-3" />

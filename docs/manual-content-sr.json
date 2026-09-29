@@ -1,0 +1,442 @@
+{
+  "Light Grey Horizontal-Panel Entrance Gate": [
+    "Svetlosiva ulazna kapija s vodoravnim panelima",
+    "Široka kapija s vodoravnim panelima uz uske pešačke prolaze i kontrastne tamne okvire."
+  ],
+  "Cylinder Lock Mechanism": [
+    "Mehanizam cilindrične brave",
+    "Usko kućište brave s otvorom za cilindar i dugom čeonom pločom. Potrebno je provjeriti kompatibilnost s vratima."
+  ],
+  "Charcoal Gate with Vertical Wood-Effect Accent": [
+    "Antracit kapija s uspravnim detaljem izgleda drveta",
+    "Tamni vodoravni paneli s uskom trakom izgleda drveta i odvojenim pešačkim vratima."
+  ],
+  "Glass Stair Balustrade with Wood-Tone Handrail": [
+    "Staklena ograda stepenica s rukohvatom u boji drveta",
+    "Prozirni stakleni paneli prate kamene stepenice, uz tamne pričvrsnice i gornji rukohvat u boji drveta."
+  ],
+  "Vertical-Slat Driveway Gate": [
+    "Ulazna kapija za vozila s uspravnim letvicama",
+    "Gusto raspoređene tamne uspravne letvice stvaraju ujednačeno lice preko široke kapije."
+  ],
+  "Blue-Tinted Glass Balcony Railing": [
+    "Balkonska ograda od plavičastog stakla",
+    "Stakleni paneli i tamni stubovi pružaju se duž balkona uz ulicu."
+  ],
+  "Horizontal-Slat Gate with Wood-Effect Side Panel": [
+    "Kapija s vodoravnim letvicama i bočnim panelom izgleda drveta",
+    "Tamna kapija s vodoravnim letvicama uz uski pešački panel izgleda drveta."
+  ],
+  "Inset-Window Horizontal Gate": [
+    "Vodoravna kapija s ugrađenim prozorom",
+    "Svetli vodoravni paneli imaju mali pravougaoni stakleni prozor blizu gornjeg ruba."
+  ],
+  "Glass Railing for Open-Riser Stairs": [
+    "Staklena ograda stepenica bez čela",
+    "Prozirno staklo prati stepeništa s gazištima u boji drveta oslonjenim na tamnu središnju konstrukciju."
+  ],
+  "Vertical Wood-Effect Entrance Gate": [
+    "Ulazna kapija s uspravnim uzorkom drveta",
+    "Lice od letvica toplog izgleda drveta kontrastira s tamnim okvirima i bočnim pešačkim ulazima."
+  ],
+  "Geometric Double Entrance Gate": [
+    "Dvokrilna ulazna kapija s geometrijskim uzorkom",
+    "Dva široka tamna krila imaju svetle pravougaone obrise i usklađene ukrasne završne panele."
+  ],
+  "Indoor Glass Guardrail with Wood-Tone Posts": [
+    "Unutrašnja staklena ograda sa stubovima u boji drveta",
+    "Tonirani stakleni paneli okružuju otvor na spratu, uz stubove u boji drveta i tamni gornji rukohvat."
+  ],
+  "Three-Rectangle Entrance Gate": [
+    "Ulazna kapija s tri pravougaonika",
+    "Tamna kapija s tri izdužena svetla pravougaona motiva i usklađenim pešačkim panelom."
+  ],
+  "Slatted Gate with Central Wood-Effect Band": [
+    "Kapija od letvica sa središnjom trakom izgleda drveta",
+    "Tamne vodoravne letvice prekida topla traka izgleda drveta i usklađeni bočni panel."
+  ],
+  "Three Glazed-Strip Entrance Gate": [
+    "Ulazna kapija s tri staklene trake",
+    "Tamna kapija sa svetlim obrubom sadrži tri uska pravougaona prozora."
+  ],
+  "Glazed Office Door with Frosted Bands": [
+    "Staklena kancelarijska vrata s matiranim trakama",
+    "Staklena vrata na šarkama i fiksni bočni panel imaju vodoravne matirane trake i tamne okvire."
+  ],
+  "Mixed Slat and Panel Entrance Gate": [
+    "Ulazna kapija koja spaja letvice i panele",
+    "Svetli pešački deo od letvica stoji uz široku tamnu kapiju sa svetlim vodoravnim detaljima."
+  ],
+  "Push-Bar Door with Vision Panel": [
+    "Vrata s potisnom šipkom i staklenim otvorom",
+    "Jednostavna svetla vrata s malim pravougaonim staklenim otvorom i vodoravnom potisnom šipkom. Nije navedena klasa otpornosti na požar."
+  ],
+  "Double Gate with Horizontal Light Strips": [
+    "Dvokrilna kapija sa svetlim vodoravnim trakama",
+    "Dva tamna krila na šarkama imaju ponovljene svetle vodoravne trake i središnje ručke."
+  ],
+  "Solid Entrance Gate with Vertical Wood-Effect Inserts": [
+    "Puna ulazna kapija s uspravnim umecima izgleda drveta",
+    "Široki jednostavni paneli kontrastiraju s uskim uspravnim umecima izgleda drveta sa strana."
+  ],
+  "Pale Horizontal-Panel Gate": [
+    "Svetla kapija s vodoravnim panelima",
+    "Široki svetli vodoravni paneli u tamnom okviru uz usklađena pešačka vrata."
+  ],
+  "Dark Gate with Narrow Horizontal Accents": [
+    "Tamna kapija s uskim vodoravnim detaljima",
+    "Tamna kapija za vozila sa svetlim vodoravnim prugama i uskim ostakljenim pešačkim ulazom."
+  ],
+  "Twin Light-Panel Entrance Gate": [
+    "Ulazna kapija s dva svetla krila",
+    "Dva jednaka svetla krila na šarkama imaju tamne okvire i vodoravne podele."
+  ],
+  "Fine Horizontal-Slat Entrance Gate": [
+    "Ulazna kapija s tankim vodoravnim letvicama",
+    "Široka tamna kapija s ponovljenim tankim vodoravnim letvicama uz manji usklađeni ulaz."
+  ],
+  "Minimal Horizontal-Panel Gate": [
+    "Jednostavna kapija s vodoravnim panelima",
+    "Široka tamna kapija s razmaknutim vodoravnim spojevima i usklađenim pešačkim vratima."
+  ],
+  "Dark Panel Gate with Wood-Effect Pedestrian Door": [
+    "Tamna panelna kapija s pešačkim vratima izgleda drveta",
+    "Široka tamna kapija s tankim vodoravnim detaljima uz uspravno ulazno krilo izgleda drveta."
+  ],
+  "Plain Gate with Slatted Pedestrian Panel": [
+    "Jednostavna kapija s pešačkim panelom od letvica",
+    "Jednostavnu tamnu kapiju za vozila dopunjuje uski ulaz s vodoravnim letvicama."
+  ],
+  "Double Wood-Effect Slat Gate": [
+    "Dvokrilna kapija od letvica izgleda drveta",
+    "Dva krila u tamnim okvirima sadrže ponovljene uspravne umetke izgleda drveta."
+  ],
+  "Wood-Tone Entrance Door with Glazed Sidelight": [
+    "Ulazna vrata u boji drveta s ostakljenim bočnim panelom",
+    "Vodoravni paneli u boji drveta, duga tamna potezna ručka i visoki uski stakleni bočni panel."
+  ],
+  "Wood-Tone Door with Dark Cross Band": [
+    "Vrata u boji drveta s tamnom poprečnom trakom",
+    "Ulazno krilo u boji drveta ima široki tamni vodoravni detalj i dugu uspravnu poteznu ručku."
+  ],
+  "Grey Horizontal-Slat Gate and Side Door": [
+    "Siva kapija s vodoravnim letvicama i bočnim vratima",
+    "Široko sivo lice od letvica s uskim usklađenim pešačkim vratima."
+  ],
+  "Light Panel Gate with Glazed Side Entrance": [
+    "Svetla panelna kapija s ostakljenim bočnim ulazom",
+    "Široki svetli paneli uz visoki uski stakleni ulaz u tamnom okviru."
+  ],
+  "Dark Gate with Square Glazing Row": [
+    "Tamna kapija s redom kvadratnih staklenih otvora",
+    "Tamna kapija sadrži vodoravni red malih kvadratnih staklenih otvora."
+  ],
+  "Pale Gate with Central Glazing Strip": [
+    "Svetla kapija sa središnjom staklenom trakom",
+    "Široki svetli vodoravni paneli okružuju kratki središnji red malih prozora."
+  ],
+  "Black Gate with Bright Horizontal Trim": [
+    "Crna kapija sa svetlim vodoravnim ukrasnim trakama",
+    "Tamna ulazna kapija i pešačko krilo imaju iste tanke svetle vodoravne detalje."
+  ],
+  "Horizontal Gate with Curved Slat Accent": [
+    "Vodoravna kapija sa zakrivljenim detaljem letvica",
+    "Kapija s vodoravnim panelima uz pešačko krilo sa zakrivljenim detaljem od letvica."
+  ],
+  "Dark-Finish Frame Profile Cross Section": [
+    "Presek profila okvira s tamnom završnom obradom",
+    "Presek pokazuje unutrašnje šuplje komore i žljebove za staklo. Legura, sistem, dubina i toplotne karakteristike nisu potvrđeni."
+  ],
+  "Dark Entrance Door with Vertical Glazing": [
+    "Tamna ulazna vrata s uspravnim staklom",
+    "Tamna vrata s uspravnim žljebovima imaju visoko usko staklo, ručku i rasvetu iznad."
+  ],
+  "Dark Gate with Wood-Effect Horizontal Band": [
+    "Tamna kapija s vodoravnom trakom izgleda drveta",
+    "Široka kapija spaja tamne vodoravne panele s toplim detaljem izgleda drveta i usklađenim bočnim vratima."
+  ],
+  "Open-Slat Double Entrance Gate": [
+    "Dvokrilna ulazna kapija s razmaknutim letvicama",
+    "Dva krila na šarkama imaju razmaknute vodoravne letvice i detalje izgleda drveta."
+  ],
+  "Black Lever Handle Assembly": [
+    "Sklop crne kvake",
+    "Crna kvaka na pravougaonoj ploči. Dimenzije pričvršćenja i kompatibilnost sa sistemom trebaju potvrdu."
+  ],
+  "Panel Gate with Narrow Glazed Pedestrian Door": [
+    "Panelna kapija s uskim ostakljenim pešačkim vratima",
+    "Tamna kapija s vodoravnim panelima i malim okruglim detaljima uz visoko usko stakleno bočno krilo."
+  ],
+  "Recessed Balcony Glass Front": [
+    "Stakleno lice uvučenog balkona",
+    "Uvučeni balkon ima široko tamno reflektujuće stakleno lice iznad uokvirenog otvora u prizemlju."
+  ],
+  "Geometric Stair and Landing Railing": [
+    "Geometrijska ograda stepenica i odmorišta",
+    "Tamne pravougaone šipke i stubovi oblikuju geometrijsku ogradu uz unutrašnje stepenice."
+  ],
+  "Full-Height Outdoor Privacy Screens": [
+    "Spoljašnji zastori za privatnost pune visine",
+    "Tamni zastori nalik tkanini prekrivaju spoljašnja polja konstrukcije uz vrt. Način rada i specifikacije tkanine nisu potvrđeni."
+  ],
+  "Grey Gate with Twin Wood-Effect Accent Panels": [
+    "Siva kapija s dva ukrasna panela izgleda drveta",
+    "Široka siva kapija uz dva uska panela izgleda drveta u tamnim okvirima."
+  ],
+  "Wood-Effect Entrance Door Design": [
+    "Dizajn ulaznih vrata izgleda drveta",
+    "Projektna slika prikazuje dugu uspravnu poteznu ručku, uski tamni detalj i površinu izgleda drveta; nije dokaz završene ugradnje."
+  ],
+  "Plain Dark Driveway Gate": [
+    "Jednostavna tamna kapija za vozila",
+    "Minimalistička tamna kapija i usklađeni pešački ulaz između kamenim oblogama obloženih stubova."
+  ],
+  "Decorative Gate with Wood-Effect Insets": [
+    "Ukrasna kapija s umecima izgleda drveta",
+    "Dva tamna ulazna krila imaju kružne ukrasne trake i pravougaone umetke toplog izgleda drveta."
+  ],
+  "Illuminated Vertical-Slat Entrance Gate": [
+    "Osvetljena ulazna kapija s uspravnim letvicama",
+    "Tamne uspravne letvice, tople ukrasne trake i rasveta oko okvira kapije."
+  ],
+  "Garden Canopy Screen Detail": [
+    "Detalj zastora vrtne nadstrešnice",
+    "Tamni panel zastora prikazan odozgo uz vrtnu nadstrešnicu s okvirom."
+  ],
+  "Dark-Framed Glazed Window Example": [
+    "Primer ostakljenog prozora s tamnim okvirom",
+    "Kadar iz dostavljenog videa pokazuje tamni okvir i otvoren pogled van. Ovo je primer ugradnje, a ne potvrđeni brendirani model."
+  ],
+  "Operable Glazed Window Demonstration": [
+    "Demonstracija otvaranja ostakljenog prozora",
+    "Kadar iz videa rada prozora u izložbenom prostoru. Načini otvaranja, dimenzije profila i specifikacije proizvođača trebaju potvrdu."
+  ],
+  "Window Sample with Sliding Blind Control": [
+    "Uzorak prozora s kliznom komandom žaluzine",
+    "Ostakljeni uzorak s integrisanom žaluzinom koja se podešava kliznom komandom. Marka profila i specifikacije žaluzine nisu poznati."
+  ],
+  "Window Sample with Magnetic Blind Control": [
+    "Uzorak prozora s magnetnom komandom žaluzine",
+    "Ostakljeni izložbeni uzorak pokazuje magnetno upravljanje integrisanom žaluzinom. Ne pretpostavljaju se dimenzije ili klase performansi."
+  ],
+  "Window Sample with Motorized Blind": [
+    "Uzorak prozora s motorizovanom žaluzinom",
+    "Ostakljeni izložbeni uzorak s unutrašnjom žaluzinom kojom upravlja ručni daljinski upravljač. Marka i tehničke specifikacije trebaju potvrdu."
+  ],
+  "Arched Window Installation Example": [
+    "Primer ugradnje lučnog prozora",
+    "Lučni ostakljeni otvor na spratu fotografisan tokom ugradnje. Slika pokazuje oblik, ne proizvođača, specifikacije stakla ili performanse."
+  ],
+  "Garden Canopy and Screens": [
+    "Vrtna nadstrešnica i zastori",
+    "Spoljašnji pogled na nadstrešnicu s okvirom i tamne panele zastora uz travnjak."
+  ],
+  "Integrated Blind Slider Demonstration": [
+    "Demonstracija klizne komande integrisane žaluzine",
+    "Ruka pomera kliznu komandu kako bi podesila žaluzinu unutar ostakljenog uzorka."
+  ],
+  "Motorized Blind Demonstration": [
+    "Demonstracija motorizovane žaluzine",
+    "Ručni daljinski upravljač pokreće žaluzinu unutar ostakljenog izložbenog uzorka."
+  ],
+  "Outdoor Screen Installation": [
+    "Ugradnja spoljašnjeg zastora",
+    "Video širokog tamnog spoljašnjeg zastora uz vrt i nadstrešnicu s okvirom."
+  ],
+  "Showroom Window Operation": [
+    "Rad prozora u izložbenom prostoru",
+    "Demonstracija prozora u unutrašnjosti pokazuje krilo u okviru i njegovu ručku."
+  ],
+  "Black-Framed Window View": [
+    "Pogled kroz prozor s crnim okvirom",
+    "Ostakljeni prozor s tamnim okvirom prikazan iznutra zajedno s pogledom van."
+  ],
+  "Dining Terrace Canopy": [
+    "Nadstrešnica terase za objedovanje",
+    "Drugi ugao krovne konstrukcije iznad prostora za objedovanje i ostakljenja terase."
+  ],
+  "Restaurant Terrace Interior": [
+    "Unutrašnjost terase restorana",
+    "Video stolova, ostakljenja pune visine i gornjih panela nadstrešnice."
+  ],
+  "Magnetic Blind Control Demonstration": [
+    "Demonstracija magnetne komande žaluzine",
+    "Komanda na rubu ostakljenog uzorka podešava integrisanu žaluzinu. Uzorku se ne pripisuju marka, dimenzije ili klasa performansi."
+  ],
+  "Tall Residential Glazing": [
+    "Visoko ostakljenje stambenog objekta",
+    "Spoljašnji pogled na visoko ostakljenje s tamnim okvirom uz ozelenjeni ulaz."
+  ],
+  "Window and Outdoor View": [
+    "Prozor i pogled van",
+    "Video visokog ostakljenja s tamnim okvirom i spoljašnjeg pogleda."
+  ],
+  "Arched Opening and Scaffolding": [
+    "Lučni otvor i skele",
+    "Drugi ugao lučnog otvora fasade tokom radova ugradnje."
+  ],
+  "Arched Window Installation Close-Up": [
+    "Prikaz ugradnje lučnog prozora izbliza",
+    "Prikaz lučnog otvora na spratu izbliza, s natpisom Doorhome ispod."
+  ],
+  "Glazing Frame Delivery Team": [
+    "Ekipa za dostavu okvira ostakljenja",
+    "Radnici istovaraju i prenose velike jedinice s okvirima uz dostavno vozilo."
+  ],
+  "Residential Facade Work Overview": [
+    "Pregled radova na stambenoj fasadi",
+    "Pogled s ulice na višespratnu kuću s ugradnjom u lučni otvor na spratu."
+  ],
+  "Roof Glazing Installation Team": [
+    "Ekipa za ugradnju krovnog ostakljenja",
+    "Tehničari rade oko nagnute konstrukcije staklenog krova."
+  ],
+  "Tall Glazed Residential Entrance": [
+    "Stambeni ulaz s ostakljenjem pune visine",
+    "Ostakljenje pune visine s tamnim okvirom između kamenih stubova uz ozelenjenu stazu."
+  ],
+  "Residential Interior Glass Railings": [
+    "Unutrašnje staklene ograde stambenog prostora",
+    "Stambeni prostor na dva nivoa sa staklenim ogradama oko galerije i stepenišnog otvora."
+  ],
+  "Vertical-Slat Gate Exterior View": [
+    "Spoljašnji pogled na kapiju s uspravnim letvicama",
+    "Pogled preko cijele širine ulazne kapije s gusto raspoređenim tamnim uspravnim letvicama."
+  ],
+  "Garden-Facing Terrace Glass Detail": [
+    "Detalj stakla terase prema vrtu",
+    "Drugi ugao staklene ograde uz popločanu terasu i vrt."
+  ],
+  "Stair Landing Glass Railing Detail": [
+    "Detalj staklene ograde odmorišta",
+    "Stakleni paneli, tamne pričvrsnice i rukohvat u boji drveta okružuju unutrašnje odmorište."
+  ],
+  "Arched Facade Glazing Installation": [
+    "Ugradnja lučnog ostakljenja fasade",
+    "Ugradnja u lučni otvor na spratu kuće uz postavljene skele."
+  ],
+  "Glass Railing beside Garden Terrace": [
+    "Staklena ograda uz vrtnu terasu",
+    "Prozirni stakleni paneli odvajaju popločanu terasu od spoljašnjeg prostora s biljkama."
+  ],
+  "Wood-Tone Door Display Pair": [
+    "Dva izložbena primerka vrata u boji drveta",
+    "Dva primera ulaznih vrata s površinama u boji drveta, tamnim okvirima i dugim poteznim ručkama."
+  ],
+  "Outdoor Balcony Glass Guardrail": [
+    "Staklena ograda spoljašnjeg balkona",
+    "Plavičasti stakleni paneli s tamnim stubovima i okvirima pružaju se duž natkrivenog spoljašnjeg balkona."
+  ],
+  "Pedestrian Gate Opening Detail": [
+    "Detalj otvaranja pešačkih vrata",
+    "Pješačko krilo na šarkama prikazano je otvoreno uz široku kapiju s vodoravnim panelima."
+  ],
+  "Residential Glass Balcony Overview": [
+    "Pregled stambenih staklenih balkona",
+    "Spoljašnji pogled na uvučene balkone obložene kamenom i ograde od plavičastog stakla."
+  ],
+  "Interior Atrium Glass Balustrade": [
+    "Staklena ograda unutrašnjeg atrija",
+    "Tonirani stakleni paneli okružuju atrij na spratu i široki zakrivljeni stepenišni otvor."
+  ],
+  "Lit Residential Balcony Facade": [
+    "Osvetljena stambena fasada s balkonima",
+    "Dvospratna fasada obložena kamenom, s uvučenim balkonima, staklenim ogradama i toplom rasvetom."
+  ],
+  "Paired Balcony Glass Railings": [
+    "Staklene ograde dva susjedna balkona",
+    "Dva susjedna balkona s plavičastim staklenim panelima i tamnim pričvrsnicama."
+  ],
+  "Interior Gallery Glass Railing": [
+    "Staklena ograda unutrašnje galerije",
+    "Prozirni stakleni paneli i tamni stubovi pružaju se uz rub svetle unutrašnje galerije."
+  ],
+  "Stone-Clad Balcony Elevation": [
+    "Pogled na balkon obložen kamenom",
+    "Uvučeni balkon s toniranom staklenom ogradom, tamnim prozorima i toplom plafonskom rasvetom."
+  ],
+  "Office Glazed Entrance Detail": [
+    "Detalj staklenog ulaza u kancelariju",
+    "Drugi ugao staklenih vrata, fiksnog bočnog panela i vodoravnih traka za privatnost."
+  ],
+  "Glass Balcony Installation at Dusk": [
+    "Ostakljenje balkona u sumrak",
+    "Tonirani stakleni paneli i tamni stubovi ispred osvetljenog balkona obloženog kamenom."
+  ],
+  "Dark Entrance Door Display": [
+    "Izložbeni primerak tamnih ulaznih vrata",
+    "Izložbeni ulazni sklop sa širokim tamnim panelom, uspravnim staklom i odvojenim uskim bočnim delom."
+  ],
+  "Gate and Pedestrian Entrance Installation": [
+    "Ugradnja kapije i pešačkog ulaza",
+    "Kapija s vodoravnim panelima, detalj izgleda drveta i pešački ulaz u tamnom okviru između stubova zgrade."
+  ],
+  "Large Villa Exterior": [
+    "Spoljašnji izgled velike vile",
+    "Prostrana kuća s lučnim otvorima, stubovima i još nedovršenim uređenjem prednjeg vrta."
+  ],
+  "Dining Terrace Roof Opening": [
+    "Krovni otvor terase za objedovanje",
+    "Drugi ugao otvorenog dela nadstrešnice iznad ostakljene terase restorana."
+  ],
+  "Open-Roof Dining Terrace": [
+    "Terasa za objedovanje s otvorenim krovom",
+    "Nadstrešnica terase prikazana je s krovnim otvorom iznad stolova i okolnog ostakljenja."
+  ],
+  "Restaurant Canopy and Glazing Detail": [
+    "Detalj nadstrešnice i ostakljenja restorana",
+    "Tamne gornje letvice, otvoreni delovi krova i stakleni zidovi okružuju prostor za objedovanje."
+  ],
+  "Glazed Restaurant Terrace": [
+    "Ostakljena terasa restorana",
+    "Unutrašnji prostor za objedovanje uz ostakljenje pune visine i gornju nadstrešnicu od letvica."
+  ],
+  "Residential Facade Installation": [
+    "Ugradnja na stambenoj fasadi",
+    "Višespratna kuća s gornjim lučnim otvorom i radovima ugradnje u toku."
+  ],
+  "Doors & Entrance Gates": [
+    "Vrata i ulazne kapije",
+    ""
+  ],
+  "Glass & Stair Railings": [
+    "Staklene i stepenišne ograde",
+    ""
+  ],
+  "Outdoor Shading": [
+    "Spoljašnja zaštita od sunca",
+    ""
+  ],
+  "Architectural Glazing": [
+    "Arhitektonsko ostakljenje",
+    ""
+  ],
+  "Handles & Lock Hardware": [
+    "Kvake i okovi za brave",
+    ""
+  ],
+  "Profile Sections": [
+    "Preseci profila",
+    ""
+  ],
+  "Windows Systems": [
+    "Prozorski sistemi",
+    ""
+  ],
+  "Window Systems": [
+    "Prozorski sistemi",
+    ""
+  ],
+  "Designs & Samples": [
+    "Dizajni i uzorci",
+    ""
+  ],
+  "Window Examples": [
+    "Primeri prozora",
+    ""
+  ],
+  "Doors, Gates & Architectural Details": [
+    "Vrata, kapije i arhitektonski detalji",
+    "Pogledajte naše dizajne ulaza, staklene ograde, spoljašnje zastore i primere ostakljenja."
+  ]
+}

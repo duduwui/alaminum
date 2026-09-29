@@ -217,6 +217,7 @@ async function startServer() {
     let visits: { visitorId: string; at: string; lastSeen: string }[] = [];
     try { visits = JSON.parse(await fs.promises.readFile(VISITS_FILE, 'utf8')); } catch { /* no visits yet */ }
     const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
     const weekStart = new Date(now.getFullYear(), now.getMonth(), now.getDate() - ((now.getDay() + 6) % 7)).getTime();
 
@@ -238,9 +239,45 @@ async function startServer() {
 
     res.json({
       total: summarize(visits),
+      today: summarize(visits.filter((v) => Date.parse(v.at) >= todayStart)),
       month: summarize(visits.filter((v) => Date.parse(v.at) >= monthStart)),
       week: summarize(visits.filter((v) => Date.parse(v.at) >= weekStart)),
       live: { visits: liveCount, unique: liveCount }
+    });
+  });
+
+  // Traffic history: per-day breakdown for admin analytics modal
+  app.get('/api/visits/history', async (req, res) => {
+    if (!hasAdminCmsSession(req)) return res.status(401).json({ error: 'Administrator access required.' });
+    let visits: { visitorId: string; at: string; lastSeen: string }[] = [];
+    try { visits = JSON.parse(await fs.promises.readFile(VISITS_FILE, 'utf8')); } catch { /* no visits yet */ }
+
+    // Group visits by date string YYYY-MM-DD
+    const byDay = new Map<string, { visits: number; uniqueSet: Set<string> }>();
+    for (const v of visits) {
+      const d = new Date(v.at);
+      const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      if (!byDay.has(key)) byDay.set(key, { visits: 0, uniqueSet: new Set() });
+      const entry = byDay.get(key)!;
+      entry.visits++;
+      entry.uniqueSet.add(v.visitorId);
+    }
+
+    // Sort days newest first
+    const daily = Array.from(byDay.entries())
+      .sort(([a], [b]) => b.localeCompare(a))
+      .map(([date, data]) => ({
+        date,
+        visits: data.visits,
+        unique: data.uniqueSet.size
+      }));
+
+    // Max visits per day (for volume bar %)
+    const maxVisits = daily.reduce((m, d) => Math.max(m, d.visits), 1);
+
+    res.json({
+      daily: daily.map(d => ({ ...d, volumePct: Math.round((d.visits / maxVisits) * 100) })),
+      totalDays: daily.length
     });
   });
 
@@ -464,6 +501,106 @@ async function startServer() {
   });
 
   // --- AUTHENTICATION (LOGIN & REGISTRATION) ENDPOINTS ---
+  // ─── Google OAuth 2.0 ────────────────────────────────────────────────────────
+  const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
+  const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || '';
+  const GOOGLE_CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL || 'https://doorhome.company/api/auth/google/callback';
+
+  // Step 1: Redirect user to Google login
+  app.get('/api/auth/google', (req, res) => {
+    if (!GOOGLE_CLIENT_ID) return res.status(503).json({ error: 'Google OAuth not configured' });
+    const params = new URLSearchParams({
+      client_id: GOOGLE_CLIENT_ID,
+      redirect_uri: GOOGLE_CALLBACK_URL,
+      response_type: 'code',
+      scope: 'openid email profile',
+      access_type: 'offline',
+      prompt: 'select_account'
+    });
+    res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`);
+  });
+
+  // Step 2: Google redirects back here with a code
+  app.get('/api/auth/google/callback', async (req, res) => {
+    const code = req.query.code as string;
+    if (!code) return res.redirect('/#auth?error=google_denied');
+    try {
+      // Exchange code for tokens
+      const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+          code,
+          client_id: GOOGLE_CLIENT_ID,
+          client_secret: GOOGLE_CLIENT_SECRET,
+          redirect_uri: GOOGLE_CALLBACK_URL,
+          grant_type: 'authorization_code'
+        })
+      });
+      const tokenData: any = await tokenRes.json();
+      if (!tokenData.access_token) return res.redirect('/#auth?error=google_token');
+
+      // Get user info from Google
+      const userInfoRes = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+        headers: { Authorization: `Bearer ${tokenData.access_token}` }
+      });
+      const googleUser: any = await userInfoRes.json();
+      if (!googleUser.email) return res.redirect('/#auth?error=google_info');
+
+      // Find or create user in our DB
+      let users = await getUsers();
+      let user = users.find((u: any) => u.email.toLowerCase() === googleUser.email.toLowerCase());
+
+      if (!user) {
+        // Auto-register via Google
+        user = {
+          id: `usr-google-${randomUUID().split('-')[0]}`,
+          name: googleUser.name || googleUser.email.split('@')[0],
+          email: googleUser.email.toLowerCase(),
+          password: hashPassword(randomUUID()), // random locked password — Google auth only
+          role: 'customer',
+          phone: '',
+          company: '',
+          city: '',
+          status: 'active',
+          provider: 'google',
+          googleId: googleUser.id,
+          avatar: googleUser.picture || '',
+          createdAt: new Date().toISOString(),
+          lastLogin: new Date().toISOString(),
+          requestsCount: 0
+        };
+        await saveUser(user);
+      } else {
+        // Update last login & avatar
+        await updateUser(user.id, {
+          lastLogin: new Date().toISOString(),
+          avatar: googleUser.picture || user.avatar || '',
+          provider: 'google'
+        });
+      }
+
+      if (user.status === 'disabled') return res.redirect('/#auth?error=account_disabled');
+
+      // Issue session token (same as normal login)
+      const sessionToken = randomUUID();
+      if (user.role === 'admin' || user.role === 'super_admin') {
+        adminUploadSessions.set(sessionToken, { expires: Date.now() + 12 * 60 * 60 * 1000, userId: user.id });
+        await saveAdminSessions();
+        res.cookie('dh_admin_session', sessionToken, { httpOnly: true, sameSite: 'lax', secure: true, path: '/', maxAge: 12 * 60 * 60 * 1000 });
+      }
+
+      const { password: _, ...userWithoutPass } = user;
+      // Encode user data for frontend
+      const encoded = Buffer.from(JSON.stringify({ token: sessionToken, user: userWithoutPass })).toString('base64');
+      res.redirect(`/#auth?google_success=${encoded}`);
+    } catch (err: any) {
+      console.error('Google OAuth error:', err);
+      res.redirect('/#auth?error=google_failed');
+    }
+  });
+  // ─────────────────────────────────────────────────────────────────────────────
+
   app.post('/api/auth/login', async (req, res) => {
     try {
       const { email, password } = req.body;

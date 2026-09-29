@@ -2,43 +2,43 @@
 
 Status: incomplete. Do not certify the app as fully translated.
 
-The source scan found 210 distinct literal translation keys and 824 hard-coded text candidates. Candidates include brand names, technical examples and inactive components, so this is not a confirmed defect count.
+The source scan found 216 distinct literal translation keys and 815 hard-coded text candidates. Candidates include brand names, technical examples and inactive components, so this is not a confirmed defect count.
 
-The table checks saved titles and descriptions together. English is the original content. Presence checks do not certify translation quality; existing Sorani samples also need editorial review. Dynamic keys, error messages and dictionaries inside components require additional review.
+The table checks saved titles and descriptions together. English is the original content. Presence checks do not certify linguistic quality. Dynamic keys, error messages and dictionaries inside components require additional review.
 
-| Language | Missing referenced UI keys | Product title + description | Project title + description | Category title | Model title + description |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| ckb | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| kmr | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| ar | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| tr | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| fa | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| en-GB | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| de | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| fr | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| it | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| el | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| es | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| ro | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| bg | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| sr | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| bs | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| hr | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| sq | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| nl | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| sv | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| pl | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| pt | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| en-US | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
-| es-MX | 0 | 4/57 | 4/93 | 0/7 | 4/57 |
-| pt-BR | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| zh-CN | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| ru | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| hi | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| ja | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| ko | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| kk | 0 | 3/57 | 3/93 | 0/7 | 3/57 |
-| en | 0 | 57/57 | 93/93 | 7/7 | 57/57 |
+| Language | Missing referenced UI keys | Products | Projects | Categories | Subcategories | Models | Homepage cards | Section heading |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| ckb | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| kmr | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| ar | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| tr | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| fa | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| en-GB | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| de | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| fr | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| it | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| el | 0 | 4/57 | 4/93 | 0/7 | 0/7 | 4/57 | 0/5 | 0/1 |
+| es | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| ro | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| bg | 0 | 4/57 | 4/93 | 0/7 | 0/7 | 4/57 | 0/5 | 0/1 |
+| sr | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| bs | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| hr | 0 | 4/57 | 4/93 | 0/7 | 0/7 | 4/57 | 0/5 | 0/1 |
+| sq | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| nl | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| sv | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| pl | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| pt | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| en-US | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| es-MX | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| pt-BR | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
+| zh-CN | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| ru | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| hi | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| ja | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| ko | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| kk | 0 | 3/57 | 3/93 | 0/7 | 0/7 | 3/57 | 0/5 | 0/1 |
+| en | 0 | 57/57 | 93/93 | 7/7 | 7/7 | 57/57 | 5/5 | 1/1 |
 
 ## Remaining work
 
@@ -52,6 +52,8 @@ The table checks saved titles and descriptions together. English is the original
 - Resolved missing cart/navigation keys and added seven manually translated catalog/control labels across all enabled language variants.
 - Removed unrelated-language fallback rules (Italian for French/Spanish/Portuguese/Romanian and Arabic for Persian).
 - Corrected Arabic descriptions for the five homepage showcase cards.
+- Authored additive manual catalog packs; see the coverage table for the latest published language counts.
+- Localized search results, request-cart product names, category labels and language-picker controls without changing submitted request data.
 - Added short page/content reveals, drawer/menu/dialog entrances, hover/focus transitions and reduced-motion handling.
 
-The production bundle is newer than the local source. Only targeted frontend changes were deployed; the production backend was not replaced.
+Frontend assets and additive CMS translations were deployed. The production backend was not replaced. Full authenticated-flow and all-language browser verification remains outstanding.

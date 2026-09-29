@@ -33,13 +33,16 @@ import { normalizeGalleryItems, saveGalleryItems } from './services/galleryConte
 import { loadProductDivisions, saveProductDivisions } from './services/productNavigationService';
 import { ProductCategoryDivision } from './data/productNavigationData';
 import { SEARCH_PAGES, SITE_URL, searchPagePath } from './utils/searchMetadata';
+import { initScrollRevealObserver } from './utils/scrollObserver';
 
 export default function App() {
   const { isTranslating, targetLanguage } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      const path = window.location.pathname.replace('/', '').toLowerCase();
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      const rawPath = window.location.pathname.replace('/', '').toLowerCase();
+      const hash = rawHash.split('?')[0];
+      const path = rawPath.split('?')[0];
       const route = hash || path;
       if (route === 'admin') return 'admin';
       if (route === 'projects') return 'projects';
@@ -52,8 +55,10 @@ export default function App() {
 
   const [shopCategory, setShopCategory] = useState<string>(() => {
     if (typeof window !== 'undefined') {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      const path = window.location.pathname.replace('/', '').toLowerCase();
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      const rawPath = window.location.pathname.replace('/', '').toLowerCase();
+      const hash = rawHash.split('?')[0];
+      const path = rawPath.split('?')[0];
       const route = hash || path;
       if (loadProductDivisions().some((division) => division.key === route)) return route;
       if (route === 'products') return 'all';
@@ -197,12 +202,26 @@ export default function App() {
     saveActiveCart(cartItems);
   }, [cartItems]);
 
+  // High-performance dynamic scroll reveal animation engine
+  useEffect(() => {
+    return initScrollRevealObserver();
+  }, [activeTab, selectedProduct]);
+
   // URL routing & Hash synchronization
   useEffect(() => {
     const handleHashChange = () => {
-      const hash = window.location.hash.replace('#', '').toLowerCase();
-      const path = window.location.pathname.replace('/', '').toLowerCase();
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      const rawPath = window.location.pathname.replace('/', '').toLowerCase();
+      const hash = rawHash.split('?')[0];
+      const path = rawPath.split('?')[0];
       const route = hash || path;
+
+      if (!rawHash || rawHash === 'home' || route === 'home' || !route) {
+        setSelectedProduct(null);
+        setActiveTab('home');
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        return;
+      }
 
       if (route.startsWith('product-')) {
         const prodId = route.replace('product-', '');
@@ -239,16 +258,14 @@ export default function App() {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }, 120);
-      } else if (['home', 'about', 'typology', 'gallery', 'support', 'services', 'achievements'].includes(route)) {
+      } else if (['about', 'typology', 'gallery', 'support', 'services', 'achievements'].includes(route)) {
         setActiveTab('home');
-        if (route !== 'home') {
-          setTimeout(() => {
-            const element = document.getElementById(route);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 80);
-        }
+        setTimeout(() => {
+          const element = document.getElementById(route);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 80);
       }
     };
 
@@ -326,13 +343,13 @@ export default function App() {
   const handleBackFromProduct = () => {
     setSelectedProduct(null);
     if (activeTab === 'admin') {
-      setActiveTab('home');
-      window.location.hash = '#home';
-    } else if (isProductShopView) {
-      window.location.hash = shopCategory === 'all' ? '#products' : `#${shopCategory}`;
+      setActiveTab('admin');
+      window.location.hash = '#admin';
     } else {
-      setActiveTab('home');
-      window.location.hash = '#home';
+      const cat = isProductShopView && shopCategory ? shopCategory : 'all';
+      setActiveTab(cat === 'all' ? 'products' : cat);
+      setShopCategory(cat);
+      window.location.hash = cat === 'all' ? '#products' : `#${cat}`;
     }
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   };
@@ -432,71 +449,93 @@ export default function App() {
       <main className="flex-1 w-full relative" data-doorhome-page={`${activeTab}:${selectedProduct?.id || ''}`}>
         {isAdminView ? (
           /* Admin Portal View (#admin) */
-          adminSessionStatus === 'checking' ? (
-            <div role="status" className="p-12 text-center text-slate-600">Checking administrator session…</div>
-          ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
-            <ErrorBoundary fallbackTitle="Admin Portal Error">
-              <AdminPortalPage
-                onBackToHome={handleBackToHome}
-                onGoToProducts={() => handleGoToProductShop('all')}
+          <div key="admin" className="page-transition">
+            {adminSessionStatus === 'checking' ? (
+              <div role="status" className="p-12 text-center text-slate-600">Checking administrator session…</div>
+            ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
+              <ErrorBoundary fallbackTitle="Admin Portal Error">
+                <AdminPortalPage
+                  onBackToHome={handleBackToHome}
+                  onGoToProducts={() => handleGoToProductShop('all')}
+                />
+              </ErrorBoundary>
+            ) : (
+              <AdminGuardModal
+                isOpen={true}
+                onClose={handleBackToHome}
+                onCancel={handleBackToHome}
+                onSuccess={(user) => {
+                  setIsAdminAuthenticated(true);
+                  setAdminSessionStatus('valid');
+                }}
               />
-            </ErrorBoundary>
-          ) : (
-            <AdminGuardModal
-              isOpen={true}
-              onClose={handleBackToHome}
-              onCancel={handleBackToHome}
-              onSuccess={(user) => {
-                setIsAdminAuthenticated(true);
-                setAdminSessionStatus('valid');
-              }}
-            />
-          )
+            )}
+          </div>
         ) : activeTab === 'auth' ? (
           /* Dedicated User Authentication & Profile Page (#auth) */
-          <ErrorBoundary fallbackTitle="Authentication Error">
-            <UserAuthPage
-              onBackToHome={handleBackToHome}
-              onAuthSuccess={(user) => {
-                if (user.role === 'admin') {
-                  setIsAdminAuthenticated(true);
-                }
-              }}
-              onNavigateToAdmin={() => handleNavigate('admin')}
-              onNavigateToShop={() => handleGoToProductShop('all')}
-            />
-          </ErrorBoundary>
+          <div key="auth" className="page-transition">
+            <ErrorBoundary fallbackTitle="Authentication Error">
+              <UserAuthPage
+                onBackToHome={handleBackToHome}
+                onAuthSuccess={(user) => {
+                  if (user.role === 'admin') {
+                    setIsAdminAuthenticated(true);
+                  }
+                }}
+                onNavigateToAdmin={() => handleNavigate('admin')}
+                onNavigateToShop={() => handleGoToProductShop('all')}
+              />
+            </ErrorBoundary>
+          </div>
         ) : selectedProduct ? (
           /* Dedicated simplified product detail page */
-          <ProductDetailPage
-            product={selectedProduct}
-            onBack={handleBackFromProduct}
-            onAddToCart={handleAddToCart}
-            onSelectProduct={handleSelectProduct}
-          />
+          <div key={`prod-${selectedProduct.id}`} className="page-transition">
+            <ProductDetailPage
+              product={selectedProduct}
+              onBack={handleBackFromProduct}
+              onAddToCart={handleAddToCart}
+              onSelectProduct={handleSelectProduct}
+            />
+          </div>
         ) : activeTab === 'projects' ? (
-          <GallerySection fullPage onBack={handleBackToHome} />
+          <div key="projects" className="page-transition">
+            <GallerySection fullPage onBack={handleBackToHome} />
+          </div>
         ) : isProductShopView ? (
           /* Full Product Shop View (#products) */
-          <ProductShopPage
-            key={shopCategory}
-            initialCategory={shopCategory}
-            onSelectProduct={handleSelectProduct}
-            onBackToHome={handleBackToHome}
-            cartCount={totalCartCount}
-            onOpenCart={() => setIsCartDrawerOpen(true)}
-          />
+          <div key={`shop-${shopCategory}`} className="page-transition">
+            <ProductShopPage
+              key={shopCategory}
+              initialCategory={shopCategory}
+              onSelectProduct={handleSelectProduct}
+              onBackToHome={handleBackToHome}
+              cartCount={totalCartCount}
+              onOpenCart={() => setIsCartDrawerOpen(true)}
+            />
+          </div>
         ) : (
-          /* Classic Rich Doorhome Homepage with Masked Hero & 3D Swapping Cards */
-          <>
+          /* Classic Rich Doorhome Homepage with Smooth Scroll Animations */
+          <div key="home" className="page-transition">
             {/* 1. Hero Section with Responsive Backgrounds & ShinyText */}
             <HeroSection
               onExploreProducts={() => handleGoToProductShop('all')}
               onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
 
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
             {/* 2. Partner Brand Carousel */}
             <PartnerLogos />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
 
             {/* 3. 5 Signature Architectural Systems with 3D CardSwap Deck */}
             <SignatureShowcase
@@ -510,11 +549,23 @@ export default function App() {
               onGoToProducts={handleGoToProductShop}
             />
 
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
             {/* 4. Material Superiority & Engineering Pillars */}
             <AboutSection
               onExploreTypologies={() => handleNavigate('typology')}
               onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
 
             {/* 5. Architectural Windows Systems */}
             <WindowsSection
@@ -527,6 +578,12 @@ export default function App() {
               onExploreCategory={handleGoToProductShop}
             />
 
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
             {/* 6. Architectural Doors & Entrances */}
             <DoorsSection
               onSelectProduct={handleSelectProduct}
@@ -538,6 +595,12 @@ export default function App() {
               onExploreCategory={handleGoToProductShop}
             />
 
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
             {/* 8. Project Gallery (Installed Villas & Commercial Towers) */}
             <GallerySection onShowAll={() => {
               setSelectedProduct(null);
@@ -546,9 +609,15 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: 'instant' });
             }} />
 
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
             {/* 9. Contact */}
             <ContactSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
-          </>
+          </div>
         )}
       </main>
 

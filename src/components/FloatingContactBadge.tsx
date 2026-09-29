@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 // Custom Branded SVG Icons
 const WhatsAppIcon: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
@@ -32,6 +33,7 @@ interface FloatingContactBadgeProps {
 }
 
 export const FloatingContactBadge: React.FC<FloatingContactBadgeProps> = ({ onClick }) => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -147,7 +149,7 @@ export const FloatingContactBadge: React.FC<FloatingContactBadgeProps> = ({ onCl
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Contact & Social Options"
+        aria-label={t('ui_contact_social')}
         className={`relative w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer border-2 border-white z-50 ${
           isOpen
             ? 'bg-slate-900 text-white rotate-90 shadow-slate-900/40'

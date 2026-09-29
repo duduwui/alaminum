@@ -213,14 +213,14 @@ export const PartnerLogos: React.FC = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-28 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Section Title */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center relative z-10 dh-reveal">
         <h3 className="text-xl sm:text-3xl font-extrabold text-white tracking-tight drop-shadow-sm">
           {title}
         </h3>
       </div>
 
       {/* Interactive & Auto-Spinning Carousel Container */}
-      <div className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-8">
+      <div className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-8 dh-reveal dh-stagger-2">
 
         {/* Auto-Spinning & User Draggable Track */}
         <div

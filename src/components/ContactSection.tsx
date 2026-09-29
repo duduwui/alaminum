@@ -38,11 +38,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
   const [mapReady, setMapReady] = useState(false);
   const { currentLanguage, t } = useLanguage();
   const isRtl = ['ckb', 'kmr', 'ar'].includes(currentLanguage.code);
-  const workHours = currentLanguage.code === 'ar'
-    ? DOORHOME_CONTACT.workHoursArabic
-    : ['ckb', 'kmr'].includes(currentLanguage.code)
-      ? DOORHOME_CONTACT.workHoursKurdish
-      : DOORHOME_CONTACT.workHours;
+  const workHours = t('working_hours_simple');
 
   const handleSubmitInquiry = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -79,7 +75,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {submitError && <p role="alert" className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">{submitError}</p>}
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-14 dh-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
             <MessageSquare className="w-3.5 h-3.5 text-white" />
             <span>{t('contact_badge')}</span>
@@ -93,11 +89,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
         </div>
 
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 dh-reveal-left">
           <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5">
             <div>
               <span className="text-xs font-black uppercase tracking-widest text-red-600">
-                Inquiry &amp; Request Form
+                {t('contact_form_heading')}
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                 {t('form_title')}
@@ -116,7 +112,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                   {t('msg_sent_title')}
                 </h4>
                 <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                  Thank you, <span className="font-bold">{formData.firstName} {formData.lastName}</span>. Your inquiry regarding "{formData.subject || formData.reason || 'General Request'}" has been forwarded to our engineering team.
+                  <span className="font-bold">{formData.firstName} {formData.lastName}</span> • {formData.subject || formData.reason || t('inquiry_label')}
                 </p>
 
                 <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -149,7 +145,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                     }}
                     className="w-full sm:w-auto px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition-all"
                   >
-                    Send Another Message
+                    {t('contact_another_message')}
                   </button>
                 </div>
               </div>
@@ -164,7 +160,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                       required
                       value={formData.firstName}
                       onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      placeholder="e.g. Mohammed"
+                      placeholder={t('first_name_label').replace(/\s*\*$/, '')}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
                     />
                   </div>
@@ -175,7 +171,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                       required
                       value={formData.lastName}
                       onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      placeholder="e.g. Ali"
+                      placeholder={t('last_name_label').replace(/\s*\*$/, '')}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
                     />
                   </div>
@@ -215,11 +211,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                       onChange={(e) => setFormData({ ...formData, country: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
                     >
-                      <option value="Iraq">Iraq</option>
-                      <option value="Turkey">Turkey</option>
-                      <option value="Germany">Germany</option>
-                      <option value="UAE">United Arab Emirates</option>
-                      <option value="Other">Other</option>
+                      {[
+                        { value: 'Iraq', ar: 'العراق (Iraq)', ckb: 'عێراق (Iraq)', en: 'Iraq' },
+                        { value: 'Turkey', ar: 'تركيا (Turkey)', ckb: 'تورکیا (Turkey)', en: 'Turkey' },
+                        { value: 'Germany', ar: 'ألمانيا (Germany)', ckb: 'ئەڵمانیا (Germany)', en: 'Germany' },
+                        { value: 'UAE', ar: 'الإمارات (UAE)', ckb: 'ئیمارات (UAE)', en: 'United Arab Emirates' },
+                        { value: 'Other', ar: 'دولة أخرى (Other)', ckb: 'وڵاتێکی تر (Other)', en: 'Other' },
+                      ].map((c) => (
+                        <option key={c.value} value={c.value}>
+                          {currentLanguage.code === 'ar' ? c.ar : ['ckb', 'kmr'].includes(currentLanguage.code) ? c.ckb : c.en}
+                        </option>
+                      ))}
                     </select>
                     {formData.country === 'Other' && (
                       <input
@@ -227,7 +229,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                         required
                         value={customCountry}
                         onChange={(e) => setCustomCountry(e.target.value)}
-                        placeholder="Type your country name..."
+                        placeholder={currentLanguage.code === 'ar' ? 'اكتب اسم الدولة...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'ناوی وڵاتەکەت بنووسە...' : 'Type your country name...'}
                         className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
                       />
                     )}
@@ -240,12 +242,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                       onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
                     >
-                      <option value="">Select Reason</option>
-                      <option value="Quotation Request">Quotation Request</option>
-                      <option value="Architectural Specification">Architectural Specification</option>
-                      <option value="Showroom Visit">Showroom Visit</option>
-                      <option value="Partnership / Dealer">Partnership / Dealer</option>
-                      <option value="Other">Other</option>
+                      <option value="">
+                        {currentLanguage.code === 'ar' ? 'اختر نوع الاستفسار...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'جۆری پەیوەندی هەڵبژێرە...' : 'Select Reason...'}
+                      </option>
+                      {[
+                        { value: 'Quotation Request', ar: 'طلب تسعير ومواصفات', ckb: 'داواکردنی نرخ و تێچوو', en: 'Quotation Request' },
+                        { value: 'Architectural Specification', ar: 'مواصفات معمارية وهندسية', ckb: 'تایبەتمەندی تەلارسازی و ئەندازیاری', en: 'Architectural Specification' },
+                        { value: 'Showroom Visit', ar: 'حجز موعد زيارة المعرض', ckb: 'سەردانی پێشانگا و کارگە', en: 'Showroom Visit' },
+                        { value: 'Partnership / Dealer', ar: 'شراكة تجارية / وكالة', ckb: 'هاوبەشی بازرگانی / بریکار', en: 'Partnership / Dealer' },
+                        { value: 'Other', ar: 'أخرى / استفسار عام', ckb: 'هیتر / پرسیاری تر', en: 'Other' },
+                      ].map((r) => (
+                        <option key={r.value} value={r.value}>
+                          {currentLanguage.code === 'ar' ? r.ar : ['ckb', 'kmr'].includes(currentLanguage.code) ? r.ckb : r.en}
+                        </option>
+                      ))}
                     </select>
                     {formData.reason === 'Other' && (
                       <input
@@ -253,7 +263,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                         required
                         value={customReason}
                         onChange={(e) => setCustomReason(e.target.value)}
-                        placeholder="Type your inquiry topic..."
+                        placeholder={currentLanguage.code === 'ar' ? 'اكتب موضوع الاستفسار...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'بابەتی پرسیارەکەت بنووسە...' : 'Type your inquiry topic...'}
                         className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
                       />
                     )}
@@ -268,7 +278,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                     rows={3}
                     value={formData.comments}
                     onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
-                    placeholder="Describe your window, door, facade, or hardware requirements..."
+                    placeholder={t('contact_message_placeholder')}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-medium"
                   />
                 </div>
@@ -286,20 +296,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
           </div>
           </div>
 
-          <aside className="overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-[0_24px_65px_-32px_rgba(159,18,57,0.4)] lg:col-span-5" aria-label={t('showroom_title')}>
+          <aside className="overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-[0_24px_65px_-32px_rgba(159,18,57,0.4)] lg:col-span-5 dh-reveal-right" aria-label={t('showroom_title')}>
             <div className="bg-gradient-to-br from-[#a9162e] via-[#d31932] to-[#f04448] p-6 text-white sm:p-7">
               <h3 className="text-2xl font-black">{t('location_card_title')}</h3>
               <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/90">{t('address_line')}</p>
             </div>
             <div className="space-y-4 p-6 sm:p-7">
-              <div className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700">
+              <div className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700 border border-slate-100" dir={isRtl ? 'rtl' : 'ltr'}>
                 <Clock className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
-                <div><span className="block font-extrabold text-slate-900">{t('working_hours_label')}</span><span>{workHours}</span></div>
-              </div>
-              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                {DOORHOME_CONTACT.branches.sales.phones.map((phone, index) => (
-                  <a key={phone} href={`tel:${DOORHOME_CONTACT.branches.sales.phonesRaw[index]}`} className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-3 text-xs font-bold text-slate-800 transition-colors hover:border-red-300 hover:bg-red-50 hover:text-red-700"><Phone className="h-4 w-4 shrink-0 text-red-600" />{phone}</a>
-                ))}
+                <div className="space-y-1.5">
+                  <span className="block font-black text-slate-900 text-xs sm:text-sm">{t('working_hours_label')}</span>
+                  <p className="text-xs sm:text-sm font-bold text-slate-800 m-0 leading-snug">
+                    {t('footer_working_hours_time')}
+                  </p>
+                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-black">
+                    {t('footer_working_hours_days')}
+                  </span>
+                </div>
               </div>
               <div className="relative h-48 overflow-hidden rounded-2xl border border-slate-200 bg-[#e8edf0]">
                 <a href={DOORHOME_CONTACT.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(30deg,transparent_45%,#cbd5db_46%,#cbd5db_49%,transparent_50%),linear-gradient(120deg,transparent_42%,#cbd5db_43%,#cbd5db_46%,transparent_47%)] bg-[length:70px_70px] text-slate-700" aria-hidden={mapReady} tabIndex={mapReady ? -1 : 0}>

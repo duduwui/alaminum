@@ -17,7 +17,17 @@ const translate=record=>{
 data.products.forEach(translate);data.gallery.forEach(translate);
 for(const division of data.divisions){translate(division);if(locale==='ckb')division.kurdishDivisionLabel=division.kurdishTitle;for(const sub of division.subCategories||[]){translate(sub);for(const model of sub.items||[])translate(model);}}
 const homepage=data.homepage;
-const showcaseSubtitles={ckb:'دیزاین و نموونەی دامەزراندنی دور هۆم',kmr:'Dîzayn û nimûneyên sazkirina Doorhome',tr:'Doorhome tasarımları ve uygulama örnekleri',fa:'طرح‌ها و نمونه‌های اجرای دور هوم'};
+const showcaseSubtitles={ckb:'دیزاین و نموونەی دامەزراندنی دور هۆم',kmr:'Dîzayn û nimûneyên sazkirina Doorhome',tr:'Doorhome tasarımları ve uygulama örnekleri',fa:'طرح‌ها و نمونه‌های اجرای دور هوم',fr:'Conceptions et exemples de réalisations Doorhome',de:'Doorhome-Entwürfe und Ausführungsbeispiele',es:'Diseños y ejemplos de instalaciones Doorhome','es-MX':'Diseños y ejemplos de instalaciones Doorhome'};
+showcaseSubtitles.it='Progetti e installazioni di esempio Doorhome';
+showcaseSubtitles.pt='Projetos e exemplos de instalações Doorhome';
+showcaseSubtitles['pt-BR']='Projetos e exemplos de instalações Doorhome';
+showcaseSubtitles.nl='Doorhome-ontwerpen en installatievoorbeelden';
+showcaseSubtitles.sv='Doorhome-design och installationsexempel';
+showcaseSubtitles.ro='Proiecte și exemple de instalări Doorhome';
+showcaseSubtitles.pl='Projekty i przykłady realizacji Doorhome';
+showcaseSubtitles.bs='Doorhome dizajni i primjeri ugradnje';
+showcaseSubtitles.sr='Doorhome dizajni i primeri ugradnje';
+if(!showcaseSubtitles[locale])throw Error('Missing showcase subtitle for '+locale);
 const cards={...homepage.showcaseContentByLanguage?.[locale]};
 for(const [id,card]of Object.entries(homepage.showcaseContent||{})){
   const entry=pack[card.title];if(!entry?.[0]||!entry[1])throw Error('Missing showcase translation: '+card.title);
