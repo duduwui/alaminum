@@ -15,6 +15,8 @@ interface AlumilFooterProps {
 
 export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQuote }) => {
   const { currentLanguage, t } = useLanguage();
+  const isArabic = currentLanguage.code === 'ar';
+  const isKurdish = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr';
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

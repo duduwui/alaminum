@@ -71,7 +71,8 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
     const division = divisions.find(division => division.key === item.category || division.categoryTarget === item.category);
     if (!division) return item.category;
     const locale = currentLanguage.code;
-    const text = division.translations?.[locale] || division.translations?.[locale.split('-')[0]];
+    const divAny = division as any;
+    const text = divAny.translations?.[locale] || divAny.translations?.[locale.split('-')[0]];
     return text?.name || text?.title || (locale === 'ar' ? division.arabicTitle : locale === 'ckb' ? division.kurdishTitle : '') || division.title;
   };
   const isRtl = ['ckb', 'fa', 'ar'].includes(currentLanguage.code);

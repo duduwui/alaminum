@@ -240,7 +240,7 @@ export const VisitsHistoryModal: React.FC<VisitsHistoryModalProps> = ({ isOpen, 
                         {weeklyRows.length === 0 && <tr><td colSpan={5} className="p-6 text-center text-slate-400">No data yet</td></tr>}
                         {weeklyRows.map(row => {
                           const pct = Math.round((row.visits / maxWeekVisits) * 100);
-                          const isCurrent = row.dates?.includes(today);
+                          const isCurrent = (row as any).dates?.includes(today);
                           return (
                             <tr key={row.key} className={`hover:bg-slate-50 ${isCurrent ? 'bg-blue-50' : ''}`}>
                               <td className="p-3 font-bold text-slate-900 flex items-center gap-2">

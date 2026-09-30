@@ -360,7 +360,10 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                               </span>
                                             </div>
                                             <p className="text-[10px] text-slate-400 line-clamp-1">
-                                              {getLocalizedProduct(productList.find(product => product.id === model.productId || product.modelId === model.id) || model, currentLanguage.code).description}
+                                              {(() => {
+                                                const p = productList.find(product => product.id === model.productId || product.modelId === model.id);
+                                                return p ? getLocalizedProduct(p, currentLanguage.code).description : (model.description || '');
+                                              })()}
                                             </p>
                                           </div>
                                           <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />

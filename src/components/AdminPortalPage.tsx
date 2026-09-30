@@ -2232,9 +2232,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                       {selectedRequest.customer?.fullName || 'Client Inquiry'}
                     </h3>
                     <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full shrink-0 ${
-                      selectedRequest.status === 'quoted' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
-                      selectedRequest.status === 'reviewing' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
-                      selectedRequest.status === 'closed' ? 'bg-slate-200 text-slate-700' :
+                      (selectedRequest.status as string) === 'quoted' ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' :
+                      (selectedRequest.status as string) === 'reviewing' ? 'bg-amber-100 text-amber-800 border border-amber-300' :
+                      (selectedRequest.status as string) === 'closed' ? 'bg-slate-200 text-slate-700' :
                       'bg-blue-100 text-blue-800 border border-blue-300'
                     }`}>
                       {selectedRequest.status || 'New'}
@@ -2412,7 +2412,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                         </div>
                         <div className="text-right shrink-0">
                           <span className="font-black text-red-700 text-xs block">{it?.estimatedAreaSqm || 0} m²</span>
-                          <span className="text-[10px] text-slate-500 font-bold">${it?.subtotalUsd || 0}</span>
+                          <span className="text-[10px] text-slate-500 font-bold">${(it as any)?.subtotalUsd || it?.totalPrice || 0}</span>
                         </div>
                       </div>
                     ))}

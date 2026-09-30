@@ -60,7 +60,7 @@ const ARCHITECTURAL_DICTIONARY: Record<string, { ckb: string; ar: string; kmr: s
  */
 export const autoTranslateText = async (
   text: string,
-  targetLang: 'ckb' | 'ar' | 'kmr' | 'fa' | 'tr' | 'en' | 'es' | 'de' = 'ckb'
+  targetLang: string = 'ckb'
 ): Promise<string> => {
   if (!text || !text.trim()) return '';
 

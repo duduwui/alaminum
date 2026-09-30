@@ -677,10 +677,12 @@ export default function App() {
 
       {/* Alumil Exact Footer */}
       {!isAdminView && !isAuthView && (
-        <AlumilFooter
-          onNavigate={handleNavigate}
-          onOpenQuote={() => setIsStepperModalOpen(true)}
-        />
+        <ErrorBoundary fallbackTitle="Footer Error">
+          <AlumilFooter
+            onNavigate={handleNavigate}
+            onOpenQuote={() => setIsStepperModalOpen(true)}
+          />
+        </ErrorBoundary>
       )}
 
       {/* Floating Alumil Contact Badge (Bottom Right) */}
