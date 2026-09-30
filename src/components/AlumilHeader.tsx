@@ -110,6 +110,8 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
   const isKurdish = currentLanguage.code === 'ckb';
   const isArabic = currentLanguage.code === 'ar';
+  // Keep hidden from header navigation bar as requested, while routes and pages remain fully accessible
+  const SHOW_ARTICLES_AND_REVIEWS_TABS = false;
 
   // Helper: get the best display name for a division/sub/model based on language
   const getDivisionLabel = (div: any) => {
@@ -481,31 +483,35 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
               {t('nav_projects')}
             </button>
 
-            {/* 3. Articles & Knowledge Hub */}
-            <button
-              onClick={() => handleNavClick('articles')}
-              className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
-                activeTab === 'articles'
-                  ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
-                  : ''
-              }`}
-            >
-              <BookOpen className="w-4 h-4 text-red-600" />
-              <span>{isArabic ? 'المقالات والدليل' : isKurdish ? 'وتارەکان' : 'Articles & Guides'}</span>
-            </button>
+            {/* 3. Articles & Knowledge Hub (Hidden from public navigation bar as requested, routes remain active) */}
+            {SHOW_ARTICLES_AND_REVIEWS_TABS && (
+              <button
+                onClick={() => handleNavClick('articles')}
+                className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
+                  activeTab === 'articles'
+                    ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
+                    : ''
+                }`}
+              >
+                <BookOpen className="w-4 h-4 text-red-600" />
+                <span>{isArabic ? 'المقالات والدليل' : isKurdish ? 'وتارەکان' : 'Articles & Guides'}</span>
+              </button>
+            )}
 
-            {/* 4. Client Reviews & Rating */}
-            <button
-              onClick={() => handleNavClick('reviews')}
-              className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
-                activeTab === 'reviews'
-                  ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
-                  : ''
-              }`}
-            >
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span>{isArabic ? 'تقييم العملاء' : isKurdish ? 'هەڵسەنگاندن' : 'Reviews & Rating'}</span>
-            </button>
+            {/* 4. Client Reviews & Rating (Hidden from public navigation bar as requested, routes remain active) */}
+            {SHOW_ARTICLES_AND_REVIEWS_TABS && (
+              <button
+                onClick={() => handleNavClick('reviews')}
+                className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
+                  activeTab === 'reviews'
+                    ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
+                    : ''
+                }`}
+              >
+                <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                <span>{isArabic ? 'تقييم العملاء' : isKurdish ? 'هەڵسەنگاندن' : 'Reviews & Rating'}</span>
+              </button>
+            )}
 
             {/* 3. Support & Tools */}
             <button
@@ -884,14 +890,18 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                 <button onClick={() => handleNavClick('projects')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer block">
                   {t('nav_projects')}
                 </button>
-                <button onClick={() => handleNavClick('articles')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
-                  <span>{isArabic ? 'المقالات والدليل الهندسي (30 مقال)' : isKurdish ? 'وتار و ڕێبەری ئەندازیاری' : 'Articles & Guides (30)'}</span>
-                  <BookOpen className="w-4 h-4 text-red-600" />
-                </button>
-                <button onClick={() => handleNavClick('reviews')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
-                  <span>{isArabic ? 'تقييم الشركة وآراء العملاء' : isKurdish ? 'هەڵسەنگاندنی کۆمپانیا' : 'Rate Us & Reviews'}</span>
-                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                </button>
+                {SHOW_ARTICLES_AND_REVIEWS_TABS && (
+                  <>
+                    <button onClick={() => handleNavClick('articles')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
+                      <span>{isArabic ? 'المقالات والدليل الهندسي (30 مقال)' : isKurdish ? 'وتار و ڕێبەری ئەندازیاری' : 'Articles & Guides (30)'}</span>
+                      <BookOpen className="w-4 h-4 text-red-600" />
+                    </button>
+                    <button onClick={() => handleNavClick('reviews')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
+                      <span>{isArabic ? 'تقييم الشركة وآراء العملاء' : isKurdish ? 'هەڵسەنگاندنی کۆمپانیا' : 'Rate Us & Reviews'}</span>
+                      <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                    </button>
+                  </>
+                )}
                 <button onClick={() => handleNavClick('typology')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer block">
                   {t('nav_solutions')}
                 </button>
