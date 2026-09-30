@@ -2,39 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Homepage -->
+  <!-- Homepage: Best Aluminum Windows, Doors & Glass Stairs in Iraq -->
   <url>
     <loc>https://doorhome.company/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://doorhome.company/doorhome-logo.jpg</image:loc>
-      <image:title>Doorhome (Door Home) – باب المنزل – دور هوم – Kapı Ev – Aluminum Windows &amp; Glass Stairs Iraq</image:title>
-      <image:caption>شركة Doorhome (باب المنزل / دور هوم / Kapı Ev) للشبابيك والأبواب الألمنيوم والدرج الزجاجي في العراق وأربيل وكردستان</image:caption>
+      <image:title>أفضل شبابيك وأبواب ألمنيوم ودرج زجاجي في العراق | Doorhome باب المنزل</image:title>
+      <image:caption>شركة Doorhome (باب المنزل / دەرگای ماڵ / Kapı Ev) لتصنيع وتركيب شبابيك وأبواب الألمنيوم والدرج والسلالم الزجاجية في بغداد وأربيل والعراق</image:caption>
     </image:image>
   </url>
 
-  <!-- Products Catalog -->
+  <!-- Products Catalog: Full Range -->
   <url>
     <loc>https://doorhome.company/products</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Windows Systems: Thermal Break & uPVC -->
+  <url>
+    <loc>https://doorhome.company/windows</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- Projects Gallery -->
+  <!-- Doors Systems: Monumental Pivot & Lift-Slide -->
   <url>
-    <loc>https://doorhome.company/projects</loc>
-    <lastmod>2026-09-29</lastmod>
+    <loc>https://doorhome.company/doors</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Glass & Facades: Curtain Wall 50F & Structural Glazing -->
+  <url>
+    <loc>https://doorhome.company/glass</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Railings & Glass Stairs: Tempered Floating Glass & Railings -->
+  <url>
+    <loc>https://doorhome.company/railings</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Hardware & Accessories: European STAC & Master Italy -->
+  <url>
+    <loc>https://doorhome.company/accessories</loc>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Contact & Showroom -->
+  <!-- Projects Gallery: Real Installations in Iraq -->
+  <url>
+    <loc>https://doorhome.company/projects</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Contact & Showroom Locations: Baghdad & Erbil -->
   <url>
     <loc>https://doorhome.company/contact</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
@@ -42,12 +82,12 @@
   <!-- Logo / Brand Image -->
   <url>
     <loc>https://doorhome.company/doorhome-logo.jpg</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.30</priority>
     <image:image>
       <image:loc>https://doorhome.company/doorhome-logo.jpg</image:loc>
-      <image:title>Doorhome Official Logo (Door Home / باب المنزل / Kapı Ev)</image:title>
+      <image:title>Doorhome Official Logo (Door Home / باب المنزل / دەرگای ماڵ / Kapı Ev)</image:title>
     </image:image>
   </url>
 

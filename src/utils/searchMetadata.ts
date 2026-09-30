@@ -2,39 +2,61 @@ export const SITE_URL = 'https://doorhome.company';
 
 export const SEARCH_PAGES: Record<string, { title: string; description: string }> = {
   '/': {
-    title: 'Doorhome | Aluminum Windows, Doors & Facades in Iraq',
-    description: "Explore Doorhome's aluminum and uPVC windows, entrance doors, sliding doors and architectural facades in Iraq and Kurdistan. View products, projects and contact our team."
+    title: 'أفضل شبابيك وأبواب ألمنيوم ودرج زجاجي في العراق وأربيل وبغداد | Doorhome باب المنزل (دەرگای ماڵ)',
+    description: 'الشركة الرائدة في تصنيع وتركيب أفضل شبابيك وأبواب ألمنيوم عازلة للحرارة (Thermal Break)، نوافذ uPVC دبل كلاس، درج وسلالم زجاجية معلقة، درابزين ألمنيوم وزجاج، واجهات كيرتن وول زجاجية، وأبواب سحاب بانورامية في بغداد وأربيل والسليمانية وكافة مدن العراق. باشترین کوالێتی پەنجەرە و دەرگای ئەلەمنیۆم.'
   },
   '/products': {
-    title: 'Aluminum & uPVC Windows and Doors | Doorhome Catalog',
-    description: 'Browse Doorhome window and door products, images, descriptions and prices. Find aluminum, aluminium and uPVC systems for your project in Iraq and Kurdistan.'
+    title: 'أسعار ومواصفات شبابيك وأبواب ألمنيوم و uPVC والدرج الزجاجي | كتالوج Doorhome العراق',
+    description: 'تصفح أسعار ومواصفات شبابيك الألمنيوم Lorenzo 70LS & 58TT، نوافذ uPVC الألمانية Deceuninck & Salamander، الدرج والسلالم الزجاجية المقساة سيكوريت، الواجهات الزجاجية 50F، وإكسسوارات الأبواب الإيطالية والأوروبية في العراق.'
+  },
+  '/windows': {
+    title: 'أفضل شبابيك ونوافذ ألمنيوم عازلة للحرارة و uPVC في العراق وأربيل | Doorhome',
+    description: 'تفصيل وتركيب أفضل شبابيك ألمنيوم حراري Lorenzo ونوافذ uPVC دبل وثلاثي الزجاج العازل للحرارة والصوت والتراب في بغداد وأربيل. شبابيك سحاب بانورامية وكيسمنت بأعلى مواصفات العزل وضمان 10 سنوات.'
+  },
+  '/doors': {
+    title: 'أبواب ألمنيوم سحاب بانورامية وأبواب فلل رئيسية وباب بيفوت في العراق | Doorhome',
+    description: 'تصنيع وتوريد أبواب سحاب بانورامية Lift & Slide، أبواب فلل محورية Pivot، أبواب ألمنيوم خارجية وداخلية، وأبواب فولدنج قابلة للطي بعوازل حرارية ومائية متطورة وإقفال إلكترونية ذكية في العراق.'
+  },
+  '/glass': {
+    title: 'واجهات زجاجية كيرتن وول واستركشر وأسقف سكاي لايت في العراق | Doorhome',
+    description: 'تنفيذ واجهات زجاجية كيرتن وول 50F، استركشر للمباني والفلل، أسقف زجاجية سكاي لايت، وزجاج دبل وتربل كلاس عازل Low-E بأعلى معايير الأمان ومقاومة الرياح والحرارة العالية في العراق.'
+  },
+  '/railings': {
+    title: 'درج وسلالم زجاجية معلقة ودرابزين ألمنيوم وزجاج في العراق وأربيل | Doorhome',
+    description: 'تصميم وتركيب درج زجاجي معلق، سلالم زجاجية مقساة سيكوريت 10+10 ملم، درابزين زجاجي بدون إطار، وحواجز بلكونات ومسابح بأمان أوروبي وتصميمات عصرية فاخرة في بغداد وأربيل.'
+  },
+  '/accessories': {
+    title: 'إكسسوارات ومقابض وأقفال شبابيك وأبواب أوروبية STAC & Master Italy | Doorhome',
+    description: 'إكسسوارات إغلاق متعددة النقاط STAC الإسبانية، مقابض فاخرة Master Italy، عجلات سحب Comunello الإيطالية، ومطاط عزل EPDM لمقاومة الحرارة والصوت لشبابيك وأبواب الألمنيوم في العراق.'
   },
   '/projects': {
-    title: 'Window, Door & Facade Projects in Iraq | Doorhome',
-    description: 'See Doorhome project photos and videos featuring architectural windows, doors and facades. Explore completed work and project details.'
+    title: 'مشاريع وأعمال تركيب شبابيك ألمنيوم وواجهات ودرج زجاجي في العراق | Doorhome',
+    description: 'معرض صور وفيديوهات لأحدث مشاريع الفلل والأبراج والمباني المنفذة بأنظمة شبابيك وأبواب ألمنيوم بانورامية، واجهات زجاجية، وسلالم ودرابزين زجاجي في بغداد وأربيل وكردستان.'
   },
   '/contact': {
-    title: 'Contact Doorhome | Windows & Doors Showroom in Iraq',
-    description: 'Contact Doorhome for aluminum windows, uPVC doors and architectural systems. Send a project inquiry, call our team or find our showroom on the map.'
+    title: 'معرض ومصنع شبابيك وأبواب ألمنيوم ودرج زجاجي في أربيل وبغداد | تواصل مع Doorhome',
+    description: 'احصل على استشارة هندسية وعرض سعر مجاني لشبابيك وأبواب الألمنيوم والدرج الزجاجي ونوافذ uPVC. مصنع ومعرض في أربيل وبغداد، خدمة وتوصيل لكافة مدن العراق: 07517945498.'
   }
 };
 
 export function searchPagePath(tab: string): string {
   if (tab === 'projects') return '/projects';
   if (tab === 'contact') return '/contact';
+  if (['windows', 'doors', 'glass', 'railings', 'accessories'].includes(tab)) return `/${tab}`;
   if (['home', 'about', 'typology'].includes(tab)) return '/';
   return '/products';
 }
 
-const escapeAttribute = (value: string) => value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const escapeAttribute = (value: string) =>
+  value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-// Initial HTML metadata works before JavaScript runs, not only after Google renders React.
+// Initial HTML metadata works before JavaScript runs, ensuring Googlebot and search crawlers index localized non-branded keywords immediately.
 export function renderSearchMetadata(html: string, pathname: string): string {
-  const page = SEARCH_PAGES[pathname];
-  if (!page) return html.replace(/<meta name="robots"[^>]*>/, '<meta name="robots" content="noindex, follow" />');
+  const page = SEARCH_PAGES[pathname] || SEARCH_PAGES['/'];
   const title = escapeAttribute(page.title);
   const description = escapeAttribute(page.description);
-  const url = `${SITE_URL}${pathname}`;
+  const url = `${SITE_URL}${pathname === '/' ? '' : pathname}`;
+
   return html
     .replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`)
     .replace(/<meta name="title"[^>]*>/, `<meta name="title" content="${title}" />`)

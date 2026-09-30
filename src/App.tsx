@@ -8,6 +8,7 @@ import { WindowsSection } from './components/WindowsSection';
 import { DoorsSection } from './components/DoorsSection';
 import { GallerySection } from './components/GallerySection';
 import { ContactSection } from './components/ContactSection';
+import { ArchitecturalFaqSection } from './components/ArchitecturalFaqSection';
 import { AlumilContactPage } from './components/AlumilContactPage';
 import { FloatingContactBadge } from './components/FloatingContactBadge';
 import { ProductShopPage } from './components/ProductShopPage';
@@ -615,7 +616,16 @@ export default function App() {
               <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
             </div>
 
-            {/* 9. Contact */}
+            {/* 9. Architectural Buyer Guide & FAQ */}
+            <ArchitecturalFaqSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
+            {/* 10. Contact */}
             <ContactSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
           </div>
         )}
