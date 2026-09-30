@@ -14,6 +14,8 @@ import { FloatingContactBadge } from './components/FloatingContactBadge';
 import { ProductShopPage } from './components/ProductShopPage';
 import { AlumilFooter } from './components/AlumilFooter';
 import { ProductDetailPage } from './components/ProductDetailPage';
+import { ArticlesPage } from './components/ArticlesPage';
+import { ReviewsRatingPage } from './components/ReviewsRatingPage';
 import { SearchModal } from './components/SearchModal';
 import { RequestCartDrawer } from './components/RequestCartDrawer';
 import { QuotationRequestStepperModal } from './components/QuotationRequestStepperModal';
@@ -47,11 +49,21 @@ export default function App() {
       const route = hash || path;
       if (route === 'admin') return 'admin';
       if (route === 'projects') return 'projects';
+      if (route === 'articles' || route.startsWith('article-')) return 'articles';
+      if (route === 'reviews' || route === 'rate' || route === 'feedback') return 'reviews';
       if (route === 'auth' || route === 'login' || route === 'register') return 'auth';
       if (route === 'products' || loadProductDivisions().some((division) => division.key === route)) return route;
       if (route === 'contact' || route === 'contactus') return 'contact';
     }
     return 'home';
+  });
+
+  const [activeArticleSlug, setActiveArticleSlug] = useState<string | null>(() => {
+    if (typeof window !== 'undefined') {
+      const rawHash = window.location.hash.replace('#', '').toLowerCase();
+      if (rawHash.startsWith('article-')) return rawHash.replace('article-', '');
+    }
+    return null;
   });
 
   const [shopCategory, setShopCategory] = useState<string>(() => {
@@ -243,6 +255,18 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (route === 'projects') {
         setActiveTab('projects');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route.startsWith('article-')) {
+        const slug = route.replace('article-', '');
+        setActiveArticleSlug(slug);
+        setActiveTab('articles');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'articles') {
+        setActiveArticleSlug(null);
+        setActiveTab('articles');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (route === 'reviews' || route === 'rate' || route === 'feedback') {
+        setActiveTab('reviews');
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (route === 'auth' || route === 'login' || route === 'register') {
         setActiveTab('auth');
@@ -501,6 +525,26 @@ export default function App() {
         ) : activeTab === 'projects' ? (
           <div key="projects" className="page-transition">
             <GallerySection fullPage onBack={handleBackToHome} />
+          </div>
+        ) : activeTab === 'articles' ? (
+          <div key="articles" className="page-transition">
+            <ArticlesPage
+              initialSlug={activeArticleSlug}
+              onNavigateToReviews={() => {
+                setActiveTab('reviews');
+                window.location.hash = '#reviews';
+                window.scrollTo({ top: 0, behavior: 'instant' });
+              }}
+              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
+              onBackToHome={handleBackToHome}
+            />
+          </div>
+        ) : activeTab === 'reviews' ? (
+          <div key="reviews" className="page-transition">
+            <ReviewsRatingPage
+              onBackToHome={handleBackToHome}
+              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
+            />
           </div>
         ) : isProductShopView ? (
           /* Full Product Shop View (#products) */

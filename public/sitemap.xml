@@ -23,6 +23,22 @@
     <priority>0.95</priority>
   </url>
 
+  <!-- Articles & Engineering Knowledge Hub: 30 Articles -->
+  <url>
+    <loc>https://doorhome.company/articles</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Client Reviews & Rating Desk -->
+  <url>
+    <loc>https://doorhome.company/reviews</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
   <!-- Windows Systems: Thermal Break & uPVC -->
   <url>
     <loc>https://doorhome.company/windows</loc>

@@ -124,6 +124,17 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
                 </button>
               </li>
               <li>
+                <button onClick={() => onNavigate('articles')} className="hover:text-red-400 transition-colors">
+                  {isArabic ? 'المقالات والدليل الهندسي (30 مقال)' : isKurdish ? 'وتار و ڕێبەری ئەندازیاری' : 'Articles & Guides (30)'}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('reviews')} className="hover:text-amber-300 transition-colors text-amber-400 font-bold flex items-center gap-1">
+                  <span>★</span>
+                  <span>{isArabic ? 'تقييم الشركة وآراء العملاء' : isKurdish ? 'هەڵسەنگاندنی کڕیاران' : 'Rate Us & Reviews'}</span>
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onNavigate('about')} className="hover:text-red-400 transition-colors">
                   {t('footer_quality')}
                 </button>

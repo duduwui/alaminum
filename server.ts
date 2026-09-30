@@ -32,6 +32,7 @@ const USERS_FILE = path.join(process.cwd(), 'users_db.json');
 const FINANCES_FILE = path.join(process.cwd(), 'finances_db.json');
 const VISITS_FILE = path.join(process.cwd(), 'visits_db.json');
 const RESET_FILE = path.join(process.cwd(), 'password_resets_db.json');
+const REVIEWS_FILE = path.join(process.cwd(), 'reviews_db.json');
 const hashPassword = (password: string) => {
   const salt = randomBytes(16).toString('hex');
   return `scrypt:${salt}:${scryptSync(password, salt, 64).toString('hex')}`;
@@ -805,6 +806,47 @@ async function startServer() {
       const { id } = req.params;
       await deleteFinance(id);
       res.json({ success: true, id });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // --- CLIENT REVIEWS & RATINGS ENDPOINTS ---
+  app.get('/api/reviews', async (_req, res) => {
+    try {
+      if (!fs.existsSync(REVIEWS_FILE)) {
+        return res.json([]);
+      }
+      const data = JSON.parse(await fs.promises.readFile(REVIEWS_FILE, 'utf8'));
+      res.json(Array.isArray(data) ? data : []);
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  app.post('/api/reviews', express.json(), async (req, res) => {
+    try {
+      let list: any[] = [];
+      if (fs.existsSync(REVIEWS_FILE)) {
+        try {
+          list = JSON.parse(await fs.promises.readFile(REVIEWS_FILE, 'utf8'));
+          if (!Array.isArray(list)) list = [];
+        } catch { list = []; }
+      }
+      const newReview = {
+        id: `rev-${Date.now()}`,
+        name: String(req.body.name || 'عميل معتمد').slice(0, 100),
+        city: String(req.body.city || 'العراق').slice(0, 100),
+        role: String(req.body.role || '').slice(0, 100),
+        rating: Math.min(5, Math.max(1, Number(req.body.rating) || 5)),
+        comment: String(req.body.comment || '').slice(0, 2000),
+        date: new Date().toISOString().split('T')[0],
+        categories: req.body.categories || { quality: 5, speed: 5, engineering: 5, installation: 5 },
+        verified: true
+      };
+      list.unshift(newReview);
+      await fs.promises.writeFile(REVIEWS_FILE, JSON.stringify(list, null, 2), 'utf8');
+      res.json({ success: true, review: newReview });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }

@@ -33,7 +33,9 @@ import {
   Sliders,
   Award,
   LayoutGrid,
-  Clock
+  Clock,
+  Star,
+  BookOpen
 } from 'lucide-react';
 
 interface AlumilHeaderProps {
@@ -476,6 +478,32 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
               {t('nav_projects')}
             </button>
 
+            {/* 3. Articles & Knowledge Hub */}
+            <button
+              onClick={() => handleNavClick('articles')}
+              className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
+                activeTab === 'articles'
+                  ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
+                  : ''
+              }`}
+            >
+              <BookOpen className="w-4 h-4 text-red-600" />
+              <span>{isArabic ? 'المقالات والدليل' : isKurdish ? 'وتارەکان' : 'Articles & Guides'}</span>
+            </button>
+
+            {/* 4. Client Reviews & Rating */}
+            <button
+              onClick={() => handleNavClick('reviews')}
+              className={`py-6 hover:text-red-600 transition-colors relative flex items-center gap-1.5 ${
+                activeTab === 'reviews'
+                  ? 'text-red-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[3px] after:bg-red-600'
+                  : ''
+              }`}
+            >
+              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+              <span>{isArabic ? 'تقييم العملاء' : isKurdish ? 'هەڵسەنگاندن' : 'Reviews & Rating'}</span>
+            </button>
+
             {/* 3. Support & Tools */}
             <button
               onClick={() => handleNavClick('typology')}
@@ -852,6 +880,14 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
                 <button onClick={() => handleNavClick('projects')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer block">
                   {t('nav_projects')}
+                </button>
+                <button onClick={() => handleNavClick('articles')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
+                  <span>{isArabic ? 'المقالات والدليل الهندسي (30 مقال)' : isKurdish ? 'وتار و ڕێبەری ئەندازیاری' : 'Articles & Guides (30)'}</span>
+                  <BookOpen className="w-4 h-4 text-red-600" />
+                </button>
+                <button onClick={() => handleNavClick('reviews')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer flex items-center justify-end gap-2">
+                  <span>{isArabic ? 'تقييم الشركة وآراء العملاء' : isKurdish ? 'هەڵسەنگاندنی کۆمپانیا' : 'Rate Us & Reviews'}</span>
+                  <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
                 </button>
                 <button onClick={() => handleNavClick('typology')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer block">
                   {t('nav_solutions')}

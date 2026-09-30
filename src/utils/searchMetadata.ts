@@ -33,6 +33,14 @@ export const SEARCH_PAGES: Record<string, { title: string; description: string }
     title: 'مشاريع وأعمال تركيب شبابيك ألمنيوم وواجهات ودرج زجاجي في العراق | Doorhome',
     description: 'معرض صور وفيديوهات لأحدث مشاريع الفلل والأبراج والمباني المنفذة بأنظمة شبابيك وأبواب ألمنيوم بانورامية، واجهات زجاجية، وسلالم ودرابزين زجاجي في بغداد وأربيل وكردستان.'
   },
+  '/articles': {
+    title: 'دليل ومقالات هندسة شبابيك وأبواب الألمنيوم والدرج الزجاجي في العراق | Doorhome',
+    description: '30 مقالاً ودليلاً هندسياً شاملاً يغطي مواصفات شبابيك وأبواب الألمنيوم الحراري، السلالم الزجاجية المعلقة، نوافذ uPVC، العزل الصوتي والحراري، والأسعار في العراق.'
+  },
+  '/reviews': {
+    title: 'تقييمات وآراء العملاء عن شركة Doorhome | باب المنزل العراق',
+    description: 'شارك تقييمك واقرأ آراء العملاء الموثقة حول جودة شبابيك وأبواب الألمنيوم، الدرج الزجاجي، ودقة التركيب والضمان 10 سنوات لشركة Doorhome في بغداد وأربيل.'
+  },
   '/contact': {
     title: 'معرض ومصنع شبابيك وأبواب ألمنيوم ودرج زجاجي في أربيل وبغداد | تواصل مع Doorhome',
     description: 'احصل على استشارة هندسية وعرض سعر مجاني لشبابيك وأبواب الألمنيوم والدرج الزجاجي ونوافذ uPVC. مصنع ومعرض في أربيل وبغداد، خدمة وتوصيل لكافة مدن العراق: 07517945498.'
@@ -42,6 +50,8 @@ export const SEARCH_PAGES: Record<string, { title: string; description: string }
 export function searchPagePath(tab: string): string {
   if (tab === 'projects') return '/projects';
   if (tab === 'contact') return '/contact';
+  if (tab === 'articles') return '/articles';
+  if (tab === 'reviews' || tab === 'rate') return '/reviews';
   if (['windows', 'doors', 'glass', 'railings', 'accessories'].includes(tab)) return `/${tab}`;
   if (['home', 'about', 'typology'].includes(tab)) return '/';
   return '/products';
