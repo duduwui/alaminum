@@ -459,12 +459,6 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                             <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug truncate">
                               {itemName(item)}
                             </h4>
-                            <span className="text-[11px] text-slate-500 font-semibold block mt-0.5">
-                              {item.currency === 'IQD'
-                                ? `${itemUnitPrice.toLocaleString()} IQD`
-                                : `$${itemUnitPrice.toLocaleString()}`}{' '}
-                              / {t('units_label')}
-                            </span>
                           </div>
                         </div>
 
@@ -502,7 +496,7 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                         </div>
                       )}
 
-                      {/* Quantity Controls & Item Total */}
+                      {/* Quantity Controls */}
                       <div className="flex items-center justify-between pt-1 border-t border-slate-100">
                         <div className="flex items-center gap-2">
                           <span className="text-[11px] text-slate-400 font-medium">{t('cart_qty_label') || t('qty_label')}:</span>
@@ -528,14 +522,6 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
                             </button>
                           </div>
                         </div>
-
-                        <div className="text-right">
-                          <span className="text-xs font-black text-slate-900 block">
-                            {item.currency === 'IQD'
-                              ? `${itemTotalPrice.toLocaleString()} IQD`
-                              : `$${itemTotalPrice.toLocaleString()}`}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   );
@@ -552,15 +538,6 @@ export const RequestCartDrawer: React.FC<RequestCartDrawerProps> = ({
               <div className="flex items-center justify-between font-medium">
                 <span>{t('total_units_label')}</span>
                 <span className="font-bold text-slate-900">{totalQuantity} {t('units_label')}</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="font-medium">{t('est_value_label')}</span>
-                <span className="font-black text-slate-900 text-sm">
-                  {totalUSD > 0 && `$${totalUSD.toLocaleString()}`}
-                  {totalUSD > 0 && totalIQD > 0 && ' + '}
-                  {totalIQD > 0 && `${totalIQD.toLocaleString()} IQD`}
-                  {totalUSD === 0 && totalIQD === 0 && '$0'}
-                </span>
               </div>
             </div>
 

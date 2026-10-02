@@ -14,7 +14,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const { currentLanguage } = useLanguage();
   if (!product || !isOpen) return null;
   const localizedProduct = getLocalizedProduct(product, currentLanguage.code);
-  const price = product.pricePerSqm ?? product.basePrice ?? product.unitPrice;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4" onClick={onClose}>
@@ -27,7 +26,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
           <div className="flex flex-col justify-center gap-4">
             <h2 className="pr-7 text-2xl font-black text-slate-900">{localizedProduct.name}</h2>
             <p className="whitespace-pre-wrap text-sm leading-relaxed text-slate-600">{localizedProduct.description}</p>
-            {price != null && <p className="text-2xl font-black text-red-600">{product.currency === 'IQD' ? `${price.toLocaleString()} IQD` : `$${price.toLocaleString()}`}</p>}
           </div>
         </div>
       </div>

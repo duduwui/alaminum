@@ -18,6 +18,12 @@
     <link rel="canonical" href="https://doorhome.company/" />
 
     <!-- ═══════════════════════════════════════════════════════════════
+         PERFORMANCE — Preload critical Hero assets
+         ═══════════════════════════════════════════════════════════════ -->
+    <link rel="preload" as="image" href="/hero-mobile.webp" media="(max-width: 767px)" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-desktop.webp" media="(min-width: 768px)" type="image/webp" fetchpriority="high" />
+
+    <!-- ═══════════════════════════════════════════════════════════════
          FAVICON & ICONS
          Google uses the PNG favicon for search result logos.
          ═══════════════════════════════════════════════════════════════ -->

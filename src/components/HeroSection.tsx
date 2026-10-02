@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-import mobileHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_37_12 AM.png';
-import desktopHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_35_55 AM.png';
+import mobileHeroWebp from '../assets/hero/hero-mobile.webp';
+import desktopHeroWebp from '../assets/hero/hero-desktop.webp';
 
 interface HeroSectionProps {
   onOpenQuoteModal?: () => void;
@@ -378,8 +378,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
 
   return (
     <section id="home" className="relative flex min-h-screen w-full flex-col justify-start overflow-hidden bg-slate-50 pb-12 pt-10 sm:pt-14 md:pt-18">
-      <div className="absolute inset-0 z-0 bg-cover bg-bottom md:hidden" style={{ backgroundImage: `url(${mobileHeroImage})` }} />
-      <div className="absolute inset-0 z-0 hidden bg-cover bg-right-bottom md:block" style={{ backgroundImage: `url(${desktopHeroImage})` }} />
+      <picture className="absolute inset-0 z-0 pointer-events-none select-none">
+        <source media="(min-width: 768px)" srcSet={desktopHeroWebp} type="image/webp" />
+        <source media="(max-width: 767px)" srcSet={mobileHeroWebp} type="image/webp" />
+        <img
+          src={desktopHeroWebp}
+          alt="Doorhome Architectural Systems"
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
+          className="w-full h-full object-cover object-bottom md:object-right-bottom"
+        />
+      </picture>
 
       <div className="relative z-10 mx-auto mt-0 w-full max-w-7xl px-6 py-0 sm:mt-2 sm:px-10 sm:py-2 md:mt-4 lg:px-12">
         <div className="max-w-2xl space-y-4 text-start sm:space-y-6">

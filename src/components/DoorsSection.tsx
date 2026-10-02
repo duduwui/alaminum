@@ -98,9 +98,9 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[420px] sm:min-h-[460px]">
-            {/* Left: Media Display (Video Reel or High-Res Photography) */}
-            <div className="lg:col-span-6 relative bg-slate-950 flex items-center justify-center overflow-hidden min-h-[280px] sm:min-h-[360px] lg:min-h-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* Left: Media Display (Fixed stable container) */}
+            <div className="lg:col-span-6 relative bg-slate-950 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full">
               {isVideoMedia ? (
                 <video
                   key={mediaSrc}
@@ -109,7 +109,7 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover max-h-[480px]"
+                  className="w-full h-full object-cover"
                 />
               ) : (
                 <img
@@ -121,13 +121,13 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
                       e.currentTarget.src = activeProduct.fallbackImage;
                     }
                   }}
-                  className="w-full h-full object-cover max-h-[480px] animate-in fade-in zoom-in-95 duration-500"
+                  className="w-full h-full object-cover animate-in fade-in zoom-in-95 duration-500"
                   loading="lazy"
                 />
               )}
 
               {/* Slide Counter & Prev/Next Controls */}
-              <div className="absolute bottom-4 end-4 flex items-center gap-2">
+              <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
                 <span className="text-[11px] font-bold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
                   {currentIndex + 1} / {localizedItems.length}
                 </span>
@@ -150,33 +150,24 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Clean Title & Description */}
-            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6 text-start">
-              <div className="space-y-3">
+            {/* Right: Clean Title, Description & Action Buttons (Fixed stable container) */}
+            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between h-[300px] sm:h-[380px] lg:h-[440px] text-start">
+              <div className="space-y-3 overflow-hidden">
                 {/* Title */}
                 <h3
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
+                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight line-clamp-2 min-h-[3.2rem]"
                 >
                   <bdi dir="auto">{activeProduct.name}</bdi>
                 </h3>
                 {/* Description */}
-                <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal line-clamp-4 sm:line-clamp-5">
                   <bdi dir="auto">{activeProduct.description}</bdi>
                 </p>
               </div>
 
-              {/* Price & Action Buttons */}
-              <div className="pt-4 border-t border-slate-100 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-slate-500">{t('starting_from')}</span>
-                  {displayPrice != null && (
-                    <span className="text-xl sm:text-2xl font-black text-slate-900">
-                      {activeProduct.currency === 'IQD' ? `${displayPrice.toLocaleString()} IQD` : `$${displayPrice.toLocaleString()}`}
-                    </span>
-                  )}
-                </div>
-
+              {/* Action Buttons */}
+              <div className="pt-4 border-t border-slate-100">
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                   <button
                     type="button"
@@ -197,28 +188,6 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Interactive Thumbnails Selector Strip */}
-          <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center gap-2.5 overflow-x-auto no-scrollbar">
-            <span className="text-[11px] font-black text-slate-400 uppercase tracking-wider shrink-0 ps-2">
-              {currentLanguage.code === 'ar' ? 'نماذج الأبواب:' : currentLanguage.code === 'ckb' ? 'نموونەی دەرگاکان:' : 'Door Systems:'}
-            </span>
-            {localizedItems.map((item, idx) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => setCurrentIndex(idx)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
-                  currentIndex === idx
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-white hover:bg-slate-100 text-slate-700 border border-slate-200'
-                }`}
-              >
-                <span className="w-2 h-2 rounded-full bg-current opacity-70" />
-                <span className="truncate max-w-[140px]"><bdi dir="auto">{item.name}</bdi></span>
-              </button>
-            ))}
           </div>
         </div>
       </div>

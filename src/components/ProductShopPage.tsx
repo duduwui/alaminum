@@ -15,8 +15,6 @@ interface ProductShopPageProps {
   onOpenCart?: () => void;
 }
 
-const productPrice = (product: ProductItem) => product.pricePerSqm ?? product.basePrice ?? product.unitPrice;
-
 export const ProductShopPage: React.FC<ProductShopPageProps> = ({
   initialCategory = 'all',
   onSelectProduct,
@@ -29,7 +27,6 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
   const [products, setProducts] = useState<ProductItem[]>(loadLocalProducts);
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState<'default' | 'price-low' | 'price-high'>('default');
 
   useEffect(() => subscribeToDivisions(setDivisions), []);
   useEffect(() => subscribeToLocalProducts(setProducts), []);
@@ -53,20 +50,13 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
 
   const visibleProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
-    const result = products
+    return products
       .map((product) => getLocalizedProduct(product, currentLanguage.code))
       .filter((product) => {
         if (selectedCategory !== 'all' && product.category !== selectedCategory && product.division !== selectedCategory) return false;
         return !query || product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query);
       });
-    if (sortBy !== 'default') {
-      result.sort((left, right) => {
-        const difference = (productPrice(left) ?? 0) - (productPrice(right) ?? 0);
-        return sortBy === 'price-low' ? difference : -difference;
-      });
-    }
-    return result;
-  }, [products, currentLanguage.code, selectedCategory, searchQuery, sortBy]);
+  }, [products, currentLanguage.code, selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-[#F5F6F8] px-4 py-8 text-slate-900 sm:px-6 sm:py-12">
@@ -86,7 +76,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           )}
         </div>
 
-        <div className="mb-7 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:grid-cols-[minmax(0,1fr)_minmax(180px,240px)_minmax(160px,190px)]">
+        <div className="mb-7 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:grid-cols-[minmax(0,1fr)_minmax(200px,280px)]">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
             <input
@@ -101,11 +91,6 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)} aria-label={t('all_categories')} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm font-bold text-slate-800">
             {categories.map((category) => <option key={category.id} value={category.id}>{category.label}</option>)}
           </select>
-          <select value={sortBy} onChange={(event) => setSortBy(event.target.value as typeof sortBy)} aria-label={t('featured_sort')} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm font-bold text-slate-800">
-            <option value="default">{t('featured_sort') || 'Default order'}</option>
-            <option value="price-low">{t('sort_price_low') || 'Price: low to high'}</option>
-            <option value="price-high">{t('sort_price_high') || 'Price: high to low'}</option>
-          </select>
         </div>
 
         {visibleProducts.length === 0 ? (
@@ -113,7 +98,6 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleProducts.map((product) => {
-              const price = productPrice(product);
               return (
                 <button key={product.id} type="button" onClick={() => onSelectProduct(product)} className="overflow-hidden rounded-2xl border border-slate-200 bg-white text-start shadow-sm transition hover:border-red-300 hover:shadow-lg cursor-pointer">
                   <div className="h-52 overflow-hidden bg-slate-50">
@@ -130,7 +114,6 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
                   <div className="space-y-2 p-4">
                     <h2 className="line-clamp-2 text-base font-black text-slate-900"><bdi dir="auto">{product.name}</bdi></h2>
                     <p className="line-clamp-2 text-sm leading-relaxed text-slate-600"><bdi dir="auto">{product.description}</bdi></p>
-                    {price != null && <p className="pt-1 text-lg font-black text-red-600">{product.currency === 'IQD' ? `${price.toLocaleString()} IQD` : `$${price.toLocaleString()}`}</p>}
                   </div>
                 </button>
               );
