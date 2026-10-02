@@ -8,6 +8,8 @@ export interface ProductItem {
   subCategory?: string;
   image: string;
   fallbackImage: string;
+  videoUrl?: string;
+  mediaType?: 'image' | 'video';
   description: string;
   kurdishDescription?: string;
   arabicDescription?: string;
@@ -206,7 +208,9 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     discountBadge: "18% OFF",
     originalPrice: 220,
     soldCount: "340+ installed",
-    image: "./assets/showcase/showcase_legend80_1789926007847.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00.mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_3_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/11-2.jpg",
     description: "The pinnacle of thermal and acoustic performance. Engineered with an 80mm installation depth and 6 internal chambers to withstand Erbil summer heat over 50°C.",
     chambers: 6,
@@ -233,6 +237,30 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
       "Reinforcement": "Heavy Industrial Structural Steel",
       "Thermal Transmittance": "0.92 W/m²K",
       "Sound Insulation": "Up to 45 dB"
+    },
+    translations: {
+      ar: {
+        name: "نظام ديسونينك ليجند 80 للمباني الموفرة للطاقة",
+        description: "قمة الأداء الحراري والصوتي. مصمم بعمق 80 ملم و 6 غرف عزل داخلية لمقاومة حرارة صيف العراق الشديدة فوق 50 درجة مئوية.",
+        subCategory: "عزل حراري فائق 6 غرف",
+        features: [
+          "تصميم 6 غرف عزل يطابق أعلى المعايير المعمارية الأوروبية",
+          "نظام عزل ثلاثي مع جوان ضغط وسطي مانع للصوت والأتربة",
+          "يدعم الزجاج الثلاثي السميك حتى 52 ملم",
+          "مفصلات فولاذية متطورة تتحمل الأحمال العالية للنوافذ الكبيرة"
+        ]
+      },
+      ckb: {
+        name: "سیستەمی دیسۆنینک لیجند 80ی عەزلی تەواو",
+        description: "لووتکەی ئەدای گەرمی و دەنگی. بە قوڵایی 80 ملم و 6 ژووری عەزل دروستکراوە بۆ بەرگەگرتنی گەرمای توندی هاوین لە سەرووی 50 پلەی سەدی.",
+        subCategory: "عەزلی گەرمی پێشکەوتوو ٦ خانە",
+        features: [
+          "دیزاینی ٦-خانەیی بەپێی بەرزترین ستانداردە ئەوروپییەکان",
+          "سیستەمی سێ بەرگری لاستیکی بۆ رێگری لە دەنگ و تۆز",
+          "پشتگیری لە جامەکانی سێ-قاتی قورس دەکات تا ئەستووری 52 ملم",
+          "مفەسەڵاتی بەهێز بۆ پەنجەرە باڵابەرزەکانی سەرانسەری"
+        ]
+      }
     }
   },
   {
@@ -250,7 +278,9 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 190,
     soldCount: "210+ installed",
-    image: "./assets/showcase/showcase_dorado76_1789926204321.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (2).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_7_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/2-1.png",
     description: "Heavy-duty 76mm opening system suitable for urban apartments and luxury residences requiring high acoustic insulation and wind tightness.",
     chambers: 5,
@@ -274,6 +304,28 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
       "Chamber Count": "5 Chambers",
       "Sound Isolation": "Rw = 42 dB",
       "Thermal Rating": "Uf 1.05 W/m²K"
+    },
+    translations: {
+      ar: {
+        name: "وينسا دورادو 76 نظام العزل الصوتي",
+        description: "نظام فتح متين بعمق 76 ملم مخصص للمنازل والشقق الفاخرة لتوفير أعلى درجات الهدوء وعزل الضوضاء الحضرية والرياح.",
+        subCategory: "عزل صوتي فائق 5 غرف",
+        features: [
+          "هيكل 5 غرف مصمم لحجب الحرارة والضوضاء الخارجية",
+          "حديد مجلفن مدعم لمقاومة ضغط الرياح العاتية",
+          "أقفال أمان متعددة النقاط لمحيط النافذة بالكامل"
+        ]
+      },
+      ckb: {
+        name: "وینسا دۆرادۆ 76ی عەزلی دەنگی و گەرمی",
+        description: "سیستەمی 76 ملمی پتەو بۆ شوقە و ڤێلا مۆدێرنەکان کە پێویستیان بە بێدەنگی تەواو و پاراستنە لە ژاوەژاوی شار.",
+        subCategory: "عەزلی دەنگی ٥ خانە",
+        features: [
+          "دیزاینی ٥-خانەیی بۆ کەمکردنەوەی گەرمی و دەنگ",
+          "ئاسنی گالڤانایزکراوی بەهێزکراو دژ بە شۆکی با",
+          "قوفڵکاری چەند خاڵیی ئەمنی بە درێژایی چێوەکە"
+        ]
+      }
     }
   },
   {
@@ -291,8 +343,8 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 145,
     soldCount: "420+ installed",
-    image: "./assets/doorhome/03-2.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/08/03-2.jpg",
+    image: "/products-assets/photo_12_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/03-2.jpg",
     description: "Engineered specifically for extreme temperature fluctuations, the 60mm Everest Max system features 4 internal chambers and dual EPDM co-extruded gaskets.",
     chambers: 4,
     depth: "60 mm",
@@ -314,6 +366,18 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
       "Frame Depth": "60 mm",
       "Chamber Count": "4 Chambers",
       "Thermal Transmittance": "1.2 W/m²K"
+    },
+    translations: {
+      ar: {
+        name: "إيفرست ماكس 60 ملم الاقتصادي المتين",
+        description: "نظام سكني عملي ومتين بعمق 60 ملم و 4 غرف عزل لتوفير المتانة والعزل الموثوق للمشاريع السكنية.",
+        subCategory: "سكني كلاسيكي"
+      },
+      ckb: {
+        name: "ئیڤرست ماکس 60 ملم نیشتەجێبوون",
+        description: "سیستەمی پراکتیکی 60 ملمی ٤-خانەیی بۆ خانوو و پرۆژەی نیشتەجێبوون بە گەرەنتی و عەزلی متمانەپێکراو.",
+        subCategory: "کلاسیکی نیشتەجێبوون"
+      }
     }
   },
   {
@@ -331,8 +395,8 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     discountBadge: "14% OFF",
     originalPrice: 175,
     soldCount: "290+ installed",
-    image: "./assets/doorhome/8-2.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/08/8-2.jpg",
+    image: "/products-assets/photo_22_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/8-2.jpg",
     description: "Sleek bevelled aesthetic with a 5-chamber design that balances contemporary architectural elegance with class-leading acoustic and thermal barriers.",
     chambers: 5,
     depth: "70 mm",
@@ -353,6 +417,18 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
       "Frame Depth": "70 mm",
       "Chamber Count": "5 Chambers",
       "Thermal Transmittance": "1.1 W/m²K"
+    },
+    translations: {
+      ar: {
+        name: "ليجند آرت 70 ملم المعماري الأنيق",
+        description: "مظهر جمالي نحيف بحواف مشطوفة و 5 غرف عزل تجمع بين الأناقة المعمارية المعاصرة والعزل الصوتي والحراري الممتاز.",
+        subCategory: "معماري متميز"
+      },
+      ckb: {
+        name: "لیجند ئارت 70 ملمی نژیاروانی مۆدێرن",
+        description: "دیزاینی باریک و شیک بە ٥ ژووری عەزل بۆ هاوسەنگی تەواو لە نێوان جوانی و عەزلی گەرمی و دەنگی.",
+        subCategory: "نژیاروانی پێشکەوتوو"
+      }
     }
   },
   {
@@ -370,8 +446,10 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 230,
     soldCount: "180+ installed",
-    image: "./assets/doorhome/3-2.jpg",
-    fallbackImage: "./assets/doorhome/03-2.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (3).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_39_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/3-2.jpg",
     description: "Architectural thermal break aluminum casement window with multi-point perimeter security locking and European weather seals.",
     depth: "60 mm frame",
     insulationValue: "Uf = 1.6 W/m²K",
@@ -392,6 +470,18 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
       "Frame Depth": "60 mm",
       "Thermal Barrier": "Polyamide 24 mm",
       "Max Sash Weight": "130 kg"
+    },
+    translations: {
+      ar: {
+        name: "نافذة لورينزو 60T ألمنيوم عازل حرارياً",
+        description: "نافذة مفصلية من الألمنيوم العازل حرارياً بجسر بولياميد 24 ملم مع أقفال أمان أوروبية محيطية متعددة النقاط.",
+        subCategory: "ألمنيوم عازل حرارياً"
+      },
+      ckb: {
+        name: "پەنجەرەی لۆرێنزۆ 60T ئەلۆمنیۆمی عەزل",
+        description: "پەنجەرەی ئەلۆمنیۆمی سێرمالبڕێک بە بەربەستی پۆلیامایدی 24 ملم و قوفڵکاری فرە-خاڵی ئەوروپی.",
+        subCategory: "ئەلۆمنیۆمی گەرمیبڕ"
+      }
     }
   }
 ];
@@ -412,7 +502,9 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     discountBadge: "16% OFF",
     originalPrice: 310,
     soldCount: "520+ installed",
-    image: "./assets/showcase/showcase_lorenzo70ls_1789926091155.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (4).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_1_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/03-2.jpg",
     description: "Architectural sliding system enabling panoramic floor-to-ceiling glass spans up to 3 meters with finger-touch glide and exceptional thermal insulation.",
     depth: "70 mm leaf / 160 mm frame",
@@ -435,6 +527,29 @@ export const DOORS_PRODUCTS: ProductItem[] = [
       "Max Load": "400 kg / Leaf",
       "Thermal Break": "Polyamide 24 mm",
       "Max Height": "3200 mm"
+    },
+    translations: {
+      ar: {
+        name: "لورينزولاين 70LS نظام السحب والرفع البانورامي",
+        description: "نظام أبواب سحاب ضخم يتيح واجهات زجاجية بانورامية ممتدة من الأرض إلى السقف حتى ارتفاع 3.2 متر مع حركة انسيابية بلمسة إصبع.",
+        subCategory: "سحاب عملاق عازل حرارياً",
+        features: [
+          "جسور بولياميد 24 ملم لعزل حراري كامل بين الداخل والخارج",
+          "سكك وإطارات ستانلس ستيل فائقة القوة تتحمل 400 كغم لكل ضلفة",
+          "نظام تصريف مياه مخفي مانع لتجمع مياه الأمطار",
+          "أقفال محيطية متعددة النقاط لأمان محكم وعزل تام"
+        ]
+      },
+      ckb: {
+        name: "لۆرێنزۆلاین 70LS سیستەمی لیفت ئەند سلاید",
+        description: "دەرگای سلایدینگی زەبەلاحی پانۆراما بۆ دیمەنی سەرانسەری لە زەویەوە بۆ بنمیچ تا بەرزی 3.2 مەتر بە جوڵەیەکی زۆر نەرم و ئاسان.",
+        subCategory: "سلایدینگی پانۆرامای عەزل",
+        features: [
+          "بەربەستی پۆلیامایدی 24 ملم بۆ عەزلی گەرمی لە نێوان ناوەوە و دەرەوە",
+          "ڕێڕەوی ستیلی بەهێز کە بەرگەی 400 کیلۆگرام بۆ هەر باڵێک دەگرێت",
+          "سیستەمی شاراوەی ئاوەڕۆ بۆ رێگری لە کۆبوونەوەی ئاوی باران"
+        ]
+      }
     }
   },
   {
@@ -452,7 +567,9 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     discountBadge: "17% OFF",
     originalPrice: 290,
     soldCount: "160+ installed",
-    image: "./assets/showcase/showcase_hs76_1789926153920.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (5).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_24_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/1-2.jpg",
     description: "Grand panoramic lift-and-slide door engineering delivering effortless fingertip movement for sash weights up to 300kg with zero-barrier low threshold.",
     depth: "175 mm frame / 76 mm sash",
@@ -476,6 +593,18 @@ export const DOORS_PRODUCTS: ProductItem[] = [
       "Frame Depth": "175 mm",
       "Max Sash Weight": "300 kg",
       "Glass Range": "Up to 44 mm"
+    },
+    translations: {
+      ar: {
+        name: "هيبي-شيبه HS76 باب سحب ورفع uPVC",
+        description: "هندسة أبواب سحب بانورامية بآلية الرفع الألمانية لحركة سلسة وسهلة للضلف الثقيلة مع عتبة أرضية منبسطة مستوية.",
+        subCategory: "أبواب بانورامية عازلة"
+      },
+      ckb: {
+        name: "هیبی-شیبە HS76 دەرگای لیفت ئەند سلاید uPVC",
+        description: "دەرگای سلایدینگی گەورەی ئەڵمانی بە سیستەمی بەرزکردنەوە بۆ جوڵەی سووک تا کێشی 300 کیلۆگرام بە بەربەستی خوارەوەی هاوتا لەگەڵ زەوی.",
+        subCategory: "دەرگای پانۆرامای عەزل"
+      }
     }
   },
   {
@@ -493,8 +622,10 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     discountBadge: "17% OFF",
     originalPrice: 350,
     soldCount: "85+ villas",
-    image: "./assets/doorhome/IMG_20260420_112855_427-1-scaled-e1777373296366-300x300.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2026/04/IMG_20260420_112855_427-1-scaled-e1777373296366-300x300.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (7).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_30_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/1-2.jpg",
     description: "Premium bi-folding accordion door system that folds away completely to open entire walls up to 12 meters wide.",
     depth: "77 mm",
     basePrice: 290,
@@ -511,6 +642,18 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     specs: {
       "System Depth": "77 mm",
       "Max Width": "12000 mm"
+    },
+    translations: {
+      ar: {
+        name: "نظام الأبواب القابلة للطي 77BF (باي-فولد)",
+        description: "نظام أبواب أكورديون فاخر يطوى بالكامل ليفتح جدراناً زجاجية بعرض يصل إلى 12 متراً لدمج المساحات الداخلية بالحدائق.",
+        subCategory: "أبواب قابلة للطي (أكورديون)"
+      },
+      ckb: {
+        name: "سیستەمی دەرگای پێچراوە 77BF (بای-فۆڵد)",
+        description: "دەرگای ئەکۆردیۆنی ناوازە کە بە تەواوی دەپێچرێتەوە و دیوار بە پانی تا 12 مەتر دەکاتەوە بۆ بەستنەوەی ژوورەکان بە باخچە.",
+        subCategory: "دەرگای پێچراوەی پانۆراما"
+      }
     }
   },
   {
@@ -528,8 +671,10 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     discountBadge: "18% OFF",
     originalPrice: 550,
     soldCount: "110+ entrance doors",
-    image: "./assets/doorhome/03-2.jpg",
-    fallbackImage: "./assets/doorhome/4-2.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (6).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_41_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/03-2.jpg",
     description: "Grand entrance pivot door for luxury villas with hidden floor springs, digital smart keypad locks, and anti-burglary multi-bolt perimeter locking.",
     depth: "100 mm leaf",
     basePrice: 450,
@@ -546,6 +691,18 @@ export const DOORS_PRODUCTS: ProductItem[] = [
       "Leaf Depth": "100 mm",
       "Max Height": "3500 mm",
       "Security Class": "RC3 / WK3"
+    },
+    translations: {
+      ar: {
+        name: "باب المدخل المحوري الفاخر Pivot 100 للڤلل",
+        description: "باب مدخل رئيسي محوري بتصميم معماري مهيب مزود بمحور دوران مخفي وأقفال ذكية ببصمة الإصبع وألواح سيراميك أو حجر فاخرة.",
+        subCategory: "مداخل الڤلل الرئيسية الفاخرة"
+      },
+      ckb: {
+        name: "دەرگای سەرەکی پیڤۆت 100ی ڤێلا مۆدێرنەکان",
+        description: "دەرگای سەرەکی ناوازە بە میحوەری خولانەوەی شاراوە و قوفڵی زیرەکی پەنجەمۆر و دیزاینی گرانبەهای سیرامیک و ئەلەمنیۆم.",
+        subCategory: "دەرگای سەرەکی ڤێلا"
+      }
     }
   },
   {
@@ -563,8 +720,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     discountBadge: "12% OFF",
     originalPrice: 365,
     soldCount: "28 villas",
-    image: "./assets/doorhome/hero-bg.png",
-    fallbackImage: "./assets/doorhome/1-2.jpg",
+    image: "/products-assets/photo_58_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/hero-bg.png",
     description: "Motorized rotating louvre pergolas that regulate sunlight, ventilation, and rainwater drainage for luxury outdoor terraces and hotel patios.",
     depth: "150 mm profile beams",
     basePrice: 320,
@@ -583,6 +740,18 @@ export const DOORS_PRODUCTS: ProductItem[] = [
       "Louvre Rotation": "0° - 135°",
       "Max Span": "6000 x 4500 mm per module",
       "Automation": "Somfy / Comunello compatible"
+    },
+    translations: {
+      ar: {
+        name: "مظلات البرغولا البيوكليماتية الذكية للمساحات الخارجية",
+        description: "برغولا ألمنيوم متحركة ذات شفرات دوارة بمحركات ذكية للتحكم بأشعة الشمس والتهوية ومقاومة الأمطار مع إضاءة LED مدمجة.",
+        subCategory: "مظلات وجلسات خارجية ذكية"
+      },
+      ckb: {
+        name: "پێرگۆلای بایۆکلیماتیکی زیرەک بۆ دانیشتنی دەرەوە",
+        description: "پێرگۆلای مۆتۆڕداری ئەلۆمنیۆم بە پەڕەی سووڕاوە بۆ کۆنتڕۆڵکردنی تیشکی خۆر، هەواگۆڕکێ و باران بە ڕووناکی LEDی نایاب.",
+        subCategory: "پێرگۆلا و دانیشتنی دەرەوە"
+      }
     }
   }
 ];
@@ -603,8 +772,10 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     discountBadge: "16% OFF",
     originalPrice: 250,
     soldCount: "45 commercial projects",
-    image: "./assets/showcase/showcase_curtain50f_1789926115841.jpg",
-    fallbackImage: "./assets/doorhome/3-2.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (8).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_59_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/showcase/showcase_curtain50f_1789926115841.jpg",
     description: "Structural stick façade system with 50mm visible profile width. Engineered for corporate headquarters, hotel facades, car showrooms, and luxury residences.",
     depth: "50 mm sightline, 50mm - 250mm mullion depths",
     insulationValue: "Ucw = 1.2 W/m²K",
@@ -625,6 +796,18 @@ export const GLASS_PRODUCTS: ProductItem[] = [
       "Mullion Inertia": "High static range",
       "Air Permeability": "Class AE EN 12152",
       "Water Tightness": "Class RE 1200 EN 12154"
+    },
+    translations: {
+      ar: {
+        name: "واجهات كورتن وول الزجاجية الإنشائية Façade 50F",
+        description: "نظام واجهات زجاجية إنشائية بعرض 50 ملم للمباني التجارية والشركات والأبراج مع عزل حراري ومقاومة عالية لضغط الرياح.",
+        subCategory: "واجهات زجاجية تجارية"
+      },
+      ckb: {
+        name: "ڕوکاری شوشەیی باڵەخانەکان Façade 50F",
+        description: "سیستەمی کورتیین وۆڵی ستراکتۆر بە پانی 50 ملم بۆ باڵەخانەی بازرگانی و کۆمپانیاکان بە بەرگری بەرز لە با و عەزلی گەرمی.",
+        subCategory: "ڕوکاری بازرگانی"
+      }
     }
   },
   {
@@ -642,7 +825,7 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 245,
     soldCount: "38 commercial facades",
-    image: "./assets/showcase/showcase_curtain50f_1789926115841.jpg",
+    image: "/products-assets/photo_75_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/24-1.jpg",
     description: "Complete facade engineering system offering thermal insulation, solar control, and structural integrity for modern commercial buildings.",
     depth: "50 mm",
@@ -669,8 +852,10 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     discountBadge: "18% OFF",
     originalPrice: 340,
     soldCount: "35+ atriums",
-    image: "./assets/doorhome/24-1.jpg",
-    fallbackImage: "./assets/doorhome/1-2.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (9).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_78_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/24-1.jpg",
     description: "Custom engineered pyramid, gable, and mono-pitch glass roof atriums featuring internal thermal condensation drainage channels.",
     depth: "50 mm rafters",
     basePrice: 280,
@@ -687,6 +872,18 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     specs: {
       "Rafter Sightline": "50 mm",
       "Water Tightness": "Class RE 1500"
+    },
+    translations: {
+      ar: {
+        name: "الأسقف الزجاجية وقباب الإضاءة الطبيعية SkyRoof 50",
+        description: "قباب وأسقف زجاجية إنشائية فاخرة بتصاميم هرمية ومائلة مع مجاري تصريف التكثيف الداخلي ومقاومة الأحمال العالية.",
+        subCategory: "قباب وأسقف زجاجية"
+      },
+      ckb: {
+        name: "سەقفی شوشەیی و رووناکیدەری ئاسمانی SkyRoof 50",
+        description: "دیزاینی ئەندازیاری سەقفی شوشەیی بۆ هۆڵ و ڤێلاکان بە سیستەمی عەزل و کۆنتڕۆڵی ڕووناکی سروشتی.",
+        subCategory: "سەقفی شوشەیی"
+      }
     }
   },
   {
@@ -704,8 +901,8 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     discountBadge: "17% OFF",
     originalPrice: 115,
     soldCount: "1,200+ units",
-    image: "./assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg",
-    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg",
+    image: "/products-assets/photo_82_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg",
     description: "Automated argon-gas filled double and triple insulated glass units with acoustic PVB interlayers and solar reflective Low-E coatings.",
     depth: "24mm - 52mm",
     insulationValue: "Ug = 1.0 W/m²K",
@@ -744,8 +941,10 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
     discountBadge: "17% OFF",
     originalPrice: 210,
     soldCount: "680+ meters",
-    image: "./assets/doorhome/23-1.jpg",
-    fallbackImage: "./assets/doorhome/17-2.jpg",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_80_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/23-1.jpg",
     description: "Floor-mounted and fascia-mounted continuous aluminum base shoe systems holding heavy 16mm-21.5mm laminated glass panels without vertical posts.",
     depth: "120 mm base",
     basePrice: 175,
@@ -763,6 +962,18 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
     specs: {
       "Glass Thickness": "8+8 mm or 10+10 mm PVB / SGP",
       "Profile Weight": "Heavy Structural Grade"
+    },
+    translations: {
+      ar: {
+        name: "دربزينات الزجاج الإنشائي اللامحدود للبلكونات والممرات",
+        description: "أنظمة دربزين زجاجي بدون قواطع رأسية مثبتة بقاعدة ألمنيوم إنشائية مع زجاج مصفح ومقسى يوفر رؤية بانورامية وأماناً فائقاً.",
+        subCategory: "دربزينات زجاجية فاخرة"
+      },
+      ckb: {
+        name: "دەستەچنی شوشەیی پانۆراما بۆ باڵکۆن",
+        description: "سیستەمی دەستەچنی شوشەیی بەبێ کۆڵەکەی ستوونی بە بەکارهێنانی جامی سیکیوریت و ئەلەمنیۆمی بەهێز بۆ دیمەنی تەواو کراوە.",
+        subCategory: "دەستەچنی شوشەیی"
+      }
     }
   },
   {
@@ -780,8 +991,8 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 225,
     soldCount: "95+ projects",
-    image: "./assets/doorhome/signature-bg.jpg",
-    fallbackImage: "./assets/doorhome/20-2.jpg",
+    image: "/products-assets/photo_63_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/signature-bg.jpg",
     description: "Modern, maintenance-free architectural fences and entrance gates with concealed fasteners, anodized finishes, and customized louvre patterns.",
     depth: "100 mm posts",
     basePrice: 190,
@@ -816,8 +1027,8 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
     discountBadge: "16% OFF",
     originalPrice: 185,
     soldCount: "340+ meters",
-    image: "./assets/doorhome/photo_2023-07-03_15-49-24-760x485.jpg",
-    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-38-36-600x390.jpg",
+    image: "/products-assets/photo_50_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-49-24-760x485.jpg",
     description: "Heavy-duty core-drilled or surface-mounted marine grade stainless steel spigots for contemporary pool enclosures and villa balconies.",
     basePrice: 155,
     unitPrice: 155,
@@ -837,6 +1048,48 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
 
 export const ACCESSORIES_PRODUCTS: ProductItem[] = [
   {
+    id: "somfy-automation",
+    name: "Somfy Smart Window & Shutter Motors",
+    category: "accessories",
+    division: "accessories",
+    subCategory: "Automation & Smart Home",
+    modelNumber: "Somfy IO",
+    material: "Smart IO Wireless Motor",
+    brand: "Somfy",
+    origin: "Somfy • France / Doorhome Desk",
+    rating: 4.9,
+    reviewsCount: 130,
+    discountBadge: "15% OFF",
+    originalPrice: 195,
+    soldCount: "720+ units",
+    videoUrl: "/products-assets/video_2026-09-26_07-36-00 (11).mp4",
+    mediaType: "video",
+    image: "/products-assets/photo_56_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg",
+    description: "Wireless remote and smartphone controlled motorized openers for high skylights, rolling shutters, and heavy sliding doors.",
+    basePrice: 165,
+    unitPrice: 165,
+    currency: "USD",
+    pricing: { unitPrice: 165, currency: "USD" },
+    features: [
+      "Somfy Tahoma smart home integration",
+      "Obstacle detection and automatic stop protection",
+      "Silent drive motor technology"
+    ],
+    translations: {
+      ar: {
+        name: "محركات سومفي الفرنسية الذكية للنوافذ والستائر",
+        description: "محركات ذكية لاسلكية فرنسية للتحكم بالنوافذ العالية والستائر المعدنية عبر الريموت أو تطبيقات الهواتف الذكية.",
+        subCategory: "أنظمة الأتمتة والمنازل الذكية"
+      },
+      ckb: {
+        name: "مۆتۆڕی زیرەکی سۆمفی فەڕەنسی بۆ پەنجەرە و شەتەر",
+        description: "سیستەمی کۆنتڕۆڵی زیرەک بە مۆبایل و کۆنتڕۆڵ بۆ پەنجەرەی بەرز، شەتەری پارێزەر و دەرگای سلایدینگ.",
+        subCategory: "ئۆتۆمەیشن و ماڵی زیرەک"
+      }
+    }
+  },
+  {
     id: "stac-multipoint",
     name: "STAC Spain Multipoint Security Lock",
     category: "accessories",
@@ -851,8 +1104,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     discountBadge: "19% OFF",
     originalPrice: 80,
     soldCount: "3,400+ sets",
-    image: "./assets/doorhome/brouchour-stac-1-1000x1000.jpg",
-    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-38-36-600x390.jpg",
+    image: "/products-assets/photo_48_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/brouchour-stac-1-1000x1000.jpg",
     description: "Certified anti-burglary multipoint perimeter locking gears for casement windows and sliding patio doors.",
     basePrice: 65,
     unitPrice: 65,
@@ -879,8 +1132,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     discountBadge: "22% OFF",
     originalPrice: 45,
     soldCount: "5,800+ units",
-    image: "./assets/doorhome/brouchour-Master-1-1000x1000.jpg",
-    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg",
+    image: "/products-assets/photo_43_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/brouchour-Master-1-1000x1000.jpg",
     description: "Ergonomic designer handles in Italian minimalist aesthetic, available in matte black, satin nickel, and anodized gold finishes.",
     basePrice: 35,
     unitPrice: 35,
@@ -907,8 +1160,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     discountBadge: "19% OFF",
     originalPrice: 105,
     soldCount: "1,950+ sets",
-    image: "./assets/doorhome/brouchour-comunello-2-1-1000x1000.jpg",
-    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg",
+    image: "/products-assets/photo_36_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/brouchour-comunello-2-1-1000x1000.jpg",
     description: "Heavy-duty tandem ball-bearing rollers engineered to carry oversized panoramic sliding door sashes up to 400kg with effortless whisper-quiet travel.",
     basePrice: 85,
     unitPrice: 85,
@@ -918,34 +1171,6 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
       "High load bearing capacity rated for 400kg sash weight",
       "Precision CNC stainless steel ball bearings",
       "Height adjustable by 6mm for perfect alignment"
-    ]
-  },
-  {
-    id: "somfy-automation",
-    name: "Somfy Smart Window & Shutter Motors",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Automation & Smart Home",
-    modelNumber: "Somfy IO",
-    material: "Smart IO Wireless Motor",
-    brand: "Somfy",
-    origin: "Somfy • France / Doorhome Desk",
-    rating: 4.9,
-    reviewsCount: 130,
-    discountBadge: "15% OFF",
-    originalPrice: 195,
-    soldCount: "720+ units",
-    image: "./assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg",
-    fallbackImage: "./assets/doorhome/22-1.jpg",
-    description: "Wireless remote and smartphone controlled motorized openers for high skylights, rolling shutters, and heavy sliding doors.",
-    basePrice: 165,
-    unitPrice: 165,
-    currency: "USD",
-    pricing: { unitPrice: 165, currency: "USD" },
-    features: [
-      "Somfy Tahoma smart home integration",
-      "Obstacle detection and automatic stop protection",
-      "Silent drive motor technology"
     ]
   },
   {
@@ -963,8 +1188,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     discountBadge: "15% OFF",
     originalPrice: 165,
     soldCount: "840+ installed",
-    image: "./assets/doorhome/22-1.jpg",
-    fallbackImage: "./assets/doorhome/6-2.jpg",
+    image: "/products-assets/photo_28_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/22-1.jpg",
     description: "Motorized security shutters and pleated magnetic insect screens providing shading, acoustic dampening, and dust prevention.",
     depth: "55 mm slats",
     basePrice: 140,
@@ -985,90 +1210,6 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     }
   },
   {
-    id: "acc-window-line",
-    name: "WINDOW HARDWARE LINE",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Window Mechanics",
-    modelNumber: "Vorne / Master",
-    material: "European Hardware",
-    brand: "Master Italy / Vorne",
-    origin: "Master Italy • Italy",
-    rating: 5.0,
-    reviewsCount: 180,
-    discountBadge: "20% OFF",
-    originalPrice: 55,
-    soldCount: "2,400+ sets",
-    image: "./assets/doorhome/photo_2023-07-03_15-38-36-600x390.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/07/photo_2023-07-03_15-38-36-600x390.jpg",
-    description: "Comprehensive European window mechanics including Tilt & Turn drive gears, scissor arms, friction hinges, and multi-point corner transmissions.",
-    basePrice: 45,
-    unitPrice: 45,
-    currency: "USD",
-    pricing: { unitPrice: 45, currency: "USD" },
-    features: [
-      "Master Italy and Vorne certified European hardware",
-      "Anti-corrosion silver trivalent chromate coating",
-      "Adjustable 3D locking cams for precision gasket compression"
-    ]
-  },
-  {
-    id: "acc-door-line",
-    name: "DOOR HARDWARE LINE",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Door Systems",
-    modelNumber: "Master 3D",
-    material: "Stainless & Zinc Alloy",
-    brand: "Master Italy",
-    origin: "Master Italy • Italy",
-    rating: 5.0,
-    reviewsCount: 195,
-    discountBadge: "15% OFF",
-    originalPrice: 100,
-    soldCount: "1,800+ sets",
-    image: "./assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/07/photo_2023-07-03_15-40-04-1104x720.jpg",
-    description: "Heavy-duty door hardware including 3D adjustable barrel hinges, multipoint automatic gear locks, panic exit devices, and security cylinders.",
-    basePrice: 85,
-    unitPrice: 85,
-    currency: "USD",
-    pricing: { unitPrice: 85, currency: "USD" },
-    features: [
-      "Tested for over 200,000 opening cycles",
-      "Supports door sash weights up to 160kg",
-      "Certified anti-drill and anti-snap security cylinders"
-    ]
-  },
-  {
-    id: "acc-sliding-line",
-    name: "SLIDING HARDWARE LINE",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Sliding Mechanics",
-    modelNumber: "G-U / Master",
-    material: "Precision Stainless Steel",
-    brand: "G-U / Comunello",
-    origin: "Germany & Italy",
-    rating: 5.0,
-    reviewsCount: 230,
-    discountBadge: "18% OFF",
-    originalPrice: 135,
-    soldCount: "1,650+ sets",
-    image: "./assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/07/photo_2023-07-03_15-41-20-1280x820.jpg",
-    description: "Precision engineered ball-bearing rollers, lift-and-slide mechanism sets, track covers, and flush perimeter locks.",
-    basePrice: 110,
-    unitPrice: 110,
-    currency: "USD",
-    pricing: { unitPrice: 110, currency: "USD" },
-    features: [
-      "Stainless steel needle bearings with nylon casing for silent operation",
-      "Heavy lift-slide gears rated up to 400kg per leaf",
-      "Keyed flush pulls and multi-point locking rods"
-    ]
-  },
-  {
     id: "acc-handle-line",
     name: "HANDLE & PULL HANDLE LINE",
     category: "accessories",
@@ -1083,8 +1224,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     discountBadge: "22% OFF",
     originalPrice: 45,
     soldCount: "6,200+ units",
-    image: "./assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg",
-    fallbackImage: "https://doorhome.co/wp-content/uploads/2023/07/photo_2023-07-03_15-50-46-1104x700.jpg",
+    image: "/products-assets/photo_60_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg",
     description: "Ergonomic designer handles for windows and doors in stainless steel 316, anodized aluminum, and antibacterial powder coat.",
     basePrice: 35,
     unitPrice: 35,

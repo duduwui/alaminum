@@ -18,8 +18,32 @@ export function loadLocalProducts(): ProductItem[] {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved !== null) {
       const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed)) {
-        return parsed;
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
+        const merged: ProductItem[] = parsed.map((item: ProductItem) => {
+          const defaultItem = defaultMap.get(item.id);
+          if (defaultItem) {
+            return {
+              ...defaultItem,
+              ...item,
+              videoUrl: item.videoUrl || defaultItem.videoUrl,
+              mediaType: item.mediaType || defaultItem.mediaType,
+              image: item.image?.startsWith('/uploads') ? item.image : defaultItem.image,
+              translations: { ...defaultItem.translations, ...item.translations }
+            };
+          }
+          return item;
+        });
+
+        // Append any new default products that were not present in cache
+        const existingIds = new Set(merged.map((p) => p.id));
+        ALL_PRODUCTS.forEach((dp) => {
+          if (!existingIds.has(dp.id)) {
+            merged.push(dp);
+          }
+        });
+
+        return merged;
       }
     }
   } catch (e) {

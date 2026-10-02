@@ -4,7 +4,7 @@ export interface GalleryMediaItem {
   description: string;
   src: string;
   mediaType: 'image' | 'video';
-  category: 'villa' | 'commercial' | 'doors' | 'facade';
+  category: 'villa' | 'commercial' | 'doors' | 'facade' | 'stairs' | 'railings' | 'windows' | 'pergolas' | string;
   location: string;
   system: string;
   year?: string;
