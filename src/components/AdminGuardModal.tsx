@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ArrowLeft, Lock, User, Eye, EyeOff, ShieldCheck, AlertCircle, Loader2 } from 'lucide-react';
 import { loginAdminUser } from '../services/authService';
 import { User as UserType } from '../types/auth';
@@ -17,6 +18,12 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   const handleClose = onCancel || onClose || (() => {});
 
@@ -49,9 +56,12 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
     }
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-xl overflow-y-auto animate-in fade-in duration-200">
-      <div className="w-full max-w-md my-auto bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative animate-in zoom-in-95 duration-200 text-slate-900">
+  const modalContent = (
+    <div
+      style={{ position: 'fixed', inset: 0, zIndex: 99999 }}
+      className="w-screen h-screen bg-slate-950/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
+    >
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative text-slate-900 my-auto">
         {/* Top Red Accent Line */}
         <div className="h-1.5 w-full bg-gradient-to-r from-red-700 via-red-500 to-rose-400" />
 
@@ -86,7 +96,7 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
 
           {/* Error Alert */}
           {error && (
-            <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-2.5 text-xs text-rose-700 font-bold animate-in fade-in duration-200">
+            <div className="p-3.5 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-2.5 text-xs text-rose-700 font-bold">
               <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
@@ -180,6 +190,12 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
       </div>
     </div>
   );
+
+  if (!mounted || typeof document === 'undefined') {
+    return modalContent;
+  }
+
+  return createPortal(modalContent, document.body);
 }
 
 export default AdminGuardModal;

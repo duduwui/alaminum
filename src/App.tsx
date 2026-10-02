@@ -474,7 +474,7 @@ export default function App() {
       <main className="flex-1 w-full relative" data-doorhome-page={`${activeTab}:${selectedProduct?.id || ''}`}>
         {isAdminView ? (
           /* Admin Portal View (#admin) */
-          <div key="admin" className="page-transition">
+          <div key="admin" className="min-h-screen w-full bg-slate-950">
             {adminSessionStatus === 'checking' ? (
               <div role="status" className="p-12 text-center text-slate-600">Checking administrator session…</div>
             ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
