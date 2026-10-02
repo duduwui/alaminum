@@ -415,17 +415,26 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     const file = e.target.files?.[0];
     if (file) {
       try {
-        const uploaded = await uploadCmsImageFile(file);
+        const uploaded = await uploadCmsMediaFile(file);
         if (uploaded) {
-          const updated = productList.map((p) => (p.id === productId ? { ...p, image: uploaded } : p));
+          const isVideo = file.type.startsWith('video/') || /\.(mp4|webm|mov)(\?|#|$)/i.test(uploaded);
+          const updated = productList.map((p) =>
+            p.id === productId
+              ? {
+                  ...p,
+                  image: uploaded,
+                  videoUrl: isVideo ? uploaded : p.videoUrl
+                }
+              : p
+          );
           setProductList(updated);
           saveLocalProducts(updated);
-          setCmsSaveFeedback('✓ Image Replaced & Live on Homepage!');
+          setCmsSaveFeedback('✓ Media (Image/Video) Replaced & Live on Homepage!');
           setTimeout(() => setCmsSaveFeedback(''), 4000);
         }
       } catch (err) {
         console.error('Direct replace error:', err);
-        setCmsSaveFeedback(err instanceof Error ? err.message : 'Image upload failed.');
+        setCmsSaveFeedback(err instanceof Error ? err.message : 'Media upload failed.');
       } finally {
         e.target.value = '';
       }
@@ -827,10 +836,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       setIsUploadingProductImage(true);
       setProductFormError('');
       try {
-        setFormImage(await uploadCmsImageFile(file));
+        setFormImage(await uploadCmsMediaFile(file));
       } catch (err) {
-        console.error('Product image error:', err);
-        setProductFormError(err instanceof Error ? err.message : 'Image upload failed.');
+        console.error('Product media error:', err);
+        setProductFormError(err instanceof Error ? err.message : 'Media upload failed.');
       } finally {
         setIsUploadingProductImage(false);
         e.target.value = '';
@@ -1610,36 +1619,35 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                       className="rounded-2xl border border-slate-200 bg-white p-3 space-y-3 shadow-xs hover:border-red-300 transition-all flex flex-col justify-between"
                     >
                       <div className="space-y-2">
-                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-100 border border-slate-100">
-                          <img
-                            src={door.image}
-                            alt={door.name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = door.fallbackImage || './assets/doorhome/03-2.jpg';
-                            }}
-                          />
+                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-950 border border-slate-100">
+                          {Boolean(door.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(door.image) ? (
+                            <video src={door.videoUrl || door.image} muted autoPlay loop playsInline className="w-full h-full object-cover" />
+                          ) : (
+                            <img
+                              src={door.image}
+                              alt={door.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = door.fallbackImage || './assets/doorhome/03-2.jpg';
+                              }}
+                            />
+                          )}
                         </div>
 
                         <div>
                           <h5 className="font-extrabold text-slate-900 text-xs line-clamp-1">{door.name}</h5>
                           <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{door.description}</p>
-                          <span className="text-[11px] font-black text-red-600 block mt-1">
-                            {door.currency === 'IQD'
-                              ? `${(door.pricePerSqm || door.basePrice || 240).toLocaleString()} IQD`
-                              : `$${(door.pricePerSqm || door.basePrice || 240).toLocaleString()}`}
-                          </span>
                         </div>
                       </div>
 
-                      {/* Action Buttons: Replace Image, Edit, Delete */}
+                      {/* Action Buttons: Replace Media, Edit, Delete */}
                       <div className="pt-2 border-t border-slate-100 space-y-1.5">
                         <label className="w-full py-1.5 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs">
                           <Upload className="w-3 h-3" />
-                          <span>Replace Image (استبدال الصورة)</span>
+                          <span>Replace Media (صورة / فيديو)</span>
                           <input
                             type="file"
-                            accept="image/*"
+                            accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
                             onChange={(e) => handleDirectReplaceProductImage(door.id, e)}
                             className="hidden"
                           />
@@ -1715,36 +1723,35 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                       className="rounded-2xl border border-slate-200 bg-white p-3 space-y-3 shadow-xs hover:border-red-300 transition-all flex flex-col justify-between"
                     >
                       <div className="space-y-2">
-                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-100 border border-slate-100">
-                          <img
-                            src={win.image}
-                            alt={win.name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              (e.target as HTMLImageElement).src = win.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
-                            }}
-                          />
+                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-950 border border-slate-100">
+                          {Boolean(win.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(win.image) ? (
+                            <video src={win.videoUrl || win.image} muted autoPlay loop playsInline className="w-full h-full object-cover" />
+                          ) : (
+                            <img
+                              src={win.image}
+                              alt={win.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = win.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
+                              }}
+                            />
+                          )}
                         </div>
 
                         <div>
                           <h5 className="font-extrabold text-slate-900 text-xs line-clamp-1">{win.name}</h5>
                           <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{win.description}</p>
-                          <span className="text-[11px] font-black text-red-600 block mt-1">
-                            {win.currency === 'IQD'
-                              ? `${(win.pricePerSqm || win.basePrice || 160).toLocaleString()} IQD`
-                              : `$${(win.pricePerSqm || win.basePrice || 160).toLocaleString()}`}
-                          </span>
                         </div>
                       </div>
 
-                      {/* Action Buttons: Replace Image, Edit, Delete */}
+                      {/* Action Buttons: Replace Media, Edit, Delete */}
                       <div className="pt-2 border-t border-slate-100 space-y-1.5">
                         <label className="w-full py-1.5 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs">
                           <Upload className="w-3 h-3" />
-                          <span>Replace Image (استبدال الصورة)</span>
+                          <span>Replace Media (صورة / فيديو)</span>
                           <input
                             type="file"
-                            accept="image/*"
+                            accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
                             onChange={(e) => handleDirectReplaceProductImage(win.id, e)}
                             className="hidden"
                           />
@@ -2171,7 +2178,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   <input
                     ref={productFileInputRef}
                     type="file"
-                    accept="image/jpeg,image/png,image/webp,image/gif"
+                    accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
                     onChange={handleProductImageFileUpload}
                     className="hidden"
                   />
@@ -2180,7 +2187,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
                 {formImage && (
                   <div className="flex items-center gap-3 p-2 bg-slate-100 rounded-xl border border-slate-200 mt-2">
-                    <img src={formImage} alt="Product preview" className="w-12 h-12 rounded-lg object-contain bg-white p-1" />
+                    {/\.(mp4|webm|mov)(\?|#|$)/i.test(formImage) ? (
+                      <video src={formImage} muted autoPlay loop playsInline className="w-12 h-12 rounded-lg object-cover bg-black" />
+                    ) : (
+                      <img src={formImage} alt="Product preview" className="w-12 h-12 rounded-lg object-contain bg-white p-1" />
+                    )}
                     <span className="text-[11px] font-bold text-slate-900">{t('admin_image_ready')}</span>
                   </div>
                 )}
