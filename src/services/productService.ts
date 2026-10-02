@@ -60,8 +60,32 @@ export function loadLocalProducts(): ProductItem[] {
 
 export function saveLocalProducts(products: ProductItem[]): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
-    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: products }));
+    const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
+    const existingIds = new Set(products.map((p) => p.id));
+    const merged: ProductItem[] = products.map((item) => {
+      const defaultItem = defaultMap.get(item.id);
+      if (defaultItem) {
+        return {
+          ...defaultItem,
+          ...item,
+          videoUrl: item.videoUrl || defaultItem.videoUrl,
+          mediaType: item.mediaType || defaultItem.mediaType,
+          image: item.image?.startsWith('/uploads') ? item.image : (item.image || defaultItem.image),
+          fallbackImage: defaultItem.fallbackImage || item.fallbackImage,
+          translations: { ...defaultItem.translations, ...item.translations }
+        };
+      }
+      return item;
+    });
+
+    ALL_PRODUCTS.forEach((dp) => {
+      if (!existingIds.has(dp.id)) {
+        merged.push(dp);
+      }
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: merged }));
   } catch (e) {
     console.error('Error saving products locally:', e);
   }

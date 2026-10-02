@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const mobileHeroImage = '/assets/doorhome/hero-mobile-red.png';
-const desktopHeroImage = '/assets/doorhome/hero-desktop-red.png';
+import mobileHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_37_12 AM.png';
+import desktopHeroImage from '../../ChatGPT Image Sep 25, 2026, 08_35_55 AM.png';
 
 interface HeroSectionProps {
   onOpenQuoteModal?: () => void;
