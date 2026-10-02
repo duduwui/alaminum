@@ -4,8 +4,6 @@ import {
   MapPin,
   ExternalLink,
   Clock,
-  Mail,
-  ArrowRight,
   Phone
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
@@ -14,7 +12,7 @@ interface ContactSectionProps {
   onOpenQuoteModal?: () => void;
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal }) => {
+export const ContactSection: React.FC<ContactSectionProps> = () => {
   const [mapReady, setMapReady] = useState(false);
   const { currentLanguage, t } = useLanguage();
   const isRtl = ['ckb', 'kmr', 'ar'].includes(currentLanguage.code);
@@ -40,11 +38,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
           </p>
         </div>
 
-        {/* Showroom Location, Working Hours & Interactive Map */}
-        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl dh-reveal">
+        {/* Showroom Location, Working Hours & Interactive Map Card */}
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl dh-reveal mb-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            {/* Left/Details: Working hours and Address */}
-            <div className="lg:col-span-5 p-7 sm:p-9 flex flex-col justify-between space-y-6 border-b lg:border-b-0 lg:border-e border-slate-200">
+            {/* Left/Details: Working hours, Phone and Address */}
+            <div className="lg:col-span-5 p-7 sm:p-9 flex flex-col justify-center space-y-6 border-b lg:border-b-0 lg:border-e border-slate-200">
               <div className="space-y-5">
                 <div>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-[11px] font-black uppercase tracking-wider mb-2 border border-red-100">
@@ -83,41 +81,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
                     </span>
                   </div>
                 </div>
-
-                {/* Direct Email */}
-                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <Mail className="w-5 h-5 text-red-600 shrink-0" />
-                  <div className="min-w-0 flex-1">
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('email_label')}</span>
-                    <a href={`mailto:${DOORHOME_CONTACT.email}`} className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors truncate block">
-                      {DOORHOME_CONTACT.email}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-2 space-y-3">
-                <a
-                  href={DOORHOME_CONTACT.googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3.5 px-5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-red-600/20 transition-all cursor-pointer"
-                >
-                  <MapPin className="w-4 h-4" />
-                  <span><bdi dir="auto">{t('open_maps_btn')}</bdi></span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-
-                {onOpenQuoteModal && (
-                  <button
-                    type="button"
-                    onClick={onOpenQuoteModal}
-                    className="w-full py-3 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
-                  >
-                    <span><bdi dir="auto">{t('nav_plan_project') || 'Request Project Quotation'}</bdi></span>
-                    <ArrowRight className="w-3.5 h-3.5 text-red-500" />
-                  </button>
-                )}
               </div>
             </div>
 
@@ -156,6 +119,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
               />
             </div>
           </div>
+        </div>
+
+        {/* Open in Google Maps Button Placed Directly Below Location Card */}
+        <div className="max-w-md mx-auto text-center dh-reveal">
+          <a
+            href={DOORHOME_CONTACT.googleMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-4 px-6 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg shadow-red-600/25 transition-all cursor-pointer"
+          >
+            <MapPin className="w-5 h-5" />
+            <span><bdi dir="auto">{t('open_maps_btn') || 'Open in Google Maps'}</bdi></span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

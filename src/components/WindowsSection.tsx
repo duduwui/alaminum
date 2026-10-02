@@ -126,26 +126,6 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
                 />
               )}
 
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
-
-              {/* Video/Image Badge */}
-              <div className="absolute top-4 start-4 flex items-center gap-2">
-                <span className="bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-black px-3 py-1 rounded-full border border-white/20 shadow-sm flex items-center gap-1.5">
-                  {isVideoMedia ? (
-                    <>
-                      <Play className="w-3 h-3 text-red-500 fill-red-500" />
-                      <span>{currentLanguage.code === 'ar' ? 'فيديو معماري' : currentLanguage.code === 'ckb' ? 'ڤیدیۆی نژیاروانی' : 'Video Reel'}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="w-3 h-3 text-red-400" />
-                      <span>{activeProduct.brand || 'European Profile'}</span>
-                    </>
-                  )}
-                </span>
-              </div>
-
               {/* Slide Counter & Prev/Next Overlay Controls */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2">
                 <span className="text-[11px] font-bold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
@@ -170,57 +150,20 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Technical Specs & Details */}
+            {/* Right: Clean Title & Description */}
             <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-6 text-start">
-              <div className="space-y-4">
-                {/* Badges Row */}
-                <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-red-700 bg-red-50 px-2.5 py-0.5 rounded-full border border-red-100">
-                    <bdi dir="auto">{activeProduct.subCategory || 'High Performance'}</bdi>
-                  </span>
-                  {activeProduct.depth && (
-                    <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                      {activeProduct.depth}
-                    </span>
-                  )}
-                  {activeProduct.chambers && (
-                    <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                      {activeProduct.chambers} {t('chambers_label') || 'Chambers'}
-                    </span>
-                  )}
-                </div>
-
-                {/* Title & Description */}
-                <div>
-                  <h3
-                    onClick={() => onSelectProduct(activeProduct)}
-                    className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
-                  >
-                    <bdi dir="auto">{activeProduct.name}</bdi>
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal line-clamp-3">
-                    <bdi dir="auto">{activeProduct.description}</bdi>
-                  </p>
-                </div>
-
-                {/* Key Technical Highlights Pills */}
-                <div className="grid grid-cols-2 gap-2.5 pt-2">
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
-                    <Wind className="w-4 h-4 text-red-600 shrink-0" />
-                    <div className="min-w-0">
-                      <span className="text-[10px] text-slate-400 font-bold block">{t('insulation_label') || 'Thermal Uf'}</span>
-                      <span className="text-xs font-black text-slate-800 truncate block">{activeProduct.insulationValue || 'Uf 0.92 W/m²K'}</span>
-                    </div>
-                  </div>
-
-                  <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-red-600 shrink-0" />
-                    <div className="min-w-0">
-                      <span className="text-[10px] text-slate-400 font-bold block">{t('acoustic_label') || 'Acoustic'}</span>
-                      <span className="text-xs font-black text-slate-800 truncate block">{activeProduct.acousticValue || 'Rw = 45 dB'}</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="space-y-3">
+                {/* Title */}
+                <h3
+                  onClick={() => onSelectProduct(activeProduct)}
+                  className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
+                >
+                  <bdi dir="auto">{activeProduct.name}</bdi>
+                </h3>
+                {/* Description */}
+                <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal">
+                  <bdi dir="auto">{activeProduct.description}</bdi>
+                </p>
               </div>
 
               {/* Price & Action Buttons */}
