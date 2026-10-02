@@ -93,10 +93,10 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
                         className="text-base font-extrabold text-slate-900 group-hover:text-red-600 transition-colors cursor-pointer line-clamp-1"
                         title={product.name}
                       >
-                        {product.name}
+                        <bdi dir="auto">{product.name}</bdi>
                       </h3>
                       <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed font-normal">
-                        {product.description}
+                        <bdi dir="auto">{product.description}</bdi>
                       </p>
                     </div>
                   </div>

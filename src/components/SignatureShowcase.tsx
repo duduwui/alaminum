@@ -459,10 +459,10 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
   },
   "ar": {
     "legend-80": {
-      "title": "ديكونينك ليجند 80",
+      "title": "شبابيك ديكونينك ليجند 80",
       "brand": "ديكونينك بلجيكا",
       "category": "أبواب ونوافذ uPVC فائقة العزل",
-      "badge": "معيار المنزل السلبي",
+      "badge": "معيار العزل الأوروبي",
       "description": "نظام uPVC أوروبي رائد مصمم بـ 6 حجرات عزل لمقاومة درجات حرارة الصيف التي تتجاوز 50 درجة مئوية.",
       "specs": [
         {
@@ -480,7 +480,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "lorenzo-70ls": {
-      "title": "لورنزولاين 70LS الترا مونومنتال",
+      "title": "أبواب سحاب ألمنيوم لورنزو 70LS",
       "brand": "أنظمة لورنزو",
       "category": "ألمنيوم سحاب عازل حرارياً",
       "badge": "واجهات زجاجية بانورامية",
@@ -501,10 +501,10 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "curtain-50f": {
-      "title": "واجهات كيرتن وول 50F الإنشائية",
+      "title": "واجهات زجاجية كيرتن وول 50F",
       "brand": "ألمنيوم معماري",
       "category": "نظام واجهات ستائرية للمشاريع",
-      "badge": "معتمد بموجب EN-13830",
+      "badge": "معتمد EN-13830",
       "description": "نظام واجهات زجاجية هندسية مصمم للأبراج التجارية ومعارض السيارات الفاخرة والفلل العصرية في جميع أنحاء العراق.",
       "specs": [
         {
@@ -522,7 +522,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "hs76-sliding": {
-      "title": "نظام هيبي شيبى HS76",
+      "title": "أبواب سحاب ثقيلة uPVC هيب شيب",
       "brand": "ديكونينك / وينسا",
       "category": "سحاب uPVC للأوزان الثقيلة",
       "badge": "فئة 4 لمقاومة الرياح",
@@ -543,7 +543,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "winsa-dorado-76": {
-      "title": "وينسا دورادو 76 أكوستيك",
+      "title": "شبابيك وينسا دورادو 76 عازلة للصوت",
       "brand": "أبواب ونوافذ وينسا",
       "category": "uPVC عازل للصوت فئة A",
       "badge": "عزل صوتي 44 ديسبل",
@@ -3823,10 +3823,10 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                   {/* Title & Description */}
                   <div>
                     <h3 className="text-base font-bold text-slate-900 leading-tight">
-                      {item.title}
+                      <bdi dir="auto">{item.title}</bdi>
                     </h3>
                     <p className="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">
-                      {item.description}
+                      <bdi dir="auto">{item.description}</bdi>
                     </p>
                   </div>
 
@@ -3884,10 +3884,10 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 >
                   <div>
                     <span className="font-bold text-slate-900 block text-sm sm:text-base group-hover:text-red-600 transition-colors">
-                      {item.title}
+                      <bdi dir="auto">{item.title}</bdi>
                     </span>
                     <span className="text-slate-500 text-[11px] font-medium mt-0.5 block">
-                      {item.subtitle || `${item.brand} • ${item.category}`}
+                      <bdi dir="auto">{item.subtitle || `${item.brand} • ${item.category}`}</bdi>
                     </span>
                   </div>
 
@@ -3920,10 +3920,10 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                     <div>
                       <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5 mb-2.5">
                         <span className="text-[10px] font-black text-red-700 bg-red-50 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                          {item.brand}
+                          <bdi dir="auto">{item.brand}</bdi>
                         </span>
                         <span className="text-xs font-semibold text-slate-400">
-                          {item.category}
+                          <bdi dir="auto">{item.category}</bdi>
                         </span>
                       </div>
 
@@ -3937,15 +3937,15 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                           }}
                         />
                         <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                          {item.badge}
+                          <bdi dir="auto">{item.badge}</bdi>
                         </div>
                       </div>
 
                       <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                        {item.title}
+                        <bdi dir="auto">{item.title}</bdi>
                       </h3>
                       <p className="text-xs text-slate-600 mt-1 leading-snug line-clamp-2">
-                        {item.description}
+                        <bdi dir="auto">{item.description}</bdi>
                       </p>
                     </div>
 

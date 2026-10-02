@@ -267,7 +267,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
 
   ckb: {
     'legend-80': {
-      name: 'دیسۆنینک لێجەند ٨٠ پاسیڤ هاوس',
+      name: 'پەنجەرەی دێکۆنینک لێجەند 80',
       description: 'لوتکەی عەزلی گەرمی و دەنگی. بە قووڵی ٨٠ ملم و ٦ خانەی ناوەکی دروستکراوە بۆ بەرگەگرتنی گەرمای سەرووی ٥٠ پلەی هاوینی هەولێر.',
       subCategory: 'عەزلی گەرمی باڵا',
       features: [
@@ -279,7 +279,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'winsa-dorado-76': {
-      name: 'وینسا دۆرادۆ ٧٦ عەزلی دەنگ',
+      name: 'پەنجەرەی وینسا دۆرادۆ 76',
       description: 'سیستەمی ٧٦ ملمی قورس بۆ شوقە و ڤێلا لوکسەکان کە پێویستیان بە عەزلی بەرزی دەنگ و تۆزە.',
       subCategory: 'عەزلی دەنگ و بێدەنگی',
       features: [
@@ -290,7 +290,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'hs76-sliding': {
-      name: 'هێبی شیبی HS76 سلایدینگی پانۆراما',
+      name: 'دەرگای سحابی هێبێ شیبێ HS76',
       description: 'ئەندازیاری پێشکەوتووی دەرگای پانۆرامای سلایدینگ بۆ کێشی هەتا ٣٠٠ کگم بە جوڵەیەکی زۆر نەرم بە دەست و بەربەستی سیفری سەر زەوی.',
       subCategory: 'سلایدینگی پانۆرامای قورس',
       features: [
@@ -322,7 +322,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'lorenzo-70ls': {
-      name: 'لۆرێنزۆلاین 70LS سلایدینگی پانۆراما',
+      name: 'دەرگای سحابی ئەلەمنیۆم لۆرێنزۆ 70LS',
       description: 'سیستەمی سلایدینگی تەلارسازی بۆ شوشەی بەرزایی هەتا ٣ مەتر بە عەزلی پۆلیەماید و جوڵەی نەرم.',
       subCategory: 'ئەلۆمنیۆمی عەزل و سلایدینگ',
       features: [
@@ -333,7 +333,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'facade-50f': {
-      name: 'فەسادی کەرتن وۆڵ 50F بۆ باڵەخانە',
+      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50F',
       description: 'سیستەمی فەسادی شوشەیی بۆ کۆمپانیاکان، هۆتێل و پێشانگاکان بە پانی ٥٠ ملم پرۆفایلی بینراو.',
       subCategory: 'ڕوکاری باڵەخانە و کۆمپانیا',
       features: [
@@ -344,7 +344,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'curtain-50f': {
-      name: 'کەرتن وۆڵ 50F سیستەمی ستیک',
+      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50F',
       description: 'سیستەمی تەواوی ئەندازیاری ڕوکار بۆ عەزلی گەرمی، کۆنترۆڵی تیشکی خۆر و سەقامگیری باڵەخانە مۆدێرنەکان.',
       subCategory: 'ڕوکاری باڵەخانە و کۆمپانیا',
       features: ['پانی ٥٠ ملم', 'بەرگری باڵا لە ڕەشەبا', 'بەربەستی پۆلیەمایدی عەزل']
@@ -455,7 +455,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
   },
   ar: {
     'legend-80': {
-      name: 'ديسونينك ليجند 80 باسيف هاوس',
+      name: 'شبابيك ديكونينك ليجند 80',
       description: 'قمة العزل الحراري والصوتي. مصمم بعمق 80 ملم و 6 حجرات داخلية لتحمل حرارة صيف أربيل التي تتجاوز 50 درجة مئوية.',
       subCategory: 'عزل حراري فائق',
       features: [
@@ -467,7 +467,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'winsa-dorado-76': {
-      name: 'وينسا دورادو 76 عزل صوتي متقدم',
+      name: 'شبابيك وينسا دورادو 76 عازلة للصوت',
       description: 'نظام 76 ملم شديد التحمل مخصص للشقق والأبراج والفلل الفاخرة لعزل الضوضاء وضغط الرياح.',
       subCategory: 'عزل صوتي فائق',
       features: [
@@ -478,7 +478,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'hs76-sliding': {
-      name: 'هيبي شيبيه HS76 سحب بانورامي فائق',
+      name: 'أبواب سحاب ثقيلة uPVC هيب شيب',
       description: 'هندسة متطورة للأبواب البانورامية المنزلقة تتحمل أوزاناً تصل إلى 300 كجم مع عتبة أرضية منبسطة وحركة انسيابية فائقة.',
       subCategory: 'سحب بانورامي ثقيل',
       features: [
@@ -489,7 +489,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'upvc-everest-max-60': {
-      name: 'إيفرست ماكس 60 ملم',
+      name: 'شبابيك إيفرست ماكس 60 ملم',
       description: 'مصمم خصيصاً للتغيرات المناخية القاسية، يتميز بـ 4 حجرات داخلية ومطاط مزدوج مانع لتسرب الهواء.',
       subCategory: 'سكني كلاسيكي',
       features: [
@@ -500,7 +500,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'upvc-legend-art-70': {
-      name: 'ليجند آرت 70 ملم',
+      name: 'شبابيك ليجند آرت 70 ملم',
       description: 'تصميم انسيابي أنيق بـ 5 حجرات يجمع بين الفخامة المعمارية وأعلى معايير العزل الحراري والصوتي.',
       subCategory: 'معماري فاخر',
       features: [
@@ -510,7 +510,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'lorenzo-70ls': {
-      name: 'لورينزولاين 70LS سحب بانورامي عازل',
+      name: 'أبواب سحاب ألمنيوم لورنزو 70LS',
       description: 'نظام سحب معماري يتيح واجهات زجاجية ممتدة حتى ارتفاع 3 أمتار مع عزل حراري بجسور البولي أميد.',
       subCategory: 'سحب ألمنيوم معزول حرارياً',
       features: [
@@ -521,7 +521,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'facade-50f': {
-      name: 'فاساد 50F واجهات زجاجية هيكلية',
+      name: 'واجهات زجاجية كيرتن وول 50F',
       description: 'نظام واجهات زجاجية هيكلية بعرض مرئي 50 ملم مصمم للأبراج والشركات والفنادق ومعارض السيارات.',
       subCategory: 'واجهات تجارية وأبراج',
       features: [
@@ -532,7 +532,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'curtain-50f': {
-      name: 'كيرتن وول 50F نظام الواجهات المتكامل',
+      name: 'واجهات زجاجية كيرتن وول 50F',
       description: 'نظام هندسي متكامل للواجهات يوفر العزل الحراري والتحكم الشمسي والأمان الإنشائي للمباني الحديثة.',
       subCategory: 'واجهات تجارية وأبراج',
       features: ['عرض مرئي 50 ملم', 'مقاومة فائقة للرياح', 'جسور عزل بولي أميد']

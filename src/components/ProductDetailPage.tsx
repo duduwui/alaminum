@@ -74,8 +74,8 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
           </div>
           <div className="flex flex-col justify-center gap-5 py-3 lg:pr-4">
             <div className="h-1 w-12 rounded-full bg-red-600" aria-hidden="true" />
-            <h1 className="text-3xl font-black leading-tight tracking-tight sm:text-5xl">{localizedProduct.name}</h1>
-            <p className="max-w-xl whitespace-pre-wrap text-base leading-relaxed text-slate-600 sm:text-lg">{localizedProduct.description}</p>
+            <h1 className="text-3xl font-black leading-tight tracking-tight sm:text-5xl"><bdi dir="auto">{localizedProduct.name}</bdi></h1>
+            <p className="max-w-xl whitespace-pre-wrap text-base leading-relaxed text-slate-600 sm:text-lg"><bdi dir="auto">{localizedProduct.description}</bdi></p>
             {price != null && (
               <p className="border-t border-slate-100 pt-5 text-4xl font-black tracking-tight text-red-600">
                 {product.currency === 'IQD' ? `${price.toLocaleString()} IQD` : `$${price.toLocaleString()}`}
@@ -90,7 +90,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
                   <button type="button" onClick={() => setQuantity((value) => Math.min(9999, value + 1))} disabled={quantity >= 9999} aria-label={t('ui_quantity_more')} className="flex h-full w-11 items-center justify-center text-slate-700 hover:bg-slate-100 disabled:opacity-40"><Plus className="h-4 w-4" /></button>
                 </div>
               </div>
-              <button type="button" onClick={addToCart} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 text-sm font-extrabold text-white shadow-lg shadow-red-600/20 transition hover:-translate-y-0.5 hover:bg-red-700"><ShoppingCart className="h-5 w-5" />{t('add_to_cart_btn')}</button>
+              <button type="button" onClick={addToCart} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 text-sm font-extrabold text-white shadow-lg shadow-red-600/20 transition hover:-translate-y-0.5 hover:bg-red-700 cursor-pointer"><ShoppingCart className="h-5 w-5" />{t('add_to_cart_btn')}</button>
               <a href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I would like information about ${localizedProduct.name}. Quantity: ${quantity}. ${window.location.href}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700">{t('chat_whatsapp_btn')}</a>
             </div>
           </div>
@@ -103,11 +103,11 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
                 const localized = getLocalizedProduct(suggestion, currentLanguage.code);
                 const suggestedPrice = suggestion.pricePerSqm ?? suggestion.basePrice ?? suggestion.unitPrice;
                 return (
-                  <button key={suggestion.id} type="button" onClick={() => onSelectProduct(suggestion)} className={`group overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-[0_10px_30px_-20px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:border-red-300 hover:shadow-lg ${suggestions.length === 1 ? 'sm:col-span-2 lg:col-span-2 sm:flex' : ''}`}>
+                  <button key={suggestion.id} type="button" onClick={() => onSelectProduct(suggestion)} className={`group overflow-hidden rounded-2xl border border-slate-200 bg-white text-start shadow-[0_10px_30px_-20px_rgba(15,23,42,0.45)] transition hover:-translate-y-1 hover:border-red-300 hover:shadow-lg cursor-pointer ${suggestions.length === 1 ? 'sm:col-span-2 lg:col-span-2 sm:flex' : ''}`}>
                     <div className={`h-56 overflow-hidden bg-slate-100 ${suggestions.length === 1 ? 'sm:h-64 sm:w-2/5' : ''}`}><img src={localized.image || localized.fallbackImage} alt={localized.name} loading="lazy" className="h-full w-full object-cover transition-transform group-hover:scale-105" /></div>
                     <div className="flex-1 space-y-2 p-4 sm:p-6">
-                      <h3 className="line-clamp-2 text-base font-extrabold text-slate-900">{localized.name}</h3>
-                      <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">{localized.description}</p>
+                      <h3 className="line-clamp-2 text-base font-extrabold text-slate-900"><bdi dir="auto">{localized.name}</bdi></h3>
+                      <p className="line-clamp-2 text-sm leading-relaxed text-slate-600"><bdi dir="auto">{localized.description}</bdi></p>
                       {suggestedPrice != null && <p className="text-lg font-black text-red-600">{suggestion.currency === 'IQD' ? `${suggestedPrice.toLocaleString()} IQD` : `$${suggestedPrice.toLocaleString()}`}</p>}
                     </div>
                   </button>

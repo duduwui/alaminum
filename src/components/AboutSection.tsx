@@ -835,12 +835,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.07),transparent_40%),#fff] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 border-l-[3px] border-red-600 pl-5 sm:pl-7 dh-reveal">
+        <div className="max-w-3xl mb-12 sm:mb-16 border-s-[3px] border-red-600 ps-5 sm:ps-7 dh-reveal">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            {headerContent.title}
+            <bdi dir="auto">{headerContent.title}</bdi>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
-            {headerContent.subtitle}
+            <bdi dir="auto">{headerContent.subtitle}</bdi>
           </p>
         </div>
 
@@ -862,10 +862,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               {/* Bottom Overlay Label */}
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <span className="text-[10px] font-black uppercase tracking-widest text-red-400 block">
-                  {headerContent.plantBadge}
+                  <bdi dir="auto">{headerContent.plantBadge}</bdi>
                 </span>
                 <p className="text-sm font-bold text-slate-100 mt-1">
-                  {headerContent.plantDesc}
+                  <bdi dir="auto">{headerContent.plantDesc}</bdi>
                 </p>
               </div>
             </div>
@@ -880,11 +880,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   className={`p-6 rounded-2xl bg-white border border-slate-200/90 border-t-2 border-t-red-200 hover:border-t-red-500 hover:shadow-lg transition-all duration-300 group text-center flex flex-col items-center justify-center dh-reveal dh-stagger-${idx + 1} dh-card-hover`}
                 >
                   <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors mb-2 leading-snug text-center">
-                    {item.title}
+                    <bdi dir="auto">{item.title}</bdi>
                   </h4>
 
                   <p className="text-xs text-slate-600 leading-relaxed text-center">
-                    {item.description}
+                    <bdi dir="auto">{item.description}</bdi>
                   </p>
                 </div>
               ))}
@@ -896,7 +896,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 onClick={onExploreTypologies}
                 className="px-7 py-3.5 rounded-xl bg-red-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-red-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
               >
-                <span>{headerContent.exploreBtn}</span>
+                <span><bdi dir="auto">{headerContent.exploreBtn}</bdi></span>
                 <ArrowRight className="w-4 h-4 text-white" />
               </button>
             </div>

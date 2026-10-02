@@ -115,7 +115,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
             {visibleProducts.map((product) => {
               const price = productPrice(product);
               return (
-                <button key={product.id} type="button" onClick={() => onSelectProduct(product)} className="overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:border-red-300 hover:shadow-lg">
+                <button key={product.id} type="button" onClick={() => onSelectProduct(product)} className="overflow-hidden rounded-2xl border border-slate-200 bg-white text-start shadow-sm transition hover:border-red-300 hover:shadow-lg cursor-pointer">
                   <div className="h-52 overflow-hidden bg-slate-50">
                     <img
                       src={product.image || product.fallbackImage}
@@ -128,8 +128,8 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
                     />
                   </div>
                   <div className="space-y-2 p-4">
-                    <h2 className="line-clamp-2 text-base font-black text-slate-900">{product.name}</h2>
-                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600">{product.description}</p>
+                    <h2 className="line-clamp-2 text-base font-black text-slate-900"><bdi dir="auto">{product.name}</bdi></h2>
+                    <p className="line-clamp-2 text-sm leading-relaxed text-slate-600"><bdi dir="auto">{product.description}</bdi></p>
                     {price != null && <p className="pt-1 text-lg font-black text-red-600">{product.currency === 'IQD' ? `${price.toLocaleString()} IQD` : `$${price.toLocaleString()}`}</p>}
                   </div>
                 </button>

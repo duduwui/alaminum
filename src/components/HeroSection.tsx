@@ -382,13 +382,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
       <div className="absolute inset-0 z-0 hidden bg-cover bg-right-bottom md:block" style={{ backgroundImage: `url(${desktopHeroImage})` }} />
 
       <div className="relative z-10 mx-auto mt-0 w-full max-w-7xl px-6 py-0 sm:mt-2 sm:px-10 sm:py-2 md:mt-4 lg:px-12">
-        <div className="max-w-2xl space-y-4 text-left sm:space-y-6">
+        <div className="max-w-2xl space-y-4 text-start sm:space-y-6">
           <h1 className="hero-masked-heading select-none overflow-visible pb-3 pt-1 text-3xl font-black leading-[1.24] tracking-tight sm:text-5xl sm:leading-[1.18] lg:text-6xl">
-            {heroContent.title}
+            <bdi dir="auto">{heroContent.title}</bdi>
           </h1>
           <p className="flex min-h-[3.5rem] max-w-xl items-center text-lg font-extrabold leading-snug text-slate-800 sm:text-2xl lg:text-3xl">
             <span className={`inline-block text-slate-800 transition-all duration-300 ${fade ? 'translate-y-0 scale-100 opacity-100' : '-translate-y-1 scale-98 opacity-0'}`}>
-              {quotes[quoteIdx % quotes.length]}
+              <bdi dir="auto">{quotes[quoteIdx % quotes.length]}</bdi>
             </span>
           </p>
           <div className="pt-2">
@@ -399,7 +399,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
             >
               <span className="spn2 text-slate-900 font-black flex items-center gap-3 py-1">
                 <LayoutGrid className="w-5 h-5 text-red-600" />
-                <span>{heroContent.exploreBtn}</span>
+                <span><bdi dir="auto">{heroContent.exploreBtn}</bdi></span>
                 <ArrowRight className="w-5 h-5 text-red-600 group-hover:translate-x-1 transition-transform" />
               </span>
             </button>
