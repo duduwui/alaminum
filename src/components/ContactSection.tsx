@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { DOORHOME_CONTACT } from '../data/winhomeData';
 import {
-  Send,
-  CheckCircle2,
   MessageSquare,
   MapPin,
   ExternalLink,
   Clock,
-  Phone
+  Phone,
+  Building,
+  Mail,
+  ShieldCheck,
+  ArrowRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -16,54 +18,17 @@ interface ContactSectionProps {
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal }) => {
-  // Inquiry Form State
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    country: 'Iraq',
-    city: '',
-    phone: '',
-    email: '',
-    reason: '',
-    subject: '',
-    comments: '',
-    acceptTerms: false
-  });
-
-  const [customCountry, setCustomCountry] = useState('');
-  const [customReason, setCustomReason] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState('');
   const [mapReady, setMapReady] = useState(false);
   const { currentLanguage, t } = useLanguage();
   const isRtl = ['ckb', 'kmr', 'ar'].includes(currentLanguage.code);
-  const workHours = t('working_hours_simple');
 
-  const handleSubmitInquiry = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError('');
-
-    const resolvedCountry = formData.country === 'Other' ? (customCountry.trim() || 'Other') : formData.country;
-    const resolvedReason = formData.reason === 'Other' ? (customReason.trim() || 'Other') : formData.reason;
-
-    try {
-      const response = await fetch('/api/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
-        id: `INQ-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
-        kind: 'contact', createdAt: new Date().toISOString(), status: 'new', items: [], totalQuantity: 0, totalAreaSqm: 0,
-        customer: { fullName: `${formData.firstName} ${formData.lastName}`.trim(), firstName: formData.firstName, lastName: formData.lastName, phone: formData.phone, email: formData.email, city: formData.city || resolvedCountry, country: resolvedCountry, projectType: resolvedReason, timeline: '', serviceNeeded: formData.subject, preferredContact: 'phone', additionalNotes: formData.comments }
-      }) });
-      if (!response.ok) throw new Error('Could not send your message. Please try again.');
-      setIsSubmitted(true);
-    } catch (error: any) { setSubmitError(error.message || 'Could not send your message.'); }
-    finally { setIsSubmitting(false); }
-  };
-
-  const activeReason = formData.reason === 'Other' ? (customReason.trim() || 'Other') : formData.reason;
   const rawPhone = (DOORHOME_CONTACT.hotlineRaw || '+9647507388748').replace('+', '');
   const whatsappDirectUrl = `https://wa.me/${rawPhone}?text=${encodeURIComponent(
-    `Hello Doorhome, my name is ${formData.firstName || 'Client'} and I would like to inquire about: ${formData.subject || activeReason || 'Architectural Systems'}.`
+    currentLanguage.code === 'ar'
+      ? 'مرحباً شركة دور هوم، أود الاستفسار عن الأنظمة المعمارية وعروض الأسعار.'
+      : currentLanguage.code === 'ckb'
+      ? 'سڵاو کۆمپانیای دەرگای ماڵ، دەمەوێت پرسیار بکەم دەربارەی سیستەمەکان و نرخی پڕۆژە.'
+      : 'Hello Doorhome, I would like to inquire about your architectural systems and quotation.'
   )}`;
 
   return (
@@ -73,260 +38,245 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenQuoteModal
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-red-200/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {submitError && <p role="alert" className="mb-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">{submitError}</p>}
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 dh-reveal">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
             <MessageSquare className="w-3.5 h-3.5 text-white" />
-            <span>{t('contact_badge')}</span>
+            <span><bdi dir="auto">{t('contact_badge')}</bdi></span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E4346] tracking-tight">
-            {t('contact_title')}
+            <bdi dir="auto">{t('contact_title')}</bdi>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed font-medium">
-            {t('contact_desc')}
+            <bdi dir="auto">{t('contact_desc')}</bdi>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-7 dh-reveal-left">
-          <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-5">
-            <div>
-              <span className="text-xs font-black uppercase tracking-widest text-red-600">
-                {t('contact_form_heading')}
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
-                {t('form_title')}
-              </h3>
-              <p className="text-xs text-slate-500 mt-1">
-                {t('form_desc')}
-              </p>
+        {/* Direct Contact Channels Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {/* 1. WhatsApp Instant Desk */}
+          <div className="bg-white rounded-3xl border border-emerald-100 hover:border-emerald-300 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between dh-reveal dh-stagger-1">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100 shadow-2xs">
+                  <MessageSquare className="w-6 h-6" />
+                </div>
+                <span className="text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
+                  <bdi dir="auto">{t('whatsapp_sub')}</bdi>
+                </span>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                  <bdi dir="auto">{t('whatsapp_title')}</bdi>
+                </h3>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                  <bdi dir="auto">{t('whatsapp_desc')}</bdi>
+                </p>
+              </div>
             </div>
 
-            {isSubmitted ? (
-              <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4 animate-in fade-in duration-300">
-                <div className="w-16 h-16 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto shadow-md">
-                  <CheckCircle2 className="w-8 h-8" />
+            <div className="pt-6 mt-6 border-t border-slate-100 space-y-2.5">
+              <a
+                href={whatsappDirectUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2.5 transition-all shadow-sm shadow-emerald-600/20 cursor-pointer"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span><bdi dir="auto">{t('chat_whatsapp_btn')}</bdi></span>
+              </a>
+              <a
+                href={`tel:${DOORHOME_CONTACT.hotlineRaw}`}
+                className="w-full py-2.5 px-3 bg-slate-50 hover:bg-slate-100 text-slate-700 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all border border-slate-200"
+              >
+                <Phone className="w-3.5 h-3.5 text-slate-400" />
+                <span dir="ltr">{DOORHOME_CONTACT.hotline}</span>
+              </a>
+            </div>
+          </div>
+
+          {/* 2. Sales & Showroom Branch */}
+          <div className="bg-white rounded-3xl border border-slate-200 hover:border-red-300 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between dh-reveal dh-stagger-2">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center border border-red-100 shadow-2xs">
+                  <Building className="w-6 h-6" />
                 </div>
-                <h4 className="text-xl font-black text-emerald-950">
-                  {t('msg_sent_title')}
-                </h4>
-                <p className="text-xs sm:text-sm text-emerald-800 max-w-md mx-auto leading-relaxed">
-                  <span className="font-bold">{formData.firstName} {formData.lastName}</span> • {formData.subject || formData.reason || t('inquiry_label')}
+                <span className="text-[11px] font-black uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-100">
+                  <bdi dir="auto">{t('showroom_sub')}</bdi>
+                </span>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                  <bdi dir="auto">{t('showroom_title')}</bdi>
+                </h3>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                  <bdi dir="auto">{t('showroom_desc')}</bdi>
                 </p>
+              </div>
+            </div>
 
-                <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
-                  <a
-                    href={whatsappDirectUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full sm:w-auto px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm"
-                  >
-                    <MessageSquare className="w-4 h-4" />
-                    <span>{t('chat_whatsapp_btn')}</span>
-                  </a>
+            <div className="pt-6 mt-6 border-t border-slate-100 space-y-2">
+              {DOORHOME_CONTACT.branches.sales.phones.map((phone, idx) => (
+                <a
+                  key={idx}
+                  href={`tel:${DOORHOME_CONTACT.branches.sales.phonesRaw[idx]}`}
+                  className="w-full py-2.5 px-3 bg-slate-50 hover:bg-red-50 hover:text-red-700 hover:border-red-200 text-slate-700 text-xs font-bold rounded-xl flex items-center justify-between transition-all border border-slate-200"
+                >
+                  <span className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-red-600" />
+                    <span>{idx === 0 ? (currentLanguage.code === 'ar' ? 'الخط المباشر' : currentLanguage.code === 'ckb' ? 'هێڵی ڕاستەوخۆ' : 'Direct Line') : (currentLanguage.code === 'ar' ? 'المبيعات' : currentLanguage.code === 'ckb' ? 'فرۆشتن' : 'Sales Desk')}</span>
+                  </span>
+                  <span dir="ltr" className="font-extrabold">{phone}</span>
+                </a>
+              ))}
+            </div>
+          </div>
 
+          {/* 3. Manufacturing & Fabrication Plant */}
+          <div className="bg-white rounded-3xl border border-slate-200 hover:border-red-300 p-6 sm:p-7 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between dh-reveal dh-stagger-3">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl bg-slate-100 text-slate-800 flex items-center justify-center border border-slate-200 shadow-2xs">
+                  <ShieldCheck className="w-6 h-6 text-red-600" />
+                </div>
+                <span className="text-[11px] font-black uppercase tracking-wider text-slate-700 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                  <bdi dir="auto">{t('plant_sub')}</bdi>
+                </span>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-snug">
+                  <bdi dir="auto">{t('plant_title')}</bdi>
+                </h3>
+                <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                  <bdi dir="auto">{t('plant_desc')}</bdi>
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-slate-100 space-y-2">
+              {DOORHOME_CONTACT.branches.manufacturing.phones.map((phone, idx) => (
+                <a
+                  key={idx}
+                  href={`tel:${DOORHOME_CONTACT.branches.manufacturing.phonesRaw[idx]}`}
+                  className="w-full py-2.5 px-3 bg-slate-50 hover:bg-red-50 hover:text-red-700 hover:border-red-200 text-slate-700 text-xs font-bold rounded-xl flex items-center justify-between transition-all border border-slate-200"
+                >
+                  <span className="flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5 text-red-600" />
+                    <span>{idx === 0 ? (currentLanguage.code === 'ar' ? 'إدارة المصنع' : currentLanguage.code === 'ckb' ? 'بەڕێوەبەری کارگە' : 'Plant Desk') : (currentLanguage.code === 'ar' ? 'التصنيع والتسليم' : currentLanguage.code === 'ckb' ? 'دروستکردن و گەیاندن' : 'Fabrication')}</span>
+                  </span>
+                  <span dir="ltr" className="font-extrabold">{phone}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Showroom Location, Working Hours & Interactive Map */}
+        <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg dh-reveal">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* Left/Details: Working hours and Address */}
+            <div className="lg:col-span-5 p-7 sm:p-9 flex flex-col justify-between space-y-6 border-b lg:border-b-0 lg:border-e border-slate-200">
+              <div className="space-y-5">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-[11px] font-black uppercase tracking-wider mb-2 border border-red-100">
+                    <MapPin className="w-3.5 h-3.5" />
+                    <span><bdi dir="auto">{t('location_card_title')}</bdi></span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <bdi dir="auto">{t('location_card_title')}</bdi>
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
+                    <bdi dir="auto">{t('address_line')}</bdi>
+                  </p>
+                </div>
+
+                {/* Working Hours Box */}
+                <div className="flex items-start gap-3.5 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700 border border-slate-200/80" dir={isRtl ? 'rtl' : 'ltr'}>
+                  <Clock className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
+                  <div className="space-y-1.5">
+                    <span className="block font-black text-slate-900 text-xs sm:text-sm"><bdi dir="auto">{t('working_hours_label')}</bdi></span>
+                    <p className="text-xs sm:text-sm font-bold text-slate-800 m-0 leading-snug">
+                      <bdi dir="auto">{t('footer_working_hours_time')}</bdi>
+                    </p>
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-black">
+                      <bdi dir="auto">{t('footer_working_hours_days')}</bdi>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Direct Email */}
+                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <Mail className="w-5 h-5 text-red-600 shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('email_label')}</span>
+                    <a href={`mailto:${DOORHOME_CONTACT.email}`} className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors truncate block">
+                      {DOORHOME_CONTACT.email}
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2 space-y-3">
+                <a
+                  href={DOORHOME_CONTACT.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-3.5 px-5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md shadow-red-600/20 transition-all cursor-pointer"
+                >
+                  <MapPin className="w-4 h-4" />
+                  <span><bdi dir="auto">{t('open_maps_btn')}</bdi></span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+
+                {onOpenQuoteModal && (
                   <button
                     type="button"
-                    onClick={() => {
-                      setIsSubmitted(false);
-                      setFormData({
-                        firstName: '',
-                        lastName: '',
-                        country: 'Iraq',
-                        city: '',
-                        phone: '',
-                        email: '',
-                        reason: '',
-                        subject: '',
-                        comments: '',
-                        acceptTerms: false
-                      });
-                    }}
-                    className="w-full sm:w-auto px-5 py-2.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-bold rounded-xl transition-all"
+                    onClick={onOpenQuoteModal}
+                    className="w-full py-3 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
-                    {t('contact_another_message')}
+                    <span><bdi dir="auto">{t('nav_plan_project') || 'Request Project Quotation'}</bdi></span>
+                    <ArrowRight className="w-3.5 h-3.5 text-red-500" />
                   </button>
-                </div>
+                )}
               </div>
-            ) : (
-              <form onSubmit={handleSubmitInquiry} className="space-y-4 text-xs font-bold text-slate-700">
-                {/* Row 1: Name */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('first_name_label')}</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      placeholder={t('first_name_label').replace(/\s*\*$/, '')}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('last_name_label')}</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.lastName}
-                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      placeholder={t('last_name_label').replace(/\s*\*$/, '')}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    />
-                  </div>
-                </div>
-
-                {/* Row 2: Phone & Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('phone_label')}</label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+964 750 XXX XXXX"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('email_label')}</label>
-                    <input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="name@example.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    />
-                  </div>
-                </div>
-
-                {/* Row 3: Country & Contact Reason */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('country_label')}</label>
-                    <select
-                      value={formData.country}
-                      onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    >
-                      {[
-                        { value: 'Iraq', ar: 'العراق (Iraq)', ckb: 'عێراق (Iraq)', en: 'Iraq' },
-                        { value: 'Turkey', ar: 'تركيا (Turkey)', ckb: 'تورکیا (Turkey)', en: 'Turkey' },
-                        { value: 'Germany', ar: 'ألمانيا (Germany)', ckb: 'ئەڵمانیا (Germany)', en: 'Germany' },
-                        { value: 'UAE', ar: 'الإمارات (UAE)', ckb: 'ئیمارات (UAE)', en: 'United Arab Emirates' },
-                        { value: 'Other', ar: 'دولة أخرى (Other)', ckb: 'وڵاتێکی تر (Other)', en: 'Other' },
-                      ].map((c) => (
-                        <option key={c.value} value={c.value}>
-                          {currentLanguage.code === 'ar' ? c.ar : ['ckb', 'kmr'].includes(currentLanguage.code) ? c.ckb : c.en}
-                        </option>
-                      ))}
-                    </select>
-                    {formData.country === 'Other' && (
-                      <input
-                        type="text"
-                        required
-                        value={customCountry}
-                        onChange={(e) => setCustomCountry(e.target.value)}
-                        placeholder={currentLanguage.code === 'ar' ? 'اكتب اسم الدولة...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'ناوی وڵاتەکەت بنووسە...' : 'Type your country name...'}
-                        className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
-                      />
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('inquiry_label')}</label>
-                    <select
-                      value={formData.reason}
-                      onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-semibold"
-                    >
-                      <option value="">
-                        {currentLanguage.code === 'ar' ? 'اختر نوع الاستفسار...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'جۆری پەیوەندی هەڵبژێرە...' : 'Select Reason...'}
-                      </option>
-                      {[
-                        { value: 'Quotation Request', ar: 'طلب تسعير ومواصفات', ckb: 'داواکردنی نرخ و تێچوو', en: 'Quotation Request' },
-                        { value: 'Architectural Specification', ar: 'مواصفات معمارية وهندسية', ckb: 'تایبەتمەندی تەلارسازی و ئەندازیاری', en: 'Architectural Specification' },
-                        { value: 'Showroom Visit', ar: 'حجز موعد زيارة المعرض', ckb: 'سەردانی پێشانگا و کارگە', en: 'Showroom Visit' },
-                        { value: 'Partnership / Dealer', ar: 'شراكة تجارية / وكالة', ckb: 'هاوبەشی بازرگانی / بریکار', en: 'Partnership / Dealer' },
-                        { value: 'Other', ar: 'أخرى / استفسار عام', ckb: 'هیتر / پرسیاری تر', en: 'Other' },
-                      ].map((r) => (
-                        <option key={r.value} value={r.value}>
-                          {currentLanguage.code === 'ar' ? r.ar : ['ckb', 'kmr'].includes(currentLanguage.code) ? r.ckb : r.en}
-                        </option>
-                      ))}
-                    </select>
-                    {formData.reason === 'Other' && (
-                      <input
-                        type="text"
-                        required
-                        value={customReason}
-                        onChange={(e) => setCustomReason(e.target.value)}
-                        placeholder={currentLanguage.code === 'ar' ? 'اكتب موضوع الاستفسار...' : ['ckb', 'kmr'].includes(currentLanguage.code) ? 'بابەتی پرسیارەکەت بنووسە...' : 'Type your inquiry topic...'}
-                        className="w-full mt-2 px-3.5 py-2 rounded-xl border border-red-400 bg-red-50/40 text-slate-900 font-semibold text-xs"
-                      />
-                    )}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block mb-1 text-slate-800 uppercase text-[10px]">{t('message_label')}</label>
-                  <textarea
-                    required
-                    rows={3}
-                    value={formData.comments}
-                    onChange={(e) => setFormData({ ...formData, comments: e.target.value })}
-                    placeholder={t('contact_message_placeholder')}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-medium"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 bg-red-600 hover:bg-red-700 text-white rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>{isSubmitting ? '...' : t('send_msg_btn')}</span>
-                </button>
-              </form>
-            )}
-          </div>
-          </div>
-
-          <aside className="overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-[0_24px_65px_-32px_rgba(159,18,57,0.4)] lg:col-span-5 dh-reveal-right" aria-label={t('showroom_title')}>
-            <div className="bg-gradient-to-br from-[#a9162e] via-[#d31932] to-[#f04448] p-6 text-white sm:p-7">
-              <h3 className="text-2xl font-black">{t('location_card_title')}</h3>
-              <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/90">{t('address_line')}</p>
             </div>
-            <div className="space-y-4 p-6 sm:p-7">
-              <div className="flex items-start gap-3 rounded-2xl bg-slate-50 p-4 text-sm text-slate-700 border border-slate-100" dir={isRtl ? 'rtl' : 'ltr'}>
-                <Clock className="mt-0.5 h-5 w-5 shrink-0 text-red-600" />
-                <div className="space-y-1.5">
-                  <span className="block font-black text-slate-900 text-xs sm:text-sm">{t('working_hours_label')}</span>
-                  <p className="text-xs sm:text-sm font-bold text-slate-800 m-0 leading-snug">
-                    {t('footer_working_hours_time')}
-                  </p>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-black">
-                    {t('footer_working_hours_days')}
-                  </span>
-                </div>
-              </div>
-              <div className="relative h-48 overflow-hidden rounded-2xl border border-slate-200 bg-[#e8edf0]">
-                <a href={DOORHOME_CONTACT.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(30deg,transparent_45%,#cbd5db_46%,#cbd5db_49%,transparent_50%),linear-gradient(120deg,transparent_42%,#cbd5db_43%,#cbd5db_46%,transparent_47%)] bg-[length:70px_70px] text-slate-700" aria-hidden={mapReady} tabIndex={mapReady ? -1 : 0}>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg"><MapPin className="h-6 w-6" /></span>
-                  <span className="rounded-full bg-white px-3 py-1 text-xs font-bold shadow-sm">{t('open_maps_btn')}</span>
-                </a>
-                <iframe title={t('location_card_title')} src={DOORHOME_CONTACT.mapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" onLoad={(event) => {
-                  try { setMapReady(event.currentTarget.contentDocument === null); } catch { setMapReady(true); }
-                }} className={`absolute inset-0 h-full w-full border-0 transition-opacity ${mapReady ? 'opacity-100' : 'pointer-events-none opacity-0'}`} />
-              </div>
-              <a href={DOORHOME_CONTACT.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-3 text-sm font-extrabold text-white shadow-md shadow-red-600/15 transition-colors hover:bg-red-700">{t('open_maps_btn')}<ExternalLink className="h-4 w-4" /></a>
-            </div>
-          </aside>
 
+            {/* Right/Map Embed */}
+            <div className="lg:col-span-7 relative min-h-[300px] sm:min-h-[380px] bg-slate-100 overflow-hidden">
+              <a
+                href={DOORHOME_CONTACT.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-[linear-gradient(30deg,transparent_45%,#cbd5db_46%,#cbd5db_49%,transparent_50%),linear-gradient(120deg,transparent_42%,#cbd5db_43%,#cbd5db_46%,transparent_47%)] bg-[length:70px_70px] text-slate-700"
+                aria-hidden={mapReady}
+                tabIndex={mapReady ? -1 : 0}
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-red-600 text-white shadow-lg">
+                  <MapPin className="h-6 w-6" />
+                </span>
+                <span className="rounded-full bg-white px-3.5 py-1.5 text-xs font-bold shadow-sm">
+                  <bdi dir="auto">{t('open_maps_btn')}</bdi>
+                </span>
+              </a>
+              <iframe
+                title={t('location_card_title')}
+                src={DOORHOME_CONTACT.mapEmbedUrl}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                onLoad={(event) => {
+                  try {
+                    setMapReady(event.currentTarget.contentDocument === null);
+                  } catch {
+                    setMapReady(true);
+                  }
+                }}
+                className={`absolute inset-0 h-full w-full border-0 transition-opacity ${
+                  mapReady ? 'opacity-100' : 'pointer-events-none opacity-0'
+                }`}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
