@@ -99,6 +99,8 @@ async function startServer() {
     return pendingSessionSave;
   };
   app.use('/uploads', express.static(mediaUploadDir));
+  app.use('/products&assets', express.static(path.join(process.cwd(), 'products&assets')));
+  app.use('/products-assets', express.static(path.join(process.cwd(), 'products&assets')));
 
   const getAdminCmsSessionToken = (req: express.Request) => {
     const candidates = [req.headers.authorization?.replace(/^Bearer\s+/i, ''), req.headers['x-admin-token'] as string,

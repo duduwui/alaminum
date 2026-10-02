@@ -15,16 +15,9 @@ export interface GalleryMediaItem {
 const STORAGE_KEY = 'winhome_admin_gallery_images';
 export const GALLERY_UPDATED_EVENT = 'cms_gallery_updated';
 
-export const DEFAULT_GALLERY_ITEMS: GalleryMediaItem[] = [
-  { id: 'proj-1', title: 'Empire World Luxury Villa Compound', location: 'Empire World, Erbil', system: 'Lorenzo 70LS Minimalist Sliding & Facade 50F', category: 'villa', src: './assets/doorhome/03-2.jpg', mediaType: 'image', description: 'Monumental 3.2-meter high thermal-break sliding doors seamlessly connecting expansive indoor living areas with landscaped infinity pool terraces.', year: '2024', glassArea: '480 m² Glazing' },
-  { id: 'proj-2', title: 'Dream City Private Residence', location: 'Dream City, Erbil', system: 'Deceuninck Legend 80 Passive uPVC', category: 'villa', src: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg', mediaType: 'image', description: 'Custom 6-chamber triple-glazed acoustic fenestration package providing extreme 45 dB noise isolation and severe climate energy efficiency.', year: '2023', glassArea: '320 m² Glazing' },
-  { id: 'proj-3', title: 'Gulan Expressway Corporate Tower', location: 'Gulan District, Erbil', system: 'Curtain Wall Facade 50F Structural Glazing', category: 'commercial', src: './assets/doorhome/3-2.jpg', mediaType: 'image', description: 'Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing.', year: '2024', glassArea: '1,250 m² Facade' },
-  { id: 'proj-4', title: 'Italian Village II Modern Renovation', location: 'Italian Village II, Erbil', system: 'Winsa Dorado 76 & Italian Comunello Hardware', category: 'villa', src: './assets/doorhome/4-2.jpg', mediaType: 'image', description: 'Modernized residential envelope with concealed hardware tilt-and-turn windows and integrated motorized thermal rolling shutters.', year: '2023', glassArea: '210 m² Glazing' },
-  { id: 'proj-5', title: 'Commercial Automobile Showroom', location: '100m Expressway, Erbil', system: '50F High-Span Curtain Wall & Automatic Entrances', category: 'facade', src: './assets/doorhome/24-1.jpg', mediaType: 'image', description: 'Expansive panoramic glass facades offering crystal-clear visibility and certified heavy-traffic entrance doors.', year: '2023', glassArea: '650 m² Glazing' },
-  { id: 'proj-6', title: 'Vank City Executive Residence', location: 'Vank City, Erbil', system: 'Lorenzo 58TT Thermal-Break Casement', category: 'villa', src: './assets/doorhome/photo_2023-07-03_15-49-24-760x485.jpg', mediaType: 'image', description: 'High-security European multipoint locking windows with argon gas filled Low-E solar control units.', year: '2024', glassArea: '180 m² Glazing' },
-  { id: 'proj-7', title: 'Royal City Luxury Penthouse', location: 'Royal City, Erbil', system: 'Lorenzo 70LS Lift & Slide Panorama', category: 'villa', src: './assets/doorhome/11-2.jpg', mediaType: 'image', description: 'Zero-threshold sliding panorama doors engineered for unobstructed panoramic views and high wind resistance at elevation.', year: '2024', glassArea: '310 m² Glazing' },
-  { id: 'proj-8', title: 'Atlantic Towers Commercial Center', location: 'Airport Road, Erbil', system: 'Facade 50F & Motorized Louver Integration', category: 'commercial', src: './assets/doorhome/17-2.jpg', mediaType: 'image', description: 'Precision fabricated curtain wall with integrated architectural louvers providing solar shading and optimal thermal comfort.', year: '2023', glassArea: '890 m² Facade' }
-];
+import { MASTER_GALLERY_ITEMS } from '../data/galleryData';
+
+export const DEFAULT_GALLERY_ITEMS: GalleryMediaItem[] = MASTER_GALLERY_ITEMS;
 
 export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
   if (!Array.isArray(value)) return DEFAULT_GALLERY_ITEMS;
