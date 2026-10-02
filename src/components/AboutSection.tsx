@@ -800,16 +800,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   const { currentLanguage } = useLanguage();
   const [factoryImage, setFactoryImage] = useState(() => {
     try {
-      return JSON.parse(localStorage.getItem('winhome_cms_homepage_media') || '{}').aboutFactoryImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
+      return JSON.parse(localStorage.getItem('winhome_cms_homepage_media') || '{}').aboutFactoryImage || '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
     } catch {
-      return './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
+      return '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
     }
   });
   useEffect(() => {
     const sync = () => {
       try {
         const saved = JSON.parse(localStorage.getItem('winhome_cms_homepage_media') || '{}');
-        setFactoryImage(saved.aboutFactoryImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg');
+        setFactoryImage(saved.aboutFactoryImage || '/products-assets/photo_63_2026-09-26_07-36-01.jpg');
       } catch { /* Keep the current image when saved content is invalid. */ }
     };
     window.addEventListener('cms_homepage_updated', sync);
@@ -854,7 +854,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 alt="Doorhome CNC Plant & Engineering"
                 className="w-full h-[460px] object-cover object-center group-hover:scale-103 transition-transform duration-700"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                  (e.target as HTMLImageElement).src = '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/80 via-transparent to-black/20" />

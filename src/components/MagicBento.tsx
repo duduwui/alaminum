@@ -21,8 +21,8 @@ const MOBILE_BREAKPOINT = 768;
 const defaultCards: BentoCardData[] = [
   {
     id: 'legend-80',
-    image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
-    fallbackImage: './assets/doorhome/10.png',
+    image: '/products-assets/photo_1_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_2_2026-09-26_07-36-01.jpg',
     title: 'Deceuninck Legend 80',
     description: 'Passive uPVC 6-Chamber Profile System',
     label: 'uPVC Passive',
@@ -31,8 +31,8 @@ const defaultCards: BentoCardData[] = [
   },
   {
     id: 'lorenzo-70ls',
-    image: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg',
-    fallbackImage: './assets/doorhome/LIFT-SLIDE-70LS-Medium-300x300.jpeg',
+    image: '/products-assets/photo_5_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_12_2026-09-26_07-36-01.jpg',
     title: 'Monumental Lift & Slide 70LS',
     description: 'Thermal break aluminum with panoramic glass spans',
     label: 'Sliding Aluminum',
@@ -41,8 +41,8 @@ const defaultCards: BentoCardData[] = [
   },
   {
     id: 'facade-50f',
-    image: './assets/doorhome/photo_2023-07-03_15-42-28-1120x716.jpg',
-    fallbackImage: './assets/doorhome/24-1.jpg',
+    image: '/products-assets/photo_75_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_78_2026-09-26_07-36-01.jpg',
     title: 'Architectural Curtain Wall 50F',
     description: 'High-rise structural glass facade engineered for Iraq',
     label: 'Commercial Facade',
@@ -51,8 +51,8 @@ const defaultCards: BentoCardData[] = [
   },
   {
     id: 'winsa-dorado',
-    image: './assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg',
-    fallbackImage: './assets/doorhome/2-1.png',
+    image: '/products-assets/photo_58_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_59_2026-09-26_07-36-01.jpg',
     title: 'Winsa Dorado 76 Acoustic',
     description: 'High soundproofing and dust protection for villas',
     label: 'Acoustic uPVC',
@@ -61,8 +61,8 @@ const defaultCards: BentoCardData[] = [
   },
   {
     id: 'hardware-master',
-    image: './assets/doorhome/2026-04-14-21.53.50-1000x650.jpg',
-    fallbackImage: './assets/doorhome/3-1.png',
+    image: '/products-assets/photo_33_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_34_2026-09-26_07-36-01.jpg',
     title: 'Master Italy & STAC Hardware',
     description: 'Concealed hinges and high-security multi-point locks',
     label: 'European Hardware',
@@ -71,8 +71,8 @@ const defaultCards: BentoCardData[] = [
   },
   {
     id: 'villa-panoramic',
-    image: './assets/doorhome/photo_2023-07-03_15-49-24-760x485.jpg',
-    fallbackImage: './assets/doorhome/1-2.jpg',
+    image: '/products-assets/photo_24_2026-09-26_07-36-01.jpg',
+    fallbackImage: '/products-assets/photo_30_2026-09-26_07-36-01.jpg',
     title: 'Luxury Villa Double Glazing',
     description: 'Solar-control Low-E insulated glass units',
     label: 'Solar Glazing',
