@@ -175,7 +175,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [activeSection, setActiveSection] = useState<
     'products' | 'categories' | 'users' | 'cms' | 'logos'
   >('products');
-  const [cmsSubTab, setCmsSubTab] = useState<'logos' | 'gallery' | 'bento' | 'hero'>('logos');
+  const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
+  const [cmsSubTab, setCmsSubTab] = useState<'gallery' | 'bento' | 'hero'>('gallery');
 
   // Seed Production Data Handler
   const handleSeedProductionData = () => {
@@ -1173,43 +1174,26 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 {currentLanguage.code === 'ar' ? 'القائمة الرئيسية' : currentLanguage.code === 'ckb' ? 'مێنۆی سەرەکی' : 'Main Menu'}
               </span>
               <nav className="space-y-1.5">
+                {/* COMBINED PRODUCTS & CATEGORIES TAB */}
                 <button
                   type="button"
-                  onClick={() => setActiveSection('products')}
+                  onClick={() => {
+                    setActiveSection('products');
+                  }}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'products'
+                    activeSection === 'products' || activeSection === 'categories'
                       ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
                       : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{t('admin_tab_products')}</span>
+                    <Package className={`w-4 h-4 ${activeSection === 'products' || activeSection === 'categories' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات' : currentLanguage.code === 'ckb' ? 'بەرهەم و هاوپۆلەکان' : 'Products & Categories'}</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                    activeSection === 'products' || activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
                   }`}>
                     {productList.length}
-                  </span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('categories')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'categories'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <LayoutGrid className={`w-4 h-4 ${activeSection === 'categories' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{t('admin_tab_categories')}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    {divisions.length}
                   </span>
                 </button>
 
@@ -1233,25 +1217,43 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 {currentLanguage.code === 'ar' ? 'المحتوى والهوية' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براند' : 'Content & Branding'}
               </span>
               <nav className="space-y-1.5">
-                {/* ONE UNIFIED TAB INSTEAD OF 2 TABS */}
+                {/* CMS & GALLERY TAB */}
                 <button
                   type="button"
-                  onClick={() => {
-                    setActiveSection('cms');
-                    setCmsSubTab('logos');
-                  }}
+                  onClick={() => setActiveSection('cms')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'cms' || activeSection === 'logos'
+                    activeSection === 'cms'
                       ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
                       : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Globe className={`w-4 h-4 ${activeSection === 'cms' || activeSection === 'logos' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands'}</span>
+                    <ImageIcon className={`w-4 h-4 ${activeSection === 'cms' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery'}</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'cms' || activeSection === 'logos' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                    activeSection === 'cms' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                  }`}>
+                    {galleryImages.length}
+                  </span>
+                </button>
+
+                {/* PARTNER BRANDS & FLAGS TAB */}
+                <button
+                  type="button"
+                  onClick={() => setActiveSection('logos')}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
+                    activeSection === 'logos'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Globe className={`w-4 h-4 ${activeSection === 'logos' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags'}</span>
+                  </div>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    activeSection === 'logos' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
                   }`}>
                     {partnerLogos.length}
                   </span>
@@ -1284,10 +1286,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         <header className="bg-white border-b border-slate-200 py-3 px-6 flex items-center justify-between shrink-0 z-20">
           <div className="flex items-center gap-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900">
-              {activeSection === 'products' && (t('admin_tab_products') || 'Products & Systems')}
-              {activeSection === 'categories' && (t('admin_tab_categories') || 'Categories')}
+              {(activeSection === 'products' || activeSection === 'categories') && (currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات الهندسية' : currentLanguage.code === 'ckb' ? 'بەرهەم و هاوپۆلەکان' : 'Products & Categories')}
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
-              {(activeSection === 'cms' || activeSection === 'logos') && (currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands')}
+              {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
+              {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
             </h2>
           </div>
 
@@ -1374,23 +1376,12 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             type="button"
             onClick={() => setActiveSection('products')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'products'
+              activeSection === 'products' || activeSection === 'categories'
                 ? 'bg-white text-red-700 shadow-sm'
                 : 'text-white/90 hover:bg-white/10'
             }`}
           >
-            {t('admin_tab_products')} ({productList.length})
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('categories')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'categories'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {t('admin_tab_categories')} ({divisions.length})
+            {currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات' : 'Products & Categories'} ({productList.length})
           </button>
           <button
             type="button"
@@ -1405,23 +1396,85 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           </button>
           <button
             type="button"
-            onClick={() => {
-              setActiveSection('cms');
-              setCmsSubTab('logos');
-            }}
+            onClick={() => setActiveSection('cms')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'cms' || activeSection === 'logos'
+              activeSection === 'cms'
                 ? 'bg-white text-red-700 shadow-sm'
                 : 'text-white/90 hover:bg-white/10'
             }`}
           >
-            {currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands'} ({partnerLogos.length})
+            {currentLanguage.code === 'ar' ? 'معرض المشاريع (CMS)' : 'CMS & Gallery'} ({galleryImages.length})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('logos')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'logos'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
+            }`}
+          >
+            {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : 'Partner Brands'} ({partnerLogos.length})
           </button>
         </div>
 
-        {/* SECTION 2: FULL PRODUCT MANAGEMENT (CRUD!) */}
-        {activeSection === 'products' && (
+        {/* SECTION 2: COMBINED PRODUCTS & CATEGORIES MANAGEMENT */}
+        {(activeSection === 'products' || activeSection === 'categories') && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto">
+            {/* Sub-Navigation Switcher between Products and Categories */}
+            <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                <button
+                  type="button"
+                  onClick={() => setProductSubTab('products')}
+                  className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
+                    productSubTab === 'products'
+                      ? 'bg-red-600 text-white shadow-xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Package className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'قائمة المنتجات والأنظمة' : currentLanguage.code === 'ckb' ? 'لیستی بەرهەمەکان' : 'Products Catalog'}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    productSubTab === 'products' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}>
+                    {productList.length}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setProductSubTab('categories')}
+                  className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
+                    productSubTab === 'categories'
+                      ? 'bg-red-600 text-white shadow-xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'الأقسام والتصنيفات الهندسية' : currentLanguage.code === 'ckb' ? 'هاوپۆلەکان و بەشەکان' : 'Categories & Divisions'}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    productSubTab === 'categories' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}>
+                    {divisions.length}
+                  </span>
+                </button>
+              </div>
+
+              {productSubTab === 'products' && (
+                <button
+                  type="button"
+                  onClick={handleOpenAddProduct}
+                  className="bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
+                >
+                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <span>{t('admin_btn_add_product')}</span>
+                </button>
+              )}
+            </div>
+
+            {productSubTab === 'products' && (
+              <>
             {/* Action Bar & Filters */}
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 w-full sm:w-auto">
@@ -1547,39 +1600,25 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </table>
               </div>
             </div>
+              </>
+            )}
+
+            {/* Sub-View: Categories Hierarchy */}
+            {productSubTab === 'categories' && (
+              <AdminCategoriesTab />
+            )}
           </main>
         )}
-
-        {/* SECTION: CATEGORIES & HIERARCHY MANAGEMENT */}
-        {activeSection === 'categories' && <AdminCategoriesTab />}
 
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
-        {/* UNIFIED SECTION: CONTENT & BRANDING (ONE TAB WITH CLEAN SUB-TABS) */}
-        {(activeSection === 'cms' || activeSection === 'logos') && (
+        {/* SECTION: CMS & PROJECT GALLERY (3D CAROUSEL, BENTO, HERO) */}
+        {activeSection === 'cms' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
-            {/* Sub-Navigation Pills for Content & Branding */}
+            {/* Sub-Navigation Pills for CMS */}
             <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto no-scrollbar shrink-0">
               <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('logos')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'logos'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  <Globe className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags'}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'logos' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}>
-                    {partnerLogos.length}
-                  </span>
-                </button>
-
                 <button
                   type="button"
                   onClick={() => setCmsSubTab('gallery')}
@@ -2037,10 +2076,35 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               </div>
             </div>
             )}
+          </main>
+        )}
 
-            {/* SUB-VIEW: PARTNER BRANDS & COUNTRY FLAGS */}
-            {cmsSubTab === 'logos' && (
-            <div className="space-y-6">
+        {/* SECTION: PARTNER BRANDS & COUNTRY FLAGS */}
+        {activeSection === 'logos' && (
+          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
+            {/* Hidden file inputs for Logo & Flag uploads */}
+            <input
+              type="file"
+              ref={logoFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleLogoFileUpload}
+            />
+            <input
+              type="file"
+              ref={newFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleNewFlagFileUpload}
+            />
+            <input
+              type="file"
+              ref={cardFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleCardFlagFileUpload}
+            />
+
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
@@ -2347,37 +2411,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                             <span>Upload</span>
                           </button>
                         </div>
-                        {/* Quick presets for this card */}
-                        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pt-0.5">
-                          {[
-                            { flag: '/assets/flags/kurdish_flag.png', label: 'Kurdistan' },
-                            { flag: '🇮🇶', label: 'Iraq' },
-                            { flag: '🇩🇪', label: 'Germany' },
-                            { flag: '🇮🇹', label: 'Italy' },
-                            { flag: '🇹🇷', label: 'Turkey' },
-                            { flag: '🇧🇪', label: 'Belgium' },
-                            { flag: '🇪🇸', label: 'Spain' },
-                            { flag: '🇬🇷', label: 'Greece' },
-                          ].map((f) => (
-                            <button
-                              key={f.label}
-                              type="button"
-                              onClick={() => {
-                                const updated = [...partnerLogos];
-                                updated[idx] = { ...updated[idx], flag: f.flag };
-                                setPartnerLogos(updated);
-                              }}
-                              className="p-1 rounded-md border border-slate-100 hover:border-red-200 hover:bg-red-50 transition-all cursor-pointer"
-                              title={`Set flag to ${f.label}`}
-                            >
-                              {isImageFlag(f.flag) ? (
-                                <img src={f.flag} alt="" className="w-3.5 h-2.5 object-cover rounded-2xs inline-block" />
-                              ) : (
-                                <span className="text-xs leading-none">{f.flag}</span>
-                              )}
-                            </button>
-                          ))}
-                        </div>
                       </div>
                     </div>
 
@@ -2464,8 +2497,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
               </button>
             </div>
-            </div>
-            )}
           </main>
         )}
 

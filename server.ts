@@ -20,7 +20,10 @@ import {
   getFinances,
   saveFinance,
   updateFinance,
-  deleteFinance
+  deleteFinance,
+  getCmsContent,
+  saveCmsContent,
+  recordVisit
 } from './server/db';
 import { runDatabaseSeed } from './server/seed';
 import { SEARCH_PAGES, renderSearchMetadata } from './src/utils/searchMetadata';
@@ -148,6 +151,12 @@ async function startServer() {
     const file = cmsContentFiles[req.params.section as keyof typeof cmsContentFiles];
     if (!file) return res.status(404).json({ error: 'Unknown CMS section.' });
     try {
+      // 1. Try PostgreSQL primary store
+      const pgData = await getCmsContent(req.params.section);
+      if (pgData !== null && pgData !== undefined) {
+        return res.json({ data: pgData });
+      }
+      // 2. Fallback to atomic JSON store
       const data = JSON.parse(await fs.promises.readFile(file, 'utf8'));
       return res.json({ data });
     } catch (error: any) {
@@ -328,6 +337,10 @@ async function startServer() {
       return res.status(400).json({ error: 'Invalid CMS content.' });
     }
     try {
+      // 1. Persist to PostgreSQL database
+      await saveCmsContent(req.params.section, data);
+
+      // 2. Synchronize atomic JSON backup
       const temporaryFile = `${file}.${randomUUID()}.tmp`;
       await fs.promises.writeFile(temporaryFile, JSON.stringify(data));
       await fs.promises.rename(temporaryFile, file);

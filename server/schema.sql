@@ -163,7 +163,32 @@ CREATE INDEX IF NOT EXISTS idx_finances_status ON finances(status);
 CREATE INDEX IF NOT EXISTS idx_finances_date ON finances(date);
 
 -- =========================================================
--- 8. AUTOMATIC UPDATED_AT TRIGGER FUNCTION
+-- 8. CMS SECTIONS & CONTENT STORE
+-- =========================================================
+CREATE TABLE IF NOT EXISTS cms_content (
+  section_key VARCHAR(64) PRIMARY KEY,
+  data JSONB NOT NULL,
+  updated_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_cms_content_section ON cms_content(section_key);
+
+-- =========================================================
+-- 9. VISITS & ANALYTICS
+-- =========================================================
+CREATE TABLE IF NOT EXISTS visits (
+  id SERIAL PRIMARY KEY,
+  page VARCHAR(255) NOT NULL,
+  ip_hash VARCHAR(64),
+  user_agent TEXT,
+  created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_visits_created ON visits(created_at);
+CREATE INDEX IF NOT EXISTS idx_visits_page ON visits(page);
+
+-- =========================================================
+-- 10. AUTOMATIC UPDATED_AT TRIGGER FUNCTION
 -- =========================================================
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$

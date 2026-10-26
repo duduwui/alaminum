@@ -517,7 +517,60 @@ export async function deleteFinance(id: string): Promise<boolean> {
   return true;
 }
 
-// --- 4. Catalog Seeding (Categories, Subcategories, Models, Products) ---
+// =========================================================
+// 8. CMS CONTENT & ANALYTICS PERSISTENCE (POSTGRESQL)
+// =========================================================
+
+export async function getCmsContent(sectionKey: string): Promise<any> {
+  const p = getPool();
+  if (p && isConnected) {
+    try {
+      const res = await p.query('SELECT data FROM cms_content WHERE section_key = $1', [sectionKey]);
+      if (res.rows.length > 0 && res.rows[0].data !== null && res.rows[0].data !== undefined) {
+        return res.rows[0].data;
+      }
+    } catch (e: any) {
+      console.warn(`[PostgreSQL getCmsContent(${sectionKey}) error]:`, e.message);
+    }
+  }
+  return null;
+}
+
+export async function saveCmsContent(sectionKey: string, data: any): Promise<boolean> {
+  const p = getPool();
+  if (p && isConnected) {
+    try {
+      await p.query(
+        `INSERT INTO cms_content (section_key, data, updated_at)
+         VALUES ($1, $2, NOW())
+         ON CONFLICT (section_key) DO UPDATE SET
+           data = EXCLUDED.data,
+           updated_at = NOW()`,
+        [sectionKey, JSON.stringify(data)]
+      );
+      return true;
+    } catch (e: any) {
+      console.warn(`[PostgreSQL saveCmsContent(${sectionKey}) error]:`, e.message);
+    }
+  }
+  return false;
+}
+
+export async function recordVisit(page: string, ipHash?: string, userAgent?: string): Promise<void> {
+  const p = getPool();
+  if (p && isConnected) {
+    try {
+      await p.query(
+        `INSERT INTO visits (page, ip_hash, user_agent, created_at)
+         VALUES ($1, $2, $3, NOW())`,
+        [page, ipHash || null, userAgent || null]
+      );
+    } catch (e: any) {
+      console.warn('[PostgreSQL recordVisit error]:', e.message);
+    }
+  }
+}
+
 export async function seedPostgresCatalog(
   divisions: any[],
   products: any[]
