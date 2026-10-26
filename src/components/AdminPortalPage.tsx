@@ -73,10 +73,12 @@ import {
   Globe,
   Languages,
   Copy,
-  MessageCircle
+  MessageCircle,
+  Activity
 } from 'lucide-react';
 import { AdminUsersTab } from './AdminUsersTab';
 import { AdminCategoriesTab } from './AdminCategoriesTab';
+import { AdminPerformanceTab } from './AdminPerformanceTab';
 import { CurrencyType, formatCurrency } from '../utils/currency';
 import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault } from '../services/productService';
 import { autoTranslateFullProduct } from '../services/translateService';
@@ -179,25 +181,6 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
     }
   };
 
-  const insertAtCursor = (textToInsert: string) => {
-    const textarea = textareaRef.current;
-    if (!textarea) {
-      onChange(value ? `${value}\n${textToInsert}` : textToInsert);
-      return;
-    }
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const currentVal = value || '';
-    const nextVal = currentVal.substring(0, start) + textToInsert + currentVal.substring(end);
-    onChange(nextVal);
-    requestAnimationFrame(() => {
-      if (textareaRef.current) {
-        textareaRef.current.focus();
-        textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start + textToInsert.length;
-      }
-    });
-  };
-
   const lineCount = (value || '').split('\n').length;
   const charCount = (value || '').length;
 
@@ -212,39 +195,6 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
         </div>
       )}
 
-      {/* Formatting Quick-Toolbar */}
-      <div className="flex items-center justify-between gap-1 bg-slate-100 border border-slate-200 border-b-0 rounded-t-lg px-2.5 py-1.5 text-[11px] text-slate-600">
-        <div className="flex items-center gap-1.5">
-          <button
-            type="button"
-            onClick={() => insertAtCursor('    ')}
-            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
-            title="Insert 4-space tab indentation (press Tab on keyboard anytime)"
-          >
-            ⇥ Tab
-          </button>
-          <button
-            type="button"
-            onClick={() => insertAtCursor('\n\n')}
-            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
-            title="Insert blank paragraph break line"
-          >
-            ↵ Blank Line
-          </button>
-          <button
-            type="button"
-            onClick={() => insertAtCursor('• ')}
-            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
-            title="Insert bullet point"
-          >
-            • Bullet
-          </button>
-        </div>
-        <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">
-          Auto-expanding • Tab key enabled
-        </span>
-      </div>
-
       <textarea
         ref={textareaRef}
         value={value}
@@ -254,7 +204,7 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
         rows={rows}
         placeholder={placeholder}
         style={{ minHeight }}
-        className="w-full rounded-b-lg border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
+        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
       />
     </div>
   );
@@ -304,7 +254,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'products' | 'categories' | 'users' | 'cms' | 'logos'
+    'products' | 'categories' | 'users' | 'cms' | 'logos' | 'performance'
   >('products');
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
   const [cmsSubTab, setCmsSubTab] = useState<'gallery' | 'bento' | 'hero'>('gallery');
@@ -1391,6 +1341,34 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </button>
               </nav>
             </div>
+
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
+                {currentLanguage.code === 'ar' ? 'النظام والمراقبة' : currentLanguage.code === 'ckb' ? 'چاودێری و سیستەم' : 'System & Observability'}
+              </span>
+              <nav className="space-y-1.5">
+                {/* SYSTEM PERFORMANCE & TRAFFIC TAB */}
+                <button
+                  type="button"
+                  onClick={() => setActiveSection('performance')}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
+                    activeSection === 'performance'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Activity className={`w-4 h-4 ${activeSection === 'performance' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'الأداء والمحاكاة' : currentLanguage.code === 'ckb' ? 'ئەدای سیستەم و ترافیک' : 'Performance & 10k Sim'}</span>
+                  </div>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    activeSection === 'performance' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                  }`}>
+                    Live
+                  </span>
+                </button>
+              </nav>
+            </div>
           </div>
         </div>
 
@@ -1421,6 +1399,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
               {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
+              {activeSection === 'performance' && (currentLanguage.code === 'ar' ? 'مراقبة أداء الخادم والمحاكاة المباشرة' : currentLanguage.code === 'ckb' ? 'چاودێری ئەدا و شیکاری ڕاستەوخۆ' : 'Live System Performance & 10k Simulator')}
             </h2>
           </div>
 
@@ -1546,6 +1525,17 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             }`}
           >
             {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : 'Partner Brands'} ({partnerLogos.length})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('performance')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'performance'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
+            }`}
+          >
+            {currentLanguage.code === 'ar' ? 'الأداء والمحاكاة' : 'Performance (10k)'}
           </button>
         </div>
 
@@ -2627,6 +2617,13 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
               </button>
             </div>
+          </main>
+        )}
+
+        {/* SECTION: SYSTEM PERFORMANCE & 24/7 TRAFFIC SIMULATOR */}
+        {activeSection === 'performance' && (
+          <main className="flex-1 overflow-y-auto bg-slate-50/60 p-4 sm:p-6 lg:p-8">
+            <AdminPerformanceTab />
           </main>
         )}
 
