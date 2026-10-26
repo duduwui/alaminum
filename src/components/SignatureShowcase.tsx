@@ -99,15 +99,15 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "STAC Monumental Lift & Slide Mechanism",
+      "title": "STAC DELTA Minimalist Lift & Slide System",
       "brand": "STAC Spain",
-      "category": "Monumental Panoramic Sliding",
-      "badge": "Up to 400 kg",
-      "description": "Heavy-duty lift & slide transmission gearboxes with polyamide thermal breaks and precision tandem bogies for floor-to-ceiling panoramic glass spans.",
+      "category": "Architectural Lift & Slide Series",
+      "badge": "UNE-EN 1670 Grade 4",
+      "description": "Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.",
       "specs": [
-        { "label": "Max Weight", "val": "400 kg / Sash" },
-        { "label": "Thermal", "val": "Polyamide Break" },
-        { "label": "Sealing", "val": "Triple EPDM" }
+        { "label": "Footprint", "val": "9.5 mm Flush" },
+        { "label": "Corrosion", "val": ">240 hrs Salt Spray" },
+        { "label": "Security", "val": "Keyhole Cover Plate" }
       ]
     }
   },
@@ -149,15 +149,15 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "أنظمة STAC الرفع والسحب العملاقة (Lift & Slide)",
+      "title": "نظام STAC DELTA للأبواب البانورامية (Lift & Slide)",
       "brand": "STAC إسبانيا",
-      "category": "أنظمة السحب البانورامي",
-      "badge": "حمولة حتى 400 كغم",
-      "description": "تروس الرفع والسحب الثقيلة من STAC إسبانيا المصممة للواجهات البانورامية الضخمة من الأرض للسقف بحمولة تصل إلى 400 كغم للضلفة الواحدة.",
+      "category": "سلسلة الرفع والسحب المعمارية",
+      "badge": "معتمد UNE-EN 1670",
+      "description": "خطوط معمارية مينيماليست مدمجة مع مقبض سحب خارجي غاطس بعمق 9.5 مم فقط، مصممة لتحريك الضلف البانورامية الثقيلة بسلاسة فائقة مع حماية قصوى ضد التآكل والسطو.",
       "specs": [
-        { "label": "الوزن الأقصى", "val": "400 كغم / ضلفة" },
-        { "label": "العزل", "val": "عوازل بولياميد" },
-        { "label": "الإغلاق", "val": "ثلاثي EPDM" }
+        { "label": "عمق المقبض", "val": "9.5 مم غاطس" },
+        { "label": "مقاومة التآكل", "val": "درجة 4 UNE-EN" },
+        { "label": "الأمان", "val": "غطاء قفل مصفح" }
       ]
     }
   },
@@ -199,15 +199,15 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "سیستەمی بەرزکەرەوە و سلایدینگی STAC",
+      "title": "سیستەمی دەسکی DELTAی ئیسپانی (Lift & Slide)",
       "brand": "STACی ئیسپانی",
       "category": "سلایدینگی پانۆراما بۆ شوشەی گەورە",
-      "badge": "تا ٤٠٠ کگم",
-      "description": "سیستەمی لیفت و سلایدینگ بۆ شوشەی قورسی سەر زەوی تا بنمیچ بە تەحەمولی ٤٠٠ کگم و تایەی وردی هاوتەریب بۆ جوڵەی ئاسان.",
+      "badge": "ستانداردی UNE-EN 1670",
+      "description": "دیزاینی مۆدێرنی کەمینە لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم بۆ خلیسکاندنی ئاسانی دەرگای گەورە بە پاراستنی تەواو لە ژەنگ و دزی.",
       "specs": [
-        { "label": "قورسایی باڵ", "val": "٤٠٠ کگم" },
-        { "label": "عەزلی گەرمی", "val": "پۆلیەماید" },
-        { "label": "گاسکێت", "val": "سێ لایەنەی EPDM" }
+        { "label": "قووڵی دەسک", "val": "٩.٥ ملم تەخت" },
+        { "label": "بەرگری ژەنگ", "val": "پلەی ٤ UNE-EN" },
+        { "label": "ئاسایش", "val": "بەرگی قفڵی مۆدێرن" }
       ]
     }
   },
@@ -364,18 +364,18 @@ const SHOWCASE_PRODUCTS = [
   },
   {
     id: "stac-lift-slide",
-    title: "STAC Monumental Lift & Slide Mechanism",
+    title: "STAC DELTA Minimalist Lift & Slide System",
     brand: "STAC Spain",
     origin: "Spain 🇪🇸",
-    category: "Lift & Slide Architecture",
+    category: "Architectural Lift & Slide Series",
     image: "/assets/showcase/stac_lift_slide-108.png",
-    fallbackImage: "/assets/catalogs/stac_page-001.png",
-    badge: "Up to 400 kg",
-    description: "Monumental lift & slide transmission gearboxes with polyamide thermal breaks and precision tandem bogies for floor-to-ceiling panoramic glass spans.",
+    fallbackImage: "/assets/showcase/stac_lift_slide-108.png",
+    badge: "UNE-EN 1670 Grade 4",
+    description: "Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.",
     specs: [
-      { label: "Max Weight", val: "400 kg / Sash" },
-      { label: "Gearbox", val: "Backset 27.5 / 37.5" },
-      { label: "Seal", val: "Triple EPDM" }
+      { label: "Footprint", val: "9.5 mm Flush" },
+      { label: "Corrosion", val: ">240 hrs Salt Spray" },
+      { label: "Security", val: "Keyhole Cover Plate" }
     ]
   }
 ];

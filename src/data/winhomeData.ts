@@ -1178,44 +1178,45 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
   },
   {
     id: "stac-lift-slide",
-    name: "STAC Spain Monumental Lift & Slide Mechanism (400kg)",
+    name: "STAC Spain DELTA Lift & Slide Handle & Flush Pull System",
     category: "accessories",
     division: "accessories",
     subCategory: "Lift & Slide Systems",
-    modelNumber: "STAC LS-400",
-    material: "Stainless Bogies & Polyamide Thermal Barriers",
+    modelNumber: "STAC DELTA-108",
+    material: "Die-Cast Architectural Alloy & Stainless Core",
     brand: "STAC Spain",
     origin: "STAC • Spain / Doorhome Desk",
     rating: 5.0,
     reviewsCount: 340,
     image: "/assets/showcase/stac_lift_slide-108.png",
     fallbackImage: "/assets/showcase/stac_lift_slide-108.png",
-    description: "Heavy-duty lift & slide transmission gearboxes with polyamide thermal breaks and precision tandem bogies for floor-to-ceiling panoramic glass spans.",
+    description: "The DELTA range stands out for its minimalist, useful and functional lines. Heavyweight lift & slide pull handle paired with an exterior finger pull with a shallow footprint depth of only 9.5 mm. Certified Grade 4 corrosion resistance exceeding 240 hours in saline mist chamber (UNE-EN 1670).",
     features: [
-      "Certified for massive glass panels weighing up to 400 kg per leaf",
-      "Tandem needle-bearing steel wheels with polyamide isolators",
-      "Effortless one-handed lever operation with multi-stage locking"
+      "Minimalist aerodynamic lines with optional keyhole security cover plate",
+      "Recessed exterior finger pull with ultra-shallow 9.5 mm depth footprint",
+      "Grade 4 corrosion resistance exceeding 240 hours in saline mist chamber (UNE-EN 1670)",
+      "Available in black lacquer, white lacquer, and custom RAL colour matching"
     ],
     translations: {
       ar: {
-        name: "أنظمة STAC الإسبانية للرفع والسحب العملاقة (400 كغم)",
-        description: "تروس الرفع والسحب الثقيلة من STAC إسبانيا المصممة للواجهات البانورامية الضخمة من الأرض للسقف بحمولة تصل إلى 400 كغم للضلفة الواحدة.",
-        subCategory: "أنظمة الرفع والانزلاق"
+        name: "نظام مقابض STAC الإسبانية DELTA للأبواب البانورامية (Lift & Slide)",
+        description: "تتميز سلسلة DELTA بخطوطها المعمارية المينيماليست المدمجة بسلاسة داخل قطاعات الألمنيوم. مقبض رفع وسحب عملاق للضلف الثقيلة مع مقبض سحب خارجي غاطس بعمق 9.5 مم ومقاومة تآكل درجة 4 لأكثر من 240 ساعة رذاذ ملحي.",
+        subCategory: "مقابض الرفع والانزلاق"
       },
       ckb: {
-        name: "سیستەمی لیفت ئەند سلایدی گەورەی STACی ئیسپانی (٤٠٠ کگم)",
-        description: "سیستەمی بەرزکردنەوە و خلیسکاندنی دەرگای گەورەی شوشە تا ٤٠٠ کگم بۆ هەر باڵێک بە کوالێتی باڵای ئیسپانی.",
-        subCategory: "سیستەمی سحابی بەرزکەرەوە"
+        name: "سیستەمی دەسکی DELTAی ئیسپانی بۆ دەرگای سحاب و بەرزکەرەوە (Lift & Slide)",
+        description: "دیزاینی مۆدێرنی کەمینە (Minimalist) لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم. بەرگەی بەرزی تێکچوون و ژەنگ بە پلەی چوارەمی ستانداردی UNE-EN 1670 بۆ کەشوهەوای سەخت.",
+        subCategory: "دەسکی سحابی بەرزکەرەوە"
       },
       kmr: {
-        name: "Mekanîzmaya Hebe-Schiebe ya STAC Spanya (400 kg)",
-        description: "Sîstema hilkişandin û şimitandinê ya STAC ji bo camên mezin ên heta 400 kg bi însolasyona termal a polîamîd.",
-        subCategory: "Sîstemên Lift & Slide"
+        name: "Sîstema Destikên DELTA ya STAC Spanya ji bo Lift & Slide",
+        description: "Rêza DELTA ya mînîmalîst ji bo deriyên hebe-schiebe yên giran bi destikê derveyî yê 9.5 mm û berxwedana korozyonê ya pola 4 UNE-EN 1670.",
+        subCategory: "Destikên Lift & Slide"
       },
       tr: {
-        name: "STAC İspanya Ağır Hebe-Schiebe (Kaldır-Sür) Mekanizması (400 kg)",
-        description: "400 kg kanat ağırlığına kadar geniş açıklıklı cam cepheler için tasarlanmış polyamid ısı bariyerli ağır kaldırmalı sürme arabaları.",
-        subCategory: "Kaldır-Sür (Hebe-Schiebe) Sistemleri"
+        name: "STAC İspanya DELTA Hebe-Schiebe Kaldır-Sür Kol Takımı",
+        description: "Minimalist çizgileriyle öne çıkan DELTA hebe-schiebe açma kolu ve yalnızca 9.5 mm derinliğindeki gömme dış çekme havuzu. UNE-EN 1670 Sınıf 4 tuz sisi korozyon testli.",
+        subCategory: "Kaldır-Sür (Hebe-Schiebe) Kolları"
       }
     }
   },

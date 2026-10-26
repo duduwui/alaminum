@@ -9,7 +9,7 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products';
+const STORAGE_KEY = 'winhome_admin_products_v3';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
 
