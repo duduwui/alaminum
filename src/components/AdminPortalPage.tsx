@@ -144,11 +144,21 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
   onChange,
   onBlur,
   placeholder = 'Type detailed architectural description...',
-  rows = 3,
+  rows = 5,
   label,
-  minHeight = '90px'
+  minHeight = '150px'
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Auto-grow height so all lines are visible without needing an internal scrollbar
+  useEffect(() => {
+    const el = textareaRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    const minH = parseInt(minHeight, 10) || 150;
+    const scrollH = el.scrollHeight;
+    el.style.height = `${Math.max(minH, scrollH)}px`;
+  }, [value, minHeight]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Tab') {
@@ -203,12 +213,12 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
       )}
 
       {/* Formatting Quick-Toolbar */}
-      <div className="flex items-center justify-between gap-1 bg-slate-100 border border-slate-200 border-b-0 rounded-t-lg px-2 py-1 text-[11px] text-slate-600">
-        <div className="flex items-center gap-1">
+      <div className="flex items-center justify-between gap-1 bg-slate-100 border border-slate-200 border-b-0 rounded-t-lg px-2.5 py-1.5 text-[11px] text-slate-600">
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
             onClick={() => insertAtCursor('    ')}
-            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
             title="Insert 4-space tab indentation (press Tab on keyboard anytime)"
           >
             ⇥ Tab
@@ -216,7 +226,7 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
           <button
             type="button"
             onClick={() => insertAtCursor('\n\n')}
-            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
             title="Insert blank paragraph break line"
           >
             ↵ Blank Line
@@ -224,14 +234,14 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
           <button
             type="button"
             onClick={() => insertAtCursor('• ')}
-            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            className="px-2 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-bold transition-colors cursor-pointer shadow-2xs"
             title="Insert bullet point"
           >
             • Bullet
           </button>
         </div>
         <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">
-          Tab key enabled
+          Auto-expanding • Tab key enabled
         </span>
       </div>
 
@@ -244,7 +254,7 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
         rows={rows}
         placeholder={placeholder}
         style={{ minHeight }}
-        className="w-full rounded-b-lg border border-slate-200 bg-white px-2.5 py-2 text-xs text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
+        className="w-full rounded-b-lg border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
       />
     </div>
   );
@@ -1865,7 +1875,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onChange={setNewGalleryDescription}
                   placeholder="Detailed project description & architectural specifications..."
                   label="Project Description (Press Tab to indent, blank lines supported)"
-                  rows={3}
+                  rows={5}
+                  minHeight="140px"
                 />
                 <button type="button" disabled={isUploadingGalleryMedia} onClick={() => galleryFileInputRef.current?.click()} className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-red-700 disabled:opacity-50">
                   <Upload className="h-4 w-4" /> {isUploadingGalleryMedia ? 'Uploading…' : 'Upload images and videos'}
@@ -1949,8 +1960,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                               onChange={(val) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: val } : entry))}
                               onBlur={() => persistGalleryUpdates(galleryImages)}
                               placeholder="Project description & architectural details..."
-                              rows={3}
-                              minHeight="75px"
+                              rows={6}
+                              minHeight="150px"
                             />
                           </div>
 
