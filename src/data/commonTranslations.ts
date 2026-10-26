@@ -90,11 +90,11 @@ export const CONTACT_LABELS: Record<string, string[]> = {
 const EXTRA_KEYS = ['footer_intro', 'ui_contact_social', 'footer_col_company'];
 export const EXTRA_LABELS: Record<string, string[]> = {
   en: ['Aluminium and uPVC window and door systems, sliding doors and architectural facades in Iraq and Kurdistan. Explore our products and projects, or contact our team.', 'Contact and social links', 'Doorhome'],
-  ar: ['أنظمة نوافذ وأبواب الألمنيوم وuPVC، وأبواب منزلقة وواجهات معمارية في العراق وكردستان. استكشف منتجاتنا ومشاريعنا أو تواصل مع فريقنا.', 'روابط التواصل والشبكات الاجتماعية', 'دور هوم'],
-  ckb: ['سیستەمی پەنجەرە و دەرگای ئەلۆمنیۆم و uPVC، دەرگای خلیسکاو و ڕووکاری تەلارسازی لە عێراق و کوردستان. بەرهەم و پڕۆژەکانمان ببینە یان پەیوەندی بە تیمەکەمانەوە بکە.', 'بەستەرەکانی پەیوەندی و تۆڕە کۆمەڵایەتییەکان', 'دور هۆم'],
+  ar: ['أنظمة نوافذ وأبواب الألمنيوم وuPVC، وأبواب منزلقة وواجهات معمارية في العراق وكردستان. استكشف منتجاتنا ومشاريعنا أو تواصل مع فريقنا.', 'روابط التواصل والشبكات الاجتماعية', 'باب المنزل'],
+  ckb: ['سیستەمی پەنجەرە و دەرگای ئەلۆمنیۆم و uPVC، دەرگای خلیسکاو و ڕووکاری تەلارسازی لە عێراق و کوردستان. بەرهەم و پڕۆژەکانمان ببینە یان پەیوەندی بە تیمەکەمانەوە بکە.', 'بەستەرەکانی پەیوەندی و تۆڕە کۆمەڵایەتییەکان', 'دەرگای ماڵ'],
   kmr: ['Pergalên pencere û deriyên alumînyûm û uPVC, deriyên şemitok û rûyên avahiyan li Iraq û Kurdistanê. Hilber û projeyên me bibînin an bi tîma me re têkilî daynin.', 'Girêdanên têkilî û torên civakî', 'Doorhome'],
   tr: ['Irak ve Kürdistan’da alüminyum ve uPVC pencere ve kapı sistemleri, sürgülü kapılar ve mimari cepheler. Ürünlerimizi ve projelerimizi inceleyin veya ekibimizle iletişime geçin.', 'İletişim ve sosyal medya bağlantıları', 'Doorhome'],
-  fa: ['سیستم‌های پنجره و در آلومینیومی و uPVC، درهای کشویی و نماهای معماری در عراق و کردستان. محصولات و پروژه‌های ما را ببینید یا با تیم ما تماس بگیرید.', 'پیوندهای تماس و شبکه‌های اجتماعی', 'دور هوم'],
+  fa: ['سیستم‌های پنجره و در آلومینیومی و uPVC، درهای کشویی و نماهای معماری در عراق و کردستان. محصولات و پروژه‌های ما را ببینید یا با تیم ما تماس بگیرید.', 'پیوندهای تماس و شبکه‌های اجتماعی', 'باب المنزل'],
   de: ['Fenster- und Türsysteme aus Aluminium und uPVC, Schiebetüren und Architekturfassaden im Irak und in Kurdistan. Entdecken Sie unsere Produkte und Projekte oder kontaktieren Sie unser Team.', 'Kontakt und soziale Netzwerke', 'Doorhome'],
   fr: ['Systèmes de fenêtres et de portes en aluminium et uPVC, portes coulissantes et façades architecturales en Irak et au Kurdistan. Découvrez nos produits et projets ou contactez notre équipe.', 'Contact et réseaux sociaux', 'Doorhome'],
   it: ['Sistemi di finestre e porte in alluminio e uPVC, porte scorrevoli e facciate architettoniche in Iraq e Kurdistan. Scopri i nostri prodotti e progetti oppure contatta il nostro team.', 'Contatti e social network', 'Doorhome'],

@@ -185,7 +185,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_solutions: 'چارەسەرە تەلارسازییەکان',
     nav_typologies: 'جۆرەکانی باڵەخانە',
     nav_projects: 'پڕۆژەکان',
-    nav_why_winhome: 'بۆچی دۆرهۆم',
+    nav_why_winhome: 'بۆچی دەرگای ماڵ',
     nav_downloads: 'داگرتنەکان',
     nav_catalogs: 'کەتەلۆگەکان',
     nav_contact: 'پەیوەندی',
@@ -207,9 +207,9 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     add_to_cart: 'زیادکردن بۆ داواکاری',
     submit_request: 'ناردنی داواکاری نرخ',
     address_line: 'بەغدا، عێراق • 33.3118611° N, 44.4608056° E',
-    newsletter_title: 'بەشداری لە گۆڤاری ئەندازیاری دۆرهۆم بکە',
+    newsletter_title: 'بەشداری لە گۆڤاری ئەندازیاری دەرگای ماڵ بکە',
     newsletter_btn: 'بەشداربوون',
-    footer_rights: 'کۆمپانیای دۆرهۆم (گروپی نەفزە المنزڵ). هەموو مافەکان پارێزراون.',
+    footer_rights: 'کۆمپانیای دەرگای ماڵ (گروپی نەفزە المنزڵ). هەموو مافەکان پارێزراون.',
     language_label: 'زمان'
   },
   kmr: {
@@ -251,7 +251,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_solutions: 'الحلول المعمارية',
     nav_typologies: 'نماذج المباني',
     nav_projects: 'المشاريع',
-    nav_why_winhome: 'لماذا دور هوم',
+    nav_why_winhome: 'لماذا باب المنزل',
     nav_downloads: 'التحميلات',
     nav_catalogs: 'الكتالوجات',
     nav_contact: 'اتصل بنا',
@@ -273,9 +273,9 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     add_to_cart: 'إضافة إلى طلب السعر',
     submit_request: 'إرسال طلب التسعير',
     address_line: 'بغداد، العراق • 33.3118611° N, 44.4608056° E',
-    newsletter_title: 'اشترك في النشرة الهندسية لدور هوم',
+    newsletter_title: 'اشترك في النشرة الهندسية لباب المنزل',
     newsletter_btn: 'اشتراك',
-    footer_rights: 'شركة دور هوم (مجموعة نفذة المنزل). جميع الحقوق محفوظة.',
+    footer_rights: 'شركة باب المنزل (مجموعة نفذة المنزل). جميع الحقوق محفوظة.',
     language_label: 'اللغة'
   },
   tr: {
@@ -482,7 +482,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     nav_solutions: 'راهکارهای معماری',
     nav_typologies: 'گونه‌شناسی ساختمان',
     nav_projects: 'پروژه‌ها',
-    nav_why_winhome: 'چرا دور هوم',
+    nav_why_winhome: 'چرا باب المنزل',
     nav_downloads: 'دانلودها',
     nav_catalogs: 'کاتالوگ‌ها',
     nav_contact: 'تماس با ما',
@@ -667,10 +667,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       return 'Doorhome';
     }
     if (key === 'brand_name_full') {
-      if (isAr) return 'باب المنزل (دور هوم)';
+      if (isAr) return 'باب المنزل';
       if (isTr) return 'Kapı Ev (Doorhome)';
-      if (isKu) return 'دەرگای ماڵ (دۆرهۆم)';
-      if (isKmr) return 'Deriyê Malê (Doorhome)';
+      if (isKu) return 'دەرگای ماڵ';
+      if (isKmr) return 'Deriyê Malê';
       return 'Doorhome';
     }
 

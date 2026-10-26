@@ -1233,7 +1233,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     id: 'art-30',
     slug: 'why-doorhome-engineering-factory-precision-10-year-warranty',
     category: 'guide',
-    categoryLabel: { ar: 'معايير دور هوم', ckb: 'ستانداردی دەرگای ماڵ', en: 'Doorhome Standard' },
+    categoryLabel: { ar: 'معايير باب المنزل', ckb: 'ستانداردی دەرگای ماڵ', en: 'Doorhome Standard' },
     title: {
       ar: 'معايير Doorhome الهندسية: دقة المصنع، القص بالليزر، وضمان رسمي 10 سنوات',
       ckb: 'ستانداردەکانی دەرگای ماڵ (Doorhome): کارگەی پێشکەوتوو و گرەنتی ١٠ ساڵ',

@@ -6,6 +6,8 @@ import { SignatureShowcase } from './components/SignatureShowcase';
 import { AboutSection } from './components/AboutSection';
 import { WindowsSection } from './components/WindowsSection';
 import { DoorsSection } from './components/DoorsSection';
+import { AccessoriesSection } from './components/AccessoriesSection';
+import { BrochuresSection } from './components/BrochuresSection';
 import { GallerySection } from './components/GallerySection';
 import { ContactSection } from './components/ContactSection';
 import { ArchitecturalFaqSection } from './components/ArchitecturalFaqSection';
@@ -645,7 +647,34 @@ export default function App() {
               <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
             </div>
 
-            {/* 8. Project Gallery (Installed Villas & Commercial Towers) */}
+            {/* 7. Precision Hardware & Architectural Accessories */}
+            <AccessoriesSection
+              onSelectProduct={handleSelectProduct}
+              onOpenQuote={(_name) => {
+                setIsStepperModalOpen(true);
+              }}
+            />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
+            {/* 8. Technical Catalogues & Brochures */}
+            <BrochuresSection
+              onOpenQuote={(_subject) => {
+                setIsStepperModalOpen(true);
+              }}
+            />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
+            {/* 9. Project Gallery (Installed Villas & Commercial Towers) */}
             <GallerySection onShowAll={() => {
               setSelectedProduct(null);
               setActiveTab('projects');
@@ -659,7 +688,16 @@ export default function App() {
               <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
             </div>
 
-            {/* 9. Contact */}
+            {/* 10. Architectural FAQs & Guidance */}
+            <ArchitecturalFaqSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
+
+            {/* Architectural Section Separator Line */}
+            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
+              <div className="w-full border-t-2 border-slate-900/25" />
+              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
+            </div>
+
+            {/* 11. Contact */}
             <ContactSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
           </div>
         )}

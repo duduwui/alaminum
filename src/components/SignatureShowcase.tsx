@@ -475,149 +475,151 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Column: 2 Dedicated European Catalog Presentation Cards */}
-          <div className="col-span-1 lg:col-span-6 space-y-6">
-            <div className="border-s-4 border-red-600 ps-4 dh-reveal">
-              <span className="text-xs font-black uppercase tracking-wider text-red-600 flex items-center gap-1.5 mb-1.5">
+          <div className="col-span-1 lg:col-span-6 space-y-4 sm:space-y-5">
+            <div className="border-s-4 border-red-600 ps-3.5 sm:ps-4 dh-reveal">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-red-600 flex items-center gap-1.5 mb-1">
                 <Sparkles className="w-3.5 h-3.5 text-red-600" />
                 <bdi dir="auto">{isAr ? 'الكتالوجات الأوروبية الفنية المعتمدة' : isKu ? 'کەتەلۆگی فەرمی و باوەڕپێکراوی ئەوروپا' : 'CERTIFIED EUROPEAN TECHNICAL CATALOGUES'}</bdi>
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
                 <bdi dir="auto">{localizedText.title}</bdi>
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-2.5 max-w-xl">
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5 sm:mt-2 max-w-xl">
                 <bdi dir="auto">{localizedText.subtitle}</bdi>
               </p>
             </div>
 
-            {/* Catalog Card 1: WIEK SYSTEM Belgium */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-3.5 relative overflow-hidden group">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
-                <div className="h-8 sm:h-9 flex items-center">
-                  <img
-                    src={cat1.logo}
-                    alt="WİEK SYSTEM"
-                    className="max-h-7 sm:max-h-8 max-w-[130px] sm:max-w-[150px] w-auto object-contain"
-                  />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
+              {/* Catalog Card 1: WIEK SYSTEM Belgium */}
+              <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-2.5 sm:space-y-3 relative overflow-hidden group">
+                <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 sm:pb-2.5">
+                  <div className="h-6 sm:h-8 flex items-center">
+                    <img
+                      src={cat1.logo}
+                      alt="WİEK SYSTEM"
+                      className="max-h-6 sm:max-h-7 max-w-[120px] sm:max-w-[140px] w-auto object-contain"
+                    />
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
+                    PDF • {cat1.size}
+                  </span>
                 </div>
-                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2.5 py-1 rounded-full">
-                  PDF • {cat1.size}
-                </span>
-              </div>
 
-              <div>
-                <h3 className="text-lg sm:text-xl font-black text-slate-900 group-hover:text-red-600 transition-colors">
-                  <bdi dir="auto">{cat1.title}</bdi>
-                </h3>
-                <p className="text-xs font-bold text-red-600 mt-0.5">
-                  <bdi dir="auto">{cat1.subtitle}</bdi>
-                </p>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-2">
-                  <bdi dir="auto">{cat1.desc}</bdi>
-                </p>
-              </div>
-
-              <div className="pt-2 flex flex-wrap items-center gap-2.5 border-t border-slate-100">
-                <a
-                  href={cat1.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>{localizedText.specsBtn}</span>
-                  <ExternalLink className="w-3 h-3 opacity-80" />
-                </a>
-
-                <a
-                  href={cat1.pdfUrl}
-                  download={cat1.fileName}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
-                >
-                  <Download className="w-3.5 h-3.5 text-slate-600" />
-                  <span>{localizedText.estimateBtn}</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Catalog Card 2: STAC Spain */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-3.5 relative overflow-hidden group">
-              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
-                <div className="h-8 sm:h-9 flex items-center">
-                  <img
-                    src={cat2.logo}
-                    alt="STAC Spain"
-                    className="max-h-7 sm:max-h-8 max-w-[130px] sm:max-w-[150px] w-auto object-contain"
-                  />
+                <div>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                    <bdi dir="auto">{cat1.title}</bdi>
+                  </h3>
+                  <p className="text-[11px] sm:text-xs font-bold text-red-600 mt-0.5 line-clamp-1">
+                    <bdi dir="auto">{cat1.subtitle}</bdi>
+                  </p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-1 sm:mt-1.5 line-clamp-2">
+                    <bdi dir="auto">{cat1.desc}</bdi>
+                  </p>
                 </div>
-                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2.5 py-1 rounded-full">
-                  PDF • {cat2.size}
-                </span>
+
+                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-slate-100">
+                  <a
+                    href={cat1.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{localizedText.specsBtn}</span>
+                    <ExternalLink className="w-3 h-3 opacity-80" />
+                  </a>
+
+                  <a
+                    href={cat1.pdfUrl}
+                    download={cat1.fileName}
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
+                  >
+                    <Download className="w-3.5 h-3.5 text-slate-600" />
+                    <span>{localizedText.estimateBtn}</span>
+                  </a>
+                </div>
               </div>
 
-              <div>
-                <h3 className="text-lg sm:text-xl font-black text-slate-900 group-hover:text-red-600 transition-colors">
-                  <bdi dir="auto">{cat2.title}</bdi>
-                </h3>
-                <p className="text-xs font-bold text-red-600 mt-0.5">
-                  <bdi dir="auto">{cat2.subtitle}</bdi>
-                </p>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-2">
-                  <bdi dir="auto">{cat2.desc}</bdi>
-                </p>
-              </div>
+              {/* Catalog Card 2: STAC Spain */}
+              <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-2.5 sm:space-y-3 relative overflow-hidden group">
+                <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 sm:pb-2.5">
+                  <div className="h-6 sm:h-8 flex items-center">
+                    <img
+                      src={cat2.logo}
+                      alt="STAC Spain"
+                      className="max-h-6 sm:max-h-7 max-w-[120px] sm:max-w-[140px] w-auto object-contain"
+                    />
+                  </div>
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
+                    PDF • {cat2.size}
+                  </span>
+                </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-2.5 border-t border-slate-100">
-                <a
-                  href={cat2.pdfUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
-                >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>{localizedText.specsBtn}</span>
-                  <ExternalLink className="w-3 h-3 opacity-80" />
-                </a>
+                <div>
+                  <h3 className="text-sm sm:text-base lg:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                    <bdi dir="auto">{cat2.title}</bdi>
+                  </h3>
+                  <p className="text-[11px] sm:text-xs font-bold text-red-600 mt-0.5 line-clamp-1">
+                    <bdi dir="auto">{cat2.subtitle}</bdi>
+                  </p>
+                  <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-1 sm:mt-1.5 line-clamp-2">
+                    <bdi dir="auto">{cat2.desc}</bdi>
+                  </p>
+                </div>
 
-                <a
-                  href={cat2.pdfUrl}
-                  download={cat2.fileName}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
-                >
-                  <Download className="w-3.5 h-3.5 text-slate-600" />
-                  <span>{localizedText.estimateBtn}</span>
-                </a>
+                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-slate-100">
+                  <a
+                    href={cat2.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{localizedText.specsBtn}</span>
+                    <ExternalLink className="w-3 h-3 opacity-80" />
+                  </a>
+
+                  <a
+                    href={cat2.pdfUrl}
+                    download={cat2.fileName}
+                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
+                  >
+                    <Download className="w-3.5 h-3.5 text-slate-600" />
+                    <span>{localizedText.estimateBtn}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Column: 3D Interactive CardDeck with Systems from the Catalogs */}
-          <div className="col-span-1 lg:col-span-6 flex justify-center lg:justify-end items-start pt-4 lg:pt-0">
-            <div className="relative w-full max-w-[400px] h-[480px] flex items-center justify-center lg:justify-end">
+          <div className="col-span-1 lg:col-span-6 flex justify-center lg:justify-end items-start pt-2 lg:pt-0">
+            <div className="relative w-full max-w-[360px] sm:max-w-[400px] h-[400px] sm:h-[460px] flex items-center justify-center lg:justify-end">
               <CardSwap
-                width={380}
-                height={450}
-                cardDistance={26}
-                verticalDistance={20}
+                width={360}
+                height={410}
+                cardDistance={22}
+                verticalDistance={16}
                 delay={4500}
                 pauseOnHover={true}
               >
                 {showcaseItems.map((item) => (
                   <Card
                     key={item.id}
-                    className="p-5 sm:p-6 flex flex-col justify-between bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden cursor-pointer group"
+                    className="p-4 sm:p-5 flex flex-col justify-between bg-white border border-slate-200 rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl overflow-hidden cursor-pointer group"
                     onClick={() => handleSelectProduct(item.title, item.id)}
                   >
                     <div>
-                      <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2.5 mb-2.5">
-                        <span className="text-[10px] font-black text-red-700 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2 mb-2">
+                        <span className="text-[10px] font-black text-red-700 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full uppercase tracking-wider">
                           <bdi dir="auto">{item.brand}</bdi>
                         </span>
-                        <span className="text-xs font-bold text-slate-500">
+                        <span className="text-[11px] font-bold text-slate-500">
                           <bdi dir="auto">{item.category}</bdi>
                         </span>
                       </div>
 
-                      <div className="relative h-52 sm:h-56 w-full bg-slate-50 rounded-2xl overflow-hidden mb-3 p-3 flex items-center justify-center border border-slate-100">
+                      <div className="relative h-40 sm:h-48 w-full bg-slate-50 rounded-xl sm:rounded-2xl overflow-hidden mb-2 sm:mb-2.5 p-2.5 flex items-center justify-center border border-slate-100">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -626,20 +628,20 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                             (e.target as HTMLImageElement).src = item.fallbackImage;
                           }}
                         />
-                        <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full shadow-xs">
+                        <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-xs">
                           <bdi dir="auto">{item.badge}</bdi>
                         </div>
                       </div>
 
-                      <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                      <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug line-clamp-1">
                         <bdi dir="auto">{item.title}</bdi>
                       </h3>
-                      <p className="text-xs text-slate-600 mt-1.5 leading-relaxed line-clamp-3">
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">
                         <bdi dir="auto">{item.description}</bdi>
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:translate-x-1 transition-transform">
+                    <div className="pt-2 sm:pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:translate-x-1 transition-transform">
                       <span>{localizedText.inspectHint}</span>
                       <ArrowRight className="w-4 h-4" />
                     </div>

@@ -80,20 +80,29 @@ const CardSwap: React.FC<CardSwapProps> = ({
   children
 }) => {
   const [responsiveWidth, setResponsiveWidth] = React.useState<number | string>(width);
+  const [responsiveHeight, setResponsiveHeight] = React.useState<number | string>(height);
 
   useEffect(() => {
     const handleResize = () => {
+      const isMobile = window.innerWidth < 640;
       if (typeof width === 'number') {
-        const maxWidth = Math.min(width, window.innerWidth - 36);
+        const maxWidth = Math.min(width, window.innerWidth - 32);
         setResponsiveWidth(maxWidth);
       } else {
         setResponsiveWidth(width);
+      }
+
+      if (typeof height === 'number') {
+        const maxHeight = isMobile ? Math.min(height, 380) : height;
+        setResponsiveHeight(maxHeight);
+      } else {
+        setResponsiveHeight(height);
       }
     };
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [width]);
+  }, [width, height]);
 
   const childArr = useMemo(() => Children.toArray(children), [children]);
   const refs = useMemo(
@@ -224,7 +233,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
     return cloneElement(element, {
       key: i,
       ref: refs[i],
-      style: { width: responsiveWidth, height, ...(element.props?.style ?? {}) },
+      style: { width: responsiveWidth, height: responsiveHeight, ...(element.props?.style ?? {}) },
       onClick: (e: React.MouseEvent) => {
         element.props?.onClick?.(e);
         onCardClick?.(i);
@@ -233,7 +242,7 @@ const CardSwap: React.FC<CardSwapProps> = ({
   });
 
   return (
-    <div ref={container} className="card-swap-container" style={{ width: responsiveWidth, height }}>
+    <div ref={container} className="card-swap-container" style={{ width: responsiveWidth, height: responsiveHeight }}>
       {rendered}
     </div>
   );

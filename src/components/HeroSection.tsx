@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowRight, LayoutGrid } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import FoldText from './FoldText';
 
 import mobileHeroWebp from '../assets/hero/hero-mobile.webp';
 import desktopHeroWebp from '../assets/hero/hero-desktop.webp';
@@ -393,8 +394,27 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenQuoteModal, onEx
 
       <div className="relative z-10 mx-auto mt-0 w-full max-w-7xl px-6 py-0 sm:mt-2 sm:px-10 sm:py-2 md:mt-4 lg:px-12">
         <div className="max-w-2xl space-y-4 text-start sm:space-y-6">
-          <h1 className="hero-masked-heading select-none overflow-visible pb-3 pt-1 text-3xl font-black leading-[1.24] tracking-tight sm:text-5xl sm:leading-[1.18] lg:text-6xl">
-            <bdi dir="auto">{heroContent.title}</bdi>
+          <h1 className="select-none overflow-visible pb-3 pt-1 text-3xl font-black leading-[1.24] tracking-tight sm:text-5xl sm:leading-[1.18] lg:text-6xl text-slate-900">
+            <FoldText
+              text={heroContent.title}
+              splitBy="word"
+              foldStyle="paper"
+              hinge="top"
+              trigger="mount"
+              foldAngle={92}
+              duration={0.65}
+              stagger={0.045}
+              staggerFrom="start"
+              ease="power3.out"
+              hoverRefold={true}
+              refoldRadius={140}
+              refoldAngle={45}
+              perspective={700}
+              creaseShading={0.55}
+              fontSize="inherit"
+              fontWeight="inherit"
+              color="currentColor"
+            />
           </h1>
           <p className="flex min-h-[3.5rem] max-w-xl items-center text-lg font-extrabold leading-snug text-slate-800 sm:text-2xl lg:text-3xl">
             <span className={`inline-block text-slate-800 transition-all duration-300 ${fade ? 'translate-y-0 scale-100 opacity-100' : '-translate-y-1 scale-98 opacity-0'}`}>
