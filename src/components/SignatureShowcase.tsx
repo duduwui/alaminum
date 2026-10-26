@@ -434,8 +434,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
   const isTr = currentLanguage.code === 'tr';
 
   const cat1 = {
-    badge: isAr ? 'بلجيكا • معتمد ISO' : isKu ? 'بەلجیکا • باوەڕپێکراوی ISO' : isTr ? 'BELÇİKA • ISO ONAYLI' : 'BELGIUM • ISO CERTIFIED',
-    flag: '🇧🇪',
+    logo: '/assets/showcase/wiek-logo.png',
     title: isAr ? 'كتالوج شركة WIEK بلجيكا — حلول 2026' : isKu ? 'کەتەلۆگی فەرمی WIEKی بەلجیکی — ٢٠٢٦' : isTr ? 'WIEK SYSTEM Belçika — 2026 Çözümleri' : 'WIEK SYSTEM Belgium — 2026 Solutions',
     subtitle: isAr ? 'حيث تلتقي الوظيفة بالابتكار المعماري • إكسسوارات الأبواب والنوافذ' : isKu ? 'شوێنی یەکگرتنی کارامەیی و داهێنان • ئێکسسواراتی دەرگا و پەنجەرە' : isTr ? 'İnovasyon ve Fonksiyonelliğin Buluştuğu Nokta • Kapı ve Pencere Donanımları' : 'Where Function Meets Innovation • Door & Window Hardware Solutions',
     desc: isAr
@@ -451,8 +450,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
   };
 
   const cat2 = {
-    badge: isAr ? 'إسبانيا • معتمد EN-13830' : isKu ? 'ئیسپانیا • باوەڕپێکراوی EN' : isTr ? 'İSPANYA • EN-13830 ONAYLI' : 'SPAIN • EN-13830 CERTIFIED',
-    flag: '🇪🇸',
+    logo: '/assets/showcase/stac-logo.png',
     title: isAr ? 'كتالوج شركة STAC إسبانيا العام للإكسسوارات' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی بۆ ئێکسسوارات' : isTr ? 'STAC İspanya Genel Donanım ve Aksesuar Kataloğu' : 'STAC Spain General Hardware & Accessories Catalogue',
     subtitle: isAr ? 'المرجع الهندسي الشامل — 442 صفحة من الأنظمة المعمارية الفاخرة' : isKu ? 'سەرچاوەی ئەندازیاری گشتگیر — ٤٤٢ پەڕە لە سیستەمی تەلارسازی' : isTr ? 'Kapsamlı Mimari Teknik Referans — 442 Sayfa Sistem Rehberi' : 'Comprehensive Architectural Engineering Reference — 442 Pages',
     desc: isAr
@@ -493,14 +491,17 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
 
             {/* Catalog Card 1: WIEK SYSTEM Belgium */}
             <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-3.5 relative overflow-hidden group">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl leading-none">{cat1.flag}</span>
-                  <span className="text-[11px] font-extrabold text-red-700 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    {cat1.badge}
-                  </span>
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div className="h-8 sm:h-9 flex items-center">
+                  <img
+                    src={cat1.logo}
+                    alt="WİEK SYSTEM"
+                    className="max-h-7 sm:max-h-8 max-w-[130px] sm:max-w-[150px] w-auto object-contain"
+                  />
                 </div>
-                <span className="text-[11px] font-bold text-slate-400">PDF • {cat1.size}</span>
+                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2.5 py-1 rounded-full">
+                  PDF • {cat1.size}
+                </span>
               </div>
 
               <div>
@@ -540,14 +541,17 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
 
             {/* Catalog Card 2: STAC Spain */}
             <div className="p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-3.5 relative overflow-hidden group">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl leading-none">{cat2.flag}</span>
-                  <span className="text-[11px] font-extrabold text-red-700 bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                    {cat2.badge}
-                  </span>
+              <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
+                <div className="h-8 sm:h-9 flex items-center">
+                  <img
+                    src={cat2.logo}
+                    alt="STAC Spain"
+                    className="max-h-7 sm:max-h-8 max-w-[130px] sm:max-w-[150px] w-auto object-contain"
+                  />
                 </div>
-                <span className="text-[11px] font-bold text-slate-400">PDF • {cat2.size}</span>
+                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2.5 py-1 rounded-full">
+                  PDF • {cat2.size}
+                </span>
               </div>
 
               <div>
@@ -613,7 +617,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                         </span>
                       </div>
 
-                      <div className="relative h-48 w-full bg-slate-50 rounded-2xl overflow-hidden mb-3 p-3 flex items-center justify-center border border-slate-100">
+                      <div className="relative h-52 sm:h-56 w-full bg-slate-50 rounded-2xl overflow-hidden mb-3 p-3 flex items-center justify-center border border-slate-100">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -630,25 +634,14 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                       <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
                         <bdi dir="auto">{item.title}</bdi>
                       </h3>
-                      <p className="text-xs text-slate-600 mt-1.5 leading-relaxed line-clamp-2">
+                      <p className="text-xs text-slate-600 mt-1.5 leading-relaxed line-clamp-3">
                         <bdi dir="auto">{item.description}</bdi>
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-slate-100">
-                      <div className="grid grid-cols-3 gap-1.5 text-center text-xs mb-3 bg-slate-50 p-2 rounded-xl border border-slate-100">
-                        {item.specs.map((spec, i) => (
-                          <div key={i} className="min-w-0">
-                            <span className="text-[9px] text-slate-400 block font-bold uppercase truncate">{spec.label}</span>
-                            <span className="font-black text-slate-800 text-[11px] truncate block mt-0.5">{spec.val}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      <div className="flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:translate-x-1 transition-transform">
-                        <span>{localizedText.inspectHint}</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:translate-x-1 transition-transform">
+                      <span>{localizedText.inspectHint}</span>
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </Card>
                 ))}
