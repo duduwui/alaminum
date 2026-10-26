@@ -1,5 +1,6 @@
 import React from 'react';
 import CardSwap, { Card } from './CardSwap';
+import ScrollStack, { ScrollStackItem } from './ScrollStack';
 import { ArrowRight, Download, ExternalLink, FileText, ShieldCheck, CheckCircle2, Sparkles } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
@@ -323,6 +324,7 @@ const SHOWCASE_PRODUCTS = [
     image: "/assets/showcase/wiek_hidden_hinge-04.png",
     fallbackImage: "/assets/catalogs/wiek_page-04.png",
     badge: "180° Hidden Hinge",
+    pdfUrl: "/catalogs/wiek-general-catalog-2026.pdf",
     description: "Flush concealed hinge mechanism engineered for modern minimalist architecture with 130 kg sash load capacity and multi-point perimeter security locking.",
     specs: [
       { label: "Sash Load", val: "130 kg" },
@@ -339,6 +341,7 @@ const SHOWCASE_PRODUCTS = [
     image: "/assets/showcase/stac_window_handles-044.png",
     fallbackImage: "/assets/catalogs/stac_page-004.png",
     badge: "Aerospace 6063-T5",
+    pdfUrl: "/catalogs/stac-hardware-accessories.pdf",
     description: "Aerospace-grade aluminum monolithic forming with 0 mm redundant protrusion and CNC precision milling, seamlessly integrating with thermal window profiles.",
     specs: [
       { label: "Material", val: "6063-T5 Aluminum" },
@@ -355,6 +358,7 @@ const SHOWCASE_PRODUCTS = [
     image: "/assets/showcase/wiek_bifold_door-34.png",
     fallbackImage: "/assets/catalogs/wiek_page-01.png",
     badge: "Heavy-Duty Tandem",
+    pdfUrl: "/catalogs/wiek-general-catalog-2026.pdf",
     description: "Synchronized multi-leaf bi-folding hardware system with stainless steel silent bearing rollers and secure central transmission gearboxes.",
     specs: [
       { label: "Load / Leaf", val: "100 kg" },
@@ -371,6 +375,7 @@ const SHOWCASE_PRODUCTS = [
     image: "/assets/showcase/stac_lift_slide-108.png",
     fallbackImage: "/assets/showcase/stac_lift_slide-108.png",
     badge: "UNE-EN 1670 Grade 4",
+    pdfUrl: "/catalogs/stac-hardware-accessories.pdf",
     description: "Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.",
     specs: [
       { label: "Footprint", val: "9.5 mm Flush" },
@@ -385,7 +390,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
   onSelectProductByName,
   onGoToProducts
 }) => {
-  const { currentLanguage, isRtl } = useLanguage();
+  const { currentLanguage } = useLanguage();
   const baseLang = currentLanguage.code.split('-')[0];
 
   const localizedText =
@@ -409,24 +414,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
         category: loc.category || prod.category,
         badge: loc.badge || prod.badge,
         description: loc.description || prod.description,
-        specs: loc.specs || prod.specs
+        specs: loc.specs || prod.specs,
+        pdfUrl: prod.pdfUrl
       };
     });
   }, [currentItemLocales]);
-
-  const handleSelectProduct = (title: string, id: string) => {
-    if (onSelectProductByName) {
-      onSelectProductByName(title);
-      return;
-    }
-    const products = loadLocalProducts();
-    const found = products.find((p) => p.id === id || p.name.toLowerCase().includes(title.toLowerCase()));
-    if (found && onSelectProduct) {
-      onSelectProduct(found);
-    } else if (onGoToProducts) {
-      onGoToProducts('accessories');
-    }
-  };
 
   // Translations for the 2 Catalog Cards
   const isAr = currentLanguage.code === 'ar';
@@ -435,169 +427,244 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
 
   const cat1 = {
     logo: '/assets/showcase/wiek-logo.png',
-    title: isAr ? 'كتالوج شركة WIEK بلجيكا — حلول 2026' : isKu ? 'کەتەلۆگی فەرمی WIEKی بەلجیکی — ٢٠٢٦' : isTr ? 'WIEK SYSTEM Belçika — 2026 Çözümleri' : 'WIEK SYSTEM Belgium — 2026 Solutions',
-    subtitle: isAr ? 'حيث تلتقي الوظيفة بالابتكار المعماري • إكسسوارات الأبواب والنوافذ' : isKu ? 'شوێنی یەکگرتنی کارامەیی و داهێنان • ئێکسسواراتی دەرگا و پەنجەرە' : isTr ? 'İnovasyon ve Fonksiyonelliğin Buluştuğu Nokta • Kapı ve Pencere Donanımları' : 'Where Function Meets Innovation • Door & Window Hardware Solutions',
+    title: isAr ? 'كتالوج شركة WIEK بلجيكا' : isKu ? 'کەتەلۆگی کۆمپانیای WIEKی بەلجیکی' : isTr ? 'WIEK Belçika Mimari Kataloğu' : 'WIEK Belgium Architectural Catalog',
     desc: isAr
-      ? 'كتالوج شامل لأحدث أنظمة المفصلات المخفية (Tilt & Turn)، وآليات الأبواب القابلة للطي (Bi-Fold)، والتروس المركزية المصممة في بلجيكا بأعلى المعايير الأوروبية.'
+      ? 'المفصلات المخفية والأنظمة المعمارية 2026'
       : isKu
-      ? 'کەتەلۆگی گشتگیر بۆ نوێترین سیستەمی نەرمەلۆی شاردراوە، دەرگای ئەکۆردیۆن و گێڕبۆکسی پارێزراو کە لە بەلجیکا دیزاین کراون بە بەرزترین ستاندارد.'
+      ? 'چارەسەری نەرمەلۆی شاردراوە و سیستەمی تەلارسازی'
       : isTr
-      ? 'Belçika mühendisliğiyle üretilen gizli menteşeli çift açılım, katlanır kapı mekanizmaları ve emniyet kilit sistemlerini içeren 88 sayfalık resmi 2026 kataloğu.'
-      : 'Comprehensive 88-page technical guide featuring Belgium-engineered hidden hinge systems, synchronized bi-folding patio gearboxes, and ISO-tested hardware.',
+      ? 'Gizli menteşe ve mimari kapı pencere donanımları'
+      : 'Concealed hinge solutions & architectural fenestration',
     pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: 'WIEK-General-Catalog-2026.pdf',
-    size: '65 MB'
+    fileName: 'WIEK-General-Catalog-2026.pdf'
   };
 
   const cat2 = {
     logo: '/assets/showcase/stac-logo.png',
-    title: isAr ? 'كتالوج شركة STAC إسبانيا العام للإكسسوارات' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی بۆ ئێکسسوارات' : isTr ? 'STAC İspanya Genel Donanım ve Aksesuar Kataloğu' : 'STAC Spain General Hardware & Accessories Catalogue',
-    subtitle: isAr ? 'المرجع الهندسي الشامل — 442 صفحة من الأنظمة المعمارية الفاخرة' : isKu ? 'سەرچاوەی ئەندازیاری گشتگیر — ٤٤٢ پەڕە لە سیستەمی تەلارسازی' : isTr ? 'Kapsamlı Mimari Teknik Referans — 442 Sayfa Sistem Rehberi' : 'Comprehensive Architectural Engineering Reference — 442 Pages',
+    title: isAr ? 'كتالوج شركة STAC إسبانيا' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی' : isTr ? 'STAC İspanya Donanım Kataloğu' : 'STAC Spain Hardware Catalog',
     desc: isAr
-      ? 'الدليل التقني الشامل لمنتجات STAC الإسبانية: مقابض المينيماليست بدون بروز، تروس الرفع والسحب العملاقة حتى 400 كغم، والمفصلات المقاومة للتآكل بالدرجة الخامسة EN-1670.'
+      ? 'المقابض المينيماليست وتروس الرفع والسحب'
       : isKu
-      ? 'ڕێبەری تەکنیکی فەرمی STACی ئیسپانیا: دەسکی مۆدێرنی بێ بەرزایی، سیستەمی لیفت و سلایدینگ بۆ شوشەی تا ٤٠٠ کگم، و ئێکسسواراتی دژە ژەنگ بە پلەی پێنجەمی EN-1670.'
+      ? 'دەسکی مۆدێرن و سیستەمی لیفت و سلایدینگ'
       : isTr
-      ? 'İspanya menşeili STAC ürünlerinin 442 sayfalık tam teknik kataloğu: 0 mm çıkıntısız kollar, 400 kg kapasiteli hebe-schiebe donanımları ve Grade 5 korozyon dayanımlı parçalar.'
-      : 'The definitive 442-page technical catalog from STAC Spain: flush minimalist cremones (0 mm protrusion), monumental lift & slide mechanisms up to 400 kg, and Grade 5 anti-corrosion components.',
+      ? 'Minimalist kollar ve hebeschiebe donanımları'
+      : 'Minimalist cremones & monumental lift & slide hardware',
     pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
-    fileName: 'STAC-Hardware-Accessories-Catalogue.pdf',
-    size: '140 MB'
+    fileName: 'STAC-Hardware-Accessories-Catalogue.pdf'
+  };
+
+  const handleCardClick = (item: { pdfUrl?: string; brand?: string }) => {
+    const url = item.pdfUrl || (item.brand?.includes('WIEK') ? cat1.pdfUrl : cat2.pdfUrl);
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section className="py-14 sm:py-20 bg-gradient-to-b from-[#f9fafb] via-white to-[#f4f6fa] relative overflow-hidden border-b border-slate-200">
+    <section className="py-10 sm:py-16 bg-gradient-to-b from-[#f9fafb] via-white to-[#f4f6fa] relative overflow-hidden border-b border-slate-200">
       {/* Background Architectural Accent Glows */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-red-100/50 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          
-          {/* Left Column: 2 Dedicated European Catalog Presentation Cards */}
-          <div className="col-span-1 lg:col-span-6 space-y-4 sm:space-y-5">
-            <div className="border-s-4 border-red-600 ps-3.5 sm:ps-4 dh-reveal">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-red-600 flex items-center gap-1.5 mb-1">
-                <Sparkles className="w-3.5 h-3.5 text-red-600" />
-                <bdi dir="auto">{isAr ? 'الكتالوجات الأوروبية الفنية المعتمدة' : isKu ? 'کەتەلۆگی فەرمی و باوەڕپێکراوی ئەوروپا' : 'CERTIFIED EUROPEAN TECHNICAL CATALOGUES'}</bdi>
-              </span>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
-                <bdi dir="auto">{localizedText.title}</bdi>
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5 sm:mt-2 max-w-xl">
-                <bdi dir="auto">{localizedText.subtitle}</bdi>
-              </p>
+        {/* Section Header */}
+        <div className="border-s-4 border-red-600 ps-3.5 sm:ps-4 mb-6 sm:mb-8 dh-reveal">
+          <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-red-600 flex items-center gap-1.5 mb-1">
+            <Sparkles className="w-3.5 h-3.5 text-red-600" />
+            <bdi dir="auto">{isAr ? 'الكتالوجات الأوروبية الفنية المعتمدة' : isKu ? 'کەتەلۆگی فەرمی و باوەڕپێکراوی ئەوروپا' : 'CERTIFIED EUROPEAN TECHNICAL CATALOGUES'}</bdi>
+          </span>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+            <bdi dir="auto">{localizedText.title}</bdi>
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1 sm:mt-1.5 max-w-xl">
+            <bdi dir="auto">{localizedText.subtitle}</bdi>
+          </p>
+        </div>
+
+        {/* 2 European Official Catalogues Cards (Compact & sleek, no huge badges) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
+          {/* Catalog Card 1: WIEK SYSTEM Belgium */}
+          <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-1.5">
+              <div className="h-7 flex items-center">
+                <img
+                  src={cat1.logo}
+                  alt="WİEK SYSTEM Belgium"
+                  className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
+                />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                  <bdi dir="auto">{cat1.title}</bdi>
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
+                  <bdi dir="auto">{cat1.desc}</bdi>
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 sm:gap-4">
-              {/* Catalog Card 1: WIEK SYSTEM Belgium */}
-              <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-2.5 sm:space-y-3 relative overflow-hidden group">
-                <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 sm:pb-2.5">
-                  <div className="h-6 sm:h-8 flex items-center">
-                    <img
-                      src={cat1.logo}
-                      alt="WİEK SYSTEM"
-                      className="max-h-6 sm:max-h-7 max-w-[120px] sm:max-w-[140px] w-auto object-contain"
-                    />
-                  </div>
-                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
-                    PDF • {cat1.size}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-sm sm:text-base lg:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
-                    <bdi dir="auto">{cat1.title}</bdi>
-                  </h3>
-                  <p className="text-[11px] sm:text-xs font-bold text-red-600 mt-0.5 line-clamp-1">
-                    <bdi dir="auto">{cat1.subtitle}</bdi>
-                  </p>
-                  <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-1 sm:mt-1.5 line-clamp-2">
-                    <bdi dir="auto">{cat1.desc}</bdi>
-                  </p>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-slate-100">
-                  <a
-                    href={cat1.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>{localizedText.specsBtn}</span>
-                    <ExternalLink className="w-3 h-3 opacity-80" />
-                  </a>
-
-                  <a
-                    href={cat1.pdfUrl}
-                    download={cat1.fileName}
-                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
-                  >
-                    <Download className="w-3.5 h-3.5 text-slate-600" />
-                    <span>{localizedText.estimateBtn}</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Catalog Card 2: STAC Spain */}
-              <div className="p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-red-300 transition-all space-y-2.5 sm:space-y-3 relative overflow-hidden group">
-                <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-2 sm:pb-2.5">
-                  <div className="h-6 sm:h-8 flex items-center">
-                    <img
-                      src={cat2.logo}
-                      alt="STAC Spain"
-                      className="max-h-6 sm:max-h-7 max-w-[120px] sm:max-w-[140px] w-auto object-contain"
-                    />
-                  </div>
-                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 bg-slate-100 border border-slate-200/80 px-2 py-0.5 rounded-full">
-                    PDF • {cat2.size}
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-sm sm:text-base lg:text-lg font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
-                    <bdi dir="auto">{cat2.title}</bdi>
-                  </h3>
-                  <p className="text-[11px] sm:text-xs font-bold text-red-600 mt-0.5 line-clamp-1">
-                    <bdi dir="auto">{cat2.subtitle}</bdi>
-                  </p>
-                  <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-1 sm:mt-1.5 line-clamp-2">
-                    <bdi dir="auto">{cat2.desc}</bdi>
-                  </p>
-                </div>
-
-                <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-slate-100">
-                  <a
-                    href={cat2.pdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs hover:shadow-sm transition-all"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>{localizedText.specsBtn}</span>
-                    <ExternalLink className="w-3 h-3 opacity-80" />
-                  </a>
-
-                  <a
-                    href={cat2.pdfUrl}
-                    download={cat2.fileName}
-                    className="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs border border-slate-200 transition-all"
-                  >
-                    <Download className="w-3.5 h-3.5 text-slate-600" />
-                    <span>{localizedText.estimateBtn}</span>
-                  </a>
-                </div>
-              </div>
+            <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+              <a
+                href={cat1.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
+                <ExternalLink className="w-3 h-3 opacity-80" />
+              </a>
+              <span className="text-[10px] font-bold text-slate-400">PDF • 88 Pages</span>
             </div>
           </div>
 
-          {/* Right Column: 3D Interactive CardDeck with Systems from the Catalogs */}
-          <div className="col-span-1 lg:col-span-6 flex justify-center lg:justify-end items-start pt-2 lg:pt-0">
-            <div className="relative w-full max-w-[360px] sm:max-w-[400px] h-[400px] sm:h-[460px] flex items-center justify-center lg:justify-end">
+          {/* Catalog Card 2: STAC Spain */}
+          <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-1.5">
+              <div className="h-7 flex items-center">
+                <img
+                  src={cat2.logo}
+                  alt="STAC Spain"
+                  className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
+                />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                  <bdi dir="auto">{cat2.title}</bdi>
+                </h3>
+                <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
+                  <bdi dir="auto">{cat2.desc}</bdi>
+                </p>
+              </div>
+            </div>
+
+            <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+              <a
+                href={cat2.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
+                <ExternalLink className="w-3 h-3 opacity-80" />
+              </a>
+              <span className="text-[10px] font-bold text-slate-400">PDF • 442 Pages</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 1. MOBILE & TABLET VIEW: Sticky ScrollStack (< lg) */}
+        <div className="block lg:hidden">
+          <div className="mb-3 flex items-center justify-between">
+            <span className="text-xs font-bold text-slate-700">
+              <bdi dir="auto">{isAr ? 'انزل للأسفل لتصفح أنظمة الكتالوج (اضغط لفتح PDF)' : isKu ? 'بڕۆ خوارەوە بۆ بینینی سیستەمەکان (کلیک بکە بۆ PDF)' : 'Scroll to view catalog systems (Click card to open PDF)'}</bdi>
+            </span>
+          </div>
+
+          <ScrollStack
+            useWindowScroll={true}
+            itemDistance={45}
+            itemScale={0.03}
+            itemStackDistance={16}
+            stackPosition="16%"
+          >
+            {showcaseItems.map((item) => (
+              <ScrollStackItem
+                key={item.id}
+                itemClassName="bg-white/95 backdrop-blur-md border border-slate-200 p-4 sm:p-5 rounded-2xl shadow-xl cursor-pointer"
+              >
+                <div
+                  onClick={() => handleCardClick(item)}
+                  className="space-y-2.5 group"
+                >
+                  <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                    <span className="text-[10px] font-black text-red-700 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      <bdi dir="auto">{item.brand}</bdi>
+                    </span>
+                    <span className="text-[11px] font-bold text-slate-500">
+                      <bdi dir="auto">{item.category}</bdi>
+                    </span>
+                  </div>
+
+                  <div className="relative h-36 sm:h-44 w-full bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center border border-slate-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = item.fallbackImage;
+                      }}
+                    />
+                    <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-xs">
+                      <bdi dir="auto">{item.badge}</bdi>
+                    </div>
+                  </div>
+
+                  <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug line-clamp-1">
+                    <bdi dir="auto">{item.title}</bdi>
+                  </h3>
+                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                    <bdi dir="auto">{item.description}</bdi>
+                  </p>
+
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold">
+                    <span className="flex items-center gap-1.5">
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>{isAr ? 'فتح الكتالوج المعتمد (PDF)' : isKu ? 'کردنەوەی کەتەلۆگ (PDF)' : 'Open Catalog (PDF)'}</span>
+                    </span>
+                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
+                </div>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        </div>
+
+        {/* 2. DESKTOP VIEW: Unified Side-by-Side Presentation (>= lg) */}
+        <div className="hidden lg:grid grid-cols-12 gap-8 lg:gap-12 items-center pt-2">
+          {/* Left Column: Interactive System Bullet List */}
+          <div className="col-span-6 space-y-3">
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">
+              <bdi dir="auto">{isAr ? 'الأنظمة المختارة من الكتالوجات (اضغط لفتح ملف PDF)' : isKu ? 'سیستەمەکانی کەتەلۆگ (کلیک بکە بۆ PDF)' : 'Catalog Systems (Click to open technical PDF)'}</bdi>
+            </span>
+            {showcaseItems.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleCardClick(item)}
+                className="w-full text-start p-3.5 rounded-2xl bg-white hover:bg-red-50/50 border border-slate-200/90 hover:border-red-300 shadow-xs hover:shadow-sm transition-all flex items-center justify-between group cursor-pointer"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-sm font-black text-slate-900 group-hover:text-red-600 transition-colors block">
+                      <bdi dir="auto">{item.title}</bdi>
+                    </span>
+                    <span className="text-[11px] text-slate-500 font-medium block">
+                      <bdi dir="auto">{item.brand} • {item.badge}</bdi>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1.5 text-xs font-bold text-red-600 shrink-0 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
+                  <span>PDF</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Right Column: 3D Interactive CardSwap Deck */}
+          <div className="col-span-6 flex justify-end items-center">
+            <div className="relative w-full max-w-[380px] h-[450px] flex items-center justify-end">
               <CardSwap
                 width={360}
-                height={410}
+                height={420}
                 cardDistance={22}
                 verticalDistance={16}
                 delay={4500}
@@ -607,7 +674,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                   <Card
                     key={item.id}
                     className="p-4 sm:p-5 flex flex-col justify-between bg-white border border-slate-200 rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl overflow-hidden cursor-pointer group"
-                    onClick={() => handleSelectProduct(item.title, item.id)}
+                    onClick={() => handleCardClick(item)}
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2 mb-2">
@@ -619,7 +686,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                         </span>
                       </div>
 
-                      <div className="relative h-40 sm:h-48 w-full bg-slate-50 rounded-xl sm:rounded-2xl overflow-hidden mb-2 sm:mb-2.5 p-2.5 flex items-center justify-center border border-slate-100">
+                      <div className="relative h-40 sm:h-44 w-full bg-slate-50 rounded-xl sm:rounded-2xl overflow-hidden mb-2 sm:mb-2.5 p-2.5 flex items-center justify-center border border-slate-100">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -641,16 +708,18 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                       </p>
                     </div>
 
-                    <div className="pt-2 sm:pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:translate-x-1 transition-transform">
-                      <span>{localizedText.inspectHint}</span>
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="pt-2 sm:pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:text-red-700">
+                      <span className="flex items-center gap-1.5">
+                        <FileText className="w-3.5 h-3.5" />
+                        <span>{isAr ? 'فتح الكتالوج (PDF)' : isKu ? 'کردنەوەی کەتەلۆگ (PDF)' : 'Open Catalog (PDF)'}</span>
+                      </span>
+                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                   </Card>
                 ))}
               </CardSwap>
             </div>
           </div>
-
         </div>
       </div>
     </section>
