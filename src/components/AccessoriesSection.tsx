@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ACCESSORIES_LINES, ProductItem } from '../data/winhomeData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
-import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 
@@ -34,22 +34,14 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
   const localizedLines = products.map((line) => getLocalizedProduct(line, currentLanguage.code));
   const activeProduct = localizedLines[currentIndex] || localizedLines[0];
 
-  // Auto-swap every 4.5s (state-only, zero window scroll)
+  // Auto-swap every 4s continuously (no pause on hover)
   useEffect(() => {
-    if (isPaused || localizedLines.length <= 1) return;
+    if (localizedLines.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % localizedLines.length);
-    }, 4500);
+    }, 4000);
     return () => clearInterval(timer);
-  }, [isPaused, localizedLines.length]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? localizedLines.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % localizedLines.length);
-  };
+  }, [localizedLines.length]);
 
   if (!activeProduct) return null;
 
@@ -57,8 +49,9 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
     <section id="accessories" className="py-12 sm:py-16 bg-white border-b border-slate-200 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Clean Header — NO Ugly Badges */}
-        <div className="border-s-4 border-red-600 ps-4 mb-6 sm:mb-8">
+        {/* Clean Header — NO Ugly Vertical Lines, NO Badges */}
+        <div className="mb-6 sm:mb-8 dh-reveal">
+          <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{t('acc_title') || 'Architectural Hardware & Accessories'}</bdi>
           </h2>
@@ -67,17 +60,11 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
           </p>
         </div>
 
-        {/* Interactive Auto-Swapping Card (Mobile: Image on top with < > controls | Laptop: Side-by-Side) */}
-        <div
-          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-500"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-        >
+        {/* Interactive Auto-Swapping Card */}
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
-            {/* Media Display: Image with slide counter and controls on the image */}
+            {/* Media Display: Image with slide counter */}
             <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[280px] sm:h-[360px] lg:h-[420px] w-full p-6">
               <img
                 key={activeProduct.image}
@@ -92,27 +79,26 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                 loading="lazy"
               />
 
-              {/* Slide Counter & Prev/Next Controls on the corner of the image */}
+              {/* Clean Slide Indicators (No Arrows) */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
-                <span className="text-[11px] font-bold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
-                  {currentIndex + 1} / {localizedLines.length}
-                </span>
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous accessory"
-                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
-                >
-                  <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next accessory"
-                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
-                >
-                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-                </button>
+                <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
+                  {localizedLines.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => setCurrentIndex(dotIdx)}
+                      aria-label={`Go to slide ${dotIdx + 1}`}
+                      className={`transition-all duration-300 rounded-full cursor-pointer ${
+                        dotIdx === currentIndex
+                          ? 'w-5 h-1.5 bg-red-500'
+                          : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/90'
+                      }`}
+                    />
+                  ))}
+                  <span className="text-[10px] font-mono font-bold text-white/90 ms-1">
+                    {currentIndex + 1}/{localizedLines.length}
+                  </span>
+                </div>
               </div>
             </div>
 

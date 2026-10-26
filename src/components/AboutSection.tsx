@@ -834,12 +834,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   return (
     <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.07),transparent_40%),#fff] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16 border-s-[3px] border-red-600 ps-5 sm:ps-7 dh-reveal">
+        {/* Section Header - Clean Architectural Styling (No Harsh Vertical Line) */}
+        <div className="max-w-3xl mb-12 sm:mb-16 dh-reveal">
+          <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-4" />
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{headerContent.title}</bdi>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
             <bdi dir="auto">{headerContent.subtitle}</bdi>
           </p>
         </div>

@@ -197,7 +197,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                         <h3 className="text-base font-extrabold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-1">
                           {item.title}
                         </h3>
-                        <p className="line-clamp-2 text-xs leading-relaxed text-slate-600">
+                        <p className="line-clamp-2 text-xs leading-relaxed text-slate-600 whitespace-pre-line">
                           {item.description}
                         </p>
                       </div>
@@ -315,7 +315,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                 <h3 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
                   {localize(items.find(item => item.id === selected.id) || selected).title}
                 </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal whitespace-pre-line">
                   {localize(items.find(item => item.id === selected.id) || selected).description}
                 </p>
               </div>

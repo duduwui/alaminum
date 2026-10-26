@@ -67,7 +67,8 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 dh-reveal">
-          <div className="border-s-4 border-red-600 ps-4">
+          <div>
+            <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               <bdi dir="auto">{t('door_title')}</bdi>
             </h2>

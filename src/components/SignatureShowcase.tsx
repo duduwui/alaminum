@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, FileText } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -451,25 +451,16 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (isPaused || showcaseItems.length <= 1) return;
+    if (showcaseItems.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % showcaseItems.length);
-    }, 4500);
+    }, 4000);
     return () => clearInterval(timer);
-  }, [isPaused, showcaseItems.length]);
+  }, [showcaseItems.length]);
 
   const activeItem = showcaseItems[currentIndex] || showcaseItems[0];
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev <= 0 ? showcaseItems.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % showcaseItems.length);
-  };
 
   const handleOpenPdf = (pdfUrl?: string) => {
     const url = pdfUrl || (activeItem.brand?.includes('WIEK') ? cat1.pdfUrl : cat2.pdfUrl);
@@ -483,8 +474,9 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header - Clean, No Ugly Badges */}
-        <div className="border-s-4 border-red-600 ps-4 mb-6 sm:mb-8 dh-reveal">
+        {/* Section Header - Clean, No Harsh Vertical Lines */}
+        <div className="mb-6 sm:mb-8 dh-reveal">
+          <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{localizedText.title}</bdi>
           </h2>
@@ -566,14 +558,8 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
           </div>
         </div>
 
-        {/* Clean Interactive Architecture Card (Unified for Laptops and Mobile) */}
-        <div
-          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-300"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-        >
+        {/* Clean Interactive Architecture Card (Auto-slides every 4 seconds) */}
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             {/* 1. Large Image Stage */}
             <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
@@ -588,27 +574,26 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 onClick={() => handleOpenPdf(activeItem.pdfUrl)}
               />
 
-              {/* Slide Counter & Prev/Next Controls */}
+              {/* Clean Slide Indicators (No Ugly Arrows) */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
-                <span className="text-[11px] font-bold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
-                  {currentIndex + 1} / {showcaseItems.length}
-                </span>
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous system"
-                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
-                >
-                  <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next system"
-                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
-                >
-                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
-                </button>
+                <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
+                  {showcaseItems.map((_, dotIdx) => (
+                    <button
+                      key={dotIdx}
+                      type="button"
+                      onClick={() => setCurrentIndex(dotIdx)}
+                      aria-label={`Go to slide ${dotIdx + 1}`}
+                      className={`transition-all duration-300 rounded-full cursor-pointer ${
+                        dotIdx === currentIndex
+                          ? 'w-5 h-1.5 bg-red-500'
+                          : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/90'
+                      }`}
+                    />
+                  ))}
+                  <span className="text-[10px] font-mono font-bold text-white/90 ms-1">
+                    {currentIndex + 1}/{showcaseItems.length}
+                  </span>
+                </div>
               </div>
             </div>
 

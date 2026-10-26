@@ -1,6 +1,6 @@
 import { getLocalizedProduct } from '../utils/localizedContent';
 import { VisitsHistoryModal } from './VisitsHistoryModal';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   QuotationRequest,
   RequestItem,
@@ -128,6 +128,127 @@ const compressImageFile = (file: File, maxWidth = 1000, quality = 0.8): Promise<
 
 const MAX_IMAGE_UPLOAD_BYTES = 15 * 1024 * 1024;
 const MAX_MEDIA_UPLOAD_BYTES = 100 * 1024 * 1024;
+
+interface AdvancedTextareaProps {
+  value: string;
+  onChange: (val: string) => void;
+  onBlur?: () => void;
+  placeholder?: string;
+  rows?: number;
+  label?: string;
+  minHeight?: string;
+}
+
+const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
+  value,
+  onChange,
+  onBlur,
+  placeholder = 'Type detailed architectural description...',
+  rows = 3,
+  label,
+  minHeight = '90px'
+}) => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const textarea = textareaRef.current;
+      if (!textarea) return;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const tabSpaces = '    '; // 4 spaces for clean indentation
+      const currentVal = value || '';
+      const nextVal = currentVal.substring(0, start) + tabSpaces + currentVal.substring(end);
+      onChange(nextVal);
+      requestAnimationFrame(() => {
+        if (textareaRef.current) {
+          textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start + tabSpaces.length;
+        }
+      });
+    }
+  };
+
+  const insertAtCursor = (textToInsert: string) => {
+    const textarea = textareaRef.current;
+    if (!textarea) {
+      onChange(value ? `${value}\n${textToInsert}` : textToInsert);
+      return;
+    }
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const currentVal = value || '';
+    const nextVal = currentVal.substring(0, start) + textToInsert + currentVal.substring(end);
+    onChange(nextVal);
+    requestAnimationFrame(() => {
+      if (textareaRef.current) {
+        textareaRef.current.focus();
+        textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start + textToInsert.length;
+      }
+    });
+  };
+
+  const lineCount = (value || '').split('\n').length;
+  const charCount = (value || '').length;
+
+  return (
+    <div className="space-y-1 w-full text-start">
+      {label && (
+        <div className="flex items-center justify-between text-xs font-bold text-slate-800">
+          <span>{label}</span>
+          <span className="text-[10px] text-slate-400 font-normal">
+            {charCount} chars • {lineCount} line{lineCount > 1 ? 's' : ''}
+          </span>
+        </div>
+      )}
+
+      {/* Formatting Quick-Toolbar */}
+      <div className="flex items-center justify-between gap-1 bg-slate-100 border border-slate-200 border-b-0 rounded-t-lg px-2 py-1 text-[11px] text-slate-600">
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => insertAtCursor('    ')}
+            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            title="Insert 4-space tab indentation (press Tab on keyboard anytime)"
+          >
+            ⇥ Tab
+          </button>
+          <button
+            type="button"
+            onClick={() => insertAtCursor('\n\n')}
+            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            title="Insert blank paragraph break line"
+          >
+            ↵ Blank Line
+          </button>
+          <button
+            type="button"
+            onClick={() => insertAtCursor('• ')}
+            className="px-1.5 py-0.5 rounded bg-white hover:bg-slate-200 border border-slate-300 text-slate-700 font-mono text-[10px] font-semibold transition-colors cursor-pointer shadow-2xs"
+            title="Insert bullet point"
+          >
+            • Bullet
+          </button>
+        </div>
+        <span className="text-[10px] text-slate-400 font-mono hidden sm:inline">
+          Tab key enabled
+        </span>
+      </div>
+
+      <textarea
+        ref={textareaRef}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={handleKeyDown}
+        onBlur={onBlur}
+        rows={rows}
+        placeholder={placeholder}
+        style={{ minHeight }}
+        className="w-full rounded-b-lg border border-slate-200 bg-white px-2.5 py-2 text-xs text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
+      />
+    </div>
+  );
+};
 
 const uploadCmsMediaFile = async (file: File): Promise<string> => {
   if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm'].includes(file.type)) {
@@ -1725,26 +1846,27 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
               </div>
 
-              {/* 3D Carousel Top 12 Info Banner */}
-              <div className="rounded-xl border border-red-200 bg-red-50/70 p-3.5 text-xs text-red-950 flex items-start gap-3">
-                <Sparkles className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                <div className="space-y-1">
-                  <div className="font-extrabold text-red-900 text-xs sm:text-sm">
-                    Homepage 3D Carousel (Top 12 Cards)
-                  </div>
-                  <p className="text-slate-700 leading-relaxed text-[11px] sm:text-xs">
-                    The first 12 cards in this list (highlighted with the red <strong>3D Carousel</strong> badge) correspond directly to <strong>Cards 01 through 12</strong> in the 3D Carousel on the public homepage. Use <strong>Replace</strong> to change any photo or video, and use the <strong>↑ / ↓</strong> arrows to change their carousel position. Changes save automatically.
-                  </p>
+              {/* 3D Carousel Top 12 Info Note */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-700">
+                <div className="font-bold text-slate-900 text-xs sm:text-sm">
+                  Homepage 3D Carousel (Cards #01 to #12)
                 </div>
+                <p className="text-slate-600 leading-relaxed text-[11px] sm:text-xs mt-1">
+                  Cards #01 through #12 correspond directly to the 12 slides in the 3D Carousel on the public homepage. Use <strong>Replace</strong> to change any photo or video, and use the <strong>↑ / ↓</strong> arrows to reorder their position. Changes save automatically.
+                </p>
               </div>
 
-              <div className="space-y-3 rounded-2xl border border-red-100 bg-white p-4 shadow-2xs">
+              <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
                 <label className="block text-xs font-bold text-slate-800">Project title
                   <input value={newGalleryTitle} onChange={(e) => setNewGalleryTitle(e.target.value)} placeholder="Project title" className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900" />
                 </label>
-                <label className="block text-xs font-bold text-slate-800">Description
-                  <textarea value={newGalleryDescription} onChange={(e) => setNewGalleryDescription(e.target.value)} placeholder="Project description" rows={3} className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900" />
-                </label>
+                <AdvancedTextarea
+                  value={newGalleryDescription}
+                  onChange={setNewGalleryDescription}
+                  placeholder="Detailed project description & architectural specifications..."
+                  label="Project Description (Press Tab to indent, blank lines supported)"
+                  rows={3}
+                />
                 <button type="button" disabled={isUploadingGalleryMedia} onClick={() => galleryFileInputRef.current?.click()} className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-red-700 disabled:opacity-50">
                   <Upload className="h-4 w-4" /> {isUploadingGalleryMedia ? 'Uploading…' : 'Upload images and videos'}
                 </button>
@@ -1766,24 +1888,16 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {galleryImages.map((item, idx) => {
-                      const isTop12 = idx < 12;
                       return (
                         <div
                           key={item.id || idx}
-                          className={`rounded-2xl border ${isTop12 ? 'border-red-300 ring-1 ring-red-200/60 bg-gradient-to-b from-red-50/20 to-white' : 'border-slate-200 bg-white'} p-3 space-y-2.5 shadow-xs hover:border-red-400 transition-all flex flex-col justify-between`}
+                          className="rounded-2xl border border-slate-200 bg-white p-3 space-y-2.5 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between"
                         >
-                          {/* Top Card Badge & Reorder Controls */}
+                          {/* Top Card Index & Reorder Controls — ZERO Loud Badges */}
                           <div className="flex items-center justify-between gap-1 pb-1">
-                            {isTop12 ? (
-                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow-2xs">
-                                <Sparkles className="w-3 h-3" />
-                                3D Carousel #{String(idx + 1).padStart(2, '0')}
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider">
-                                Project #{idx + 1}
-                              </span>
-                            )}
+                            <span className="text-xs font-mono font-bold text-slate-500 tracking-wider">
+                              #{String(idx + 1).padStart(2, '0')}
+                            </span>
 
                             {/* Reorder Arrows */}
                             <div className="flex items-center gap-1">
@@ -1820,7 +1934,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                             </span>
                           </div>
 
-                          {/* Editable Title & Description (Auto-saved on blur) */}
+                          {/* Editable Title & Advanced Description (Auto-saved on blur) */}
                           <div className="space-y-1.5">
                             <input
                               value={item.title}
@@ -1830,14 +1944,13 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                               placeholder="Project title"
                               className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-900 focus:border-red-500 focus:outline-none"
                             />
-                            <textarea
+                            <AdvancedTextarea
                               value={item.description}
-                              onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: e.target.value } : entry))}
+                              onChange={(val) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: val } : entry))}
                               onBlur={() => persistGalleryUpdates(galleryImages)}
-                              aria-label="Project description"
-                              placeholder="Project description"
-                              rows={2}
-                              className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs text-slate-900 focus:border-red-500 focus:outline-none"
+                              placeholder="Project description & architectural details..."
+                              rows={3}
+                              minHeight="75px"
                             />
                           </div>
 
@@ -1929,7 +2042,13 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                         <label className="block text-[10px] font-bold text-slate-600">Line under title</label>
                         <input value={showcaseCardValue(sys.key, 'subtitle', '')} placeholder={[ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.brand, ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.category].filter(Boolean).join(' • ') || 'Optional — small line in the five-card list'} onChange={(e) => updateShowcaseCardValue(sys.key, 'subtitle', e.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-900" />
                         <label className="block text-[10px] font-bold text-slate-600">Description</label>
-                        <textarea rows={3} value={showcaseCardValue(sys.key, 'description', ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.description || sys.description)} onChange={(e) => updateShowcaseCardValue(sys.key, 'description', e.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-900" />
+                        <AdvancedTextarea
+                          value={showcaseCardValue(sys.key, 'description', ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.description || sys.description)}
+                          onChange={(val) => updateShowcaseCardValue(sys.key, 'description', val)}
+                          placeholder="System description..."
+                          rows={3}
+                          minHeight="70px"
+                        />
                       </div>
 
                       {/* Action buttons */}
@@ -2535,8 +2654,14 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_form_desc')}</label>
-                  <textarea required rows={4} value={formDescription} onChange={(e) => setFormDescription(e.target.value)} placeholder="Describe this product" className="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white px-3.5 py-2.5 text-sm font-medium text-slate-900" />
+                  <AdvancedTextarea
+                    value={formDescription}
+                    onChange={setFormDescription}
+                    placeholder="Describe this product (specifications, thermal rating, glass types...)"
+                    label={t('admin_form_desc') || 'Product Description'}
+                    rows={4}
+                    minHeight="95px"
+                  />
                 </div>
 
                 <div>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const PARTNERS_TITLE_BY_LANG: Record<string, string> = {
@@ -227,21 +226,6 @@ export const PartnerLogos: React.FC = () => {
     pauseAutoScroll(2000);
   };
 
-  // Navigation Arrow Buttons
-  const scrollLeft = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
-      pauseAutoScroll(3000);
-    }
-  };
-
-  const scrollRight = () => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
-      pauseAutoScroll(3000);
-    }
-  };
-
   if (logos.length === 0) return null;
 
   return (
@@ -255,27 +239,7 @@ export const PartnerLogos: React.FC = () => {
       </div>
 
       {/* Interactive Horizontally Scrollable Carousel Stage */}
-      <div className="relative max-w-[1400px] mx-auto px-2 sm:px-4 group">
-        {/* Navigation Arrow Left */}
-        <button
-          type="button"
-          onClick={scrollLeft}
-          aria-label="Scroll logos left"
-          className="absolute start-3 sm:start-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer opacity-90 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 border border-white/40"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-
-        {/* Navigation Arrow Right */}
-        <button
-          type="button"
-          onClick={scrollRight}
-          aria-label="Scroll logos right"
-          className="absolute end-3 sm:end-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer opacity-90 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 border border-white/40"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-
+      <div className="relative max-w-[1400px] mx-auto px-2 sm:px-4">
         {/* Scrollable, Draggable Logo Track */}
         <div
           ref={scrollRef}
