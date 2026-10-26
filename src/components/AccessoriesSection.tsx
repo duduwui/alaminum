@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ACCESSORIES_LINES, ProductItem } from '../data/winhomeData';
+import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
 import { ChevronRight, Search } from 'lucide-react';
 import { GlowButton } from './GlowButton';
 import { useLanguage } from '../context/LanguageContext';
@@ -14,7 +15,23 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
   const [searchQuery, setSearchQuery] = useState('');
   const { currentLanguage, t } = useLanguage();
 
-  const localizedLines = ACCESSORIES_LINES.map(line => getLocalizedProduct(line, currentLanguage.code));
+  const [products, setProducts] = useState<ProductItem[]>(() => {
+    const all = loadLocalProducts();
+    const acc = all.filter((p) => p.category === 'accessories' || p.division === 'accessories');
+    return acc.length > 0 ? acc : ACCESSORIES_LINES;
+  });
+
+  useEffect(() => {
+    const unsubscribe = subscribeToLocalProducts((all) => {
+      const acc = all.filter((p) => p.category === 'accessories' || p.division === 'accessories');
+      if (acc.length > 0) {
+        setProducts(acc);
+      }
+    });
+    return unsubscribe;
+  }, []);
+
+  const localizedLines = products.map((line) => getLocalizedProduct(line, currentLanguage.code));
   const filteredLines = localizedLines.filter(
     (line) =>
       line.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -40,7 +57,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
 
           <div className="flex items-center gap-2">
             <span className="text-xs bg-white/20 px-3 py-1.5 rounded-full font-semibold">
-              {ACCESSORIES_LINES.length} {t('acc_count')}
+              {products.length} {t('acc_count')}
             </span>
           </div>
         </div>

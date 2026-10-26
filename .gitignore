@@ -14,5 +14,6 @@ coverage/
 translation_cache_db.json
 .DS_Store
 *.log
+/*.pdf
 .env*
 !.env.example

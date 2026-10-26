@@ -15,8 +15,14 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
     setDownloadSuccess(brochure.id);
     setTimeout(() => setDownloadSuccess(null), 3500);
 
-    const targetUrl = brochure.coverImage;
-    window.open(targetUrl, '_blank');
+    const targetUrl = brochure.downloadUrl && brochure.downloadUrl !== '#' ? brochure.downloadUrl : brochure.coverImage;
+    const a = document.createElement('a');
+    a.href = targetUrl;
+    a.download = brochure.title.replace(/[^a-zA-Z0-9_-]/g, '_') + '.pdf';
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (
@@ -111,26 +117,38 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
 
               {/* Compact Action Buttons */}
               <div className="mt-5 space-y-2">
-                <button
-                  onClick={() => handleDownload(item)}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md active:scale-[0.98] ${
-                    downloadSuccess === item.id
-                      ? 'bg-emerald-600 text-white shadow-emerald-600/20'
-                      : 'bg-red-600 hover:bg-red-700 text-white shadow-red-600/30'
-                  }`}
-                >
-                  {downloadSuccess === item.id ? (
-                    <>
-                      <CheckCircle2 className="w-4 h-4" />
-                      <span>{t('catalogue_opened')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Download className="w-4 h-4" />
-                      <span>{t('download_pdf')} ({item.pages} Pages)</span>
-                    </>
-                  )}
-                </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={item.downloadUrl && item.downloadUrl !== '#' ? item.downloadUrl : item.coverImage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm bg-red-600 hover:bg-red-700 text-white text-center"
+                  >
+                    <FileText className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">{t('open_pdf') || 'Open'}</span>
+                  </a>
+
+                  <button
+                    onClick={() => handleDownload(item)}
+                    className={`py-2.5 px-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm active:scale-[0.98] ${
+                      downloadSuccess === item.id
+                        ? 'bg-emerald-600 text-white shadow-emerald-600/20'
+                        : 'bg-slate-900 hover:bg-slate-800 text-white'
+                    }`}
+                  >
+                    {downloadSuccess === item.id ? (
+                      <>
+                        <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">{t('catalogue_opened')}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Download className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">{t('download_pdf') || 'Download'}</span>
+                      </>
+                    )}
+                  </button>
+                </div>
 
                 <a
                   href={`https://wa.me/${(DOORHOME_CONTACT.hotlineRaw || '+9647504440402').replace('+', '')}?text=Hello%20Doorhome,%20please%20send%20me%20the%20technical%20CAD%20drawings%20for%20${encodeURIComponent(item.title)}`}
@@ -138,8 +156,8 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
                   rel="noopener noreferrer"
                   className="w-full py-2 px-3 rounded-xl text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 flex items-center justify-center gap-1.5 border border-slate-200/80 transition-colors"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 text-red-600" />
-                  <span>{t('request_whatsapp_cad')}</span>
+                  <MessageSquare className="w-3.5 h-3.5 text-red-600 shrink-0" />
+                  <span className="truncate">{t('request_whatsapp_cad')}</span>
                 </a>
               </div>
             </div>

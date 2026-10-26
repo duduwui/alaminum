@@ -200,12 +200,75 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const logoFileInputRef = React.useRef<HTMLInputElement>(null);
   const [isUploadingLogo, setIsUploadingLogo] = useState(false);
 
+  const autoTrimLogoImage = (file: File): Promise<File> => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        try {
+          const canvas = document.createElement('canvas');
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) { resolve(file); return; }
+          ctx.drawImage(img, 0, 0);
+          const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imgData.data;
+          const w = canvas.width;
+          const h = canvas.height;
+          let minX = w, minY = h, maxX = 0, maxY = 0;
+          let hasContent = false;
+          for (let y = 0; y < h; y++) {
+            for (let x = 0; x < w; x++) {
+              const idx = (y * w + x) * 4;
+              const r = data[idx];
+              const g = data[idx + 1];
+              const b = data[idx + 2];
+              const a = data[idx + 3];
+              const isWhiteOrTransparent = a < 20 || (r > 245 && g > 245 && b > 245);
+              if (!isWhiteOrTransparent) {
+                hasContent = true;
+                if (x < minX) minX = x;
+                if (x > maxX) maxX = x;
+                if (y < minY) minY = y;
+                if (y > maxY) maxY = y;
+              }
+            }
+          }
+          if (!hasContent || maxX <= minX || maxY <= minY) { resolve(file); return; }
+          const padX = Math.round((maxX - minX) * 0.04);
+          const padY = Math.round((maxY - minY) * 0.05);
+          const cropX = Math.max(0, minX - padX);
+          const cropY = Math.max(0, minY - padY);
+          const cropW = Math.min(w - cropX, (maxX - minX) + padX * 2);
+          const cropH = Math.min(h - cropY, (maxY - minY) + padY * 2);
+          const croppedCanvas = document.createElement('canvas');
+          croppedCanvas.width = cropW;
+          croppedCanvas.height = cropH;
+          const croppedCtx = croppedCanvas.getContext('2d');
+          if (!croppedCtx) { resolve(file); return; }
+          croppedCtx.drawImage(canvas, cropX, cropY, cropW, cropH, 0, 0, cropW, cropH);
+          croppedCanvas.toBlob((blob) => {
+            if (!blob) { resolve(file); return; }
+            resolve(new File([blob], file.name.replace(/\.[^.]+$/, '.png'), { type: 'image/png' }));
+          }, 'image/png');
+        } catch {
+          resolve(file);
+        }
+      };
+      img.onerror = () => resolve(file);
+      img.src = url;
+    });
+  };
+
   const handleLogoFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     try {
       setIsUploadingLogo(true);
-      const url = await uploadCmsImageFile(file);
+      const trimmedFile = await autoTrimLogoImage(file);
+      const url = await uploadCmsImageFile(trimmedFile);
       setNewLogo((prev) => ({ ...prev, src: url }));
     } catch (err: any) {
       alert(err.message || 'Logo upload failed');

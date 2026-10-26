@@ -250,13 +250,13 @@ export const PartnerLogos: React.FC = () => {
               key={`${partner.id}-${index}`}
               className="shrink-0 flex flex-col items-center justify-end gap-1 select-none"
             >
-              <div className="flex items-center justify-center bg-white/90 rounded-xl px-4 py-2 backdrop-blur-sm hover:scale-110 transition-transform duration-200">
+              <div className="flex items-center justify-center bg-white rounded-2xl px-5 py-2.5 shadow-sm hover:scale-105 transition-transform duration-200 min-w-[130px] sm:min-w-[150px] h-12 sm:h-14">
                 <img
                   src={partner.src}
                   alt={partner.alt || partner.name}
                   title={partner.name}
                   loading="eager"
-                  className="h-8 sm:h-10 max-w-[120px] sm:max-w-[150px] w-auto object-contain pointer-events-none select-none"
+                  className="h-9 sm:h-11 max-w-[130px] sm:max-w-[160px] w-auto object-contain pointer-events-none select-none"
                   onError={(e) => {
                     const target = e.target as HTMLElement;
                     target.style.display = 'none';
