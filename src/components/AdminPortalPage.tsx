@@ -175,6 +175,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [activeSection, setActiveSection] = useState<
     'products' | 'categories' | 'users' | 'cms' | 'logos'
   >('products');
+  const [cmsSubTab, setCmsSubTab] = useState<'logos' | 'gallery' | 'bento' | 'hero'>('logos');
 
   // Seed Production Data Handler
   const handleSeedProductionData = () => {
@@ -1138,26 +1139,28 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   };
 
   return (
-    <div dir="ltr" className="doorhome-admin-workspace bg-white text-slate-900 font-sans flex min-h-screen overflow-hidden antialiased">
+    <div dir="ltr" className="doorhome-admin-workspace bg-slate-50 text-slate-900 font-sans flex h-screen overflow-hidden antialiased">
       
-      {/* LEFT SIDEBAR NAVIGATION */}
-      <aside className="w-64 bg-white border-r border-slate-200/80 shrink-0 flex flex-col justify-between hidden md:flex sticky top-0 h-screen z-30 shadow-2xs">
+      {/* LEFT SIDEBAR NAVIGATION - RED BRAND PALETTE WITH WHITE TEXT & ICONS */}
+      <aside className="w-64 bg-red-600 text-white border-r border-red-700 shrink-0 flex flex-col justify-between hidden md:flex h-full overflow-y-auto z-30 shadow-md select-none">
         <div>
           {/* Logo & Brand Header */}
-          <div className="p-5 border-b border-slate-100 flex items-center gap-3">
-            <img
-              src={DOORHOME_CONTACT.logo}
-              alt="Doorhome Logo"
-              className="h-9 w-auto object-contain shrink-0"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = DOORHOME_CONTACT.logoFallback;
-              }}
-            />
+          <div className="p-5 border-b border-red-500/60 flex items-center gap-3">
+            <div className="h-10 w-10 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm">
+              <img
+                src={DOORHOME_CONTACT.logo}
+                alt="Doorhome Logo"
+                className="h-full w-full object-contain"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = DOORHOME_CONTACT.logoFallback;
+                }}
+              />
+            </div>
             <div>
-              <h1 className="text-sm font-bold text-slate-900 leading-tight">
+              <h1 className="text-sm font-black text-white leading-tight tracking-wide">
                 Doorhome Console
               </h1>
-              <span className="text-[10px] text-slate-500 font-medium">
+              <span className="text-[10px] text-red-100 font-medium">
                 {currentLanguage.code === 'ar' ? 'لوحة الإدارة الهندسية' : currentLanguage.code === 'ckb' ? 'پەنێڵی بەڕێوەبردن' : 'Architecture & Catalog'}
               </span>
             </div>
@@ -1166,25 +1169,25 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           {/* Nav Section Links */}
           <div className="p-4 space-y-6">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block px-3 mb-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
                 {currentLanguage.code === 'ar' ? 'القائمة الرئيسية' : currentLanguage.code === 'ckb' ? 'مێنۆی سەرەکی' : 'Main Menu'}
               </span>
-              <nav className="space-y-1">
+              <nav className="space-y-1.5">
                 <button
                   type="button"
                   onClick={() => setActiveSection('products')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
                     activeSection === 'products'
-                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-slate-400'}`} />
+                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-white'}`} />
                     <span>{t('admin_tab_products')}</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-500'
+                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
                   }`}>
                     {productList.length}
                   </span>
@@ -1193,18 +1196,18 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <button
                   type="button"
                   onClick={() => setActiveSection('categories')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
                     activeSection === 'categories'
-                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <LayoutGrid className={`w-4 h-4 ${activeSection === 'categories' ? 'text-red-600' : 'text-slate-400'}`} />
+                    <LayoutGrid className={`w-4 h-4 ${activeSection === 'categories' ? 'text-red-600' : 'text-white'}`} />
                     <span>{t('admin_tab_categories')}</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-500'
+                    activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
                   }`}>
                     {divisions.length}
                   </span>
@@ -1213,47 +1216,45 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <button
                   type="button"
                   onClick={() => setActiveSection('users')}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
+                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
                     activeSection === 'users'
-                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
-                  <Users className={`w-4 h-4 ${activeSection === 'users' ? 'text-red-600' : 'text-slate-400'}`} />
+                  <Users className={`w-4 h-4 ${activeSection === 'users' ? 'text-red-600' : 'text-white'}`} />
                   <span>{t('admin_tab_users')}</span>
                 </button>
               </nav>
             </div>
 
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block px-3 mb-2">
+              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
                 {currentLanguage.code === 'ar' ? 'المحتوى والهوية' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براند' : 'Content & Branding'}
               </span>
-              <nav className="space-y-1">
+              <nav className="space-y-1.5">
+                {/* ONE UNIFIED TAB INSTEAD OF 2 TABS */}
                 <button
                   type="button"
-                  onClick={() => setActiveSection('cms')}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
-                    activeSection === 'cms'
-                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
+                  onClick={() => {
+                    setActiveSection('cms');
+                    setCmsSubTab('logos');
+                  }}
+                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
+                    activeSection === 'cms' || activeSection === 'logos'
+                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
+                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
-                  <ImageIcon className={`w-4 h-4 ${activeSection === 'cms' ? 'text-red-600' : 'text-slate-400'}`} />
-                  <span>{t('admin_tab_cms')}</span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('logos')}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
-                    activeSection === 'logos'
-                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
-                  }`}
-                >
-                  <Globe className={`w-4 h-4 ${activeSection === 'logos' ? 'text-red-600' : 'text-slate-400'}`} />
-                  <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos'}</span>
+                  <div className="flex items-center gap-3">
+                    <Globe className={`w-4 h-4 ${activeSection === 'cms' || activeSection === 'logos' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands'}</span>
+                  </div>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    activeSection === 'cms' || activeSection === 'logos' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                  }`}>
+                    {partnerLogos.length}
+                  </span>
                 </button>
               </nav>
             </div>
@@ -1261,39 +1262,38 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         </div>
 
         {/* Bottom Sidebar Action */}
-        <div className="p-4 border-t border-slate-100">
+        <div className="p-4 border-t border-red-500/60">
           <button
             type="button"
             onClick={() => {
               window.location.hash = '';
               onBackToHome();
             }}
-            className="w-full py-2.5 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-semibold text-xs transition-all flex items-center justify-center gap-2 border border-slate-200 cursor-pointer"
+            className="w-full py-2.5 px-3 rounded-xl bg-white/15 hover:bg-white text-white hover:text-red-700 font-extrabold text-xs transition-all flex items-center justify-center gap-2 border border-white/30 cursor-pointer shadow-sm"
           >
-            <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
+            <ExternalLink className="w-3.5 h-3.5" />
             <span>{currentLanguage.code === 'ar' ? 'العودة للموقع الرئيسي' : currentLanguage.code === 'ckb' ? 'گەڕانەوە بۆ ماڵپەڕ' : 'Back to Website'} ↗</span>
           </button>
         </div>
       </aside>
 
       {/* RIGHT MAIN CONTENT CONTAINER */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden bg-white">
         
         {/* Top Header Bar */}
-        <header className="bg-white/95 backdrop-blur-xs border-b border-slate-200/80 py-3 px-6 flex items-center justify-between sticky top-0 z-20">
+        <header className="bg-white border-b border-slate-200 py-3 px-6 flex items-center justify-between shrink-0 z-20">
           <div className="flex items-center gap-3">
-            <h2 className="text-base sm:text-lg font-bold text-slate-900">
+            <h2 className="text-base sm:text-lg font-black text-slate-900">
               {activeSection === 'products' && (t('admin_tab_products') || 'Products & Systems')}
               {activeSection === 'categories' && (t('admin_tab_categories') || 'Categories')}
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
-              {activeSection === 'cms' && (t('admin_tab_cms') || 'Reference Projects & 3D Media')}
-              {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos')}
+              {(activeSection === 'cms' || activeSection === 'logos') && (currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands')}
             </h2>
           </div>
 
           <div className="flex items-center gap-2.5 flex-wrap">
             {/* Language Switcher Pill */}
-            <div className="flex items-center rounded-lg bg-slate-100/80 p-0.5 border border-slate-200/60">
+            <div className="flex items-center rounded-lg bg-slate-100 p-0.5 border border-slate-200">
               <button
                 type="button"
                 onClick={() => {
@@ -1345,7 +1345,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 window.location.hash = '';
                 onBackToHome();
               }}
-              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs border border-slate-200 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 font-bold text-xs border border-slate-200 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
             >
               <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
               <span className="hidden sm:inline">{t('admin_btn_back_home')} ↗</span>
@@ -1355,28 +1355,28 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               <button
                 type="button"
                 onClick={handleOpenAddProduct}
-                className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
               >
-                <Plus className="w-4 h-4 stroke-[2.5]" />
+                <Plus className="w-4 h-4 stroke-[3]" />
                 <span>{t('admin_btn_add_product')}</span>
               </button>
             )}
 
-            <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center border border-slate-200">
+            <div className="w-7 h-7 rounded-full bg-red-50 text-red-700 font-black text-xs flex items-center justify-center border border-red-200">
               AD
             </div>
           </div>
         </header>
 
-        {/* Mobile Navigation Tabs */}
-        <div className="md:hidden bg-white border-b border-slate-200/80 px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none sticky top-14 z-10">
+        {/* Mobile Navigation Tabs - Red & White */}
+        <div className="md:hidden bg-red-600 text-white border-b border-red-700 px-3 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none shrink-0 z-10">
           <button
             type="button"
             onClick={() => setActiveSection('products')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
               activeSection === 'products'
-                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
             }`}
           >
             {t('admin_tab_products')} ({productList.length})
@@ -1386,8 +1386,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             onClick={() => setActiveSection('categories')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
               activeSection === 'categories'
-                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
             }`}
           >
             {t('admin_tab_categories')} ({divisions.length})
@@ -1397,33 +1397,25 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             onClick={() => setActiveSection('users')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
               activeSection === 'users'
-                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
             }`}
           >
             {t('admin_tab_users')}
           </button>
           <button
             type="button"
-            onClick={() => setActiveSection('cms')}
+            onClick={() => {
+              setActiveSection('cms');
+              setCmsSubTab('logos');
+            }}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'cms'
-                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+              activeSection === 'cms' || activeSection === 'logos'
+                ? 'bg-white text-red-700 shadow-sm'
+                : 'text-white/90 hover:bg-white/10'
             }`}
           >
-            {t('admin_tab_cms')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('logos')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'logos'
-                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
-                : 'text-slate-600 hover:bg-slate-100 font-semibold'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos'}
+            {currentLanguage.code === 'ar' ? 'المحتوى والعلامات' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براندەکان' : 'Content & Brands'} ({partnerLogos.length})
           </button>
         </div>
 
@@ -1478,18 +1470,18 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <button
                   type="button"
                   onClick={handleOpenAddProduct}
-                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Plus className="w-4 h-4 stroke-[2.5]" />
+                  <Plus className="w-4 h-4 stroke-[3]" />
                   <span>{t('admin_btn_add_product')}</span>
                 </button>
               </div>
             </div>
 
-            <div className="doorhome-admin-products overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-2xs">
+            <div className="rounded-2xl border border-slate-200 bg-white shadow-xs overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full min-w-[720px] text-sm border-collapse text-left">
-                  <thead className="bg-slate-50/60 border-b border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider">
+                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider">
                     <tr>
                       <th className="px-6 py-3.5 text-left">{t('admin_col_name')}</th>
                       <th className="px-6 py-3.5 text-left">{t('admin_col_category')}</th>
@@ -1564,9 +1556,76 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
-        {/* SECTION 5: CMS HOMEPAGE & GALLERY MANAGEMENT */}
-        {activeSection === 'cms' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
+        {/* UNIFIED SECTION: CONTENT & BRANDING (ONE TAB WITH CLEAN SUB-TABS) */}
+        {(activeSection === 'cms' || activeSection === 'logos') && (
+          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
+            {/* Sub-Navigation Pills for Content & Branding */}
+            <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto no-scrollbar shrink-0">
+              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('logos')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'logos'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Globe className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags'}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'logos' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}>
+                    {partnerLogos.length}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('gallery')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'gallery'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <ImageIcon className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'معرض المشاريع (3D Carousel)' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : '3D Projects Carousel'}</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'gallery' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}>
+                    {galleryImages.length}
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('bento')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'bento'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'الأنظمة الخمسة المميزة' : currentLanguage.code === 'ckb' ? '٥ سیستەمی سەرەکی' : '5 Signature Systems'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('hero')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'hero'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>{currentLanguage.code === 'ar' ? 'بانر الواجهة والشركة' : currentLanguage.code === 'ckb' ? 'باگراوند و ناساندن' : 'Hero & About Media'}</span>
+                </button>
+              </div>
+            </div>
+
             {/* CMS Feedback Banner */}
             {cmsSaveFeedback && (
               <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-2xl flex items-center justify-between shadow-sm animate-in fade-in duration-200">
@@ -1580,215 +1639,31 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               </div>
             )}
 
-            {/* CARD 1: DOORS SYSTEMS (CATEGORY SECTION - UNLIMITED UPLOADS & DELETIONS) */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-black text-slate-900">
-                      أنظمة الأبواب والمداخل — Door Systems ({doorProducts.length})
-                    </h3>
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-extrabold text-[11px] border border-emerald-200">
-                      Unlimited Systems • غير محدود
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 font-extrabold text-[11px] border border-red-200">
-                      Live on Homepage
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Manage doors displayed in the "أنظمة الأبواب والمداخل" category section on the homepage. You can upload as many door systems as you like without limits, replace current photos, or delete doors.
-                  </p>
-                </div>
+            {/* Hidden file inputs for Logo & Flag uploads */}
+            <input
+              type="file"
+              ref={logoFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleLogoFileUpload}
+            />
+            <input
+              type="file"
+              ref={newFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleNewFlagFileUpload}
+            />
+            <input
+              type="file"
+              ref={cardFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleCardFlagFileUpload}
+            />
 
-                <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenAddProductForCategory('doors')}
-                    className="bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-extrabold text-xs px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-red-600/20 transition-all cursor-pointer"
-                  >
-                    <Plus className="w-4 h-4 stroke-[3]" />
-                    <span>+ Add Door System (إضافة باب جديد)</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Doors Grid */}
-              {doorProducts.length === 0 ? (
-                <div className="py-12 text-center text-slate-400 font-bold text-xs bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                  No door systems currently in catalog. Click "+ Add Door System" above to upload a new door.
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {doorProducts.map((door) => (
-                    <div
-                      key={door.id}
-                      className="rounded-2xl border border-slate-200 bg-white p-3 space-y-3 shadow-xs hover:border-red-300 transition-all flex flex-col justify-between"
-                    >
-                      <div className="space-y-2">
-                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-950 border border-slate-100">
-                          {Boolean(door.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(door.image) ? (
-                            <video src={door.videoUrl || door.image} muted autoPlay loop playsInline className="w-full h-full object-cover" />
-                          ) : (
-                            <img
-                              src={door.image}
-                              alt={door.name}
-                              className="w-full h-full object-cover"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = door.fallbackImage || './assets/doorhome/03-2.jpg';
-                              }}
-                            />
-                          )}
-                        </div>
-
-                        <div>
-                          <h5 className="font-extrabold text-slate-900 text-xs line-clamp-1">{door.name}</h5>
-                          <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{door.description}</p>
-                        </div>
-                      </div>
-
-                      {/* Action Buttons: Replace Media, Edit, Delete */}
-                      <div className="pt-2 border-t border-slate-100 space-y-1.5">
-                        <label className="w-full py-1.5 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs">
-                          <Upload className="w-3 h-3" />
-                          <span>Replace Media (صورة / فيديو)</span>
-                          <input
-                            type="file"
-                            accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
-                            onChange={(e) => handleDirectReplaceProductImage(door.id, e)}
-                            className="hidden"
-                          />
-                        </label>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => handleOpenEditProduct(door)}
-                            className="flex-1 py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-[11px] flex items-center justify-center gap-1 transition-all cursor-pointer"
-                          >
-                            <Edit className="w-3 h-3" />
-                            <span>Edit</span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => handleDirectDeleteProduct(door.id, door.name)}
-                            className="flex-1 py-1.5 px-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-rose-200 transition-all cursor-pointer"
-                            title="Delete door system"
-                          >
-                            <Trash2 className="w-3 h-3" />
-                            <span>Delete</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* CARD 2: WINDOWS SYSTEMS (CATEGORY SECTION - UNLIMITED UPLOADS & DELETIONS) */}
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-lg font-black text-slate-900">
-                      أنظمة النوافذ والتصاميم — Window Systems ({windowProducts.length})
-                    </h3>
-                    <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-extrabold text-[11px] border border-emerald-200">
-                      Unlimited Systems • غير محدود
-                    </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-red-50 text-red-700 font-extrabold text-[11px] border border-red-200">
-                      Live on Homepage
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Manage windows displayed in the "أنظمة النوافذ والتصاميم" category section on the homepage. You can upload as many window systems as you like without limits, replace current photos, or delete windows.
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    type="button"
-                    onClick={() => handleOpenAddProductForCategory('windows')}
-                    className="bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-extrabold text-xs px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-red-600/20 transition-all cursor-pointer"
-                  >
-                    <Plus className="w-4 h-4 stroke-[3]" />
-                    <span>+ Add Window System (إضافة شباك جديد)</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Windows Grid */}
-              {windowProducts.length === 0 ? (
-                <div className="py-12 text-center text-slate-400 font-bold text-xs bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                  No window systems currently in catalog. Click "+ Add Window System" above to upload a new window.
-                </div>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                  {windowProducts.map((win) => (
-                    <div
-                      key={win.id}
-                      className="rounded-2xl border border-slate-200 bg-white p-3 space-y-3 shadow-xs hover:border-red-300 transition-all flex flex-col justify-between"
-                    >
-                      <div className="space-y-2">
-                        <div className="relative aspect-4/3 rounded-xl overflow-hidden bg-slate-950 border border-slate-100">
-                          {Boolean(win.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(win.image) ? (
-                            <video src={win.videoUrl || win.image} muted autoPlay loop playsInline className="w-full h-full object-cover" />
-                          ) : (
-                            <img
-                              src={win.image}
-                              alt={win.name}
-                              className="w-full h-full object-cover"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = win.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
-                              }}
-                            />
-                          )}
-                        </div>
-
-                        <div>
-                          <h5 className="font-extrabold text-slate-900 text-xs line-clamp-1">{win.name}</h5>
-                          <p className="text-[10px] text-slate-500 line-clamp-1 mt-0.5">{win.description}</p>
-                        </div>
-                      </div>
-
-                      {/* Action Buttons: Replace Media, Edit, Delete */}
-                      <div className="pt-2 border-t border-slate-100 space-y-1.5">
-                        <label className="w-full py-1.5 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-xs">
-                          <Upload className="w-3 h-3" />
-                          <span>Replace Media (صورة / فيديو)</span>
-                          <input
-                            type="file"
-                            accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
-                            onChange={(e) => handleDirectReplaceProductImage(win.id, e)}
-                            className="hidden"
-                          />
-                        </label>
-                        <div className="flex items-center gap-2">
-                          <button
-                            type="button"
-                            onClick={() => handleOpenEditProduct(win)}
-                            className="flex-1 py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-[11px] flex items-center justify-center gap-1 transition-all cursor-pointer"
-                          >
-                            <Edit className="w-3 h-3" />
-                            <span>Edit</span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => handleDirectDeleteProduct(win.id, win.name)}
-                            className="flex-1 py-1.5 px-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-rose-200 transition-all cursor-pointer"
-                            title="Delete window system"
-                          >
-                            <Trash2 className="w-3 h-3" />
-                            <span>Delete</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* CARD 3: ACTIVE SHOWCASE GALLERY (UNLIMITED PROJECTS + DIRECT ADD BUTTON) */}
+            {/* SUB-VIEW: 3D PROJECTS CAROUSEL */}
+            {cmsSubTab === 'gallery' && (
             <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-6">
               {/* Header with Title & Direct Card Add Button */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
@@ -1957,8 +1832,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 )}
               </div>
             </div>
+            )}
 
-            {/* CARD 2: 3D SIGNATURE SYSTEMS SHOWCASE DECK (FIXED LAYOUT SLOTS) */}
+            {/* SUB-VIEW: 5 ARCHITECTURAL SIGNATURE SYSTEMS */}
+            {cmsSubTab === 'bento' && (
             <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -2048,8 +1925,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 })}
               </div>
             </div>
+            )}
 
-            {/* CARD 3 & 4: ABOUT SECTION AND HERO BANNER CMS MEDIA */}
+            {/* SUB-VIEW: ABOUT SECTION & HERO BANNER */}
+            {cmsSubTab === 'hero' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* About Section Media & Text Manager */}
               <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
@@ -2157,34 +2036,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
               </div>
             </div>
-          </main>
-        )}
+            )}
 
-        {/* SECTION: PARTNER LOGOS MANAGEMENT */}
-        {activeSection === 'logos' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-[#fafafa]">
-            <input
-              type="file"
-              ref={logoFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleLogoFileUpload}
-            />
-            <input
-              type="file"
-              ref={newFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleNewFlagFileUpload}
-            />
-            <input
-              type="file"
-              ref={cardFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleCardFlagFileUpload}
-            />
-
+            {/* SUB-VIEW: PARTNER BRANDS & COUNTRY FLAGS */}
+            {cmsSubTab === 'logos' && (
+            <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
@@ -2608,6 +2464,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
               </button>
             </div>
+            </div>
+            )}
           </main>
         )}
 
@@ -2647,47 +2505,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
                 <div>
                   <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_form_desc')}</label>
-                  <textarea required rows={4} value={formDescription} onChange={(e) => setFormDescription(e.target.value)} placeholder="Describe this product" className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-medium text-slate-900" />
-                </div>
-
-                {/* Multi-Language Auto Translation Box */}
-                <div className="p-3.5 bg-gradient-to-br from-blue-50/90 via-indigo-50/60 to-purple-50/50 border border-blue-200/80 rounded-2xl space-y-2.5">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-2 text-blue-950">
-                      <Globe className="w-4 h-4 text-blue-600" />
-                      <span className="text-[11px] font-black uppercase tracking-wider">Auto Multi-Language Translation</span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={handleAutoTranslateProduct}
-                      disabled={isTranslatingProduct || (!formName.trim() && !formDescription.trim())}
-                      className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 text-white font-extrabold text-[11px] flex items-center gap-1.5 transition-all shadow-xs cursor-pointer active:scale-95"
-                    >
-                      <Languages className="w-3.5 h-3.5" />
-                      <span>{isTranslatingProduct ? 'Translating...' : 'Auto-Translate (AR, EN, KU, TR, DE)'}</span>
-                    </button>
-                  </div>
-                  <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
-                    Type in <strong>Arabic</strong> (or English). When saved, it automatically translates into Kurdish (Sorani & Kurmanji), Turkish, German, English, and Arabic so all website visitors see it in their language.
-                  </p>
-
-                  {translationSuccessMsg && (
-                    <div className="text-[11px] font-bold text-emerald-800 bg-emerald-50 border border-emerald-300 px-3 py-1.5 rounded-xl">
-                      {translationSuccessMsg}
-                    </div>
-                  )}
-
-                  {formTranslations && (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
-                      {Object.entries(formTranslations).map(([code, tr]) => (
-                        <div key={code} className="bg-white/95 p-2 rounded-xl border border-blue-100 shadow-2xs text-[10px] space-y-0.5">
-                          <span className="font-black text-blue-700 uppercase block tracking-wider">{code === 'ckb' ? 'Kurdish (Sorani)' : code === 'kmr' || code === 'ku' ? 'Kurdish (Kurmanji)' : code === 'ar' ? 'Arabic' : code === 'tr' ? 'Turkish' : code === 'de' ? 'German' : code === 'en' ? 'English' : code}</span>
-                          <p className="font-bold text-slate-900 truncate" title={tr.name}>{tr.name || '—'}</p>
-                          <p className="text-slate-500 line-clamp-1 text-[9px]" title={tr.description}>{tr.description || '—'}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  <textarea required rows={4} value={formDescription} onChange={(e) => setFormDescription(e.target.value)} placeholder="Describe this product" className="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white px-3.5 py-2.5 text-sm font-medium text-slate-900" />
                 </div>
 
                 <div>

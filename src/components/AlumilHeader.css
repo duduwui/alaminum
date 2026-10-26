@@ -49,18 +49,8 @@
   overscroll-behavior: contain;
 }
 .doorhome-admin-products table { min-width: 720px; font-size: 14px; }
-.doorhome-admin-products td, .doorhome-admin-products th { padding: 20px; }
-.doorhome-admin-products td img { width: 128px; height: 96px; object-fit: cover; }
-.doorhome-admin-workspace { height: 100dvh; min-height: 0; overflow: hidden; }
-.doorhome-admin-workspace > aside { height: 100%; overflow-y: auto; }
-.doorhome-admin-workspace > div { min-height: 0; overflow: hidden; }
-.doorhome-admin-workspace > div > header { flex-shrink: 0; }
-.doorhome-admin-workspace main { min-height: 0; }
-.doorhome-admin-workspace main:has(.doorhome-admin-products) { display: flex; flex-direction: column; gap: 24px; overflow: hidden; }
-.doorhome-admin-workspace main:has(.doorhome-admin-products) > div:first-child { flex-shrink: 0; }
-.doorhome-admin-workspace .doorhome-admin-products { flex: 1; min-height: 0; margin-top: 0; }
-.doorhome-admin-workspace .doorhome-admin-products > div { height: 100%; overflow: auto; }
-.doorhome-admin-workspace .doorhome-admin-products thead { position: sticky; top: 0; z-index: 1; }
+.doorhome-admin-products td, .doorhome-admin-products th { padding: 16px 20px; }
+.doorhome-admin-products td img { width: 110px; height: 80px; object-fit: cover; }
 @supports not (backdrop-filter: blur(1px)) {
   .doorhome-glass-header { background: #d00024; }
 }
