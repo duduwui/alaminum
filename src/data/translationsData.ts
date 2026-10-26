@@ -425,7 +425,7 @@ export const APP_TRANSLATIONS: Record<string, Record<string, string>> = {
     "total_label": "الإجمالي:",
     "added_to_cart": "تمت الإضافة إلى السلة!",
     "gallery_badge": "دراسة مشروع مميز",
-    "gallery_title": "مشاريع تصنع أفق كردستان المعماري",
+    "gallery_title": "مشاريع تصنع أفق العراق المعماري",
     "gallery_desc": "استكشف الفلل الفاخرة والمجمعات السكنية والمشاريع التجارية المنفذة بواسطة باب المنزل.",
     "tab_all_projects": "جميع المشاريع",
     "tab_project_doors": "الأبواب",

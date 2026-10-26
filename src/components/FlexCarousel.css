@@ -32,11 +32,11 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: calc(50% + var(--flex-carousel-half) * var(--flex-carousel-lift, 1) + 22px);
+  bottom: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   padding: 0 16px;
   pointer-events: auto;
   cursor: pointer;

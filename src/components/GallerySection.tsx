@@ -43,26 +43,11 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
 
   const visibleItems = items.map(localize);
 
-  // Curated blend of top images AND videos for the 3D Carousel
+  // Curated 12 items for the 3D Carousel in direct 1:1 order with Admin CMS slots
   const featuredCarouselItems: FlexCarouselItem[] = useMemo(() => {
-    const images = visibleItems.filter((it) => it.mediaType === 'image' || !it.mediaType);
-    const videos = visibleItems.filter((it) => it.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(it.src));
-    
-    const blended: GalleryMediaItem[] = [];
-    let imgIdx = 0;
-    let vidIdx = 0;
+    const sourceList = visibleItems.slice(0, 12);
 
-    // Interleave images and videos: 2 images, 1 video, 2 images, 1 video...
-    while (blended.length < 12 && (imgIdx < images.length || vidIdx < videos.length)) {
-      if (imgIdx < images.length) blended.push(images[imgIdx++]);
-      if (imgIdx < images.length) blended.push(images[imgIdx++]);
-      if (vidIdx < videos.length) blended.push(videos[vidIdx++]);
-    }
-
-    // Fallback if blended is empty
-    const sourceList = blended.length > 0 ? blended : visibleItems.slice(0, 10);
-
-    return sourceList.map((item) => {
+    return sourceList.map((item, idx) => {
       let cleanSrc = item.src;
       if (cleanSrc.startsWith('./')) {
         cleanSrc = cleanSrc.replace('./', '/');
@@ -73,7 +58,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
         : (item.system || item.location || 'Doorhome Architectural System');
 
       return {
-        id: item.id,
+        id: item.id || `carousel-item-${idx}`,
         src: cleanSrc,
         mediaType: isVideo ? 'video' : 'image',
         alt: item.title,
@@ -234,12 +219,12 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
           /* Homepage: 3D Liquid Lens FlexCarousel with Instant Click Detail & Video Pop-up */
           <div className="space-y-6">
             <div className="relative w-full rounded-3xl bg-slate-950/5 border border-slate-200/80 shadow-inner overflow-hidden py-4 my-2">
-              <div className="w-full h-[480px] sm:h-[560px] relative">
+              <div className="w-full h-[520px] sm:h-[580px] relative">
                 <FlexCarousel
                   items={featuredCarouselItems}
                   preset="liquid"
                   intro="rise"
-                  cardHeight={0.52}
+                  cardHeight={0.36}
                   gap={14}
                   radius={20}
                   squeeze={0.2}
@@ -271,10 +256,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
         )}
       </div>
 
-      {/* Project Detail & Video Player Bottom-Up Slide Sheet (Mounted directly to body via portal) */}
+      {/* Project Detail & Video Player Modal / Bottom Sheet */}
       {selected && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-[999999] flex items-end sm:items-center justify-center bg-slate-950/80 backdrop-blur-sm p-0 sm:p-4 drawer-backdrop-anim"
+          className="fixed inset-0 z-[999999] flex items-end sm:items-center justify-center bg-slate-950/75 backdrop-blur-md p-0 sm:p-6 animate-in fade-in duration-200"
           onClick={closeItemModal}
         >
           <div
@@ -282,77 +267,69 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
             aria-modal="true"
             aria-label={selected.title}
             dir={['ckb', 'fa', 'ar'].includes(currentLanguage.code) ? 'rtl' : 'ltr'}
-            className="relative flex max-h-[88vh] sm:max-h-[86vh] w-full max-w-3xl flex-col overflow-hidden rounded-t-[2rem] sm:rounded-[2rem] bg-white shadow-2xl border-t sm:border border-slate-200/80 bottom-sheet-slide-anim text-slate-900"
+            className="relative flex max-h-[90vh] sm:max-h-[88vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-slate-200 animate-in slide-in-from-bottom sm:zoom-in-95 duration-200 text-slate-900"
             onClick={(event) => event.stopPropagation()}
           >
-            {/* Grab Drag Indicator Handle on top */}
-            <div className="flex justify-center pt-3 pb-1 sm:hidden">
-              <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
-            </div>
-
-            {/* Close button */}
+            {/* Sleek Floating Close Button */}
             <button
               type="button"
               onClick={() => setSelected(null)}
               aria-label={t('ui_close') || 'Close'}
-              className="absolute right-4 top-4 z-20 rounded-full bg-slate-900/70 hover:bg-red-600 text-white p-2.5 backdrop-blur-md transition-colors cursor-pointer shadow-lg"
+              className="absolute top-3.5 end-3.5 z-30 w-9 h-9 rounded-full bg-black/65 hover:bg-red-600 text-white backdrop-blur-md transition-all flex items-center justify-center cursor-pointer shadow-lg active:scale-95 border border-white/20"
             >
-              <X className="h-5 w-5" />
+              <X className="w-5 h-5 stroke-[2.5]" />
             </button>
+            {/* Mobile drag handle bar */}
+            <div className="w-10 h-1 bg-white/40 rounded-full mx-auto sm:hidden absolute left-1/2 -translate-x-1/2 top-2 z-20 pointer-events-none" />
 
-            {/* Media Display (Video or Image) */}
-            <div className="relative flex max-h-[38vh] sm:max-h-[44vh] w-full items-center justify-center bg-slate-950 p-2 overflow-hidden shrink-0">
+            {/* Media Display (Photo or Video with ambient background) */}
+            <div className="relative w-full h-[32vh] sm:h-[40vh] bg-slate-950 overflow-hidden flex items-center justify-center shrink-0">
+              {/* Soft ambient blur backdrop */}
+              <img
+                src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none"
+              />
+
               {selected.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(selected.src) ? (
                 <video
                   src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
                   controls
                   autoPlay
                   playsInline
-                  className="max-h-[34vh] sm:max-h-[40vh] w-full rounded-xl bg-black object-contain"
+                  className="relative z-10 max-h-full max-w-full object-contain shadow-2xl"
                 />
               ) : (
                 <img
                   src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
                   alt={selected.title}
-                  className="max-h-[34vh] sm:max-h-[40vh] w-full object-contain rounded-xl"
+                  className="relative z-10 max-h-full max-w-full object-contain shadow-2xl"
                 />
               )}
             </div>
 
-            {/* Content & Action Buttons with Generous Spacing */}
-            <div className="flex flex-col justify-between space-y-5 overflow-y-auto p-6 sm:p-8 bg-white text-slate-900">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between gap-3 flex-wrap">
-                  <span className="inline-block px-3.5 py-1.5 rounded-full bg-red-50 text-red-600 text-xs font-black uppercase tracking-wider border border-red-100">
-                    {selected.category ? selected.category.toUpperCase() : 'PROJECT CASE STUDY'}
-                    {(selected.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(selected.src)) && ' • VIDEO REEL'}
-                  </span>
-                  {selected.system && (
-                    <span className="text-xs font-extrabold text-slate-700 bg-slate-100 px-3.5 py-1.5 rounded-full border border-slate-200">
-                      {selected.system}
-                    </span>
-                  )}
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+            {/* Content & Action Buttons */}
+            <div className="flex flex-col justify-between overflow-y-auto p-5 sm:p-7 space-y-4 bg-white text-slate-900">
+              <div className="space-y-2 text-start">
+                <h3 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
                   {localize(items.find(item => item.id === selected.id) || selected).title}
                 </h3>
-                <p className="whitespace-pre-wrap text-sm sm:text-base leading-relaxed text-slate-600">
+                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal">
                   {localize(items.find(item => item.id === selected.id) || selected).description}
                 </p>
               </div>
 
-              {/* Action Buttons: Large, Bold, and Spacious */}
-              <div className="pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+              {/* Action Buttons: Clean, Solid, Professional */}
+              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
                   href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I am inquiring about this project: ${selected.title}. System: ${selected.system || 'Standard'}.`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn2 btn2-emerald btn2-lg !text-sm sm:!text-base font-black flex-1 justify-center py-3 sm:py-3.5 px-6 shadow-sm"
+                  className="flex-1 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span className="spn2 text-emerald-700 font-extrabold flex items-center justify-center gap-3 py-1">
-                    <MessageSquare className="w-5 h-5 text-emerald-600 shrink-0" />
-                    <span>{currentLanguage.code === 'ar' ? 'تواصل عبر واتساب' : currentLanguage.code === 'ckb' ? 'پەیوەندی بە واتسئەپ' : 'Inquire on WhatsApp'}</span>
-                  </span>
+                  <MessageSquare className="w-4 h-4 fill-white" />
+                  <span>{currentLanguage.code === 'ar' ? 'تواصل عبر واتساب' : currentLanguage.code === 'ckb' ? 'پەیوەندی لە واتسئەپ' : 'Inquire on WhatsApp'}</span>
                 </a>
 
                 <button
@@ -363,22 +340,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                     window.location.hash = '#products';
                     window.scrollTo({ top: 0, behavior: 'instant' });
                   }}
-                  className="btn2 btn2-lg !text-sm sm:!text-base font-black flex-1 justify-center py-3 sm:py-3.5 px-6 shadow-sm"
+                  className="py-3 px-4 rounded-xl bg-slate-900 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <span className="spn2 text-slate-900 font-extrabold flex items-center justify-center gap-3 py-1">
-                    <LayoutGrid className="w-5 h-5 text-red-600 shrink-0" />
-                    <span>{currentLanguage.code === 'ar' ? 'تصفح جميع المنتجات' : currentLanguage.code === 'ckb' ? 'بینینی گشت بەرهەمەکان' : 'See All Products'}</span>
-                  </span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setSelected(null)}
-                  className="btn2 !text-xs sm:!text-sm font-bold text-slate-500 justify-center py-2 sm:py-2.5 px-4"
-                >
-                  <span className="spn2 text-slate-500 py-1">
-                    {t('ui_close') || 'Close'}
-                  </span>
+                  <LayoutGrid className="w-4 h-4" />
+                  <span>{currentLanguage.code === 'ar' ? 'جميع المنتجات' : currentLanguage.code === 'ckb' ? 'گشت بەرهەمەکان' : 'All Products'}</span>
                 </button>
               </div>
             </div>

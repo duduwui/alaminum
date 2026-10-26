@@ -121,10 +121,6 @@ export const HomeSystemsBentoSection: React.FC<HomeSystemsBentoSectionProps> = (
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-red-700 text-xs font-black uppercase tracking-widest border border-slate-200 shadow-2xs mb-3">
-              <Sliders className="w-3.5 h-3.5 text-red-600" />
-              <span>Tailored Solutions by Building Typology</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
               Product Range for <span className="text-red-600">Every Architecture</span>
             </h2>

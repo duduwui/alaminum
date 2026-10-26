@@ -203,14 +203,6 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                 <span>{t('nav_contact') || 'Contact'}</span>
               </button>
             </li>
-            <li className="bg-red-600">
-              <button
-                onClick={onOpenQuoteModal}
-                className="px-5 py-2.5 text-white hover:bg-red-700 font-extrabold flex items-center gap-1.5 transition-colors cursor-pointer"
-              >
-                <span>{t('nav_plan_project')}</span>
-              </button>
-            </li>
           </ul>
         </div>
       </div>
@@ -552,130 +544,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
           {/* Right Header Action Icons */}
           <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-            {/* 1. Customer Account Trigger (Profile first) */}
-            {currentUser ? (
-              <div ref={userMenuRef} className="relative">
-                {/* Desktop Trigger: Solid Red Circle Avatar + Name ONLY */}
-                <button
-                  type="button"
-                  onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200/80 border border-slate-200/90 shadow-2xs hover:shadow-xs transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
-                  title={`Signed in as ${currentUser.name}`}
-                  aria-label={t('auth_my_profile')}
-                >
-                  <div className="w-7 h-7 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shadow-xs shrink-0">
-                    {currentUser.name ? currentUser.name[0].toUpperCase() : 'U'}
-                  </div>
-
-                  <span className="text-xs font-black text-slate-900 group-hover:text-red-700 max-w-[120px] truncate">
-                    {currentUser.name.split(' ')[0]}
-                  </span>
-
-                  <ChevronDown className={`w-3.5 h-3.5 text-slate-500 group-hover:text-red-600 transition-transform duration-200 shrink-0 ${userMenuOpen ? 'rotate-180' : ''}`} />
-                </button>
-
-                {/* Mobile Trigger: Red Circle Avatar */}
-                <button
-                  type="button"
-                  onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className="w-8 h-8 rounded-full bg-red-600 hover:bg-red-700 text-white font-black text-xs flex items-center justify-center shadow-md active:scale-95 transition-all md:hidden shrink-0 cursor-pointer"
-                  title={`${t('auth_signed_in') || 'Signed in'}: ${currentUser.name}`}
-                  aria-label={t('auth_my_profile')}
-                >
-                  {currentUser.name ? currentUser.name[0].toUpperCase() : 'U'}
-                </button>
-
-                {/* Dropdown Menu (Logout & Browse Products) */}
-                {userMenuOpen && (
-                  <div className="absolute right-0 top-full mt-2 w-56 rounded-2xl bg-white border border-slate-200/90 shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
-                    <div className="px-4 py-2.5 border-b border-slate-100 flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-full bg-red-600 text-white font-black text-xs flex items-center justify-center shadow-xs shrink-0">
-                        {currentUser.name ? currentUser.name[0].toUpperCase() : 'U'}
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs font-black text-slate-900 truncate">{currentUser.name}</p>
-                        <p className="text-[10px] text-slate-400 truncate">{currentUser.email}</p>
-                      </div>
-                    </div>
-
-                    <div className="p-1.5 space-y-1">
-                      {/* Browse Products button */}
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setUserMenuOpen(false);
-                          handleNavClick('products');
-                        }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-red-600 hover:bg-red-50/80 rounded-xl transition-colors cursor-pointer text-left"
-                      >
-                        <LayoutGrid className="w-4 h-4 text-red-600 shrink-0" />
-                        <span>{isArabic ? 'تصفح المنتجات' : isKurdish ? 'بینینی بەرهەمەکان' : 'Browse Products'}</span>
-                      </button>
-
-                      {/* Admin Portal (if admin) */}
-                      {(currentUser.role === 'admin' || currentUser.role === 'super_admin') && (
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setUserMenuOpen(false);
-                            handleNavClick('admin');
-                          }}
-                          className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-bold text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer text-left"
-                        >
-                          <Shield className="w-4 h-4 text-slate-600 shrink-0" />
-                          <span>Admin Portal</span>
-                        </button>
-                      )}
-
-                      <div className="h-px bg-slate-100 my-1" />
-
-                      {/* Logout button */}
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setUserMenuOpen(false);
-                          logoutUser();
-                          setCurrentUser(null);
-                        }}
-                        className="w-full flex items-center gap-2.5 px-3 py-2 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-xl transition-colors cursor-pointer text-left"
-                      >
-                        <LogOut className="w-4 h-4 text-rose-600 shrink-0" />
-                        <span>{isArabic ? 'تسجيل الخروج' : isKurdish ? 'چوونەدەرەوە' : 'Logout'}</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <>
-                {/* Mobile Login Button when not signed in */}
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('auth')}
-                  className="p-2 text-slate-700 hover:text-red-600 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-full transition-all md:hidden shrink-0 cursor-pointer shadow-2xs"
-                  title={t('auth_mobile_nav_btn')}
-                  aria-label={t('nav_my_account')}
-                >
-                  <User className="w-4.5 h-4.5 text-slate-700" />
-                </button>
-
-                {/* Desktop Login Button when not signed in */}
-                <button
-                  type="button"
-                  onClick={() => handleNavClick('auth')}
-                  className="btn2 !hidden md:!inline-flex text-[11px] cursor-pointer"
-                  title={t('nav_my_account') || t('auth_mobile_nav_btn')}
-                  aria-label={t('auth_my_profile')}
-                >
-                  <span className="spn2">
-                    <User className="w-3.5 h-3.5 text-red-600 shrink-0" />
-                    <span className="text-[11px]">{t('auth_mobile_nav_btn')}</span>
-                  </span>
-                </button>
-              </>
-            )}
-
-            {/* 2. Language Selector Trigger */}
+            {/* Language Selector Trigger */}
             <button
               type="button"
               onClick={() => setIsLanguageModalOpen(true)}
@@ -902,12 +771,6 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
             {/* Bottom Actions in Drawer */}
             <div className="pt-4 border-t border-slate-100 space-y-2.5 text-right">
-              {currentUser && (
-                <button type="button" onClick={() => handleNavClick('auth')} className="flex w-full items-center gap-3 py-3 text-right flex-row-reverse text-slate-800">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red-600 font-bold text-white shadow-sm">{currentUser.name?.[0]?.toUpperCase() || 'U'}</span>
-                  <span className="min-w-0 flex-1 text-right"><span className="block truncate text-sm font-bold">{currentUser.name}</span><span className="block text-xs text-slate-500">{t('auth_my_profile')}</span></span>
-                </button>
-              )}
               {/* Language Switcher in Mobile Drawer */}
               <button
                 onClick={() => {
@@ -934,21 +797,6 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                   <span className="notranslate" translate="no">{currentLanguage.nativeName}</span>
                 </span>
               </button>
-
-              {!currentUser && (
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    handleNavClick('auth');
-                  }}
-                  className="btn2 w-full justify-center py-3"
-                >
-                  <span className="spn2">
-                    <UserPlus className="w-4 h-4 text-red-600" />
-                    <span>{t('auth_mobile_nav_btn')}</span>
-                  </span>
-                </button>
-              )}
             </div>
           </div>
         </div>

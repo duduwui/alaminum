@@ -90,7 +90,7 @@ export const CONTACT_LABELS: Record<string, string[]> = {
 const EXTRA_KEYS = ['footer_intro', 'ui_contact_social', 'footer_col_company'];
 export const EXTRA_LABELS: Record<string, string[]> = {
   en: ['Aluminium and uPVC window and door systems, sliding doors and architectural facades in Iraq and Kurdistan. Explore our products and projects, or contact our team.', 'Contact and social links', 'Doorhome'],
-  ar: ['أنظمة نوافذ وأبواب الألمنيوم وuPVC، وأبواب منزلقة وواجهات معمارية في العراق وكردستان. استكشف منتجاتنا ومشاريعنا أو تواصل مع فريقنا.', 'روابط التواصل والشبكات الاجتماعية', 'باب المنزل'],
+  ar: ['أنظمة نوافذ وأبواب الألمنيوم وuPVC، وأبواب منزلقة وواجهات معمارية في العراق. استكشف منتجاتنا ومشاريعنا أو تواصل مع فريقنا.', 'روابط التواصل والشبكات الاجتماعية', 'باب المنزل'],
   ckb: ['سیستەمی پەنجەرە و دەرگای ئەلۆمنیۆم و uPVC، دەرگای خلیسکاو و ڕووکاری تەلارسازی لە عێراق و کوردستان. بەرهەم و پڕۆژەکانمان ببینە یان پەیوەندی بە تیمەکەمانەوە بکە.', 'بەستەرەکانی پەیوەندی و تۆڕە کۆمەڵایەتییەکان', 'دەرگای ماڵ'],
   kmr: ['Pergalên pencere û deriyên alumînyûm û uPVC, deriyên şemitok û rûyên avahiyan li Iraq û Kurdistanê. Hilber û projeyên me bibînin an bi tîma me re têkilî daynin.', 'Girêdanên têkilî û torên civakî', 'Doorhome'],
   tr: ['Irak ve Kürdistan’da alüminyum ve uPVC pencere ve kapı sistemleri, sürgülü kapılar ve mimari cepheler. Ürünlerimizi ve projelerimizi inceleyin veya ekibimizle iletişime geçin.', 'İletişim ve sosyal medya bağlantıları', 'Doorhome'],

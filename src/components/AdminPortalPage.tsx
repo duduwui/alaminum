@@ -43,6 +43,8 @@ import {
   Ruler,
   MessageSquare,
   ArrowLeft,
+  ArrowUp,
+  ArrowDown,
   X,
   Trash2,
   Save,
@@ -84,7 +86,7 @@ import { useLanguage, SUPPORTED_LANGUAGES } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, normalizeGalleryItems, saveGalleryItems } from '../services/galleryContentService';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { ITEM_LOCALES, SHOWCASE_TEXT_BY_LANG } from './SignatureShowcase';
-import { getPartnerLogos, PartnerBrand } from './PartnerLogos';
+import { getPartnerLogos, PartnerBrand, isImageFlag } from './PartnerLogos';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -198,7 +200,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [logosSaveFeedback, setLogosSaveFeedback] = useState('');
   const [newLogo, setNewLogo] = useState({ name: '', src: '', alt: '', country: '', flag: '' });
   const logoFileInputRef = React.useRef<HTMLInputElement>(null);
+  const newFlagFileInputRef = React.useRef<HTMLInputElement>(null);
+  const cardFlagFileInputRef = React.useRef<HTMLInputElement>(null);
   const [isUploadingLogo, setIsUploadingLogo] = useState(false);
+  const [isUploadingFlag, setIsUploadingFlag] = useState(false);
+  const [uploadingFlagCardIdx, setUploadingFlagCardIdx] = useState<number | null>(null);
 
   const autoTrimLogoImage = (file: File): Promise<File> => {
     return new Promise((resolve) => {
@@ -274,6 +280,46 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       alert(err.message || 'Logo upload failed');
     } finally {
       setIsUploadingLogo(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleNewFlagFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingFlag(true);
+      const url = await uploadCmsMediaFile(file);
+      setNewLogo((prev) => ({ ...prev, flag: url }));
+    } catch (err: any) {
+      alert(err.message || 'Flag upload failed');
+    } finally {
+      setIsUploadingFlag(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleCardFlagFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || uploadingFlagCardIdx === null) return;
+    try {
+      setIsUploadingFlag(true);
+      const url = await uploadCmsMediaFile(file);
+      const updated = [...partnerLogos];
+      updated[uploadingFlagCardIdx] = { ...updated[uploadingFlagCardIdx], flag: url };
+      setPartnerLogos(updated);
+      try {
+        localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
+        window.dispatchEvent(new Event('cms_partner_logos_updated'));
+      } catch {}
+      void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
+      setLogosSaveFeedback(`✓ Flag image updated for ${updated[uploadingFlagCardIdx].name}!`);
+      setTimeout(() => setLogosSaveFeedback(''), 4000);
+    } catch (err: any) {
+      alert(err.message || 'Flag upload failed');
+    } finally {
+      setIsUploadingFlag(false);
+      setUploadingFlagCardIdx(null);
       if (e.target) e.target.value = '';
     }
   };
@@ -852,21 +898,35 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           setIsUploadingGalleryMedia(true);
           let uploadedCount = 0;
           const failures: string[] = [];
+          const newEntries: GalleryMediaItem[] = [];
           for (const selectedFile of files) {
             try {
               const uploadedUrl = await uploadCmsMediaFile(selectedFile);
-              setGalleryImages((prev) => [{ id: `proj-${crypto.randomUUID()}`, title: newGalleryTitle.trim(), description: newGalleryDescription.trim(), src: uploadedUrl, mediaType: selectedFile.type.startsWith('video/') ? 'video' : 'image', category: 'villa', location: '', system: '' }, ...prev]);
+              newEntries.push({
+                id: `proj-${crypto.randomUUID()}`,
+                title: newGalleryTitle.trim(),
+                description: newGalleryDescription.trim(),
+                src: uploadedUrl,
+                mediaType: selectedFile.type.startsWith('video/') ? 'video' : 'image',
+                category: 'villa',
+                location: '',
+                system: ''
+              });
               uploadedCount++;
             } catch (error) {
               failures.push(`${selectedFile.name}: ${error instanceof Error ? error.message : 'Upload failed'}`);
             }
+          }
+          if (newEntries.length > 0) {
+            const updated = [...newEntries, ...galleryImages];
+            await persistGalleryUpdates(updated);
           }
           if (!failures.length) {
             setNewGalleryTitle('');
             setNewGalleryDescription('');
           }
           setGalleryUploadError(failures.join('\n'));
-          setCmsSaveFeedback(`${uploadedCount} of ${files.length} project files added.`);
+          setCmsSaveFeedback(`${uploadedCount} of ${files.length} project files added & saved.`);
           e.target.value = '';
           return;
         }
@@ -891,6 +951,16 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     }
   };
 
+  const persistGalleryUpdates = async (updated: GalleryMediaItem[]) => {
+    setGalleryImages(updated);
+    saveGalleryItems(updated);
+    try {
+      await saveSharedCmsSection('gallery', updated);
+    } catch (sharedErr) {
+      console.warn('Failed to save gallery to server:', sharedErr);
+    }
+  };
+
   const handleReplaceGalleryImage = async (idx: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -898,12 +968,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         setGalleryUploadError('');
         const uploadedUrl = await uploadCmsMediaFile(file);
         if (uploadedUrl) {
-          setGalleryImages((prev) => {
-            const updated = [...prev];
-            updated[idx] = { ...updated[idx], src: uploadedUrl, mediaType: file.type.startsWith('video/') ? 'video' : 'image' };
-            return updated;
-          });
-          setCmsSaveFeedback('✓ Image Card Replaced Successfully!');
+          const updated = [...galleryImages];
+          updated[idx] = { ...updated[idx], src: uploadedUrl, mediaType: file.type.startsWith('video/') ? 'video' : 'image' };
+          await persistGalleryUpdates(updated);
+          setCmsSaveFeedback(`✓ 3D Carousel Card #${idx + 1} Replaced & Saved!`);
           setTimeout(() => setCmsSaveFeedback(''), 4000);
         }
       } catch (err) {
@@ -913,6 +981,25 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         e.target.value = '';
       }
     }
+  };
+
+  const handleMoveGalleryImage = async (idx: number, direction: 'up' | 'down') => {
+    const targetIdx = direction === 'up' ? idx - 1 : idx + 1;
+    if (targetIdx < 0 || targetIdx >= galleryImages.length) return;
+    const updated = [...galleryImages];
+    const temp = updated[idx];
+    updated[idx] = updated[targetIdx];
+    updated[targetIdx] = temp;
+    await persistGalleryUpdates(updated);
+    setCmsSaveFeedback(`✓ Moved Card #${idx + 1} to #${targetIdx + 1}`);
+    setTimeout(() => setCmsSaveFeedback(''), 3000);
+  };
+
+  const handleDeleteGalleryImage = async (idx: number) => {
+    const updated = galleryImages.filter((_, i) => i !== idx);
+    await persistGalleryUpdates(updated);
+    setCmsSaveFeedback('✓ Image removed and changes saved.');
+    setTimeout(() => setCmsSaveFeedback(''), 3000);
   };
 
   const handleReplaceShowcaseImage = async (systemId: string, e: React.ChangeEvent<HTMLInputElement>) => {
@@ -968,10 +1055,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       console.error(err);
       setCmsSaveFeedback('Saved in this browser only. Sign in again to publish across devices.');
     }
-  };
-
-  const handleDeleteGalleryImage = (idx: number) => {
-    setGalleryImages((prev) => prev.filter((_, i) => i !== idx));
   };
 
   const handleOpenRequestDetail = (req: QuotationRequest) => {
@@ -1055,34 +1138,36 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   };
 
   return (
-    <div dir={isRtl ? 'rtl' : 'ltr'} className="doorhome-admin-workspace bg-slate-100 text-slate-900 font-sans flex overflow-hidden">
+    <div dir="ltr" className="doorhome-admin-workspace bg-white text-slate-900 font-sans flex min-h-screen overflow-hidden antialiased">
       
       {/* LEFT SIDEBAR NAVIGATION */}
-      <aside className={`w-64 bg-white ${isRtl ? 'border-l' : 'border-r'} border-slate-200 shrink-0 flex flex-col justify-between hidden md:flex sticky top-0 h-screen z-30 shadow-xs`}>
+      <aside className="w-64 bg-white border-r border-slate-200/80 shrink-0 flex flex-col justify-between hidden md:flex sticky top-0 h-screen z-30 shadow-2xs">
         <div>
           {/* Logo & Brand Header */}
           <div className="p-5 border-b border-slate-100 flex items-center gap-3">
             <img
               src={DOORHOME_CONTACT.logo}
               alt="Doorhome Logo"
-              className="h-10 w-auto object-contain shrink-0"
+              className="h-9 w-auto object-contain shrink-0"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = DOORHOME_CONTACT.logoFallback;
               }}
             />
             <div>
-              <h1 className="text-base font-black text-slate-900 leading-tight">
-                {t('admin_title')}
+              <h1 className="text-sm font-bold text-slate-900 leading-tight">
+                Doorhome Console
               </h1>
-              <span className="text-[10px] text-slate-500 font-bold">{t('admin_tagline')}</span>
+              <span className="text-[10px] text-slate-500 font-medium">
+                {currentLanguage.code === 'ar' ? 'لوحة الإدارة الهندسية' : currentLanguage.code === 'ckb' ? 'پەنێڵی بەڕێوەبردن' : 'Architecture & Catalog'}
+              </span>
             </div>
           </div>
 
           {/* Nav Section Links */}
           <div className="p-4 space-y-6">
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block px-3 mb-2">
-                {isRtl ? 'بەشە سەرەکییەکان' : 'General Navigation'}
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block px-3 mb-2">
+                {currentLanguage.code === 'ar' ? 'القائمة الرئيسية' : currentLanguage.code === 'ckb' ? 'مێنۆی سەرەکی' : 'Main Menu'}
               </span>
               <nav className="space-y-1">
                 <button
@@ -1090,16 +1175,16 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onClick={() => setActiveSection('products')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'products'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Package className="w-4 h-4" />
+                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-slate-400'}`} />
                     <span>{t('admin_tab_products')}</span>
                   </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    activeSection === 'products' ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-500'
                   }`}>
                     {productList.length}
                   </span>
@@ -1110,16 +1195,16 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onClick={() => setActiveSection('categories')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'categories'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <LayoutGrid className="w-4 h-4" />
+                    <LayoutGrid className={`w-4 h-4 ${activeSection === 'categories' ? 'text-red-600' : 'text-slate-400'}`} />
                     <span>{t('admin_tab_categories')}</span>
                   </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    activeSection === 'categories' ? 'bg-white/20 text-white' : 'bg-red-50 text-red-700'
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-slate-100 text-slate-500'
                   }`}>
                     {divisions.length}
                   </span>
@@ -1130,19 +1215,19 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onClick={() => setActiveSection('users')}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'users'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
                   }`}
                 >
-                  <Users className="w-4 h-4" />
+                  <Users className={`w-4 h-4 ${activeSection === 'users' ? 'text-red-600' : 'text-slate-400'}`} />
                   <span>{t('admin_tab_users')}</span>
                 </button>
               </nav>
             </div>
 
             <div>
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block px-3 mb-2">
-                {isRtl ? 'ڕاپۆرت و ناوەڕۆک' : 'Reports & Content'}
+              <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block px-3 mb-2">
+                {currentLanguage.code === 'ar' ? 'المحتوى والهوية' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براند' : 'Content & Branding'}
               </span>
               <nav className="space-y-1">
                 <button
@@ -1150,11 +1235,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onClick={() => setActiveSection('cms')}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'cms'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
                   }`}
                 >
-                  <ImageIcon className="w-4 h-4" />
+                  <ImageIcon className={`w-4 h-4 ${activeSection === 'cms' ? 'text-red-600' : 'text-slate-400'}`} />
                   <span>{t('admin_tab_cms')}</span>
                 </button>
 
@@ -1163,14 +1248,13 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onClick={() => setActiveSection('logos')}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'logos'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                      ? 'bg-red-50 text-red-700 border border-red-200/80 shadow-2xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70 font-semibold'
                   }`}
                 >
-                  <Globe className="w-4 h-4" />
-                  <span>Partner Logos</span>
+                  <Globe className={`w-4 h-4 ${activeSection === 'logos' ? 'text-red-600' : 'text-slate-400'}`} />
+                  <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos'}</span>
                 </button>
-
               </nav>
             </div>
           </div>
@@ -1184,10 +1268,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               window.location.hash = '';
               onBackToHome();
             }}
-            className="w-full py-2.5 px-3 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 font-extrabold text-xs transition-all flex items-center justify-center gap-2 border border-red-200 cursor-pointer"
+            className="w-full py-2.5 px-3 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-slate-900 font-semibold text-xs transition-all flex items-center justify-center gap-2 border border-slate-200 cursor-pointer"
           >
-            <ExternalLink className="w-4 h-4" />
-            <span>{t('admin_btn_back_home')} ↗</span>
+            <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
+            <span>{currentLanguage.code === 'ar' ? 'العودة للموقع الرئيسي' : currentLanguage.code === 'ckb' ? 'گەڕانەوە بۆ ماڵپەڕ' : 'Back to Website'} ↗</span>
           </button>
         </div>
       </aside>
@@ -1196,30 +1280,30 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       <div className="flex-1 flex flex-col min-w-0">
         
         {/* Top Header Bar */}
-        <header className="bg-white border-b border-slate-200 py-3.5 px-6 flex items-center justify-between sticky top-0 z-20">
-          <div className="flex items-center gap-4">
-            <h2 className="text-base sm:text-xl font-black text-slate-900">
-              {activeSection === 'products' && t('admin_tab_products')}
-              {activeSection === 'categories' && t('admin_tab_categories')}
-              {activeSection === 'users' && t('admin_tab_users')}
-              {activeSection === 'cms' && t('admin_tab_cms')}
-              {activeSection === 'logos' && 'Partner Logos'}
+        <header className="bg-white/95 backdrop-blur-xs border-b border-slate-200/80 py-3 px-6 flex items-center justify-between sticky top-0 z-20">
+          <div className="flex items-center gap-3">
+            <h2 className="text-base sm:text-lg font-bold text-slate-900">
+              {activeSection === 'products' && (t('admin_tab_products') || 'Products & Systems')}
+              {activeSection === 'categories' && (t('admin_tab_categories') || 'Categories')}
+              {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
+              {activeSection === 'cms' && (t('admin_tab_cms') || 'Reference Projects & 3D Media')}
+              {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos')}
             </h2>
           </div>
 
           <div className="flex items-center gap-2.5 flex-wrap">
             {/* Language Switcher Pill */}
-            <div className="flex items-center rounded-xl bg-slate-100 p-1 border border-slate-200">
+            <div className="flex items-center rounded-lg bg-slate-100/80 p-0.5 border border-slate-200/60">
               <button
                 type="button"
                 onClick={() => {
                   const lang = SUPPORTED_LANGUAGES.find((l) => l.code === 'ckb');
                   if (lang) setLanguage(lang.code);
                 }}
-                className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all cursor-pointer ${
                   currentLanguage.code === 'ckb'
-                    ? 'bg-white text-red-600 shadow-xs font-black'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
                 سۆرانی
@@ -1230,10 +1314,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   const lang = SUPPORTED_LANGUAGES.find((l) => l.code === 'ar');
                   if (lang) setLanguage(lang.code);
                 }}
-                className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all cursor-pointer ${
                   currentLanguage.code === 'ar'
-                    ? 'bg-white text-red-600 shadow-xs font-black'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
                 العربية
@@ -1244,10 +1328,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   const lang = SUPPORTED_LANGUAGES.find((l) => l.code === 'en');
                   if (lang) setLanguage(lang.code);
                 }}
-                className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all cursor-pointer ${
                   currentLanguage.code === 'en'
-                    ? 'bg-white text-red-600 shadow-xs font-black'
-                    : 'text-slate-600 hover:text-slate-900'
+                    ? 'bg-white text-slate-900 shadow-2xs font-bold'
+                    : 'text-slate-500 hover:text-slate-800'
                 }`}
               >
                 EN
@@ -1261,9 +1345,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 window.location.hash = '';
                 onBackToHome();
               }}
-              className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-50 text-slate-700 font-semibold text-xs border border-slate-200 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
             >
-              <ExternalLink className="w-4 h-4" />
+              <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
               <span className="hidden sm:inline">{t('admin_btn_back_home')} ↗</span>
             </button>
 
@@ -1271,40 +1355,99 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               <button
                 type="button"
                 onClick={handleOpenAddProduct}
-                className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-md shadow-red-600/20 transition-all flex items-center gap-1.5 cursor-pointer"
+                className="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition-all flex items-center gap-1.5 cursor-pointer"
               >
-                <Plus className="w-4 h-4 stroke-[3]" />
+                <Plus className="w-4 h-4 stroke-[2.5]" />
                 <span>{t('admin_btn_add_product')}</span>
               </button>
             )}
 
-            <div className="w-8 h-8 rounded-full bg-red-100 text-red-700 font-black text-xs flex items-center justify-center border border-red-200">
+            <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-700 font-bold text-xs flex items-center justify-center border border-slate-200">
               AD
             </div>
           </div>
         </header>
 
+        {/* Mobile Navigation Tabs */}
+        <div className="md:hidden bg-white border-b border-slate-200/80 px-4 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none sticky top-14 z-10">
+          <button
+            type="button"
+            onClick={() => setActiveSection('products')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'products'
+                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+            }`}
+          >
+            {t('admin_tab_products')} ({productList.length})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('categories')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'categories'
+                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+            }`}
+          >
+            {t('admin_tab_categories')} ({divisions.length})
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('users')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'users'
+                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+            }`}
+          >
+            {t('admin_tab_users')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('cms')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'cms'
+                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+            }`}
+          >
+            {t('admin_tab_cms')}
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveSection('logos')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
+              activeSection === 'logos'
+                ? 'bg-red-50 text-red-700 border border-red-200 shadow-2xs'
+                : 'text-slate-600 hover:bg-slate-100 font-semibold'
+            }`}
+          >
+            {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Logos'}
+          </button>
+        </div>
+
         {/* SECTION 2: FULL PRODUCT MANAGEMENT (CRUD!) */}
         {activeSection === 'products' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto">
             {/* Action Bar & Filters */}
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div className="flex items-center gap-2.5 w-full sm:w-auto">
                 <div className="relative flex-1 sm:w-72">
-                  <Search className={`w-4 h-4 text-slate-400 absolute ${isRtl ? 'right-3' : 'left-3'} top-1/2 -translate-y-1/2`} />
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={productSearchQuery}
                     onChange={(e) => setProductSearchQuery(e.target.value)}
                     placeholder={t('admin_search_products_ph')}
-                    className={`w-full ${isRtl ? 'pr-9 pl-3' : 'pl-9 pr-3'} py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:outline-none focus:border-red-600 font-medium`}
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-medium text-slate-900 placeholder:text-slate-400 shadow-2xs"
                   />
                 </div>
 
                 <select
                   value={productCategoryFilter}
                   onChange={(e) => setProductCategoryFilter(e.target.value)}
-                  className="py-2 px-3 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-red-600 font-bold"
+                  className="py-2 px-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-semibold text-slate-700 cursor-pointer shadow-2xs"
                 >
                   <option value="all">{t('admin_filter_all_divisions')}</option>
                   {divisions.map((div) => (
@@ -1325,7 +1468,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                         saveLocalProducts([]);
                       }
                     }}
-                    className="px-4 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200 transition-colors flex items-center gap-1.5 cursor-pointer"
+                    className="px-3 py-2 rounded-lg bg-white hover:bg-rose-50 text-slate-500 hover:text-rose-700 font-medium text-xs border border-slate-200 hover:border-rose-200 transition-colors flex items-center gap-1.5 cursor-pointer"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
                     <span>{t('admin_btn_clear_catalog')}</span>
@@ -1335,33 +1478,78 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <button
                   type="button"
                   onClick={handleOpenAddProduct}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
-                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <Plus className="w-4 h-4 stroke-[2.5]" />
                   <span>{t('admin_btn_add_product')}</span>
                 </button>
               </div>
             </div>
 
-            <div className="doorhome-admin-products overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <div className="doorhome-admin-products overflow-hidden rounded-xl border border-slate-200/80 bg-white shadow-2xs">
               <div className="overflow-x-auto">
-                <table className={`w-full min-w-[720px] text-sm border-collapse ${isRtl ? 'text-right' : 'text-left'}`}>
-                  <thead className="bg-slate-900 text-white"><tr>
-                    <th className="p-5">{t('admin_col_name')}</th><th className="p-5">{t('admin_col_category')}</th><th className="p-5">{t('admin_col_actions')}</th>
-                  </tr></thead>
+                <table className="w-full min-w-[720px] text-sm border-collapse text-left">
+                  <thead className="bg-slate-50/60 border-b border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider">
+                    <tr>
+                      <th className="px-6 py-3.5 text-left">{t('admin_col_name')}</th>
+                      <th className="px-6 py-3.5 text-left">{t('admin_col_category')}</th>
+                      <th className="px-6 py-3.5 text-right">{t('admin_col_actions')}</th>
+                    </tr>
+                  </thead>
                   <tbody className="divide-y divide-slate-100">
                     {filteredProducts.map(prod => {
                       const localized = getLocalizedProduct(prod, currentLanguage.code);
                       const division = divisions.find(div => div.key === (prod.division || prod.category));
                       const category = ((division as any)?.translations?.[currentLanguage.code] || (division as any)?.translations?.[currentLanguage.code.split('-')[0]])?.name || (currentLanguage.code === 'ar' ? division?.arabicTitle : currentLanguage.code === 'ckb' ? division?.kurdishTitle : division?.title) || prod.category;
-                      return <tr key={prod.id} className="hover:bg-red-50/30">
-                        <td className="p-5"><div className="flex items-center gap-5">
-                          <a href={prod.image || prod.fallbackImage} target="_blank" rel="noopener noreferrer" className="shrink-0"><img src={prod.image || prod.fallbackImage} alt={localized.name} loading="lazy" className="h-24 w-32 rounded-xl object-cover border border-slate-200" /></a>
-                          <button type="button" onClick={() => handleOpenEditProduct(prod)} className="text-start"><span className="block text-base font-bold text-slate-900">{localized.name}</span><span className="mt-2 block max-w-md text-sm leading-relaxed text-slate-500 line-clamp-2">{localized.description}</span></button>
-                        </div></td>
-                        <td className="p-5 font-semibold text-red-700">{category}</td>
-                        <td className="p-5"><div className="flex items-center gap-3"><button type="button" onClick={() => handleOpenEditProduct(prod)} className="rounded-lg bg-red-100 px-4 py-3 font-bold text-red-800"><Edit className="inline h-4 w-4" /> {t('admin_modal_edit_product')}</button><button type="button" onClick={() => handleDeleteProduct(prod.id)} className="rounded-lg p-3 text-red-700 hover:bg-red-50"><Trash2 className="h-5 w-5" /></button></div></td>
-                      </tr>;
+                      return (
+                        <tr key={prod.id} className="hover:bg-red-50/30 transition-colors">
+                          <td className="px-6 py-4">
+                            <div className="flex items-center gap-4">
+                              <a href={prod.image || prod.fallbackImage} target="_blank" rel="noopener noreferrer" className="shrink-0 group">
+                                <img
+                                  src={prod.image || prod.fallbackImage}
+                                  alt={localized.name}
+                                  loading="lazy"
+                                  className="h-20 w-28 rounded-xl object-cover border border-slate-200/80 shadow-2xs group-hover:scale-102 transition-transform"
+                                />
+                              </a>
+                              <button type="button" onClick={() => handleOpenEditProduct(prod)} className="text-left group cursor-pointer">
+                                <span className="block text-sm sm:text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
+                                  {localized.name}
+                                </span>
+                                <span className="mt-1 block max-w-lg text-xs leading-relaxed text-slate-500 line-clamp-2">
+                                  {localized.description}
+                                </span>
+                              </button>
+                            </div>
+                          </td>
+                          <td className="px-6 py-4">
+                            <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200/60">
+                              {category}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 text-right">
+                            <div className="flex items-center justify-end gap-2">
+                              <button
+                                type="button"
+                                onClick={() => handleOpenEditProduct(prod)}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs transition-colors shadow-2xs cursor-pointer"
+                              >
+                                <Edit className="w-3.5 h-3.5 text-slate-400" />
+                                <span>{t('admin_modal_edit_product')}</span>
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => handleDeleteProduct(prod.id)}
+                                className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
+                                title="Delete"
+                              >
+                                <Trash2 className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
                     })}
                   </tbody>
                 </table>
@@ -1605,9 +1793,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {/* Header with Title & Direct Card Add Button */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
                 <div>
-                  <h3 className="text-lg font-black text-slate-900">Projects That Define Kurdistan’s Skyline ({galleryImages.length})</h3>
+                  <h3 className="text-lg font-black text-slate-900">Reference Projects & 3D Carousel Media ({galleryImages.length})</h3>
                   <p className="text-xs text-slate-500 mt-1">
-                    Add images or videos, edit each title and description, and replace or delete any project.
+                    Cards 01 to 12 below are featured in the interactive 3D Gallery Carousel. You can replace images/videos, edit titles/descriptions, and reorder them with the arrows.
                   </p>
                 </div>
 
@@ -1623,7 +1811,20 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
               </div>
 
-              <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              {/* 3D Carousel Top 12 Info Banner */}
+              <div className="rounded-xl border border-red-200 bg-red-50/70 p-3.5 text-xs text-red-950 flex items-start gap-3">
+                <Sparkles className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <div className="font-extrabold text-red-900 text-xs sm:text-sm">
+                    Homepage 3D Carousel (Top 12 Cards)
+                  </div>
+                  <p className="text-slate-700 leading-relaxed text-[11px] sm:text-xs">
+                    The first 12 cards in this list (highlighted with the red <strong>3D Carousel</strong> badge) correspond directly to <strong>Cards 01 through 12</strong> in the 3D Carousel on the public homepage. Use <strong>Replace</strong> to change any photo or video, and use the <strong>↑ / ↓</strong> arrows to change their carousel position. Changes save automatically.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-3 rounded-2xl border border-red-100 bg-white p-4 shadow-2xs">
                 <label className="block text-xs font-bold text-slate-800">Project title
                   <input value={newGalleryTitle} onChange={(e) => setNewGalleryTitle(e.target.value)} placeholder="Project title" className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900" />
                 </label>
@@ -1650,42 +1851,108 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {galleryImages.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="rounded-2xl border border-slate-200 bg-white p-2.5 space-y-2.5 shadow-xs hover:border-red-300 transition-all flex flex-col justify-between"
-                      >
-                        <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-100">
-                          {item.mediaType === 'video' ? <video src={item.src} muted playsInline preload="metadata" className="h-full w-full object-cover" /> : <img src={item.src} alt={item.title} className="w-full h-full object-cover" />}
-                        </div>
+                    {galleryImages.map((item, idx) => {
+                      const isTop12 = idx < 12;
+                      return (
+                        <div
+                          key={item.id || idx}
+                          className={`rounded-2xl border ${isTop12 ? 'border-red-300 ring-1 ring-red-200/60 bg-gradient-to-b from-red-50/20 to-white' : 'border-slate-200 bg-white'} p-3 space-y-2.5 shadow-xs hover:border-red-400 transition-all flex flex-col justify-between`}
+                        >
+                          {/* Top Card Badge & Reorder Controls */}
+                          <div className="flex items-center justify-between gap-1 pb-1">
+                            {isTop12 ? (
+                              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow-2xs">
+                                <Sparkles className="w-3 h-3" />
+                                3D Carousel #{String(idx + 1).padStart(2, '0')}
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider">
+                                Project #{idx + 1}
+                              </span>
+                            )}
 
-                        <input value={item.title} onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, title: e.target.value } : entry))} aria-label="Project title" className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-900" />
-                        <textarea value={item.description} onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: e.target.value } : entry))} aria-label="Project description" rows={2} className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs text-slate-900" />
-                        {/* Replace & Delete Buttons for each project */}
-                        <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
-                          <label className="flex-1 py-1.5 px-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-red-200 transition-all cursor-pointer">
-                            <Upload className="w-3 h-3" />
-                            <span>Replace</span>
+                            {/* Reorder Arrows */}
+                            <div className="flex items-center gap-1">
+                              <button
+                                type="button"
+                                disabled={idx === 0}
+                                onClick={() => handleMoveGalleryImage(idx, 'up')}
+                                className="p-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition-colors"
+                                title="Move Up in Carousel"
+                              >
+                                <ArrowUp className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                disabled={idx === galleryImages.length - 1}
+                                onClick={() => handleMoveGalleryImage(idx, 'down')}
+                                className="p-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition-colors"
+                                title="Move Down in Carousel"
+                              >
+                                <ArrowDown className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Thumbnail Preview */}
+                          <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-100">
+                            {item.mediaType === 'video' ? (
+                              <video src={item.src} muted playsInline preload="metadata" className="h-full w-full object-cover" />
+                            ) : (
+                              <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
+                            )}
+                            <span className="absolute bottom-1.5 end-1.5 px-1.5 py-0.5 rounded bg-black/70 text-white font-mono text-[9px] uppercase tracking-widest backdrop-blur-xs">
+                              {item.mediaType === 'video' ? 'Video' : 'Photo'}
+                            </span>
+                          </div>
+
+                          {/* Editable Title & Description (Auto-saved on blur) */}
+                          <div className="space-y-1.5">
                             <input
-                              type="file"
-                              accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
-                              onChange={(e) => handleReplaceGalleryImage(idx, e)}
-                              className="hidden"
+                              value={item.title}
+                              onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, title: e.target.value } : entry))}
+                              onBlur={() => persistGalleryUpdates(galleryImages)}
+                              aria-label="Project title"
+                              placeholder="Project title"
+                              className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-900 focus:border-red-500 focus:outline-none"
                             />
-                          </label>
+                            <textarea
+                              value={item.description}
+                              onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: e.target.value } : entry))}
+                              onBlur={() => persistGalleryUpdates(galleryImages)}
+                              aria-label="Project description"
+                              placeholder="Project description"
+                              rows={2}
+                              className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs text-slate-900 focus:border-red-500 focus:outline-none"
+                            />
+                          </div>
 
-                          <button
-                            type="button"
-                            onClick={() => handleDeleteGalleryImage(idx)}
-                            className="flex-1 py-1.5 px-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-rose-200 transition-all cursor-pointer"
-                            title="Delete photo"
-                          >
-                            <Trash2 className="w-3 h-3" />
-                            <span>Delete</span>
-                          </button>
+                          {/* Replace & Delete Buttons */}
+                          <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
+                            <label className="flex-1 py-1.5 px-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-red-200 transition-all cursor-pointer">
+                              <Upload className="w-3 h-3" />
+                              <span>Replace</span>
+                              <input
+                                type="file"
+                                accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
+                                onChange={(e) => handleReplaceGalleryImage(idx, e)}
+                                className="hidden"
+                              />
+                            </label>
+
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteGalleryImage(idx)}
+                              className="py-1.5 px-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-rose-200 transition-all cursor-pointer"
+                              title="Delete project"
+                            >
+                              <Trash2 className="w-3 h-3" />
+                              <span>Delete</span>
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -1733,7 +2000,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 ].map((sys) => {
                   const currentSrc = homepageMedia.showcaseImages?.[sys.key] || sys.defaultSrc;
                   return (
-                    <div key={sys.key} className="p-3 bg-slate-50 rounded-2xl border border-slate-200 space-y-3 flex flex-col justify-between">
+                    <div key={sys.key} className="p-3 bg-white rounded-2xl border border-slate-200 hover:border-red-300 space-y-3 flex flex-col justify-between shadow-2xs transition-colors">
                       <div className="space-y-2">
                         <div className="aspect-square rounded-xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-2">
                           <img src={currentSrc} alt={sys.title} className="max-h-full max-w-full object-contain" />
@@ -1889,6 +2156,457 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   </button>
                 </div>
               </div>
+            </div>
+          </main>
+        )}
+
+        {/* SECTION: PARTNER LOGOS MANAGEMENT */}
+        {activeSection === 'logos' && (
+          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-[#fafafa]">
+            <input
+              type="file"
+              ref={logoFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleLogoFileUpload}
+            />
+            <input
+              type="file"
+              ref={newFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleNewFlagFileUpload}
+            />
+            <input
+              type="file"
+              ref={cardFlagFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleCardFlagFileUpload}
+            />
+
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                  <span className="w-2.5 h-6 bg-red-600 rounded-full inline-block" />
+                  Partner Brands & Country Flags
+                </h2>
+                <p className="text-xs text-slate-500 mt-1">
+                  Manage partner brand logos and upload custom country flags (PNG, SVG, WebP) or select flag emojis.
+                </p>
+              </div>
+              {logosSaveFeedback && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 shadow-xs">
+                  <CheckCircle2 className="w-4 h-4 text-red-600" />
+                  {logosSaveFeedback}
+                </div>
+              )}
+            </div>
+
+            {/* Add New Logo Card */}
+            <div className="bg-white rounded-2xl border-2 border-red-100 p-5 shadow-sm space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-black text-sm text-slate-900 flex items-center gap-2">
+                  <Plus className="w-4 h-4 text-red-600 stroke-[3]" /> Add New Partner Brand
+                </h3>
+                <span className="text-[11px] font-bold text-red-600 bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">
+                  Image Uploads Supported
+                </span>
+              </div>
+
+              {/* Country & Flag Quick Presets */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+                  Quick Country & Flag Presets
+                </label>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    { country: 'Kurdistan', flag: '/assets/flags/kurdish_flag.png', label: 'Kurdistan' },
+                    { country: 'Iraq', flag: '🇮🇶', label: 'Iraq' },
+                    { country: 'Germany', flag: '🇩🇪', label: 'Germany' },
+                    { country: 'Italy', flag: '🇮🇹', label: 'Italy' },
+                    { country: 'Turkey', flag: '🇹🇷', label: 'Turkey' },
+                    { country: 'Belgium', flag: '🇧🇪', label: 'Belgium' },
+                    { country: 'Spain', flag: '🇪🇸', label: 'Spain' },
+                    { country: 'Greece', flag: '🇬🇷', label: 'Greece' },
+                    { country: 'United Kingdom', flag: '🇬🇧', label: 'UK' },
+                    { country: 'United States', flag: '🇺🇸', label: 'USA' },
+                    { country: 'France', flag: '🇫🇷', label: 'France' },
+                  ].map((p) => (
+                    <button
+                      key={p.label}
+                      type="button"
+                      onClick={() => setNewLogo((prev) => ({ ...prev, country: p.country, flag: p.flag }))}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
+                        newLogo.country === p.country
+                          ? 'bg-red-600 text-white border-red-600 shadow-xs'
+                          : 'bg-white hover:bg-red-50 hover:border-red-200 text-slate-700 border-slate-200'
+                      }`}
+                    >
+                      {isImageFlag(p.flag) ? (
+                        <img src={p.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block shadow-2xs" />
+                      ) : (
+                        <span>{p.flag}</span>
+                      )}
+                      <span>{p.label}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Name *</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. SCHÜCO"
+                    value={newLogo.name}
+                    onChange={(e) => setNewLogo((l) => ({ ...l, name: e.target.value }))}
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Logo Image *</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Image URL or upload"
+                      value={newLogo.src}
+                      onChange={(e) => setNewLogo((l) => ({ ...l, src: e.target.value }))}
+                      className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
+                    />
+                    <button
+                      type="button"
+                      disabled={isUploadingLogo}
+                      onClick={() => logoFileInputRef.current?.click()}
+                      className="shrink-0 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
+                      title="Upload Brand Logo Image"
+                    >
+                      <Upload className="w-3.5 h-3.5 text-red-600" />
+                      <span>{isUploadingLogo ? '...' : 'Upload'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Country Name</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Germany / Iraq"
+                    value={newLogo.country}
+                    onChange={(e) => setNewLogo((l) => ({ ...l, country: e.target.value }))}
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center justify-between">
+                    <span>Country Flag (Upload or Emoji)</span>
+                    {newLogo.flag && (
+                      <button
+                        type="button"
+                        onClick={() => setNewLogo((l) => ({ ...l, flag: '' }))}
+                        className="text-red-600 hover:underline text-[10px] font-semibold"
+                      >
+                        clear
+                      </button>
+                    )}
+                  </label>
+                  <div className="flex gap-2">
+                    <div className="relative flex-1 flex items-center">
+                      {newLogo.flag && isImageFlag(newLogo.flag) ? (
+                        <div className="w-full flex items-center gap-2 border border-slate-300 rounded-xl px-2.5 py-1.5 bg-white">
+                          <img
+                            src={newLogo.flag}
+                            alt="Flag"
+                            className="w-6 h-4 object-cover rounded-xs border border-slate-200 shrink-0 shadow-2xs"
+                          />
+                          <span className="text-xs text-slate-600 truncate flex-1 font-mono text-[11px]">{newLogo.flag}</span>
+                        </div>
+                      ) : (
+                        <input
+                          type="text"
+                          placeholder="e.g. 🇩🇪 or upload flag image"
+                          value={newLogo.flag}
+                          onChange={(e) => setNewLogo((l) => ({ ...l, flag: e.target.value }))}
+                          className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
+                        />
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      disabled={isUploadingFlag}
+                      onClick={() => newFlagFileInputRef.current?.click()}
+                      className="shrink-0 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
+                      title="Upload Flag Icon Image"
+                    >
+                      <Upload className="w-3.5 h-3.5 text-red-600" />
+                      <span>{isUploadingFlag ? '...' : 'Upload'}</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Preview of logo & flag badge */}
+              {newLogo.src && (
+                <div className="flex items-center gap-4 p-3 bg-red-50/40 rounded-xl border border-red-100">
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="h-10 px-4 bg-white rounded-lg border border-slate-200 flex items-center justify-center shadow-xs">
+                      <img
+                        src={newLogo.src}
+                        alt={newLogo.name}
+                        className="max-h-8 max-w-[120px] object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    {newLogo.flag && (
+                      <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-bold shadow-xs">
+                        {isImageFlag(newLogo.flag) ? (
+                          <img src={newLogo.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block" />
+                        ) : (
+                          <span>{newLogo.flag}</span>
+                        )}
+                        {newLogo.country && <span>{newLogo.country}</span>}
+                      </div>
+                    )}
+                  </div>
+                  <span className="text-xs text-slate-600 font-medium">Live preview of how the brand logo & flag appear</span>
+                </div>
+              )}
+
+              <div className="flex justify-end pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!newLogo.name.trim() || !newLogo.src.trim()) {
+                      alert('Please provide brand name and image URL/file.');
+                      return;
+                    }
+                    const logo = {
+                      id: `logo-${Date.now()}`,
+                      name: newLogo.name.trim(),
+                      src: newLogo.src.trim(),
+                      alt: newLogo.alt || newLogo.name.trim(),
+                      country: newLogo.country.trim() || undefined,
+                      flag: newLogo.flag.trim() || undefined,
+                    };
+                    const updated = [...partnerLogos, logo];
+                    setPartnerLogos(updated);
+                    setNewLogo({ name: '', src: '', alt: '', country: '', flag: '' });
+                    try {
+                      localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
+                      window.dispatchEvent(new Event('cms_partner_logos_updated'));
+                    } catch {}
+                    void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
+                  }}
+                  className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <span>Add Brand to List</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Active Partner Logos Grid */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-black text-sm text-slate-900 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-600" />
+                  Configured Brands ({partnerLogos.length})
+                </h3>
+                <span className="text-xs text-slate-500 font-medium">
+                  Changes save automatically and update the website in real-time.
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {partnerLogos.map((logo, idx) => (
+                  <div
+                    key={logo.id || idx}
+                    className="bg-white rounded-2xl border border-slate-200 hover:border-red-300 p-4 shadow-xs flex flex-col justify-between gap-3 transition-all"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="shrink-0 flex flex-col items-center gap-1.5">
+                        <div className="w-20 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center p-1.5 shadow-2xs">
+                          <img
+                            src={logo.src}
+                            alt={logo.alt || logo.name}
+                            className="max-h-10 max-w-[70px] object-contain"
+                            onError={(e) => {
+                              const t = e.target as HTMLImageElement;
+                              t.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                        {logo.flag && (
+                          <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold shadow-2xs">
+                            {isImageFlag(logo.flag) ? (
+                              <img src={logo.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block" />
+                            ) : (
+                              <span>{logo.flag}</span>
+                            )}
+                            {logo.country && <span className="truncate max-w-[65px]">{logo.country}</span>}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex-1 min-w-0 space-y-2">
+                        <div className="font-extrabold text-sm text-slate-900 truncate">{logo.name}</div>
+                        <input
+                          type="text"
+                          value={logo.country || ''}
+                          placeholder="Country (e.g. Italy)"
+                          onChange={(e) => {
+                            const updated = [...partnerLogos];
+                            updated[idx] = { ...updated[idx], country: e.target.value };
+                            setPartnerLogos(updated);
+                          }}
+                          className="w-full border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400 bg-white"
+                        />
+                        <div className="flex items-center gap-1.5">
+                          <input
+                            type="text"
+                            value={logo.flag || ''}
+                            placeholder="Flag (emoji or URL)"
+                            onChange={(e) => {
+                              const updated = [...partnerLogos];
+                              updated[idx] = { ...updated[idx], flag: e.target.value };
+                              setPartnerLogos(updated);
+                            }}
+                            className="flex-1 min-w-0 border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400 bg-white"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setUploadingFlagCardIdx(idx);
+                              cardFlagFileInputRef.current?.click();
+                            }}
+                            className="shrink-0 px-2 py-1 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-[10px] font-bold transition-colors cursor-pointer flex items-center gap-1"
+                            title="Upload Flag Image for this brand"
+                          >
+                            <Upload className="w-3 h-3 text-red-600" />
+                            <span>Upload</span>
+                          </button>
+                        </div>
+                        {/* Quick presets for this card */}
+                        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar pt-0.5">
+                          {[
+                            { flag: '/assets/flags/kurdish_flag.png', label: 'Kurdistan' },
+                            { flag: '🇮🇶', label: 'Iraq' },
+                            { flag: '🇩🇪', label: 'Germany' },
+                            { flag: '🇮🇹', label: 'Italy' },
+                            { flag: '🇹🇷', label: 'Turkey' },
+                            { flag: '🇧🇪', label: 'Belgium' },
+                            { flag: '🇪🇸', label: 'Spain' },
+                            { flag: '🇬🇷', label: 'Greece' },
+                          ].map((f) => (
+                            <button
+                              key={f.label}
+                              type="button"
+                              onClick={() => {
+                                const updated = [...partnerLogos];
+                                updated[idx] = { ...updated[idx], flag: f.flag };
+                                setPartnerLogos(updated);
+                              }}
+                              className="p-1 rounded-md border border-slate-100 hover:border-red-200 hover:bg-red-50 transition-all cursor-pointer"
+                              title={`Set flag to ${f.label}`}
+                            >
+                              {isImageFlag(f.flag) ? (
+                                <img src={f.flag} alt="" className="w-3.5 h-2.5 object-cover rounded-2xs inline-block" />
+                              ) : (
+                                <span className="text-xs leading-none">{f.flag}</span>
+                              )}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          disabled={idx === 0}
+                          onClick={() => {
+                            if (idx === 0) return;
+                            const updated = [...partnerLogos];
+                            const temp = updated[idx - 1];
+                            updated[idx - 1] = updated[idx];
+                            updated[idx - 1] = temp;
+                            setPartnerLogos(updated);
+                          }}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
+                          title="Move Left"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          disabled={idx === partnerLogos.length - 1}
+                          onClick={() => {
+                            if (idx === partnerLogos.length - 1) return;
+                            const updated = [...partnerLogos];
+                            const temp = updated[idx + 1];
+                            updated[idx + 1] = updated[idx];
+                            updated[idx] = temp;
+                            setPartnerLogos(updated);
+                          }}
+                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
+                          title="Move Right"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const updated = partnerLogos.filter((_, i) => i !== idx);
+                          setPartnerLogos(updated);
+                          try {
+                            localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
+                            window.dispatchEvent(new Event('cms_partner_logos_updated'));
+                          } catch {}
+                          void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
+                        }}
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors cursor-pointer"
+                        title="Remove Logo"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Save Button */}
+            <div className="flex justify-end pt-4 pb-8">
+              <button
+                type="button"
+                disabled={logosSaving}
+                onClick={async () => {
+                  setLogosSaving(true);
+                  try {
+                    await saveSharedCmsSection('partnerLogos', partnerLogos);
+                    localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(partnerLogos));
+                    window.dispatchEvent(new Event('cms_partner_logos_updated'));
+                    setLogosSaveFeedback('✓ Partner logos and flags saved to website!');
+                    setTimeout(() => setLogosSaveFeedback(''), 4000);
+                  } catch (e: any) {
+                    setLogosSaveFeedback('Failed to save: ' + (e?.message || 'Network error'));
+                  } finally {
+                    setLogosSaving(false);
+                  }
+                }}
+                className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
+              >
+                <Save className="w-4 h-4" />
+                <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
+              </button>
             </div>
           </main>
         )}
@@ -2294,361 +3012,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         </div>
       )}
 
-        {/* SECTION: PARTNER LOGOS MANAGEMENT */}
-        {activeSection === 'logos' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            <input
-              type="file"
-              ref={logoFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleLogoFileUpload}
-            />
-
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-black text-slate-900">Partner Brands & Country Flags</h2>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  Manage partner logos and the country flag displayed directly beneath each logo in the homepage marquee.
-                </p>
-              </div>
-              {logosSaveFeedback && (
-                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  {logosSaveFeedback}
-                </div>
-              )}
-            </div>
-
-            {/* Add New Logo Card */}
-            <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="font-black text-sm text-slate-800 flex items-center gap-2">
-                  <Plus className="w-4 h-4 text-red-600 stroke-[3]" /> Add New Partner Logo
-                </h3>
-              </div>
-
-              {/* Country & Flag Quick Presets */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
-                  Quick Country & Flag Presets
-                </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    { country: 'Germany', flag: '🇩🇪' },
-                    { country: 'Italy', flag: '🇮🇹' },
-                    { country: 'Turkey', flag: '🇹🇷' },
-                    { country: 'Belgium', flag: '🇧🇪' },
-                    { country: 'Spain', flag: '🇪🇸' },
-                    { country: 'Greece', flag: '🇬🇷' },
-                    { country: 'United Kingdom', flag: '🇬🇧' },
-                    { country: 'United States', flag: '🇺🇸' },
-                    { country: 'Iraq', flag: '🇮🇶' },
-                    { country: 'France', flag: '🇫🇷' },
-                  ].map((p) => (
-                    <button
-                      key={p.country}
-                      type="button"
-                      onClick={() => setNewLogo((prev) => ({ ...prev, country: p.country, flag: p.flag }))}
-                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                        newLogo.country === p.country
-                          ? 'bg-red-600 text-white shadow-xs'
-                          : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                      }`}
-                    >
-                      <span>{p.flag}</span>
-                      <span>{p.country}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Name *</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. SCHÜCO"
-                    value={newLogo.name}
-                    onChange={(e) => setNewLogo((l) => ({ ...l, name: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Logo Image *</label>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      placeholder="Image URL or upload"
-                      value={newLogo.src}
-                      onChange={(e) => setNewLogo((l) => ({ ...l, src: e.target.value }))}
-                      className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
-                    />
-                    <button
-                      type="button"
-                      disabled={isUploadingLogo}
-                      onClick={() => logoFileInputRef.current?.click()}
-                      className="shrink-0 px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 border border-slate-200"
-                      title="Upload Image from Device"
-                    >
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>{isUploadingLogo ? '...' : 'Upload'}</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Country Name</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Germany"
-                    value={newLogo.country}
-                    onChange={(e) => setNewLogo((l) => ({ ...l, country: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Flag Emoji</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. 🇩🇪"
-                    value={newLogo.flag}
-                    onChange={(e) => setNewLogo((l) => ({ ...l, flag: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Preview of logo & flag badge */}
-              {newLogo.src && (
-                <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="h-10 px-4 bg-white rounded-lg border border-slate-200 flex items-center justify-center">
-                      <img
-                        src={newLogo.src}
-                        alt={newLogo.name}
-                        className="max-h-8 max-w-[120px] object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
-                    </div>
-                    {newLogo.flag && (
-                      <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-800 text-white text-[10px] font-bold">
-                        <span>{newLogo.flag}</span>
-                        {newLogo.country && <span>{newLogo.country}</span>}
-                      </div>
-                    )}
-                  </div>
-                  <span className="text-xs text-slate-500 font-medium">Live preview of how the logo & flag appear</span>
-                </div>
-              )}
-
-              <div className="flex justify-end pt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!newLogo.name.trim() || !newLogo.src.trim()) {
-                      alert('Please provide brand name and image URL/file.');
-                      return;
-                    }
-                    const logo = {
-                      id: `logo-${Date.now()}`,
-                      name: newLogo.name.trim(),
-                      src: newLogo.src.trim(),
-                      alt: newLogo.alt || newLogo.name.trim(),
-                      country: newLogo.country.trim() || undefined,
-                      flag: newLogo.flag.trim() || undefined,
-                    };
-                    const updated = [...partnerLogos, logo];
-                    setPartnerLogos(updated);
-                    setNewLogo({ name: '', src: '', alt: '', country: '', flag: '' });
-                    try {
-                      localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
-                      window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                    } catch {}
-                    void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
-                  }}
-                  className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-sm transition-colors cursor-pointer flex items-center gap-1.5"
-                >
-                  <Plus className="w-4 h-4 stroke-[3]" />
-                  <span>Add Brand to List</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Active Partner Logos Grid */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="font-black text-sm text-slate-800">
-                  Configured Brands ({partnerLogos.length})
-                </h3>
-                <span className="text-xs text-slate-500">
-                  Changes save automatically and update the website in real-time.
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {partnerLogos.map((logo, idx) => (
-                  <div
-                    key={logo.id || idx}
-                    className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs flex flex-col justify-between gap-3 hover:border-slate-300 transition-colors"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="shrink-0 flex flex-col items-center gap-1.5">
-                        <div className="w-20 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5">
-                          <img
-                            src={logo.src}
-                            alt={logo.alt || logo.name}
-                            className="max-h-10 max-w-[70px] object-contain"
-                            onError={(e) => {
-                              const t = e.target as HTMLImageElement;
-                              t.style.display = 'none';
-                            }}
-                          />
-                        </div>
-                        {logo.flag && (
-                          <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold">
-                            <span>{logo.flag}</span>
-                            {logo.country && <span className="truncate max-w-[70px]">{logo.country}</span>}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex-1 min-w-0 space-y-1.5">
-                        <div className="font-extrabold text-sm text-slate-900 truncate">{logo.name}</div>
-                        <input
-                          type="text"
-                          value={logo.country || ''}
-                          placeholder="Country (e.g. Italy)"
-                          onChange={(e) => {
-                            const updated = [...partnerLogos];
-                            updated[idx] = { ...updated[idx], country: e.target.value };
-                            setPartnerLogos(updated);
-                          }}
-                          className="w-full border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400"
-                        />
-                        <div className="flex gap-1.5">
-                          <input
-                            type="text"
-                            value={logo.flag || ''}
-                            placeholder="Flag (e.g. 🇮🇹)"
-                            onChange={(e) => {
-                              const updated = [...partnerLogos];
-                              updated[idx] = { ...updated[idx], flag: e.target.value };
-                              setPartnerLogos(updated);
-                            }}
-                            className="w-20 border border-slate-200 rounded-lg px-2 py-1 text-xs text-slate-800 outline-none focus:border-red-400"
-                          />
-                          {/* Quick presets for this card */}
-                          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-                            {['🇩🇪', '🇮🇹', '🇹🇷', '🇧🇪', '🇪🇸', '🇬🇷'].map((f) => (
-                              <button
-                                key={f}
-                                type="button"
-                                onClick={() => {
-                                  const updated = [...partnerLogos];
-                                  updated[idx] = { ...updated[idx], flag: f };
-                                  setPartnerLogos(updated);
-                                }}
-                                className="text-base hover:scale-125 transition-transform cursor-pointer"
-                                title={`Set flag to ${f}`}
-                              >
-                                {f}
-                              </button>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                      <div className="flex items-center gap-1">
-                        <button
-                          type="button"
-                          disabled={idx === 0}
-                          onClick={() => {
-                            if (idx === 0) return;
-                            const updated = [...partnerLogos];
-                            const temp = updated[idx - 1];
-                            updated[idx - 1] = updated[idx];
-                            updated[idx] = temp;
-                            setPartnerLogos(updated);
-                          }}
-                          className="p-1 rounded text-slate-400 hover:text-slate-700 disabled:opacity-30 cursor-pointer"
-                          title="Move Left"
-                        >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                          type="button"
-                          disabled={idx === partnerLogos.length - 1}
-                          onClick={() => {
-                            if (idx === partnerLogos.length - 1) return;
-                            const updated = [...partnerLogos];
-                            const temp = updated[idx + 1];
-                            updated[idx + 1] = updated[idx];
-                            updated[idx] = temp;
-                            setPartnerLogos(updated);
-                          }}
-                          className="p-1 rounded text-slate-400 hover:text-slate-700 disabled:opacity-30 cursor-pointer"
-                          title="Move Right"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const updated = partnerLogos.filter((_, i) => i !== idx);
-                          setPartnerLogos(updated);
-                          try {
-                            localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
-                            window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                          } catch {}
-                          void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
-                        }}
-                        className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
-                        title="Remove Logo"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Save Button */}
-            <div className="flex justify-end pt-4 pb-8">
-              <button
-                type="button"
-                disabled={logosSaving}
-                onClick={async () => {
-                  setLogosSaving(true);
-                  try {
-                    await saveSharedCmsSection('partnerLogos', partnerLogos);
-                    localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(partnerLogos));
-                    window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                    setLogosSaveFeedback('✓ Partner logos and flags saved to website!');
-                    setTimeout(() => setLogosSaveFeedback(''), 4000);
-                  } catch (e: any) {
-                    setLogosSaveFeedback('Failed to save: ' + (e?.message || 'Network error'));
-                  } finally {
-                    setLogosSaving(false);
-                  }
-                }}
-                className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
-              >
-                <Save className="w-4 h-4" />
-                <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
-              </button>
-            </div>
-          </main>
-        )}
+        
 
     </div>
   );

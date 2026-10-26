@@ -26,10 +26,6 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 dh-reveal">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600 text-white text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
-            <MapPin className="w-3.5 h-3.5 text-white" />
-            <span><bdi dir="auto">{t('contact_badge') || 'Location & Showroom'}</bdi></span>
-          </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#3E4346] tracking-tight">
             <bdi dir="auto">{t('contact_title')}</bdi>
           </h2>
@@ -45,11 +41,8 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
             <div className="lg:col-span-5 p-7 sm:p-9 flex flex-col justify-center space-y-6 border-b lg:border-b-0 lg:border-e border-slate-200">
               <div className="space-y-5">
                 <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-[11px] font-black uppercase tracking-wider mb-2 border border-red-100">
-                    <MapPin className="w-3.5 h-3.5" />
-                    <span><bdi dir="auto">{t('location_card_title')}</bdi></span>
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 flex items-center gap-2.5">
+                    <MapPin className="w-6 h-6 text-red-600 shrink-0" />
                     <bdi dir="auto">{t('location_card_title')}</bdi>
                   </h3>
                   <p className="mt-2 text-xs sm:text-sm leading-relaxed text-slate-600">
@@ -62,9 +55,14 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                   <Phone className="w-5 h-5 text-red-600 shrink-0" />
                   <div className="min-w-0 flex-1">
                     <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('phone_label') || 'Phone / Hotline'}</span>
-                    <a href={`tel:${DOORHOME_CONTACT.hotlineRaw}`} dir="ltr" className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors truncate block">
-                      {DOORHOME_CONTACT.hotline}
-                    </a>
+                    <div className="flex flex-wrap gap-x-4 gap-y-1">
+                      <a href={`tel:${DOORHOME_CONTACT.hotlineRaw}`} dir="ltr" className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors">
+                        {DOORHOME_CONTACT.phone}
+                      </a>
+                      <a href={`tel:${DOORHOME_CONTACT.phoneSecondaryRaw}`} dir="ltr" className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors">
+                        {DOORHOME_CONTACT.phoneSecondary}
+                      </a>
+                    </div>
                   </div>
                 </div>
 

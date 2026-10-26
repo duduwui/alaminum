@@ -76,6 +76,8 @@ export const DOORHOME_CONTACT = {
   hotline: "00964-750-738-8748",
   hotlineRaw: "+9647507388748",
   phone: "+964 750 738 8748",
+  phoneSecondary: "+964 770 808 0402",
+  phoneSecondaryRaw: "+9647708080402",
   email: "info@doorhome.company",
   website: "https://doorhome.company",
   branches: {

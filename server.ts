@@ -99,9 +99,24 @@ async function startServer() {
     });
     return pendingSessionSave;
   };
-  app.use('/uploads', express.static(mediaUploadDir));
-  app.use('/products&assets', express.static(path.join(process.cwd(), 'products&assets')));
-  app.use('/products-assets', express.static(path.join(process.cwd(), 'products&assets')));
+  app.use('/uploads', express.static(mediaUploadDir, {
+    maxAge: '7d',
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
+    }
+  }));
+  app.use('/products&assets', express.static(path.join(process.cwd(), 'products&assets'), {
+    maxAge: '7d',
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
+    }
+  }));
+  app.use('/products-assets', express.static(path.join(process.cwd(), 'products&assets'), {
+    maxAge: '7d',
+    setHeaders: (res) => {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
+    }
+  }));
 
   const getAdminCmsSessionToken = (req: express.Request) => {
     const candidates = [req.headers.authorization?.replace(/^Bearer\s+/i, ''), req.headers['x-admin-token'] as string,
@@ -920,7 +935,25 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), 'dist');
-    app.use(express.static(distPath, { index: false }));
+    // 1. Immutable 1-year cache for Vite hashed bundles (/assets/*)
+    app.use('/assets', express.static(path.join(distPath, 'assets'), {
+      maxAge: '1y',
+      immutable: true,
+      setHeaders: (res) => {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      }
+    }));
+    // 2. Static files (images, icons, manifest, etc.) with 1-day cache, index.html revalidated
+    app.use(express.static(distPath, {
+      index: false,
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+          res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+        } else if (/\.(webp|jpg|jpeg|png|svg|ico|woff2?|json)$/i.test(filePath)) {
+          res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+        }
+      }
+    }));
     app.get('*', async (req, res, next) => {
       try {
         if (req.path.startsWith('/api/') || /\.[a-z0-9]+$/i.test(req.path)) return res.status(404).send('Not found');

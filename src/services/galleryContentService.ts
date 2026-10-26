@@ -70,21 +70,18 @@ export async function fetchGalleryItemsFromCms(): Promise<GalleryMediaItem[]> {
 export function loadGalleryItems(): GalleryMediaItem[] {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    let parsed: GalleryMediaItem[] = [];
     if (saved) {
-      parsed = normalizeGalleryItems(JSON.parse(saved));
-    }
-    
-    // Merge custom uploaded items with default gallery items
-    const map = new Map<string, GalleryMediaItem>();
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      parsed.forEach(p => map.set(p.src, p));
-    }
-    DEFAULT_GALLERY_ITEMS.forEach(d => {
-      if (!map.has(d.src)) {
-        map.set(d.src, d);
+      const parsed = normalizeGalleryItems(JSON.parse(saved));
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        if (typeof window !== 'undefined' && !isSyncing) {
+          isSyncing = true;
+          fetchGalleryItemsFromCms().finally(() => {
+            isSyncing = false;
+          });
+        }
+        return parsed;
       }
-    });
+    }
 
     // In browser environment, initiate background sync from CMS if not already syncing
     if (typeof window !== 'undefined' && !isSyncing) {
@@ -94,7 +91,7 @@ export function loadGalleryItems(): GalleryMediaItem[] {
       });
     }
 
-    return Array.from(map.values());
+    return DEFAULT_GALLERY_ITEMS;
   } catch {
     return DEFAULT_GALLERY_ITEMS;
   }

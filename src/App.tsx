@@ -7,7 +7,6 @@ import { AboutSection } from './components/AboutSection';
 import { WindowsSection } from './components/WindowsSection';
 import { DoorsSection } from './components/DoorsSection';
 import { AccessoriesSection } from './components/AccessoriesSection';
-import { BrochuresSection } from './components/BrochuresSection';
 import { GallerySection } from './components/GallerySection';
 import { ContactSection } from './components/ContactSection';
 import { AlumilContactPage } from './components/AlumilContactPage';
@@ -15,20 +14,21 @@ import { FloatingContactBadge } from './components/FloatingContactBadge';
 import { ProductShopPage } from './components/ProductShopPage';
 import { AlumilFooter } from './components/AlumilFooter';
 import { ProductDetailPage } from './components/ProductDetailPage';
-import { ArticlesPage } from './components/ArticlesPage';
-import { ReviewsRatingPage } from './components/ReviewsRatingPage';
 import { SearchModal } from './components/SearchModal';
 import { RequestCartDrawer } from './components/RequestCartDrawer';
-import { QuotationRequestStepperModal } from './components/QuotationRequestStepperModal';
-import { AdminPortalPage } from './components/AdminPortalPage';
+// QuotationRequestStepperModal removed per user request
 import { AdminGuardModal } from './components/AdminGuardModal';
-import { UserAccountModal } from './components/UserAccountModal';
-import { UserAuthPage } from './components/UserAuthPage';
 import { TranslationLoader } from './components/TranslationLoader';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
 import { ProductItem } from './data/winhomeData';
 import { RequestItem, QuotationRequest } from './types/requests';
+
+// Lazy load secondary routes to ensure lightning-fast initial load & refresh
+const AdminPortalPage = React.lazy(() => import('./components/AdminPortalPage'));
+const ArticlesPage = React.lazy(() => import('./components/ArticlesPage').then(m => ({ default: m.ArticlesPage })));
+const ReviewsRatingPage = React.lazy(() => import('./components/ReviewsRatingPage').then(m => ({ default: m.ReviewsRatingPage })));
+const UserAuthPage = React.lazy(() => import('./components/UserAuthPage'));
 import { loadActiveCart, saveActiveCart } from './services/requestService';
 import { getCurrentUser, logoutUser } from './services/authService';
 import { loadLocalProducts, saveLocalProducts } from './services/productService';
@@ -95,9 +95,6 @@ export default function App() {
   }, [activeTab, selectedProduct]);
   const [searchModalOpen, setSearchModalOpen] = useState<boolean>(false);
 
-  // User Authentication Modal State
-  const [isUserAccountModalOpen, setIsUserAccountModalOpen] = useState<boolean>(false);
-
   // Admin Security Gate State
   const [isAdminAuthenticated, setIsAdminAuthenticated] = useState<boolean>(() => {
     const user = getCurrentUser();
@@ -128,7 +125,6 @@ export default function App() {
   // E-Commerce Architectural Request Cart State
   const [cartItems, setCartItems] = useState<RequestItem[]>(() => loadActiveCart());
   const [isCartDrawerOpen, setIsCartDrawerOpen] = useState<boolean>(false);
-  const [isStepperModalOpen, setIsStepperModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     if (getCurrentUser()?.role === 'admin' || window.location.hash === '#admin') return;
@@ -462,7 +458,7 @@ export default function App() {
         <AlumilHeader
           activeTab={activeTab}
           setActiveTab={handleNavigate}
-          onOpenQuoteModal={() => setIsStepperModalOpen(true)}
+          onOpenQuoteModal={() => {}}
           onOpenSearch={() => setSearchModalOpen(true)}
           onOpenUserModal={() => handleNavigate('auth')}
           cartCount={0}
@@ -473,11 +469,12 @@ export default function App() {
 
       {/* Main Body */}
       <main className="flex-1 w-full relative" data-doorhome-page={`${activeTab}:${selectedProduct?.id || ''}`}>
+        <React.Suspense fallback={<div className="min-h-screen bg-white" />}>
         {isAdminView ? (
           /* Admin Portal View (#admin) */
-          <div key="admin" className="min-h-screen w-full bg-slate-950">
+          <div key="admin" className="min-h-screen w-full bg-white">
             {adminSessionStatus === 'checking' ? (
-              <div role="status" className="p-12 text-center text-slate-600">Checking administrator session…</div>
+              <div role="status" className="p-12 text-center text-slate-500 font-semibold">Checking administrator session…</div>
             ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
               <ErrorBoundary fallbackTitle="Admin Portal Error">
                 <AdminPortalPage
@@ -535,7 +532,6 @@ export default function App() {
                 window.location.hash = '#reviews';
                 window.scrollTo({ top: 0, behavior: 'instant' });
               }}
-              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
               onBackToHome={handleBackToHome}
             />
           </div>
@@ -543,7 +539,6 @@ export default function App() {
           <div key="reviews" className="page-transition">
             <ReviewsRatingPage
               onBackToHome={handleBackToHome}
-              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
           </div>
         ) : isProductShopView ? (
@@ -564,7 +559,6 @@ export default function App() {
             {/* 1. Hero Section with Responsive Backgrounds & ShinyText */}
             <HeroSection
               onExploreProducts={() => handleGoToProductShop('all')}
-              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
 
             {/* Architectural Section Separator Line */}
@@ -582,15 +576,9 @@ export default function App() {
               <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
             </div>
 
-            {/* 3. 5 Signature Architectural Systems with 3D CardSwap Deck */}
+            {/* 3. Official Architectural Systems & Catalogues */}
             <SignatureShowcase
               onSelectProduct={handleSelectProduct}
-              onOpenQuote={(name) => {
-                const found = selectedProduct || null;
-                if (found) setSelectedProduct(found);
-                setIsStepperModalOpen(true);
-              }}
-              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
               onGoToProducts={handleGoToProductShop}
             />
 
@@ -603,7 +591,6 @@ export default function App() {
             {/* 4. Material Superiority & Engineering Pillars */}
             <AboutSection
               onExploreTypologies={() => handleNavigate('typology')}
-              onOpenQuoteModal={() => setIsStepperModalOpen(true)}
             />
 
             {/* Architectural Section Separator Line */}
@@ -615,11 +602,6 @@ export default function App() {
             {/* 5. Architectural Windows Systems */}
             <WindowsSection
               onSelectProduct={handleSelectProduct}
-              onOpenQuote={(name) => {
-                const found = selectedProduct || null;
-                if (found) setSelectedProduct(found);
-                setIsStepperModalOpen(true);
-              }}
               onExploreCategory={handleGoToProductShop}
             />
 
@@ -632,11 +614,6 @@ export default function App() {
             {/* 6. Architectural Doors & Entrances */}
             <DoorsSection
               onSelectProduct={handleSelectProduct}
-              onOpenQuote={(name) => {
-                const found = selectedProduct || null;
-                if (found) setSelectedProduct(found);
-                setIsStepperModalOpen(true);
-              }}
               onExploreCategory={handleGoToProductShop}
             />
 
@@ -649,22 +626,6 @@ export default function App() {
             {/* 7. Precision Hardware & Architectural Accessories */}
             <AccessoriesSection
               onSelectProduct={handleSelectProduct}
-              onOpenQuote={(_name) => {
-                setIsStepperModalOpen(true);
-              }}
-            />
-
-            {/* Architectural Section Separator Line */}
-            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
-              <div className="w-full border-t-2 border-slate-900/25" />
-              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
-            </div>
-
-            {/* 8. Technical Catalogues & Brochures */}
-            <BrochuresSection
-              onOpenQuote={(_subject) => {
-                setIsStepperModalOpen(true);
-              }}
             />
 
             {/* Architectural Section Separator Line */}
@@ -688,9 +649,10 @@ export default function App() {
             </div>
 
             {/* 10. Contact */}
-            <ContactSection onOpenQuoteModal={() => setIsStepperModalOpen(true)} />
+            <ContactSection />
           </div>
         )}
+        </React.Suspense>
       </main>
 
       {/* Alumil Exact Footer */}
@@ -698,7 +660,6 @@ export default function App() {
         <ErrorBoundary fallbackTitle="Footer Error">
           <AlumilFooter
             onNavigate={handleNavigate}
-            onOpenQuote={() => setIsStepperModalOpen(true)}
           />
         </ErrorBoundary>
       )}
@@ -707,18 +668,6 @@ export default function App() {
       {!isAdminView && !isAuthView && (
         <FloatingContactBadge onClick={() => handleNavigate('contact')} />
       )}
-
-      {/* User Login & Registration Account Modal */}
-      <UserAccountModal
-        isOpen={isUserAccountModalOpen}
-        onClose={() => setIsUserAccountModalOpen(false)}
-        onAuthSuccess={(user) => {
-          if (user.role === 'admin') {
-            setIsAdminAuthenticated(true);
-          }
-        }}
-        onNavigateToAdmin={() => handleNavigate('admin')}
-      />
 
       {/* Instant Search Modal */}
       <SearchModal
@@ -740,7 +689,7 @@ export default function App() {
         onClearCart={handleClearCart}
         onProceedToQuote={() => {
           setIsCartDrawerOpen(false);
-          setIsStepperModalOpen(true);
+          window.open('https://wa.me/9647507388748', '_blank', 'noopener,noreferrer');
         }}
         onExploreMore={() => {
           setIsCartDrawerOpen(false);
@@ -748,13 +697,7 @@ export default function App() {
         }}
       />
 
-      {/* 4-Step Dynamic Quotation Stepper */}
-      <QuotationRequestStepperModal
-        isOpen={isStepperModalOpen}
-        onClose={() => setIsStepperModalOpen(false)}
-        cartItems={cartItems}
-        onSuccess={handleSuccessfulRequestSubmission}
-      />
+      {/* Quotation Request Stepper Modal Removed per User Request */}
 
       {/* Admin Login Modal */}
       <AdminGuardModal

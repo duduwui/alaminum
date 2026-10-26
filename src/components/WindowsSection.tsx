@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ProductItem } from '../data/winhomeData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
-import { ChevronRight, ChevronLeft, Play, Shield, Wind, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 
 interface WindowsSectionProps {
   onSelectProduct: (product: ProductItem) => void;
-  onOpenQuote: (productName: string) => void;
+  onOpenQuote?: (productName: string) => void;
   onExploreCategory?: (category: string) => void;
 }
 
@@ -68,9 +68,6 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 dh-reveal">
           <div className="border-s-4 border-red-600 ps-4">
-            <span className="text-xs font-black uppercase tracking-wider text-red-600 block mb-1">
-              <bdi dir="auto">{t('win_badge') || 'ARCHITECTURAL WINDOWS'}</bdi>
-            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               <bdi dir="auto">{t('win_title')}</bdi>
             </h2>
@@ -165,26 +162,16 @@ export const WindowsSection: React.FC<WindowsSectionProps> = ({
                 </p>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Button */}
               <div className="pt-4 border-t border-slate-100">
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => onSelectProduct(activeProduct)}
-                    className="flex-1 py-3 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <span><bdi dir="auto">{t('specs_btn') || 'Inspect Specs'}</bdi></span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => onOpenQuote(activeProduct.name)}
-                    className="flex-1 py-3 px-4 rounded-xl border border-slate-300 hover:border-red-400 hover:bg-red-50 text-slate-800 hover:text-red-700 font-extrabold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <span><bdi dir="auto">{t('quote_btn') || 'Get Quote'}</bdi></span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => onSelectProduct(activeProduct)}
+                  className="w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <span><bdi dir="auto">{t('specs_btn') || 'Inspect Specs'}</bdi></span>
+                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
               </div>
             </div>
           </div>

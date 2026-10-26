@@ -1,4 +1,5 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const PARTNERS_TITLE_BY_LANG: Record<string, string> = {
@@ -17,6 +18,18 @@ export interface PartnerBrand {
   country?: string;
   flag?: string;
 }
+
+export const isImageFlag = (val?: string): boolean => {
+  if (!val) return false;
+  const trimmed = val.trim();
+  return (
+    trimmed.startsWith('/') ||
+    trimmed.startsWith('http://') ||
+    trimmed.startsWith('https://') ||
+    trimmed.startsWith('data:image/') ||
+    /\.(png|jpg|jpeg|webp|svg|gif|avif)(\?.*)?$/i.test(trimmed)
+  );
+};
 
 const DEFAULT_PARTNER_LOGOS: PartnerBrand[] = [
   { id: 'alumass', name: 'ALUMASS', src: '/assets/doorhome/4-1.png', alt: 'ALUMASS Aluminum Systems', country: 'Italy', flag: '🇮🇹' },
@@ -94,6 +107,12 @@ export const PartnerLogos: React.FC = () => {
     PARTNERS_TITLE_BY_LANG.en;
 
   const [logos, setLogos] = useState<PartnerBrand[]>(getPartnerLogos);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isDraggingRef = useRef(false);
+  const startXRef = useRef(0);
+  const scrollLeftStartRef = useRef(0);
+  const isUserInteractingRef = useRef(false);
+  const resumeTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     loadPartnerLogosFromCms().then(setLogos);
@@ -110,115 +129,120 @@ export const PartnerLogos: React.FC = () => {
     };
   }, []);
 
-  if (logos.length === 0) return null;
-
-  // 4 duplicate sets to guarantee endless seamless circular scrolling
+  // 4 sets for continuous infinite bidirectional scrolling
   const REPEATED = [...logos, ...logos, ...logos, ...logos];
 
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const scrollPosRef = useRef<number>(0);
-  const isInteractingRef = useRef<boolean>(false);
-  const isHoveredRef = useRef<boolean>(false);
-  const resumeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const animFrameRef = useRef<number>(0);
-
-  const [isDragging, setIsDragging] = useState(false);
-  const dragStartXRef = useRef<number>(0);
-  const dragStartScrollRef = useRef<number>(0);
-
-  const pauseTemporarily = useCallback((ms: number) => {
-    isInteractingRef.current = true;
-    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-    resumeTimeoutRef.current = setTimeout(() => {
-      isInteractingRef.current = false;
-    }, ms);
+  const pauseAutoScroll = useCallback((durationMs = 2500) => {
+    isUserInteractingRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    resumeTimerRef.current = setTimeout(() => {
+      if (!isDraggingRef.current) {
+        isUserInteractingRef.current = false;
+      }
+    }, durationMs);
   }, []);
 
+  // Smooth continuous auto-scroll loop via requestAnimationFrame
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const SPEED = 0.6;
-    let lastTime = performance.now();
+    if (logos.length === 0) return;
+    const container = scrollRef.current;
+    if (!container) return;
 
-    const tick = (now: number) => {
-      animFrameRef.current = requestAnimationFrame(tick);
-      if (isInteractingRef.current || isHoveredRef.current) { lastTime = now; return; }
-      const dt = Math.min(now - lastTime, 50);
-      lastTime = now;
-      scrollPosRef.current += SPEED * dt / 16;
-      el.scrollLeft = scrollPosRef.current;
-      const singleSetWidth = el.scrollWidth / 4;
-      if (singleSetWidth > 0) {
-        if (el.scrollLeft >= singleSetWidth * 2.8) {
-          el.scrollLeft -= singleSetWidth;
-          scrollPosRef.current = el.scrollLeft;
-        } else if (el.scrollLeft <= singleSetWidth * 0.2) {
-          el.scrollLeft += singleSetWidth;
-          scrollPosRef.current = el.scrollLeft;
+    let animId: number;
+    let singleSetWidth = container.scrollWidth / 4;
+
+    // Start in the middle so user can scroll left or right immediately
+    if (container.scrollLeft === 0 && singleSetWidth > 0) {
+      container.scrollLeft = singleSetWidth;
+    }
+
+    const step = () => {
+      if (container && singleSetWidth > 0) {
+        if (!isUserInteractingRef.current && !isDraggingRef.current) {
+          container.scrollLeft += 0.8;
+        }
+
+        // Seamless infinite loop check
+        if (container.scrollLeft >= singleSetWidth * 2.5) {
+          container.scrollLeft -= singleSetWidth;
+        } else if (container.scrollLeft <= singleSetWidth * 0.5) {
+          container.scrollLeft += singleSetWidth;
         }
       }
+      animId = requestAnimationFrame(step);
     };
-    animFrameRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(animFrameRef.current);
+
+    animId = requestAnimationFrame(step);
+
+    const handleResize = () => {
+      if (container) {
+        singleSetWidth = container.scrollWidth / 4;
+      }
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      window.removeEventListener('resize', handleResize);
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
+    };
   }, [logos]);
 
-  const handleScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const singleSetWidth = el.scrollWidth / 4;
-    if (singleSetWidth > 0) {
-      if (el.scrollLeft >= singleSetWidth * 2.8) {
-        el.scrollLeft -= singleSetWidth;
-        scrollPosRef.current = el.scrollLeft;
-      } else if (el.scrollLeft <= singleSetWidth * 0.2) {
-        el.scrollLeft += singleSetWidth;
-        scrollPosRef.current = el.scrollLeft;
-      }
-    }
-  };
-
+  // Mouse Drag Handlers
   const handleMouseDown = (e: React.MouseEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setIsDragging(true);
-    isInteractingRef.current = true;
-    dragStartXRef.current = e.pageX;
-    dragStartScrollRef.current = el.scrollLeft;
+    if (!scrollRef.current) return;
+    isDraggingRef.current = true;
+    isUserInteractingRef.current = true;
+    startXRef.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeftStartRef.current = scrollRef.current.scrollLeft;
   };
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    const el = scrollRef.current;
-    if (!isDragging || !el) return;
+    if (!isDraggingRef.current || !scrollRef.current) return;
     e.preventDefault();
-    const walk = (e.pageX - dragStartXRef.current) * 1.5;
-    el.scrollLeft = dragStartScrollRef.current - walk;
-    scrollPosRef.current = el.scrollLeft;
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.5;
+    scrollRef.current.scrollLeft = scrollLeftStartRef.current - walk;
   };
 
   const handleMouseUpOrLeave = () => {
-    if (isDragging) {
-      setIsDragging(false);
-      pauseTemporarily(1800);
+    if (isDraggingRef.current) {
+      isDraggingRef.current = false;
+      pauseAutoScroll(2000);
     }
   };
 
-  const handleTouchStart = (e: React.TouchEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    isInteractingRef.current = true;
-    dragStartXRef.current = e.touches[0].clientX;
-    dragStartScrollRef.current = el.scrollLeft;
+  // Touch Handlers
+  const handleTouchStart = () => {
+    isUserInteractingRef.current = true;
+    if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current);
   };
 
-  const handleTouchMove = (e: React.TouchEvent) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const walk = (e.touches[0].clientX - dragStartXRef.current) * 1.5;
-    el.scrollLeft = dragStartScrollRef.current - walk;
-    scrollPosRef.current = el.scrollLeft;
+  const handleTouchEnd = () => {
+    pauseAutoScroll(2500);
   };
 
-  const handleTouchEnd = () => { pauseTemporarily(1800); };
+  // Wheel Handler
+  const handleWheel = () => {
+    pauseAutoScroll(2000);
+  };
+
+  // Navigation Arrow Buttons
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+      pauseAutoScroll(3000);
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+      pauseAutoScroll(3000);
+    }
+  };
+
+  if (logos.length === 0) return null;
 
   return (
     <section className="py-10 sm:py-14 doorhome-textured-red text-white overflow-hidden relative border-y border-red-900/40 select-none">
@@ -230,20 +254,47 @@ export const PartnerLogos: React.FC = () => {
         </h3>
       </div>
 
-      <div className="relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-8 dh-reveal dh-stagger-2">
+      {/* Interactive Horizontally Scrollable Carousel Stage */}
+      <div className="relative max-w-[1400px] mx-auto px-2 sm:px-4 group">
+        {/* Navigation Arrow Left */}
+        <button
+          type="button"
+          onClick={scrollLeft}
+          aria-label="Scroll logos left"
+          className="absolute start-3 sm:start-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer opacity-90 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 border border-white/40"
+        >
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+
+        {/* Navigation Arrow Right */}
+        <button
+          type="button"
+          onClick={scrollRight}
+          aria-label="Scroll logos right"
+          className="absolute end-3 sm:end-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white text-slate-800 hover:text-red-600 shadow-xl backdrop-blur-md flex items-center justify-center transition-all cursor-pointer opacity-90 sm:opacity-0 group-hover:opacity-100 hover:scale-105 active:scale-95 border border-white/40"
+        >
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+        </button>
+
+        {/* Scrollable, Draggable Logo Track */}
         <div
           ref={scrollRef}
-          onScroll={handleScroll}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
-          onMouseLeave={() => { isHoveredRef.current = false; handleMouseUpOrLeave(); }}
-          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={handleMouseUpOrLeave}
           onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`flex items-end gap-12 sm:gap-20 overflow-x-auto py-4 px-10 no-scrollbar ${isDragging ? 'cursor-grabbing select-none' : 'cursor-grab'}`}
-          style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onWheel={handleWheel}
+          className="overflow-x-auto scrollbar-none flex items-center gap-6 sm:gap-10 py-3 px-8 cursor-grab active:cursor-grabbing select-none"
+          dir="ltr"
+          style={{
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none',
+            WebkitOverflowScrolling: 'touch',
+            maskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)'
+          }}
         >
           {REPEATED.map((partner, index) => (
             <div
@@ -273,10 +324,21 @@ export const PartnerLogos: React.FC = () => {
               {/* Country flag below logo */}
               {partner.flag && (
                 <div
-                  className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/35 backdrop-blur-md border border-white/15 text-white shadow-xs mt-1"
+                  className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/20 text-white shadow-xs mt-1"
                   title={partner.country || ''}
                 >
-                  <span className="text-sm leading-none">{partner.flag}</span>
+                  {isImageFlag(partner.flag) ? (
+                    <img
+                      src={partner.flag}
+                      alt={partner.country || 'Flag'}
+                      className="w-5 h-3.5 object-cover rounded-xs border border-white/40 shadow-xs inline-block"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <span className="text-sm leading-none">{partner.flag}</span>
+                  )}
                   {partner.country && (
                     <span className="text-[10px] font-extrabold tracking-wider uppercase opacity-95">
                       {partner.country}

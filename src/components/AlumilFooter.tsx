@@ -10,10 +10,10 @@ import {
 
 interface AlumilFooterProps {
   onNavigate: (sectionId: string) => void;
-  onOpenQuote: () => void;
+  onOpenQuote?: () => void;
 }
 
-export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQuote }) => {
+export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate }) => {
   const { currentLanguage, t } = useLanguage();
   const isArabic = currentLanguage.code === 'ar';
   const isKurdish = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr';
@@ -35,9 +35,9 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
             {t('footer_intro')}
           </p>
           <nav aria-label={t('footer_col_company')} className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold">
-            <a href="/products" className="hover:text-red-300">{t('footer_col_products')}</a>
-            <a href="/projects" className="hover:text-red-300">{t('footer_projects')}</a>
-            <a href="/contact" className="hover:text-red-300">{t('footer_col_contact')}</a>
+            <button onClick={() => onNavigate('products')} className="hover:text-red-300 transition-colors cursor-pointer">{t('footer_col_products')}</button>
+            <button onClick={() => onNavigate('projects')} className="hover:text-red-300 transition-colors cursor-pointer">{t('footer_projects')}</button>
+            <button onClick={() => onNavigate('contact')} className="hover:text-red-300 transition-colors cursor-pointer">{t('footer_col_contact')}</button>
           </nav>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -48,12 +48,12 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
             </h4>
             <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
-                <button onClick={() => onNavigate('aluminum')} className="hover:text-red-400 transition-colors">
+                <button onClick={() => onNavigate('windows')} className="hover:text-red-400 transition-colors">
                   {t('footer_windows_doors')}
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('upvc')} className="hover:text-red-400 transition-colors">
+                <button onClick={() => onNavigate('doors')} className="hover:text-red-400 transition-colors">
                   {t('footer_entrance_doors')}
                 </button>
               </li>
@@ -65,11 +65,6 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
               <li>
                 <button onClick={() => onNavigate('accessories')} className="hover:text-red-400 transition-colors">
                   {t('footer_partitions')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('typology')} className="hover:text-red-400 transition-colors">
-                  {t('footer_outdoor')}
                 </button>
               </li>
             </ul>
@@ -87,18 +82,13 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('typology')} className="hover:text-red-400 transition-colors">
+                <button onClick={() => onNavigate('products')} className="hover:text-red-400 transition-colors">
                   {t('footer_selection_guide')}
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('contact')} className="hover:text-red-400 transition-colors">
                   {t('footer_consultation')}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('contact')} className="hover:text-red-400 transition-colors">
-                  {t('footer_faqs')}
                 </button>
               </li>
             </ul>
@@ -126,17 +116,6 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
                 </button>
               </li>
               <li>
-                <button onClick={() => onNavigate('articles')} className="hover:text-red-400 transition-colors">
-                  {isArabic ? 'المقالات والدليل الهندسي (30 مقال)' : isKurdish ? 'وتار و ڕێبەری ئەندازیاری' : 'Articles & Guides (30)'}
-                </button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('reviews')} className="hover:text-amber-300 transition-colors text-amber-400 font-bold flex items-center gap-1">
-                  <span>★</span>
-                  <span>{isArabic ? 'تقييم الشركة وآراء العملاء' : isKurdish ? 'هەڵسەنگاندنی کڕیاران' : 'Rate Us & Reviews'}</span>
-                </button>
-              </li>
-              <li>
                 <button onClick={() => onNavigate('about')} className="hover:text-red-400 transition-colors">
                   {t('footer_quality')}
                 </button>
@@ -152,8 +131,14 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate, onOpenQu
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-red-400 shrink-0" />
-                <a href={`tel:${rawPhone}`} className="hover:text-red-400 transition-colors">
-                  {displayPhone}
+                <a href="tel:+9647507388748" dir="ltr" className="hover:text-red-400 transition-colors font-medium">
+                  +964 750 738 8748
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-red-400 shrink-0" />
+                <a href="tel:+9647708080402" dir="ltr" className="hover:text-red-400 transition-colors font-medium">
+                  +964 770 808 0402
                 </a>
               </div>
               <div className="flex items-center gap-2">

@@ -529,5 +529,36 @@ body {
   box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.08);
 }
 
+/* GPU-Accelerated Hardware-Composited Marquee for Partner Logos */
+@keyframes dh-marquee-glide {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.dh-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: dh-marquee-glide 32s linear infinite;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.dh-marquee-track:hover,
+.dh-marquee-track:active {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .dh-marquee-track {
+    animation-duration: 22s;
+  }
+}
+
 
 

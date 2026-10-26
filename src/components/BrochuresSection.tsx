@@ -41,9 +41,6 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <span className="text-xs font-black text-white uppercase tracking-widest bg-red-600 px-3.5 py-1 rounded-full border border-red-500 shadow-xs inline-block mb-3">
-            {t('brochures_badge')}
-          </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#3E4346] leading-tight">
             {t('brochures_title')}
           </h2>
@@ -74,19 +71,14 @@ export const BrochuresSection: React.FC<BrochuresSectionProps> = ({ onOpenQuote 
                     className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-xs">
-                    {item.origin}
-                  </div>
-                  <div className="absolute top-3 right-3 bg-slate-900/90 text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full shadow-xs">
-                    {item.fileSize}
-                  </div>
                 </div>
 
                 {/* Card Title & Brand */}
                 <div className="space-y-1">
-                  <span className="text-[11px] font-extrabold text-red-600 uppercase tracking-wider block">
-                    {item.brand}
-                  </span>
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-500">
+                    <span>{item.brand}</span>
+                    <span>{item.origin} • {item.fileSize}</span>
+                  </div>
                   <h3 className="text-base sm:text-lg font-black text-slate-900 leading-snug group-hover:text-red-600 transition-colors line-clamp-2">
                     {item.title}
                   </h3>

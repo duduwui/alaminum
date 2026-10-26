@@ -1,10 +1,7 @@
-import React from 'react';
-import CardSwap, { Card } from './CardSwap';
-import ScrollStack, { ScrollStackItem } from './ScrollStack';
-import { ArrowRight, Download, ExternalLink, FileText, ShieldCheck, CheckCircle2, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ExternalLink, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
-import { loadLocalProducts } from '../services/productService';
 
 interface SignatureShowcaseProps {
   onSelectProduct?: (product: ProductItem) => void;
@@ -453,8 +450,29 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     fileName: 'STAC-Hardware-Accessories-Catalogue.pdf'
   };
 
-  const handleCardClick = (item: { pdfUrl?: string; brand?: string }) => {
-    const url = item.pdfUrl || (item.brand?.includes('WIEK') ? cat1.pdfUrl : cat2.pdfUrl);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused || showcaseItems.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % showcaseItems.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [isPaused, showcaseItems.length]);
+
+  const activeItem = showcaseItems[currentIndex] || showcaseItems[0];
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev <= 0 ? showcaseItems.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % showcaseItems.length);
+  };
+
+  const handleOpenPdf = (pdfUrl?: string) => {
+    const url = pdfUrl || (activeItem.brand?.includes('WIEK') ? cat1.pdfUrl : cat2.pdfUrl);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -465,13 +483,9 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-slate-200/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="border-s-4 border-red-600 ps-3.5 sm:ps-4 mb-6 sm:mb-8 dh-reveal">
-          <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-red-600 flex items-center gap-1.5 mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-red-600" />
-            <bdi dir="auto">{isAr ? 'الكتالوجات الأوروبية الفنية المعتمدة' : isKu ? 'کەتەلۆگی فەرمی و باوەڕپێکراوی ئەوروپا' : 'CERTIFIED EUROPEAN TECHNICAL CATALOGUES'}</bdi>
-          </span>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
+        {/* Section Header - Clean, No Ugly Badges */}
+        <div className="border-s-4 border-red-600 ps-4 mb-6 sm:mb-8 dh-reveal">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{localizedText.title}</bdi>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1 sm:mt-1.5 max-w-xl">
@@ -479,11 +493,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
           </p>
         </div>
 
-        {/* 2 European Official Catalogues Cards (Compact & sleek, no huge badges) */}
+        {/* 2 European Official Catalogues Cards (Compact & sleek) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
           {/* Catalog Card 1: WIEK SYSTEM Belgium */}
-          <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
-            <div className="space-y-1.5">
+          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-2">
               <div className="h-7 flex items-center">
                 <img
                   src={cat1.logo}
@@ -495,30 +509,30 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
                   <bdi dir="auto">{cat1.title}</bdi>
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
+                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
                   <bdi dir="auto">{cat1.desc}</bdi>
                 </p>
               </div>
             </div>
 
-            <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
               <a
                 href={cat1.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
                 <ExternalLink className="w-3 h-3 opacity-80" />
               </a>
-              <span className="text-[10px] font-bold text-slate-400">PDF • 88 Pages</span>
+              <span className="text-xs text-slate-500 font-medium">WIEK Belgium</span>
             </div>
           </div>
 
           {/* Catalog Card 2: STAC Spain */}
-          <div className="p-3.5 sm:p-4 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
-            <div className="space-y-1.5">
+          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
+            <div className="space-y-2">
               <div className="h-7 flex items-center">
                 <img
                   src={cat2.logo}
@@ -530,194 +544,105 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
                   <bdi dir="auto">{cat2.title}</bdi>
                 </h3>
-                <p className="text-[11px] sm:text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
+                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
                   <bdi dir="auto">{cat2.desc}</bdi>
                 </p>
               </div>
             </div>
 
-            <div className="pt-2.5 mt-2 border-t border-slate-100 flex items-center justify-between">
+            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
               <a
                 href={cat2.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
                 <ExternalLink className="w-3 h-3 opacity-80" />
               </a>
-              <span className="text-[10px] font-bold text-slate-400">PDF • 442 Pages</span>
+              <span className="text-xs text-slate-500 font-medium">STAC Spain</span>
             </div>
           </div>
         </div>
 
-        {/* 1. MOBILE & TABLET VIEW: Sticky ScrollStack (< lg) */}
-        <div className="block lg:hidden">
-          <div className="mb-3 flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-700">
-              <bdi dir="auto">{isAr ? 'انزل للأسفل لتصفح أنظمة الكتالوج (اضغط لفتح PDF)' : isKu ? 'بڕۆ خوارەوە بۆ بینینی سیستەمەکان (کلیک بکە بۆ PDF)' : 'Scroll to view catalog systems (Click card to open PDF)'}</bdi>
-            </span>
-          </div>
+        {/* Clean Interactive Architecture Card (Unified for Laptops and Mobile) */}
+        <div
+          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-300"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* 1. Large Image Stage */}
+            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
+              <img
+                key={activeItem.id}
+                src={activeItem.image}
+                alt={activeItem.title}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = activeItem.fallbackImage;
+                }}
+                className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500 cursor-pointer drop-shadow-sm"
+                onClick={() => handleOpenPdf(activeItem.pdfUrl)}
+              />
 
-          <ScrollStack
-            useWindowScroll={true}
-            itemDistance={45}
-            itemScale={0.03}
-            itemStackDistance={16}
-            stackPosition="16%"
-          >
-            {showcaseItems.map((item) => (
-              <ScrollStackItem
-                key={item.id}
-                itemClassName="bg-white/95 backdrop-blur-md border border-slate-200 p-4 sm:p-5 rounded-2xl shadow-xl cursor-pointer"
-              >
-                <div
-                  onClick={() => handleCardClick(item)}
-                  className="space-y-2.5 group"
+              {/* Slide Counter & Prev/Next Controls */}
+              <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
+                <span className="text-[11px] font-bold text-white/90 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-lg">
+                  {currentIndex + 1} / {showcaseItems.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Previous system"
+                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
                 >
-                  <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
-                    <span className="text-[10px] font-black text-red-700 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      <bdi dir="auto">{item.brand}</bdi>
-                    </span>
-                    <span className="text-[11px] font-bold text-slate-500">
-                      <bdi dir="auto">{item.category}</bdi>
-                    </span>
-                  </div>
+                  <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next system"
+                  className="w-8 h-8 rounded-full bg-slate-900/80 hover:bg-red-600 text-white flex items-center justify-center transition-colors cursor-pointer shadow-md active:scale-95"
+                >
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
+              </div>
+            </div>
 
-                  <div className="relative h-36 sm:h-44 w-full bg-slate-50 rounded-xl overflow-hidden p-2 flex items-center justify-center border border-slate-100">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = item.fallbackImage;
-                      }}
-                    />
-                    <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-xs">
-                      <bdi dir="auto">{item.badge}</bdi>
-                    </div>
-                  </div>
+            {/* 2. Details: ONLY Title, Description & Technical PDF Button */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[440px] text-start">
+              <div className="space-y-4 my-auto">
+                <h3
+                  onClick={() => handleOpenPdf(activeItem.pdfUrl)}
+                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
+                >
+                  <bdi dir="auto">{activeItem.title}</bdi>
+                </h3>
 
-                  <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug line-clamp-1">
-                    <bdi dir="auto">{item.title}</bdi>
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed line-clamp-2">
-                    <bdi dir="auto">{item.description}</bdi>
-                  </p>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  <bdi dir="auto">{activeItem.description}</bdi>
+                </p>
+              </div>
 
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold">
-                    <span className="flex items-center gap-1.5">
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>{isAr ? 'فتح الكتالوج المعتمد (PDF)' : isKu ? 'کردنەوەی کەتەلۆگ (PDF)' : 'Open Catalog (PDF)'}</span>
-                    </span>
-                    <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </div>
-                </div>
-              </ScrollStackItem>
-            ))}
-          </ScrollStack>
-        </div>
-
-        {/* 2. DESKTOP VIEW: Unified Side-by-Side Presentation (>= lg) */}
-        <div className="hidden lg:grid grid-cols-12 gap-8 lg:gap-12 items-center pt-2">
-          {/* Left Column: Interactive System Bullet List */}
-          <div className="col-span-6 space-y-3">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">
-              <bdi dir="auto">{isAr ? 'الأنظمة المختارة من الكتالوجات (اضغط لفتح ملف PDF)' : isKu ? 'سیستەمەکانی کەتەلۆگ (کلیک بکە بۆ PDF)' : 'Catalog Systems (Click to open technical PDF)'}</bdi>
-            </span>
-            {showcaseItems.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => handleCardClick(item)}
-                className="w-full text-start p-3.5 rounded-2xl bg-white hover:bg-red-50/50 border border-slate-200/90 hover:border-red-300 shadow-xs hover:shadow-sm transition-all flex items-center justify-between group cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 p-1 flex items-center justify-center shrink-0">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="max-h-full max-w-full object-contain"
-                    />
-                  </div>
-                  <div>
-                    <span className="text-sm font-black text-slate-900 group-hover:text-red-600 transition-colors block">
-                      <bdi dir="auto">{item.title}</bdi>
-                    </span>
-                    <span className="text-[11px] text-slate-500 font-medium block">
-                      <bdi dir="auto">{item.brand} • {item.badge}</bdi>
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-1.5 text-xs font-bold text-red-600 shrink-0 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">
-                  <span>PDF</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </div>
-              </button>
-            ))}
-          </div>
-
-          {/* Right Column: 3D Interactive CardSwap Deck */}
-          <div className="col-span-6 flex justify-end items-center">
-            <div className="relative w-full max-w-[380px] h-[450px] flex items-center justify-end">
-              <CardSwap
-                width={360}
-                height={420}
-                cardDistance={22}
-                verticalDistance={16}
-                delay={4500}
-                pauseOnHover={true}
-              >
-                {showcaseItems.map((item) => (
-                  <Card
-                    key={item.id}
-                    className="p-4 sm:p-5 flex flex-col justify-between bg-white border border-slate-200 rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl overflow-hidden cursor-pointer group"
-                    onClick={() => handleCardClick(item)}
-                  >
-                    <div>
-                      <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2 mb-2">
-                        <span className="text-[10px] font-black text-red-700 bg-red-50 border border-red-100 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                          <bdi dir="auto">{item.brand}</bdi>
-                        </span>
-                        <span className="text-[11px] font-bold text-slate-500">
-                          <bdi dir="auto">{item.category}</bdi>
-                        </span>
-                      </div>
-
-                      <div className="relative h-40 sm:h-44 w-full bg-slate-50 rounded-xl sm:rounded-2xl overflow-hidden mb-2 sm:mb-2.5 p-2.5 flex items-center justify-center border border-slate-100">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = item.fallbackImage;
-                          }}
-                        />
-                        <div className="absolute top-2 right-2 bg-slate-900/90 text-white text-[10px] font-extrabold px-2 py-0.5 rounded-full shadow-xs">
-                          <bdi dir="auto">{item.badge}</bdi>
-                        </div>
-                      </div>
-
-                      <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug line-clamp-1">
-                        <bdi dir="auto">{item.title}</bdi>
-                      </h3>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">
-                        <bdi dir="auto">{item.description}</bdi>
-                      </p>
-                    </div>
-
-                    <div className="pt-2 sm:pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-red-600 font-extrabold group-hover:text-red-700">
-                      <span className="flex items-center gap-1.5">
-                        <FileText className="w-3.5 h-3.5" />
-                        <span>{isAr ? 'فتح الكتالوج (PDF)' : isKu ? 'کردنەوەی کەتەلۆگ (PDF)' : 'Open Catalog (PDF)'}</span>
-                      </span>
-                      <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                    </div>
-                  </Card>
-                ))}
-              </CardSwap>
+              {/* Action Button: Technical PDF */}
+              <div className="pt-6 border-t border-slate-100 mt-6 lg:mt-0">
+                <button
+                  type="button"
+                  onClick={() => handleOpenPdf(activeItem.pdfUrl)}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all cursor-pointer hover:shadow-lg active:scale-98"
+                >
+                  <FileText className="w-4 h-4" />
+                  <span>
+                    <bdi dir="auto">
+                      {isAr ? '(PDF) فتح الكتالوج المعتمد' : isKu ? '(PDF) کردنەوەی کەتەلۆگ' : 'Open Technical Catalog (PDF)'}
+                    </bdi>
+                  </span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
