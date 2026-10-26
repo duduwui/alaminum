@@ -308,7 +308,7 @@ async function startServer() {
     const file = cmsContentFiles[req.params.section as keyof typeof cmsContentFiles];
     if (!file) return res.status(404).json({ error: 'Unknown CMS section.' });
     const data = req.body?.data;
-    if ((['gallery', 'products', 'divisions'].includes(req.params.section) && !Array.isArray(data)) ||
+    if ((['gallery', 'products', 'divisions', 'partnerLogos'].includes(req.params.section) && !Array.isArray(data)) ||
         (req.params.section === 'homepage' && (!data || typeof data !== 'object' || Array.isArray(data)))) {
       return res.status(400).json({ error: 'Invalid CMS content.' });
     }

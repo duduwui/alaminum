@@ -84,6 +84,7 @@ import { useLanguage, SUPPORTED_LANGUAGES } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, normalizeGalleryItems, saveGalleryItems } from '../services/galleryContentService';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { ITEM_LOCALES, SHOWCASE_TEXT_BY_LANG } from './SignatureShowcase';
+import { getPartnerLogos, PartnerBrand } from './PartnerLogos';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -170,8 +171,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'dashboard' | 'products' | 'categories' | 'requests' | 'users' | 'cms' | 'logos'
-  >('dashboard');
+    'products' | 'categories' | 'users' | 'cms' | 'logos'
+  >('products');
 
   // Seed Production Data Handler
   const handleSeedProductionData = () => {
@@ -192,7 +193,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const productFileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Partner Logos State
-  const [partnerLogos, setPartnerLogos] = useState<Array<{ id: string; name: string; src: string; alt: string; country?: string; flag?: string }>>([]);
+  const [partnerLogos, setPartnerLogos] = useState<PartnerBrand[]>(getPartnerLogos);
   const [logosSaving, setLogosSaving] = useState(false);
   const [logosSaveFeedback, setLogosSaveFeedback] = useState('');
   const [newLogo, setNewLogo] = useState({ name: '', src: '', alt: '', country: '', flag: '' });
@@ -693,7 +694,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       if (Array.isArray(sharedDivisions)) {
         saveProductDivisions(sharedDivisions as ProductCategoryDivision[]);
       }
-      if (Array.isArray(sharedLogos) && sharedLogos.length > 0) setPartnerLogos(sharedLogos as any[]);
+      if (Array.isArray(sharedLogos)) setPartnerLogos(sharedLogos as any[]);
       setCmsHydrated(true);
     }).catch(() => {
       if (!cancelled) setCmsSaveFeedback('Shared content is unavailable. Existing local data was preserved.');
@@ -754,6 +755,24 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     }, 500);
     return () => window.clearTimeout(timer);
   }, [cmsHydrated, divisions]);
+
+  useEffect(() => {
+    if (!cmsHydrated) return;
+    try {
+      localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(partnerLogos));
+      window.dispatchEvent(new Event('cms_partner_logos_updated'));
+    } catch (e) {
+      console.warn('LocalStorage save error for partner logos:', e);
+    }
+    const timer = window.setTimeout(() => {
+      void saveSharedCmsSection('partnerLogos', partnerLogos).then(() => {
+        window.dispatchEvent(new Event('cms_partner_logos_updated'));
+      }).catch((error) => {
+        console.warn('Partner logos shared save failed:', error);
+      });
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [cmsHydrated, partnerLogos]);
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, destination: 'gallery' | 'about' | 'hero' = 'gallery') => {
     const files = Array.from(e.target.files || []);
@@ -1005,19 +1024,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               <nav className="space-y-1">
                 <button
                   type="button"
-                  onClick={() => setActiveSection('dashboard')}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
-                    activeSection === 'dashboard'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
-                  }`}
-                >
-                  <LayoutDashboard className="w-4 h-4" />
-                  <span>{t('admin_tab_dashboard')}</span>
-                </button>
-
-                <button
-                  type="button"
                   onClick={() => setActiveSection('products')}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
                     activeSection === 'products'
@@ -1054,26 +1060,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   }`}>
                     {divisions.length}
                   </span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('requests')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
-                    activeSection === 'requests'
-                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <ClipboardList className="w-4 h-4" />
-                    <span>{t('admin_tab_requests')}</span>
-                  </div>
-                  {newRequestsCount > 0 && (
-                    <span className="bg-red-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black animate-pulse">
-                      {newRequestsCount}
-                    </span>
-                  )}
                 </button>
 
                 <button
@@ -1150,10 +1136,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         <header className="bg-white border-b border-slate-200 py-3.5 px-6 flex items-center justify-between sticky top-0 z-20">
           <div className="flex items-center gap-4">
             <h2 className="text-base sm:text-xl font-black text-slate-900">
-              {activeSection === 'dashboard' && t('admin_tab_dashboard')}
               {activeSection === 'products' && t('admin_tab_products')}
               {activeSection === 'categories' && t('admin_tab_categories')}
-              {activeSection === 'requests' && t('admin_tab_requests')}
               {activeSection === 'users' && t('admin_tab_users')}
               {activeSection === 'cms' && t('admin_tab_cms')}
               {activeSection === 'logos' && 'Partner Logos'}
@@ -1236,131 +1220,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             </div>
           </div>
         </header>
-
-        {/* SECTION 1: DASHBOARD OVERVIEW */}
-        {activeSection === 'dashboard' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            {/* Real visit metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {([
-                ['live',  'Live Now',    'emerald'],
-                ['today', 'Today',       'blue'],
-                ['week',  'This Week',   'red'],
-                ['month', 'This Month',  'red'],
-                ['total', 'All-Time',    'red'],
-              ] as const).map(([key, label, color]) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setShowVisitsModal(true)}
-                  className={`bg-white p-4 rounded-2xl border border-slate-200 shadow-sm border-t-[3px] text-left w-full transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer ${
-                    color === 'emerald' ? 'border-t-emerald-500' : color === 'blue' ? 'border-t-blue-500' : 'border-t-red-600'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wide">{label}</span>
-                    {key === 'live' && (
-                      <span className="flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                        LIVE
-                      </span>
-                    )}
-                  </div>
-                  <p className="mt-2 text-2xl font-black text-slate-900">{visits ? visits[key].visits.toLocaleString() : '—'}</p>
-                  <p className="mt-0.5 text-[10px] font-medium text-slate-500">
-                    <span className={`font-bold ${key === 'live' ? 'text-emerald-700' : key === 'today' ? 'text-blue-700' : 'text-red-700'}`}>
-                      {visits ? visits[key].unique.toLocaleString() : '—'}
-                    </span>{' '}
-                    {key === 'live' ? 'online now' : 'unique'}
-                  </p>
-                  <p className="text-[9px] text-slate-400 mt-1">click for details →</p>
-                </button>
-              ))}
-            </div>
-
-            {/* Visits History Modal */}
-            <VisitsHistoryModal
-              isOpen={showVisitsModal}
-              onClose={() => setShowVisitsModal(false)}
-              adminToken={localStorage.getItem('dh_admin_token')}
-            />
-
-            {/* Product distribution and request attention */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              <div className="lg:col-span-8 bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
-                <h3 className="text-base font-extrabold text-slate-900">Products by category</h3>
-                <p className="text-xs text-slate-500">Current product counts from your catalog</p>
-                <div className="space-y-4 pt-2">
-                  {divisions.map((division) => {
-                    const count = productList.filter((item) => item.division === division.key || item.category === division.key).length;
-                    return <div key={division.key} className="grid grid-cols-[minmax(100px,1fr)_3fr_auto] items-center gap-3 text-xs"><span className="font-bold text-slate-700 truncate">{division.title || division.key}</span><div className="h-3 bg-slate-100 rounded-full overflow-hidden"><div className="h-full bg-gradient-to-r from-red-500 to-rose-700 rounded-full" style={{ width: `${productList.length ? count / productList.length * 100 : 0}%` }} /></div><span className="font-black text-slate-900">{count}</span></div>;
-                  })}
-                </div>
-              </div>
-
-              <div className="lg:col-span-4 bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
-                <h3 className="text-base font-extrabold text-slate-900">Needs attention</h3>
-                <div className="rounded-2xl bg-red-50 border border-red-100 p-5"><p className="text-xs font-bold text-red-700 uppercase">Pending requests</p><p className="text-4xl font-black text-red-700 mt-2">{newRequestsCount}</p><p className="text-xs text-red-700/80 mt-1">Contact messages and product requests awaiting review</p></div>
-                <button type="button" onClick={() => setActiveSection('requests')} className="w-full py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs">Review requests</button>
-              </div>
-            </div>
-
-            {/* Bottom Recent Inquiries Table */}
-            <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
-              <div className="p-5 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
-                <h3 className="text-base font-extrabold text-slate-900">Customer requests</h3>
-                <div className="flex gap-2">
-                  <select aria-label="Request type" value={requestTypeFilter} onChange={(e) => setRequestTypeFilter(e.target.value as typeof requestTypeFilter)} className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold"><option value="all">All types</option><option value="product">Product requests</option><option value="contact">Contact messages</option></select>
-                  <select aria-label="Request status" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)} className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold"><option value="all">All statuses</option><option value="new">Pending</option><option value="reviewing">Reviewing</option><option value="quoted">Quoted</option><option value="approved">Approved</option></select>
-                </div>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
-                  <thead>
-                    <tr className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-                      <th className="p-3.5">ID</th>
-                      <th className="p-3.5">Client</th>
-                      <th className="p-3.5">Type</th>
-                      <th className="p-3.5">Sent</th>
-                      <th className="p-3.5 text-center">Status</th>
-                      <th className="p-3.5 text-right">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {filteredRequests.length === 0 ? (
-                      <tr>
-                        <td colSpan={6} className="p-8 text-center text-slate-400 font-medium">
-                          No quotation requests or inquiries logged yet.
-                        </td>
-                      </tr>
-                    ) : (
-                      paginatedRequests.map((req) => (
-                        <tr key={req.id} className="hover:bg-slate-50 transition-colors">
-                          <td className="p-3.5 font-mono font-bold text-red-600">{req.id}</td>
-                          <td className="p-3.5 font-bold text-slate-900">{req.customer?.fullName || 'Client'}</td>
-                          <td className="p-3.5 font-medium text-slate-600">{req.kind === 'contact' || !req.items?.length ? 'Contact' : 'Product cart'}</td>
-                          <td className="p-3.5 text-slate-600">{req.createdAt ? new Date(req.createdAt).toLocaleDateString() : '—'}</td>
-                          <td className="p-3.5 text-center">{getStatusBadge(req.status)}</td>
-                          <td className="p-3.5 text-right">
-                            <button
-                              type="button"
-                              onClick={() => handleOpenRequestDetail(req)}
-                              className="px-3 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs cursor-pointer"
-                            >
-                              Inspect
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
-              </div>
-              <div className="flex items-center justify-between border-t border-slate-100 px-5 py-3 text-xs text-slate-600"><span>{filteredRequests.length} requests · {requestsPageSize === 999999 ? 'Showing all' : '30 per page'}</span><div className="flex items-center gap-2"><button type="button" onClick={() => setRequestsPageSize(requestsPageSize === 999999 ? 30 : 999999)} className="font-bold text-red-700">{requestsPageSize === 999999 ? 'Show 30 per page' : 'Show all'}</button><button type="button" disabled={requestsPage <= 1} onClick={() => setRequestsPage((page) => page - 1)} className="rounded border px-2 py-1 disabled:opacity-40">Previous</button><span>{requestsPage} / {requestsTotalPages}</span><button type="button" disabled={requestsPage >= requestsTotalPages} onClick={() => setRequestsPage((page) => page + 1)} className="rounded border px-2 py-1 disabled:opacity-40">Next</button></div></div>
-            </div>
-          </main>
-        )}
 
         {/* SECTION 2: FULL PRODUCT MANAGEMENT (CRUD!) */}
         {activeSection === 'products' && (
@@ -1450,147 +1309,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
         {/* SECTION: CATEGORIES & HIERARCHY MANAGEMENT */}
         {activeSection === 'categories' && <AdminCategoriesTab />}
-
-        {/* SECTION 3: QUOTATION REQUESTS */}
-        {activeSection === 'requests' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            <div className="bg-white p-4 rounded-2xl border border-slate-200/90 shadow-2xs">
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-                <div className="sm:col-span-6 relative">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={requestSearchQuery}
-                    onChange={(e) => setRequestSearchQuery(e.target.value)}
-                    placeholder="Search by ID, name, phone..."
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-slate-50 focus:outline-none focus:border-red-600 font-medium"
-                  />
-                </div>
-
-                <div className="sm:col-span-3">
-                  <select value={requestTypeFilter} onChange={(e) => setRequestTypeFilter(e.target.value as typeof requestTypeFilter)} className="w-full py-2 px-3 text-xs rounded-xl border border-slate-200 bg-slate-50 font-bold"><option value="all">All request types</option><option value="product">Product requests</option><option value="contact">Contact messages</option></select>
-                </div>
-
-                <div className="sm:col-span-3">
-                  <select
-                    value={statusFilter}
-                    onChange={(e) => setStatusFilter(e.target.value)}
-                    className="w-full py-2 px-3 text-xs rounded-xl border border-slate-200 bg-slate-50 font-bold"
-                  >
-                    <option value="all">All Request Statuses</option>
-                    <option value="new">New RFQs</option>
-                    <option value="reviewing">In Review</option>
-                    <option value="quoted">Quoted</option>
-                    <option value="approved">Approved</option>
-                  </select>
-                </div>
-
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-2xs">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
-                  <thead>
-                    <tr className="bg-slate-900 text-white font-bold uppercase tracking-wider text-[10px]">
-                      <th className="p-3.5">ID</th>
-                      <th className="p-3.5">Client</th>
-                      <th className="p-3.5">Type</th>
-                      <th className="p-3.5">City</th>
-                      <th className="p-3.5 text-center">Units</th>
-                      <th className="p-3.5 text-right">Glass Area</th>
-                      <th className="p-3.5 text-center">Status</th>
-                      <th className="p-3.5 text-right">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {paginatedRequests.length === 0 ? (
-                      <tr>
-                        <td colSpan={8} className="p-8 text-center text-slate-400">
-                          No quotation requests found matching your filters.
-                        </td>
-                      </tr>
-                    ) : (
-                      paginatedRequests.map((req) => (
-                        <tr key={req.id} className="hover:bg-slate-50 transition-colors">
-                          <td className="p-3.5 font-mono font-bold text-red-600">{req.id}</td>
-                          <td className="p-3.5 font-bold text-slate-900">{req.customer?.fullName || 'Client'}</td>
-                          <td className="p-3.5 font-semibold text-slate-700">{req.kind === 'contact' || !req.items?.length ? 'Contact' : 'Product cart'}</td>
-                          <td className="p-3.5 font-semibold text-slate-700">{req.customer?.city || 'Iraq'}</td>
-                          <td className="p-3.5 text-center font-bold text-slate-900">{req.totalQuantity || 0}</td>
-                          <td className="p-3.5 text-right font-bold text-red-700">{(req.totalAreaSqm || 0).toFixed(2)} m²</td>
-                          <td className="p-3.5 text-center">{getStatusBadge(req.status)}</td>
-                          <td className="p-3.5 text-right">
-                            <button
-                              type="button"
-                              onClick={() => handleOpenRequestDetail(req)}
-                              className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-2xs cursor-pointer"
-                            >
-                              Inspect Specs
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Requests Pagination Controls */}
-              <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-                <div className="text-slate-500 font-medium">
-                  Showing <span className="font-bold text-slate-900">{filteredRequests.length === 0 ? 0 : (requestsPage - 1) * requestsPageSize + 1}</span> to{' '}
-                  <span className="font-bold text-slate-900">{Math.min(requestsPage * requestsPageSize, filteredRequests.length)}</span> of{' '}
-                  <span className="font-bold text-slate-900">{filteredRequests.length}</span> RFQs
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="flex items-center gap-1 text-slate-600 font-bold">
-                    <span>Per page:</span>
-                    <select
-                      value={requestsPageSize}
-                      onChange={(e) => setRequestsPageSize(Number(e.target.value))}
-                      className="bg-white border border-slate-200 rounded-lg px-2 py-1 text-xs font-bold text-slate-800"
-                    >
-                      <option value={5}>5</option>
-                      <option value={6}>6</option>
-                      <option value={10}>10</option>
-                      <option value={25}>25</option>
-                      <option value={30}>30</option>
-                      <option value={999999}>Show all</option>
-                    </select>
-                  </div>
-
-                  <div className="flex items-center gap-1">
-                    <button
-                      type="button"
-                      onClick={() => setRequestsPage((p) => Math.max(1, p - 1))}
-                      disabled={requestsPage <= 1}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 transition-colors cursor-pointer"
-                      aria-label="Previous page"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-
-                    <span className="px-3 py-1 bg-white border border-slate-200 rounded-lg font-bold text-slate-900">
-                      {requestsPage} / {requestsTotalPages}
-                    </span>
-
-                    <button
-                      type="button"
-                      onClick={() => setRequestsPage((p) => Math.min(requestsTotalPages, p + 1))}
-                      disabled={requestsPage >= requestsTotalPages}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 transition-colors cursor-pointer"
-                      aria-label="Next page"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </main>
-        )}
 
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
@@ -2681,8 +2399,14 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                       country: newLogo.country.trim() || undefined,
                       flag: newLogo.flag.trim() || undefined,
                     };
-                    setPartnerLogos((prev) => [...prev, logo]);
+                    const updated = [...partnerLogos, logo];
+                    setPartnerLogos(updated);
                     setNewLogo({ name: '', src: '', alt: '', country: '', flag: '' });
+                    try {
+                      localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
+                      window.dispatchEvent(new Event('cms_partner_logos_updated'));
+                    } catch {}
+                    void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
                   }}
                   className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-sm transition-colors cursor-pointer flex items-center gap-1.5"
                 >
@@ -2699,7 +2423,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   Configured Brands ({partnerLogos.length})
                 </h3>
                 <span className="text-xs text-slate-500">
-                  Each flag will appear directly below the brand logo in the website carousel.
+                  Changes save automatically and update the website in real-time.
                 </span>
               </div>
 
@@ -2815,7 +2539,15 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
                       <button
                         type="button"
-                        onClick={() => setPartnerLogos((prev) => prev.filter((_, i) => i !== idx))}
+                        onClick={() => {
+                          const updated = partnerLogos.filter((_, i) => i !== idx);
+                          setPartnerLogos(updated);
+                          try {
+                            localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
+                            window.dispatchEvent(new Event('cms_partner_logos_updated'));
+                          } catch {}
+                          void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
+                        }}
                         className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
                         title="Remove Logo"
                       >
@@ -2836,6 +2568,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   setLogosSaving(true);
                   try {
                     await saveSharedCmsSection('partnerLogos', partnerLogos);
+                    localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(partnerLogos));
+                    window.dispatchEvent(new Event('cms_partner_logos_updated'));
                     setLogosSaveFeedback('✓ Partner logos and flags saved to website!');
                     setTimeout(() => setLogosSaveFeedback(''), 4000);
                   } catch (e: any) {

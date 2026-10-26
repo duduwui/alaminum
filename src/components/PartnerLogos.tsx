@@ -31,25 +31,48 @@ const DEFAULT_PARTNER_LOGOS: PartnerBrand[] = [
   { id: 'maestro', name: 'MAESTRO', src: '/assets/doorhome/3-1.png', alt: 'Maestro Systems', country: 'Greece', flag: '🇬🇷' },
 ];
 
+const STORAGE_KEY_PARTNER_LOGOS = 'winhome_cms_partner_logos';
 let cachedLogos: PartnerBrand[] | null = null;
 const subscribers = new Set<() => void>();
 
 export function getPartnerLogos(): PartnerBrand[] {
-  return cachedLogos || DEFAULT_PARTNER_LOGOS;
+  if (cachedLogos !== null) return cachedLogos;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY_PARTNER_LOGOS);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        cachedLogos = parsed;
+        return cachedLogos;
+      }
+    }
+  } catch {}
+  return DEFAULT_PARTNER_LOGOS;
+}
+
+export function updateCachedPartnerLogos(logos: PartnerBrand[]) {
+  cachedLogos = logos;
+  try {
+    localStorage.setItem(STORAGE_KEY_PARTNER_LOGOS, JSON.stringify(logos));
+  } catch {}
+  subscribers.forEach((fn) => fn());
 }
 
 export async function loadPartnerLogosFromCms(): Promise<PartnerBrand[]> {
   try {
-    const res = await fetch('/api/cms/partnerLogos');
+    const res = await fetch('/api/cms/partnerLogos?t=' + Date.now(), { cache: 'no-store' });
     if (!res.ok) throw new Error('not ok');
     const json = await res.json();
-    if (Array.isArray(json.data) && json.data.length > 0) {
+    if (Array.isArray(json.data)) {
       cachedLogos = json.data;
+      try {
+        localStorage.setItem(STORAGE_KEY_PARTNER_LOGOS, JSON.stringify(json.data));
+      } catch {}
     } else {
-      cachedLogos = DEFAULT_PARTNER_LOGOS;
+      cachedLogos = getPartnerLogos();
     }
   } catch {
-    cachedLogos = DEFAULT_PARTNER_LOGOS;
+    cachedLogos = getPartnerLogos();
   }
   subscribers.forEach((fn) => fn());
   return cachedLogos!;
@@ -74,8 +97,20 @@ export const PartnerLogos: React.FC = () => {
 
   useEffect(() => {
     loadPartnerLogosFromCms().then(setLogos);
-    return subscribeToPartnerLogos(() => setLogos(getPartnerLogos()));
+    const handleUpdate = () => {
+      loadPartnerLogosFromCms().then(setLogos);
+    };
+    window.addEventListener('cms_partner_logos_updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    const unsubscribe = subscribeToPartnerLogos(() => setLogos(getPartnerLogos()));
+    return () => {
+      window.removeEventListener('cms_partner_logos_updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+      unsubscribe();
+    };
   }, []);
+
+  if (logos.length === 0) return null;
 
   // 4 duplicate sets to guarantee endless seamless circular scrolling
   const REPEATED = [...logos, ...logos, ...logos, ...logos];
