@@ -255,7 +255,34 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
     'products' | 'categories' | 'users' | 'cms' | 'logos' | 'performance'
-  >('products');
+  >(() => {
+    if (typeof window !== 'undefined') {
+      const h = (window.location.hash || '').toLowerCase();
+      if (h.includes('performance') || h.includes('dashboard') || h.includes('perf')) return 'performance';
+      if (h.includes('cms') || h.includes('gallery')) return 'cms';
+      if (h.includes('users') || h.includes('team')) return 'users';
+      if (h.includes('logos') || h.includes('brands')) return 'logos';
+    }
+    return 'products';
+  });
+
+  // Keep active section in sync if hash changes while on Admin portal
+  useEffect(() => {
+    const syncSectionWithHash = () => {
+      const h = (window.location.hash || '').toLowerCase();
+      if (h.includes('performance') || h.includes('dashboard') || h.includes('perf')) {
+        setActiveSection('performance');
+      } else if (h.includes('cms') || h.includes('gallery')) {
+        setActiveSection('cms');
+      } else if (h.includes('users') || h.includes('team')) {
+        setActiveSection('users');
+      } else if (h.includes('logos') || h.includes('brands')) {
+        setActiveSection('logos');
+      }
+    };
+    window.addEventListener('hashchange', syncSectionWithHash);
+    return () => window.removeEventListener('hashchange', syncSectionWithHash);
+  }, []);
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
   const [cmsSubTab, setCmsSubTab] = useState<'gallery' | 'bento' | 'hero'>('gallery');
 
