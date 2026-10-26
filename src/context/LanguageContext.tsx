@@ -17,27 +17,36 @@ export interface Language {
 export const REGIONS = [
   { id: 'all', label: 'All Regions' },
   { id: 'middle_east', label: 'Middle East' },
-  { id: 'europe', label: 'Europe' },
-  { id: 'americas', label: 'Americas' },
-  { id: 'asia_global', label: 'Asia & Global' }
 ] as const;
 
 export const SUPPORTED_LANGUAGES: Language[] = [
-  // 1. Middle East Region
+  // Arabic — default
+  {
+    code: 'ar',
+    name: 'Arabic',
+    nativeName: 'العربية',
+    flag: '🇮🇶',
+    region: 'middle_east',
+    regionLabel: 'العراق والشرق الأوسط',
+    country: 'Iraq',
+    popular: true
+  },
+  // Kurdish Sorani
   {
     code: 'ckb',
-    name: 'Sorani',
-    nativeName: 'سۆرانی',
+    name: 'Kurdish (Sorani)',
+    nativeName: 'کوردی (سۆرانی)',
     flag: '🏳️',
     flagImage: '/assets/flags/kurdish_flag.png',
     region: 'middle_east',
-    regionLabel: 'Erbil / Sulaymaniyah / Duhok',
+    regionLabel: 'هەولێر / سلێمانی / دهۆک',
     country: 'Kurdistan',
     popular: true
   },
+  // Kurdish Kurmanji
   {
     code: 'kmr',
-    name: 'Kurmanji',
+    name: 'Kurdish (Kurmanji)',
     nativeName: 'Kurmancî',
     flag: '🏳️',
     flagImage: '/assets/flags/kurdish_flag.png',
@@ -46,16 +55,18 @@ export const SUPPORTED_LANGUAGES: Language[] = [
     country: 'Kurdistan',
     popular: true
   },
+  // English
   {
-    code: 'ar',
-    name: 'Arabic',
-    nativeName: 'عربی',
-    flag: '🇮🇶',
+    code: 'en',
+    name: 'English',
+    nativeName: 'English',
+    flag: '🇬🇧',
     region: 'middle_east',
-    regionLabel: 'Iraq & Middle East',
-    country: 'Iraq',
+    regionLabel: 'International',
+    country: 'International',
     popular: true
   },
+  // Turkish
   {
     code: 'tr',
     name: 'Turkish',
@@ -66,262 +77,6 @@ export const SUPPORTED_LANGUAGES: Language[] = [
     country: 'Turkey',
     popular: true
   },
-  {
-    code: 'fa',
-    name: 'Irani',
-    nativeName: 'فارسی',
-    flag: '🇮🇷',
-    region: 'middle_east',
-    regionLabel: 'Iran',
-    country: 'Iran',
-    popular: true
-  },
-
-  // 2. Europe
-  {
-    code: 'en-GB',
-    name: 'English (UK)',
-    nativeName: 'English',
-    flag: '🇬🇧',
-    region: 'europe',
-    regionLabel: 'United Kingdom',
-    country: 'United Kingdom',
-    popular: true
-  },
-  {
-    code: 'de',
-    name: 'German',
-    nativeName: 'Deutsch',
-    flag: '🇩🇪',
-    region: 'europe',
-    regionLabel: 'Germany',
-    country: 'Germany',
-    popular: true
-  },
-  {
-    code: 'fr',
-    name: 'French',
-    nativeName: 'Français',
-    flag: '🇫🇷',
-    region: 'europe',
-    regionLabel: 'France',
-    country: 'France',
-    popular: true
-  },
-  {
-    code: 'it',
-    name: 'Italian',
-    nativeName: 'Italiano',
-    flag: '🇮🇹',
-    region: 'europe',
-    regionLabel: 'Italy',
-    country: 'Italy'
-  },
-  {
-    code: 'el',
-    name: 'Greek',
-    nativeName: 'Ελληνικά',
-    flag: '🇬🇷',
-    region: 'europe',
-    regionLabel: 'Greece',
-    country: 'Greece'
-  },
-  {
-    code: 'es',
-    name: 'Spanish',
-    nativeName: 'Español',
-    flag: '🇪🇸',
-    region: 'europe',
-    regionLabel: 'Spain',
-    country: 'Spain'
-  },
-  {
-    code: 'ro',
-    name: 'Romanian',
-    nativeName: 'Română',
-    flag: '🇷🇴',
-    region: 'europe',
-    regionLabel: 'Romania',
-    country: 'Romania'
-  },
-  {
-    code: 'bg',
-    name: 'Bulgarian',
-    nativeName: 'Български',
-    flag: '🇧🇬',
-    region: 'europe',
-    regionLabel: 'Bulgaria',
-    country: 'Bulgaria'
-  },
-  {
-    code: 'sr',
-    name: 'Serbian',
-    nativeName: 'Srpski',
-    flag: '🇷🇸',
-    region: 'europe',
-    regionLabel: 'Serbia',
-    country: 'Serbia'
-  },
-  {
-    code: 'bs',
-    name: 'Bosnian',
-    nativeName: 'Bosanski',
-    flag: '🇧🇦',
-    region: 'europe',
-    regionLabel: 'Bosnia',
-    country: 'Bosnia'
-  },
-  {
-    code: 'hr',
-    name: 'Croatian',
-    nativeName: 'Hrvatski',
-    flag: '🇭🇷',
-    region: 'europe',
-    regionLabel: 'Croatia',
-    country: 'Croatia'
-  },
-  {
-    code: 'sq',
-    name: 'Albanian',
-    nativeName: 'Shqip',
-    flag: '🇦🇱',
-    region: 'europe',
-    regionLabel: 'Albania',
-    country: 'Albania'
-  },
-  {
-    code: 'nl',
-    name: 'Dutch',
-    nativeName: 'Nederlands',
-    flag: '🇳🇱',
-    region: 'europe',
-    regionLabel: 'Netherlands',
-    country: 'Netherlands'
-  },
-  {
-    code: 'sv',
-    name: 'Swedish',
-    nativeName: 'Svenska',
-    flag: '🇸🇪',
-    region: 'europe',
-    regionLabel: 'Sweden',
-    country: 'Sweden'
-  },
-  {
-    code: 'pl',
-    name: 'Polish',
-    nativeName: 'Polski',
-    flag: '🇵🇱',
-    region: 'europe',
-    regionLabel: 'Poland',
-    country: 'Poland'
-  },
-  {
-    code: 'pt',
-    name: 'Portuguese',
-    nativeName: 'Português',
-    flag: '🇵🇹',
-    region: 'europe',
-    regionLabel: 'Portugal',
-    country: 'Portugal'
-  },
-
-  // 3. Americas
-  {
-    code: 'en-US',
-    name: 'English (US)',
-    nativeName: 'English',
-    flag: '🇺🇸',
-    region: 'americas',
-    regionLabel: 'United States',
-    country: 'United States',
-    popular: true
-  },
-  {
-    code: 'es-MX',
-    name: 'Spanish (LatAm)',
-    nativeName: 'Español',
-    flag: '🇲🇽',
-    region: 'americas',
-    regionLabel: 'Mexico',
-    country: 'Mexico'
-  },
-  {
-    code: 'pt-BR',
-    name: 'Portuguese (BR)',
-    nativeName: 'Português',
-    flag: '🇧🇷',
-    region: 'americas',
-    regionLabel: 'Brazil',
-    country: 'Brazil'
-  },
-
-  // 4. Asia & Global
-  {
-    code: 'zh-CN',
-    name: 'Chinese',
-    nativeName: '中文',
-    flag: '🇨🇳',
-    region: 'asia_global',
-    regionLabel: 'China',
-    country: 'China',
-    popular: true
-  },
-  {
-    code: 'ru',
-    name: 'Russian',
-    nativeName: 'Русский',
-    flag: '🇷🇺',
-    region: 'asia_global',
-    regionLabel: 'Russia',
-    country: 'Russia'
-  },
-  {
-    code: 'hi',
-    name: 'Hindi',
-    nativeName: 'हिन्दी',
-    flag: '🇮🇳',
-    region: 'asia_global',
-    regionLabel: 'India',
-    country: 'India'
-  },
-  {
-    code: 'ja',
-    name: 'Japanese',
-    nativeName: '日本語',
-    flag: '🇯🇵',
-    region: 'asia_global',
-    regionLabel: 'Japan',
-    country: 'Japan'
-  },
-  {
-    code: 'ko',
-    name: 'Korean',
-    nativeName: '한국어',
-    flag: '🇰🇷',
-    region: 'asia_global',
-    regionLabel: 'South Korea',
-    country: 'South Korea'
-  },
-  {
-    code: 'kk',
-    name: 'Kazakh',
-    nativeName: 'Қазақша',
-    flag: '🇰🇿',
-    region: 'asia_global',
-    regionLabel: 'Kazakhstan',
-    country: 'Kazakhstan'
-  },
-  {
-    code: 'en',
-    name: 'International',
-    nativeName: 'Global (English)',
-    flag: '🌐',
-    region: 'asia_global',
-    regionLabel: 'International',
-    country: 'International',
-    popular: true
-  }
 ];
 
 export const TRANSLATIONS: Record<string, Record<string, string>> = {

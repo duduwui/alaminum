@@ -24,7 +24,7 @@ export interface HomepageCmsData {
   bentoImages?: Record<string, string>;
 }
 
-export type SharedCmsSection = 'homepage' | 'gallery' | 'products' | 'divisions';
+export type SharedCmsSection = 'homepage' | 'gallery' | 'products' | 'divisions' | 'partnerLogos';
 
 export async function hasAdminCmsSession(): Promise<boolean> {
   try {

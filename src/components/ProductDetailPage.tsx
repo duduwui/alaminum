@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, Minus, Plus, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, MessageCircle } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
-import { RequestItem } from '../types/requests';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
@@ -9,16 +8,13 @@ import { loadLocalProducts, subscribeToLocalProducts } from '../services/product
 interface ProductDetailPageProps {
   product: ProductItem;
   onBack: () => void;
-  onAddToCart: (item: RequestItem) => void;
   onSelectProduct: (product: ProductItem) => void;
 }
 
-export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onBack, onAddToCart, onSelectProduct }) => {
+export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, onBack, onSelectProduct }) => {
   const { currentLanguage, t } = useLanguage();
-  const [quantity, setQuantity] = useState(1);
   const [products, setProducts] = useState<ProductItem[]>(loadLocalProducts);
   const localizedProduct = getLocalizedProduct(product, currentLanguage.code);
-  const price = product.pricePerSqm ?? product.basePrice ?? product.unitPrice;
 
   const suggestions = useMemo(() => products
     .filter((item) => item.id !== product.id)
@@ -30,25 +26,14 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
     .slice(0, 4), [products, product.id, product.category, product.division]);
 
   useEffect(() => {
-    setQuantity(1);
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, [product.id]);
 
   useEffect(() => subscribeToLocalProducts(setProducts), []);
 
-  const addToCart = () => {
-    onAddToCart({
-      id: `item-${Date.now()}`,
-      productId: product.id,
-      productName: product.name,
-      category: product.category,
-      image: product.image || product.fallbackImage,
-      quantity,
-      unitPrice: price,
-      totalPrice: price == null ? undefined : price * quantity,
-      currency: product.currency || 'USD'
-    });
-  };
+  const waMessage = encodeURIComponent(
+    `مرحبا Doorhome، أريد الاستفسار عن: ${localizedProduct.name}. ${typeof window !== 'undefined' ? window.location.href : ''}`
+  );
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_12%_10%,#fff0f1_0%,#f8f9fc_34%,#eef2f7_100%)] px-4 py-8 text-slate-900 sm:px-6 sm:py-12">
@@ -77,16 +62,15 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
             <h1 className="text-3xl font-black leading-tight tracking-tight sm:text-5xl"><bdi dir="auto">{localizedProduct.name}</bdi></h1>
             <p className="max-w-xl whitespace-pre-wrap text-base leading-relaxed text-slate-600 sm:text-lg"><bdi dir="auto">{localizedProduct.description}</bdi></p>
             <div className="flex flex-wrap items-end gap-4 pt-1">
-              <div>
-                <label htmlFor="product-quantity" className="mb-2 block text-sm font-bold text-slate-700">{t('qty_label')}</label>
-                <div className="inline-flex h-12 items-center overflow-hidden rounded-xl border border-slate-300 bg-white">
-                  <button type="button" onClick={() => setQuantity((value) => Math.max(1, value - 1))} disabled={quantity <= 1} aria-label={t('ui_quantity_less')} className="flex h-full w-11 items-center justify-center text-slate-700 hover:bg-slate-100 disabled:opacity-40"><Minus className="h-4 w-4" /></button>
-                  <input id="product-quantity" type="number" min={1} max={9999} value={quantity} onChange={(event) => setQuantity(Math.min(9999, Math.max(1, Number(event.target.value) || 1)))} className="h-full w-16 border-x border-slate-200 text-center text-base font-bold text-slate-900 outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" />
-                  <button type="button" onClick={() => setQuantity((value) => Math.min(9999, value + 1))} disabled={quantity >= 9999} aria-label={t('ui_quantity_more')} className="flex h-full w-11 items-center justify-center text-slate-700 hover:bg-slate-100 disabled:opacity-40"><Plus className="h-4 w-4" /></button>
-                </div>
-              </div>
-              <button type="button" onClick={addToCart} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-red-600 px-6 text-sm font-extrabold text-white shadow-lg shadow-red-600/20 transition hover:-translate-y-0.5 hover:bg-red-700 cursor-pointer"><ShoppingCart className="h-5 w-5" />{t('add_to_cart_btn')}</button>
-              <a href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I would like information about ${localizedProduct.name}. Quantity: ${quantity}. ${window.location.href}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-5 text-sm font-bold text-white hover:bg-emerald-700">{t('chat_whatsapp_btn')}</a>
+              <a
+                href={`https://wa.me/9647507388748?text=${waMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 text-sm font-bold text-white shadow-lg shadow-emerald-600/20 transition hover:-translate-y-0.5 hover:bg-emerald-700"
+              >
+                <MessageCircle className="h-5 w-5" />
+                {t('chat_whatsapp_btn') || 'تواصل عبر واتساب'}
+              </a>
             </div>
           </div>
         </div>

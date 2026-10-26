@@ -74,7 +74,8 @@ async function startServer() {
     homepage: path.join(process.cwd(), 'cms_homepage_db.json'),
     gallery: path.join(process.cwd(), 'cms_gallery_db.json'),
     products: path.join(process.cwd(), 'cms_products_db.json'),
-    divisions: path.join(process.cwd(), 'cms_divisions_db.json')
+    divisions: path.join(process.cwd(), 'cms_divisions_db.json'),
+    partnerLogos: path.join(process.cwd(), 'cms_partner_logos_db.json')
   };
   const adminUploadSessions = new Map<string, { expires: number; userId: string }>();
   try {

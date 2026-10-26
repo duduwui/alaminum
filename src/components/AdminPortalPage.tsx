@@ -170,7 +170,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'dashboard' | 'products' | 'categories' | 'requests' | 'users' | 'cms'
+    'dashboard' | 'products' | 'categories' | 'requests' | 'users' | 'cms' | 'logos'
   >('dashboard');
 
   // Seed Production Data Handler
@@ -190,6 +190,29 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const aboutFileInputRef = React.useRef<HTMLInputElement>(null);
   const heroFileInputRef = React.useRef<HTMLInputElement>(null);
   const productFileInputRef = React.useRef<HTMLInputElement>(null);
+
+  // Partner Logos State
+  const [partnerLogos, setPartnerLogos] = useState<Array<{ id: string; name: string; src: string; alt: string; country?: string; flag?: string }>>([]);
+  const [logosSaving, setLogosSaving] = useState(false);
+  const [logosSaveFeedback, setLogosSaveFeedback] = useState('');
+  const [newLogo, setNewLogo] = useState({ name: '', src: '', alt: '', country: '', flag: '' });
+  const logoFileInputRef = React.useRef<HTMLInputElement>(null);
+  const [isUploadingLogo, setIsUploadingLogo] = useState(false);
+
+  const handleLogoFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingLogo(true);
+      const url = await uploadCmsImageFile(file);
+      setNewLogo((prev) => ({ ...prev, src: url }));
+    } catch (err: any) {
+      alert(err.message || 'Logo upload failed');
+    } finally {
+      setIsUploadingLogo(false);
+      if (e.target) e.target.value = '';
+    }
+  };
 
   // Requests State
   const [requests, setRequests] = useState<QuotationRequest[]>([]);
@@ -487,7 +510,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const handleSaveProduct = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formName.trim() || !formDescription.trim() || !formImage.trim() || !divisions.some((division) => division.key === formCategory) || !Number.isFinite(formSellingPrice) || formSellingPrice <= 0) {
+    if (!formName.trim() || !formDescription.trim() || !formImage.trim() || !divisions.some((division) => division.key === formCategory)) {
       setProductFormError(t('admin_product_form_error'));
       return;
     }
@@ -658,8 +681,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       loadSharedCmsSection<typeof homepageMedia>('homepage'),
       loadSharedCmsSection<unknown>('gallery'),
       loadSharedCmsSection<unknown>('products'),
-      loadSharedCmsSection<unknown>('divisions')
-    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions]) => {
+      loadSharedCmsSection<unknown>('divisions'),
+      loadSharedCmsSection<unknown>('partnerLogos')
+    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions, sharedLogos]) => {
       if (cancelled) return;
       if (sharedHomepage && typeof sharedHomepage === 'object' && !Array.isArray(sharedHomepage)) {
         setHomepageMedia((previous) => ({ ...previous, ...sharedHomepage }));
@@ -669,6 +693,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       if (Array.isArray(sharedDivisions)) {
         saveProductDivisions(sharedDivisions as ProductCategoryDivision[]);
       }
+      if (Array.isArray(sharedLogos) && sharedLogos.length > 0) setPartnerLogos(sharedLogos as any[]);
       setCmsHydrated(true);
     }).catch(() => {
       if (!cancelled) setCmsSaveFeedback('Shared content is unavailable. Existing local data was preserved.');
@@ -1084,6 +1109,19 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   <span>{t('admin_tab_cms')}</span>
                 </button>
 
+                <button
+                  type="button"
+                  onClick={() => setActiveSection('logos')}
+                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all cursor-pointer ${
+                    activeSection === 'logos'
+                      ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
+                      : 'text-slate-700 hover:bg-slate-50 hover:text-red-600'
+                  }`}
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>Partner Logos</span>
+                </button>
+
               </nav>
             </div>
           </div>
@@ -1118,6 +1156,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {activeSection === 'requests' && t('admin_tab_requests')}
               {activeSection === 'users' && t('admin_tab_users')}
               {activeSection === 'cms' && t('admin_tab_cms')}
+              {activeSection === 'logos' && 'Partner Logos'}
             </h2>
           </div>
 
@@ -1386,12 +1425,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               <div className="overflow-x-auto">
                 <table className={`w-full min-w-[720px] text-sm border-collapse ${isRtl ? 'text-right' : 'text-left'}`}>
                   <thead className="bg-slate-900 text-white"><tr>
-                    <th className="p-5">{t('admin_col_name')}</th><th className="p-5">{t('admin_col_category')}</th><th className="p-5">{t('admin_col_selling')}</th><th className="p-5">{t('admin_col_actions')}</th>
+                    <th className="p-5">{t('admin_col_name')}</th><th className="p-5">{t('admin_col_category')}</th><th className="p-5">{t('admin_col_actions')}</th>
                   </tr></thead>
                   <tbody className="divide-y divide-slate-100">
                     {filteredProducts.map(prod => {
                       const localized = getLocalizedProduct(prod, currentLanguage.code);
-                      const price = prod.unitPrice ?? prod.pricePerSqm ?? prod.basePrice;
                       const division = divisions.find(div => div.key === (prod.division || prod.category));
                       const category = ((division as any)?.translations?.[currentLanguage.code] || (division as any)?.translations?.[currentLanguage.code.split('-')[0]])?.name || (currentLanguage.code === 'ar' ? division?.arabicTitle : currentLanguage.code === 'ckb' ? division?.kurdishTitle : division?.title) || prod.category;
                       return <tr key={prod.id} className="hover:bg-red-50/30">
@@ -1400,7 +1438,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                           <button type="button" onClick={() => handleOpenEditProduct(prod)} className="text-start"><span className="block text-base font-bold text-slate-900">{localized.name}</span><span className="mt-2 block max-w-md text-sm leading-relaxed text-slate-500 line-clamp-2">{localized.description}</span></button>
                         </div></td>
                         <td className="p-5 font-semibold text-red-700">{category}</td>
-                        <td className="p-5 whitespace-nowrap text-base font-bold">{price == null ? '—' : prod.currency === 'IQD' ? price.toLocaleString() + ' IQD' : '$' + price.toLocaleString()}</td>
                         <td className="p-5"><div className="flex items-center gap-3"><button type="button" onClick={() => handleOpenEditProduct(prod)} className="rounded-lg bg-red-100 px-4 py-3 font-bold text-red-800"><Edit className="inline h-4 w-4" /> {t('admin_modal_edit_product')}</button><button type="button" onClick={() => handleDeleteProduct(prod.id)} className="rounded-lg p-3 text-red-700 hover:bg-red-50"><Trash2 className="h-5 w-5" /></button></div></td>
                       </tr>;
                     })}
@@ -2197,11 +2234,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 )}
               </div>
 
-              <div>
-                <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_simple_price')} ({editingProduct?.currency === 'IQD' ? 'IQD' : 'USD'})</label>
-                <input type="number" min="0.01" step="0.01" required value={formSellingPrice || ''} onChange={(e) => setFormSellingPrice(Number(e.target.value))} placeholder="Enter price" className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm font-bold text-slate-900" />
-              </div>
-
               {productFormError && <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">{productFormError}</p>}
 
               {/* Action Buttons */}
@@ -2480,6 +2512,347 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           </div>
         </div>
       )}
+
+        {/* SECTION: PARTNER LOGOS MANAGEMENT */}
+        {activeSection === 'logos' && (
+          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
+            <input
+              type="file"
+              ref={logoFileInputRef}
+              accept="image/*"
+              className="hidden"
+              onChange={handleLogoFileUpload}
+            />
+
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-xl font-black text-slate-900">Partner Brands & Country Flags</h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Manage partner logos and the country flag displayed directly beneath each logo in the homepage marquee.
+                </p>
+              </div>
+              {logosSaveFeedback && (
+                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  {logosSaveFeedback}
+                </div>
+              )}
+            </div>
+
+            {/* Add New Logo Card */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="font-black text-sm text-slate-800 flex items-center gap-2">
+                  <Plus className="w-4 h-4 text-red-600 stroke-[3]" /> Add New Partner Logo
+                </h3>
+              </div>
+
+              {/* Country & Flag Quick Presets */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                  Quick Country & Flag Presets
+                </label>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    { country: 'Germany', flag: '🇩🇪' },
+                    { country: 'Italy', flag: '🇮🇹' },
+                    { country: 'Turkey', flag: '🇹🇷' },
+                    { country: 'Belgium', flag: '🇧🇪' },
+                    { country: 'Spain', flag: '🇪🇸' },
+                    { country: 'Greece', flag: '🇬🇷' },
+                    { country: 'United Kingdom', flag: '🇬🇧' },
+                    { country: 'United States', flag: '🇺🇸' },
+                    { country: 'Iraq', flag: '🇮🇶' },
+                    { country: 'France', flag: '🇫🇷' },
+                  ].map((p) => (
+                    <button
+                      key={p.country}
+                      type="button"
+                      onClick={() => setNewLogo((prev) => ({ ...prev, country: p.country, flag: p.flag }))}
+                      className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                        newLogo.country === p.country
+                          ? 'bg-red-600 text-white shadow-xs'
+                          : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                      }`}
+                    >
+                      <span>{p.flag}</span>
+                      <span>{p.country}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Name *</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. SCHÜCO"
+                    value={newLogo.name}
+                    onChange={(e) => setNewLogo((l) => ({ ...l, name: e.target.value }))}
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Logo Image *</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Image URL or upload"
+                      value={newLogo.src}
+                      onChange={(e) => setNewLogo((l) => ({ ...l, src: e.target.value }))}
+                      className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
+                    />
+                    <button
+                      type="button"
+                      disabled={isUploadingLogo}
+                      onClick={() => logoFileInputRef.current?.click()}
+                      className="shrink-0 px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 border border-slate-200"
+                      title="Upload Image from Device"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                      <span>{isUploadingLogo ? '...' : 'Upload'}</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Country Name</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. Germany"
+                    value={newLogo.country}
+                    onChange={(e) => setNewLogo((l) => ({ ...l, country: e.target.value }))}
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Flag Emoji</label>
+                  <input
+                    type="text"
+                    placeholder="e.g. 🇩🇪"
+                    value={newLogo.flag}
+                    onChange={(e) => setNewLogo((l) => ({ ...l, flag: e.target.value }))}
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-300 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* Preview of logo & flag badge */}
+              {newLogo.src && (
+                <div className="flex items-center gap-4 p-3 bg-slate-50 rounded-xl border border-slate-200">
+                  <div className="flex flex-col items-center gap-1">
+                    <div className="h-10 px-4 bg-white rounded-lg border border-slate-200 flex items-center justify-center">
+                      <img
+                        src={newLogo.src}
+                        alt={newLogo.name}
+                        className="max-h-8 max-w-[120px] object-contain"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                    {newLogo.flag && (
+                      <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-800 text-white text-[10px] font-bold">
+                        <span>{newLogo.flag}</span>
+                        {newLogo.country && <span>{newLogo.country}</span>}
+                      </div>
+                    )}
+                  </div>
+                  <span className="text-xs text-slate-500 font-medium">Live preview of how the logo & flag appear</span>
+                </div>
+              )}
+
+              <div className="flex justify-end pt-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!newLogo.name.trim() || !newLogo.src.trim()) {
+                      alert('Please provide brand name and image URL/file.');
+                      return;
+                    }
+                    const logo = {
+                      id: `logo-${Date.now()}`,
+                      name: newLogo.name.trim(),
+                      src: newLogo.src.trim(),
+                      alt: newLogo.alt || newLogo.name.trim(),
+                      country: newLogo.country.trim() || undefined,
+                      flag: newLogo.flag.trim() || undefined,
+                    };
+                    setPartnerLogos((prev) => [...prev, logo]);
+                    setNewLogo({ name: '', src: '', alt: '', country: '', flag: '' });
+                  }}
+                  className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-sm transition-colors cursor-pointer flex items-center gap-1.5"
+                >
+                  <Plus className="w-4 h-4 stroke-[3]" />
+                  <span>Add Brand to List</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Active Partner Logos Grid */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <h3 className="font-black text-sm text-slate-800">
+                  Configured Brands ({partnerLogos.length})
+                </h3>
+                <span className="text-xs text-slate-500">
+                  Each flag will appear directly below the brand logo in the website carousel.
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {partnerLogos.map((logo, idx) => (
+                  <div
+                    key={logo.id || idx}
+                    className="bg-white rounded-2xl border border-slate-200 p-4 shadow-xs flex flex-col justify-between gap-3 hover:border-slate-300 transition-colors"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="shrink-0 flex flex-col items-center gap-1.5">
+                        <div className="w-20 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center p-1.5">
+                          <img
+                            src={logo.src}
+                            alt={logo.alt || logo.name}
+                            className="max-h-10 max-w-[70px] object-contain"
+                            onError={(e) => {
+                              const t = e.target as HTMLImageElement;
+                              t.style.display = 'none';
+                            }}
+                          />
+                        </div>
+                        {logo.flag && (
+                          <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold">
+                            <span>{logo.flag}</span>
+                            {logo.country && <span className="truncate max-w-[70px]">{logo.country}</span>}
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <div className="font-extrabold text-sm text-slate-900 truncate">{logo.name}</div>
+                        <input
+                          type="text"
+                          value={logo.country || ''}
+                          placeholder="Country (e.g. Italy)"
+                          onChange={(e) => {
+                            const updated = [...partnerLogos];
+                            updated[idx] = { ...updated[idx], country: e.target.value };
+                            setPartnerLogos(updated);
+                          }}
+                          className="w-full border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400"
+                        />
+                        <div className="flex gap-1.5">
+                          <input
+                            type="text"
+                            value={logo.flag || ''}
+                            placeholder="Flag (e.g. 🇮🇹)"
+                            onChange={(e) => {
+                              const updated = [...partnerLogos];
+                              updated[idx] = { ...updated[idx], flag: e.target.value };
+                              setPartnerLogos(updated);
+                            }}
+                            className="w-20 border border-slate-200 rounded-lg px-2 py-1 text-xs text-slate-800 outline-none focus:border-red-400"
+                          />
+                          {/* Quick presets for this card */}
+                          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
+                            {['🇩🇪', '🇮🇹', '🇹🇷', '🇧🇪', '🇪🇸', '🇬🇷'].map((f) => (
+                              <button
+                                key={f}
+                                type="button"
+                                onClick={() => {
+                                  const updated = [...partnerLogos];
+                                  updated[idx] = { ...updated[idx], flag: f };
+                                  setPartnerLogos(updated);
+                                }}
+                                className="text-base hover:scale-125 transition-transform cursor-pointer"
+                                title={`Set flag to ${f}`}
+                              >
+                                {f}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          disabled={idx === 0}
+                          onClick={() => {
+                            if (idx === 0) return;
+                            const updated = [...partnerLogos];
+                            const temp = updated[idx - 1];
+                            updated[idx - 1] = updated[idx];
+                            updated[idx] = temp;
+                            setPartnerLogos(updated);
+                          }}
+                          className="p-1 rounded text-slate-400 hover:text-slate-700 disabled:opacity-30 cursor-pointer"
+                          title="Move Left"
+                        >
+                          <ChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          type="button"
+                          disabled={idx === partnerLogos.length - 1}
+                          onClick={() => {
+                            if (idx === partnerLogos.length - 1) return;
+                            const updated = [...partnerLogos];
+                            const temp = updated[idx + 1];
+                            updated[idx + 1] = updated[idx];
+                            updated[idx] = temp;
+                            setPartnerLogos(updated);
+                          }}
+                          className="p-1 rounded text-slate-400 hover:text-slate-700 disabled:opacity-30 cursor-pointer"
+                          title="Move Right"
+                        >
+                          <ChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setPartnerLogos((prev) => prev.filter((_, i) => i !== idx))}
+                        className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer"
+                        title="Remove Logo"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Save Button */}
+            <div className="flex justify-end pt-4 pb-8">
+              <button
+                type="button"
+                disabled={logosSaving}
+                onClick={async () => {
+                  setLogosSaving(true);
+                  try {
+                    await saveSharedCmsSection('partnerLogos', partnerLogos);
+                    setLogosSaveFeedback('✓ Partner logos and flags saved to website!');
+                    setTimeout(() => setLogosSaveFeedback(''), 4000);
+                  } catch (e: any) {
+                    setLogosSaveFeedback('Failed to save: ' + (e?.message || 'Network error'));
+                  } finally {
+                    setLogosSaving(false);
+                  }
+                }}
+                className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
+              >
+                <Save className="w-4 h-4" />
+                <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
+              </button>
+            </div>
+          </main>
+        )}
+
     </div>
   );
 };

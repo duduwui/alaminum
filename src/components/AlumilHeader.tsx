@@ -695,21 +695,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
               )}
             </button>
 
-            {/* 3. Cart Drawer Trigger */}
-            <button
-              type="button"
-              onClick={() => onOpenCart && onOpenCart()}
-              className="relative p-2 sm:p-2.5 text-slate-700 hover:text-red-600 hover:bg-slate-100 rounded-full transition-colors cursor-pointer shrink-0"
-              title={t('nav_cart')}
-              aria-label={`${t('cart_drawer_title')} (${cartCount})`}
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute top-0.5 right-0.5 min-w-[18px] h-[18px] px-1 bg-red-600 text-white text-[10px] font-black rounded-full flex items-center justify-center ring-2 ring-white">
-                  {cartCount}
-                </span>
-              )}
-            </button>
+            {/* Cart button hidden — users contact via WhatsApp */}
 
             {/* 4. Mobile Burger Menu Button */}
             <button

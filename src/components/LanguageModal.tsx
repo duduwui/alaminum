@@ -72,28 +72,30 @@ export const LanguageModal: React.FC<LanguageModalProps> = ({ isOpen, onClose })
           </button>
         </div>
 
-        {/* Location Region Tabs (Alumil style) */}
-        <div className="px-4 sm:px-6 pt-3 pb-2 border-b border-slate-100 bg-white notranslate" translate="no">
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 notranslate" translate="no">
-            {REGIONS.map((r) => {
-              const isActive = selectedRegion === r.id;
-              return (
-                <button
-                  key={r.id}
-                  onClick={() => setSelectedRegion(r.id)}
-                  translate="no"
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer notranslate ${
-                    isActive
-                      ? 'bg-red-600 text-white shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
-                  }`}
-                >
-                  {getRegionLabel(currentLanguage.code, r.id)}
-                </button>
-              );
-            })}
+        {/* Location Region Tabs (Alumil style) — only if more than 2 regions */}
+        {REGIONS.length > 2 && (
+          <div className="px-4 sm:px-6 pt-3 pb-2 border-b border-slate-100 bg-white notranslate" translate="no">
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1 notranslate" translate="no">
+              {REGIONS.map((r) => {
+                const isActive = selectedRegion === r.id;
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setSelectedRegion(r.id)}
+                    translate="no"
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer notranslate ${
+                      isActive
+                        ? 'bg-red-600 text-white shadow-xs'
+                        : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
+                    }`}
+                  >
+                    {getRegionLabel(currentLanguage.code, r.id)}
+                  </button>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 text-left notranslate" dir="ltr" translate="no">
           {filteredLanguages.length === 0 ? (

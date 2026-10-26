@@ -1,0 +1,12 @@
+[
+  { "id": "alumass", "name": "ALUMASS", "src": "/assets/doorhome/4-1.png", "alt": "ALUMASS Aluminum Systems", "country": "Italy", "flag": "🇮🇹" },
+  { "id": "diaco", "name": "diaco", "src": "/assets/doorhome/5-2.png", "alt": "diaco Systems", "country": "Turkey", "flag": "🇹🇷" },
+  { "id": "master", "name": "MASTER", "src": "/assets/doorhome/6-2.png", "alt": "Master Italy Hardware", "country": "Italy", "flag": "🇮🇹" },
+  { "id": "comunello", "name": "COMUNELLO", "src": "/assets/doorhome/7-1.png", "alt": "Comunello Frame Automation", "country": "Italy", "flag": "🇮🇹" },
+  { "id": "deceuninck", "name": "deceuninck", "src": "/assets/doorhome/8-1.png", "alt": "Deceuninck Belgium", "country": "Belgium", "flag": "🇧🇪" },
+  { "id": "siegenia", "name": "SIEGENIA", "src": "/assets/doorhome/9-1.png", "alt": "Siegenia German Tech", "country": "Germany", "flag": "🇩🇪" },
+  { "id": "salamander", "name": "SALAMANDER", "src": "/assets/doorhome/10.png", "alt": "Salamander Profile Systems", "country": "Germany", "flag": "🇩🇪" },
+  { "id": "stac", "name": "STAC", "src": "/assets/doorhome/1-2.png", "alt": "STAC Spain Hardware", "country": "Spain", "flag": "🇪🇸" },
+  { "id": "lorenzoline", "name": "LORENZOLINE", "src": "/assets/doorhome/2-1.png", "alt": "Lorenzoline Architectural", "country": "Italy", "flag": "🇮🇹" },
+  { "id": "maestro", "name": "MAESTRO", "src": "/assets/doorhome/3-1.png", "alt": "Maestro Systems", "country": "Greece", "flag": "🇬🇷" }
+]

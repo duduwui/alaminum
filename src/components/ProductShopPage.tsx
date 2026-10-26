@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, Search, ShoppingCart, X } from 'lucide-react';
+import { ArrowLeft, Search, X } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
@@ -69,11 +69,6 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
             <h1 className="text-3xl font-black sm:text-4xl">{t('shop_title') || 'Products'}</h1>
             <p className="mt-1 text-sm text-slate-500">{visibleProducts.length} · {t('nav_products')}</p>
           </div>
-          {onOpenCart && (
-            <button type="button" onClick={onOpenCart} className="inline-flex items-center gap-2 self-start rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-800 hover:border-red-300">
-              <ShoppingCart className="h-4 w-4" /> {t('cart_drawer_title')}{cartCount > 0 ? ` (${cartCount})` : ''}
-            </button>
-          )}
         </div>
 
         <div className="mb-7 grid gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:grid-cols-[minmax(0,1fr)_minmax(200px,280px)]">

@@ -387,21 +387,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Cart Drawer Trigger Button */}
-            <button
-              type="button"
-              onClick={() => onOpenCart && onOpenCart()}
-              className="relative p-2 text-slate-700 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
-              title={t('nav_cart')}
-              aria-label={`View Cart (${cartCount} items)`}
-            >
-              <ShoppingCart className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute top-0 right-0 min-w-[18px] h-[18px] px-1 bg-red-600 text-white text-[10px] font-black rounded-full flex items-center justify-center ring-2 ring-white animate-in zoom-in duration-150">
-                  {cartCount > 99 ? '99+' : cartCount}
-                </span>
-              )}
-            </button>
+            {/* Cart Drawer Trigger Button hidden */}
+            {false && (
+              <button
+                type="button"
+                onClick={() => onOpenCart && onOpenCart()}
+                className="relative p-2 text-slate-700 hover:text-red-600 hover:bg-slate-100 rounded-lg transition-colors cursor-pointer"
+                title={t('nav_cart')}
+                aria-label={`View Cart (${cartCount} items)`}
+              >
+                <ShoppingCart className="w-5 h-5" />
+                {cartCount > 0 && (
+                  <span className="absolute top-0 right-0 min-w-[18px] h-[18px] px-1 bg-red-600 text-white text-[10px] font-black rounded-full flex items-center justify-center ring-2 ring-white animate-in zoom-in duration-150">
+                    {cartCount > 99 ? '99+' : cartCount}
+                  </span>
+                )}
+              </button>
+            )}
 
             {/* Primary CTA Quote Button */}
             <button

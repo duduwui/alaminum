@@ -51,7 +51,6 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
   if (localizedItems.length === 0) return null;
 
   const activeProduct = localizedItems[currentIndex % localizedItems.length] || localizedItems[0];
-  const displayPrice = activeProduct.pricePerSqm ?? activeProduct.basePrice ?? activeProduct.unitPrice;
   const isVideoMedia = Boolean(activeProduct.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(activeProduct.image);
   const mediaSrc = activeProduct.videoUrl || activeProduct.image;
 

@@ -464,8 +464,8 @@ export default function App() {
           onOpenQuoteModal={() => setIsStepperModalOpen(true)}
           onOpenSearch={() => setSearchModalOpen(true)}
           onOpenUserModal={() => handleNavigate('auth')}
-          cartCount={totalCartCount}
-          onOpenCart={() => setIsCartDrawerOpen(true)}
+          cartCount={0}
+          onOpenCart={() => {/* cart disabled */}}
           onSelectProduct={handleSelectProduct}
         />
       )}
@@ -518,7 +518,6 @@ export default function App() {
             <ProductDetailPage
               product={selectedProduct}
               onBack={handleBackFromProduct}
-              onAddToCart={handleAddToCart}
               onSelectProduct={handleSelectProduct}
             />
           </div>
@@ -554,8 +553,8 @@ export default function App() {
               initialCategory={shopCategory}
               onSelectProduct={handleSelectProduct}
               onBackToHome={handleBackToHome}
-              cartCount={totalCartCount}
-              onOpenCart={() => setIsCartDrawerOpen(true)}
+              cartCount={0}
+              onOpenCart={() => {/* cart disabled */}}
             />
           </div>
         ) : (
