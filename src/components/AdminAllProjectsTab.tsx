@@ -118,12 +118,6 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
     const files = Array.from(e.target.files || []);
     if (!files.length) return;
 
-    if (!newTitle.trim()) {
-      setUploadError('Please provide a project title before uploading.');
-      e.target.value = '';
-      return;
-    }
-
     try {
       setIsUploading(true);
       setUploadError('');
@@ -136,7 +130,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
         newEntries.push({
           id: `proj-${crypto.randomUUID()}`,
           title: newTitle.trim(),
-          description: newDescription.trim() || 'Custom architectural fenestration designed for modern spaces.',
+          description: newDescription.trim(),
           src: url,
           mediaType: isVideo ? 'video' : 'image',
           category: newCategory,

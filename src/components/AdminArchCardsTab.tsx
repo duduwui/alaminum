@@ -163,13 +163,9 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
   const handleSaveNewCard = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newCardTitle.trim()) {
-      alert('يرجى كتابة اسم أو عنوان الكتالوج أولاً');
-      return;
-    }
 
     const finalTitle = newCardTitle.trim();
-    const finalDesc = newCardDesc.trim() || 'مواصفات وأنظمة معمارية فاخرة للأبواب والنوافذ والواجهات الزجاجية.';
+    const finalDesc = newCardDesc.trim();
     const finalButton = newCardButtonText.trim() || 'فتح الكتالوج (PDF)';
 
     const newCard: ArchitectureCatalogueCard = {
@@ -333,13 +329,9 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
   const handleSaveNewShowcase = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newShowcaseTitle.trim()) {
-      alert('يرجى كتابة اسم أو عنوان النظام أولاً');
-      return;
-    }
 
     const finalTitle = newShowcaseTitle.trim();
-    const finalDesc = newShowcaseDesc.trim() || 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.';
+    const finalDesc = newShowcaseDesc.trim();
     const finalButton = newShowcaseButtonText.trim() || 'فتح الكتالوج المعتمد (PDF)';
 
     const newItem: ArchitectureShowcaseItem = {
@@ -864,7 +856,6 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                 </label>
                 <input
                   type="text"
-                  required
                   autoFocus
                   value={newCardTitle}
                   onChange={(e) => setNewCardTitle(e.target.value)}
@@ -1015,7 +1006,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                 </button>
                 <button
                   type="submit"
-                  disabled={!newCardTitle.trim() || isUploadingNewCardImage || isUploadingNewCardPdf}
+                  disabled={isUploadingNewCardImage || isUploadingNewCardPdf}
                   className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                 >
                   <Check className="w-4 h-4 stroke-[2.5]" />
@@ -1063,7 +1054,6 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                 </label>
                 <input
                   type="text"
-                  required
                   autoFocus
                   value={newShowcaseTitle}
                   onChange={(e) => setNewShowcaseTitle(e.target.value)}
@@ -1214,7 +1204,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                 </button>
                 <button
                   type="submit"
-                  disabled={!newShowcaseTitle.trim() || isUploadingNewShowcaseImage || isUploadingNewShowcasePdf}
+                  disabled={isUploadingNewShowcaseImage || isUploadingNewShowcasePdf}
                   className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                 >
                   <Check className="w-4 h-4 stroke-[2.5]" />

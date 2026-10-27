@@ -737,33 +737,35 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const handleSaveProduct = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formName.trim() || !formDescription.trim() || !formImage.trim() || !divisions.some((division) => division.key === formCategory)) {
-      setProductFormError(t('admin_product_form_error'));
+    if (!formImage.trim()) {
+      setProductFormError('Please upload an image first.');
       return;
     }
     setProductFormError('');
     const productId = editingProduct?.id || `prod-${Date.now()}`;
+    const safeName = formName.trim();
+    const safeDesc = formDescription.trim();
     const categoryChanged = Boolean(editingProduct && editingProduct.category !== formCategory);
     if (editingProduct?.modelId) {
       const ownedDivision = divisions.find((division) => division.subCategories.some((sub) => sub.items.some((model) => model.id === editingProduct.modelId && model.productId === productId)));
       if (ownedDivision) {
         if (categoryChanged) deleteModelFromDivision(ownedDivision.id, editingProduct.modelId);
-        else updateModelInDivision(ownedDivision.id, editingProduct.modelId, { name: formName.trim(), description: formDescription.trim(), image: formImage.trim() });
+        else updateModelInDivision(ownedDivision.id, editingProduct.modelId, { name: safeName, description: safeDesc, image: formImage.trim() });
       }
     }
 
-    // Auto-translate if not already done manually
+    // Auto-translate if not already done manually and text is provided
     let fullTranslations = formTranslations;
-    if (!fullTranslations) {
+    if (!fullTranslations && (safeName || safeDesc)) {
       try {
-        fullTranslations = await autoTranslateFullProduct({ name: formName, description: formDescription });
+        fullTranslations = await autoTranslateFullProduct({ name: safeName, description: safeDesc });
       } catch (err) {
         console.error('Auto translate on save error:', err);
       }
     }
 
-    const arName = fullTranslations?.['ar']?.name || (formName.match(/[\u0600-\u06FF]/) ? formName : undefined);
-    const arDesc = fullTranslations?.['ar']?.description || (formDescription.match(/[\u0600-\u06FF]/) ? formDescription : undefined);
+    const arName = fullTranslations?.['ar']?.name || (safeName.match(/[\u0600-\u06FF]/) ? safeName : undefined);
+    const arDesc = fullTranslations?.['ar']?.description || (safeDesc.match(/[\u0600-\u06FF]/) ? safeDesc : undefined);
     const kuName = fullTranslations?.['ckb']?.name || fullTranslations?.['ku']?.name || fullTranslations?.['kmr']?.name;
     const kuDesc = fullTranslations?.['ckb']?.description || fullTranslations?.['ku']?.description || fullTranslations?.['kmr']?.description;
 
@@ -771,22 +773,22 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       // Update existing
       const updatedProduct: ProductItem = {
         ...editingProduct,
-        name: formName.trim(),
+        name: safeName,
         category: formCategory,
         division: formCategory,
         subCategory: categoryChanged ? undefined : editingProduct.subCategory,
         modelId: categoryChanged ? undefined : editingProduct.modelId,
         modelNumber: categoryChanged ? undefined : editingProduct.modelNumber,
         image: formImage.trim(),
-        description: formDescription.trim(),
+        description: safeDesc,
         pricePerSqm: formSellingPrice,
         unitPrice: formSellingPrice,
         pricing: editingProduct.pricing ? { ...editingProduct.pricing, unitPrice: formSellingPrice, pricePerSqm: formSellingPrice } : undefined,
         translations: fullTranslations || editingProduct.translations,
-        arabicName: arName || editingProduct.arabicName,
-        arabicDescription: arDesc || editingProduct.arabicDescription,
-        kurdishName: kuName || editingProduct.kurdishName,
-        kurdishDescription: kuDesc || editingProduct.kurdishDescription
+        arabicName: arName ?? editingProduct.arabicName,
+        arabicDescription: arDesc ?? editingProduct.arabicDescription,
+        kurdishName: kuName ?? editingProduct.kurdishName,
+        kurdishDescription: kuDesc ?? editingProduct.kurdishDescription
       };
       setProductList((prev) =>
         prev.map((p) => (p.id === editingProduct.id ? updatedProduct : p))
@@ -796,12 +798,12 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       // Create new
       const newProd: ProductItem = {
         id: productId,
-        name: formName.trim(),
+        name: safeName,
         category: formCategory,
         division: formCategory,
         image: formImage.trim(),
         fallbackImage: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
-        description: formDescription.trim(),
+        description: safeDesc,
         basePrice: formSellingPrice,
         currency: 'USD',
         pricePerSqm: formSellingPrice,
@@ -1026,11 +1028,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     if (file) {
       try {
         if (destination === 'gallery') {
-          if (!newGalleryTitle.trim()) {
-            setGalleryUploadError('Enter a project title before choosing a file.');
-            e.target.value = '';
-            return;
-          }
           setGalleryUploadError('');
           setIsUploadingGalleryMedia(true);
           let uploadedCount = 0;
@@ -2429,13 +2426,12 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {/* Product Basic Info */}
               <div className="space-y-3">
                 <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_form_name')}</label>
+                  <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_form_name')} (Optional)</label>
                   <input
                     type="text"
-                    required
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
-                    placeholder="e.g. Sliding Glass Window, Double Glazed Balcony Door..."
+                    placeholder="Optional — leave blank if adding title later..."
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-extrabold text-sm"
                   />
                 </div>

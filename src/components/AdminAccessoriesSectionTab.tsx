@@ -168,13 +168,9 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
 
   const handleSaveNewAccessory = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newAccName.trim()) {
-      alert('يرجى كتابة اسم أو نوع الإكسسوار أولاً');
-      return;
-    }
 
     const finalName = newAccName.trim();
-    const finalDesc = newAccDesc.trim() || 'مقبض وإكسسوار هندسي مريح مصنوع من سبائك الألمنيوم عالية المتانة للمشاريع المعمارية الراقية.';
+    const finalDesc = newAccDesc.trim();
 
     const newAcc: ProductItem = {
       id: `acc-${Date.now()}`,
@@ -421,15 +417,14 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
               {/* Title */}
               <div>
                 <label className="block text-xs font-black text-slate-800 mb-1.5">
-                  اسم الإكسسوار أو المقبض *
+                  اسم الإكسسوار أو المقبض (اختياري)
                 </label>
                 <input
                   type="text"
-                  required
                   autoFocus
                   value={newAccName}
                   onChange={(e) => setNewAccName(e.target.value)}
-                  placeholder="مثال: مقبض STAC المينيماليست الفاخر"
+                  placeholder="اختياري — يمكنك تركه فارغاً..."
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-bold text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all"
                 />
               </div>
@@ -508,7 +503,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                 </button>
                 <button
                   type="submit"
-                  disabled={!newAccName.trim() || isUploadingNewImage}
+                  disabled={isUploadingNewImage}
                   className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                 >
                   <Check className="w-4 h-4 stroke-[2.5]" />
