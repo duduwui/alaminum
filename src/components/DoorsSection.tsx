@@ -68,7 +68,6 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 dh-reveal">
           <div>
-            <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               <bdi dir="auto">{t('door_title')}</bdi>
             </h2>
@@ -96,8 +95,8 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
           onMouseLeave={() => setIsPaused(false)}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            {/* Left: Media Display (Fixed stable container) */}
-            <div className="lg:col-span-6 relative bg-slate-950 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full">
+            {/* Left: Media Display */}
+            <div className="lg:col-span-6 relative bg-slate-950 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-full w-full">
               {isVideoMedia ? (
                 <video
                   key={mediaSrc}
@@ -147,24 +146,24 @@ export const DoorsSection: React.FC<DoorsSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Clean Title, Description & Action Buttons (Fixed stable container) */}
-            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between h-[300px] sm:h-[380px] lg:h-[440px] text-start">
-              <div className="space-y-3 overflow-hidden">
+            {/* Right: Clean Title, Description & Action Buttons */}
+            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-auto text-start">
+              <div className="space-y-3">
                 {/* Title */}
                 <h3
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight line-clamp-2 min-h-[3.2rem]"
+                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
                 >
                   <bdi dir="auto">{activeProduct.name}</bdi>
                 </h3>
                 {/* Description */}
-                <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal line-clamp-4 sm:line-clamp-5">
+                <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
                   <bdi dir="auto">{activeProduct.description}</bdi>
                 </p>
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-slate-100">
+              <div className="pt-4 mt-4 border-t border-slate-100">
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}

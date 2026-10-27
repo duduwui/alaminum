@@ -56,7 +56,6 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
         
         {/* Clean Header — NO Ugly Vertical Lines, NO Badges */}
         <div className="mb-6 sm:mb-8 dh-reveal">
-          <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{t('acc_title') || 'Architectural Hardware & Accessories'}</bdi>
           </h2>
@@ -74,7 +73,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Media Display: Image with slide counter and prev/next pagination */}
-            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
+            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-full w-full p-6 sm:p-10">
               <img
                 key={activeProduct.image}
                 src={activeProduct.image}
@@ -131,21 +130,21 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
             </div>
 
             {/* Content: Title, Description, Item Switcher & Action Buttons */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[440px] text-start">
-              <div className="space-y-4 overflow-hidden">
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[300px] lg:min-h-[440px] h-auto text-start">
+              <div className="space-y-4">
                 <h3
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight line-clamp-2"
+                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
                 >
                   <bdi dir="auto">{activeProduct.name}</bdi>
                 </h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-4">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal whitespace-pre-line">
                   <bdi dir="auto">{activeProduct.description}</bdi>
                 </p>
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 border-t border-slate-100 mt-4 lg:mt-0">
+              <div className="pt-4 border-t border-slate-100 mt-4">
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}

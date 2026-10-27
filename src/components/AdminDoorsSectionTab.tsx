@@ -78,16 +78,23 @@ export const AdminDoorsSectionTab: React.FC<AdminDoorsSectionTabProps> = ({
   };
 
   const handleFieldChange = (prodId: string, field: 'name' | 'description' | 'series' | 'subCategory', value: string) => {
-    const updated = productList.map((p) =>
-      p.id === prodId
-        ? {
-            ...p,
-            [field]: value
-          }
-        : p
-    );
+    const updated = productList.map((p) => {
+      if (p.id !== prodId) return p;
+      const copy: any = { ...p, [field]: value };
+      if (!copy.translations) copy.translations = {};
+      if (!copy.translations.ar) copy.translations.ar = {};
+      if (field === 'name') {
+        copy.translations.ar.name = value;
+        copy.arabicName = value;
+      } else if (field === 'description') {
+        copy.translations.ar.description = value;
+        copy.arabicDescription = value;
+      }
+      return copy;
+    });
     setProductList(updated);
     saveLocalProducts(updated);
+    void saveSharedCmsSection('products', updated);
   };
 
   const handleMoveItem = (currentIdx: number, direction: 'up' | 'down') => {

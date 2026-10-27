@@ -500,7 +500,6 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header - Clean, No Harsh Vertical Lines */}
         <div className="mb-6 sm:mb-8 dh-reveal">
-          <div className="w-10 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-3" />
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
             <bdi dir="auto">{localizedText.title}</bdi>
           </h2>
@@ -585,7 +584,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
         <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-300">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             {/* 1. Large Image Stage */}
-            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
+            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-full w-full p-6 sm:p-10">
               <img
                 key={activeItem.id || currentIndex}
                 src={activeItem.image}
@@ -621,7 +620,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
             </div>
 
             {/* 2. Details: Title, Description & Technical PDF Button */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[440px] text-start">
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[300px] lg:min-h-[440px] h-auto text-start">
               <div className="space-y-4 my-auto">
                 <h3
                   onClick={() => handleOpenPdf(activeItem.pdfUrl)}
@@ -630,7 +629,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                   <bdi dir="auto">{activeTitle}</bdi>
                 </h3>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal whitespace-pre-line">
                   <bdi dir="auto">{activeDesc}</bdi>
                 </p>
               </div>
