@@ -145,25 +145,6 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-4">
                   <bdi dir="auto">{activeProduct.description}</bdi>
                 </p>
-
-                {/* 5-Item Quick Select Tabs */}
-                <div className="grid grid-cols-5 gap-1.5 pt-2">
-                  {localizedLines.map((item, idx) => (
-                    <button
-                      key={item.id || idx}
-                      type="button"
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`py-1.5 px-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer border text-center truncate ${
-                        idx === currentIndex
-                          ? 'bg-red-50 border-red-500 text-red-700 shadow-xs ring-1 ring-red-500/30'
-                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
-                      }`}
-                      title={item.name}
-                    >
-                      #{idx + 1}
-                    </button>
-                  ))}
-                </div>
               </div>
 
               {/* Action Button */}
