@@ -2,10 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   FileText,
   Upload,
-  Check,
   ExternalLink,
   Layers,
-  Save,
   Trash2,
   Plus,
   ArrowUp,
@@ -76,7 +74,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
   const handleUpdateCardField = (
     index: number,
-    field: 'title' | 'desc' | 'buttonText' | 'pdfUrl' | 'company' | 'brand' | 'image',
+    field: 'title' | 'desc' | 'buttonText' | 'pdfUrl' | 'image',
     value: string
   ) => {
     const updated = [...cards];
@@ -106,9 +104,6 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
         en: { ...(current.translations?.en || {}), buttonText: value },
         ckb: { ...(current.translations?.ckb || {}), buttonText: value }
       };
-    } else if (field === 'company') {
-      current.company = value;
-      current.brand = value;
     } else {
       (current as any)[field] = value;
     }
@@ -165,7 +160,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
   };
 
   // -------------------------------------------------------------
-  // SECTION 2: Architecture Systems & Accessories Showcase (Slider)
+  // SECTION 2: Architecture Systems Showcase (Slider)
   // -------------------------------------------------------------
   const [showcaseItems, setShowcaseItems] = useState<ArchitectureShowcaseItem[]>(() =>
     loadArchitectureShowcaseItems()
@@ -191,7 +186,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
   const handleUpdateShowcaseField = (
     index: number,
-    field: 'title' | 'description' | 'buttonText' | 'pdfUrl' | 'brand' | 'image',
+    field: 'title' | 'description' | 'buttonText' | 'pdfUrl' | 'image',
     value: string
   ) => {
     const updated = [...showcaseItems];
@@ -341,30 +336,35 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       {/* ========================================================================= */}
       {/* SECTION 1: PDF ARCHITECTURE CARDS (European Catalogues: WIEK, STAC, etc.) */}
       {/* ========================================================================= */}
-      <section className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-            <h3 className="text-base font-black text-slate-900">
-              كتالوجات الشركاء المعماريين ({cards.length})
-            </h3>
-            <span className="text-[11px] text-slate-400 font-normal">
-              (البطاقات العلوية في صفحة العمارة)
-            </span>
+      <section className="bg-white p-5 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-black">
+              <FileText className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+                <span>كتالوجات الشركاء المعماريين (PDF)</span>
+                <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-md border border-red-100">
+                  {cards.length}
+                </span>
+              </h3>
+              <p className="text-[11px] text-slate-500 font-medium">البطاقات المعروضة في أعلى قسم العمارة</p>
+            </div>
           </div>
 
           <button
             type="button"
             onClick={handleAddCard}
-            className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer self-start sm:self-auto"
+            className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer self-start sm:self-auto"
           >
-            <Plus className="w-3.5 h-3.5 stroke-[3]" />
+            <Plus className="w-4 h-4 stroke-[3]" />
             <span>إضافة كتالوج</span>
           </button>
         </div>
 
-        {/* Compact Cards List */}
-        <div className="space-y-3">
+        {/* Clean Red & White Cards List */}
+        <div className="space-y-4">
           {cards.map((card, idx) => {
             const cardTitleAr = card.translations?.ar?.title || card.title || '';
             const cardDescAr = card.translations?.ar?.desc || card.desc || '';
@@ -373,136 +373,134 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={card.id || idx}
-                className="bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-slate-300 p-3.5 transition-all shadow-2xs"
+                className="bg-white rounded-2xl border-2 border-slate-100 hover:border-red-300 p-4 sm:p-5 transition-all shadow-xs hover:shadow-md flex flex-col md:flex-row gap-5 items-stretch"
               >
-                <div className="flex flex-col md:flex-row gap-4 items-start">
-                  {/* Thumbnail & Upload */}
-                  <div className="w-full md:w-44 shrink-0 flex flex-col gap-1.5">
-                    <div className="relative aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-1.5">
-                      {card.image ? (
-                        <img
-                          src={card.image}
-                          alt={cardTitleAr}
-                          className="max-h-full max-w-full object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
-                          }}
-                        />
-                      ) : (
-                        <ImageIcon className="w-6 h-6 text-slate-300" />
+                {/* Image Stage + Red/White Upload Button */}
+                <div className="w-full md:w-52 shrink-0 flex flex-col justify-between gap-2.5">
+                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 border border-slate-200 flex items-center justify-center p-2.5 group">
+                    {card.image ? (
+                      <img
+                        src={card.image}
+                        alt={cardTitleAr}
+                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                        }}
+                      />
+                    ) : (
+                      <ImageIcon className="w-8 h-8 text-slate-300" />
+                    )}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => triggerUpload('cards', idx, 'image')}
+                    className="w-full py-2 px-3 rounded-xl bg-red-50 hover:bg-red-600 text-red-600 hover:text-white font-bold text-xs border border-red-200 hover:border-red-600 flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
+                  >
+                    <Upload className="w-3.5 h-3.5" />
+                    <span>
+                      {isUploading && activeUploadTarget?.section === 'cards' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
+                        ? 'جاري الرفع…'
+                        : 'تغيير الصورة'}
+                    </span>
+                  </button>
+                </div>
+
+                {/* Form Fields: Only Title, Description, PDF Button */}
+                <div className="flex-1 flex flex-col justify-between gap-3">
+                  {/* Top Bar: Red Badge + Title Input + Move & Delete */}
+                  <div className="flex items-center justify-between gap-2.5">
+                    <div className="flex items-center gap-2 flex-1">
+                      <span className="px-2.5 py-1 rounded-lg bg-red-600 text-white font-mono font-black text-xs shrink-0 shadow-xs">
+                        #{String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <input
+                        type="text"
+                        value={cardTitleAr}
+                        onChange={(e) => handleUpdateCardField(idx, 'title', e.target.value)}
+                        placeholder="عنوان الكتالوج..."
+                        className="flex-1 font-bold text-sm text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none transition-all"
+                      />
+                    </div>
+
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        type="button"
+                        disabled={idx === 0}
+                        onClick={() => handleMoveCard(idx, 'up')}
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
+                        title="تحريك لأعلى"
+                      >
+                        <ArrowUp className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        disabled={idx === cards.length - 1}
+                        onClick={() => handleMoveCard(idx, 'down')}
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
+                        title="تحريك لأسفل"
+                      >
+                        <ArrowDown className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteCard(idx)}
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 transition-colors cursor-pointer ms-1"
+                        title="حذف الكتالوج"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Description Textarea */}
+                  <textarea
+                    value={cardDescAr}
+                    onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
+                    placeholder="وصف ومواصفات الكتالوج..."
+                    rows={2}
+                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
+                  />
+
+                  {/* Bottom Row: PDF File Upload & Button Text */}
+                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-slate-100">
+                    <div className="flex items-center gap-1.5 flex-1 w-full">
+                      <input
+                        type="text"
+                        value={card.pdfUrl || ''}
+                        onChange={(e) => handleUpdateCardField(idx, 'pdfUrl', e.target.value)}
+                        placeholder="رابط ملف PDF"
+                        dir="ltr"
+                        className="flex-1 font-mono text-xs text-slate-800 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => triggerUpload('cards', idx, 'pdf')}
+                        className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
+                      >
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>رفع PDF</span>
+                      </button>
+                      {card.pdfUrl && (
+                        <a
+                          href={card.pdfUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition-colors shrink-0"
+                          title="معاينة PDF"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </a>
                       )}
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => triggerUpload('cards', idx, 'image')}
-                      className="w-full py-1 px-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-[11px] flex items-center justify-center gap-1 cursor-pointer transition-colors"
-                    >
-                      <Upload className="w-3 h-3 text-slate-500" />
-                      <span>
-                        {isUploading && activeUploadTarget?.section === 'cards' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
-                          ? 'جاري الرفع…'
-                          : 'تغيير الصورة'}
-                      </span>
-                    </button>
-                  </div>
-
-                  {/* Form Details (Compact & Clean) */}
-                  <div className="flex-1 w-full space-y-2">
-                    {/* Header Row: Badge, Title Input, Move & Delete */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 flex-1">
-                        <span className="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-black text-[10px] shrink-0">
-                          #{String(idx + 1).padStart(2, '0')}
-                        </span>
-                        <input
-                          type="text"
-                          value={cardTitleAr}
-                          onChange={(e) => handleUpdateCardField(idx, 'title', e.target.value)}
-                          placeholder="عنوان الكتالوج (مثال: كتالوج شركة WIEK بلجيكا)"
-                          className="flex-1 font-bold text-xs text-slate-900 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400"
-                        />
-                      </div>
-
-                      <div className="flex items-center gap-1 shrink-0">
-                        <button
-                          type="button"
-                          disabled={idx === 0}
-                          onClick={() => handleMoveCard(idx, 'up')}
-                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
-                          title="تحريك لأعلى"
-                        >
-                          <ArrowUp className="w-3 h-3" />
-                        </button>
-                        <button
-                          type="button"
-                          disabled={idx === cards.length - 1}
-                          onClick={() => handleMoveCard(idx, 'down')}
-                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
-                          title="تحريك لأسفل"
-                        >
-                          <ArrowDown className="w-3 h-3" />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleDeleteCard(idx)}
-                          className="p-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-0.5"
-                          title="حذف"
-                        >
-                          <Trash2 className="w-3 h-3" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Description Textarea */}
-                    <textarea
-                      value={cardDescAr}
-                      onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
-                      placeholder="وصف ومواصفات الكتالوج..."
-                      rows={2}
-                      className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
+                    <input
+                      type="text"
+                      value={cardBtnAr}
+                      onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
+                      placeholder="نص الزر (فتح الكتالوج PDF)"
+                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all shrink-0"
                     />
-
-                    {/* Bottom Inline Bar: PDF Upload, Button Text */}
-                    <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
-                      <div className="flex items-center gap-1.5 flex-1 w-full">
-                        <input
-                          type="text"
-                          value={card.pdfUrl || ''}
-                          onChange={(e) => handleUpdateCardField(idx, 'pdfUrl', e.target.value)}
-                          placeholder="رابط ملف PDF"
-                          dir="ltr"
-                          className="flex-1 font-mono text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => triggerUpload('cards', idx, 'pdf')}
-                          className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer shrink-0"
-                        >
-                          <Upload className="w-3 h-3" />
-                          <span>رفع PDF</span>
-                        </button>
-                        {card.pdfUrl && (
-                          <a
-                            href={card.pdfUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors shrink-0"
-                            title="معاينة PDF"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                          </a>
-                        )}
-                      </div>
-
-                      <input
-                        type="text"
-                        value={cardBtnAr}
-                        onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
-                        placeholder="نص زر الكتالوج"
-                        className="w-full md:w-44 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-400 shrink-0"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -512,32 +510,37 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       </section>
 
       {/* ========================================================================= */}
-      {/* SECTION 2: ACCESSORIES & SYSTEMS SHOWCASE (1/4 Slider with Handles, etc.) */}
+      {/* SECTION 2: ACCESSORIES & SYSTEMS SHOWCASE (Slider) */}
       {/* ========================================================================= */}
-      <section className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-            <h3 className="text-base font-black text-slate-900">
-              أنظمة ورسومات العمارة التفاعلية ({showcaseItems.length})
-            </h3>
-            <span className="text-[11px] text-slate-400 font-normal">
-              (شريط السلايدر الدوار)
-            </span>
+      <section className="bg-white p-5 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-black">
+              <Layers className="w-4 h-4" />
+            </div>
+            <div>
+              <h3 className="text-base font-black text-slate-900 flex items-center gap-2">
+                <span>أنظمة ورسومات العمارة التفاعلية</span>
+                <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-md border border-red-100">
+                  {showcaseItems.length}
+                </span>
+              </h3>
+              <p className="text-[11px] text-slate-500 font-medium">شريط السلايدر الدوار في الصفحة الرئيسية</p>
+            </div>
           </div>
 
           <button
             type="button"
             onClick={handleAddShowcaseItem}
-            className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer self-start sm:self-auto"
+            className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer self-start sm:self-auto"
           >
-            <Plus className="w-3.5 h-3.5 stroke-[3]" />
+            <Plus className="w-4 h-4 stroke-[3]" />
             <span>إضافة شريحة</span>
           </button>
         </div>
 
-        {/* Compact Showcase List */}
-        <div className="space-y-3">
+        {/* Clean Red & White Showcase List */}
+        <div className="space-y-4">
           {showcaseItems.map((item, idx) => {
             const itemTitleAr = item.titleAr || item.title || '';
             const itemDescAr = item.descriptionAr || item.description || '';
@@ -546,136 +549,134 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={item.id || idx}
-                className="bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-slate-300 p-3.5 transition-all shadow-2xs"
+                className="bg-white rounded-2xl border-2 border-slate-100 hover:border-red-300 p-4 sm:p-5 transition-all shadow-xs hover:shadow-md flex flex-col md:flex-row gap-5 items-stretch"
               >
-                <div className="flex flex-col md:flex-row gap-4 items-start">
-                  {/* Thumbnail & Upload */}
-                  <div className="w-full md:w-44 shrink-0 flex flex-col gap-1.5">
-                    <div className="relative aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-1.5">
-                      {item.image ? (
-                        <img
-                          src={item.image}
-                          alt={itemTitleAr}
-                          className="max-h-full max-w-full object-contain"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
-                          }}
-                        />
-                      ) : (
-                        <ImageIcon className="w-6 h-6 text-slate-300" />
+                {/* Image Stage + Red/White Upload Button */}
+                <div className="w-full md:w-52 shrink-0 flex flex-col justify-between gap-2.5">
+                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 border border-slate-200 flex items-center justify-center p-2.5 group">
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={itemTitleAr}
+                        className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                        }}
+                      />
+                    ) : (
+                      <ImageIcon className="w-8 h-8 text-slate-300" />
+                    )}
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => triggerUpload('showcase', idx, 'image')}
+                    className="w-full py-2 px-3 rounded-xl bg-red-50 hover:bg-red-600 text-red-600 hover:text-white font-bold text-xs border border-red-200 hover:border-red-600 flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
+                  >
+                    <Upload className="w-3.5 h-3.5" />
+                    <span>
+                      {isUploading && activeUploadTarget?.section === 'showcase' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
+                        ? 'جاري الرفع…'
+                        : 'تغيير الصورة'}
+                    </span>
+                  </button>
+                </div>
+
+                {/* Form Fields: Only Title, Description, PDF Button */}
+                <div className="flex-1 flex flex-col justify-between gap-3">
+                  {/* Top Bar: Red Badge + Title Input + Move & Delete */}
+                  <div className="flex items-center justify-between gap-2.5">
+                    <div className="flex items-center gap-2 flex-1">
+                      <span className="px-2.5 py-1 rounded-lg bg-red-600 text-white font-mono font-black text-xs shrink-0 shadow-xs">
+                        #{String(idx + 1).padStart(2, '0')}
+                      </span>
+                      <input
+                        type="text"
+                        value={itemTitleAr}
+                        onChange={(e) => handleUpdateShowcaseField(idx, 'title', e.target.value)}
+                        placeholder="عنوان النظام..."
+                        className="flex-1 font-bold text-sm text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none transition-all"
+                      />
+                    </div>
+
+                    <div className="flex items-center gap-1 shrink-0">
+                      <button
+                        type="button"
+                        disabled={idx === 0}
+                        onClick={() => handleMoveShowcaseItem(idx, 'up')}
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
+                        title="تحريك لأعلى"
+                      >
+                        <ArrowUp className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        disabled={idx === showcaseItems.length - 1}
+                        onClick={() => handleMoveShowcaseItem(idx, 'down')}
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
+                        title="تحريك لأسفل"
+                      >
+                        <ArrowDown className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteShowcaseItem(idx)}
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 transition-colors cursor-pointer ms-1"
+                        title="حذف الشريحة"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Description Textarea */}
+                  <textarea
+                    value={itemDescAr}
+                    onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
+                    placeholder="شرح ومواصفات النظام..."
+                    rows={2}
+                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
+                  />
+
+                  {/* Bottom Row: PDF File Upload & Button Text */}
+                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-slate-100">
+                    <div className="flex items-center gap-1.5 flex-1 w-full">
+                      <input
+                        type="text"
+                        value={item.pdfUrl || ''}
+                        onChange={(e) => handleUpdateShowcaseField(idx, 'pdfUrl', e.target.value)}
+                        placeholder="رابط ملف PDF"
+                        dir="ltr"
+                        className="flex-1 font-mono text-xs text-slate-800 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => triggerUpload('showcase', idx, 'pdf')}
+                        className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
+                      >
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>رفع PDF</span>
+                      </button>
+                      {item.pdfUrl && (
+                        <a
+                          href={item.pdfUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition-colors shrink-0"
+                          title="معاينة PDF"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </a>
                       )}
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => triggerUpload('showcase', idx, 'image')}
-                      className="w-full py-1 px-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-[11px] flex items-center justify-center gap-1 cursor-pointer transition-colors"
-                    >
-                      <Upload className="w-3 h-3 text-slate-500" />
-                      <span>
-                        {isUploading && activeUploadTarget?.section === 'showcase' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
-                          ? 'جاري الرفع…'
-                          : 'تغيير الصورة'}
-                      </span>
-                    </button>
-                  </div>
-
-                  {/* Form Details (Compact & Clean) */}
-                  <div className="flex-1 w-full space-y-2">
-                    {/* Header Row: Badge, Title Input, Move & Delete */}
-                    <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-2 flex-1">
-                        <span className="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-black text-[10px] shrink-0">
-                          #{String(idx + 1).padStart(2, '0')}
-                        </span>
-                        <input
-                          type="text"
-                          value={itemTitleAr}
-                          onChange={(e) => handleUpdateShowcaseField(idx, 'title', e.target.value)}
-                          placeholder="عنوان النظام (مثال: نظام WIEK للمفصلات المخفية)"
-                          className="flex-1 font-bold text-xs text-slate-900 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400"
-                        />
-                      </div>
-
-                      <div className="flex items-center gap-1 shrink-0">
-                        <button
-                          type="button"
-                          disabled={idx === 0}
-                          onClick={() => handleMoveShowcaseItem(idx, 'up')}
-                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
-                          title="تحريك لأعلى"
-                        >
-                          <ArrowUp className="w-3 h-3" />
-                        </button>
-                        <button
-                          type="button"
-                          disabled={idx === showcaseItems.length - 1}
-                          onClick={() => handleMoveShowcaseItem(idx, 'down')}
-                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
-                          title="تحريك لأسفل"
-                        >
-                          <ArrowDown className="w-3 h-3" />
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => handleDeleteShowcaseItem(idx)}
-                          className="p-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-0.5"
-                          title="حذف"
-                        >
-                          <Trash2 className="w-3 h-3" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Description Textarea */}
-                    <textarea
-                      value={itemDescAr}
-                      onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
-                      placeholder="شرح ومواصفات النظام..."
-                      rows={2}
-                      className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
+                    <input
+                      type="text"
+                      value={itemBtnAr}
+                      onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
+                      placeholder="نص زر الكتالوج (فتح الكتالوج المعتمد PDF)"
+                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all shrink-0"
                     />
-
-                    {/* Bottom Inline Bar: PDF Upload, Button Text */}
-                    <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
-                      <div className="flex items-center gap-1.5 flex-1 w-full">
-                        <input
-                          type="text"
-                          value={item.pdfUrl || ''}
-                          onChange={(e) => handleUpdateShowcaseField(idx, 'pdfUrl', e.target.value)}
-                          placeholder="رابط ملف PDF"
-                          dir="ltr"
-                          className="flex-1 font-mono text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => triggerUpload('showcase', idx, 'pdf')}
-                          className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer shrink-0"
-                        >
-                          <Upload className="w-3 h-3" />
-                          <span>رفع PDF</span>
-                        </button>
-                        {item.pdfUrl && (
-                          <a
-                            href={item.pdfUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors shrink-0"
-                            title="معاينة PDF"
-                          >
-                            <Eye className="w-3.5 h-3.5" />
-                          </a>
-                        )}
-                      </div>
-
-                      <input
-                        type="text"
-                        value={itemBtnAr}
-                        onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
-                        placeholder="نص زر الكتالوج"
-                        className="w-full md:w-44 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-400 shrink-0"
-                      />
-                    </div>
                   </div>
                 </div>
               </div>

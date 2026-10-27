@@ -431,51 +431,25 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                   />
                 </div>
 
-                {/* Promote to 3D Slot & Controls */}
-                <div className="pt-2 border-t border-slate-100 space-y-2">
-                  {/* Quick Feature in 3D Slot Dropdown */}
-                  <div className="relative">
-                    <select
-                      onChange={(e) => {
-                        if (e.target.value !== '') {
-                          void handlePromoteToSlot(globalIdx, parseInt(e.target.value, 10));
-                          e.target.value = '';
-                        }
-                      }}
-                      defaultValue=""
-                      className="w-full border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 outline-none cursor-pointer appearance-none truncate pe-6"
-                    >
-                      <option value="" disabled>
-                        {isIn3DCarousel ? `Change 3D Slot (Currently Slot #${globalIdx + 1})…` : '★ Promote to 3D Carousel…'}
-                      </option>
-                      {Array.from({ length: 12 }).map((_, slotIdx) => (
-                        <option key={slotIdx} value={slotIdx}>
-                          Set as 3D Carousel Slot #{String(slotIdx + 1).padStart(2, '0')}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className="w-3 h-3 text-slate-400 absolute end-2 top-2 pointer-events-none" />
-                  </div>
+                {/* Project Action Controls */}
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <button
+                    type="button"
+                    onClick={() => handleTriggerReplace(globalIdx)}
+                    className="flex-1 py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-[11px] flex items-center justify-center gap-1 transition-all cursor-pointer"
+                  >
+                    <Upload className="w-3 h-3" />
+                    <span>Replace Image</span>
+                  </button>
 
-                  <div className="flex items-center justify-between gap-2">
-                    <button
-                      type="button"
-                      onClick={() => handleTriggerReplace(globalIdx)}
-                      className="flex-1 py-1.5 px-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-[11px] flex items-center justify-center gap-1 transition-all cursor-pointer"
-                    >
-                      <Upload className="w-3 h-3" />
-                      <span>Replace</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteProject(globalIdx)}
-                      className="p-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 transition-colors cursor-pointer"
-                      title="Delete Project"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteProject(globalIdx)}
+                    className="p-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 transition-colors cursor-pointer"
+                    title="Delete Project"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
             );
