@@ -9,7 +9,7 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v4';
+const STORAGE_KEY = 'winhome_admin_products_v5';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
 
@@ -20,22 +20,24 @@ export function loadLocalProducts(): ProductItem[] {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
         const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
-        const merged: ProductItem[] = parsed.map((item: ProductItem) => {
-          const defaultItem = defaultMap.get(item.id);
-          if (defaultItem) {
-            return {
-              ...defaultItem,
-              ...item,
-              division: defaultItem.division,
-              category: defaultItem.category,
-              videoUrl: item.videoUrl || defaultItem.videoUrl,
-              mediaType: item.mediaType || defaultItem.mediaType,
-              image: item.image?.startsWith('/uploads') ? item.image : defaultItem.image,
-              translations: { ...defaultItem.translations, ...item.translations }
-            };
-          }
-          return item;
-        });
+        const merged: ProductItem[] = parsed
+          .filter((item: ProductItem) => defaultMap.has(item.id) || item.image?.startsWith('/uploads'))
+          .map((item: ProductItem) => {
+            const defaultItem = defaultMap.get(item.id);
+            if (defaultItem) {
+              return {
+                ...defaultItem,
+                ...item,
+                division: defaultItem.division,
+                category: defaultItem.category,
+                videoUrl: item.videoUrl || defaultItem.videoUrl,
+                mediaType: item.mediaType || defaultItem.mediaType,
+                image: item.image?.startsWith('/uploads') ? item.image : defaultItem.image,
+                translations: { ...defaultItem.translations, ...item.translations }
+              };
+            }
+            return item;
+          });
 
         // Append any new default products that were not present in cache
         const existingIds = new Set(merged.map((p) => p.id));
@@ -64,21 +66,25 @@ export function saveLocalProducts(products: ProductItem[]): void {
   try {
     const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
     const existingIds = new Set(products.map((p) => p.id));
-    const merged: ProductItem[] = products.map((item) => {
-      const defaultItem = defaultMap.get(item.id);
-      if (defaultItem) {
-        return {
-          ...defaultItem,
-          ...item,
-          videoUrl: item.videoUrl || defaultItem.videoUrl,
-          mediaType: item.mediaType || defaultItem.mediaType,
-          image: item.image?.startsWith('/uploads') ? item.image : (item.image || defaultItem.image),
-          fallbackImage: defaultItem.fallbackImage || item.fallbackImage,
-          translations: { ...defaultItem.translations, ...item.translations }
-        };
-      }
-      return item;
-    });
+    const merged: ProductItem[] = products
+      .filter((item: ProductItem) => defaultMap.has(item.id) || item.image?.startsWith('/uploads'))
+      .map((item) => {
+        const defaultItem = defaultMap.get(item.id);
+        if (defaultItem) {
+          return {
+            ...defaultItem,
+            ...item,
+            division: item.division || defaultItem.division,
+            category: item.category || defaultItem.category,
+            videoUrl: item.videoUrl || defaultItem.videoUrl,
+            mediaType: item.mediaType || defaultItem.mediaType,
+            image: item.image?.startsWith('/uploads') ? item.image : (item.image || defaultItem.image),
+            fallbackImage: defaultItem.fallbackImage || item.fallbackImage,
+            translations: { ...defaultItem.translations, ...item.translations }
+          };
+        }
+        return item;
+      });
 
     ALL_PRODUCTS.forEach((dp) => {
       if (!existingIds.has(dp.id)) {

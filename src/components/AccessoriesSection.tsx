@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ACCESSORIES_LINES, ProductItem } from '../data/winhomeData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 
@@ -34,14 +34,22 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
   const localizedLines = products.map((line) => getLocalizedProduct(line, currentLanguage.code));
   const activeProduct = localizedLines[currentIndex] || localizedLines[0];
 
-  // Auto-swap every 4s continuously (no pause on hover)
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + localizedLines.length) % localizedLines.length);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % localizedLines.length);
+  };
+
+  // Auto-swap every 4.5s with pause on hover
   useEffect(() => {
-    if (localizedLines.length <= 1) return;
+    if (isPaused || localizedLines.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % localizedLines.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [localizedLines.length]);
+  }, [isPaused, localizedLines.length]);
 
   if (!activeProduct) return null;
 
@@ -60,12 +68,16 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
           </p>
         </div>
 
-        {/* Interactive Auto-Swapping Card */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-500">
+        {/* Interactive Auto-Swapping Card with Full Pagination */}
+        <div
+          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-500"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
-            {/* Media Display: Image with slide counter */}
-            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[280px] sm:h-[360px] lg:h-[420px] w-full p-6">
+            {/* Media Display: Image with slide counter and prev/next pagination */}
+            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
               <img
                 key={activeProduct.image}
                 src={activeProduct.image}
@@ -75,36 +87,55 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                     e.currentTarget.src = activeProduct.fallbackImage;
                   }
                 }}
-                className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500"
+                className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500 drop-shadow-sm cursor-pointer"
+                onClick={() => onSelectProduct(activeProduct)}
                 loading="lazy"
               />
 
-              {/* Clean Slide Indicators (No Arrows) */}
+              {/* Slide Counter, 5 Interactive Dots & Prev/Next Pagination Controls */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
-                <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
+                <div className="flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg border border-white/10">
                   {localizedLines.map((_, dotIdx) => (
                     <button
                       key={dotIdx}
                       type="button"
                       onClick={() => setCurrentIndex(dotIdx)}
-                      aria-label={`Go to slide ${dotIdx + 1}`}
+                      aria-label={`Go to item ${dotIdx + 1}`}
                       className={`transition-all duration-300 rounded-full cursor-pointer ${
                         dotIdx === currentIndex
-                          ? 'w-5 h-1.5 bg-red-500'
-                          : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/90'
+                          ? 'w-5 h-2 bg-red-500'
+                          : 'w-2 h-2 bg-white/50 hover:bg-white'
                       }`}
                     />
                   ))}
-                  <span className="text-[10px] font-mono font-bold text-white/90 ms-1">
-                    {currentIndex + 1}/{localizedLines.length}
+                  <span className="text-[11px] font-mono font-bold text-white/90 ms-1 px-1">
+                    {currentIndex + 1} / {localizedLines.length}
                   </span>
                 </div>
+
+                {/* Prev / Next Pagination Buttons */}
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Previous accessory"
+                  className="w-8 h-8 rounded-full bg-slate-900/85 hover:bg-red-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
+                >
+                  <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next accessory"
+                  className="w-8 h-8 rounded-full bg-slate-900/85 hover:bg-red-600 text-white flex items-center justify-center transition-all cursor-pointer shadow-md hover:scale-105 active:scale-95"
+                >
+                  <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+                </button>
               </div>
             </div>
 
-            {/* Content: Title, Description & Action Buttons */}
-            <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col justify-between h-auto lg:h-[420px] text-start">
-              <div className="space-y-3 overflow-hidden">
+            {/* Content: Title, Description, Item Switcher & Action Buttons */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[440px] text-start">
+              <div className="space-y-4 overflow-hidden">
                 <h3
                   onClick={() => onSelectProduct(activeProduct)}
                   className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight line-clamp-2"
@@ -114,6 +145,25 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-4">
                   <bdi dir="auto">{activeProduct.description}</bdi>
                 </p>
+
+                {/* 5-Item Quick Select Tabs */}
+                <div className="grid grid-cols-5 gap-1.5 pt-2">
+                  {localizedLines.map((item, idx) => (
+                    <button
+                      key={item.id || idx}
+                      type="button"
+                      onClick={() => setCurrentIndex(idx)}
+                      className={`py-1.5 px-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer border text-center truncate ${
+                        idx === currentIndex
+                          ? 'bg-red-50 border-red-500 text-red-700 shadow-xs ring-1 ring-red-500/30'
+                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                      }`}
+                      title={item.name}
+                    >
+                      #{idx + 1}
+                    </button>
+                  ))}
+                </div>
               </div>
 
               {/* Action Button */}
@@ -121,7 +171,7 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer hover:shadow-lg active:scale-98"
                 >
                   <span><bdi dir="auto">{t('specs_btn') || 'Inspect Specs'}</bdi></span>
                   <ArrowRight className="w-4 h-4 rtl:rotate-180" />

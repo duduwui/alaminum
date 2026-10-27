@@ -148,7 +148,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [newAccName, setNewAccName] = useState('');
   const [newAccDesc, setNewAccDesc] = useState('');
-  const [newAccImage, setNewAccImage] = useState('/assets/showcase/stac_window_handles-044.png');
+  const [newAccImage, setNewAccImage] = useState('/products-assets/photo_60_2026-09-26_07-36-01.jpg');
   const [isUploadingNewImage, setIsUploadingNewImage] = useState(false);
   const newAccImageInputRef = useRef<HTMLInputElement>(null);
 
@@ -185,8 +185,8 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
       division: 'accessories',
       subCategory: 'أنظمة مقابض ومفصلات',
       brand: 'STAC Spain',
-      image: newAccImage || '/assets/showcase/stac_window_handles-044.png',
-      fallbackImage: '/assets/showcase/stac_window_handles-044.png',
+      image: newAccImage || '/products-assets/photo_60_2026-09-26_07-36-01.jpg',
+      fallbackImage: '/products-assets/photo_60_2026-09-26_07-36-01.jpg',
       description: finalDesc,
       features: ['تصميم مريح عصري', 'مقاوم للتآكل والعوامل الجوية', 'متوافق مع المقاييس الأوروبية'],
       translations: {
@@ -334,7 +334,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                         alt={prodTitle}
                         className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                          (e.target as HTMLImageElement).src = '/products-assets/photo_60_2026-09-26_07-36-01.jpg';
                         }}
                       />
                     )}

@@ -1102,322 +1102,67 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
 
 export const ACCESSORIES_PRODUCTS: ProductItem[] = [
   {
-    id: "wiek-concealed-hinge",
-    name: "WİEK 180° Concealed Tilt & Turn Hinge System",
+    id: "somfy-automation",
+    name: "Somfy Smart Window & Shutter Motors",
     category: "accessories",
     division: "accessories",
-    subCategory: "Concealed Window Hardware",
-    modelNumber: "WİEK T&T 180",
-    material: "Hardened Stainless Steel & Zamak 5",
-    brand: "WİEK SYSTEM",
-    origin: "WİEK • Belgium / Doorhome Desk",
-    rating: 5.0,
-    reviewsCount: 310,
-    image: "/assets/showcase/wiek_hidden_hinge-04.png",
-    fallbackImage: "/assets/showcase/wiek_hidden_hinge-04.png",
-    description: "Flush concealed 180-degree opening hinge mechanism for thermal break aluminum and high-end uPVC casement windows, rated up to 130 kg.",
-    features: [
-      "180° full opening angle with 100% hidden profile integration",
-      "130 kg certified sash load capacity with anti-sag micro adjustments",
-      "Integrated 3D adjustment for air and water tightness sealing"
-    ],
-    translations: {
-      ar: {
-        name: "نظام WİEK البلجيكي للمفصلات المخفية 180° (Tilt & Turn)",
-        description: "مفصلات مخفية بالكامل مدمجة داخل قطاع الألمنيوم والـ uPVC مصممة للمشاريع المودرن الفاخرة بتحمل وزن يصل إلى 130 كغم مع نقاط إغلاق محكمة.",
-        subCategory: "إكسسوارات النوافذ المخفية"
-      },
-      ckb: {
-        name: "سیستەمی نەرمەلۆی شاردراوەی WİEKی بەلجیکی ١٨٠°",
-        description: "نەرمەلۆی شاردراوەی تەواو لە ناو پرۆفایلی ئەلەمنیۆم و یو پی ڤی سی بە گۆشەی ١٨٠ پلە و بەرگەی کێشی تا ١٣٠ کگم.",
-        subCategory: "ئێکسسواراتی پەنجەرەی شاردراوە"
-      },
-      kmr: {
-        name: "Sîstema Menteşeyên Veşartî ya WİEK 180°",
-        description: "Menteşeyên veşartî yên 180 pileyî yên ji bo pencereyên alûmînyûm û uPVC bi kapasîteya hilgirtinê ya heta 130 kg.",
-        subCategory: "Aksesorên Veşartî yên Pencereyan"
-      },
-      tr: {
-        name: "WİEK 180° Gizli Menteşeli Çift Açılım Sistemi",
-        description: "Alüminyum ve uPVC kanatlara tamamen entegre olan, 130 kg taşıma kapasiteli ve 180 derece tam açılım sağlayan gizli menteşe donanımı.",
-        subCategory: "Gizli Pencere Donanımları"
-      }
-    }
-  },
-  {
-    id: "stac-window-handles",
-    name: "STAC Spain Minimalist Window Handles & Cremones",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Minimalist Handles",
-    modelNumber: "STAC Cremone 044",
-    material: "Extruded 6063-T5 Aerospace Aluminum",
-    brand: "STAC Spain",
-    origin: "STAC • Spain / Doorhome Desk",
-    rating: 5.0,
-    reviewsCount: 380,
-    image: "/assets/showcase/stac_window_handles-044.png",
-    fallbackImage: "/assets/showcase/stac_window_handles-044.png",
-    description: "Ultra-flush minimalist cremone handles engineered in Spain. Zero unnecessary protrusion for uninterrupted sightlines on modern slim-profile windows.",
-    features: [
-      "Aesthetic 0 mm flush design for clean minimal sightlines",
-      "High-grade CNC machined 6063-T5 aluminum body",
-      "Tested for 25,000 continuous operation cycles"
-    ],
-    translations: {
-      ar: {
-        name: "مقابض STAC الإسبانية المينيماليست المستوية",
-        description: "مقابض معمارية مصنوعة بكتلة ألمنيوم موحدة بدون أي بروز زائد (0 مم) بمكائن CNC دقيقة لتنسجم تماماً مع قطاعات النوافذ الحرارية العصرية.",
-        subCategory: "مقابض مينيماليست"
-      },
-      ckb: {
-        name: "دەسکی تەختی مینیمالیستی STACی ئیسپانی",
-        description: "دەسکی بێ بەرزایی و تەواو تەخت لەگەڵ پرۆفایل لە ئەلەمنیۆمی فڕۆکەوانی 6063-T5 بەرهەمی ئیسپانیا.",
-        subCategory: "دەسکی مۆدێرنی بێ بەرزایی"
-      },
-      kmr: {
-        name: "Destikên Mînîmalîst ên Pencereyan STAC Spanya",
-        description: "Destikên mînîmalîst ên 0 mm ji alûmînyûma 6063-T5 a hewayî bi fonksiyona bêderketin ji bo pencereyên nûjen.",
-        subCategory: "Destikên Mînîmalîst"
-      },
-      tr: {
-        name: "STAC İspanya Minimalist Pencere Kolları ve İspanyoletler",
-        description: "0 mm çıkıntısız gövdesi ve 6063-T5 havacılık sınıfı alüminyum yapısıyla modern mimari pencereler için tasarlanmış minimalist ispanyolet kol.",
-        subCategory: "Minimalist Pencere Kolları"
-      }
-    }
-  },
-  {
-    id: "wiek-bifold-system",
-    name: "WİEK Heavy-Duty Bi-Folding Patio Door System",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Folding Door Mechanisms",
-    modelNumber: "WİEK Accordion 34",
-    material: "Stainless Steel Rollers & Structural Alloy",
-    brand: "WİEK SYSTEM",
-    origin: "WİEK • Belgium / Doorhome Desk",
-    rating: 5.0,
-    reviewsCount: 260,
-    image: "/assets/showcase/wiek_bifold_door-34.png",
-    fallbackImage: "/assets/showcase/wiek_bifold_door-34.png",
-    description: "Synchronized multi-leaf bi-folding hardware system with stainless steel silent bearing rollers and secure central transmission gearboxes.",
-    features: [
-      "Carries up to 100 kg per door leaf with feather-light gliding",
-      "Sealed stainless steel bearings resistant to sand and fine dust",
-      "Concealed central hinge locks and flush bottom threshold tracks"
-    ],
-    translations: {
-      ar: {
-        name: "أنظمة WİEK البلجيكية للأبواب القابلة للطي (Bi-Fold)",
-        description: "أنظمة حركة انسيابية للأبواب القابلة للطي متعددة الضلف برولرات فولاذية صامتة وتروس أمان مركزية متعددة النقاط لتحقيق أوسع انفتاح بانورامي.",
-        subCategory: "أنظمة الأبواب القابلة للطي"
-      },
-      ckb: {
-        name: "سیستەمی دەرگای ئەکۆردیۆنی WİEKی بەلجیکی (Bi-Fold)",
-        description: "ئێکسسواراتی دەرگای قات-قاتی باڵکۆن بە رۆڵەری چوارینەی ستانلس ستێل بە بەرگەی ١٠٠ کگم بۆ هەر باڵێک.",
-        subCategory: "سیستەمی دەرگای ئەکۆردیۆن"
-      },
-      kmr: {
-        name: "Sîstema Deriyê Bi-Fold a WİEK",
-        description: "Mekanîzmaya deriyên qatqatî ya bi tekerên polayê zengarnegir ji bo panelên heta 100 kg.",
-        subCategory: "Mekanîzmayên Deriyê Qatqatî"
-      },
-      tr: {
-        name: "WİEK Ağır Hizmet Katlanır Kapı (Bi-Fold) Mekanizması",
-        description: "Kanat başı 100 kg taşıma kapasiteli, paslanmaz çelik sessiz rulmanlı ve emniyet kilitli çok kanatlı katlanır kapı donanım sistemi.",
-        subCategory: "Katlanır Kapı Donanımları"
-      }
-    }
-  },
-  {
-    id: "stac-lift-slide",
-    name: "STAC Spain DELTA Lift & Slide Handle & Flush Pull System",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Lift & Slide Systems",
-    modelNumber: "STAC DELTA-108",
-    material: "Die-Cast Architectural Alloy & Stainless Core",
-    brand: "STAC Spain",
-    origin: "STAC • Spain / Doorhome Desk",
-    rating: 5.0,
-    reviewsCount: 340,
-    image: "/assets/showcase/stac_lift_slide-108.png",
-    fallbackImage: "/assets/showcase/stac_lift_slide-108.png",
-    description: "The DELTA range stands out for its minimalist, useful and functional lines. Heavyweight lift & slide pull handle paired with an exterior finger pull with a shallow footprint depth of only 9.5 mm. Certified Grade 4 corrosion resistance exceeding 240 hours in saline mist chamber (UNE-EN 1670).",
-    features: [
-      "Minimalist aerodynamic lines with optional keyhole security cover plate",
-      "Recessed exterior finger pull with ultra-shallow 9.5 mm depth footprint",
-      "Grade 4 corrosion resistance exceeding 240 hours in saline mist chamber (UNE-EN 1670)",
-      "Available in black lacquer, white lacquer, and custom RAL colour matching"
-    ],
-    translations: {
-      ar: {
-        name: "نظام مقابض STAC الإسبانية DELTA للأبواب البانورامية (Lift & Slide)",
-        description: "تتميز سلسلة DELTA بخطوطها المعمارية المينيماليست المدمجة بسلاسة داخل قطاعات الألمنيوم. مقبض رفع وسحب عملاق للضلف الثقيلة مع مقبض سحب خارجي غاطس بعمق 9.5 مم ومقاومة تآكل درجة 4 لأكثر من 240 ساعة رذاذ ملحي.",
-        subCategory: "مقابض الرفع والانزلاق"
-      },
-      ckb: {
-        name: "سیستەمی دەسکی DELTAی ئیسپانی بۆ دەرگای سحاب و بەرزکەرەوە (Lift & Slide)",
-        description: "دیزاینی مۆدێرنی کەمینە (Minimalist) لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم. بەرگەی بەرزی تێکچوون و ژەنگ بە پلەی چوارەمی ستانداردی UNE-EN 1670 بۆ کەشوهەوای سەخت.",
-        subCategory: "دەسکی سحابی بەرزکەرەوە"
-      },
-      kmr: {
-        name: "Sîstema Destikên DELTA ya STAC Spanya ji bo Lift & Slide",
-        description: "Rêza DELTA ya mînîmalîst ji bo deriyên hebe-schiebe yên giran bi destikê derveyî yê 9.5 mm û berxwedana korozyonê ya pola 4 UNE-EN 1670.",
-        subCategory: "Destikên Lift & Slide"
-      },
-      tr: {
-        name: "STAC İspanya DELTA Hebe-Schiebe Kaldır-Sür Kol Takımı",
-        description: "Minimalist çizgileriyle öne çıkan DELTA hebe-schiebe açma kolu ve yalnızca 9.5 mm derinliğindeki gömme dış çekme havuzu. UNE-EN 1670 Sınıf 4 tuz sisi korozyon testli.",
-        subCategory: "Kaldır-Sür (Hebe-Schiebe) Kolları"
-      }
-    }
-  },
-  {
-    id: "wiek-free-angle",
-    name: "WİEK Free-Angle Transmission Mechanism",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Corner Transmission & Gearing",
-    modelNumber: "WİEK FA-Angle",
-    material: "Stainless Spring Steel & High-Strength Alloy",
-    brand: "WİEK SYSTEM",
-    origin: "WİEK • Belgium / Doorhome Desk",
+    subCategory: "Automation & Smart Home",
+    modelNumber: "Somfy IO",
+    material: "Smart IO Wireless Motor",
+    brand: "Somfy",
+    origin: "Somfy • France / Doorhome Desk",
     rating: 4.9,
-    reviewsCount: 195,
-    image: "/assets/showcase/wiek_free_angle-12.png",
-    fallbackImage: "/assets/showcase/wiek_free_angle-12.png",
-    description: "Universal corner and angle transmission gearing engineered for polygonal, arched, and custom architectural sash geometry.",
+    reviewsCount: 130,
+    discountBadge: "15% OFF",
+    originalPrice: 195,
+    soldCount: "720+ units",
+    image: "/products-assets/photo_56_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg",
+    description: "Wireless remote and smartphone controlled motorized openers for high skylights, rolling shutters, and heavy sliding doors.",
+    basePrice: 165,
+    unitPrice: 165,
+    currency: "USD",
+    pricing: { unitPrice: 165, currency: "USD" },
     features: [
-      "Free-angle adaptation from 45° to 175° corner transitions",
-      "Multi-layer laminated spring steel drive bands",
-      "Smooth effortless handle operation with high burglar resistance"
+      "Somfy Tahoma smart home integration",
+      "Obstacle detection and automatic stop protection",
+      "Silent drive motor technology"
     ],
     translations: {
       ar: {
-        name: "آلية WİEK لنقل الحركة بالزوايا الحرة (Free-Angle)",
-        description: "تروس وزوايا نقل حركة مرنة مخصصة للنوافذ المعمارية غير التقليدية كالمثلثة والدائرية والزوايا المائلة.",
-        subCategory: "تروس نقل الحركة"
+        name: "محركات سومفي الفرنسية الذكية للنوافذ والستائر",
+        description: "محركات ذكية لاسلكية فرنسية للتحكم بالنوافذ العالية والستائر المعدنية والأبواب السحابة عبر الريموت أو تطبيقات الهواتف الذكية.",
+        subCategory: "أنظمة الأتمتة والمنازل الذكية"
       },
       ckb: {
-        name: "میکانیزمی گواستنەوەی جوڵەی گۆشەی ئازادی WİEK",
-        description: "گێڕبۆکسی تایبەت بۆ پەنجەرە ئەندازیارییە نائاساییەکان وەک پەنجەرەی سێگۆشە، کەوانەیی و گۆشەی تایبەت.",
-        subCategory: "گێڕبۆکس و جوڵەی گۆشەکان"
-      },
-      kmr: {
-        name: "Mekanîzmaya Guhestina Goşeya Azad a WİEK",
-        description: "Gêrên guhestina goşeyî ji 45° heta 175° ji bo pencereyên neasayî yên mîmarî.",
-        subCategory: "Gêrên Guhestina Goşeyî"
-      },
-      tr: {
-        name: "WİEK Serbest Açılı Köşe İletim Mekanizması",
-        description: "Özel geometrili, üçgen ve kemerli mimari pencereler için 45° ila 175° arasında esnek köşe hareket iletim donanımı.",
-        subCategory: "Köşe İletim Donanımları"
-      }
-    }
-  },
-  {
-    id: "stac-door-handles",
-    name: "STAC Architectural Door Lever Handles & Escutcheons",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Door Handles & Security",
-    modelNumber: "STAC DH-120",
-    material: "Grade 5 Anti-Corrosion Alloy & Stainless Spindle",
-    brand: "STAC Spain",
-    origin: "STAC • Spain / Doorhome Desk",
-    rating: 4.9,
-    reviewsCount: 290,
-    image: "/assets/showcase/stac_door_handles-120.png",
-    fallbackImage: "/assets/showcase/stac_door_handles-120.png",
-    description: "High-traffic architectural lever handle sets with integrated return springs and concealed rose covers. Tested to EN 1906 Category of Use Grade 4.",
-    features: [
-      "Certified to EN 1906 Grade 4 for high-traffic commercial installations",
-      "Grade 5 maximum corrosion resistance (EN 1670) for coastal & harsh climates",
-      "Internal torsion spring prevents handle sagging over decades of use"
-    ],
-    translations: {
-      ar: {
-        name: "مقابض STAC المعمارية للأبواب مع روزيتات مخفية",
-        description: "أطقم مقابض أبواب فائقة المتانة مصنفة للمباني العامة والمشاريع السكنية الفاخرة مع مقاومة تآكل من الدرجة الخامسة.",
-        subCategory: "مقابض الأبواب الفاخرة"
-      },
-      ckb: {
-        name: "دەسکی تەلارسازی دەرگای STACی ئیسپانی",
-        description: "دەسکی دەرگای کوالێتی بەرز بە سپرنگی ناوخۆیی و بەرگری تەواو لە ژەنگ بۆ هاتوچۆی زۆر و باڵەخانەی مۆدێرن.",
-        subCategory: "دەسکی دەرگا"
-      },
-      kmr: {
-        name: "Destikên Deriyan ên Mîmarî yên STAC Spanya",
-        description: "Destikên deriyan ên bihêz ên pola EN 1906 bi parastina korozyonê ya asta 5 ji bo avahiyên luks.",
-        subCategory: "Destikên Deriyan"
-      },
-      tr: {
-        name: "STAC İspanya Mimari Rozetli Kapı Kolları",
-        description: "EN 1906 Sınıf 4 yüksek trafik testli, EN 1670 Sınıf 5 korozyon dayanımlı ve yaylı mimari kapı kolu takımı.",
-        subCategory: "Mimari Kapı Kolları"
-      }
-    }
-  },
-  {
-    id: "wiek-handle-series",
-    name: "WİEK Architectural Handle & Cremone Series",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Architectural Handles",
-    modelNumber: "WİEK Series 16",
-    material: "Anodized Aerospace Aluminum Alloy",
-    brand: "WİEK SYSTEM",
-    origin: "WİEK • Belgium / Doorhome Desk",
-    rating: 5.0,
-    reviewsCount: 420,
-    image: "/assets/showcase/wiek_handle_series-16.png",
-    fallbackImage: "/assets/showcase/wiek_handle_series-16.png",
-    description: "Minimalist European architectural window and door handles featuring smooth 90° positioning and durable anodized powder-coated finishes.",
-    features: [
-      "90° positive click positioning mechanism",
-      "Scratch and UV resistant architectural powder coating",
-      "Direct European groove fit with concealed fixing bolts"
-    ],
-    translations: {
-      ar: {
-        name: "سلسلة مقابض وكريمونات WİEK المعمارية",
-        description: "مقابض مودرن انسيابية للنوافذ والأبواب بثبات دقيق بزاوية 90 درجة مع طلاء معالج ضد الخدش والأشعة فوق البنفسجية.",
-        subCategory: "مقابض معمارية"
-      },
-      ckb: {
-        name: "دەسکی مۆدێرنی تەلارسازی WİEK",
-        description: "دەسکی پەنجەرە و دەرگا بە دیزاینی ئەوروپی کەمینە و دەنگی قوفڵبوونی ورد بە گۆشەی ٩٠ پلە.",
-        subCategory: "دەسکی پەنجەرە و دەرگا"
-      },
-      kmr: {
-        name: "Rêza Destikên Mîmarî ya WİEK",
-        description: "Destikên mînîmalîst ên bi pozîsyona 90 pileyî û rengên anodîzekirî yên berxwedêr.",
-        subCategory: "Destikên Mîmarî"
-      },
-      tr: {
-        name: "WİEK Mimari Pencere ve Kapı Kolu Serisi",
-        description: "90° pozitif kilitlenme mekanizmalı, çizilme ve UV ışınlarına dayanıklı elektrostatik toz boyalı mimari kol serisi.",
-        subCategory: "Mimari Kollar"
+        name: "مۆتۆڕی زیرەکی سۆمفی فەڕەنسی بۆ پەنجەرە و شەتەر",
+        description: "سیستەمی کۆنتڕۆڵی زیرەک بە مۆبایل و کۆنتڕۆڵ بۆ پەنجەرەی بەرز، شەتەری پارێزەر و دەرگای سلایدینگ.",
+        subCategory: "ئۆتۆمەیشن و ماڵی زیرەک"
       }
     }
   },
   {
     id: "stac-multipoint",
-    name: "STAC Spain Multipoint Perimeter Security Lock",
+    name: "STAC Spain Multipoint Security Lock",
     category: "accessories",
     division: "accessories",
-    subCategory: "Perimeter Locks & Security",
+    subCategory: "Locks & Security",
     modelNumber: "STAC Safe-254",
     material: "Certified Zinc Alloy & Stainless Gears",
     brand: "STAC Spain",
     origin: "STAC • Spain / Doorhome Hub",
     rating: 5.0,
-    reviewsCount: 310,
-    image: "/assets/showcase/stac_sliding_opening-254.png",
-    fallbackImage: "/assets/showcase/stac_sliding_opening-254.png",
-    description: "High-security perimeter multipoint locks with adjustable mushroom cams and anti-jemmy keeps for casement and sliding patio systems.",
+    reviewsCount: 280,
+    discountBadge: "19% OFF",
+    originalPrice: 80,
+    soldCount: "3,400+ sets",
+    image: "/products-assets/photo_48_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/brouchour-stac-1-1000x1000.jpg",
+    description: "Certified anti-burglary multipoint perimeter locking gears for casement windows and sliding patio doors.",
+    basePrice: 65,
+    unitPrice: 65,
+    currency: "USD",
+    pricing: { unitPrice: 65, currency: "USD" },
     features: [
       "High corrosion resistance grade 5 EN 1670",
       "Mushroom cam locking points for anti-jemmy security",
@@ -1425,82 +1170,16 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     ],
     translations: {
       ar: {
-        name: "نظام STAC الإسباني للإغلاق الأمني متعدد النقاط",
-        description: "أقفال وتروس أمان محيطية متعددة النقاط برؤوس فطرية مانعة للخلع والسرقة ومقاومة للرياح والغبار.",
+        name: "أقفال أمان STAC الإسبانية المحيطية متعددة النقاط",
+        description: "أقفال وتروس أمان محيطية متعددة النقاط برؤوس فطرية مانعة للخلع والسطو، مطابقة لمعايير الأمان الأوروبية ومقاومة للرياح والغبار.",
         subCategory: "أقفال الأمان متعددة النقاط"
       },
       ckb: {
         name: "سیستەمی قفڵی ئەمنی چەند خاڵی STACی ئیسپانی",
         description: "قفڵی دژە دزی و چەند خاڵی بۆ پەنجەرە و دەرگای سحاب و باڵکۆن بە بەرگری زۆر بەرز بەرامبەر شکان و دزەکردنی هەوا.",
         subCategory: "قفڵی ئەمنی دەورەبەری"
-      },
-      kmr: {
-        name: "Kilîta Ewlehiyê ya Pir-Xalî ya STAC Spanya",
-        description: "Sîstema kilîtkirina çendxalî ya li dijî diziyê bi berxwedana korozyonê ya asta 5 EN 1670.",
-        subCategory: "Kilîtên Ewlehiyê"
-      },
-      tr: {
-        name: "STAC İspanya Çok Noktalı Emniyet Kilit Sistemi",
-        description: "Hırsızlığa ve hava sızıntısına karşı ayarlanabilir mantar başlı kilit noktalarına sahip İspanya üretimi çok noktalı emniyet kilidi.",
-        subCategory: "Çok Noktalı Emniyet Kilitleri"
       }
     }
-  },
-  {
-    id: "master-handles",
-    name: "Master Italy Ergonomic Handles",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Architectural Handles",
-    modelNumber: "Master Italy",
-    material: "Architectural Aluminum & Brass",
-    brand: "Master Italy",
-    origin: "Master Italy • Erbil Hub",
-    rating: 5.0,
-    reviewsCount: 390,
-    discountBadge: "22% OFF",
-    originalPrice: 45,
-    soldCount: "5,800+ units",
-    image: "/products-assets/photo_43_2026-09-26_07-36-01.jpg",
-    fallbackImage: "./assets/doorhome/brouchour-Master-1-1000x1000.jpg",
-    description: "Ergonomic designer handles in Italian minimalist aesthetic, available in matte black, satin nickel, and anodized gold finishes.",
-    basePrice: 35,
-    unitPrice: 35,
-    currency: "USD",
-    pricing: { unitPrice: 35, currency: "USD" },
-    features: [
-      "Tested for over 50,000 opening cycles",
-      "Antibacterial coating available upon request",
-      "Direct fit for uPVC and thermal break aluminum"
-    ]
-  },
-  {
-    id: "comunello-rollers",
-    name: "Comunello Italy Heavy Tandem Rollers",
-    category: "accessories",
-    division: "accessories",
-    subCategory: "Sliding Rollers",
-    modelNumber: "Comunello 400",
-    material: "Stainless Steel & Needle Bearings",
-    brand: "Comunello",
-    origin: "Comunello • Italy / Erbil Hub",
-    rating: 5.0,
-    reviewsCount: 175,
-    discountBadge: "19% OFF",
-    originalPrice: 105,
-    soldCount: "1,950+ sets",
-    image: "/products-assets/photo_36_2026-09-26_07-36-01.jpg",
-    fallbackImage: "./assets/doorhome/brouchour-comunello-2-1-1000x1000.jpg",
-    description: "Heavy-duty tandem ball-bearing rollers engineered to carry oversized panoramic sliding door sashes up to 400kg with effortless whisper-quiet travel.",
-    basePrice: 85,
-    unitPrice: 85,
-    currency: "USD",
-    pricing: { unitPrice: 85, currency: "USD" },
-    features: [
-      "High load bearing capacity rated for 400kg sash weight",
-      "Precision CNC stainless steel ball bearings",
-      "Height adjustable by 6mm for perfect alignment"
-    ]
   },
   {
     id: "shutters",
@@ -1536,14 +1215,26 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
       "Slat Height": "55 mm",
       "Motor Type": "Wireless RF Tubular",
       "Box Sizes": "165mm / 205mm"
+    },
+    translations: {
+      ar: {
+        name: "شترات الألمنيوم العازلة وشاشات الحشرات",
+        description: "شترات حماية وأمان بمحركات كهربائية ذكية وشبكات حشرات بليسيه مغناطيسية، تمنح عزلاً حرارياً وصوتياً فائقاً وحماية تامة من الغبار والحرارة.",
+        subCategory: "شترات عازلة وحماية"
+      },
+      ckb: {
+        name: "شەتەری ئەلەمنیۆمی عازل و تۆڕی مێشوولە",
+        description: "شەتەری کارەبایی مۆتۆڕدار بۆ پاراستن و عەزلی گەرمی و دەنگ لەگەڵ تۆڕی بلیسەی مەگناتیزی دژە مێروو.",
+        subCategory: "شەتەر و پاراستن"
+      }
     }
   },
   {
     id: "acc-handle-line",
-    name: "HANDLE & PULL HANDLE LINE",
+    name: "Architectural Handle & Pull Handle Line",
     category: "accessories",
     division: "accessories",
-    subCategory: "Architectural Touchpoints",
+    subCategory: "Architectural Handles",
     modelNumber: "Hoppe / STAC",
     material: "Inox 316 & Anodized Alloy",
     brand: "Hoppe / STAC",
@@ -1564,7 +1255,59 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
       "Secustik® certified anti-manipulation security window handles",
       "Monumental T-bar and offset entrance pull handles up to 1800mm",
       "Luxury finishes: Matte Black, Satin Gold, Brushed Inox, Graphite"
-    ]
+    ],
+    translations: {
+      ar: {
+        name: "سلسلة المقابض المعمارية والمقابض الأنبوبية",
+        description: "مقابض معمارية أنيقة من الفولاذ المقاوم للصدأ 316 والألمنيوم المؤكسد بطلاء ناعم مضاد للخدش والبكتيريا بتصميم مريح للنوافذ والأبواب.",
+        subCategory: "المقابض المعمارية الفاخرة"
+      },
+      ckb: {
+        name: "دەسکی تەلارسازی دەرگا و پەنجەرە",
+        description: "دەسکی ئەندازیاری مۆدێرن لە ستیلی زەنگنەهێنەر ٣١٦ و ئەلەمنیۆمی ئەنۆدایزکراو بە ڕەنگی ڕەش و زێڕین.",
+        subCategory: "دەسکی تەلارسازی"
+      }
+    }
+  },
+  {
+    id: "comunello-rollers",
+    name: "Comunello Italy Heavy Tandem Rollers",
+    category: "accessories",
+    division: "accessories",
+    subCategory: "Sliding Rollers",
+    modelNumber: "Comunello 400",
+    material: "Stainless Steel & Needle Bearings",
+    brand: "Comunello",
+    origin: "Comunello • Italy / Erbil Hub",
+    rating: 5.0,
+    reviewsCount: 175,
+    discountBadge: "19% OFF",
+    originalPrice: 105,
+    soldCount: "1,950+ sets",
+    image: "/products-assets/photo_36_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/brouchour-comunello-2-1-1000x1000.jpg",
+    description: "Heavy-duty tandem ball-bearing rollers engineered to carry oversized panoramic sliding door sashes up to 400kg with effortless whisper-quiet travel.",
+    basePrice: 85,
+    unitPrice: 85,
+    currency: "USD",
+    pricing: { unitPrice: 85, currency: "USD" },
+    features: [
+      "High load bearing capacity rated for 400kg sash weight",
+      "Precision CNC stainless steel ball bearings",
+      "Height adjustable by 6mm for perfect alignment"
+    ],
+    translations: {
+      ar: {
+        name: "رولرات كومونيلو الإيطالية للضلف البانورامية الثقيلة",
+        description: "رولرات تروس كروية فولاذية مزدوجة مصممة لتحريك الضلف الزجاجية البانورامية العملاقة حتى وزن 400 كغم بسلاسة استثنائية وهدوء تام.",
+        subCategory: "رولرات الأبواب السحابة الثقيلة"
+      },
+      ckb: {
+        name: "ڕۆڵەری کۆمۆنێللۆی ئیتاڵی بۆ دەرگای سحابی قورس",
+        description: "ڕۆڵەری چوارینەی ستانلس ستێل بە بەرگەی ٤٠٠ کگم بۆ جوڵەی زۆر نەرم و بێدەنگ بۆ دەرگا پانۆراماکان.",
+        subCategory: "ڕۆڵەری دەرگای سحاب"
+      }
+    }
   }
 ];
 
