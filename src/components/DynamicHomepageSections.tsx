@@ -108,15 +108,21 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div>
+          <div className="w-full">
             {sectionTitle && (
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                <bdi dir="auto">{sectionTitle}</bdi>
+              <h2
+                dir="auto"
+                className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight"
+              >
+                {sectionTitle}
               </h2>
             )}
             {sectionDesc && (
-              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5 max-w-2xl whitespace-pre-line">
-                <bdi dir="auto">{sectionDesc}</bdi>
+              <p
+                dir="auto"
+                className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5 max-w-2xl whitespace-pre-line"
+              >
+                {sectionDesc}
               </p>
             )}
           </div>
@@ -234,8 +240,8 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Pinned/Sticky Title, Full No-Scroll Text (Grid-stacked so card height never changes on swap) & Uiverse Red Button */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-start bg-white">
+            {/* Right: Pinned/Sticky Title, Full No-Scroll Text (Grid-stacked so card height never changes on swap) & Capsule CTA Button */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-white">
               {/* Grid-stacked slides: locks height to the tallest slide in the section with zero scrollbar and zero text overlap */}
               <div className="grid grid-cols-1 grid-rows-1">
                 {localizedItems.map((slideItem, slideIdx) => {
@@ -253,16 +259,20 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                       {slideItem.name && (
                         <div className="sticky top-20 z-10 bg-white pb-3 border-b border-slate-100">
                           <h3
+                            dir="auto"
                             onClick={() => onSelectProduct(slideItem)}
                             className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"
                           >
-                            <bdi dir="auto">{slideItem.name}</bdi>
+                            {slideItem.name}
                           </h3>
                         </div>
                       )}
                       {slideItem.description && (
-                        <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal whitespace-pre-line">
-                          <bdi dir="auto">{slideItem.description}</bdi>
+                        <p
+                          dir="auto"
+                          className="text-sm sm:text-[15.5px] text-slate-600 leading-[1.8] font-normal whitespace-pre-line"
+                        >
+                          {slideItem.description}
                         </p>
                       )}
                     </div>
@@ -270,8 +280,8 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                 })}
               </div>
 
-              {/* Action Button (Uiverse Red Learn More Style) */}
-              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-start">
+              {/* Action Button */}
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-end">
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}

@@ -326,12 +326,12 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                     )}
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
-                    <bdi dir="auto">{localize(items.find(item => item.id === selected.id) || selected).title}</bdi>
+                  <h3 dir="auto" className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
+                    {localize(items.find(item => item.id === selected.id) || selected).title}
                   </h3>
 
-                  <p className="text-sm sm:text-base leading-relaxed text-slate-600 font-normal whitespace-pre-line">
-                    <bdi dir="auto">{localize(items.find(item => item.id === selected.id) || selected).description}</bdi>
+                  <p dir="auto" className="text-sm sm:text-base leading-[1.8] text-slate-600 font-normal whitespace-pre-line">
+                    {localize(items.find(item => item.id === selected.id) || selected).description}
                   </p>
                 </div>
 

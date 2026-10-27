@@ -68,12 +68,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, o
           {/* Right: Product Title, Description & Right-Aligned WhatsApp Button */}
           <div className="flex flex-col justify-between gap-6 py-2 lg:pr-4 h-full">
             <div className="space-y-4">
-              <div className="h-1 w-12 rounded-full bg-red-600" aria-hidden="true" />
-              <h1 className="text-2xl font-black leading-snug tracking-tight sm:text-4xl text-slate-900">
-                <bdi dir="auto">{localizedProduct.name}</bdi>
+              <div className="h-1 w-12 rounded-full bg-red-600 ms-auto" aria-hidden="true" />
+              <h1 dir="auto" className="text-2xl font-black leading-snug tracking-tight sm:text-4xl text-slate-900">
+                {localizedProduct.name}
               </h1>
-              <p className="whitespace-pre-line text-sm sm:text-base leading-relaxed text-slate-600">
-                <bdi dir="auto">{localizedProduct.description}</bdi>
+              <p dir="auto" className="whitespace-pre-line text-sm sm:text-base leading-[1.8] text-slate-600">
+                {localizedProduct.description}
               </p>
             </div>
 

@@ -145,106 +145,125 @@
   border-color: #FFFFFF !important;
 }
 
-/* From Uiverse.io by cssbuttons-io — Red Theme (#dc2626) */
+/* Redesigned Luxury Architectural Capsule CTA Button */
 button.learn-more,
 a.learn-more {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   cursor: pointer;
   outline: none;
-  border: 0;
+  border: 1px solid rgba(15, 23, 42, 0.08);
   vertical-align: middle;
   text-decoration: none;
-  background: transparent;
-  padding: 0;
-  font-size: inherit;
+  background: #0f172a;
+  padding: 0.38rem 1.4rem 0.38rem 0.42rem;
+  border-radius: 9999px;
   font-family: inherit;
-  min-width: 13.5rem;
   width: auto;
-  height: 3rem;
+  height: auto;
   direction: ltr;
+  box-shadow: 0 10px 24px -6px rgba(15, 23, 42, 0.28),
+              inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 button.learn-more .circle,
 a.learn-more .circle {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
-  width: 3rem;
-  height: 3rem;
-  background: #dc2626;
-  border-radius: 1.625rem;
-  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.25);
+  width: 2.3rem;
+  height: 2.3rem;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 9999px;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.35);
+  flex-shrink: 0;
 }
 
 button.learn-more .circle .icon,
 a.learn-more .circle .icon {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background: #fff;
+  transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: block;
 }
 
 button.learn-more .circle .icon.arrow,
 a.learn-more .circle .icon.arrow {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
+  width: 0.95rem;
   height: 0.125rem;
-  background: none;
+  background: #ffffff;
+  border-radius: 2px;
 }
 
 button.learn-more .circle .icon.arrow::before,
 a.learn-more .circle .icon.arrow::before {
   position: absolute;
   content: "";
-  top: -0.29rem;
-  right: 0.0625rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  top: -0.24rem;
+  right: 0.02rem;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-top: 0.125rem solid #ffffff;
+  border-right: 0.125rem solid #ffffff;
   transform: rotate(45deg);
+  transition: border-color 0.32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 button.learn-more .button-text,
 a.learn-more .button-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: color 0.32s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   z-index: 1;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  height: 3rem;
-  padding: 0 1.5rem 0 3.85rem;
-  color: #282936;
+  color: #ffffff;
   font-weight: 800;
-  font-size: 0.85rem;
-  line-height: 1.6;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
   white-space: nowrap;
+}
+
+button.learn-more:hover,
+a.learn-more:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(220, 38, 38, 0.45),
+              inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+button.learn-more:active,
+a.learn-more:active {
+  transform: translateY(0) scale(0.98);
 }
 
 button.learn-more:hover .circle,
 a.learn-more:hover .circle {
-  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 button.learn-more:hover .circle .icon.arrow,
 a.learn-more:hover .circle .icon.arrow {
-  background: #fff;
-  transform: translate(1rem, 0);
+  background: #dc2626;
+  transform: translateX(2px);
+}
+
+button.learn-more:hover .circle .icon.arrow::before,
+a.learn-more:hover .circle .icon.arrow::before {
+  border-top-color: #dc2626;
+  border-right-color: #dc2626;
 }
 
 button.learn-more:hover .button-text,
 a.learn-more:hover .button-text {
-  color: #fff;
+  color: #ffffff;
 }
 .cornerstone-box-black.cornerstone-box-active::before,
 .cornerstone-box-black.cornerstone-box-active::after {

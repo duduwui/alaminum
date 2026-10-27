@@ -462,11 +462,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header - Clean, No Harsh Vertical Lines */}
         <div className="mb-6 sm:mb-8 dh-reveal">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            <bdi dir="auto">{localizedText.title}</bdi>
+          <h2 dir="auto" className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+            {localizedText.title}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1 sm:mt-1.5 max-w-xl">
-            <bdi dir="auto">{localizedText.subtitle}</bdi>
+          <p dir="auto" className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1 sm:mt-1.5">
+            {localizedText.subtitle}
           </p>
         </div>
 
