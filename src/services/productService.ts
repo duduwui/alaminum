@@ -10,8 +10,28 @@ import {
 } from '../config/firebase';
 
 const STORAGE_KEY = 'winhome_admin_products_v5';
+const DELETED_PRODUCTS_KEY = 'winhome_deleted_product_ids';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
+
+export function getDeletedProductIds(): Set<string> {
+  try {
+    const raw = localStorage.getItem(DELETED_PRODUCTS_KEY);
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) return new Set(arr);
+    }
+  } catch {}
+  return new Set();
+}
+
+export function markProductAsDeleted(id: string): void {
+  try {
+    const ids = getDeletedProductIds();
+    ids.add(id);
+    localStorage.setItem(DELETED_PRODUCTS_KEY, JSON.stringify([...ids]));
+  } catch {}
+}
 
 export function loadLocalProducts(): ProductItem[] {
   try {
@@ -39,10 +59,11 @@ export function loadLocalProducts(): ProductItem[] {
             return item;
           });
 
-        // Append any new default products that were not present in cache
+        // Append any new default products that were not present in cache and not deleted
+        const deletedIds = getDeletedProductIds();
         const existingIds = new Set(merged.map((p) => p.id));
         ALL_PRODUCTS.forEach((dp) => {
-          if (!existingIds.has(dp.id)) {
+          if (!existingIds.has(dp.id) && !deletedIds.has(dp.id)) {
             merged.push(dp);
           }
         });
@@ -85,12 +106,6 @@ export function saveLocalProducts(products: ProductItem[]): void {
         }
         return item;
       });
-
-    ALL_PRODUCTS.forEach((dp) => {
-      if (!existingIds.has(dp.id)) {
-        merged.push(dp);
-      }
-    });
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
     window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: merged }));
@@ -160,6 +175,7 @@ export async function saveProductToCloud(product: ProductItem): Promise<void> {
 }
 
 export async function deleteProductFromCloud(productId: string): Promise<void> {
+  markProductAsDeleted(productId);
   // 1. Delete from Firestore
   try {
     await deleteDoc(doc(db, COLLECTION_NAME, productId));

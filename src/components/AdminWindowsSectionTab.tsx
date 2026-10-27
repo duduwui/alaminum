@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { saveLocalProducts, deleteProductFromCloud } from '../services/productService';
+import { saveSharedCmsSection } from '../services/cmsService';
 
 interface AdminWindowsSectionTabProps {
   productList: ProductItem[];
@@ -108,13 +109,13 @@ export const AdminWindowsSectionTab: React.FC<AdminWindowsSectionTabProps> = ({
   };
 
   const handleDeleteItem = (prod: ProductItem) => {
-    if (confirm(`Delete "${prod.name}" from the Windows Section?`)) {
-      const updated = productList.filter((p) => p.id !== prod.id);
-      setProductList(updated);
-      saveLocalProducts(updated);
-      void deleteProductFromCloud(prod.id);
-      onSaveFeedback(`✓ Removed "${prod.name}" from Windows section.`);
-    }
+    if (!confirm(`Delete "${prod.name}" from the Windows Section?`)) return;
+    const updated = productList.filter((p) => p.id !== prod.id);
+    setProductList(updated);
+    saveLocalProducts(updated);
+    void saveSharedCmsSection('products', updated);
+    void deleteProductFromCloud(prod.id);
+    onSaveFeedback(`✓ Removed "${prod.name}" from Windows section.`);
   };
 
   return (

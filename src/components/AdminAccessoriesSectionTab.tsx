@@ -134,14 +134,13 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
 
   const handleDeleteItem = (prod: ProductItem) => {
     const prodName = prod.translations?.ar?.name || prod.name;
-    if (confirm(`هل أنت متأكد من حذف "${prodName}" من قسم الإكسسوارات؟`)) {
-      const updated = productList.filter((p) => p.id !== prod.id);
-      setProductList(updated);
-      saveLocalProducts(updated);
-      void saveSharedCmsSection('products', updated);
-      void deleteProductFromCloud(prod.id);
-      onSaveFeedback(`✓ تم حذف "${prodName}" بنجاح.`);
-    }
+    if (!confirm(`هل أنت متأكد من حذف "${prodName}" من قسم الإكسسوارات؟`)) return;
+    const updated = productList.filter((p) => p.id !== prod.id);
+    setProductList(updated);
+    saveLocalProducts(updated);
+    void saveSharedCmsSection('products', updated);
+    void deleteProductFromCloud(prod.id);
+    onSaveFeedback(`✓ تم حذف "${prodName}" بنجاح.`);
   };
 
   // Modal state for adding a new accessory
