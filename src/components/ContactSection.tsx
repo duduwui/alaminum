@@ -125,11 +125,14 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
             href={DOORHOME_CONTACT.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 px-6 rounded-2xl bg-red-600 hover:bg-red-700 text-white font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg shadow-red-600/25 transition-all cursor-pointer"
+            className="learn-more"
           >
-            <MapPin className="w-5 h-5" />
-            <span><bdi dir="auto">{t('open_maps_btn') || 'Open in Google Maps'}</bdi></span>
-            <ExternalLink className="w-4 h-4" />
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow" />
+            </span>
+            <span className="button-text">
+              <bdi dir="auto">{t('open_maps_btn') || 'Open in Google Maps'}</bdi>
+            </span>
           </a>
         </div>
       </div>

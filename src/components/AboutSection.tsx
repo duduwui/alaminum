@@ -894,11 +894,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             {/* Bottom Actions Centered */}
             <div className="pt-2 flex flex-wrap items-center justify-center gap-4 dh-reveal dh-stagger-5">
               <button
+                type="button"
                 onClick={onExploreTypologies}
-                className="px-7 py-3.5 rounded-xl bg-red-600 text-white font-bold text-xs uppercase tracking-wider hover:bg-red-700 transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
+                className="learn-more"
               >
-                <span><bdi dir="auto">{headerContent.exploreBtn}</bdi></span>
-                <ArrowRight className="w-4 h-4 text-white" />
+                <span className="circle" aria-hidden="true">
+                  <span className="icon arrow" />
+                </span>
+                <span className="button-text">
+                  <bdi dir="auto">{headerContent.exploreBtn}</bdi>
+                </span>
               </button>
             </div>
           </div>

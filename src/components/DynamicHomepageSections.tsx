@@ -51,10 +51,20 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
 
   const safeIndex = currentIndex % localizedItems.length;
   const activeProduct = localizedItems[safeIndex] || localizedItems[0];
-  const isVideoMedia =
-    Boolean(activeProduct.videoUrl) || /\.(mp4|webm|mov)(\?|#|$)/i.test(activeProduct.image);
-  const mediaSrc = activeProduct.videoUrl || activeProduct.image;
   const isAccessoryStyle = section.key === 'accessories';
+  const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
+
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([idxStr, vidEl]) => {
+      if (!vidEl) return;
+      const idx = Number(idxStr);
+      if (idx === safeIndex) {
+        vidEl.play().catch(() => {});
+      } else {
+        vidEl.pause();
+      }
+    });
+  }, [safeIndex]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + localizedItems.length) % localizedItems.length);
@@ -99,45 +109,67 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => setIsPaused(false)}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-[500px]">
-            {/* Left: Media Display (Fixed aspect/height so portrait/landscape media never changes card size) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* Left: Stacked Media Slides (Zero unmount/remount glitch & fixed ratio) */}
             <div
               className={`lg:col-span-6 relative ${
-                isAccessoryStyle && !isVideoMedia ? 'bg-slate-50' : 'bg-slate-950'
-              } overflow-hidden h-[300px] sm:h-[380px] lg:h-[500px] w-full shrink-0`}
+                isAccessoryStyle ? 'bg-slate-50' : 'bg-slate-950'
+              } overflow-hidden h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[500px] w-full shrink-0`}
             >
-              {isVideoMedia ? (
-                <video
-                  key={mediaSrc}
-                  src={mediaSrc}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              ) : (
-                <img
-                  key={activeProduct.image}
-                  src={activeProduct.image}
-                  alt={activeProduct.name}
-                  onError={(e) => {
-                    if (
-                      activeProduct.fallbackImage &&
-                      e.currentTarget.src !== activeProduct.fallbackImage
-                    ) {
-                      e.currentTarget.src = activeProduct.fallbackImage;
-                    }
-                  }}
-                  onClick={() => onSelectProduct(activeProduct)}
-                  className={`absolute inset-0 w-full h-full ${
-                    isAccessoryStyle
-                      ? 'object-contain p-6 sm:p-10 drop-shadow-sm'
-                      : 'object-cover'
-                  } animate-in fade-in duration-500 cursor-pointer`}
-                  loading="lazy"
-                />
-              )}
+              {localizedItems.map((slideItem, slideIdx) => {
+                const isSlideActive = slideIdx === safeIndex;
+                const slideIsVideo =
+                  Boolean(slideItem.videoUrl) ||
+                  /\.(mp4|webm|mov)(\?|#|$)/i.test(slideItem.image);
+                const slideMediaSrc = slideItem.videoUrl || slideItem.image;
+
+                return (
+                  <div
+                    key={slideItem.id || slideIdx}
+                    aria-hidden={!isSlideActive}
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
+                      isSlideActive
+                        ? 'opacity-100 z-[2] pointer-events-auto'
+                        : 'opacity-0 z-[1] pointer-events-none'
+                    }`}
+                  >
+                    {slideIsVideo ? (
+                      <video
+                        ref={(el) => {
+                          videoRefs.current[slideIdx] = el;
+                        }}
+                        src={slideMediaSrc}
+                        autoPlay={isSlideActive}
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={slideItem.image}
+                        alt={slideItem.name}
+                        onError={(e) => {
+                          if (
+                            slideItem.fallbackImage &&
+                            e.currentTarget.src !== slideItem.fallbackImage
+                          ) {
+                            e.currentTarget.src = slideItem.fallbackImage;
+                          }
+                        }}
+                        onClick={() => onSelectProduct(slideItem)}
+                        className={`w-full h-full ${
+                          isAccessoryStyle
+                            ? 'object-contain p-6 sm:p-10 drop-shadow-sm'
+                            : 'object-cover'
+                        } cursor-pointer`}
+                        loading={slideIdx === 0 ? 'eager' : 'lazy'}
+                      />
+                    )}
+                  </div>
+                );
+              })}
 
               {/* Slide Counter, Dots & Prev/Next Pagination Controls */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
@@ -179,35 +211,55 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Clean Title, Description & Action Buttons (Fixed height so card never resizes on swap) */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[430px] sm:h-[420px] lg:h-[500px] overflow-hidden text-start">
-              <div className="space-y-3 overflow-y-auto pr-1">
-                {activeProduct.name && (
-                  <h3
-                    onClick={() => onSelectProduct(activeProduct)}
-                    className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"
-                  >
-                    <bdi dir="auto">{activeProduct.name}</bdi>
-                  </h3>
-                )}
-                {activeProduct.description && (
-                  <p className="text-sm sm:text-[15px] text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
-                    <bdi dir="auto">{activeProduct.description}</bdi>
-                  </p>
-                )}
+            {/* Right: Pinned/Sticky Title, Full No-Scroll Text (Grid-stacked so card height never changes on swap) & Uiverse Red Button */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-start bg-white">
+              {/* Grid-stacked slides: locks height to the tallest slide in the section with zero scrollbar */}
+              <div className="grid grid-cols-1 grid-rows-1">
+                {localizedItems.map((slideItem, slideIdx) => {
+                  const isSlideActive = slideIdx === safeIndex;
+                  return (
+                    <div
+                      key={slideItem.id || slideIdx}
+                      aria-hidden={!isSlideActive}
+                      className={`col-start-1 row-start-1 flex flex-col space-y-4 transition-opacity duration-500 ease-in-out ${
+                        isSlideActive
+                          ? 'opacity-100 z-[2] pointer-events-auto'
+                          : 'opacity-0 z-[1] pointer-events-none select-none'
+                      }`}
+                    >
+                      {slideItem.name && (
+                        <div className="sticky top-20 z-10 bg-white/95 backdrop-blur-xs pb-3 border-b border-slate-100">
+                          <h3
+                            onClick={() => onSelectProduct(slideItem)}
+                            className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"
+                          >
+                            <bdi dir="auto">{slideItem.name}</bdi>
+                          </h3>
+                        </div>
+                      )}
+                      {slideItem.description && (
+                        <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal whitespace-pre-line">
+                          <bdi dir="auto">{slideItem.description}</bdi>
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
-              {/* Action Button */}
-              <div className="pt-4 mt-3 border-t border-slate-100 shrink-0">
+              {/* Action Button (Uiverse Red Learn More Style) */}
+              <div className="pt-5 mt-6 border-t border-slate-100 flex items-center justify-start">
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}
-                  className="w-full py-3.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="learn-more"
                 >
-                  <span>
+                  <span className="circle" aria-hidden="true">
+                    <span className="icon arrow" />
+                  </span>
+                  <span className="button-text">
                     <bdi dir="auto">{t('specs_btn') || 'Inspect Specs'}</bdi>
                   </span>
-                  <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                 </button>
               </div>
             </div>

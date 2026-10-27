@@ -635,19 +635,20 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
               </div>
 
               {/* Action Button: Technical PDF */}
-              <div className="pt-6 border-t border-slate-100 mt-6 lg:mt-0">
+              <div className="pt-6 border-t border-slate-100 mt-6 lg:mt-0 flex items-center justify-start">
                 <button
                   type="button"
                   onClick={() => handleOpenPdf(activeItem.pdfUrl)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs uppercase tracking-wider shadow-md shadow-red-600/20 transition-all cursor-pointer hover:shadow-lg active:scale-98"
+                  className="learn-more"
                 >
-                  <FileText className="w-4 h-4" />
-                  <span>
+                  <span className="circle" aria-hidden="true">
+                    <span className="icon arrow" />
+                  </span>
+                  <span className="button-text">
                     <bdi dir="auto">
                       {activeBtnText}
                     </bdi>
                   </span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
                 </button>
               </div>
             </div>
