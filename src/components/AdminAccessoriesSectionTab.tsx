@@ -13,7 +13,7 @@ import {
   Check,
   Loader2
 } from 'lucide-react';
-import { ProductItem, ACCESSORIES_LINES } from '../data/winhomeData';
+import { ProductItem } from '../data/winhomeData';
 import { saveLocalProducts, deleteProductFromCloud } from '../services/productService';
 import { saveSharedCmsSection } from '../services/cmsService';
 
@@ -39,15 +39,6 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
   const [replacingProductId, setReplacingProductId] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // If no accessories in product list yet, seed from ACCESSORIES_LINES
-  const handleSeedDefaults = () => {
-    const updated = [...productList, ...ACCESSORIES_LINES];
-    setProductList(updated);
-    saveLocalProducts(updated);
-    void saveSharedCmsSection('products', updated);
-    onSaveFeedback('✓ تم تحميل الإكسسوارات الافتراضية بنجاح!');
-  };
 
   const handleTriggerUpload = (prodId: string) => {
     setReplacingProductId(prodId);
@@ -236,16 +227,6 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
           </div>
 
           <div className="flex items-center gap-2">
-            {accessoryProducts.length === 0 && (
-              <button
-                type="button"
-                onClick={handleSeedDefaults}
-                className="px-4 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
-              >
-                <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>تحميل الإكسسوارات الافتراضية</span>
-              </button>
-            )}
             <button
               type="button"
               onClick={() => setIsAddModalOpen(true)}
@@ -261,7 +242,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
         {accessoryProducts.length === 0 ? (
           <div className="py-12 text-center text-slate-400 font-bold text-xs bg-slate-50 rounded-2xl border border-dashed border-slate-200 space-y-3">
             <Package className="w-8 h-8 mx-auto text-slate-300" />
-            <p>لا توجد بطاقات إكسسوارات حالياً. اضغط على "تحميل الإكسسوارات الافتراضية" أو "إضافة إكسسوار جديد".</p>
+            <p>لا توجد بطاقات إكسسوارات حالياً. اضغط على "إضافة إكسسوار جديد".</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">

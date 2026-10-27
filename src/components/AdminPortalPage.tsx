@@ -305,18 +305,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const archPdfInput2Ref = React.useRef<HTMLInputElement>(null);
   const [isUploadingArchFile, setIsUploadingArchFile] = useState(false);
 
-  // Seed Production Data Handler
-  const handleSeedProductionData = () => {
-    if (confirm('Load realistic production-grade catalog and categories for Windows, Doors, Facades, Railings, and Hardware?')) {
-      const resetProds = resetProductsToDefault();
-      setProductList(resetProds);
-      const resetDivs = resetProductDivisionsToDefault();
-      setDivisions(resetDivs);
-      setRequestNotification(t('admin_notice_seed_success') || '✓ Production catalog loaded successfully!');
-      setTimeout(() => setRequestNotification(''), 4500);
-    }
-  };
-
   // File Upload Input Refs for reliable file picker triggering
   const galleryFileInputRef = React.useRef<HTMLInputElement>(null);
   const aboutFileInputRef = React.useRef<HTMLInputElement>(null);
