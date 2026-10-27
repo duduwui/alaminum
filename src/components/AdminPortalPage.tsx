@@ -1819,7 +1819,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </span>
               </button>
 
-              {/* 3. Architecture Catalogues & System Cards */}
+              {/* 3. Architecture Systems & Drawings Showcase */}
               <button
                 type="button"
                 onClick={() => setCmsSubTab('arch-cards')}
@@ -1832,17 +1832,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <FileText className="w-3.5 h-3.5" />
                 <span>
                   {currentLanguage.code === 'ar'
-                    ? 'الكتالوجات والأنظمة المعمارية'
+                    ? 'الأنظمة والرسومات المعمارية'
                     : currentLanguage.code === 'ckb'
-                    ? 'کاتالۆگی تەلارسازی و سیستەمەکان'
-                    : 'Architecture Catalogues'}
-                </span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'arch-cards' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  {archCards.length}
+                    ? 'سیستەمە تەلارسازییەکان'
+                    : 'Architecture Systems Showcase'}
                 </span>
               </button>
 

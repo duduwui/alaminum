@@ -79,7 +79,8 @@ async function startServer() {
     products: path.join(process.cwd(), 'cms_products_db.json'),
     divisions: path.join(process.cwd(), 'cms_divisions_db.json'),
     partnerLogos: path.join(process.cwd(), 'cms_partner_logos_db.json'),
-    archCards: path.join(process.cwd(), 'cms_arch_cards_db.json')
+    archCards: path.join(process.cwd(), 'cms_arch_cards_db.json'),
+    archShowcase: path.join(process.cwd(), 'cms_arch_showcase_db.json')
   };
   const adminUploadSessions = new Map<string, { expires: number; userId: string }>();
   try {
@@ -333,7 +334,7 @@ async function startServer() {
     const file = cmsContentFiles[req.params.section as keyof typeof cmsContentFiles];
     if (!file) return res.status(404).json({ error: 'Unknown CMS section.' });
     const data = req.body?.data;
-    if ((['gallery', 'products', 'divisions', 'partnerLogos', 'archCards'].includes(req.params.section) && !Array.isArray(data)) ||
+    if ((['gallery', 'products', 'divisions', 'partnerLogos', 'archCards', 'archShowcase'].includes(req.params.section) && !Array.isArray(data)) ||
         (req.params.section === 'homepage' && (!data || typeof data !== 'object' || Array.isArray(data)))) {
       return res.status(400).json({ error: 'Invalid CMS content.' });
     }

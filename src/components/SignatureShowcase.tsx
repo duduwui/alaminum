@@ -2,7 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { ExternalLink, FileText } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
-import { loadArchitectureCards, subscribeToArchitectureCards, ArchitectureCatalogueCard, DEFAULT_CATALOGUE_CARDS } from '../services/architectureCardsService';
+import {
+  loadArchitectureCards,
+  subscribeToArchitectureCards,
+  ArchitectureCatalogueCard,
+  DEFAULT_CATALOGUE_CARDS,
+  ArchitectureShowcaseItem,
+  DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS,
+  loadArchitectureShowcaseItems,
+  subscribeToArchitectureShowcaseItems
+} from '../services/architectureCardsService';
 
 interface SignatureShowcaseProps {
   onSelectProduct?: (product: ProductItem) => void;
@@ -418,6 +427,17 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     });
   }, [currentItemLocales]);
 
+  // Architecture Systems Slideshow (Managed dynamically via Admin CMS)
+  const [dynamicShowcaseItems, setDynamicShowcaseItems] = useState<ArchitectureShowcaseItem[]>(() =>
+    loadArchitectureShowcaseItems()
+  );
+
+  useEffect(() => {
+    return subscribeToArchitectureShowcaseItems((updated) => {
+      setDynamicShowcaseItems(updated);
+    });
+  }, []);
+
   // Architecture Catalogue Cards (Managed dynamically via Admin CMS)
   const [archCards, setArchCards] = useState<ArchitectureCatalogueCard[]>(() => loadArchitectureCards());
 
@@ -427,26 +447,47 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     });
   }, []);
 
-  const isAr = currentLanguage.code === 'ar';
-  const isKu = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr';
-  const isTr = currentLanguage.code === 'tr';
+  const isAr = currentLanguage.code === 'ar' || currentLanguage.code.startsWith('ar');
+  const isKu = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr' || currentLanguage.code.startsWith('ku');
+  const isTr = currentLanguage.code === 'tr' || currentLanguage.code.startsWith('tr');
 
   const displayCards = archCards && archCards.length > 0 ? archCards : DEFAULT_CATALOGUE_CARDS;
+  const activeShowcaseList = dynamicShowcaseItems && dynamicShowcaseItems.length > 0
+    ? dynamicShowcaseItems
+    : DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    if (showcaseItems.length <= 1) return;
+    if (activeShowcaseList.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % showcaseItems.length);
+      setCurrentIndex((prev) => (prev + 1) % activeShowcaseList.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [showcaseItems.length]);
+  }, [activeShowcaseList.length]);
 
-  const activeItem = showcaseItems[currentIndex] || showcaseItems[0];
+  const activeItem = activeShowcaseList[currentIndex] || activeShowcaseList[0];
+
+  const activeTitle = isAr
+    ? (activeItem.titleAr || activeItem.title)
+    : isKu
+    ? (activeItem.titleKu || activeItem.title)
+    : activeItem.title;
+
+  const activeDesc = isAr
+    ? (activeItem.descriptionAr || activeItem.description)
+    : isKu
+    ? (activeItem.descriptionKu || activeItem.description)
+    : activeItem.description;
+
+  const activeBtnText = isAr
+    ? (activeItem.buttonTextAr || '(PDF) فتح الكتالوج المعتمد')
+    : isKu
+    ? (activeItem.buttonTextKu || '(PDF) کردنەوەی کەتەلۆگ')
+    : (activeItem.buttonText || 'Open Technical Catalog (PDF)');
 
   const handleOpenPdf = (pdfUrl?: string) => {
-    const url = pdfUrl || displayCards[0]?.pdfUrl || '/catalogs/wiek-general-catalog-2026.pdf';
+    const url = pdfUrl || activeItem.pdfUrl || displayCards[0]?.pdfUrl || '/catalogs/wiek-general-catalog-2026.pdf';
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -546,11 +587,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
             {/* 1. Large Image Stage */}
             <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden h-[300px] sm:h-[380px] lg:h-[440px] w-full p-6 sm:p-10">
               <img
-                key={activeItem.id}
+                key={activeItem.id || currentIndex}
                 src={activeItem.image}
-                alt={activeItem.title}
+                alt={activeTitle}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = activeItem.fallbackImage;
+                  (e.target as HTMLImageElement).src = activeItem.fallbackImage || '/assets/showcase/wiek_hidden_hinge-04.png';
                 }}
                 className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500 cursor-pointer drop-shadow-sm"
                 onClick={() => handleOpenPdf(activeItem.pdfUrl)}
@@ -559,7 +600,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
               {/* Clean Slide Indicators (No Ugly Arrows) */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
                 <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
-                  {showcaseItems.map((_, dotIdx) => (
+                  {activeShowcaseList.map((_, dotIdx) => (
                     <button
                       key={dotIdx}
                       type="button"
@@ -573,24 +614,24 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                     />
                   ))}
                   <span className="text-[10px] font-mono font-bold text-white/90 ms-1">
-                    {currentIndex + 1}/{showcaseItems.length}
+                    {currentIndex + 1}/{activeShowcaseList.length}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* 2. Details: ONLY Title, Description & Technical PDF Button */}
+            {/* 2. Details: Title, Description & Technical PDF Button */}
             <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-auto lg:h-[440px] text-start">
               <div className="space-y-4 my-auto">
                 <h3
                   onClick={() => handleOpenPdf(activeItem.pdfUrl)}
                   className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
                 >
-                  <bdi dir="auto">{activeItem.title}</bdi>
+                  <bdi dir="auto">{activeTitle}</bdi>
                 </h3>
 
                 <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                  <bdi dir="auto">{activeItem.description}</bdi>
+                  <bdi dir="auto">{activeDesc}</bdi>
                 </p>
               </div>
 
@@ -604,7 +645,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                   <FileText className="w-4 h-4" />
                   <span>
                     <bdi dir="auto">
-                      {isAr ? '(PDF) فتح الكتالوج المعتمد' : isKu ? '(PDF) کردنەوەی کەتەلۆگ' : 'Open Technical Catalog (PDF)'}
+                      {activeBtnText}
                     </bdi>
                   </span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-80" />
