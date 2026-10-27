@@ -239,8 +239,16 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       try {
         const remoteShowcase = await loadSharedCmsSection<ArchitectureShowcaseItem[]>('archShowcase');
         if (remoteShowcase && Array.isArray(remoteShowcase) && remoteShowcase.length > 0) {
-          setShowcaseItems(remoteShowcase);
-          saveArchitectureShowcaseItems(remoteShowcase);
+          const hasOld = remoteShowcase.some(
+            (p: any) => p.image?.includes('/assets/showcase/') || p.id === 'wiek-hidden-hinge'
+          );
+          if (!hasOld) {
+            setShowcaseItems(remoteShowcase);
+            saveArchitectureShowcaseItems(remoteShowcase);
+          } else {
+            // Push new default showcase to remote CMS
+            void saveSharedCmsSection('archShowcase', DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS);
+          }
         }
       } catch {}
     })();

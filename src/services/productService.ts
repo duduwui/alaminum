@@ -9,7 +9,7 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v3';
+const STORAGE_KEY = 'winhome_admin_products_v4';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
 
@@ -26,6 +26,8 @@ export function loadLocalProducts(): ProductItem[] {
             return {
               ...defaultItem,
               ...item,
+              division: defaultItem.division,
+              category: defaultItem.category,
               videoUrl: item.videoUrl || defaultItem.videoUrl,
               mediaType: item.mediaType || defaultItem.mediaType,
               image: item.image?.startsWith('/uploads') ? item.image : defaultItem.image,

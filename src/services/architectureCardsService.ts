@@ -34,7 +34,7 @@ export interface ArchitectureShowcaseItem {
 export const ARCH_CARDS_STORAGE_KEY = 'winhome_cms_arch_cards';
 export const ARCH_CARDS_UPDATED_EVENT = 'cms_arch_cards_updated';
 
-export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase';
+export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase_v2';
 export const ARCH_SHOWCASE_UPDATED_EVENT = 'cms_arch_showcase_updated';
 
 export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
@@ -42,11 +42,11 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
     id: 'cat1',
     brand: 'WIEK SYSTEM',
     logo: '/assets/showcase/wiek-logo.png',
-    image: '/assets/showcase/wiek_hidden_hinge-04.png',
+    image: '/assets/catalogs/wiek_page_4_concealed_hinge.png',
     title: 'WIEK Belgium Architectural Catalog',
     desc: 'Concealed hinge solutions & architectural fenestration',
     pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: 'WIEK-General-Catalog-2026.pdf',
+    fileName: 'WİEK general-catalog-2026.pdf',
     company: 'WIEK Belgium',
     buttonText: 'Open Catalog',
     translations: {
@@ -66,11 +66,11 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
     id: 'cat2',
     brand: 'STAC Spain',
     logo: '/assets/showcase/stac-logo.png',
-    image: '/assets/showcase/stac_lift_slide-108.png',
+    image: '/assets/catalogs/stac_page_51_minimalist_handles.png',
     title: 'STAC Spain Hardware Catalog',
     desc: 'Minimalist cremones & monumental lift & slide hardware',
     pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
-    fileName: 'STAC-Hardware-Accessories-Catalogue.pdf',
+    fileName: 'EN General catalogue of hardware and accessories 0_240513_180809 (1).pdf',
     company: 'STAC Spain',
     buttonText: 'Open Catalog',
     translations: {
@@ -90,76 +90,94 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
 
 export const DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS: ArchitectureShowcaseItem[] = [
   {
-    id: 'wiek-hidden-hinge',
-    image: '/assets/showcase/wiek_hidden_hinge-04.png',
-    fallbackImage: '/assets/catalogs/wiek_page-04.png',
-    title: 'WIEK Concealed Tilt & Turn System',
-    titleAr: 'نظام WIEK للمفصلات المخفية (Tilt & Turn)',
-    titleKu: 'سیستەمی نەرمەلۆی شاردراوەی WIEK',
-    description: 'Flush concealed hinge mechanism engineered for modern minimalist architecture with 130 kg sash load capacity and multi-point perimeter security locking.',
-    descriptionAr: 'مفصلات مخفية بالكامل مدمجة داخل قطاع الألمنيوم والـ uPVC مصممة للمشاريع المودرن الفاخرة بتحمل وزن يصل إلى 130 كغم مع نقاط إغلاق محكمة.',
-    descriptionKu: 'سیستەمی نەرمەلۆی تەواو شاردراوە بۆ پەنجەرەی مۆدێرن و تەلارسازی پێشکەوتوو بە بەرگەی کێشی ١٣٠ کگم و قفڵکردنی چەندین خاڵیی پارێزراو.',
+    id: 'wiek-limiting-hinge-w23045',
+    image: '/assets/catalogs/wiek_page_50_limiting_hinge.png',
+    fallbackImage: '/assets/catalogs/wiek_page_50_limiting_hinge.png',
+    title: 'WIEK LIMITING HINGE SERIES (W23045)',
+    titleAr: 'سلسلة مفصلات تحديد الفتح WIEK (W23045)',
+    titleKu: 'سیستەمی نەرمەلۆی سنوردارکردنی کردنەوەی WIEK (W23045)',
+    description: 'Extensible/Adjustable limiting hinge set for projected windows. Suitable for European Groove profiles or 40–20 Groove profiles (Series 4000/6000), manufactured in AISI 304 Stainless Steel. Allows window opening in 5 defined positions with adjustable sash positioning.',
+    descriptionAr: 'طقم مفصلات تحديد الفتح القابلة للتمديد والضبط للنوافذ القلابة والمعمارية (Projected). متوافقة مع قطاعات المجرى الأوروبي European Groove وسلسلة 4000/6000، مصنعة من الفولاذ المقاوم للصدأ AISI 304 وتتيح فتح النافذة بـ 5 وضعيات محددة مع إمكانية ضبط زاوية الفتح بدقة.',
+    descriptionKu: 'کۆمەڵە نەرمەلۆی سنوردارکردنی درێژکراوە و ڕێکخراو بۆ پەنجەرەی دەرپەڕیو (Projected). گونجاوە بۆ پرۆفایلی یۆرۆ گرووڤ و زنجیرەی 4000/6000، لە ستیلی AISI 304 دروستکراوە بە ٥ دۆخی کردنەوە.',
     pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: 'WIEK-General-Catalog-2026.pdf',
-    buttonText: 'Open Technical Catalog (PDF)',
-    buttonTextAr: 'فتح الكتالوج المعتمد (PDF)',
-    buttonTextKu: 'کردنەوەی کەتەلۆگ (PDF)',
+    fileName: 'WİEK general-catalog-2026.pdf',
+    buttonText: 'Open Technical Sheet (PDF)',
+    buttonTextAr: 'معاينة المخطط الفني بالكتالوج (PDF)',
+    buttonTextKu: 'کردنەوەی نەخشەی تەکنیکی (PDF)',
     brand: 'WIEK SYSTEM',
-    category: 'Concealed Window Architecture'
+    category: 'Limiting Hinge Series'
   },
   {
-    id: 'stac-minimal-handles',
-    image: '/assets/showcase/stac_window_handles-044.png',
-    fallbackImage: '/assets/catalogs/stac_page-004.png',
-    title: 'STAC Minimalist Window Handles & Cremones',
-    titleAr: 'مقابض STAC المينيماليست المدمجة',
-    titleKu: 'دەسکە مۆدێرنەکانی STAC',
-    description: 'Aerospace-grade aluminum monolithic forming with 0 mm redundant protrusion and CNC precision milling, seamlessly integrating with thermal window profiles.',
-    descriptionAr: 'مقابض معمارية مصنوعة بكتلة ألمنيوم موحدة بدون أي بروز زائد (0 مم) بمكائن CNC دقيقة لتنسجم تماماً مع قطاعات النوافذ الحرارية العصرية.',
-    descriptionKu: 'دەسکی تەلارسازی بێ بەرزایی زیادە (0 مم) بە ئەلۆمنیۆمی فڕۆکەوانی 6063-T5 و بڕینی وردی CNC بۆ گونجان لەگەڵ پرۆفایلە مۆدێرنەکان.',
+    id: 'wiek-precision-bifold-w00006',
+    image: '/assets/catalogs/wiek_page_36_bifold_door.png',
+    fallbackImage: '/assets/catalogs/wiek_page_36_bifold_door.png',
+    title: 'WIEK PRECISION BI-FOLDING DOOR SYSTEM (W00006)',
+    titleAr: 'نظام الأبواب القابلة للطي WIEK فائق الخفة والدقة (W00006)',
+    titleKu: 'سیستەمی دەرگای تاپۆش WIEKی پێشکەوتوو (W00006)',
+    description: 'Ultra-lightweight precision folding door system with synchronized rolling carriages and reinforced multi-point central locking mechanism for wide monumental residential openings.',
+    descriptionAr: 'نظام حركة معمارية فائق الدقة للأبواب القابلة للطي (Bi-Folding) متعددة الضلف برولرات فولاذية صامتة وتروس أمان مركزية متعددة النقاط لتحقيق أوسع انفتاح بانورامي للحدائق والواجهات.',
+    descriptionKu: 'سیستەمی دەرگای تاپۆشی پێشکەوتوو بە ڕۆڵەری بێدەنگ و قفڵی چەقیی پتەو بۆ کردنەوەی پانۆرامای باخچە و ڤێلاکان بە ڕووبەری فراوان.',
+    pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
+    fileName: 'WİEK general-catalog-2026.pdf',
+    buttonText: 'Open Technical Sheet (PDF)',
+    buttonTextAr: 'معاينة المخطط الفني بالكتالوج (PDF)',
+    buttonTextKu: 'کردنەوەی نەخشەی تەکنیکی (PDF)',
+    brand: 'WIEK SYSTEM',
+    category: 'Folding Door Systems'
+  },
+  {
+    id: 'wiek-lift-slide-ls150',
+    image: '/assets/catalogs/wiek_page_56_lift_slide.png',
+    fallbackImage: '/assets/catalogs/wiek_page_56_lift_slide.png',
+    title: 'WIEK LIFT & SLIDE SYSTEM LS150 (W00007)',
+    titleAr: 'نظام السحب والرفع البانورامي WIEK LS150 (W00007)',
+    titleKu: 'سیستەمی سلایدینگ و بەرزکردنەوەی WIEK LS150 (W00007)',
+    description: 'Heavy-duty lift & slide hardware system engineered for monumental thermal sliding panels with high wind-load resistance and smooth transmission gearing.',
+    descriptionAr: 'منظومة تروس ورولرات متطورة للأبواب السحابة العملاقة بتقنية Lift & Slide، مصممة لتحريك الضلف الزجاجية الثقيلة بسلاسة استثنائية مع عزل محكم ضد العواصف والرياح.',
+    descriptionKu: 'سیستەمی ئەندازیاری پێشکەوتوو بۆ دەرگای گەورەی سلاید و بەرزکردنەوە بە جوڵەی زۆر نەرم و پاراستنی تەواو لە با و باران.',
+    pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
+    fileName: 'WİEK general-catalog-2026.pdf',
+    buttonText: 'Open Technical Sheet (PDF)',
+    buttonTextAr: 'معاينة المخطط الفني بالكتالوج (PDF)',
+    buttonTextKu: 'کردنەوەی نەخشەی تەکنیکی (PDF)',
+    brand: 'WIEK SYSTEM',
+    category: 'Lift & Slide Hardware'
+  },
+  {
+    id: 'wiek-concealed-hinge-system',
+    image: '/assets/catalogs/wiek_page_4_concealed_hinge.png',
+    fallbackImage: '/assets/catalogs/wiek_page_4_concealed_hinge.png',
+    title: 'WIEK 180° CONCEALED TILT & TURN SYSTEM (GBCHALRW)',
+    titleAr: 'نظام المفصلات المخفية بالكامل WIEK 180° (GBCHALRW)',
+    titleKu: 'سیستەمی نەرمەلۆی تەواو شاردراوەی WIEK 180°',
+    description: 'Converts 180 degrees to 90 degrees flush concealed hinge architecture engineered for modern minimalist profiles with 130 kg sash load capacity and modular locking.',
+    descriptionAr: 'مفصلات غاطسة مخفية 100% داخل قطاع الألمنيوم والـ uPVC تمنح خطوطاً معمارية متناسقة وخالية من أي بروز خارجي مع قدرة تحمل أوزان حتى 130 كغم.',
+    descriptionKu: 'نەرمەلۆی تەواو شاردراوە لەناو پرۆفایل بۆ پەنجەرەی مۆدێرن بە شێوازێکی جوان و بێ بروز بە بەرگەی کێشی ١٣٠ کگم.',
+    pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
+    fileName: 'WİEK general-catalog-2026.pdf',
+    buttonText: 'Open Technical Sheet (PDF)',
+    buttonTextAr: 'معاينة المخطط الفني بالكتالوج (PDF)',
+    buttonTextKu: 'کردنەوەی نەخشەی تەکنیکی (PDF)',
+    brand: 'WIEK SYSTEM',
+    category: 'Concealed Window Hardware'
+  },
+  {
+    id: 'stac-minimalist-handle-delta',
+    image: '/assets/catalogs/stac_page_51_minimalist_handles.png',
+    fallbackImage: '/assets/catalogs/stac_page_51_minimalist_handles.png',
+    title: 'STAC MINIMALIST HANDLE & CREMONE SERIES (DELTA & GAMMA)',
+    titleAr: 'سلسلة مقابض STAC المينيماليست بدون غطاء (DELTA & GAMMA)',
+    titleKu: 'دەسکی مینیمالیستی STACی ئیسپانی (DELTA & GAMMA)',
+    description: 'Minimalist handles for side-hung or tilt & turn systems with concealed mechanism without cover, 8 mm transmission spindle, and precision guide system minimizing clearances.',
+    descriptionAr: 'مقابض مينيماليست عصرية بدون غطاء خارجي بآلية مخفية ومحور نقل حركة 8 مم ونظام توجيه هندسي يقلل الخلوص، مصممة للنوافذ المفصلية ونوافذ القلاب الحديثة.',
+    descriptionKu: 'دەسکی مۆدێرنی کەمینە بە میکانیزمی شاردراوە بێ قەپاغ، بۆ پەنجەرەی باڵدار و قلاب بە جوڵەی زۆر ورد و تەمەندرێژ.',
     pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
     fileName: 'STAC-Hardware-Accessories.pdf',
-    buttonText: 'Open Technical Catalog (PDF)',
-    buttonTextAr: 'فتح الكتالوج المعتمد (PDF)',
-    buttonTextKu: 'کردنەوەی کەتەلۆگ (PDF)',
+    buttonText: 'Open Technical Sheet (PDF)',
+    buttonTextAr: 'معاينة المخطط الفني بالكتالوج (PDF)',
+    buttonTextKu: 'کردنەوەی نەخشەی تەکنیکی (PDF)',
     brand: 'STAC Spain',
-    category: 'Monolithic 6063-T5 Series'
-  },
-  {
-    id: 'wiek-bifold',
-    image: '/assets/showcase/wiek_bifold_door-34.png',
-    fallbackImage: '/assets/catalogs/wiek_page-01.png',
-    title: 'WIEK Heavy-Duty Bi-Folding Door System',
-    titleAr: 'أنظمة WIEK للأبواب القابلة للطي (Bi-Fold)',
-    titleKu: 'سیستەمی دەرگای ئەکۆردیۆنی WIEK (Bi-Fold)',
-    description: 'Synchronized multi-leaf bi-folding hardware system with stainless steel silent bearing rollers and secure central transmission gearboxes.',
-    descriptionAr: 'أنظمة حركة انسيابية للأبواب القابلة للطي متعددة الضلف برولرات فولاذية صامتة وتروس أمان مركزية متعددة النقاط لتحقيق أوسع انفتاح بانورامي.',
-    descriptionKu: 'سیستەمی جوڵەی هاوکات بۆ دەرگای پانۆرامای تاپۆش بە ڕۆڵەری بێدەنگی ستیل و قفڵی چەقیی بەهێز بۆ کردنەوەی فراوانی باخچە و ڤێلا.',
-    pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: 'WIEK-General-Catalog-2026.pdf',
-    buttonText: 'Open Technical Catalog (PDF)',
-    buttonTextAr: 'فتح الكتالوج المعتمد (PDF)',
-    buttonTextKu: 'کردنەوەی کەتەلۆگ (PDF)',
-    brand: 'WIEK SYSTEM',
-    category: 'Bi-Folding & Panoramic Hardware'
-  },
-  {
-    id: 'stac-lift-slide',
-    image: '/assets/showcase/stac_lift_slide-108.png',
-    fallbackImage: '/assets/showcase/stac_lift_slide-108.png',
-    title: 'STAC DELTA Minimalist Lift & Slide System',
-    titleAr: 'نظام STAC DELTA للأبواب البانورامية (Lift & Slide)',
-    titleKu: 'سیستەمی دەسکی DELTAی ئیسپانی (Lift & Slide)',
-    description: 'Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.',
-    descriptionAr: 'خطوط معمارية مينيماليست مدمجة مع مقبض سحب خارجي غاطس بعمق 9.5 مم فقط، مصممة لتحريك الضلف البانورامية الثقيلة بسلاسة فائقة مع حماية قصوى ضد التآكل والسطو.',
-    descriptionKu: 'دیزاینی مۆدێرنی کەمینە لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم بۆ خلیسکاندنی ئاسانی دەرگای گەورە بە پاراستنی تەواو لە ژەنگ و دزی.',
-    pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
-    fileName: 'STAC-Hardware-Accessories.pdf',
-    buttonText: 'Open Technical Catalog (PDF)',
-    buttonTextAr: 'فتح الكتالوج المعتمد (PDF)',
-    buttonTextKu: 'کردنەوەی کەتەلۆگ (PDF)',
-    brand: 'STAC Spain',
-    category: 'Architectural Lift & Slide Series'
+    category: 'Minimalist Window Handles'
   }
 ];
 
@@ -206,7 +224,12 @@ export function loadArchitectureShowcaseItems(): ArchitectureShowcaseItem[] {
     if (raw) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length >= 1) {
-        return parsed;
+        const hasOldPlaceholders = parsed.some(
+          (p: any) => p.image?.includes('/assets/showcase/') || p.id === 'wiek-hidden-hinge'
+        );
+        if (!hasOldPlaceholders) {
+          return parsed;
+        }
       }
     }
   } catch {}

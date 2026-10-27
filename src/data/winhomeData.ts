@@ -491,10 +491,10 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
 export const DOORS_PRODUCTS: ProductItem[] = [
   {
     id: "lorenzo-70ls",
-    name: "Lorenzoline 70LS Lift & Slide",
+    name: "Lorenzoline 70LS Lift & Slide Doors",
     category: "doors",
     division: "doors",
-    subCategory: "Thermal Monumental Sliding",
+    subCategory: "Panoramic Lift & Slide",
     modelNumber: "Lorenzo 70LS",
     material: "Thermal Break Aluminum (Polyamide 24mm)",
     brand: "Lorenzoline",
@@ -506,9 +506,9 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     soldCount: "520+ installed",
     videoUrl: "/products-assets/video_2026-09-26_07-36-00 (4).mp4",
     mediaType: "video",
-    image: "/products-assets/photo_1_2026-09-26_07-36-01.jpg",
+    image: "/products-assets/photo_8_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/03-2.jpg",
-    description: "Architectural sliding system enabling panoramic floor-to-ceiling glass spans up to 3 meters with finger-touch glide and exceptional thermal insulation.",
+    description: "Architectural sliding system enabling panoramic floor-to-ceiling glass spans up to 3.2 meters with finger-touch glide and exceptional thermal insulation.",
     depth: "70 mm leaf / 160 mm frame",
     insulationValue: "Uf = 1.9 W/m²K",
     acousticValue: "Rw = 40 dB",
@@ -532,8 +532,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "لورينزولاين 70LS نظام السحب والرفع البانورامي",
-        description: "نظام أبواب سحاب ضخم يتيح واجهات زجاجية بانورامية ممتدة من الأرض إلى السقف حتى ارتفاع 3.2 متر مع حركة انسيابية بلمسة إصبع.",
+        name: "لورينزولاين 70LS نظام أبواب السحب والرفع البانورامي",
+        description: "أبواب سحاب عملاقة ذات إطلالة زجاجية ممتدة من الأرض إلى السقف حتى ارتفاع 3.2 متر مع حركة انسيابية بلمسة إصبع وعتبة أرضية مستوية خالية من العوائق.",
         subCategory: "سحاب عملاق عازل حرارياً",
         features: [
           "جسور بولياميد 24 ملم لعزل حراري كامل بين الداخل والخارج",
@@ -598,8 +598,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "هيبي-شيبه HS76 باب سحب ورفع uPVC",
-        description: "هندسة أبواب سحب بانورامية بآلية الرفع الألمانية لحركة سلسة وسهلة للضلف الثقيلة مع عتبة أرضية منبسطة مستوية.",
+        name: "هيبي-شيبه HS76 أبواب سحب ورفع uPVC فائقة العزل",
+        description: "أبواب شرفة وتراس بانورامية بآلية الرفع الألمانية Lift & Slide تضمن إحكام الإغلاق التام ضد الأتربة ومياه الأمطار والرياح مع سهولة فائقة لحركة الضلف الثقيلة.",
         subCategory: "أبواب بانورامية عازلة"
       },
       ckb: {
@@ -647,8 +647,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "نظام الأبواب القابلة للطي 77BF (باي-فولد)",
-        description: "نظام أبواب أكورديون فاخر يطوى بالكامل ليفتح جدراناً زجاجية بعرض يصل إلى 12 متراً لدمج المساحات الداخلية بالحدائق.",
+        name: "نظام الأبواب القابلة للطي 77BF (باي-فولد أكورديون)",
+        description: "أبواب أكورديون ألمنيوم فاخرة تطوى بالكامل لتفتح جداراً زجاجياً عريضاً يدمج الصالة الداخلية بالحديقة والمسبح بانسيابية تامة وعزل حراري متقدم.",
         subCategory: "أبواب قابلة للطي (أكورديون)"
       },
       ckb: {
@@ -696,8 +696,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "باب المدخل المحوري الفاخر Pivot 100 للڤلل",
-        description: "باب مدخل رئيسي محوري بتصميم معماري مهيب مزود بمحور دوران مخفي وأقفال ذكية ببصمة الإصبع وألواح سيراميك أو حجر فاخرة.",
+        name: "باب المدخل المحوري الفاخر Pivot 100 للفلل والقصور",
+        description: "باب مدخل رئيسي محوري بتصميم معماري مهيب مزود بمحور دوران مخفي وأقفال إلكترونية ذكية ببصمة الإصبع وألواح سيراميك أو حجر فاخرة مقاومة للعوامل الجوية.",
         subCategory: "مداخل الڤلل الرئيسية الفاخرة"
       },
       ckb: {
@@ -708,10 +708,62 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     }
   },
   {
-    id: "pergolas",
-    name: "Doorhome Bioclimatic Pergola Systems",
+    id: "slimline-patio-door",
+    name: "Slimline Architectural Patio Sliding Door",
     category: "doors",
     division: "doors",
+    subCategory: "Minimalist Patio Sliders",
+    modelNumber: "Slimline 45",
+    material: "Architectural Aluminum",
+    brand: "Lorenzoline",
+    origin: "Lorenzoline • Europe / Doorhome",
+    rating: 4.9,
+    reviewsCount: 88,
+    discountBadge: "14% OFF",
+    originalPrice: 280,
+    soldCount: "130+ installations",
+    image: "/products-assets/photo_5_2026-09-26_07-36-01.jpg",
+    fallbackImage: "./assets/doorhome/03-2.jpg",
+    description: "Ultra-slim sightline sliding patio doors maximizing glass transparency with multi-point anti-lift locking and smooth rolling carriages.",
+    depth: "45 mm interlock",
+    insulationValue: "Uf = 1.8 W/m²K",
+    acousticValue: "Rw = 38 dB",
+    basePrice: 230,
+    pricePerSqm: 230,
+    unitPrice: 230,
+    currency: "USD",
+    pricing: { unitPrice: 230, pricePerSqm: 230, currency: "USD" },
+    features: [
+      "Ultra-slim 45mm central interlock for unobstructed views",
+      "Dual tandem stainless steel rollers for effortless gliding",
+      "Continuous double weather seals against dust and rain"
+    ],
+    colors: ["Matte Black", "Anthracite Grey", "Champagne Anodized"],
+    specs: {
+      "Central Interlock": "45 mm Slim",
+      "Max Sash Weight": "250 kg"
+    },
+    translations: {
+      ar: {
+        name: "أبواب السلايدنج النحيفة Slimline Patio للأبهاء والتراسات",
+        description: "أبواب ألمنيوم سحابة بإطارات فائقة النحافة تمنح أقصى رؤية بصرية بانورامية مع قفل أمان متعدد النقاط وعوازل مزدوجة لكتم الصوت ومنع تسرب الحرارة.",
+        subCategory: "أبواب سحاب نحيفة للمساحات المفتوحة"
+      },
+      ckb: {
+        name: "دەرگای سلایدینگی باریک Slimline Patio",
+        description: "دەرگای سلایدینگی ئەلەمنیۆم بە چوارچێوەی زۆر باریک بۆ دیمەنی پانۆراما و قفڵی فرە-خاڵی پارێزراو بە بێدەنگی تەواو.",
+        subCategory: "دەرگای سلایدینگی باریک"
+      }
+    }
+  }
+];
+
+export const OUTDOOR_PRODUCTS: ProductItem[] = [
+  {
+    id: "pergolas",
+    name: "Doorhome Bioclimatic Pergola Systems",
+    category: "outdoor",
+    division: "outdoor",
     subCategory: "Outdoor Living & Glass Enclosures",
     modelNumber: "Bio-Pergola 150",
     material: "Heavy Gauge Anodized & Powdercoated Aluminum",
@@ -1523,7 +1575,8 @@ export const UPVC_PRODUCTS: ProductItem[] = [
 ];
 
 export const ALUMINUM_PRODUCTS: ProductItem[] = [
-  ...DOORS_PRODUCTS.filter(p => p.material?.includes('Aluminum') || p.id === 'pergolas'),
+  ...DOORS_PRODUCTS.filter(p => p.material?.includes('Aluminum')),
+  ...OUTDOOR_PRODUCTS,
   ...GLASS_PRODUCTS,
   ...RAILINGS_PRODUCTS
 ];
@@ -1535,6 +1588,7 @@ export const ACCESSORIES_LINES: ProductItem[] = [
 export const ALL_PRODUCTS: ProductItem[] = [
   ...WINDOWS_PRODUCTS,
   ...DOORS_PRODUCTS,
+  ...OUTDOOR_PRODUCTS,
   ...GLASS_PRODUCTS,
   ...RAILINGS_PRODUCTS,
   ...ACCESSORIES_PRODUCTS

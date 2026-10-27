@@ -591,7 +591,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 src={activeItem.image}
                 alt={activeTitle}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = activeItem.fallbackImage || '/assets/showcase/wiek_hidden_hinge-04.png';
+                  (e.target as HTMLImageElement).src = activeItem.fallbackImage || '/assets/catalogs/wiek_page_50_limiting_hinge.png';
                 }}
                 className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500 cursor-pointer drop-shadow-sm"
                 onClick={() => handleOpenPdf(activeItem.pdfUrl)}
