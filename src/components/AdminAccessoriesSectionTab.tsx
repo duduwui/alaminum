@@ -8,7 +8,10 @@ import {
   Film,
   Sparkles,
   Package,
-  Layers
+  Layers,
+  X,
+  Check,
+  Loader2
 } from 'lucide-react';
 import { ProductItem, ACCESSORIES_LINES } from '../data/winhomeData';
 import { saveLocalProducts, deleteProductFromCloud } from '../services/productService';
@@ -141,22 +144,55 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
     }
   };
 
-  const handleAddNewAccessory = () => {
+  // Modal state for adding a new accessory
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [newAccName, setNewAccName] = useState('');
+  const [newAccDesc, setNewAccDesc] = useState('');
+  const [newAccImage, setNewAccImage] = useState('/assets/showcase/stac_window_handles-044.png');
+  const [isUploadingNewImage, setIsUploadingNewImage] = useState(false);
+  const newAccImageInputRef = useRef<HTMLInputElement>(null);
+
+  const handleUploadNewAccImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingNewImage(true);
+      const url = await onUploadMedia(file);
+      setNewAccImage(url);
+      onSaveFeedback('✓ تم رفع صورة الإكسسوار بنجاح');
+    } catch (err: any) {
+      alert(err.message || 'فشل في رفع الصورة');
+    } finally {
+      setIsUploadingNewImage(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleSaveNewAccessory = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newAccName.trim()) {
+      alert('يرجى كتابة اسم أو نوع الإكسسوار أولاً');
+      return;
+    }
+
+    const finalName = newAccName.trim();
+    const finalDesc = newAccDesc.trim() || 'مقبض وإكسسوار هندسي مريح مصنوع من سبائك الألمنيوم عالية المتانة للمشاريع المعمارية الراقية.';
+
     const newAcc: ProductItem = {
       id: `acc-${Date.now()}`,
-      name: 'إكسسوار ومقبض أوروبي جديد',
+      name: finalName,
       category: 'accessories',
       division: 'accessories',
       subCategory: 'أنظمة مقابض ومفصلات',
       brand: 'STAC Spain',
-      image: '/assets/showcase/stac_window_handles-044.png',
+      image: newAccImage || '/assets/showcase/stac_window_handles-044.png',
       fallbackImage: '/assets/showcase/stac_window_handles-044.png',
-      description: 'مقبض وإكسسوار هندسي مريح مصنوع من سبائك الألمنيوم عالية المتانة للمشاريع المعمارية الراقية.',
+      description: finalDesc,
       features: ['تصميم مريح عصري', 'مقاوم للتآكل والعوامل الجوية', 'متوافق مع المقاييس الأوروبية'],
       translations: {
         ar: {
-          name: 'إكسسوار ومقبض أوروبي جديد',
-          description: 'مقبض وإكسسوار هندسي مريح مصنوع من سبائك الألمنيوم عالية المتانة للمشاريع المعمارية الراقية.',
+          name: finalName,
+          description: finalDesc,
           subCategory: 'أنظمة مقابض ومفصلات'
         }
       }
@@ -166,7 +202,12 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
     setProductList(updated);
     saveLocalProducts(updated);
     void saveSharedCmsSection('products', updated);
-    onSaveFeedback('✓ تم إضافة إكسسوار جديد بنجاح! يمكنك تغيير الصورة والتفاصيل أدناه.');
+    onSaveFeedback(`✓ تم إضافة "${finalName}" بنجاح!`);
+
+    setIsAddModalOpen(false);
+    setNewAccName('');
+    setNewAccDesc('');
+    setNewAccImage('/assets/showcase/stac_window_handles-044.png');
   };
 
   return (
@@ -208,7 +249,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
             )}
             <button
               type="button"
-              onClick={handleAddNewAccessory}
+              onClick={() => setIsAddModalOpen(true)}
               className="px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
@@ -358,6 +399,137 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
           </div>
         )}
       </div>
+
+      {/* ============================================================ */}
+      {/* MODAL: ADD NEW ACCESSORY / HARDWARE                          */}
+      {/* ============================================================ */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100 flex flex-col max-h-[92vh]">
+            {/* Header */}
+            <div className="px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center">
+                  <Package className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-base font-black">إضافة إكسسوار أو مقبض جديد</h3>
+                  <p className="text-[11px] text-red-100">أدخل اسم ومواصفات الإكسسوار وارفع صورته</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAddModalOpen(false)}
+                className="p-1.5 rounded-xl bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                title="إغلاق"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSaveNewAccessory} className="p-6 space-y-4 overflow-y-auto flex-1">
+              {/* Title */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  اسم الإكسسوار أو المقبض *
+                </label>
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  value={newAccName}
+                  onChange={(e) => setNewAccName(e.target.value)}
+                  placeholder="مثال: مقبض STAC المينيماليست الفاخر"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-bold text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  الوصف والمواصفات
+                </label>
+                <textarea
+                  rows={4}
+                  value={newAccDesc}
+                  onChange={(e) => setNewAccDesc(e.target.value)}
+                  placeholder="مقبض وإكسسوار هندسي مريح مصنوع من سبائك الألمنيوم عالية المتانة..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 text-xs sm:text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 min-h-[100px] resize-y leading-relaxed transition-all"
+                />
+              </div>
+
+              {/* Image Upload */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-black text-slate-800">
+                  صورة الإكسسوار
+                </label>
+                <div className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-200 border border-slate-300 shrink-0 relative">
+                    <img
+                      src={newAccImage}
+                      alt="معاينة الإكسسوار"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/showcase/stac_window_handles-044.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-slate-600 mb-2 font-medium">
+                      صورة واضحة للإكسسوار بخلفية نظيفة
+                    </p>
+                    <button
+                      type="button"
+                      disabled={isUploadingNewImage}
+                      onClick={() => newAccImageInputRef.current?.click()}
+                      className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                    >
+                      {isUploadingNewImage ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>جاري رفع الصورة...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>رفع صورة الإكسسوار</span>
+                        </>
+                      )}
+                    </button>
+                    <input
+                      ref={newAccImageInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleUploadNewAccImage}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Actions */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsAddModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  إلغاء
+                </button>
+                <button
+                  type="submit"
+                  disabled={!newAccName.trim() || isUploadingNewImage}
+                  className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                >
+                  <Check className="w-4 h-4 stroke-[2.5]" />
+                  <span>حفظ وإضافة الإكسسوار</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

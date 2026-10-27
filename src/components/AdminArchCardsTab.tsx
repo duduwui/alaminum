@@ -9,7 +9,10 @@ import {
   ArrowUp,
   ArrowDown,
   Image as ImageIcon,
-  Eye
+  Eye,
+  X,
+  Check,
+  Loader2
 } from 'lucide-react';
 import {
   ArchitectureShowcaseItem,
@@ -112,28 +115,93 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     persistCards(updated);
   };
 
-  const handleAddCard = () => {
+  // Modal states for creating a new Catalogue Card
+  const [isAddCardModalOpen, setIsAddCardModalOpen] = useState(false);
+  const [newCardTitle, setNewCardTitle] = useState('');
+  const [newCardDesc, setNewCardDesc] = useState('');
+  const [newCardImage, setNewCardImage] = useState('/assets/showcase/wiek_hidden_hinge-04.png');
+  const [newCardPdfUrl, setNewCardPdfUrl] = useState('');
+  const [newCardPdfName, setNewCardPdfName] = useState('');
+  const [newCardButtonText, setNewCardButtonText] = useState('فتح الكتالوج (PDF)');
+  const [isUploadingNewCardImage, setIsUploadingNewCardImage] = useState(false);
+  const [isUploadingNewCardPdf, setIsUploadingNewCardPdf] = useState(false);
+  const newCardImageInputRef = useRef<HTMLInputElement>(null);
+  const newCardPdfInputRef = useRef<HTMLInputElement>(null);
+
+  const handleUploadNewCardImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingNewCardImage(true);
+      const url = await onUploadMedia(file);
+      setNewCardImage(url);
+      onSaveFeedback('✓ تم رفع صورة الغلاف بنجاح');
+    } catch (err: any) {
+      alert(err.message || 'فشل في رفع الصورة');
+    } finally {
+      setIsUploadingNewCardImage(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleUploadNewCardPdf = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingNewCardPdf(true);
+      const url = await onUploadMedia(file);
+      setNewCardPdfUrl(url);
+      setNewCardPdfName(file.name);
+      onSaveFeedback(`✓ تم رفع ملف الـ PDF: ${file.name}`);
+    } catch (err: any) {
+      alert(err.message || 'فشل في رفع ملف الـ PDF');
+    } finally {
+      setIsUploadingNewCardPdf(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleSaveNewCard = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newCardTitle.trim()) {
+      alert('يرجى كتابة اسم أو عنوان الكتالوج أولاً');
+      return;
+    }
+
+    const finalTitle = newCardTitle.trim();
+    const finalDesc = newCardDesc.trim() || 'مواصفات وأنظمة معمارية فاخرة للأبواب والنوافذ والواجهات الزجاجية.';
+    const finalButton = newCardButtonText.trim() || 'فتح الكتالوج (PDF)';
+
     const newCard: ArchitectureCatalogueCard = {
       id: `cat-${Date.now()}`,
-      brand: 'كتالوج معماري جديد',
+      brand: finalTitle,
       company: 'كتالوج شريك معتمد',
       logo: '',
-      image: '/assets/showcase/wiek_hidden_hinge-04.png',
-      title: 'كتالوج معماري جديد',
-      desc: 'مواصفات وأنظمة معمارية فاخرة للأبواب والنوافذ والواجهات الزجاجية.',
-      pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-      buttonText: 'فتح الكتالوج (PDF)',
+      image: newCardImage || '/assets/showcase/wiek_hidden_hinge-04.png',
+      title: finalTitle,
+      desc: finalDesc,
+      pdfUrl: newCardPdfUrl.trim() || '/catalogs/wiek-general-catalog-2026.pdf',
+      fileName: newCardPdfName || undefined,
+      buttonText: finalButton,
       translations: {
-        ar: {
-          title: 'كتالوج معماري جديد',
-          desc: 'مواصفات وأنظمة معمارية فاخرة للأبواب والنوافذ والواجهات الزجاجية.',
-          buttonText: 'فتح الكتالوج (PDF)'
-        }
+        ar: { title: finalTitle, desc: finalDesc, buttonText: finalButton },
+        en: { title: finalTitle, desc: finalDesc, buttonText: finalButton },
+        ckb: { title: finalTitle, desc: finalDesc, buttonText: finalButton }
       }
     };
+
     const updated = [...cards, newCard];
     persistCards(updated);
-    onSaveFeedback('✓ تم إضافة بطاقة كتالوج جديدة');
+    onSaveFeedback(`✓ تم إنشاء وإضافة كتالوج "${finalTitle}" بنجاح!`);
+
+    // Reset & close
+    setIsAddCardModalOpen(false);
+    setNewCardTitle('');
+    setNewCardDesc('');
+    setNewCardImage('/assets/showcase/wiek_hidden_hinge-04.png');
+    setNewCardPdfUrl('');
+    setNewCardPdfName('');
+    setNewCardButtonText('فتح الكتالوج (PDF)');
   };
 
   const handleMoveCard = (index: number, direction: 'up' | 'down') => {
@@ -209,22 +277,89 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     persistShowcase(updated);
   };
 
-  const handleAddShowcaseItem = () => {
+  // Modal states for creating a new Showcase System item
+  const [isAddShowcaseModalOpen, setIsAddShowcaseModalOpen] = useState(false);
+  const [newShowcaseTitle, setNewShowcaseTitle] = useState('');
+  const [newShowcaseDesc, setNewShowcaseDesc] = useState('');
+  const [newShowcaseImage, setNewShowcaseImage] = useState('/assets/showcase/stac_window_handles-044.png');
+  const [newShowcasePdfUrl, setNewShowcasePdfUrl] = useState('');
+  const [newShowcasePdfName, setNewShowcasePdfName] = useState('');
+  const [newShowcaseButtonText, setNewShowcaseButtonText] = useState('فتح الكتالوج المعتمد (PDF)');
+  const [isUploadingNewShowcaseImage, setIsUploadingNewShowcaseImage] = useState(false);
+  const [isUploadingNewShowcasePdf, setIsUploadingNewShowcasePdf] = useState(false);
+  const newShowcaseImageInputRef = useRef<HTMLInputElement>(null);
+  const newShowcasePdfInputRef = useRef<HTMLInputElement>(null);
+
+  const handleUploadNewShowcaseImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingNewShowcaseImage(true);
+      const url = await onUploadMedia(file);
+      setNewShowcaseImage(url);
+      onSaveFeedback('✓ تم رفع صورة النظام بنجاح');
+    } catch (err: any) {
+      alert(err.message || 'فشل في رفع الصورة');
+    } finally {
+      setIsUploadingNewShowcaseImage(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleUploadNewShowcasePdf = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    try {
+      setIsUploadingNewShowcasePdf(true);
+      const url = await onUploadMedia(file);
+      setNewShowcasePdfUrl(url);
+      setNewShowcasePdfName(file.name);
+      onSaveFeedback(`✓ تم رفع ملف الـ PDF: ${file.name}`);
+    } catch (err: any) {
+      alert(err.message || 'فشل في رفع ملف الـ PDF');
+    } finally {
+      setIsUploadingNewShowcasePdf(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleSaveNewShowcase = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newShowcaseTitle.trim()) {
+      alert('يرجى كتابة اسم أو عنوان النظام أولاً');
+      return;
+    }
+
+    const finalTitle = newShowcaseTitle.trim();
+    const finalDesc = newShowcaseDesc.trim() || 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.';
+    const finalButton = newShowcaseButtonText.trim() || 'فتح الكتالوج المعتمد (PDF)';
+
     const newItem: ArchitectureShowcaseItem = {
       id: `system-${Date.now()}`,
-      image: '/assets/showcase/stac_window_handles-044.png',
-      title: 'نظام معماري جديد',
-      titleAr: 'نظام معماري جديد',
-      description: 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.',
-      descriptionAr: 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.',
-      pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
-      buttonText: 'فتح الكتالوج المعتمد (PDF)',
-      buttonTextAr: 'فتح الكتالوج المعتمد (PDF)',
+      image: newShowcaseImage || '/assets/showcase/stac_window_handles-044.png',
+      title: finalTitle,
+      titleAr: finalTitle,
+      description: finalDesc,
+      descriptionAr: finalDesc,
+      pdfUrl: newShowcasePdfUrl.trim() || '/catalogs/stac-hardware-accessories.pdf',
+      fileName: newShowcasePdfName || undefined,
+      buttonText: finalButton,
+      buttonTextAr: finalButton,
       brand: 'نظام أوروبي معتمد'
     };
+
     const updated = [...showcaseItems, newItem];
     persistShowcase(updated);
-    onSaveFeedback('✓ تم إضافة شريحة نظام جديدة');
+    onSaveFeedback(`✓ تم إنشاء وإضافة شريحة نظام "${finalTitle}" بنجاح!`);
+
+    // Reset & close
+    setIsAddShowcaseModalOpen(false);
+    setNewShowcaseTitle('');
+    setNewShowcaseDesc('');
+    setNewShowcaseImage('/assets/showcase/stac_window_handles-044.png');
+    setNewShowcasePdfUrl('');
+    setNewShowcasePdfName('');
+    setNewShowcaseButtonText('فتح الكتالوج المعتمد (PDF)');
   };
 
   const handleMoveShowcaseItem = (index: number, direction: 'up' | 'down') => {
@@ -355,7 +490,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
           <button
             type="button"
-            onClick={handleAddCard}
+            onClick={() => setIsAddCardModalOpen(true)}
             className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer self-start sm:self-auto"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
@@ -531,7 +666,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
 
           <button
             type="button"
-            onClick={handleAddShowcaseItem}
+            onClick={() => setIsAddShowcaseModalOpen(true)}
             className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer self-start sm:self-auto"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
@@ -684,6 +819,404 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
           })}
         </div>
       </section>
+
+      {/* ============================================================ */}
+      {/* MODAL 1: ADD NEW ARCHITECTURE CATALOGUE (PDF)                */}
+      {/* ============================================================ */}
+      {isAddCardModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100 flex flex-col max-h-[92vh]">
+            {/* Header */}
+            <div className="px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-base font-black">إضافة كتالوج معماري جديد (PDF)</h3>
+                  <p className="text-[11px] text-red-100">أدخل اسم الكتالوج والوصف وارفع صورة الغلاف وملف الـ PDF</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAddCardModalOpen(false)}
+                className="p-1.5 rounded-xl bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                title="إغلاق"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSaveNewCard} className="p-6 space-y-4 overflow-y-auto flex-1">
+              {/* Title */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  عنوان أو اسم الكتالوج *
+                </label>
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  value={newCardTitle}
+                  onChange={(e) => setNewCardTitle(e.target.value)}
+                  placeholder="مثال: كتالوج أنظمة WIEK الهندسية 2026"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-bold text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  الوصف والمواصفات
+                </label>
+                <textarea
+                  rows={4}
+                  value={newCardDesc}
+                  onChange={(e) => setNewCardDesc(e.target.value)}
+                  placeholder="مواصفات وأنظمة معمارية فاخرة للأبواب والنوافذ والواجهات الزجاجية..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 text-xs sm:text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 min-h-[100px] resize-y leading-relaxed transition-all"
+                />
+              </div>
+
+              {/* Cover Image Upload */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-black text-slate-800">
+                  صورة غلاف الكتالوج
+                </label>
+                <div className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-200 border border-slate-300 shrink-0 relative">
+                    <img
+                      src={newCardImage}
+                      alt="معاينة الغلاف"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-slate-600 mb-2 font-medium">
+                      صورة غلاف بدقة عالية (PNG, JPG, WebP)
+                    </p>
+                    <button
+                      type="button"
+                      disabled={isUploadingNewCardImage}
+                      onClick={() => newCardImageInputRef.current?.click()}
+                      className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                    >
+                      {isUploadingNewCardImage ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>جاري رفع الصورة...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>رفع صورة الغلاف</span>
+                        </>
+                      )}
+                    </button>
+                    <input
+                      ref={newCardImageInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleUploadNewCardImage}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* PDF File Upload */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-black text-slate-800">
+                  ملف الكتالوج (PDF)
+                </label>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      disabled={isUploadingNewCardPdf}
+                      onClick={() => newCardPdfInputRef.current?.click()}
+                      className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                    >
+                      {isUploadingNewCardPdf ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>جاري رفع الـ PDF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>رفع ملف PDF من جهازك</span>
+                        </>
+                      )}
+                    </button>
+                    <input
+                      ref={newCardPdfInputRef}
+                      type="file"
+                      accept="application/pdf"
+                      className="hidden"
+                      onChange={handleUploadNewCardPdf}
+                    />
+
+                    {newCardPdfName && (
+                      <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg truncate max-w-[180px]" title={newCardPdfName}>
+                        ✓ {newCardPdfName}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] text-slate-400 font-bold">أو الرابط المباشر:</span>
+                    <input
+                      type="text"
+                      value={newCardPdfUrl}
+                      onChange={(e) => setNewCardPdfUrl(e.target.value)}
+                      placeholder="/catalogs/example.pdf"
+                      dir="ltr"
+                      className="flex-1 font-mono text-xs text-slate-800 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Button Text */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1">
+                  نص زر الكتالوج
+                </label>
+                <input
+                  type="text"
+                  value={newCardButtonText}
+                  onChange={(e) => setNewCardButtonText(e.target.value)}
+                  placeholder="فتح الكتالوج (PDF)"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 outline-none focus:border-red-500 font-bold"
+                />
+              </div>
+
+              {/* Actions */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsAddCardModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  إلغاء
+                </button>
+                <button
+                  type="submit"
+                  disabled={!newCardTitle.trim() || isUploadingNewCardImage || isUploadingNewCardPdf}
+                  className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                >
+                  <Check className="w-4 h-4 stroke-[2.5]" />
+                  <span>حفظ وإضافة الكتالوج</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* ============================================================ */}
+      {/* MODAL 2: ADD NEW ARCHITECTURE SHOWCASE SYSTEM                */}
+      {/* ============================================================ */}
+      {isAddShowcaseModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100 flex flex-col max-h-[92vh]">
+            {/* Header */}
+            <div className="px-6 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white flex items-center justify-between shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-xs flex items-center justify-center">
+                  <Layers className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-base font-black">إضافة شريحة نظام معماري جديدة</h3>
+                  <p className="text-[11px] text-red-100">أدخل اسم النظام ومواصفاته وصورته وملف الكتالوج</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAddShowcaseModalOpen(false)}
+                className="p-1.5 rounded-xl bg-white/10 hover:bg-white/25 text-white transition-colors cursor-pointer"
+                title="إغلاق"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSaveNewShowcase} className="p-6 space-y-4 overflow-y-auto flex-1">
+              {/* Title */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  اسم أو عنوان النظام المعماري *
+                </label>
+                <input
+                  type="text"
+                  required
+                  autoFocus
+                  value={newShowcaseTitle}
+                  onChange={(e) => setNewShowcaseTitle(e.target.value)}
+                  placeholder="مثال: نظام STAC الأندلسي العازل للصوت"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-bold text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all"
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1.5">
+                  شرح ومواصفات النظام
+                </label>
+                <textarea
+                  rows={4}
+                  value={newShowcaseDesc}
+                  onChange={(e) => setNewShowcaseDesc(e.target.value)}
+                  placeholder="تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة..."
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 text-xs sm:text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 min-h-[100px] resize-y leading-relaxed transition-all"
+                />
+              </div>
+
+              {/* System Image Upload */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-black text-slate-800">
+                  صورة النظام المعماري
+                </label>
+                <div className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-200 border border-slate-300 shrink-0 relative">
+                    <img
+                      src={newShowcaseImage}
+                      alt="معاينة النظام"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.src = '/assets/showcase/stac_window_handles-044.png';
+                      }}
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-slate-600 mb-2 font-medium">
+                      صورة واضحة للنظام أو القطاع الهندسي
+                    </p>
+                    <button
+                      type="button"
+                      disabled={isUploadingNewShowcaseImage}
+                      onClick={() => newShowcaseImageInputRef.current?.click()}
+                      className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                    >
+                      {isUploadingNewShowcaseImage ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>جاري رفع الصورة...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>رفع صورة النظام</span>
+                        </>
+                      )}
+                    </button>
+                    <input
+                      ref={newShowcaseImageInputRef}
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={handleUploadNewShowcaseImage}
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* PDF File Upload */}
+              <div className="space-y-1.5">
+                <label className="block text-xs font-black text-slate-800">
+                  ملف الكتالوج المعتمد (PDF)
+                </label>
+                <div className="p-3 bg-slate-50 border border-slate-200 rounded-2xl space-y-2">
+                  <div className="flex items-center justify-between gap-2">
+                    <button
+                      type="button"
+                      disabled={isUploadingNewShowcasePdf}
+                      onClick={() => newShowcasePdfInputRef.current?.click()}
+                      className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                    >
+                      {isUploadingNewShowcasePdf ? (
+                        <>
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                          <span>جاري رفع الـ PDF...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5" />
+                          <span>رفع ملف PDF من جهازك</span>
+                        </>
+                      )}
+                    </button>
+                    <input
+                      ref={newShowcasePdfInputRef}
+                      type="file"
+                      accept="application/pdf"
+                      className="hidden"
+                      onChange={handleUploadNewShowcasePdf}
+                    />
+
+                    {newShowcasePdfName && (
+                      <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-lg truncate max-w-[180px]" title={newShowcasePdfName}>
+                        ✓ {newShowcasePdfName}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] text-slate-400 font-bold">أو الرابط المباشر:</span>
+                    <input
+                      type="text"
+                      value={newShowcasePdfUrl}
+                      onChange={(e) => setNewShowcasePdfUrl(e.target.value)}
+                      placeholder="/catalogs/example.pdf"
+                      dir="ltr"
+                      className="flex-1 font-mono text-xs text-slate-800 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Button Text */}
+              <div>
+                <label className="block text-xs font-black text-slate-800 mb-1">
+                  نص زر التحميل
+                </label>
+                <input
+                  type="text"
+                  value={newShowcaseButtonText}
+                  onChange={(e) => setNewShowcaseButtonText(e.target.value)}
+                  placeholder="فتح الكتالوج المعتمد (PDF)"
+                  className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white text-xs text-slate-800 outline-none focus:border-red-500 font-bold"
+                />
+              </div>
+
+              {/* Actions */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-end gap-2.5 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setIsAddShowcaseModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  إلغاء
+                </button>
+                <button
+                  type="submit"
+                  disabled={!newShowcaseTitle.trim() || isUploadingNewShowcaseImage || isUploadingNewShowcasePdf}
+                  className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                >
+                  <Check className="w-4 h-4 stroke-[2.5]" />
+                  <span>حفظ وإضافة الشريحة</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
