@@ -26,7 +26,6 @@ import {
   recordVisit
 } from './server/db';
 import { runDatabaseSeed } from './server/seed';
-import { monitorService } from './server/monitor';
 import { SEARCH_PAGES, renderSearchMetadata } from './src/utils/searchMetadata';
 
 dotenv.config();
@@ -71,7 +70,6 @@ function getInitialUsersData() {
 
 async function startServer() {
   const app = express();
-  app.use(monitorService.middleware);
   const PORT = parseInt(process.env.PORT || '3000', 10);
   const mediaUploadDir = path.join(process.cwd(), 'uploads');
   const adminSessionsFile = path.join(process.cwd(), 'admin_sessions_db.json');
@@ -377,40 +375,6 @@ async function startServer() {
 
   app.get('/api/db/status', (req, res) => {
     res.json(getPostgresStatus());
-  });
-
-  // --- SYSTEM PERFORMANCE & 24/7 TRAFFIC MONITORING ENDPOINTS ---
-  app.get('/api/system/performance', async (req, res) => {
-    try {
-      const data = await monitorService.getMetricsSnapshot();
-      res.json(data);
-    } catch (err: any) {
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.get('/api/system/request-logs', (req, res) => {
-    try {
-      const limit = parseInt(req.query.limit as string, 10) || 100;
-      res.json(monitorService.getRecentLogs(limit));
-    } catch (err: any) {
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-  app.post('/api/system/simulator', async (req, res) => {
-    try {
-      const { enabled, targetUsers, reqPerMinPerUser } = req.body || {};
-      monitorService.saveConfig({
-        enabled: typeof enabled === 'boolean' ? enabled : undefined,
-        targetUsers: typeof targetUsers === 'number' ? targetUsers : undefined,
-        reqPerMinPerUser: typeof reqPerMinPerUser === 'number' ? reqPerMinPerUser : undefined
-      });
-      const data = await monitorService.getMetricsSnapshot();
-      res.json(data);
-    } catch (err: any) {
-      res.status(500).json({ error: err.message });
-    }
   });
 
   // --- QUOTATION REQUESTS (RFQs) ENDPOINTS ---

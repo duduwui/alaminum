@@ -73,12 +73,10 @@ import {
   Globe,
   Languages,
   Copy,
-  MessageCircle,
-  Activity
+  MessageCircle
 } from 'lucide-react';
 import { AdminUsersTab } from './AdminUsersTab';
 import { AdminCategoriesTab } from './AdminCategoriesTab';
-import { AdminPerformanceTab } from './AdminPerformanceTab';
 import { CurrencyType, formatCurrency } from '../utils/currency';
 import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault } from '../services/productService';
 import { autoTranslateFullProduct } from '../services/translateService';
@@ -254,11 +252,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'products' | 'categories' | 'users' | 'cms' | 'logos' | 'performance'
+    'products' | 'categories' | 'users' | 'cms' | 'logos'
   >(() => {
     if (typeof window !== 'undefined') {
       const h = (window.location.hash || '').toLowerCase();
-      if (h.includes('performance') || h.includes('dashboard') || h.includes('perf')) return 'performance';
       if (h.includes('cms') || h.includes('gallery')) return 'cms';
       if (h.includes('users') || h.includes('team')) return 'users';
       if (h.includes('logos') || h.includes('brands')) return 'logos';
@@ -270,9 +267,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   useEffect(() => {
     const syncSectionWithHash = () => {
       const h = (window.location.hash || '').toLowerCase();
-      if (h.includes('performance') || h.includes('dashboard') || h.includes('perf')) {
-        setActiveSection('performance');
-      } else if (h.includes('cms') || h.includes('gallery')) {
+      if (h.includes('cms') || h.includes('gallery')) {
         setActiveSection('cms');
       } else if (h.includes('users') || h.includes('team')) {
         setActiveSection('users');
@@ -1368,34 +1363,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </button>
               </nav>
             </div>
-
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
-                {currentLanguage.code === 'ar' ? 'النظام والمراقبة' : currentLanguage.code === 'ckb' ? 'چاودێری و سیستەم' : 'System & Observability'}
-              </span>
-              <nav className="space-y-1.5">
-                {/* SYSTEM PERFORMANCE & TRAFFIC TAB */}
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('performance')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'performance'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Activity className={`w-4 h-4 ${activeSection === 'performance' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'الأداء والمحاكاة' : currentLanguage.code === 'ckb' ? 'ئەدای سیستەم و ترافیک' : 'Performance & 10k Sim'}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'performance' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    Live
-                  </span>
-                </button>
-              </nav>
-            </div>
           </div>
         </div>
 
@@ -1426,7 +1393,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
               {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
-              {activeSection === 'performance' && (currentLanguage.code === 'ar' ? 'مراقبة أداء الخادم والمحاكاة المباشرة' : currentLanguage.code === 'ckb' ? 'چاودێری ئەدا و شیکاری ڕاستەوخۆ' : 'Live System Performance & 10k Simulator')}
             </h2>
           </div>
 
@@ -1552,17 +1518,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             }`}
           >
             {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : 'Partner Brands'} ({partnerLogos.length})
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('performance')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'performance'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'الأداء والمحاكاة' : 'Performance (10k)'}
           </button>
         </div>
 
@@ -2644,13 +2599,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
               </button>
             </div>
-          </main>
-        )}
-
-        {/* SECTION: SYSTEM PERFORMANCE & 24/7 TRAFFIC SIMULATOR */}
-        {activeSection === 'performance' && (
-          <main className="flex-1 overflow-y-auto bg-slate-50/60 p-4 sm:p-6 lg:p-8">
-            <AdminPerformanceTab />
           </main>
         )}
 

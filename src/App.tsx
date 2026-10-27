@@ -48,7 +48,7 @@ export default function App() {
       const hash = rawHash.split('?')[0];
       const path = rawPath.split('?')[0];
       const route = hash || path;
-      if (route === 'admin' || route === 'admin-performance' || route === 'performance' || route === 'dashboard') return 'admin';
+      if (route === 'admin') return 'admin';
       if (route === 'projects') return 'projects';
       if (route === 'articles' || route.startsWith('article-')) return 'articles';
       if (route === 'reviews' || route === 'rate' || route === 'feedback') return 'reviews';
@@ -247,7 +247,7 @@ export default function App() {
       // Clear product view if navigating away from product-*
       setSelectedProduct(null);
 
-      if (route === 'admin' || route === 'admin-performance' || route === 'performance' || route === 'dashboard') {
+      if (route === 'admin') {
         setActiveTab('admin');
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (route === 'projects') {
