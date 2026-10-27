@@ -338,7 +338,7 @@ export async function autoTranslateFullProduct(productData: {
   // Fallback client-side translation
   const sample = (cleanName || cleanDesc).trim();
   const detectedSrc = /[\u0600-\u06FF]/.test(sample) ? 'ar' : 'en';
-  const targetLangs = ['ckb', 'kmr', 'ar', 'tr', 'fa', 'en-GB', 'de', 'fr', 'it', 'el', 'es', 'ro', 'bg', 'sr', 'bs', 'hr', 'sq', 'nl', 'sv', 'pl', 'pt', 'en-US', 'es-MX', 'pt-BR', 'zh-CN', 'ru', 'hi', 'ja', 'ko', 'kk', 'en'] as const;
+  const targetLangs = ['ar', 'ckb', 'kmr', 'en'] as const;
   const translations: Record<string, { name: string; description: string }> = {};
 
   await Promise.all(

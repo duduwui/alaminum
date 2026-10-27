@@ -4,9 +4,7 @@ import { HeroSection } from './components/HeroSection';
 import { PartnerLogos } from './components/PartnerLogos';
 import { SignatureShowcase } from './components/SignatureShowcase';
 import { AboutSection } from './components/AboutSection';
-import { WindowsSection } from './components/WindowsSection';
-import { DoorsSection } from './components/DoorsSection';
-import { AccessoriesSection } from './components/AccessoriesSection';
+import { DynamicHomepageSections } from './components/DynamicHomepageSections';
 import { GallerySection } from './components/GallerySection';
 import { ContactSection } from './components/ContactSection';
 import { AlumilContactPage } from './components/AlumilContactPage';
@@ -35,6 +33,7 @@ import { loadLocalProducts, saveLocalProducts } from './services/productService'
 import { hasAdminCmsSession, loadSharedCmsSection } from './services/cmsService';
 import { normalizeGalleryItems, saveGalleryItems } from './services/galleryContentService';
 import { loadProductDivisions, saveProductDivisions } from './services/productNavigationService';
+import { HomepageSectionConfig, saveHomepageSections } from './services/homepageSectionsService';
 import { ProductCategoryDivision } from './data/productNavigationData';
 import { SEARCH_PAGES, SITE_URL, searchPagePath } from './utils/searchMetadata';
 import { initScrollRevealObserver } from './utils/scrollObserver';
@@ -185,8 +184,9 @@ export default function App() {
       loadSharedCmsSection<Record<string, unknown>>('homepage'),
       loadSharedCmsSection<unknown>('gallery'),
       loadSharedCmsSection<unknown>('products'),
-      loadSharedCmsSection<unknown>('divisions')
-    ]).then(([homepage, gallery, products, divisions]) => {
+      loadSharedCmsSection<unknown>('divisions'),
+      loadSharedCmsSection<HomepageSectionConfig[]>('homepageSections').catch(() => null)
+    ]).then(([homepage, gallery, products, divisions, homepageSections]) => {
       if (cancelled) return;
       if (homepage && typeof homepage === 'object' && !Array.isArray(homepage)) {
         localStorage.setItem('winhome_cms_homepage_media', JSON.stringify(homepage));
@@ -195,6 +195,7 @@ export default function App() {
       if (Array.isArray(gallery)) saveGalleryItems(normalizeGalleryItems(gallery));
       if (Array.isArray(products)) saveLocalProducts(products as ProductItem[]);
       if (Array.isArray(divisions)) saveProductDivisions(divisions as ProductCategoryDivision[]);
+      if (Array.isArray(homepageSections)) saveHomepageSections(homepageSections);
     }).catch(() => { /* Keep local content when the shared server is unavailable. */ });
     return () => { cancelled = true; };
   }, [activeTab]);
@@ -599,33 +600,10 @@ export default function App() {
               <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
             </div>
 
-            {/* 5. Architectural Windows Systems */}
-            <WindowsSection
+            {/* 5. Dynamic Homepage Sections (Windows, Doors, Accessories, and any custom sections) */}
+            <DynamicHomepageSections
               onSelectProduct={handleSelectProduct}
               onExploreCategory={handleGoToProductShop}
-            />
-
-            {/* Architectural Section Separator Line */}
-            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
-              <div className="w-full border-t-2 border-slate-900/25" />
-              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
-            </div>
-
-            {/* 6. Architectural Doors & Entrances */}
-            <DoorsSection
-              onSelectProduct={handleSelectProduct}
-              onExploreCategory={handleGoToProductShop}
-            />
-
-            {/* Architectural Section Separator Line */}
-            <div className="w-full relative flex items-center justify-center my-0 py-0 z-10" aria-hidden="true">
-              <div className="w-full border-t-2 border-slate-900/25" />
-              <div className="absolute w-20 sm:w-28 h-1 bg-red-600 rounded-full shadow-sm" />
-            </div>
-
-            {/* 7. Precision Hardware & Architectural Accessories */}
-            <AccessoriesSection
-              onSelectProduct={handleSelectProduct}
             />
 
             {/* Architectural Section Separator Line */}

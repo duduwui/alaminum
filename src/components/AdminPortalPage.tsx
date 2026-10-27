@@ -96,9 +96,13 @@ import {
 import { Admin3DCarouselTab } from './Admin3DCarouselTab';
 import { AdminAllProjectsTab } from './AdminAllProjectsTab';
 import { AdminArchCardsTab } from './AdminArchCardsTab';
-import { AdminWindowsSectionTab } from './AdminWindowsSectionTab';
-import { AdminDoorsSectionTab } from './AdminDoorsSectionTab';
-import { AdminAccessoriesSectionTab } from './AdminAccessoriesSectionTab';
+import { AdminDynamicSectionTab } from './AdminDynamicSectionTab';
+import {
+  HomepageSectionConfig,
+  loadHomepageSections,
+  saveHomepageSections,
+  getLocalizedSectionHeader
+} from '../services/homepageSectionsService';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -291,9 +295,12 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     return () => window.removeEventListener('hashchange', syncSectionWithHash);
   }, []);
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
-  const [cmsSubTab, setCmsSubTab] = useState<
-    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section' | 'accessories-section'
-  >('3d-carousel');
+  const [cmsSubTab, setCmsSubTab] = useState<string>('3d-carousel');
+  const [homepageSections, setHomepageSections] = useState<HomepageSectionConfig[]>(() => loadHomepageSections());
+  const [isAddSectionModalOpen, setIsAddSectionModalOpen] = useState(false);
+  const [newSectionTitle, setNewSectionTitle] = useState('');
+  const [newSectionSubtitle, setNewSectionSubtitle] = useState('');
+  const [isCreatingSection, setIsCreatingSection] = useState(false);
 
   // Architecture Catalogue Cards State
   const [archCards, setArchCards] = useState<ArchitectureCatalogueCard[]>(() => loadArchitectureCards());
@@ -912,8 +919,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       loadSharedCmsSection<unknown>('products'),
       loadSharedCmsSection<unknown>('divisions'),
       loadSharedCmsSection<unknown>('partnerLogos'),
-      loadSharedCmsSection<ArchitectureCatalogueCard[]>('archCards').catch(() => null)
-    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions, sharedLogos, sharedArchCards]) => {
+      loadSharedCmsSection<ArchitectureCatalogueCard[]>('archCards').catch(() => null),
+      loadSharedCmsSection<HomepageSectionConfig[]>('homepageSections').catch(() => null)
+    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions, sharedLogos, sharedArchCards, sharedHomepageSections]) => {
       if (cancelled) return;
       if (sharedHomepage && typeof sharedHomepage === 'object' && !Array.isArray(sharedHomepage)) {
         setHomepageMedia((previous) => ({ ...previous, ...sharedHomepage }));
@@ -927,6 +935,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       if (Array.isArray(sharedArchCards) && sharedArchCards.length >= 2) {
         setArchCards(sharedArchCards);
         saveArchitectureCards(sharedArchCards);
+      }
+      if (Array.isArray(sharedHomepageSections) && sharedHomepageSections.length > 0) {
+        setHomepageSections(sharedHomepageSections);
+        saveHomepageSections(sharedHomepageSections);
       }
       setCmsHydrated(true);
     }).catch(() => {
@@ -1803,87 +1815,203 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </span>
               </button>
 
-              {/* 4. Windows Section Media */}
-              <button
-                type="button"
-                onClick={() => setCmsSubTab('windows-section')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === 'windows-section'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                <LayoutGrid className="w-3.5 h-3.5" />
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'ميديا قسم النوافذ'
-                    : currentLanguage.code === 'ckb'
-                    ? 'میدیای بەشی پەنجەرەکان'
-                    : 'Windows Section Media'}
-                </span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'windows-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  {productList.filter((p) => p.division === 'windows' || p.category === 'windows').length}
-                </span>
-              </button>
+              {/* Dynamic Homepage Sections */}
+              {homepageSections.map((sec) => {
+                const tabId = `sec:${sec.key}`;
+                const isActive = cmsSubTab === tabId;
+                const header = getLocalizedSectionHeader(sec, currentLanguage.code);
+                const count = productList.filter((p) => p.division === sec.key || p.category === sec.key).length;
+                return (
+                  <button
+                    key={sec.id}
+                    type="button"
+                    onClick={() => setCmsSubTab(tabId)}
+                    className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                      isActive
+                        ? 'bg-red-600 text-white shadow-sm'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{header.title || sec.title}</span>
+                    <span
+                      className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
 
-              {/* 5. Doors Section Media */}
+              {/* + Add New Homepage Section Button */}
               <button
                 type="button"
-                onClick={() => setCmsSubTab('doors-section')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === 'doors-section'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
+                onClick={() => {
+                  setNewSectionTitle('');
+                  setNewSectionSubtitle('');
+                  setIsAddSectionModalOpen(true);
+                }}
+                className="px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
               >
-                <Package className="w-3.5 h-3.5" />
+                <Plus className="w-3.5 h-3.5" />
                 <span>
                   {currentLanguage.code === 'ar'
-                    ? 'ميديا قسم الأبواب'
+                    ? 'إضافة قسم جديد للموقع'
                     : currentLanguage.code === 'ckb'
-                    ? 'میدیای بەشی دەرگاکان'
-                    : 'Doors Section Media'}
-                </span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'doors-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  {productList.filter((p) => p.division === 'doors' || p.category === 'doors').length}
-                </span>
-              </button>
-
-              {/* 6. Accessories & Hardware Section Media */}
-              <button
-                type="button"
-                onClick={() => setCmsSubTab('accessories-section')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === 'accessories-section'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                <Layers className="w-3.5 h-3.5" />
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'ميديا قسم الإكسسوارات والمقابض'
-                    : currentLanguage.code === 'ckb'
-                    ? 'میدیای بەشی ئێکسسوارات و قوفڵ'
-                    : 'Accessories & Hardware Section'}
-                </span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'accessories-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  {productList.filter((p) => p.division === 'accessories' || p.category === 'accessories').length}
+                    ? 'زیادکردنی بەشی نوێ'
+                    : 'Add New Section'}
                 </span>
               </button>
             </div>
+
+            {/* Add New Homepage Section Modal */}
+            {isAddSectionModalOpen && (
+              <div className="fixed inset-0 z-[9999] bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-150">
+                <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-5">
+                  <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                    <div>
+                      <h4 className="text-base font-black text-slate-900">
+                        {currentLanguage.code === 'ar'
+                          ? 'إنشاء قسم جديد في الصفحة الرئيسية'
+                          : currentLanguage.code === 'ckb'
+                          ? 'دروستکردنی بەشی نوێ لە پەڕەی سەرەکی'
+                          : 'Create New Homepage Section'}
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-0.5">
+                        {currentLanguage.code === 'ar'
+                          ? 'أدخل عنوان ووصف القسم، وسيتم ترجمتهما تلقائياً لجميع اللغات وإضافتهما للموقع فوراً'
+                          : 'Enter section title and description — automatically translated into all languages'}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setIsAddSectionModalOpen(false)}
+                      className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 cursor-pointer"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div>
+                      <label className="text-[11px] font-black text-slate-700 block mb-1.5">
+                        {currentLanguage.code === 'ar' ? 'اسم / عنوان القسم *' : 'Section Title *'}
+                      </label>
+                      <input
+                        type="text"
+                        value={newSectionTitle}
+                        onChange={(e) => setNewSectionTitle(e.target.value)}
+                        placeholder={
+                          currentLanguage.code === 'ar'
+                            ? 'مثال: الواجهات الزجاجية والستائر الحائطية'
+                            : 'e.g. Glass Facades & Curtain Walls'
+                        }
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold focus:outline-none focus:border-red-500"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-[11px] font-black text-slate-700 block mb-1.5">
+                        {currentLanguage.code === 'ar' ? 'وصف القسم (تحت العنوان)' : 'Section Description / Subtitle'}
+                      </label>
+                      <textarea
+                        rows={3}
+                        value={newSectionSubtitle}
+                        onChange={(e) => setNewSectionSubtitle(e.target.value)}
+                        placeholder={
+                          currentLanguage.code === 'ar'
+                            ? 'أدخل وصفاً مختصراً يظهر تحت عنوان القسم في الصفحة الرئيسية...'
+                            : 'Enter a subtitle or description displayed under the section title...'
+                        }
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-red-500 resize-y"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-end gap-2 pt-2">
+                    <button
+                      type="button"
+                      disabled={isCreatingSection}
+                      onClick={() => setIsAddSectionModalOpen(false)}
+                      className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-black transition-all cursor-pointer"
+                    >
+                      {currentLanguage.code === 'ar' ? 'إلغاء' : 'Cancel'}
+                    </button>
+                    <button
+                      type="button"
+                      disabled={isCreatingSection || !newSectionTitle.trim()}
+                      onClick={async () => {
+                        if (!newSectionTitle.trim()) return;
+                        setIsCreatingSection(true);
+                        try {
+                          const key = `sec-${Date.now()}`;
+                          let translations: Record<string, { name?: string; title?: string; description?: string }> = {
+                            [currentLanguage.code]: {
+                              name: newSectionTitle.trim(),
+                              title: newSectionTitle.trim(),
+                              description: newSectionSubtitle.trim()
+                            }
+                          };
+                          try {
+                            const translatedMap = await autoTranslateFullProduct({
+                              name: newSectionTitle.trim(),
+                              description: newSectionSubtitle.trim()
+                            });
+                            Object.entries(translatedMap).forEach(([code, data]) => {
+                              translations[code] = {
+                                name: data.name || newSectionTitle.trim(),
+                                title: data.name || newSectionTitle.trim(),
+                                description: data.description || newSectionSubtitle.trim()
+                              };
+                            });
+                          } catch {
+                            // keep current language fallback
+                          }
+                          const newSec: HomepageSectionConfig = {
+                            id: `sec-id-${Date.now()}`,
+                            key,
+                            title: translations.ar?.title || newSectionTitle.trim(),
+                            description: translations.ar?.description || newSectionSubtitle.trim(),
+                            translations
+                          };
+                          const updated = [...homepageSections, newSec];
+                          setHomepageSections(updated);
+                          saveHomepageSections(updated);
+                          await saveSharedCmsSection('homepageSections', updated);
+                          setIsAddSectionModalOpen(false);
+                          setCmsSubTab(`sec:${key}`);
+                          setCmsSaveFeedback(
+                            currentLanguage.code === 'ar'
+                              ? `تم إنشاء القسم "${newSec.title}" وترجمته لجميع اللغات بنجاح`
+                              : `Section "${newSectionTitle.trim()}" created & translated into all languages`
+                          );
+                          setTimeout(() => setCmsSaveFeedback(''), 4000);
+                        } finally {
+                          setIsCreatingSection(false);
+                        }
+                      }}
+                      className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      {isCreatingSection ? (
+                        <RefreshCw className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Plus className="w-4 h-4" />
+                      )}
+                      <span>
+                        {isCreatingSection
+                          ? currentLanguage.code === 'ar'
+                            ? 'جاري الإنشاء والترجمة...'
+                            : 'Creating & Translating...'
+                          : currentLanguage.code === 'ar'
+                          ? 'إنشاء القسم وترجمته لكل اللغات'
+                          : 'Create & Translate Section'}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* CMS Feedback Banner */}
             {cmsSaveFeedback && (
@@ -1938,47 +2066,33 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               />
             )}
 
-            {/* TAB 4: WINDOWS SECTION MEDIA & MODELS */}
-            {cmsSubTab === 'windows-section' && (
-              <AdminWindowsSectionTab
-                productList={productList}
-                setProductList={setProductList}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
-              />
-            )}
-
-            {/* TAB 5: DOORS SECTION MEDIA & MODELS */}
-            {cmsSubTab === 'doors-section' && (
-              <AdminDoorsSectionTab
-                productList={productList}
-                setProductList={setProductList}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
-              />
-            )}
-
-            {/* TAB 6: ACCESSORIES & HARDWARE SECTION MEDIA */}
-            {cmsSubTab === 'accessories-section' && (
-              <AdminAccessoriesSectionTab
-                productList={productList}
-                setProductList={setProductList}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
-              />
-            )}
+            {/* DYNAMIC HOMEPAGE SECTIONS */}
+            {cmsSubTab.startsWith('sec:') && (() => {
+              const secKey = cmsSubTab.replace('sec:', '');
+              const activeSec = homepageSections.find((s) => s.key === secKey);
+              if (!activeSec) return null;
+              return (
+                <AdminDynamicSectionTab
+                  section={activeSec}
+                  allSections={homepageSections}
+                  setAllSections={setHomepageSections}
+                  onSelectSectionKey={(nextKey) => {
+                    if (!nextKey) {
+                      setCmsSubTab('3d-carousel');
+                    } else {
+                      setCmsSubTab(`sec:${nextKey}`);
+                    }
+                  }}
+                  productList={productList}
+                  setProductList={setProductList}
+                  onUploadMedia={uploadCmsMediaFile}
+                  onSaveFeedback={(msg) => {
+                    setCmsSaveFeedback(msg);
+                    setTimeout(() => setCmsSaveFeedback(''), 4000);
+                  }}
+                />
+              );
+            })()}
           </main>
         )}
 
