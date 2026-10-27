@@ -98,6 +98,7 @@ import { AdminAllProjectsTab } from './AdminAllProjectsTab';
 import { AdminArchCardsTab } from './AdminArchCardsTab';
 import { AdminWindowsSectionTab } from './AdminWindowsSectionTab';
 import { AdminDoorsSectionTab } from './AdminDoorsSectionTab';
+import { AdminAccessoriesSectionTab } from './AdminAccessoriesSectionTab';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -291,7 +292,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   }, []);
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
   const [cmsSubTab, setCmsSubTab] = useState<
-    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section'
+    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section' | 'accessories-section'
   >('3d-carousel');
 
   // Architecture Catalogue Cards State
@@ -1892,6 +1893,33 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   {productList.filter((p) => p.division === 'doors' || p.category === 'doors').length}
                 </span>
               </button>
+
+              {/* 6. Accessories & Hardware Section Media */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('accessories-section')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === 'accessories-section'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <Layers className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'ميديا قسم الإكسسوارات والمقابض'
+                    : currentLanguage.code === 'ckb'
+                    ? 'میدیای بەشی ئێکسسوارات و قوفڵ'
+                    : 'Accessories & Hardware Section'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'accessories-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  {productList.filter((p) => p.division === 'accessories' || p.category === 'accessories').length}
+                </span>
+              </button>
             </div>
 
             {/* CMS Feedback Banner */}
@@ -1964,6 +1992,20 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             {/* TAB 5: DOORS SECTION MEDIA & MODELS */}
             {cmsSubTab === 'doors-section' && (
               <AdminDoorsSectionTab
+                productList={productList}
+                setProductList={setProductList}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
+              />
+            )}
+
+            {/* TAB 6: ACCESSORIES & HARDWARE SECTION MEDIA */}
+            {cmsSubTab === 'accessories-section' && (
+              <AdminAccessoriesSectionTab
                 productList={productList}
                 setProductList={setProductList}
                 onUploadMedia={uploadCmsMediaFile}

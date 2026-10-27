@@ -11,7 +11,6 @@ import {
   ArrowUp,
   ArrowDown,
   Image as ImageIcon,
-  FolderOpen,
   Eye
 } from 'lucide-react';
 import {
@@ -47,14 +46,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     return loadArchitectureCards();
   });
 
-  // Sync if prop updates from outside
   useEffect(() => {
     if (archCards && archCards.length > 0) {
       setCards(archCards);
     }
   }, [archCards]);
 
-  // Load from remote shared CMS on mount
   useEffect(() => {
     void (async () => {
       try {
@@ -141,7 +138,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     };
     const updated = [...cards, newCard];
     persistCards(updated);
-    onSaveFeedback('✓ تم إضافة بطاقة كتالوج جديدة بنجاح!');
+    onSaveFeedback('✓ تم إضافة بطاقة كتالوج جديدة');
   };
 
   const handleMoveCard = (index: number, direction: 'up' | 'down') => {
@@ -152,7 +149,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     updated[index] = updated[target];
     updated[target] = temp;
     persistCards(updated);
-    onSaveFeedback(`✓ تم نقل الكتالوج إلى الترتيب #${target + 1}`);
+    onSaveFeedback(`✓ تم تعديل الترتيب`);
   };
 
   const handleDeleteCard = (index: number) => {
@@ -161,10 +158,10 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       return;
     }
     const cardTitle = cards[index]?.translations?.ar?.title || cards[index]?.title || `كتالوج #${index + 1}`;
-    if (!confirm(`هل أنت متأكد من حذف "${cardTitle}"؟`)) return;
+    if (!confirm(`حذف "${cardTitle}"؟`)) return;
     const updated = cards.filter((_, i) => i !== index);
     persistCards(updated);
-    onSaveFeedback('✓ تم حذف الكتالوج بنجاح.');
+    onSaveFeedback('✓ تم حذف الكتالوج.');
   };
 
   // -------------------------------------------------------------
@@ -203,15 +200,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     if (field === 'title') {
       current.title = value;
       current.titleAr = value;
-      current.titleKu = value;
     } else if (field === 'description') {
       current.description = value;
       current.descriptionAr = value;
-      current.descriptionKu = value;
     } else if (field === 'buttonText') {
       current.buttonText = value;
       current.buttonTextAr = value;
-      current.buttonTextKu = value;
     } else {
       (current as any)[field] = value;
     }
@@ -224,8 +218,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     const newItem: ArchitectureShowcaseItem = {
       id: `system-${Date.now()}`,
       image: '/assets/showcase/stac_window_handles-044.png',
-      title: 'نظام وإكسسوار معماري جديد',
-      titleAr: 'نظام وإكسسوار معماري جديد',
+      title: 'نظام معماري جديد',
+      titleAr: 'نظام معماري جديد',
       description: 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.',
       descriptionAr: 'تفاصيل ومواصفات هندسية متطورة مصممة للمشاريع المودرن الفاخرة مع أعلى معايير العزل والأمان.',
       pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
@@ -235,7 +229,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     };
     const updated = [...showcaseItems, newItem];
     persistShowcase(updated);
-    onSaveFeedback('✓ تم إضافة شريحة نظام/إكسسوار جديدة بنجاح!');
+    onSaveFeedback('✓ تم إضافة شريحة نظام جديدة');
   };
 
   const handleMoveShowcaseItem = (index: number, direction: 'up' | 'down') => {
@@ -246,7 +240,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
     updated[index] = updated[target];
     updated[target] = temp;
     persistShowcase(updated);
-    onSaveFeedback(`✓ تم نقل الشريحة إلى الترتيب #${target + 1}`);
+    onSaveFeedback(`✓ تم تعديل الترتيب`);
   };
 
   const handleDeleteShowcaseItem = (index: number) => {
@@ -255,10 +249,10 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       return;
     }
     const itemTitle = showcaseItems[index]?.titleAr || showcaseItems[index]?.title || `شريحة #${index + 1}`;
-    if (!confirm(`هل أنت متأكد من حذف "${itemTitle}"؟`)) return;
+    if (!confirm(`حذف "${itemTitle}"؟`)) return;
     const updated = showcaseItems.filter((_, i) => i !== index);
     persistShowcase(updated);
-    onSaveFeedback('✓ تم حذف شريحة النظام بنجاح.');
+    onSaveFeedback('✓ تم حذف شريحة النظام.');
   };
 
   // -------------------------------------------------------------
@@ -300,20 +294,20 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
         const updated = [...cards];
         if (field === 'image') {
           updated[index] = { ...updated[index], image: url };
-          onSaveFeedback(`✓ تم تحديث صورة الكتالوج #${index + 1}`);
+          onSaveFeedback(`✓ تم تحديث صورة الكتالوج`);
         } else if (field === 'pdf') {
           updated[index] = { ...updated[index], pdfUrl: url, fileName: file.name };
-          onSaveFeedback(`✓ تم رفع ملف الـ PDF للكتالوج #${index + 1}`);
+          onSaveFeedback(`✓ تم رفع ملف الـ PDF`);
         }
         persistCards(updated);
       } else if (section === 'showcase') {
         const updated = [...showcaseItems];
         if (field === 'image') {
           updated[index] = { ...updated[index], image: url };
-          onSaveFeedback(`✓ تم تحديث صورة النظام #${index + 1}`);
+          onSaveFeedback(`✓ تم تحديث صورة النظام`);
         } else if (field === 'pdf') {
           updated[index] = { ...updated[index], pdfUrl: url, fileName: file.name };
-          onSaveFeedback(`✓ تم رفع ملف الـ PDF للنظام #${index + 1}`);
+          onSaveFeedback(`✓ تم رفع ملف الـ PDF`);
         }
         persistShowcase(updated);
       }
@@ -327,7 +321,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
   };
 
   return (
-    <div className="space-y-10" dir="rtl">
+    <div className="space-y-8" dir="rtl">
       {/* Hidden file upload inputs */}
       <input
         ref={imageInputRef}
@@ -344,61 +338,33 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
         onChange={handleFileChange}
       />
 
-      {/* TOP NOTIFICATION / HELPER BANNER */}
-      <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6 rounded-3xl shadow-sm border border-slate-700/50">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-              <h2 className="text-xl font-black tracking-tight">
-                إدارة قسم العمارة والكتالوجات الهندسية
-              </h2>
-            </div>
-            <p className="text-xs text-slate-300 max-w-3xl leading-relaxed">
-              هذه الصفحة مقسمة إلى قسمين رئيسيين وفقاً لتصميم الموقع. لا داعي لكتابة النصوص باللغة الإنجليزية، يكفي إدخال العناوين والوصف باللغة العربية وسيتم تطبيقها مباشرة على الموقع.
-            </p>
-          </div>
-          <div className="flex items-center gap-2 text-xs font-bold bg-white/10 px-3 py-1.5 rounded-xl border border-white/10 shrink-0">
-            <span>اللغة المدخلة:</span>
-            <span className="text-emerald-400">العربية فقط</span>
-          </div>
-        </div>
-      </div>
-
       {/* ========================================================================= */}
       {/* SECTION 1: PDF ARCHITECTURE CARDS (European Catalogues: WIEK, STAC, etc.) */}
       {/* ========================================================================= */}
-      <section className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-black">
-                <FileText className="w-4 h-4" />
-              </div>
-              <h3 className="text-lg font-black text-slate-900">
-                القسم الأول: كتالوجات الشركاء المعماريين (PDF)
-                <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-lg ms-2">
-                  {cards.length} كتالوجات
-                </span>
-              </h3>
-            </div>
-            <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
-              البطاقات المعروضة في أعلى قسم العمارة في الصفحة الرئيسية (مثل كتالوج WIEK بلجيكا وSTAC إسبانيا). يمكنك إضافة بطاقات جديدة، رفع صور الغلاف والشعارات، وإرفاق ملف الـ PDF.
-            </p>
+      <section className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
+            <h3 className="text-base font-black text-slate-900">
+              كتالوجات الشركاء المعماريين ({cards.length})
+            </h3>
+            <span className="text-[11px] text-slate-400 font-normal">
+              (البطاقات العلوية في صفحة العمارة)
+            </span>
           </div>
 
           <button
             type="button"
             onClick={handleAddCard}
-            className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
+            className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer self-start sm:self-auto"
           >
-            <Plus className="w-4 h-4 stroke-[3]" />
-            <span>إضافة كتالوج جديد</span>
+            <Plus className="w-3.5 h-3.5 stroke-[3]" />
+            <span>إضافة كتالوج</span>
           </button>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Compact Cards List */}
+        <div className="space-y-3">
           {cards.map((card, idx) => {
             const cardTitleAr = card.translations?.ar?.title || card.title || '';
             const cardDescAr = card.translations?.ar?.desc || card.desc || '';
@@ -407,188 +373,144 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={card.id || idx}
-                className="bg-slate-50/50 rounded-2xl border border-slate-200 hover:border-slate-300 p-5 shadow-xs flex flex-col justify-between gap-4 transition-all"
+                className="bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-slate-300 p-3.5 transition-all shadow-2xs"
               >
-                {/* Header Controls: Number & Sorting */}
-                <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-lg bg-red-600 text-white font-mono font-black text-xs">
-                      كتالوج #{String(idx + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-xs font-bold text-slate-800 truncate max-w-[180px]">
-                      {cardTitleAr || `كتالوج #${idx + 1}`}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1">
-                    <button
-                      type="button"
-                      disabled={idx === 0}
-                      onClick={() => handleMoveCard(idx, 'up')}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
-                      title="تحريك لأعلى"
-                    >
-                      <ArrowUp className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      disabled={idx === cards.length - 1}
-                      onClick={() => handleMoveCard(idx, 'down')}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
-                      title="تحريك لأسفل"
-                    >
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteCard(idx)}
-                      className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-1"
-                      title="حذف الكتالوج"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* 1. Card Cover Image */}
-                <div className="space-y-2">
-                  <label className="block text-[11px] font-black text-slate-700">
-                    صورة غلاف الكتالوج / النظام *
-                  </label>
-                  <div className="relative aspect-video rounded-xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-3">
-                    {card.image ? (
-                      <img
-                        src={card.image}
-                        alt={cardTitleAr}
-                        className="max-h-full max-w-full object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
-                        }}
-                      />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center text-slate-400 gap-1 text-xs">
-                        <ImageIcon className="w-8 h-8 opacity-40" />
-                        <span>لم يتم رفع صورة</span>
-                      </div>
-                    )}
-
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
-                      <button
-                        type="button"
-                        onClick={() => triggerUpload('cards', idx, 'image')}
-                        className="px-3.5 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs shadow-md flex items-center gap-1.5 cursor-pointer hover:bg-slate-50"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>استبدال الصورة</span>
-                      </button>
+                <div className="flex flex-col md:flex-row gap-4 items-start">
+                  {/* Thumbnail & Upload */}
+                  <div className="w-full md:w-44 shrink-0 flex flex-col gap-1.5">
+                    <div className="relative aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-1.5">
+                      {card.image ? (
+                        <img
+                          src={card.image}
+                          alt={cardTitleAr}
+                          className="max-h-full max-w-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                          }}
+                        />
+                      ) : (
+                        <ImageIcon className="w-6 h-6 text-slate-300" />
+                      )}
                     </div>
-                  </div>
 
-                  <button
-                    type="button"
-                    onClick={() => triggerUpload('cards', idx, 'image')}
-                    className="w-full py-2 px-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
-                  >
-                    <Upload className="w-3.5 h-3.5 text-slate-500" />
-                    <span>
-                      {isUploading && activeUploadTarget?.section === 'cards' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
-                        ? 'جاري رفع الصورة…'
-                        : 'رفع / تغيير صورة الغلاف'}
-                    </span>
-                  </button>
-                </div>
-
-                {/* 2. Arabic Title */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    عنوان الكتالوج (بالعربية) *
-                  </label>
-                  <input
-                    type="text"
-                    value={cardTitleAr}
-                    onChange={(e) => handleUpdateCardField(idx, 'title', e.target.value)}
-                    placeholder="مثال: كتالوج شركة WIEK بلجيكا للأنظمة المعمارية"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-bold text-slate-900 bg-white focus:border-red-500 outline-none"
-                  />
-                </div>
-
-                {/* 3. Arabic Description */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    شرح ومواصفات الكتالوج (بالعربية) *
-                  </label>
-                  <textarea
-                    value={cardDescAr}
-                    onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
-                    placeholder="مثال: المفصلات المخفية والأنظمة المعمارية المعتمدة 2026..."
-                    rows={2}
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-white focus:border-red-500 outline-none resize-y leading-relaxed"
-                  />
-                </div>
-
-                {/* 4. Company / Partner Name */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    اسم الشركة / الشريك
-                  </label>
-                  <input
-                    type="text"
-                    value={card.company || card.brand || ''}
-                    onChange={(e) => handleUpdateCardField(idx, 'company', e.target.value)}
-                    placeholder="مثال: WIEK Belgium أو STAC Spain"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 bg-white focus:border-red-500 outline-none"
-                  />
-                </div>
-
-                {/* 5. PDF File & Button Text */}
-                <div className="space-y-2 pt-3 border-t border-slate-200">
-                  <div className="flex items-center justify-between gap-2">
-                    <label className="block text-[11px] font-black text-slate-700">
-                      ملف الكتالوج الفني (PDF) *
-                    </label>
-                    {card.pdfUrl && (
-                      <a
-                        href={card.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>معاينة ملف PDF</span>
-                      </a>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={card.pdfUrl || ''}
-                      onChange={(e) => handleUpdateCardField(idx, 'pdfUrl', e.target.value)}
-                      placeholder="/catalogs/wiek-general-catalog-2026.pdf"
-                      dir="ltr"
-                      className="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-white focus:border-red-500 outline-none font-mono"
-                    />
                     <button
                       type="button"
-                      onClick={() => triggerUpload('cards', idx, 'pdf')}
-                      className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0"
+                      onClick={() => triggerUpload('cards', idx, 'image')}
+                      className="w-full py-1 px-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-[11px] flex items-center justify-center gap-1 cursor-pointer transition-colors"
                     >
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>رفع PDF</span>
+                      <Upload className="w-3 h-3 text-slate-500" />
+                      <span>
+                        {isUploading && activeUploadTarget?.section === 'cards' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
+                          ? 'جاري الرفع…'
+                          : 'تغيير الصورة'}
+                      </span>
                     </button>
                   </div>
 
-                  <div>
-                    <label className="block text-[11px] font-black text-slate-700 mb-1">
-                      نص الزر (مثال: فتح الكتالوج PDF)
-                    </label>
-                    <input
-                      type="text"
-                      value={cardBtnAr}
-                      onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
-                      placeholder="فتح الكتالوج (PDF)"
-                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 bg-white focus:border-red-500 outline-none"
+                  {/* Form Details (Compact & Clean) */}
+                  <div className="flex-1 w-full space-y-2">
+                    {/* Header Row: Badge, Title Input, Move & Delete */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <span className="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-black text-[10px] shrink-0">
+                          #{String(idx + 1).padStart(2, '0')}
+                        </span>
+                        <input
+                          type="text"
+                          value={cardTitleAr}
+                          onChange={(e) => handleUpdateCardField(idx, 'title', e.target.value)}
+                          placeholder="عنوان الكتالوج (مثال: كتالوج شركة WIEK بلجيكا)"
+                          className="flex-1 font-bold text-xs text-slate-900 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400"
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          disabled={idx === 0}
+                          onClick={() => handleMoveCard(idx, 'up')}
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
+                          title="تحريك لأعلى"
+                        >
+                          <ArrowUp className="w-3 h-3" />
+                        </button>
+                        <button
+                          type="button"
+                          disabled={idx === cards.length - 1}
+                          onClick={() => handleMoveCard(idx, 'down')}
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
+                          title="تحريك لأسفل"
+                        >
+                          <ArrowDown className="w-3 h-3" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteCard(idx)}
+                          className="p-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-0.5"
+                          title="حذف"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Description Textarea */}
+                    <textarea
+                      value={cardDescAr}
+                      onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
+                      placeholder="وصف ومواصفات الكتالوج..."
+                      rows={2}
+                      className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
                     />
+
+                    {/* Bottom Inline Bar: Partner Name, PDF Upload, Button Text */}
+                    <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
+                      <input
+                        type="text"
+                        value={card.company || card.brand || ''}
+                        onChange={(e) => handleUpdateCardField(idx, 'company', e.target.value)}
+                        placeholder="اسم الشركة (WIEK Belgium)"
+                        className="w-full md:w-1/3 text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
+                      />
+
+                      <div className="flex items-center gap-1.5 flex-1 w-full">
+                        <input
+                          type="text"
+                          value={card.pdfUrl || ''}
+                          onChange={(e) => handleUpdateCardField(idx, 'pdfUrl', e.target.value)}
+                          placeholder="رابط ملف PDF"
+                          dir="ltr"
+                          className="flex-1 font-mono text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => triggerUpload('cards', idx, 'pdf')}
+                          className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer shrink-0"
+                        >
+                          <Upload className="w-3 h-3" />
+                          <span>رفع PDF</span>
+                        </button>
+                        {card.pdfUrl && (
+                          <a
+                            href={card.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors shrink-0"
+                            title="معاينة PDF"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
+
+                      <input
+                        type="text"
+                        value={cardBtnAr}
+                        onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
+                        placeholder="نص الزر"
+                        className="w-full md:w-36 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400 shrink-0"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -600,37 +522,30 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       {/* ========================================================================= */}
       {/* SECTION 2: ACCESSORIES & SYSTEMS SHOWCASE (1/4 Slider with Handles, etc.) */}
       {/* ========================================================================= */}
-      <section className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-2xs space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
-          <div className="space-y-1">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-red-50 text-red-600 flex items-center justify-center font-black">
-                <Layers className="w-4 h-4" />
-              </div>
-              <h3 className="text-lg font-black text-slate-900">
-                القسم الثاني: بطاقات أنظمة وإكسسوارات العمارة التفاعلية
-                <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-lg ms-2">
-                  {showcaseItems.length} شرائح
-                </span>
-              </h3>
-            </div>
-            <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
-              معرض الأنظمة والإكسسوارات التفاعلي الدوار (Slider) أسفل الكتالوجات (المفصلات المخفية، المقابض، وتروس السحب والرفع). يمكنك إضافة بطاقات جديدة، رفع صور المخططات والإكسسوارات، وربط كل نظام بالكتالوج الفني الخاص به.
-            </p>
+      <section className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-slate-100">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
+            <h3 className="text-base font-black text-slate-900">
+              أنظمة ورسومات العمارة التفاعلية ({showcaseItems.length})
+            </h3>
+            <span className="text-[11px] text-slate-400 font-normal">
+              (شريط السلايدر الدوار)
+            </span>
           </div>
 
           <button
             type="button"
             onClick={handleAddShowcaseItem}
-            className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
+            className="px-3.5 py-1.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer self-start sm:self-auto"
           >
-            <Plus className="w-4 h-4 stroke-[3]" />
-            <span>إضافة بطاقة نظام جديدة</span>
+            <Plus className="w-3.5 h-3.5 stroke-[3]" />
+            <span>إضافة شريحة</span>
           </button>
         </div>
 
-        {/* Showcase Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Compact Showcase List */}
+        <div className="space-y-3">
           {showcaseItems.map((item, idx) => {
             const itemTitleAr = item.titleAr || item.title || '';
             const itemDescAr = item.descriptionAr || item.description || '';
@@ -639,188 +554,144 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={item.id || idx}
-                className="bg-slate-50/50 rounded-2xl border border-slate-200 hover:border-slate-300 p-5 shadow-xs flex flex-col justify-between gap-4 transition-all"
+                className="bg-slate-50/70 hover:bg-white rounded-xl border border-slate-200 hover:border-slate-300 p-3.5 transition-all shadow-2xs"
               >
-                {/* Header Controls: Number & Sorting */}
-                <div className="flex items-center justify-between gap-2 pb-3 border-b border-slate-200/80">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-mono font-black text-xs">
-                      شريحة #{String(idx + 1).padStart(2, '0')}
-                    </span>
-                    <span className="text-xs font-bold text-slate-800 truncate max-w-[180px]">
-                      {itemTitleAr || `نظام #${idx + 1}`}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1">
-                    <button
-                      type="button"
-                      disabled={idx === 0}
-                      onClick={() => handleMoveShowcaseItem(idx, 'up')}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
-                      title="تحريك لأعلى"
-                    >
-                      <ArrowUp className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      disabled={idx === showcaseItems.length - 1}
-                      onClick={() => handleMoveShowcaseItem(idx, 'down')}
-                      className="p-1.5 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
-                      title="تحريك لأسفل"
-                    >
-                      <ArrowDown className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteShowcaseItem(idx)}
-                      className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-1"
-                      title="حذف النظام"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* 1. Accessory / Drawing Image */}
-                <div className="space-y-2">
-                  <label className="block text-[11px] font-black text-slate-700">
-                    صورة الإكسسوار / المخطط الهندسي للنظام *
-                  </label>
-                  <div className="relative aspect-video rounded-xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-3">
-                    {item.image ? (
-                      <img
-                        src={item.image}
-                        alt={itemTitleAr}
-                        className="max-h-full max-w-full object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
-                        }}
-                      />
-                    ) : (
-                      <div className="flex flex-col items-center justify-center text-slate-400 gap-1 text-xs">
-                        <ImageIcon className="w-8 h-8 opacity-40" />
-                        <span>لم يتم رفع مخطط أو صورة</span>
-                      </div>
-                    )}
-
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
-                      <button
-                        type="button"
-                        onClick={() => triggerUpload('showcase', idx, 'image')}
-                        className="px-3.5 py-2 rounded-xl bg-white text-slate-900 font-extrabold text-xs shadow-md flex items-center gap-1.5 cursor-pointer hover:bg-slate-50"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>استبدال الصورة</span>
-                      </button>
+                <div className="flex flex-col md:flex-row gap-4 items-start">
+                  {/* Thumbnail & Upload */}
+                  <div className="w-full md:w-44 shrink-0 flex flex-col gap-1.5">
+                    <div className="relative aspect-video md:aspect-[4/3] rounded-lg overflow-hidden bg-white border border-slate-200 flex items-center justify-center group p-1.5">
+                      {item.image ? (
+                        <img
+                          src={item.image}
+                          alt={itemTitleAr}
+                          className="max-h-full max-w-full object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
+                          }}
+                        />
+                      ) : (
+                        <ImageIcon className="w-6 h-6 text-slate-300" />
+                      )}
                     </div>
-                  </div>
 
-                  <button
-                    type="button"
-                    onClick={() => triggerUpload('showcase', idx, 'image')}
-                    className="w-full py-2 px-3 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
-                  >
-                    <Upload className="w-3.5 h-3.5 text-slate-500" />
-                    <span>
-                      {isUploading && activeUploadTarget?.section === 'showcase' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
-                        ? 'جاري رفع الصورة…'
-                        : 'رفع / تغيير صورة الإكسسوار أو المخطط'}
-                    </span>
-                  </button>
-                </div>
-
-                {/* 2. Arabic Title */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    عنوان النظام أو الإكسسوار (بالعربية) *
-                  </label>
-                  <input
-                    type="text"
-                    value={itemTitleAr}
-                    onChange={(e) => handleUpdateShowcaseField(idx, 'title', e.target.value)}
-                    placeholder="مثال: نظام WIEK للمفصلات المخفية الفاخرة"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-xs font-bold text-slate-900 bg-white focus:border-red-500 outline-none"
-                  />
-                </div>
-
-                {/* 3. Arabic Description */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    شرح ومواصفات النظام (بالعربية) *
-                  </label>
-                  <textarea
-                    value={itemDescAr}
-                    onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
-                    placeholder="مثال: مفصلات مخفية بالكامل مدمجة داخل قطاع الألمنيوم والـ uPVC مصممة للمشاريع المودرن الفاخرة بتحمل وزن يصل إلى 130 كغم..."
-                    rows={3}
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-white focus:border-red-500 outline-none resize-y leading-relaxed"
-                  />
-                </div>
-
-                {/* 4. Brand / Series */}
-                <div>
-                  <label className="block text-[11px] font-black text-slate-700 mb-1">
-                    اسم الماركة / النظام
-                  </label>
-                  <input
-                    type="text"
-                    value={item.brand || ''}
-                    onChange={(e) => handleUpdateShowcaseField(idx, 'brand', e.target.value)}
-                    placeholder="مثال: WIEK SYSTEM أو STAC Spain"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 bg-white focus:border-red-500 outline-none"
-                  />
-                </div>
-
-                {/* 5. PDF File & Button Text */}
-                <div className="space-y-2 pt-3 border-t border-slate-200">
-                  <div className="flex items-center justify-between gap-2">
-                    <label className="block text-[11px] font-black text-slate-700">
-                      ملف الكتالوج الفني (PDF) *
-                    </label>
-                    {item.pdfUrl && (
-                      <a
-                        href={item.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs font-bold text-red-600 hover:text-red-700 flex items-center gap-1"
-                      >
-                        <Eye className="w-3.5 h-3.5" />
-                        <span>معاينة ملف PDF</span>
-                      </a>
-                    )}
-                  </div>
-
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      value={item.pdfUrl || ''}
-                      onChange={(e) => handleUpdateShowcaseField(idx, 'pdfUrl', e.target.value)}
-                      placeholder="/catalogs/stac-hardware-accessories.pdf"
-                      dir="ltr"
-                      className="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-white focus:border-red-500 outline-none font-mono"
-                    />
                     <button
                       type="button"
-                      onClick={() => triggerUpload('showcase', idx, 'pdf')}
-                      className="px-3.5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0"
+                      onClick={() => triggerUpload('showcase', idx, 'image')}
+                      className="w-full py-1 px-2 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 text-slate-700 font-bold text-[11px] flex items-center justify-center gap-1 cursor-pointer transition-colors"
                     >
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>رفع PDF</span>
+                      <Upload className="w-3 h-3 text-slate-500" />
+                      <span>
+                        {isUploading && activeUploadTarget?.section === 'showcase' && activeUploadTarget?.index === idx && activeUploadTarget.field === 'image'
+                          ? 'جاري الرفع…'
+                          : 'تغيير الصورة'}
+                      </span>
                     </button>
                   </div>
 
-                  <div>
-                    <label className="block text-[11px] font-black text-slate-700 mb-1">
-                      نص الزر (مثال: فتح الكتالوج المعتمد PDF)
-                    </label>
-                    <input
-                      type="text"
-                      value={itemBtnAr}
-                      onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
-                      placeholder="فتح الكتالوج المعتمد (PDF)"
-                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 bg-white focus:border-red-500 outline-none"
+                  {/* Form Details (Compact & Clean) */}
+                  <div className="flex-1 w-full space-y-2">
+                    {/* Header Row: Badge, Title Input, Move & Delete */}
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2 flex-1">
+                        <span className="px-2 py-0.5 rounded bg-slate-900 text-white font-mono font-black text-[10px] shrink-0">
+                          #{String(idx + 1).padStart(2, '0')}
+                        </span>
+                        <input
+                          type="text"
+                          value={itemTitleAr}
+                          onChange={(e) => handleUpdateShowcaseField(idx, 'title', e.target.value)}
+                          placeholder="عنوان النظام (مثال: نظام WIEK للمفصلات المخفية)"
+                          className="flex-1 font-bold text-xs text-slate-900 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400"
+                        />
+                      </div>
+
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button
+                          type="button"
+                          disabled={idx === 0}
+                          onClick={() => handleMoveShowcaseItem(idx, 'up')}
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
+                          title="تحريك لأعلى"
+                        >
+                          <ArrowUp className="w-3 h-3" />
+                        </button>
+                        <button
+                          type="button"
+                          disabled={idx === showcaseItems.length - 1}
+                          onClick={() => handleMoveShowcaseItem(idx, 'down')}
+                          className="p-1 rounded bg-white border border-slate-200 hover:bg-slate-100 disabled:opacity-20 text-slate-600 transition-colors cursor-pointer"
+                          title="تحريك لأسفل"
+                        >
+                          <ArrowDown className="w-3 h-3" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteShowcaseItem(idx)}
+                          className="p-1 rounded bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-0.5"
+                          title="حذف"
+                        >
+                          <Trash2 className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Description Textarea */}
+                    <textarea
+                      value={itemDescAr}
+                      onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
+                      placeholder="شرح ومواصفات النظام..."
+                      rows={2}
+                      className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
                     />
+
+                    {/* Bottom Inline Bar: Brand, PDF Upload, Button Text */}
+                    <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
+                      <input
+                        type="text"
+                        value={item.brand || ''}
+                        onChange={(e) => handleUpdateShowcaseField(idx, 'brand', e.target.value)}
+                        placeholder="الماركة / النظام (WIEK SYSTEM)"
+                        className="w-full md:w-1/3 text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
+                      />
+
+                      <div className="flex items-center gap-1.5 flex-1 w-full">
+                        <input
+                          type="text"
+                          value={item.pdfUrl || ''}
+                          onChange={(e) => handleUpdateShowcaseField(idx, 'pdfUrl', e.target.value)}
+                          placeholder="رابط ملف PDF"
+                          dir="ltr"
+                          className="flex-1 font-mono text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => triggerUpload('showcase', idx, 'pdf')}
+                          className="px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer shrink-0"
+                        >
+                          <Upload className="w-3 h-3" />
+                          <span>رفع PDF</span>
+                        </button>
+                        {item.pdfUrl && (
+                          <a
+                            href={item.pdfUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors shrink-0"
+                            title="معاينة PDF"
+                          >
+                            <Eye className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+                      </div>
+
+                      <input
+                        type="text"
+                        value={itemBtnAr}
+                        onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
+                        placeholder="نص الزر"
+                        className="w-full md:w-36 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400 shrink-0"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
