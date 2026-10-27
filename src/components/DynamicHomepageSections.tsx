@@ -36,12 +36,12 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
     currentLanguage.code
   );
 
-  // Auto-swap every 4.5s with pause on hover
+  // Auto-swap every 8.5s with pause on hover
   useEffect(() => {
     if (isPaused || localizedItems.length <= 1) return;
     autoSwapRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % localizedItems.length);
-    }, 4500);
+    }, 8500);
     return () => {
       if (autoSwapRef.current) clearInterval(autoSwapRef.current);
     };
@@ -93,16 +93,18 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
 
         {/* Interactive Auto-Swapping Product Showcase Card */}
         <div
-          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-500"
+          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            {/* Left: Media Display */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:h-[500px]">
+            {/* Left: Media Display (Fixed aspect/height so portrait/landscape media never changes card size) */}
             <div
               className={`lg:col-span-6 relative ${
-                isAccessoryStyle && !isVideoMedia ? 'bg-slate-50 p-6 sm:p-10' : 'bg-slate-950'
-              } flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-full w-full`}
+                isAccessoryStyle && !isVideoMedia ? 'bg-slate-50' : 'bg-slate-950'
+              } overflow-hidden h-[300px] sm:h-[380px] lg:h-[500px] w-full shrink-0`}
             >
               {isVideoMedia ? (
                 <video
@@ -112,7 +114,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               ) : (
                 <img
@@ -128,11 +130,11 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                     }
                   }}
                   onClick={() => onSelectProduct(activeProduct)}
-                  className={`${
+                  className={`absolute inset-0 w-full h-full ${
                     isAccessoryStyle
-                      ? 'max-h-full max-w-full object-contain drop-shadow-sm'
-                      : 'w-full h-full object-cover'
-                  } animate-in fade-in zoom-in-95 duration-500 cursor-pointer`}
+                      ? 'object-contain p-6 sm:p-10 drop-shadow-sm'
+                      : 'object-cover'
+                  } animate-in fade-in duration-500 cursor-pointer`}
                   loading="lazy"
                 />
               )}
@@ -177,26 +179,26 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
               </div>
             </div>
 
-            {/* Right: Clean Title, Description & Action Buttons */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-auto text-start">
-              <div className="space-y-4">
+            {/* Right: Clean Title, Description & Action Buttons (Fixed height so card never resizes on swap) */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between h-[430px] sm:h-[420px] lg:h-[500px] overflow-hidden text-start">
+              <div className="space-y-3 overflow-y-auto pr-1">
                 {activeProduct.name && (
                   <h3
                     onClick={() => onSelectProduct(activeProduct)}
-                    className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
+                    className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"
                   >
                     <bdi dir="auto">{activeProduct.name}</bdi>
                   </h3>
                 )}
                 {activeProduct.description && (
-                  <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
+                  <p className="text-sm sm:text-[15px] text-slate-600 mt-2 leading-relaxed font-normal whitespace-pre-line">
                     <bdi dir="auto">{activeProduct.description}</bdi>
                   </p>
                 )}
               </div>
 
               {/* Action Button */}
-              <div className="pt-4 mt-4 border-t border-slate-100">
+              <div className="pt-4 mt-3 border-t border-slate-100 shrink-0">
                 <button
                   type="button"
                   onClick={() => onSelectProduct(activeProduct)}
