@@ -463,16 +463,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
                     />
 
-                    {/* Bottom Inline Bar: Partner Name, PDF Upload, Button Text */}
+                    {/* Bottom Inline Bar: PDF Upload, Button Text */}
                     <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
-                      <input
-                        type="text"
-                        value={card.company || card.brand || ''}
-                        onChange={(e) => handleUpdateCardField(idx, 'company', e.target.value)}
-                        placeholder="اسم الشركة (WIEK Belgium)"
-                        className="w-full md:w-1/3 text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
-                      />
-
                       <div className="flex items-center gap-1.5 flex-1 w-full">
                         <input
                           type="text"
@@ -507,8 +499,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="text"
                         value={cardBtnAr}
                         onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
-                        placeholder="نص الزر"
-                        className="w-full md:w-36 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400 shrink-0"
+                        placeholder="نص زر الكتالوج"
+                        className="w-full md:w-44 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-400 shrink-0"
                       />
                     </div>
                   </div>
@@ -644,16 +636,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       className="w-full text-xs text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-red-400 resize-none leading-relaxed"
                     />
 
-                    {/* Bottom Inline Bar: Brand, PDF Upload, Button Text */}
+                    {/* Bottom Inline Bar: PDF Upload, Button Text */}
                     <div className="flex flex-wrap md:flex-nowrap items-center gap-2 pt-1 border-t border-slate-200/70">
-                      <input
-                        type="text"
-                        value={item.brand || ''}
-                        onChange={(e) => handleUpdateShowcaseField(idx, 'brand', e.target.value)}
-                        placeholder="الماركة / النظام (WIEK SYSTEM)"
-                        className="w-full md:w-1/3 text-[11px] text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400"
-                      />
-
                       <div className="flex items-center gap-1.5 flex-1 w-full">
                         <input
                           type="text"
@@ -688,8 +672,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="text"
                         value={itemBtnAr}
                         onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
-                        placeholder="نص الزر"
-                        className="w-full md:w-36 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2 py-1 outline-none focus:border-red-400 shrink-0"
+                        placeholder="نص زر الكتالوج"
+                        className="w-full md:w-44 text-[11px] font-bold text-slate-700 bg-white border border-slate-200 rounded-lg px-2.5 py-1 outline-none focus:border-red-400 shrink-0"
                       />
                     </div>
                   </div>

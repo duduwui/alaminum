@@ -324,7 +324,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                     </span>
                   </button>
 
-                  {/* Form Details (Arabic Only) */}
+                  {/* Form Details (Arabic Only: Name & Description only) */}
                   <div className="space-y-2">
                     <div>
                       <label className="block text-[10px] font-bold text-slate-500 mb-0.5">
@@ -336,19 +336,6 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                         onChange={(e) => handleFieldChange(prod.id, 'name', e.target.value)}
                         placeholder="مثال: مقبض STAC المينيماليست"
                         className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-900 outline-none focus:border-red-400 bg-slate-50/50"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] font-bold text-slate-500 mb-0.5">
-                        الماركة / الفئة
-                      </label>
-                      <input
-                        type="text"
-                        value={prod.brand || prod.subCategory || ''}
-                        onChange={(e) => handleFieldChange(prod.id, 'brand', e.target.value)}
-                        placeholder="مثال: STAC Spain أو WIEK SYSTEM"
-                        className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 outline-none focus:border-red-400 bg-slate-50/50"
                       />
                     </div>
 
