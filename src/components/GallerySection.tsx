@@ -188,16 +188,10 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                     </div>
                     <div className="flex flex-1 flex-col justify-between p-5">
                       <div className="space-y-2">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-[10px] font-black uppercase tracking-wider text-red-600">
-                            {item.category ? item.category.toUpperCase() : 'PROJECT'}
-                          </span>
-                          {item.year && <span className="text-[11px] font-bold text-slate-400">{item.year}</span>}
-                        </div>
-                        <h3 className="text-base font-extrabold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-1">
+                        <h3 dir="auto" className="text-base font-extrabold text-slate-900 group-hover:text-red-600 transition-colors line-clamp-1">
                           {item.title}
                         </h3>
-                        <p className="line-clamp-2 text-xs leading-relaxed text-slate-600 whitespace-pre-line">
+                        <p dir="auto" className="line-clamp-2 text-xs leading-relaxed text-slate-600 whitespace-pre-line">
                           {item.description}
                         </p>
                       </div>
@@ -315,17 +309,6 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
               {/* Right Column: Editorial Project Info & Right-Aligned WhatsApp Button */}
               <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 text-start">
                 <div className="space-y-4">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="px-3 py-1 rounded-full bg-red-50 text-red-600 border border-red-100 text-[11px] font-extrabold uppercase tracking-wider">
-                      <bdi dir="auto">{selected.category || 'Architectural Project'}</bdi>
-                    </span>
-                    {selected.year && (
-                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">
-                        {selected.year}
-                      </span>
-                    )}
-                  </div>
-
                   <h3 dir="auto" className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
                     {localize(items.find(item => item.id === selected.id) || selected).title}
                   </h3>

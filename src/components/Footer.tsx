@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
               />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              <strong className="text-white font-semibold">Doorhome Company</strong>, part of the <strong className="text-slate-300">Nafza Al-Manzl Holding Group</strong>, is Kurdistan’s premier architectural engineering and fabrication specialist for certified European aluminium and uPVC fenestration systems.
+              <strong className="text-white font-semibold">Doorhome Company</strong> is Kurdistan’s premier architectural engineering and fabrication specialist for certified European aluminium and uPVC fenestration systems.
             </p>
 
             <div className="pt-2 text-[11px] text-slate-400 space-y-1">
@@ -198,7 +198,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenQuote }) => {
         {/* 3. Bottom Legal, Admin & Back to Top Strip */}
         <div className="mt-14 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} Doorhome Company (Nafza Al-Manzl Holding). All rights reserved.
+            © {new Date().getFullYear()} Doorhome Company. All rights reserved.
           </div>
 
           <div className="flex items-center gap-5">

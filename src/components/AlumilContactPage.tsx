@@ -459,7 +459,7 @@ export const AlumilContactPage: React.FC<AlumilContactPageProps> = ({
               </div>
               
               <h3 className="text-xl font-black text-slate-900">
-                Doorhome Company by Nafza Almanzl
+                Doorhome Company
               </h3>
 
               <div className="space-y-3 text-xs text-slate-700">

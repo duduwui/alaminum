@@ -9,45 +9,37 @@ interface AboutSectionProps {
 interface AboutEditorialContent {
   title: string;
   paragraph: string;
-  exploreBtn: string;
 }
 
 const ABOUT_CONTENT_BY_LANG: Record<string, AboutEditorialContent> = {
   ar: {
     title: 'لماذا تختار أنظمة باب المنزل لمشروعك؟',
     paragraph:
-      'تحت مظلة مجموعة نافذة المنزل، تجمع شركة باب المنزل بين دقة الهندسة الأوروبية وإتقان التصنيع المحلي لتقديم أنظمة معمارية متكاملة تدوم لأجيال طويلة. صُممت نوافذنا وأبوابنا بعوازل حرارية متطورة تقاوم حرارة الصيف الشديدة وتحافظ على اعتدال ودفء الأجواء الداخلية في فصل الشتاء، إلى جانب نظام عزل صوتي متعدد الحجرات مع طبقات مطاطية محكمة تمنع ضوضاء الشوارع وتمنح منزلك هدوءاً تاماً. كما تتميز مقاطعنا المعمارية بصلابة عالية تقاوم الأمطار الغزيرة والعواصف الرملية والغبار دون أي تسريب، وتكتمل بآليات إغلاق وأقفال أوروبية متعددة النقاط تمنح عائلتك أعلى مستويات الأمان والراحة في الاستخدام اليومي.',
-    exploreBtn: 'استكشف نماذج المباني'
+      'تجمع شركة باب المنزل بين دقة الهندسة الأوروبية وإتقان التصنيع المحلي لتقديم أنظمة معمارية متكاملة تدوم لأجيال طويلة. صُممت نوافذنا وأبوابنا بعوازل حرارية متطورة تقاوم حرارة الصيف الشديدة وتحافظ على اعتدال ودفء الأجواء الداخلية في فصل الشتاء، إلى جانب نظام عزل صوتي متعدد الحجرات مع طبقات مطاطية محكمة تمنع ضوضاء الشوارع وتمنح منزلك هدوءاً تاماً. كما تتميز مقاطعنا المعمارية بصلابة عالية تقاوم الأمطار الغزيرة والعواصف الرملية والغبار دون أي تسريب، وتكتمل بآليات إغلاق وأقفال أوروبية متعددة النقاط تمنح عائلتك أعلى مستويات الأمان والراحة في الاستخدام اليومي.'
   },
   ckb: {
     title: 'بۆچی سیستەمەکانی دەرگای ماڵ بۆ پڕۆژەکەت هەڵبژێریت؟',
     paragraph:
-      'لە ژێر چەتری گرووپی نەفزە المنزڵ، کۆمپانیای دەرگای ماڵ ئەندازیاریی وردی ئەورووپی لەگەڵ کارامەیی بەرهەمهێنانی ناوخۆیی تێکەڵ دەکات بۆ پێشکەشکردنی سیستەمی نژیاروانیی وا کە نەوە لە دوای نەوە دەمێنێتەوە. پەنجەرە و دەرگاکانمان بە عەزلی گەرمیی پێشکەوتوو دروست کراون بۆ بەرگەگرتنی گەرمای هاوین و پاراستنی گەرمیی ناو ماڵ لە زستاندا، لەگەڵ پێکهاتەی ناوەکیی فرەخانە و لاستیکی توندوتۆڵ کە دەنگەدەنگی شەقام و ژاوەژاوی شار بە تەواوی دەگرێت و ئارامییەکی تەواو دەبەخشێت. هەروەها پرۆفایلە بەهێزکراوەکانمان بەرگەی بارانی بەخوڕ و ڕەشەبا و تۆزوخۆڵ دەگرن بەبێ هیچ دزەکردنێک، و بە سیستەمی قوفڵی فرەخاڵی ئەورووپی تەواو دەکرێن بۆ دابینکردنی بەرزترین ئاستی ئاسایش و دڵنیایی لە بەکارهێنانی ڕۆژانەدا.',
-    exploreBtn: 'بینینی جۆرەکانی باڵەخانە'
+      'کۆمپانیای دەرگای ماڵ ئەندازیاریی وردی ئەورووپی لەگەڵ کارامەیی بەرهەمهێنانی ناوخۆیی تێکەڵ دەکات بۆ پێشکەشکردنی سیستەمی نژیاروانیی وا کە نەوە لە دوای نەوە دەمێنێتەوە. پەنجەرە و دەرگاکانمان بە عەزلی گەرمیی پێشکەوتوو دروست کراون بۆ بەرگەگرتنی گەرمای هاوین و پاراستنی گەرمیی ناو ماڵ لە زستاندا، لەگەڵ پێکهاتەی ناوەکیی فرەخانە و لاستیکی توندوتۆڵ کە دەنگەدەنگی شەقام و ژاوەژاوی شار بە تەواوی دەگرێت و ئارامییەکی تەواو دەبەخشێت. هەروەها پرۆفایلە بەهێزکراوەکانمان بەرگەی بارانی بەخوڕ و ڕەشەبا و تۆزوخۆڵ دەگرن بەبێ هیچ دزەکردنێک، و بە سیستەمی قوفڵی فرەخاڵی ئەورووپی تەواو دەکرێن بۆ دابینکردنی بەرزترین ئاستی ئاسایش و دڵنیایی لە بەکارهێنانی ڕۆژانەدا.'
   },
   kmr: {
     title: 'Çima Pergalên Deriyê Malê ji bo Projeya Xwe Hilbijêrin?',
     paragraph:
-      'Di bin sîwana Koma Nefze El-Menzil de, Deriyê Malê endezyariya hûrgulî ya Ewropî bi hostatiya hilberîna herêmî re digihîne hev da ku pergalên mîmarî yên ku nifş bi nifş dimînin pêşkêş bike. Pencere û deriyên me bi îzolasyona germiyê ya pêşketî hatine sêwirandin da ku li hember germahiya dijwar a havînê li ber xwe bidin û di zivistanê de germahiya hundir biparêzin, digel avahiya pir-odeyî û lastîkên girtî yên ku dengê kolanan û qerebalixiya bajêr bi tevahî asteng dikin. Her wiha profîlên me yên bihêzkirî li hember barana gur, bager û tozê bê دزەkirin berxwedêr in, û bi kilîtên ewlehiyê yên pir-xalî yên Ewropî tên temamkirin da ku ewlehî û rehetiya herî bilind bidin mala we.',
-    exploreBtn: 'Cureyên Avahiyan Bibîne'
+      'Deriyê Malê endezyariya hûrgulî ya Ewropî bi hostatiya hilberîna herêmî re digihîne hev da ku pergalên mîmarî yên ku nifş bi nifş dimînin pêşkêş bike. Pencere û deriyên me bi îzolasyona germiyê ya pêşketî hatine sêwirandin da ku li hember germahiya dijwar a havînê li ber xwe bidin û di zivistanê de germahiya hundir biparêzin, digel avahiya pir-odeyî û lastîkên girtî yên ku dengê kolanan û qerebalixiya bajêr bi tevahî asteng dikin. Her wiha profîlên me yên bihêzkirî li hember barana gur, bager û tozê bi تەواوی berxwedêr in, û bi kilîtên ewlehiyê yên pir-xalî yên Ewropî tên temamkirin da ku ewlehî û rehetiya herî bilind bidin mala we.'
   },
   en: {
     title: 'Why Choose Doorhome Systems for Your Project?',
     paragraph:
-      'Under the umbrella of the Nafza Al-Manzl Group, Doorhome unites precision European engineering with master local craftsmanship to deliver architectural systems built to last for generations. Our windows and doors are designed with advanced thermal break barriers that repel extreme summer heat and preserve comfortable indoor warmth through winter, paired with multi-chamber acoustic sealing that shuts out city traffic noise for complete indoor serenity. Reinforced structural profiles stand firm against heavy rain, wind, and dust storms with zero leakage, while multipoint European locking mechanisms provide effortless daily operation and lasting family security.',
-    exploreBtn: 'Explore Building Typologies'
+      'Doorhome unites precision European engineering with master local craftsmanship to deliver architectural systems built to last for generations. Our windows and doors are designed with advanced thermal break barriers that repel extreme summer heat and preserve comfortable indoor warmth through winter, paired with multi-chamber acoustic sealing that shuts out city traffic noise for complete indoor serenity. Reinforced structural profiles stand firm against heavy rain, wind, and dust storms with zero leakage, while multipoint European locking mechanisms provide effortless daily operation and lasting family security.'
   },
   tr: {
     title: 'Projeniz İçin Neden Kapı Ev Sistemlerini Seçmelisiniz?',
     paragraph:
-      'Nafza Al-Manzl Grubu çatısı altında faaliyet gösteren Kapı Ev, nesiller boyu dayanacak mimari sistemler sunmak için hassas Avrupa mühendisliğini yerel üretim ustalığıyla bir araya getirir. Pencere ve kapılarımız, kavurucu yaz sıcaklarını dışarıda tutan ve kış aylarında iç mekan sıcaklığını koruyan gelişmiş ısı yalıtım bariyerleriyle tasarlanmış olup, çok odacıklı ses yalıtım contaları sayesinde şehir gürültüsünü tamamen engelleyerek huzurlu bir yaşam alanı sağlar. Güçlendirilmiş profillerimiz şiddetli yağmur, rüzgar ve toz fırtınalarına karşı tam sızdırmazlık sunarken, çok noktalı Avrupa kilit mekanizmaları günlük kullanımda üstün konfor ve yüksek güvenlik sağlar.',
-    exploreBtn: 'Yapı Tipolojilerini Keşfedin'
+      'Kapı Ev, nesiller boyu dayanacak mimari sistemler sunmak için hassas Avrupa mühendisliğini yerel üretim ustalığıyla bir araya getirir. Pencere ve kapılarımız, kavurucu yaz sıcaklarını dışarıda tutan ve kış aylarında iç mekan sıcaklığını koruyan gelişmiş ısı yalıtım bariyerleriyle tasarlanmış olup, çok odacıklı ses yalıtım contaları sayesinde şehir gürültüsünü tamamen engelleyerek huzurlu bir yaşam alanı sağlar. Güçlendirilmiş profillerimiz şiddetli yağmur, rüzgar ve toz fırtınalarına karşı tam sızdırmazlık sunarken, çok noktalı Avrupa kilit mekanizmaları günlük kullanımda üstün konfor ve yüksek güvenlik sağlar.'
   }
 };
 
-export const AboutSection: React.FC<AboutSectionProps> = ({
-  onExploreTypologies
-}) => {
+export const AboutSection: React.FC<AboutSectionProps> = () => {
   const { currentLanguage } = useLanguage();
   const [factoryImage, setFactoryImage] = useState(() => {
     try {
@@ -137,22 +129,6 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           >
             {content.paragraph}
           </p>
-
-          {/* Clear float and show redesigned CTA button below */}
-          <div className="clear-both pt-6 sm:pt-8 flex items-center justify-end">
-            <button
-              type="button"
-              onClick={onExploreTypologies}
-              className="learn-more"
-            >
-              <span className="circle" aria-hidden="true">
-                <span className="icon arrow" />
-              </span>
-              <span className="button-text">
-                <bdi dir="auto">{content.exploreBtn}</bdi>
-              </span>
-            </button>
-          </div>
         </div>
       </div>
     </section>

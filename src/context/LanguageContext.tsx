@@ -110,7 +110,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Baghdad, Iraq • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Subscribe to Doorhome Technical Bulletins',
     newsletter_btn: 'Subscribe',
-    footer_rights: 'Doorhome Company (Nafza Al-Manzl Holding). All rights reserved.',
+    footer_rights: 'Doorhome Company. All rights reserved.',
     language_label: 'Language'
   },
   'en-GB': {
@@ -143,7 +143,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Baghdad, Iraq • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Subscribe to Doorhome Technical Bulletins',
     newsletter_btn: 'Subscribe',
-    footer_rights: 'Doorhome Company (Nafza Al-Manzl Holding). All rights reserved.',
+    footer_rights: 'Doorhome Company. All rights reserved.',
     language_label: 'Language'
   },
   'en-US': {
@@ -176,7 +176,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Baghdad, Iraq • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Subscribe to Doorhome Technical Bulletins',
     newsletter_btn: 'Subscribe',
-    footer_rights: 'Doorhome Company (Nafza Al-Manzl Holding). All rights reserved.',
+    footer_rights: 'Doorhome Company. All rights reserved.',
     language_label: 'Language'
   },
   ckb: {
@@ -209,7 +209,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'بەغدا، عێراق • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'بەشداری لە گۆڤاری ئەندازیاری دەرگای ماڵ بکە',
     newsletter_btn: 'بەشداربوون',
-    footer_rights: 'کۆمپانیای دەرگای ماڵ (گروپی نەفزە المنزڵ). هەموو مافەکان پارێزراون.',
+    footer_rights: 'کۆمپانیای دەرگای ماڵ. هەموو مافەکان پارێزراون.',
     language_label: 'زمان'
   },
   kmr: {
@@ -242,7 +242,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Bexda, Iraq • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Aboneyê Bultena Teknîkî ya Doorhome Bibe',
     newsletter_btn: 'Abonetî',
-    footer_rights: 'Pargîdaniya Doorhome (Koma Nafza Al-Manzl). Hemû maf parastî ne.',
+    footer_rights: 'Pargîdaniya Doorhome. Hemû maf parastî ne.',
     language_label: 'Ziman'
   },
   ar: {
@@ -275,7 +275,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'بغداد، العراق • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'اشترك في النشرة الهندسية لباب المنزل',
     newsletter_btn: 'اشتراك',
-    footer_rights: 'شركة باب المنزل (مجموعة نفذة المنزل). جميع الحقوق محفوظة.',
+    footer_rights: 'شركة باب المنزل. جميع الحقوق محفوظة.',
     language_label: 'اللغة'
   },
   tr: {
@@ -308,7 +308,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Bağdat, Irak • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Doorhome Teknik Bültenine Abone Olun',
     newsletter_btn: 'Abone Ol',
-    footer_rights: 'Doorhome Şirketi (Nafza Al-Manzl Holding). Tüm hakları saklıdır.',
+    footer_rights: 'Doorhome Şirketi. Tüm hakları saklıdır.',
     language_label: 'Dil'
   },
   de: {
@@ -341,7 +341,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Bagdad, Irak • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Doorhome Technische Bulletins abonnieren',
     newsletter_btn: 'Abonnieren',
-    footer_rights: 'Doorhome Company (Nafza Al-Manzl Holding). Alle Rechte vorbehalten.',
+    footer_rights: 'Doorhome Company. Alle Rechte vorbehalten.',
     language_label: 'Sprache'
   },
   fr: {
@@ -374,7 +374,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Bagdad, Irak • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Abonnez-vous aux bulletins techniques Doorhome',
     newsletter_btn: "S'abonner",
-    footer_rights: 'Société Doorhome (Holding Nafza Al-Manzl). Tous droits réservés.',
+    footer_rights: 'Société Doorhome. Tous droits réservés.',
     language_label: 'Langue'
   },
   it: {
@@ -407,7 +407,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Baghdad, Iraq • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Iscriviti ai bollettini tecnici Doorhome',
     newsletter_btn: 'Iscriviti',
-    footer_rights: 'Doorhome Company (Nafza Al-Manzl Holding). Tutti i diritti riservati.',
+    footer_rights: 'Doorhome Company. Tutti i diritti riservati.',
     language_label: 'Lingua'
   },
   el: {
@@ -440,7 +440,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Βαγδάτη, Ιράκ • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Εγγραφείτε στα Τεχνικά Δελτία της Doorhome',
     newsletter_btn: 'Εγγραφή',
-    footer_rights: 'Εταιρεία Doorhome (Nafza Al-Manzl Holding). Με την επιφύλαξη παντός δικαιώματος.',
+    footer_rights: 'Εταιρεία Doorhome. Με την επιφύλαξη παντός δικαιώματος.',
     language_label: 'Γλώσσα'
   },
   es: {
@@ -473,7 +473,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Bagdad, Irak • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Suscríbete a los boletines técnicos de Doorhome',
     newsletter_btn: 'Suscribirse',
-    footer_rights: 'Compañía Doorhome (Nafza Al-Manzl Holding). Todos los derechos reservados.',
+    footer_rights: 'Compañía Doorhome. Todos los derechos reservados.',
     language_label: 'Idioma'
   },
   fa: {
@@ -506,7 +506,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'بغداد، عراق • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'عضویت در خبرنامه تخصصی وین‌هوم',
     newsletter_btn: 'عضویت',
-    footer_rights: 'شرکت وین‌هوم (هلدینگ نفذة المنزل). تمامی حقوق محفوظ است.',
+    footer_rights: 'شرکت وین‌هوم. تمامی حقوق محفوظ است.',
     language_label: 'زبان'
   },
   ru: {
@@ -539,7 +539,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: 'Багдад, Ирак • 33.3118611° N, 44.4608056° E',
     newsletter_title: 'Подпишитесь на бюллетени Doorhome',
     newsletter_btn: 'Подписаться',
-    footer_rights: 'Компания Doorhome (Nafza Al-Manzl Holding). Все права защищены.',
+    footer_rights: 'Компания Doorhome. Все права защищены.',
     language_label: 'Язык'
   },
   'zh-CN': {
@@ -572,7 +572,7 @@ export const TRANSLATIONS: Record<string, Record<string, string>> = {
     address_line: '伊拉克巴格达 • 33.3118611° N, 44.4608056° E',
     newsletter_title: '订阅Doorhome建筑技术通讯',
     newsletter_btn: '立即订阅',
-    footer_rights: 'Doorhome 公司 (Nafza Al-Manzl 控股). 版权所有.',
+    footer_rights: 'Doorhome 公司. 版权所有.',
     language_label: '语言'
   }
 };
