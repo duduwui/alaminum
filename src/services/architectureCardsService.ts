@@ -1,7 +1,8 @@
 export interface ArchitectureCatalogueCard {
-  id: string; // 'cat1' | 'cat2'
+  id: string; // e.g. 'cat1', 'cat2', or custom id
   brand: string;
   logo: string;
+  image?: string;
   title: string;
   desc: string;
   pdfUrl: string;
@@ -33,6 +34,7 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
     id: 'cat1',
     brand: 'WIEK SYSTEM',
     logo: '/assets/showcase/wiek-logo.png',
+    image: '/assets/showcase/wiek_hidden_hinge-04.png',
     title: 'WIEK Belgium Architectural Catalog',
     desc: 'Concealed hinge solutions & architectural fenestration',
     pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
@@ -66,6 +68,7 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
     id: 'cat2',
     brand: 'STAC Spain',
     logo: '/assets/showcase/stac-logo.png',
+    image: '/assets/showcase/stac_lift_slide-108.png',
     title: 'STAC Spain Hardware Catalog',
     desc: 'Minimalist cremones & monumental lift & slide hardware',
     pdfUrl: '/catalogs/stac-hardware-accessories.pdf',

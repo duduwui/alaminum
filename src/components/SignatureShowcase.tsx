@@ -427,45 +427,11 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     });
   }, []);
 
-  // Translations for the 2 Catalog Cards
   const isAr = currentLanguage.code === 'ar';
   const isKu = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr';
   const isTr = currentLanguage.code === 'tr';
 
-  const rawCat1 = archCards[0] || DEFAULT_CATALOGUE_CARDS[0];
-  const rawCat2 = archCards[1] || DEFAULT_CATALOGUE_CARDS[1];
-
-  const cat1 = {
-    logo: rawCat1.logo || '/assets/showcase/wiek-logo.png',
-    title: rawCat1.translations?.[currentLanguage.code]?.title || rawCat1.title || (isAr ? 'كتالوج شركة WIEK بلجيكا' : isKu ? 'کەتەلۆگی کۆمپانیای WIEKی بەلجیکی' : isTr ? 'WIEK Belçika Mimari Kataloğu' : 'WIEK Belgium Architectural Catalog'),
-    desc: rawCat1.translations?.[currentLanguage.code]?.desc || rawCat1.desc || (isAr
-      ? 'المفصلات المخفية والأنظمة المعمارية 2026'
-      : isKu
-      ? 'چارەسەری نەرمەلۆی شاردراوە و سیستەمی تەلارسازی'
-      : isTr
-      ? 'Gizli menteşe ve mimari kapı pencere donanımları'
-      : 'Concealed hinge solutions & architectural fenestration'),
-    pdfUrl: rawCat1.pdfUrl || '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: rawCat1.fileName || 'WIEK-General-Catalog-2026.pdf',
-    buttonText: rawCat1.translations?.[currentLanguage.code]?.buttonText || rawCat1.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'),
-    company: rawCat1.company || 'WIEK Belgium'
-  };
-
-  const cat2 = {
-    logo: rawCat2.logo || '/assets/showcase/stac-logo.png',
-    title: rawCat2.translations?.[currentLanguage.code]?.title || rawCat2.title || (isAr ? 'كتالوج شركة STAC إسبانيا' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی' : isTr ? 'STAC İspanya Donanım Kataloğu' : 'STAC Spain Hardware Catalog'),
-    desc: rawCat2.translations?.[currentLanguage.code]?.desc || rawCat2.desc || (isAr
-      ? 'المقابض المينيماليست وتروس الرفع والسحب'
-      : isKu
-      ? 'دەسکی مۆدێرن و سیستەمی لیفت و سلایدینگ'
-      : isTr
-      ? 'Minimalist kollar ve hebeschiebe donanımları'
-      : 'Minimalist cremones & monumental lift & slide hardware'),
-    pdfUrl: rawCat2.pdfUrl || '/catalogs/stac-hardware-accessories.pdf',
-    fileName: rawCat2.fileName || 'STAC-Hardware-Accessories-Catalogue.pdf',
-    buttonText: rawCat2.translations?.[currentLanguage.code]?.buttonText || rawCat2.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'),
-    company: rawCat2.company || 'STAC Spain'
-  };
+  const displayCards = archCards && archCards.length > 0 ? archCards : DEFAULT_CATALOGUE_CARDS;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -480,7 +446,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
   const activeItem = showcaseItems[currentIndex] || showcaseItems[0];
 
   const handleOpenPdf = (pdfUrl?: string) => {
-    const url = pdfUrl || (activeItem.brand?.includes('WIEK') ? cat1.pdfUrl : cat2.pdfUrl);
+    const url = pdfUrl || displayCards[0]?.pdfUrl || '/catalogs/wiek-general-catalog-2026.pdf';
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -502,77 +468,76 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
           </p>
         </div>
 
-        {/* 2 European Official Catalogues Cards (Compact & sleek) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-8">
-          {/* Catalog Card 1: WIEK SYSTEM Belgium */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
-            <div className="space-y-2">
-              <div className="h-7 flex items-center">
-                <img
-                  src={cat1.logo}
-                  alt="WİEK SYSTEM Belgium"
-                  className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
-                  <bdi dir="auto">{cat1.title}</bdi>
-                </h3>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
-                  <bdi dir="auto">{cat1.desc}</bdi>
-                </p>
-              </div>
-            </div>
+        {/* European Official Catalogues Cards (Dynamic Grid, supports any number of cards with images) */}
+        <div className={`grid grid-cols-1 ${displayCards.length === 1 ? 'max-w-md' : displayCards.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'} gap-4 mb-8`}>
+          {displayCards.map((card, idx) => {
+            const localizedCardTitle = card.translations?.[currentLanguage.code]?.title || card.title;
+            const localizedCardDesc = card.translations?.[currentLanguage.code]?.desc || card.desc;
+            const localizedBtnText = card.translations?.[currentLanguage.code]?.buttonText || card.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog');
 
-            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
-              <a
-                href={cat1.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+            return (
+              <div
+                key={card.id || idx}
+                className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group"
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>{cat1.buttonText}</span>
-                <ExternalLink className="w-3 h-3 opacity-80" />
-              </a>
-              <span className="text-xs text-slate-500 font-medium">{cat1.company}</span>
-            </div>
-          </div>
+                <div className="space-y-3">
+                  {/* Card Feature Image (if available) */}
+                  {card.image && (
+                    <div className="aspect-video w-full rounded-xl bg-slate-50 border border-slate-100 overflow-hidden flex items-center justify-center p-3">
+                      <img
+                        src={card.image}
+                        alt={localizedCardTitle}
+                        className="max-h-full max-w-full object-contain group-hover:scale-102 transition-transform duration-300"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  )}
 
-          {/* Catalog Card 2: STAC Spain */}
-          <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs hover:shadow-md hover:border-red-400 transition-all flex flex-col justify-between group">
-            <div className="space-y-2">
-              <div className="h-7 flex items-center">
-                <img
-                  src={cat2.logo}
-                  alt={cat2.title}
-                  className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
-                />
-              </div>
-              <div>
-                <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
-                  <bdi dir="auto">{cat2.title}</bdi>
-                </h3>
-                <p className="text-xs text-slate-600 font-normal leading-relaxed mt-0.5 line-clamp-1">
-                  <bdi dir="auto">{cat2.desc}</bdi>
-                </p>
-              </div>
-            </div>
+                  {/* Brand Logo Header */}
+                  {card.logo && (
+                    <div className="h-7 flex items-center">
+                      <img
+                        src={card.logo}
+                        alt={card.company || card.brand || 'Partner Logo'}
+                        className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
+                      />
+                    </div>
+                  )}
 
-            <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
-              <a
-                href={cat2.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>{cat2.buttonText}</span>
-                <ExternalLink className="w-3 h-3 opacity-80" />
-              </a>
-              <span className="text-xs text-slate-500 font-medium">{cat2.company}</span>
-            </div>
-          </div>
+                  <div>
+                    <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors leading-snug">
+                      <bdi dir="auto">{localizedCardTitle}</bdi>
+                    </h3>
+                    <p className="text-xs text-slate-600 font-normal leading-relaxed mt-1 line-clamp-2">
+                      <bdi dir="auto">{localizedCardDesc}</bdi>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  {card.pdfUrl ? (
+                    <a
+                      href={card.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      <span>{localizedBtnText}</span>
+                      <ExternalLink className="w-3 h-3 opacity-80" />
+                    </a>
+                  ) : (
+                    <span className="text-xs text-slate-400 font-medium">Technical Profile</span>
+                  )}
+                  <span className="text-xs text-slate-500 font-medium truncate max-w-[140px]">
+                    {card.company || card.brand}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
         {/* Clean Interactive Architecture Card (Auto-slides every 4 seconds) */}

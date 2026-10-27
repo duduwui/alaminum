@@ -3,16 +3,9 @@ import {
   Upload,
   ArrowLeft,
   ArrowRight,
-  ArrowUp,
-  ArrowDown,
   Sparkles,
-  Check,
-  RotateCcw,
-  Eye,
   Film,
-  Image as ImageIcon,
-  Layers,
-  ChevronDown
+  Image as ImageIcon
 } from 'lucide-react';
 import { GalleryMediaItem } from '../services/galleryContentService';
 
@@ -35,7 +28,6 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
 
   // Exactly 12 slots for the homepage 3D WebGL Liquid Lens Carousel
   const slots12 = galleryImages.slice(0, 12);
-  const libraryPool = galleryImages.slice(12);
 
   const handleSlotMove = async (index: number, direction: 'left' | 'right') => {
     const targetIndex = direction === 'left' ? index - 1 : index + 1;
@@ -47,7 +39,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
     updated[targetIndex] = temp;
 
     await onUpdateGallery(updated);
-    onSaveFeedback(`✓ Swapped 3D Carousel Slot #${index + 1} with Slot #${targetIndex + 1}`);
+    onSaveFeedback(`✓ Moved 3D Carousel Card #${index + 1} to position #${targetIndex + 1}`);
   };
 
   const handleTriggerUpload = (slotIndex: number) => {
@@ -72,7 +64,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
       };
 
       await onUpdateGallery(updated);
-      onSaveFeedback(`✓ Replaced media for 3D Carousel Slot #${replacingSlotIdx + 1}`);
+      onSaveFeedback(`✓ Updated media for 3D Carousel Card #${replacingSlotIdx + 1}`);
     } catch (err: any) {
       alert(err.message || 'Media upload failed');
     } finally {
@@ -82,27 +74,13 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
     }
   };
 
-  const handleSlotFieldChange = (slotIndex: number, field: 'title' | 'description' | 'system', value: string) => {
+  const handleSlotFieldChange = (slotIndex: number, field: 'title' | 'description', value: string) => {
     const updated = [...galleryImages];
     updated[slotIndex] = {
       ...updated[slotIndex],
       [field]: value
     };
     void onUpdateGallery(updated);
-  };
-
-  const handleSwapWithLibraryItem = async (slotIndex: number, libraryItemId: string) => {
-    if (!libraryItemId) return;
-    const libraryIndex = galleryImages.findIndex((item) => item.id === libraryItemId);
-    if (libraryIndex === -1) return;
-
-    const updated = [...galleryImages];
-    const temp = updated[slotIndex];
-    updated[slotIndex] = updated[libraryIndex];
-    updated[libraryIndex] = temp;
-
-    await onUpdateGallery(updated);
-    onSaveFeedback(`✓ Assigned "${updated[slotIndex].title}" to 3D Carousel Slot #${slotIndex + 1}`);
   };
 
   return (
@@ -127,38 +105,38 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
               </h3>
             </div>
             <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
-              These 12 slots correspond directly to the 12 slides rendered in the interactive WebGL 3D carousel on the homepage.
-              Use <strong>Replace</strong> to update photos or MP4 videos, re-order positions with arrows, or swap any slot with a project from your archive.
+              These 12 cards correspond directly to the 12 slides rendered in the interactive WebGL 3D carousel on the public homepage.
+              Each card has its image/video, title, and description. Use <strong>Upload / Replace</strong> to change media, and the arrow buttons to re-order their sequence.
             </p>
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
             <span className="px-3.5 py-1.5 rounded-xl bg-red-50 text-red-700 border border-red-200 font-extrabold text-xs flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-red-600" />
-              <span>12 Active 3D Slots</span>
+              <span>12 Active 3D Slides</span>
             </span>
           </div>
         </div>
 
         {/* 12 Slots Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pt-2">
           {slots12.map((slot, idx) => {
             const isVideo = slot.mediaType === 'video' || /\.(mp4|webm|mov)(\?|#|$)/i.test(slot.src);
             return (
               <div
                 key={slot.id || idx}
-                className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-400 p-3.5 shadow-xs flex flex-col justify-between gap-3 transition-all relative group"
+                className="bg-white rounded-2xl border border-slate-200 hover:border-slate-300 p-4 shadow-xs flex flex-col justify-between gap-3.5 transition-all relative group"
               >
                 {/* Slot Number & Controls */}
                 <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 rounded-md bg-slate-900 text-white font-mono font-black text-[11px] shadow-2xs">
-                      SLOT #{String(idx + 1).padStart(2, '0')}
+                  <div className="flex items-center gap-2">
+                    <span className="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-mono font-black text-xs shadow-2xs">
+                      #{String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${
                       isVideo ? 'bg-purple-50 text-purple-700 border border-purple-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                     }`}>
-                      {isVideo ? 'VIDEO' : 'PHOTO'}
+                      {isVideo ? 'VIDEO' : 'IMAGE'}
                     </span>
                   </div>
 
@@ -168,7 +146,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                       type="button"
                       disabled={idx === 0}
                       onClick={() => handleSlotMove(idx, 'left')}
-                      className="p-1 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
+                      className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
                       title="Move Left (Earlier in Carousel)"
                     >
                       <ArrowLeft className="w-3.5 h-3.5" />
@@ -177,7 +155,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                       type="button"
                       disabled={idx === slots12.length - 1}
                       onClick={() => handleSlotMove(idx, 'right')}
-                      className="p-1 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
+                      className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
                       title="Move Right (Later in Carousel)"
                     >
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -212,69 +190,45 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                   )}
                 </div>
 
-                {/* Slot Details Inputs */}
-                <div className="space-y-2">
+                {/* Slot Details: Title & Description */}
+                <div className="space-y-2.5">
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                      Slide Title
+                    <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                      Title
                     </label>
                     <input
                       type="text"
                       value={slot.title}
                       onChange={(e) => handleSlotFieldChange(idx, 'title', e.target.value)}
-                      placeholder="Title on 3D Carousel"
-                      className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-900 outline-none focus:border-red-400 bg-slate-50/50"
+                      placeholder="e.g. Minimalist Villa Fenestration"
+                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                      Subtitle / Architectural System
+                    <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                      Description
                     </label>
-                    <input
-                      type="text"
-                      value={slot.system || ''}
-                      onChange={(e) => handleSlotFieldChange(idx, 'system', e.target.value)}
-                      placeholder="e.g. WIEK Hidden Hinge System"
-                      className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 outline-none focus:border-red-400 bg-slate-50/50"
+                    <textarea
+                      value={slot.description || ''}
+                      onChange={(e) => handleSlotFieldChange(idx, 'description', e.target.value)}
+                      placeholder="Detailed project description..."
+                      rows={3}
+                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white resize-y transition-all leading-relaxed"
                     />
                   </div>
                 </div>
 
-                {/* Actions: Replace Media & Swap with Library Project */}
-                <div className="pt-2 border-t border-slate-100 space-y-2">
+                {/* Action: Upload / Replace Media Button */}
+                <div className="pt-2 border-t border-slate-100">
                   <button
                     type="button"
                     onClick={() => handleTriggerUpload(idx)}
-                    className="w-full py-1.5 px-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-[11px] flex items-center justify-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                    className="w-full py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
                   >
                     <Upload className="w-3.5 h-3.5" />
-                    <span>{isUploading && replacingSlotIdx === idx ? 'Uploading…' : 'Upload / Replace File'}</span>
+                    <span>{isUploading && replacingSlotIdx === idx ? 'Uploading…' : 'Upload / Replace Media'}</span>
                   </button>
-
-                  {/* Swap with Project from Library */}
-                  {libraryPool.length > 0 && (
-                    <div className="relative">
-                      <select
-                        onChange={(e) => {
-                          if (e.target.value) {
-                            void handleSwapWithLibraryItem(idx, e.target.value);
-                            e.target.value = '';
-                          }
-                        }}
-                        defaultValue=""
-                        className="w-full border border-slate-200 rounded-xl px-2.5 py-1 text-[11px] font-medium text-slate-600 bg-white hover:border-slate-300 outline-none cursor-pointer appearance-none truncate pe-6"
-                      >
-                        <option value="" disabled>Swap with project from library…</option>
-                        {libraryPool.map((libItem) => (
-                          <option key={libItem.id} value={libItem.id}>
-                            {libItem.title || libItem.id} ({libItem.category || 'project'})
-                          </option>
-                        ))}
-                      </select>
-                      <ChevronDown className="w-3 h-3 text-slate-400 absolute end-2 top-2 pointer-events-none" />
-                    </div>
-                  )}
                 </div>
               </div>
             );

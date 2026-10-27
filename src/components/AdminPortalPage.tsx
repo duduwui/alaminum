@@ -291,7 +291,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   }, []);
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
   const [cmsSubTab, setCmsSubTab] = useState<
-    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section' | 'hero'
+    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section'
   >('3d-carousel');
 
   // Architecture Catalogue Cards State
@@ -1760,167 +1760,145 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
-        {/* SECTION: CMS & GALLERY (3D CAROUSEL, ALL PROJECTS, ARCH CARDS, WINDOWS, DOORS, HERO) */}
+        {/* SECTION: CMS & GALLERY (3D CAROUSEL, ALL PROJECTS, ARCH CARDS, WINDOWS, DOORS) */}
         {activeSection === 'cms' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
-            {/* Sub-Navigation Pills for CMS */}
-            <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto no-scrollbar shrink-0">
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-                {/* 1. 3D Carousel (12 Slots) */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('3d-carousel')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === '3d-carousel'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+            {/* Sub-Navigation Pills for CMS - Flex-wrap, ZERO horizontal side-scrolling */}
+            <div className="bg-white p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-wrap items-center gap-2">
+              {/* 1. 3D Carousel (12 Slots) */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('3d-carousel')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === '3d-carousel'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'كاروسيل 3D التفاعلي (12 سلايد)'
+                    : currentLanguage.code === 'ckb'
+                    ? 'کارۆسێلی 3D (١٢ سلاید)'
+                    : '3D Carousel (12 Slots)'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === '3d-carousel' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'كاروسيل 3D التفاعلي (12 سلايد)'
-                      : currentLanguage.code === 'ckb'
-                      ? 'کارۆسێلی 3D (١٢ سلاید)'
-                      : '3D Carousel (12 Slots)'}
-                  </span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                      cmsSubTab === '3d-carousel' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    12
-                  </span>
-                </button>
+                  12
+                </span>
+              </button>
 
-                {/* 2. All Projects Portfolio */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('all-projects')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'all-projects'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              {/* 2. All Projects Portfolio */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('all-projects')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === 'all-projects'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'أرشيف كل المشاريع'
+                    : currentLanguage.code === 'ckb'
+                    ? 'ئەرشیفی هەموو پڕۆژەکان'
+                    : 'All Projects Portfolio'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'all-projects' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <ImageIcon className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'أرشيف كل المشاريع'
-                      : currentLanguage.code === 'ckb'
-                      ? 'ئەرشیفی هەموو پڕۆژەکان'
-                      : 'All Projects Portfolio'}
-                  </span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                      cmsSubTab === 'all-projects' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    {galleryImages.length}
-                  </span>
-                </button>
+                  {galleryImages.length}
+                </span>
+              </button>
 
-                {/* 3. 2 Architecture Cards */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('arch-cards')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'arch-cards'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              {/* 3. Architecture Catalogues & System Cards */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('arch-cards')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === 'arch-cards'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'الكتالوجات والأنظمة المعمارية'
+                    : currentLanguage.code === 'ckb'
+                    ? 'کاتالۆگی تەلارسازی و سیستەمەکان'
+                    : 'Architecture Catalogues'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'arch-cards' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'كتالوجات الشركاء المعماريين'
-                      : currentLanguage.code === 'ckb'
-                      ? 'کاتالۆگی هاوبەشە ئەوروپییەکان'
-                      : '2 Architecture Catalogues'}
-                  </span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                      cmsSubTab === 'arch-cards' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    2
-                  </span>
-                </button>
+                  {archCards.length}
+                </span>
+              </button>
 
-                {/* 4. Windows Section Media */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('windows-section')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'windows-section'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              {/* 4. Windows Section Media */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('windows-section')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === 'windows-section'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <LayoutGrid className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'ميديا قسم النوافذ'
+                    : currentLanguage.code === 'ckb'
+                    ? 'میدیای بەشی پەنجەرەکان'
+                    : 'Windows Section Media'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'windows-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'ميديا قسم النوافذ'
-                      : currentLanguage.code === 'ckb'
-                      ? 'میدیای بەشی پەنجەرەکان'
-                      : 'Windows Section Media'}
-                  </span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                      cmsSubTab === 'windows-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    {productList.filter((p) => p.division === 'windows' || p.category === 'windows').length}
-                  </span>
-                </button>
+                  {productList.filter((p) => p.division === 'windows' || p.category === 'windows').length}
+                </span>
+              </button>
 
-                {/* 5. Doors Section Media */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('doors-section')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'doors-section'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+              {/* 5. Doors Section Media */}
+              <button
+                type="button"
+                onClick={() => setCmsSubTab('doors-section')}
+                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                  cmsSubTab === 'doors-section'
+                    ? 'bg-red-600 text-white shadow-sm'
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+              >
+                <Package className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'ميديا قسم الأبواب'
+                    : currentLanguage.code === 'ckb'
+                    ? 'میدیای بەشی دەرگاکان'
+                    : 'Doors Section Media'}
+                </span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                    cmsSubTab === 'doors-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <Package className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'ميديا قسم الأبواب'
-                      : currentLanguage.code === 'ckb'
-                      ? 'میدیای بەشی دەرگاکان'
-                      : 'Doors Section Media'}
-                  </span>
-                  <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                      cmsSubTab === 'doors-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    {productList.filter((p) => p.division === 'doors' || p.category === 'doors').length}
-                  </span>
-                </button>
-
-                {/* 6. Hero & About Banners */}
-                <button
-                  type="button"
-                  onClick={() => setCmsSubTab('hero')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'hero'
-                      ? 'bg-red-600 text-white shadow-sm'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  <Layers className="w-3.5 h-3.5" />
-                  <span>
-                    {currentLanguage.code === 'ar'
-                      ? 'بانر الواجهة والشركة'
-                      : currentLanguage.code === 'ckb'
-                      ? 'باگراوند و ناساندن'
-                      : 'Hero & About Media'}
-                  </span>
-                </button>
-              </div>
+                  {productList.filter((p) => p.division === 'doors' || p.category === 'doors').length}
+                </span>
+              </button>
             </div>
 
             {/* CMS Feedback Banner */}
@@ -1963,7 +1941,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               />
             )}
 
-            {/* TAB 3: 2 ARCHITECTURE CARDS & CATALOGUES */}
+            {/* TAB 3: ARCHITECTURE CARDS & CATALOGUES */}
             {cmsSubTab === 'arch-cards' && (
               <AdminArchCardsTab
                 archCards={archCards}
@@ -1973,8 +1951,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   setCmsSaveFeedback(msg);
                   setTimeout(() => setCmsSaveFeedback(''), 4000);
                 }}
-                homepageMedia={homepageMedia}
-                setHomepageMedia={setHomepageMedia}
               />
             )}
 
@@ -2004,117 +1980,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 }}
                 onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
               />
-            )}
-
-            {/* TAB 6: HERO BANNER & ABOUT COMPANY MEDIA */}
-            {cmsSubTab === 'hero' && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* About Section Media & Text Manager */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-extrabold text-slate-900">Why Choose Doorhome — Image</h4>
-                      <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
-                    </div>
-                    <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
-                      <img src={homepageMedia.aboutFactoryImage} alt="About factory" className="w-full h-full object-cover" />
-                    </div>
-                    
-                    {/* Upload File & Reset Buttons */}
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => aboutFileInputRef.current?.click()}
-                        className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Upload / Replace File</span>
-                      </button>
-                      <input
-                        ref={aboutFileInputRef}
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => handleFileUpload(e, 'about')}
-                        className="hidden"
-                      />
-
-                      <button
-                        type="button"
-                        onClick={() => setHomepageMedia((prev) => ({ ...prev, aboutFactoryImage: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg' }))}
-                        className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                        <span>Reset</span>
-                      </button>
-                    </div>
-
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100">
-                    <button
-                      type="button"
-                      onClick={handleManualSaveCMS}
-                      className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
-                    >
-                      <Check className="w-4 h-4 stroke-[3]" />
-                      <span>Confirm & Apply About Section</span>
-                    </button>
-                  </div>
-                </div>
-
-                {/* Hero Section Background / Poster Manager */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-sm font-extrabold text-slate-900">Hero Section — Main Banner Poster</h4>
-                      <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
-                    </div>
-                    <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
-                      <img src={homepageMedia.heroPosterImage} alt="Hero banner" className="w-full h-full object-cover" />
-                    </div>
-
-                    {/* Upload File & Reset Buttons */}
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => heroFileInputRef.current?.click()}
-                        className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Upload / Replace File</span>
-                      </button>
-                      <input
-                        ref={heroFileInputRef}
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => handleFileUpload(e, 'hero')}
-                        className="hidden"
-                      />
-
-                      <button
-                        type="button"
-                        onClick={() => setHomepageMedia((prev) => ({ ...prev, heroPosterImage: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg' }))}
-                        className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
-                      >
-                        <Trash2 className="w-3.5 h-3.5" />
-                        <span>Reset</span>
-                      </button>
-                    </div>
-
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-100">
-                    <button
-                      type="button"
-                      onClick={handleManualSaveCMS}
-                      className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
-                    >
-                      <Check className="w-4 h-4 stroke-[3]" />
-                      <span>Confirm & Apply Hero Banner</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
             )}
           </main>
         )}

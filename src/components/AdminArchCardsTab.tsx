@@ -8,7 +8,10 @@ import {
   Layers,
   Save,
   Trash2,
-  Plus
+  Plus,
+  ArrowUp,
+  ArrowDown,
+  Image as ImageIcon
 } from 'lucide-react';
 import {
   ArchitectureCatalogueCard,
@@ -16,389 +19,405 @@ import {
   saveArchitectureCards
 } from '../services/architectureCardsService';
 import { saveSharedCmsSection } from '../services/cmsService';
-import { SHOWCASE_TEXT_BY_LANG } from './SignatureShowcase';
 
 interface AdminArchCardsTabProps {
   archCards: ArchitectureCatalogueCard[];
   onUpdateArchCards: (cards: ArchitectureCatalogueCard[]) => void;
   onUploadMedia: (file: File) => Promise<string>;
   onSaveFeedback: (msg: string) => void;
-  homepageMedia: any;
-  setHomepageMedia: React.Dispatch<React.SetStateAction<any>>;
+  homepageMedia?: any;
+  setHomepageMedia?: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
   archCards,
   onUpdateArchCards,
   onUploadMedia,
-  onSaveFeedback,
-  homepageMedia,
-  setHomepageMedia
+  onSaveFeedback
 }) => {
-  const cards = archCards && archCards.length >= 2 ? archCards : DEFAULT_CATALOGUE_CARDS;
-  const card1 = cards[0];
-  const card2 = cards[1];
+  const cards = archCards && archCards.length > 0 ? archCards : DEFAULT_CATALOGUE_CARDS;
 
-  const logo1InputRef = useRef<HTMLInputElement>(null);
-  const logo2InputRef = useRef<HTMLInputElement>(null);
-  const pdf1InputRef = useRef<HTMLInputElement>(null);
-  const pdf2InputRef = useRef<HTMLInputElement>(null);
+  const [activeUploadTarget, setActiveUploadTarget] = useState<{
+    cardIndex: number;
+    type: 'image' | 'logo' | 'pdf';
+  } | null>(null);
 
-  const [isUploading, setIsUploading] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const logoInputRef = useRef<HTMLInputElement>(null);
+  const pdfInputRef = useRef<HTMLInputElement>(null);
 
-  const handleUpdateCard = (cardIndex: 0 | 1, field: keyof ArchitectureCatalogueCard, value: string) => {
+  const persistCards = (updated: ArchitectureCatalogueCard[]) => {
+    onUpdateArchCards(updated);
+    saveArchitectureCards(updated);
+    void saveSharedCmsSection('archCards', updated);
+  };
+
+  const handleUpdateField = (
+    cardIndex: number,
+    field: keyof ArchitectureCatalogueCard,
+    value: string
+  ) => {
     const updated = [...cards];
     updated[cardIndex] = {
       ...updated[cardIndex],
       [field]: value
     };
-    onUpdateArchCards(updated);
-    saveArchitectureCards(updated);
-    void saveSharedCmsSection('archCards', updated).catch(() => {});
+    persistCards(updated);
   };
 
-  const handleUploadCardFile = async (
-    cardIndex: 0 | 1,
-    field: 'logo' | 'pdfUrl',
-    file: File
-  ) => {
+  const handleMoveCard = (index: number, direction: 'up' | 'down') => {
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= cards.length) return;
+
+    const updated = [...cards];
+    const temp = updated[index];
+    updated[index] = updated[targetIndex];
+    updated[targetIndex] = temp;
+
+    persistCards(updated);
+    onSaveFeedback(`✓ Moved catalogue card to position #${targetIndex + 1}`);
+  };
+
+  const handleDeleteCard = (index: number) => {
+    if (cards.length <= 1) {
+      alert('You must have at least one catalogue card.');
+      return;
+    }
+    if (!confirm(`Delete "${cards[index]?.title || `Card #${index + 1}`}"?`)) return;
+
+    const updated = cards.filter((_, i) => i !== index);
+    persistCards(updated);
+    onSaveFeedback('✓ Catalogue card deleted.');
+  };
+
+  const handleAddCard = () => {
+    const newCard: ArchitectureCatalogueCard = {
+      id: `cat-${Date.now()}`,
+      brand: 'New Partner',
+      logo: '/assets/showcase/wiek-logo.png',
+      image: '/assets/showcase/wiek_hidden_hinge-04.png',
+      title: 'New Architectural Catalog',
+      desc: 'Technical fenestration specifications and architectural profile drawings.',
+      pdfUrl: '',
+      fileName: 'Catalog.pdf',
+      company: 'European Systems',
+      buttonText: 'Open Catalog'
+    };
+
+    const updated = [...cards, newCard];
+    persistCards(updated);
+    onSaveFeedback('✓ Added new architectural catalogue card. Upload media and files below.');
+  };
+
+  const triggerUpload = (cardIndex: number, type: 'image' | 'logo' | 'pdf') => {
+    setActiveUploadTarget({ cardIndex, type });
+    if (type === 'image') imageInputRef.current?.click();
+    else if (type === 'logo') logoInputRef.current?.click();
+    else if (type === 'pdf') pdfInputRef.current?.click();
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !activeUploadTarget) return;
+
     try {
-      setIsUploading(`${cardIndex}-${field}`);
-      const uploadedUrl = await onUploadMedia(file);
-      handleUpdateCard(cardIndex, field, uploadedUrl);
-      if (field === 'pdfUrl') {
-        handleUpdateCard(cardIndex, 'fileName', file.name);
+      setIsUploading(true);
+      const url = await onUploadMedia(file);
+      const { cardIndex, type } = activeUploadTarget;
+
+      const updated = [...cards];
+      if (type === 'image') {
+        updated[cardIndex] = { ...updated[cardIndex], image: url };
+        onSaveFeedback(`✓ Card #${cardIndex + 1} image updated!`);
+      } else if (type === 'logo') {
+        updated[cardIndex] = { ...updated[cardIndex], logo: url };
+        onSaveFeedback(`✓ Card #${cardIndex + 1} logo updated!`);
+      } else if (type === 'pdf') {
+        updated[cardIndex] = { ...updated[cardIndex], pdfUrl: url, fileName: file.name };
+        onSaveFeedback(`✓ Card #${cardIndex + 1} PDF file uploaded!`);
       }
-      onSaveFeedback(`✓ Uploaded ${field === 'logo' ? 'logo image' : 'PDF catalogue'} for Card #${cardIndex + 1}!`);
+
+      persistCards(updated);
     } catch (err: any) {
-      alert(err.message || 'Upload failed');
+      alert(err.message || 'File upload failed');
     } finally {
-      setIsUploading(null);
+      setIsUploading(false);
+      setActiveUploadTarget(null);
+      if (e.target) e.target.value = '';
     }
   };
 
   return (
     <div className="space-y-6">
-      {/* Hidden file inputs for Card 1 & Card 2 */}
+      {/* Hidden file inputs for image, logo and PDF uploads */}
       <input
-        ref={logo1InputRef}
+        ref={imageInputRef}
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) void handleUploadCardFile(0, 'logo', f);
-          e.target.value = '';
-        }}
+        onChange={handleFileChange}
       />
       <input
-        ref={pdf1InputRef}
-        type="file"
-        accept="application/pdf"
-        className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) void handleUploadCardFile(0, 'pdfUrl', f);
-          e.target.value = '';
-        }}
-      />
-      <input
-        ref={logo2InputRef}
+        ref={logoInputRef}
         type="file"
         accept="image/*"
         className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) void handleUploadCardFile(1, 'logo', f);
-          e.target.value = '';
-        }}
+        onChange={handleFileChange}
       />
       <input
-        ref={pdf2InputRef}
+        ref={pdfInputRef}
         type="file"
-        accept="application/pdf"
+        accept="application/pdf,image/*"
         className="hidden"
-        onChange={(e) => {
-          const f = e.target.files?.[0];
-          if (f) void handleUploadCardFile(1, 'pdfUrl', f);
-          e.target.value = '';
-        }}
+        onChange={handleFileChange}
       />
 
-      {/* Header Explainer Card */}
+      {/* Main Header & Add New Action */}
       <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
-        <div>
-          <h3 className="text-lg font-black text-slate-900 flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-            2 Official European Architectural Catalogues & Cards
-          </h3>
-          <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
-            Manage the two official European architectural partner cards displayed directly on the homepage (WIEK Belgium & STAC Spain).
-            Replace brand logos, edit card titles and descriptions, and upload or link new technical PDF catalogues.
-          </p>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+              <h3 className="text-lg font-black text-slate-900">
+                Official European Architectural Catalogues & System Cards ({cards.length})
+              </h3>
+            </div>
+            <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
+              Manage technical engineering catalogues displayed on the homepage. Each card includes its product/system image, company logo, title, description, and downloadable PDF file. You can add as many cards and catalogues as needed.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={handleAddCard}
+              className="px-4 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+            >
+              <Plus className="w-4 h-4 stroke-[3]" />
+              <span>Add New Catalogue Card</span>
+            </button>
+          </div>
         </div>
 
-        {/* 2 Architecture Cards Side-by-Side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-          {/* Card 1: WIEK Belgium */}
-          <div className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 p-5 shadow-xs flex flex-col justify-between space-y-4 transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                <span className="px-2.5 py-1 rounded-lg bg-red-50 text-red-700 font-extrabold text-[11px] border border-red-200">
-                  CARD 01: WIEK BELGIUM
-                </span>
-                <span className="text-xs text-slate-400 font-bold">{card1.company}</span>
-              </div>
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pt-2">
+          {cards.map((card, idx) => (
+            <div
+              key={card.id || idx}
+              className="bg-white rounded-2xl border border-slate-200 hover:border-slate-300 p-5 shadow-xs flex flex-col justify-between gap-4 transition-all"
+            >
+              {/* Card Header: Slot & Order Controls */}
+              <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100">
+                <div className="flex items-center gap-2">
+                  <span className="px-2.5 py-0.5 rounded-lg bg-slate-900 text-white font-mono font-black text-xs">
+                    CARD #{String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-xs font-bold text-slate-600 truncate max-w-[140px]">
+                    {card.company || card.brand || 'Partner'}
+                  </span>
+                </div>
 
-              {/* Logo / Image Stage */}
-              <div className="space-y-2">
-                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500">
-                  Brand Logo / Header Image
-                </label>
-                <div className="flex items-center gap-3">
-                  <div className="h-16 w-32 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center p-2 shadow-2xs">
-                    <img
-                      src={card1.logo}
-                      alt={card1.title}
-                      className="max-h-12 max-w-full object-contain"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/assets/showcase/wiek-logo.png';
-                      }}
-                    />
-                  </div>
+                <div className="flex items-center gap-1">
                   <button
                     type="button"
-                    onClick={() => logo1InputRef.current?.click()}
-                    className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
+                    disabled={idx === 0}
+                    onClick={() => handleMoveCard(idx, 'up')}
+                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
+                    title="Move Up"
                   >
-                    <Upload className="w-3.5 h-3.5" />
-                    <span>{isUploading === '0-logo' ? 'Uploading…' : 'Upload Logo'}</span>
+                    <ArrowUp className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    disabled={idx === cards.length - 1}
+                    onClick={() => handleMoveCard(idx, 'down')}
+                    className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:opacity-20 text-slate-700 transition-colors cursor-pointer"
+                    title="Move Down"
+                  >
+                    <ArrowDown className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteCard(idx)}
+                    className="p-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-600 transition-colors cursor-pointer ms-1"
+                    title="Delete Card"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
 
-              {/* Title & Description */}
-              <div className="space-y-3">
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Card Title
-                  </label>
-                  <input
-                    type="text"
-                    value={card1.title}
-                    onChange={(e) => handleUpdateCard(0, 'title', e.target.value)}
-                    placeholder="e.g. WIEK Belgium Architectural Catalog"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none focus:border-red-400 bg-slate-50/50"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Card Subtitle / Description
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={card1.desc}
-                    onChange={(e) => handleUpdateCard(0, 'desc', e.target.value)}
-                    placeholder="e.g. Concealed hinge solutions & architectural fenestration"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-red-400 bg-slate-50/50 resize-y"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Button Label
-                  </label>
-                  <input
-                    type="text"
-                    value={card1.buttonText || 'Open Catalog'}
-                    onChange={(e) => handleUpdateCard(0, 'buttonText', e.target.value)}
-                    placeholder="Open Catalog / فتح الكتالوج"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 outline-none focus:border-red-400 bg-slate-50/50"
-                  />
-                </div>
-
-                {/* PDF Catalog Link & Direct File Upload */}
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Technical PDF Catalogue File
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      value={card1.pdfUrl}
-                      onChange={(e) => handleUpdateCard(0, 'pdfUrl', e.target.value)}
-                      placeholder="/catalogs/wiek-general-catalog-2026.pdf"
-                      className="flex-1 min-w-0 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-700 outline-none focus:border-red-400 bg-slate-50/50"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => pdf1InputRef.current?.click()}
-                      className="shrink-0 px-3 py-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl flex items-center gap-1 shadow-sm transition-all cursor-pointer"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>{isUploading === '0-pdfUrl' ? 'Uploading…' : 'Upload PDF'}</span>
-                    </button>
-                    {card1.pdfUrl && (
-                      <a
-                        href={card1.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-                        title="Preview PDF"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[11px] text-slate-500">Live preview on Homepage</span>
-              <button
-                type="button"
-                onClick={() => {
-                  onSaveFeedback('✓ Card 1 (WIEK) changes saved to website!');
-                }}
-                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1"
-              >
-                <Check className="w-3.5 h-3.5" />
-                <span>Save Card 1</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Card 2: STAC Spain */}
-          <div className="bg-white rounded-2xl border-2 border-slate-200 hover:border-red-300 p-5 shadow-xs flex flex-col justify-between space-y-4 transition-all">
-            <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                <span className="px-2.5 py-1 rounded-lg bg-red-50 text-red-700 font-extrabold text-[11px] border border-red-200">
-                  CARD 02: STAC SPAIN
-                </span>
-                <span className="text-xs text-slate-400 font-bold">{card2.company}</span>
-              </div>
-
-              {/* Logo / Image Stage */}
-              <div className="space-y-2">
+              {/* 1. Card Image Stage */}
+              <div className="space-y-1.5">
                 <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500">
-                  Brand Logo / Header Image
+                  Card Feature Image / System Photo
                 </label>
-                <div className="flex items-center gap-3">
-                  <div className="h-16 w-32 rounded-xl border border-slate-200 bg-slate-50 flex items-center justify-center p-2 shadow-2xs">
+                <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 border border-slate-200 flex items-center justify-center group">
+                  {card.image ? (
                     <img
-                      src={card2.logo}
-                      alt={card2.title}
-                      className="max-h-12 max-w-full object-contain"
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-contain p-2"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/assets/showcase/stac-logo.png';
+                        (e.target as HTMLImageElement).src = '/assets/showcase/wiek_hidden_hinge-04.png';
                       }}
                     />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center text-slate-400 gap-1 text-xs">
+                      <ImageIcon className="w-8 h-8 opacity-40" />
+                      <span>No Image Uploaded</span>
+                    </div>
+                  )}
+
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <button
+                      type="button"
+                      onClick={() => triggerUpload(idx, 'image')}
+                      className="px-3 py-1.5 rounded-xl bg-white text-slate-900 font-extrabold text-xs shadow-md flex items-center gap-1.5 cursor-pointer hover:bg-slate-50"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                      <span>Change Image</span>
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => logo2InputRef.current?.click()}
-                    className="py-2 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
-                  >
-                    <Upload className="w-3.5 h-3.5" />
-                    <span>{isUploading === '1-logo' ? 'Uploading…' : 'Upload Logo'}</span>
-                  </button>
                 </div>
+
+                <button
+                  type="button"
+                  onClick={() => triggerUpload(idx, 'image')}
+                  className="w-full py-1.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5 text-slate-500" />
+                  <span>
+                    {isUploading && activeUploadTarget?.cardIndex === idx && activeUploadTarget.type === 'image'
+                      ? 'Uploading Image…'
+                      : 'Upload / Replace Image'}
+                  </span>
+                </button>
               </div>
 
-              {/* Title & Description */}
-              <div className="space-y-3">
+              {/* 2. Brand Logo & Company Name */}
+              <div className="grid grid-cols-2 gap-3 items-end">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Card Title
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                    Brand Logo
+                  </label>
+                  <div className="h-11 rounded-xl border border-slate-200 bg-slate-50 p-1 flex items-center justify-between gap-2">
+                    <div className="h-full w-20 flex items-center justify-center">
+                      {card.logo ? (
+                        <img
+                          src={card.logo}
+                          alt="logo"
+                          className="max-h-7 max-w-full object-contain"
+                        />
+                      ) : (
+                        <span className="text-[10px] text-slate-400">No Logo</span>
+                      )}
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => triggerUpload(idx, 'logo')}
+                      className="px-2 py-1 rounded-lg bg-white border border-slate-200 hover:border-slate-300 text-slate-700 font-bold text-[10px] cursor-pointer"
+                    >
+                      Upload
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                    Company / Attribution
                   </label>
                   <input
                     type="text"
-                    value={card2.title}
-                    onChange={(e) => handleUpdateCard(1, 'title', e.target.value)}
-                    placeholder="e.g. STAC Spain Hardware Catalog"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none focus:border-red-400 bg-slate-50/50"
+                    value={card.company || ''}
+                    onChange={(e) => handleUpdateField(idx, 'company', e.target.value)}
+                    placeholder="e.g. WIEK Belgium"
+                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 bg-slate-50/60 focus:bg-white outline-none focus:border-red-500"
                   />
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Card Subtitle / Description
+              {/* 3. Title */}
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                  Card Title
+                </label>
+                <input
+                  type="text"
+                  value={card.title}
+                  onChange={(e) => handleUpdateField(idx, 'title', e.target.value)}
+                  placeholder="e.g. WIEK Belgium Architectural Catalog"
+                  className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 bg-slate-50/60 focus:bg-white outline-none focus:border-red-500"
+                />
+              </div>
+
+              {/* 4. Description */}
+              <div>
+                <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
+                  Card Description
+                </label>
+                <textarea
+                  value={card.desc}
+                  onChange={(e) => handleUpdateField(idx, 'desc', e.target.value)}
+                  placeholder="Detailed architectural specifications..."
+                  rows={3}
+                  className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-slate-50/60 focus:bg-white outline-none focus:border-red-500 resize-y leading-relaxed"
+                />
+              </div>
+
+              {/* 5. PDF File & Button Text */}
+              <div className="space-y-2 pt-2 border-t border-slate-100">
+                <div className="flex items-center justify-between gap-2">
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500">
+                    Technical PDF / Catalog
                   </label>
-                  <textarea
-                    rows={2}
-                    value={card2.desc}
-                    onChange={(e) => handleUpdateCard(1, 'desc', e.target.value)}
-                    placeholder="e.g. Minimalist cremones & monumental lift & slide hardware"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-800 outline-none focus:border-red-400 bg-slate-50/50 resize-y"
+                  {card.pdfUrl && (
+                    <a
+                      href={card.pdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-bold text-red-600 hover:text-red-700 flex items-center gap-1"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      <span>Preview File</span>
+                    </a>
+                  )}
+                </div>
+
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={card.pdfUrl || ''}
+                    onChange={(e) => handleUpdateField(idx, 'pdfUrl', e.target.value)}
+                    placeholder="PDF URL (e.g. /catalogs/wiek.pdf)"
+                    className="flex-1 border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 bg-slate-50/60 focus:bg-white outline-none focus:border-red-500"
                   />
+                  <button
+                    type="button"
+                    onClick={() => triggerUpload(idx, 'pdf')}
+                    className="px-3 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    <Upload className="w-3.5 h-3.5" />
+                    <span>Upload PDF</span>
+                  </button>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
+                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
                     Button Label
                   </label>
                   <input
                     type="text"
-                    value={card2.buttonText || 'Open Catalog'}
-                    onChange={(e) => handleUpdateCard(1, 'buttonText', e.target.value)}
-                    placeholder="Open Catalog / فتح الكتالوج"
-                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-medium text-slate-800 outline-none focus:border-red-400 bg-slate-50/50"
+                    value={card.buttonText || 'Open Catalog'}
+                    onChange={(e) => handleUpdateField(idx, 'buttonText', e.target.value)}
+                    placeholder="e.g. Open Catalog"
+                    className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 bg-slate-50/60 focus:bg-white outline-none focus:border-red-500"
                   />
-                </div>
-
-                {/* PDF Catalog Link & Direct File Upload */}
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-0.5">
-                    Technical PDF Catalogue File
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="text"
-                      value={card2.pdfUrl}
-                      onChange={(e) => handleUpdateCard(1, 'pdfUrl', e.target.value)}
-                      placeholder="/catalogs/stac-hardware-accessories.pdf"
-                      className="flex-1 min-w-0 border border-slate-200 rounded-xl px-3 py-2 text-xs font-mono text-slate-700 outline-none focus:border-red-400 bg-slate-50/50"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => pdf2InputRef.current?.click()}
-                      className="shrink-0 px-3 py-2 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl flex items-center gap-1 shadow-sm transition-all cursor-pointer"
-                    >
-                      <FileText className="w-3.5 h-3.5" />
-                      <span>{isUploading === '1-pdfUrl' ? 'Uploading…' : 'Upload PDF'}</span>
-                    </button>
-                    {card2.pdfUrl && (
-                      <a
-                        href={card2.pdfUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
-                        title="Preview PDF"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                  </div>
                 </div>
               </div>
             </div>
-
-            <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-              <span className="text-[11px] text-slate-500">Live preview on Homepage</span>
-              <button
-                type="button"
-                onClick={() => {
-                  onSaveFeedback('✓ Card 2 (STAC) changes saved to website!');
-                }}
-                className="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-1"
-              >
-                <Check className="w-3.5 h-3.5" />
-                <span>Save Card 2</span>
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
