@@ -256,95 +256,139 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
         )}
       </div>
 
-      {/* Project Detail & Video Player Modal / Bottom Sheet */}
+      {/* Project Detail & Video Player Bottom-to-Top Slide-Up Sheet */}
       {selected && typeof document !== 'undefined' && createPortal(
         <div
-          className="fixed inset-0 z-[999999] flex items-end sm:items-center justify-center bg-slate-950/75 backdrop-blur-md p-0 sm:p-6 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[999999] flex flex-col justify-end bg-slate-950/70 backdrop-blur-sm drawer-backdrop-anim"
           onClick={closeItemModal}
         >
           <div
             role="dialog"
             aria-modal="true"
             aria-label={selected.title}
-            dir={['ckb', 'fa', 'ar'].includes(currentLanguage.code) ? 'rtl' : 'ltr'}
-            className="relative flex max-h-[90vh] sm:max-h-[88vh] w-full max-w-2xl flex-col overflow-hidden rounded-t-3xl sm:rounded-3xl bg-white shadow-2xl border border-slate-200 animate-in slide-in-from-bottom sm:zoom-in-95 duration-200 text-slate-900"
+            dir="ltr"
+            className="relative w-full max-w-6xl mx-auto flex flex-col overflow-hidden rounded-t-[2rem] bg-white shadow-[0_-25px_80px_-15px_rgba(15,23,42,0.45)] border-t border-x border-slate-200/80 max-h-[90vh] sheet-slide-up-anim text-slate-900"
             onClick={(event) => event.stopPropagation()}
           >
-            {/* Sleek Floating Close Button */}
-            <button
-              type="button"
-              onClick={() => setSelected(null)}
-              aria-label={t('ui_close') || 'Close'}
-              className="absolute top-3.5 end-3.5 z-30 w-9 h-9 rounded-full bg-black/65 hover:bg-red-600 text-white backdrop-blur-md transition-all flex items-center justify-center cursor-pointer shadow-lg active:scale-95 border border-white/20"
-            >
-              <X className="w-5 h-5 stroke-[2.5]" />
-            </button>
-            {/* Mobile drag handle bar */}
-            <div className="w-10 h-1 bg-white/40 rounded-full mx-auto sm:hidden absolute left-1/2 -translate-x-1/2 top-2 z-20 pointer-events-none" />
-
-            {/* Media Display (Photo or Video with ambient background) */}
-            <div className="relative w-full h-[32vh] sm:h-[40vh] bg-slate-950 overflow-hidden flex items-center justify-center shrink-0">
-              {/* Soft ambient blur backdrop */}
-              <img
-                src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none"
-              />
-
-              {selected.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(selected.src) ? (
-                <video
-                  src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
-                  controls
-                  autoPlay
-                  playsInline
-                  className="relative z-10 max-h-full max-w-full object-contain shadow-2xl"
-                />
-              ) : (
-                <img
-                  src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
-                  alt={selected.title}
-                  className="relative z-10 max-h-full max-w-full object-contain shadow-2xl"
-                />
-              )}
+            {/* Top Sheet Header Bar: Drag Handle Pill & Sleek Close Button */}
+            <div className="flex items-center justify-between px-6 pt-4 pb-3 border-b border-slate-100 bg-white shrink-0">
+              <div className="w-9" aria-hidden="true" />
+              <div className="w-12 h-1.5 bg-slate-200 rounded-full" aria-hidden="true" />
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                aria-label={t('ui_close') || 'Close'}
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-red-600 text-slate-700 hover:text-white transition-all flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
+              >
+                <X className="w-5 h-5 stroke-[2.2]" />
+              </button>
             </div>
 
-            {/* Content & Action Buttons */}
-            <div className="flex flex-col justify-between overflow-y-auto p-5 sm:p-7 space-y-4 bg-white text-slate-900">
-              <div className="space-y-2 text-start">
-                <h3 className="text-lg sm:text-2xl font-black text-slate-900 leading-tight">
-                  {localize(items.find(item => item.id === selected.id) || selected).title}
-                </h3>
-                <p className="text-xs sm:text-sm leading-relaxed text-slate-600 font-normal whitespace-pre-line">
-                  {localize(items.find(item => item.id === selected.id) || selected).description}
-                </p>
+            {/* Sheet Body: 2-Column Architectural Split Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-5 sm:p-8 overflow-y-auto items-center">
+              {/* Left Column: Generous Media Showcase (Photo or Video) */}
+              <div className="lg:col-span-7 relative w-full h-[300px] sm:h-[420px] lg:h-[480px] rounded-2xl bg-slate-950 overflow-hidden flex items-center justify-center shadow-inner border border-slate-200/20 shrink-0">
+                <img
+                  src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
+                  alt=""
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-110 pointer-events-none"
+                />
+
+                {selected.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(selected.src) ? (
+                  <video
+                    src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="relative z-10 max-h-full max-w-full object-contain"
+                  />
+                ) : (
+                  <img
+                    src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
+                    alt={selected.title}
+                    className="relative z-10 max-h-full max-w-full object-contain"
+                  />
+                )}
               </div>
 
-              {/* Action Buttons: Clean, Solid, Professional */}
-              <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <a
-                  href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I am inquiring about this project: ${selected.title}. System: ${selected.system || 'Standard'}.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-extrabold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 fill-white" />
-                  <span>{currentLanguage.code === 'ar' ? 'تواصل عبر واتساب' : currentLanguage.code === 'ckb' ? 'پەیوەندی لە واتسئەپ' : 'Inquire on WhatsApp'}</span>
-                </a>
+              {/* Right Column: Editorial Project Info & Right-Aligned WhatsApp Button */}
+              <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 text-start">
+                <div className="space-y-4">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="px-3 py-1 rounded-full bg-red-50 text-red-600 border border-red-100 text-[11px] font-extrabold uppercase tracking-wider">
+                      <bdi dir="auto">{selected.category || 'Architectural Project'}</bdi>
+                    </span>
+                    {selected.year && (
+                      <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold">
+                        {selected.year}
+                      </span>
+                    )}
+                  </div>
 
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelected(null);
-                    if (onBack) onBack();
-                    window.location.hash = '#products';
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                  }}
-                  className="py-3 px-4 rounded-xl bg-slate-900 hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <LayoutGrid className="w-4 h-4" />
-                  <span>{currentLanguage.code === 'ar' ? 'جميع المنتجات' : currentLanguage.code === 'ckb' ? 'گشت بەرهەمەکان' : 'All Products'}</span>
-                </button>
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
+                    <bdi dir="auto">{localize(items.find(item => item.id === selected.id) || selected).title}</bdi>
+                  </h3>
+
+                  <p className="text-sm sm:text-base leading-relaxed text-slate-600 font-normal whitespace-pre-line">
+                    <bdi dir="auto">{localize(items.find(item => item.id === selected.id) || selected).description}</bdi>
+                  </p>
+                </div>
+
+                {/* Action Bar: All Products on Left, Modern WhatsApp Button on Right */}
+                <div className="pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelected(null);
+                      if (onBack) onBack();
+                      window.location.hash = '#products';
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }}
+                    className="py-2.5 px-5 rounded-full bg-slate-100 hover:bg-slate-900 text-slate-800 hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <LayoutGrid className="w-4 h-4" />
+                    <span>
+                      <bdi dir="auto">
+                        {currentLanguage.code === 'ar'
+                          ? 'جميع المنتجات'
+                          : currentLanguage.code === 'ckb'
+                          ? 'گشت بەرهەمەکان'
+                          : currentLanguage.code === 'kmr'
+                          ? 'Hemû Berhem'
+                          : currentLanguage.code === 'tr'
+                          ? 'Tüm Ürünler'
+                          : 'All Products'}
+                      </bdi>
+                    </span>
+                  </button>
+
+                  <a
+                    href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I am inquiring about this project: ${selected.title}. System: ${selected.system || 'Standard'}.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whatsapp-cta-btn ms-auto"
+                  >
+                    <span className="wa-icon-badge" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+                        <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.758.459 3.473 1.331 4.988L2 22l5.188-1.361c1.464.799 3.111 1.221 4.843 1.221h.004c5.515 0 9.965-4.453 9.965-9.969 0-2.664-1.037-5.168-2.92-7.051C17.197 3.037 14.693 2 12.031 2zm5.822 14.279c-.246.693-1.434 1.326-1.988 1.409-.508.076-1.15.109-1.856-.115-.428-.136-.979-.318-1.682-.622-2.961-1.278-4.895-4.26-5.043-4.458-.148-.197-1.205-1.603-1.205-3.058 0-1.455.763-2.171 1.034-2.467.271-.296.591-.37.788-.37.197 0 .394.002.566.01.182.009.426-.069.666.508.246.592.838 2.047.912 2.195.074.148.123.321.025.518-.099.198-.148.321-.296.494-.148.172-.311.385-.444.518-.148.148-.302.309-.13.605.173.296.766 1.264 1.645 2.048 1.13 1.008 2.083 1.32 2.379 1.468.296.148.468.123.641-.074.172-.197.739-.863.936-1.159.197-.296.394-.247.665-.148.271.099 1.725.814 2.021.962.296.148.493.222.567.345.074.123.074.715-.172 1.408z" />
+                      </svg>
+                    </span>
+                    <span>
+                      <bdi dir="auto">
+                        {currentLanguage.code === 'ar'
+                          ? 'تواصل عبر واتساب'
+                          : currentLanguage.code === 'ckb'
+                          ? 'پەیوەندی لە واتسئەپ'
+                          : currentLanguage.code === 'kmr'
+                          ? 'Li ser WhatsAppê biaxive'
+                          : currentLanguage.code === 'tr'
+                          ? 'WhatsApp’tan Yazın'
+                          : 'Chat on WhatsApp'}
+                      </bdi>
+                    </span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

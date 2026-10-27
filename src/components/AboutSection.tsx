@@ -832,67 +832,63 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     SECTION_HEADERS_BY_LANG.en;
 
   return (
-    <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.07),transparent_40%),#fff] relative overflow-hidden">
+    <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.06),transparent_40%),#fff] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header - Clean Architectural Styling (No Harsh Vertical Line) */}
-        <div className="max-w-3xl mb-12 sm:mb-16 dh-reveal">
-          <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-4" />
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-            <bdi dir="auto">{headerContent.title}</bdi>
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            <bdi dir="auto">{headerContent.subtitle}</bdi>
-          </p>
-        </div>
-
-        {/* Alumil-Style 2-Column Split Feature Row */}
+        {/* 2-Column Editorial Layout: Image on Left, Flowing Paragraphs on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: High-Impact Photography with Floating Badges */}
+          {/* Left Column: Architectural Photography / Brand Showcase */}
           <div className="lg:col-span-5 relative dh-reveal-left">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200/80 group">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-50 group">
               <img
                 src={factoryImage}
                 alt="Doorhome CNC Plant & Engineering"
-                className="w-full h-[460px] object-cover object-center group-hover:scale-103 transition-transform duration-700"
+                className="w-full h-[380px] sm:h-[460px] object-cover object-center group-hover:scale-102 transition-transform duration-700"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/80 via-transparent to-black/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
 
               {/* Bottom Overlay Label */}
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="text-[10px] font-black uppercase tracking-widest text-red-400 block">
+              <div className="absolute bottom-6 left-6 right-6 text-white text-start">
+                <span className="text-[11px] font-black uppercase tracking-widest text-red-400 block">
                   <bdi dir="auto">{headerContent.plantBadge}</bdi>
                 </span>
-                <p className="text-sm font-bold text-slate-100 mt-1">
+                <p className="text-sm font-bold text-slate-100 mt-1 leading-relaxed">
                   <bdi dir="auto">{headerContent.plantDesc}</bdi>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: 4 Pillar Features Grid (Centered) */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {pillarItems.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`p-6 rounded-2xl bg-white border border-slate-200/90 border-t-2 border-t-red-200 hover:border-t-red-500 hover:shadow-lg transition-all duration-300 group text-center flex flex-col items-center justify-center dh-reveal dh-stagger-${idx + 1} dh-card-hover`}
-                >
-                  <h4 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-red-600 transition-colors mb-2 leading-snug text-center">
-                    <bdi dir="auto">{item.title}</bdi>
-                  </h4>
+          {/* Right Column: Clean Editorial Paragraphs (No Boxed Cards) */}
+          <div className="lg:col-span-7 flex flex-col justify-center text-start space-y-6 dh-reveal">
+            <div>
+              <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-4" />
+              <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-tight">
+                <bdi dir="auto">{headerContent.title}</bdi>
+              </h2>
+              <p className="mt-3 text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
+                <bdi dir="auto">{headerContent.subtitle}</bdi>
+              </p>
+            </div>
 
-                  <p className="text-xs text-slate-600 leading-relaxed text-center">
-                    <bdi dir="auto">{item.description}</bdi>
-                  </p>
-                </div>
+            <div className="space-y-4 border-t border-slate-100 pt-5">
+              {pillarItems.map((item, idx) => (
+                <p
+                  key={idx}
+                  className="text-sm sm:text-[15.5px] text-slate-600 leading-relaxed font-normal"
+                >
+                  <strong className="font-extrabold text-slate-900 me-1.5">
+                    <bdi dir="auto">{item.title}:</bdi>
+                  </strong>
+                  <bdi dir="auto">{item.description}</bdi>
+                </p>
               ))}
             </div>
 
-            {/* Bottom Actions Centered */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-4 dh-reveal dh-stagger-5">
+            {/* Action Button */}
+            <div className="pt-3 flex items-center justify-start">
               <button
                 type="button"
                 onClick={onExploreTypologies}
