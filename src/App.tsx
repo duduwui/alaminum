@@ -177,6 +177,51 @@ export default function App() {
     };
   }, []);
 
+  const userInteractedRef = React.useRef(false);
+
+  useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    const markInteracted = () => {
+      userInteractedRef.current = true;
+    };
+    window.addEventListener('wheel', markInteracted, { passive: true, once: true });
+    window.addEventListener('touchmove', markInteracted, { passive: true, once: true });
+    window.addEventListener('keydown', markInteracted, { passive: true, once: true });
+    window.addEventListener('pointerdown', markInteracted, { passive: true, once: true });
+
+    const keepAtTopBeforeInteraction = () => {
+      if (userInteractedRef.current) return;
+      const h = window.location.hash.replace('#', '').toLowerCase();
+      if (!h || h === 'home') {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    };
+
+    const rafId = requestAnimationFrame(keepAtTopBeforeInteraction);
+    const t1 = window.setTimeout(keepAtTopBeforeInteraction, 80);
+    const t2 = window.setTimeout(keepAtTopBeforeInteraction, 250);
+    const t3 = window.setTimeout(keepAtTopBeforeInteraction, 600);
+    window.addEventListener('load', keepAtTopBeforeInteraction);
+    window.addEventListener('pageshow', keepAtTopBeforeInteraction);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+      window.removeEventListener('load', keepAtTopBeforeInteraction);
+      window.removeEventListener('pageshow', keepAtTopBeforeInteraction);
+      window.removeEventListener('wheel', markInteracted);
+      window.removeEventListener('touchmove', markInteracted);
+      window.removeEventListener('keydown', markInteracted);
+      window.removeEventListener('pointerdown', markInteracted);
+    };
+  }, []);
+
   useEffect(() => {
     if (activeTab === 'admin') return;
     let cancelled = false;
@@ -196,17 +241,19 @@ export default function App() {
       if (Array.isArray(products)) saveLocalProducts(products as ProductItem[]);
       if (Array.isArray(divisions)) saveProductDivisions(divisions as ProductCategoryDivision[]);
       if (Array.isArray(homepageSections)) saveHomepageSections(homepageSections);
+      if (!userInteractedRef.current) {
+        const h = window.location.hash.replace('#', '').toLowerCase();
+        if (!h || h === 'home') {
+          requestAnimationFrame(() => {
+            if (!userInteractedRef.current) {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }
+          });
+        }
+      }
     }).catch(() => { /* Keep local content when the shared server is unavailable. */ });
     return () => { cancelled = true; };
   }, [activeTab]);
-
-  // Disable browser scroll restoration on refresh
-  useEffect(() => {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-  }, []);
 
   // Sync cart with localStorage
   useEffect(() => {
@@ -273,22 +320,10 @@ export default function App() {
         setActiveTab(route);
         setShopCategory(route === 'products' ? 'all' : route);
         window.scrollTo({ top: 0, behavior: 'instant' });
-      } else if (route === 'contact' || route === 'contactus') {
+      } else if (route === 'contact' || route === 'contactus' || ['about', 'typology', 'gallery', 'support', 'services', 'achievements'].includes(route)) {
         setActiveTab('home');
-        setTimeout(() => {
-          const element = document.getElementById('contact');
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 120);
-      } else if (['about', 'typology', 'gallery', 'support', 'services', 'achievements'].includes(route)) {
-        setActiveTab('home');
-        setTimeout(() => {
-          const element = document.getElementById(route);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 80);
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       }
     };
 
@@ -331,7 +366,7 @@ export default function App() {
 
     if (id === 'contact' || id === 'contactus') {
       setActiveTab('home');
-      window.location.hash = '#contact';
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
       setTimeout(() => {
         const element = document.getElementById('contact');
         if (element) {
@@ -343,7 +378,7 @@ export default function App() {
 
     // Home Section Navigation
     setActiveTab('home');
-    window.location.hash = `#${id}`;
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'instant' });
       return;

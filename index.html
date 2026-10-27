@@ -701,6 +701,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      (function () {
+        var h = (window.location.hash || '').replace(/^#/, '').split('?')[0].toLowerCase();
+        var sectionHashes = ['home', 'contact', 'contactus', 'about', 'typology', 'gallery', 'support', 'services', 'achievements', 'windows', 'doors', 'accessories'];
+        if (sectionHashes.indexOf(h) !== -1 || h.indexOf('sec-') === 0) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+        window.scrollTo(0, 0);
+        window.addEventListener('pageshow', function () {
+          if (!window.location.hash || window.location.hash === '#home') {
+            window.scrollTo(0, 0);
+          }
+        });
+      })();
+    </script>
   </head>
   <body class="notranslate" translate="no">
     <div id="root" class="notranslate" translate="no">
