@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { createHash } = require('crypto');
-const LANGUAGES = ['ar', 'ckb', 'kmr', 'en'];
+const LANGUAGES = ['ar', 'ckb', 'kmr', 'en', 'tr'];
 const normalize = code => code === 'kmr' ? 'ku' : code.startsWith('en') ? 'en' : code.startsWith('es') ? 'es' : code.startsWith('pt') ? 'pt' : code;
 const configured = () => true;
 const cacheFile = () => path.resolve(process.env.TRANSLATION_CACHE_FILE || 'translation_cache_db.json');

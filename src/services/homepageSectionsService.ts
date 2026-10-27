@@ -40,6 +40,12 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
         title: 'Sîstemên Pace û Pencereyên Mîmarî',
         description:
           'Pencereyên nûjen ên ku dîmena panoramîk a fireh û îzolasyona bêkêmasî digihînin hev, ji bo ronahiya xwezayî û aramiya tam di her demsalê de hatine sêwirandin.'
+      },
+      tr: {
+        name: 'Mimari Pencere Sistemleri',
+        title: 'Mimari Pencere Sistemleri',
+        description:
+          'Geniş panoramik manzarayı tam yalıtımla birleştiren, evinize her mevsim doğal ışık ve huzurlu bir konfor sunmak için tasarlanmış modern pencereler.'
       }
     }
   },
@@ -73,6 +79,12 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
         title: 'Sîstemên Derî û Derwazeyên Nûjen',
         description:
           'Koleksiyonek bijartî ya derî û derwazeyên nûjen ên ku luks û پتewiyê digihînin hev da ku ji kêliya yekem ve xuyangek bêhempa bidin ketina mala we.'
+      },
+      tr: {
+        name: 'Modern Kapı ve Giriş Sistemleri',
+        title: 'Modern Kapı ve Giriş Sistemleri',
+        description:
+          'İlk bakıştan itibaren evinizin girişine seçkin bir görünüm kazandırmak için lüks ve sağlamlığı bir araya getiren modern kapı ve giriş sistemleri.'
       }
     }
   },
@@ -106,6 +118,12 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
         title: 'Aksesûar û Destikên Mîmarî',
         description:
           'Destik, kilît û aksesûarên endezyariya ورد ên ku bedewiya dawîn li derî û pencereyên we zêde dikin û rehetiya rojane bi ewlehiya bilind re digihînin hev.'
+      },
+      tr: {
+        name: 'Mimari Aksesuar ve Kol Sistemleri',
+        title: 'Mimari Aksesuar ve Kol Sistemleri',
+        description:
+          'Kapı ve pencerelerinize zarif bir son dokunuş katan, günlük kullanım konforunu yüksek güvenlikle birleştiren hassas mühendislik ürünü kollar, kilitler ve aksesuarlar.'
       }
     }
   }
