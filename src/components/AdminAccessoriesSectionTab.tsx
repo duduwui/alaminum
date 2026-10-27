@@ -11,7 +11,8 @@ import {
   Layers,
   X,
   Check,
-  Loader2
+  Loader2,
+  AlertTriangle
 } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { saveLocalProducts, deleteProductFromCloud } from '../services/productService';
@@ -38,6 +39,7 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
 
   const [replacingProductId, setReplacingProductId] = useState<string | null>(null);
   const [isUploading, setIsUploading] = useState(false);
+  const [deleteTargetProd, setDeleteTargetProd] = useState<ProductItem | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleTriggerUpload = (prodId: string) => {
@@ -124,13 +126,19 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
   };
 
   const handleDeleteItem = (prod: ProductItem) => {
+    setDeleteTargetProd(prod);
+  };
+
+  const confirmDeleteAccessory = () => {
+    if (!deleteTargetProd) return;
+    const prod = deleteTargetProd;
     const prodName = prod.translations?.ar?.name || prod.name;
-    if (!confirm(`هل أنت متأكد من حذف "${prodName}" من قسم الإكسسوارات؟`)) return;
     const updated = productList.filter((p) => p.id !== prod.id);
     setProductList(updated);
     saveLocalProducts(updated);
     void saveSharedCmsSection('products', updated);
     void deleteProductFromCloud(prod.id);
+    setDeleteTargetProd(null);
     onSaveFeedback(`✓ تم حذف "${prodName}" بنجاح.`);
   };
 
@@ -290,10 +298,11 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                       <button
                         type="button"
                         onClick={() => handleDeleteItem(prod)}
-                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 transition-colors cursor-pointer ms-1"
+                        className="px-2.5 py-1 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 font-bold text-[11px] flex items-center gap-1 transition-colors cursor-pointer ms-1"
                         title="حذف الإكسسوار"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
+                        <span>Delete</span>
                       </button>
                     </div>
                   </div>
@@ -507,6 +516,57 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {deleteTargetProd && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs animate-in fade-in duration-150">
+          <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-md w-full overflow-hidden">
+            <div className="p-6 space-y-4">
+              <div className="flex items-start justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shrink-0">
+                    <AlertTriangle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-base font-black text-slate-900">حذف الإكسسوار؟</h4>
+                    <p className="text-xs text-slate-500 mt-0.5">
+                      هل أنت متأكد من حذف هذا الإكسسوار من قسم الإكسسوارات؟
+                    </p>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setDeleteTargetProd(null)}
+                  className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 transition-colors cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 truncate">
+                {deleteTargetProd.translations?.ar?.name || deleteTargetProd.name}
+              </div>
+
+              <div className="flex items-center justify-end gap-2.5 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setDeleteTargetProd(null)}
+                  className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={confirmDeleteAccessory}
+                  className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>Delete</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
