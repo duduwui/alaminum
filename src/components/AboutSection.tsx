@@ -832,76 +832,68 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
     SECTION_HEADERS_BY_LANG.en;
 
   return (
-    <section id="about" className="w-full py-16 sm:py-24 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.06),transparent_40%),#fff] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* 2-Column Editorial Layout: Image on Left, Flowing Paragraphs on Right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          {/* Left Column: Architectural Photography / Brand Showcase */}
-          <div className="lg:col-span-5 relative dh-reveal-left">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200/80 bg-slate-50 group">
-              <img
-                src={factoryImage}
-                alt="Doorhome CNC Plant & Engineering"
-                className="w-full h-[380px] sm:h-[460px] object-cover object-center group-hover:scale-102 transition-transform duration-700"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent" />
-
-              {/* Bottom Overlay Label */}
-              <div className="absolute bottom-6 left-6 right-6 text-white text-start">
-                <span className="text-[11px] font-black uppercase tracking-widest text-red-400 block">
-                  <bdi dir="auto">{headerContent.plantBadge}</bdi>
-                </span>
-                <p className="text-sm font-bold text-slate-100 mt-1 leading-relaxed">
-                  <bdi dir="auto">{headerContent.plantDesc}</bdi>
-                </p>
+    <section id="about" className="w-full py-14 sm:py-20 bg-[radial-gradient(ellipse_at_95%_0%,rgba(220,38,38,0.05),transparent_40%),#fff] relative overflow-hidden">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-10 relative z-10">
+        <div className="clearfix text-start dh-reveal">
+          {/* Floated Left Stacked-Frame Image (Always on the left, text wraps to the right and underneath) */}
+          <div className="float-left mr-5 mb-3 sm:mr-9 sm:mb-5 relative select-none shrink-0 mt-1 ml-1">
+            {/* Back Tilted Frame 1 */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-white border-[2.5px] sm:border-[3px] border-slate-900 -rotate-6 shadow-xs"
+            />
+            {/* Middle Tilted Frame 2 */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-white border-[2.5px] sm:border-[3px] border-slate-900 rotate-3 shadow-xs"
+            />
+            {/* Front Main Frame */}
+            <div className="relative bg-white border-[2.5px] sm:border-[3px] border-slate-900 p-2.5 sm:p-4 shadow-md">
+              <div className="border-[2px] border-slate-900 overflow-hidden w-28 h-32 sm:w-48 sm:h-52 md:w-56 md:h-60 bg-slate-100">
+                <img
+                  src={factoryImage}
+                  alt="Doorhome CNC Plant & Engineering"
+                  className="w-full h-full object-cover object-center"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/products-assets/photo_63_2026-09-26_07-36-01.jpg';
+                  }}
+                />
               </div>
             </div>
           </div>
 
-          {/* Right Column: Clean Editorial Paragraphs (No Boxed Cards) */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-start space-y-6 dh-reveal">
-            <div>
-              <div className="w-12 h-1 bg-gradient-to-r from-red-600 to-red-400 rounded-full mb-4" />
-              <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-tight">
-                <bdi dir="auto">{headerContent.title}</bdi>
-              </h2>
-              <p className="mt-3 text-base sm:text-lg text-slate-700 leading-relaxed font-medium">
-                <bdi dir="auto">{headerContent.subtitle}</bdi>
-              </p>
-            </div>
+          {/* Heading sits right next to the floated image, and paragraph text wraps naturally underneath */}
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
+            <bdi dir="auto">{headerContent.title}</bdi>
+          </h2>
 
-            <div className="space-y-4 border-t border-slate-100 pt-5">
-              {pillarItems.map((item, idx) => (
-                <p
-                  key={idx}
-                  className="text-sm sm:text-[15.5px] text-slate-600 leading-relaxed font-normal"
-                >
-                  <strong className="font-extrabold text-slate-900 me-1.5">
-                    <bdi dir="auto">{item.title}:</bdi>
-                  </strong>
-                  <bdi dir="auto">{item.description}</bdi>
-                </p>
-              ))}
-            </div>
+          <p className="text-base sm:text-lg lg:text-[19px] text-slate-600 leading-[1.75] font-normal">
+            <bdi dir="auto">{headerContent.subtitle}</bdi>{' '}
+            {pillarItems.map((item, idx) => (
+              <React.Fragment key={idx}>
+                <strong className="font-bold text-slate-900">
+                  <bdi dir="auto">{item.title}</bdi>
+                </strong>{' '}
+                — <bdi dir="auto">{item.description}</bdi>
+                {idx < pillarItems.length - 1 ? ' ' : ''}
+              </React.Fragment>
+            ))}
+          </p>
 
-            {/* Action Button */}
-            <div className="pt-3 flex items-center justify-start">
-              <button
-                type="button"
-                onClick={onExploreTypologies}
-                className="learn-more"
-              >
-                <span className="circle" aria-hidden="true">
-                  <span className="icon arrow" />
-                </span>
-                <span className="button-text">
-                  <bdi dir="auto">{headerContent.exploreBtn}</bdi>
-                </span>
-              </button>
-            </div>
+          {/* Clear float and show CTA button below */}
+          <div className="clear-both pt-6 sm:pt-8 flex items-center justify-start">
+            <button
+              type="button"
+              onClick={onExploreTypologies}
+              className="learn-more"
+            >
+              <span className="circle" aria-hidden="true">
+                <span className="icon arrow" />
+              </span>
+              <span className="button-text">
+                <bdi dir="auto">{headerContent.exploreBtn}</bdi>
+              </span>
+            </button>
           </div>
         </div>
       </div>
