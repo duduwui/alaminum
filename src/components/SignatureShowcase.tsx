@@ -512,9 +512,9 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
         {/* European Official Catalogues Cards (Dynamic Grid, supports any number of cards with images) */}
         <div className={`grid grid-cols-1 ${displayCards.length === 1 ? 'max-w-md' : displayCards.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3'} gap-4 mb-8`}>
           {displayCards.map((card, idx) => {
-            const localizedCardTitle = card.translations?.[currentLanguage.code]?.title || card.title;
-            const localizedCardDesc = card.translations?.[currentLanguage.code]?.desc || card.desc;
-            const localizedBtnText = card.translations?.[currentLanguage.code]?.buttonText || card.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog');
+            const localizedCardTitle = card.translations?.[currentLanguage.code]?.title || card.translations?.['ar']?.title || card.title;
+            const localizedCardDesc = card.translations?.[currentLanguage.code]?.desc || card.translations?.['ar']?.desc || card.desc;
+            const localizedBtnText = card.translations?.[currentLanguage.code]?.buttonText || card.translations?.['ar']?.buttonText || card.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog');
 
             return (
               <div
