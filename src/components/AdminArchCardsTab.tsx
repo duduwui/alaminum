@@ -363,7 +363,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
           </button>
         </div>
 
-        {/* Red Cards with White Inputs List */}
+        {/* Clean Red & White Cards List */}
         <div className="space-y-4">
           {cards.map((card, idx) => {
             const cardTitleAr = card.translations?.ar?.title || card.title || '';
@@ -373,11 +373,11 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={card.id || idx}
-                className="bg-gradient-to-br from-red-600 via-red-600 to-red-700 text-white rounded-2xl p-4 sm:p-5 transition-all shadow-md hover:shadow-lg flex flex-col md:flex-row gap-5 items-stretch border border-red-500/60"
+                className="bg-white rounded-2xl border-2 border-slate-100 hover:border-red-300 p-4 sm:p-5 transition-all shadow-xs hover:shadow-md flex flex-col md:flex-row gap-5 items-stretch"
               >
-                {/* Image Stage + White Upload Button */}
+                {/* Image Stage + Red/White Upload Button */}
                 <div className="w-full md:w-52 shrink-0 flex flex-col justify-between gap-2.5">
-                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-white border border-red-200/40 flex items-center justify-center p-2.5 group shadow-xs">
+                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 border border-slate-200 flex items-center justify-center p-2.5 group">
                     {card.image ? (
                       <img
                         src={card.image}
@@ -388,14 +388,14 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         }}
                       />
                     ) : (
-                      <ImageIcon className="w-8 h-8 text-red-300" />
+                      <ImageIcon className="w-8 h-8 text-slate-300" />
                     )}
                   </div>
 
                   <button
                     type="button"
                     onClick={() => triggerUpload('cards', idx, 'image')}
-                    className="w-full py-2 px-3 rounded-xl bg-white hover:bg-red-50 text-red-600 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm hover:shadow"
+                    className="w-full py-2 px-3 rounded-xl bg-red-50 hover:bg-red-600 text-red-600 hover:text-white font-bold text-xs border border-red-200 hover:border-red-600 flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
                   >
                     <Upload className="w-3.5 h-3.5" />
                     <span>
@@ -406,12 +406,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                   </button>
                 </div>
 
-                {/* Form Fields: White Inputs on Red Card */}
+                {/* Form Fields: Only Title, Description, PDF Button */}
                 <div className="flex-1 flex flex-col justify-between gap-3">
-                  {/* Top Bar: White Badge + White Title Input + Controls */}
+                  {/* Top Bar: Red Badge + Title Input + Move & Delete */}
                   <div className="flex items-center justify-between gap-2.5">
                     <div className="flex items-center gap-2 flex-1">
-                      <span className="px-2.5 py-1 rounded-lg bg-white text-red-600 font-mono font-black text-xs shrink-0 shadow-sm">
+                      <span className="px-2.5 py-1 rounded-lg bg-red-600 text-white font-mono font-black text-xs shrink-0 shadow-xs">
                         #{String(idx + 1).padStart(2, '0')}
                       </span>
                       <input
@@ -419,7 +419,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         value={cardTitleAr}
                         onChange={(e) => handleUpdateCardField(idx, 'title', e.target.value)}
                         placeholder="عنوان الكتالوج..."
-                        className="flex-1 font-bold text-sm text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3.5 py-2 outline-none shadow-sm transition-all"
+                        className="flex-1 font-bold text-sm text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none transition-all"
                       />
                     </div>
 
@@ -428,7 +428,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="button"
                         disabled={idx === 0}
                         onClick={() => handleMoveCard(idx, 'up')}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white disabled:opacity-20 text-white hover:text-red-600 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
                         title="تحريك لأعلى"
                       >
                         <ArrowUp className="w-3.5 h-3.5" />
@@ -437,7 +437,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="button"
                         disabled={idx === cards.length - 1}
                         onClick={() => handleMoveCard(idx, 'down')}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white disabled:opacity-20 text-white hover:text-red-600 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
                         title="تحريك لأسفل"
                       >
                         <ArrowDown className="w-3.5 h-3.5" />
@@ -445,7 +445,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       <button
                         type="button"
                         onClick={() => handleDeleteCard(idx)}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white text-white hover:text-red-600 transition-colors cursor-pointer ms-1"
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 transition-colors cursor-pointer ms-1"
                         title="حذف الكتالوج"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -453,17 +453,17 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                     </div>
                   </div>
 
-                  {/* Description Textarea (White on Red) */}
+                  {/* Description Textarea */}
                   <textarea
                     value={cardDescAr}
                     onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
                     placeholder="وصف ومواصفات الكتالوج..."
                     rows={2}
-                    className="w-full text-xs text-slate-800 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed shadow-sm transition-all"
+                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
                   />
 
-                  {/* Bottom Row: White PDF Inputs & Buttons */}
-                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-red-500/40">
+                  {/* Bottom Row: PDF File Upload & Button Text */}
+                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-slate-100">
                     <div className="flex items-center gap-1.5 flex-1 w-full">
                       <input
                         type="text"
@@ -471,12 +471,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         onChange={(e) => handleUpdateCardField(idx, 'pdfUrl', e.target.value)}
                         placeholder="رابط ملف PDF"
                         dir="ltr"
-                        className="flex-1 font-mono text-xs text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3 py-2 outline-none shadow-sm transition-all"
+                        className="flex-1 font-mono text-xs text-slate-800 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => triggerUpload('cards', idx, 'pdf')}
-                        className="px-3.5 py-2 rounded-xl bg-white hover:bg-red-50 text-red-600 font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
+                        className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
                       >
                         <Upload className="w-3.5 h-3.5" />
                         <span>رفع PDF</span>
@@ -486,7 +486,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                           href={card.pdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-xl bg-white hover:bg-red-50 text-red-600 transition-colors shrink-0 shadow-sm"
+                          className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition-colors shrink-0"
                           title="معاينة PDF"
                         >
                           <Eye className="w-4 h-4" />
@@ -499,7 +499,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       value={cardBtnAr}
                       onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
                       placeholder="نص الزر (فتح الكتالوج PDF)"
-                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3 py-2 outline-none shadow-sm transition-all shrink-0"
+                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all shrink-0"
                     />
                   </div>
                 </div>
@@ -539,7 +539,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
           </button>
         </div>
 
-        {/* Red Showcase Cards with White Inputs List */}
+        {/* Clean Red & White Showcase List */}
         <div className="space-y-4">
           {showcaseItems.map((item, idx) => {
             const itemTitleAr = item.titleAr || item.title || '';
@@ -549,11 +549,11 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
             return (
               <div
                 key={item.id || idx}
-                className="bg-gradient-to-br from-red-600 via-red-600 to-red-700 text-white rounded-2xl p-4 sm:p-5 transition-all shadow-md hover:shadow-lg flex flex-col md:flex-row gap-5 items-stretch border border-red-500/60"
+                className="bg-white rounded-2xl border-2 border-slate-100 hover:border-red-300 p-4 sm:p-5 transition-all shadow-xs hover:shadow-md flex flex-col md:flex-row gap-5 items-stretch"
               >
-                {/* Image Stage + White Upload Button */}
+                {/* Image Stage + Red/White Upload Button */}
                 <div className="w-full md:w-52 shrink-0 flex flex-col justify-between gap-2.5">
-                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-white border border-red-200/40 flex items-center justify-center p-2.5 group shadow-xs">
+                  <div className="relative aspect-video md:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 border border-slate-200 flex items-center justify-center p-2.5 group">
                     {item.image ? (
                       <img
                         src={item.image}
@@ -564,14 +564,14 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         }}
                       />
                     ) : (
-                      <ImageIcon className="w-8 h-8 text-red-300" />
+                      <ImageIcon className="w-8 h-8 text-slate-300" />
                     )}
                   </div>
 
                   <button
                     type="button"
                     onClick={() => triggerUpload('showcase', idx, 'image')}
-                    className="w-full py-2 px-3 rounded-xl bg-white hover:bg-red-50 text-red-600 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-sm hover:shadow"
+                    className="w-full py-2 px-3 rounded-xl bg-red-50 hover:bg-red-600 text-red-600 hover:text-white font-bold text-xs border border-red-200 hover:border-red-600 flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-2xs"
                   >
                     <Upload className="w-3.5 h-3.5" />
                     <span>
@@ -582,12 +582,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                   </button>
                 </div>
 
-                {/* Form Fields: White Inputs on Red Card */}
+                {/* Form Fields: Only Title, Description, PDF Button */}
                 <div className="flex-1 flex flex-col justify-between gap-3">
-                  {/* Top Bar: White Badge + White Title Input + Controls */}
+                  {/* Top Bar: Red Badge + Title Input + Move & Delete */}
                   <div className="flex items-center justify-between gap-2.5">
                     <div className="flex items-center gap-2 flex-1">
-                      <span className="px-2.5 py-1 rounded-lg bg-white text-red-600 font-mono font-black text-xs shrink-0 shadow-sm">
+                      <span className="px-2.5 py-1 rounded-lg bg-red-600 text-white font-mono font-black text-xs shrink-0 shadow-xs">
                         #{String(idx + 1).padStart(2, '0')}
                       </span>
                       <input
@@ -595,7 +595,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         value={itemTitleAr}
                         onChange={(e) => handleUpdateShowcaseField(idx, 'title', e.target.value)}
                         placeholder="عنوان النظام..."
-                        className="flex-1 font-bold text-sm text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3.5 py-2 outline-none shadow-sm transition-all"
+                        className="flex-1 font-bold text-sm text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none transition-all"
                       />
                     </div>
 
@@ -604,7 +604,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="button"
                         disabled={idx === 0}
                         onClick={() => handleMoveShowcaseItem(idx, 'up')}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white disabled:opacity-20 text-white hover:text-red-600 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
                         title="تحريك لأعلى"
                       >
                         <ArrowUp className="w-3.5 h-3.5" />
@@ -613,7 +613,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         type="button"
                         disabled={idx === showcaseItems.length - 1}
                         onClick={() => handleMoveShowcaseItem(idx, 'down')}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white disabled:opacity-20 text-white hover:text-red-600 transition-colors cursor-pointer"
+                        className="p-1.5 rounded-lg bg-slate-50 hover:bg-red-50 disabled:opacity-20 text-slate-600 hover:text-red-600 border border-slate-200 transition-colors cursor-pointer"
                         title="تحريك لأسفل"
                       >
                         <ArrowDown className="w-3.5 h-3.5" />
@@ -621,7 +621,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       <button
                         type="button"
                         onClick={() => handleDeleteShowcaseItem(idx)}
-                        className="p-1.5 rounded-lg bg-white/20 hover:bg-white text-white hover:text-red-600 transition-colors cursor-pointer ms-1"
+                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-600 text-red-600 hover:text-white border border-red-200 transition-colors cursor-pointer ms-1"
                         title="حذف الشريحة"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -629,17 +629,17 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                     </div>
                   </div>
 
-                  {/* Description Textarea (White on Red) */}
+                  {/* Description Textarea */}
                   <textarea
                     value={itemDescAr}
                     onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
                     placeholder="شرح ومواصفات النظام..."
                     rows={2}
-                    className="w-full text-xs text-slate-800 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed shadow-sm transition-all"
+                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
                   />
 
-                  {/* Bottom Row: White PDF Inputs & Buttons */}
-                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-red-500/40">
+                  {/* Bottom Row: PDF File Upload & Button Text */}
+                  <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 pt-2 border-t border-slate-100">
                     <div className="flex items-center gap-1.5 flex-1 w-full">
                       <input
                         type="text"
@@ -647,12 +647,12 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                         onChange={(e) => handleUpdateShowcaseField(idx, 'pdfUrl', e.target.value)}
                         placeholder="رابط ملف PDF"
                         dir="ltr"
-                        className="flex-1 font-mono text-xs text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3 py-2 outline-none shadow-sm transition-all"
+                        className="flex-1 font-mono text-xs text-slate-800 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => triggerUpload('showcase', idx, 'pdf')}
-                        className="px-3.5 py-2 rounded-xl bg-white hover:bg-red-50 text-red-600 font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
+                        className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm hover:shadow transition-all cursor-pointer shrink-0"
                       >
                         <Upload className="w-3.5 h-3.5" />
                         <span>رفع PDF</span>
@@ -662,7 +662,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                           href={item.pdfUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 rounded-xl bg-white hover:bg-red-50 text-red-600 transition-colors shrink-0 shadow-sm"
+                          className="p-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 transition-colors shrink-0"
                           title="معاينة PDF"
                         >
                           <Eye className="w-4 h-4" />
@@ -674,8 +674,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                       type="text"
                       value={itemBtnAr}
                       onChange={(e) => handleUpdateShowcaseField(idx, 'buttonText', e.target.value)}
-                      placeholder="نص الزر (فتح الكتالوج المعتمد PDF)"
-                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-white placeholder:text-slate-400 border border-white/60 focus:ring-2 focus:ring-white rounded-xl px-3 py-2 outline-none shadow-sm transition-all shrink-0"
+                      placeholder="نص زر الكتالوج (فتح الكتالوج المعتمد PDF)"
+                      className="w-full sm:w-48 text-xs font-bold text-slate-900 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none transition-all shrink-0"
                     />
                   </div>
                 </div>
