@@ -48,16 +48,20 @@ export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
 }
 
 let isSyncing = false;
+let lastLocalWriteAt = 0;
 
 export async function fetchGalleryItemsFromCms(): Promise<GalleryMediaItem[]> {
+  const startedAt = Date.now();
   try {
     const res = await fetch('/api/cms/gallery', { cache: 'no-cache' });
     if (res.ok) {
       const payload = await res.json();
       const rawList = Array.isArray(payload) ? payload : payload?.data;
       if (Array.isArray(rawList) && rawList.length > 0) {
+        // Ignore stale server data if the user edited/deleted locally while this request was in flight
+        if (lastLocalWriteAt > startedAt) return loadGalleryItems();
         const normalized = normalizeGalleryItems(rawList);
-        saveGalleryItems(normalized);
+        saveGalleryItems(normalized, true);
         return normalized;
       }
     }
@@ -97,7 +101,8 @@ export function loadGalleryItems(): GalleryMediaItem[] {
   }
 }
 
-export function saveGalleryItems(items: GalleryMediaItem[]): void {
+export function saveGalleryItems(items: GalleryMediaItem[], fromServer = false): void {
+  if (!fromServer) lastLocalWriteAt = Date.now();
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     window.dispatchEvent(new CustomEvent(GALLERY_UPDATED_EVENT, { detail: items }));

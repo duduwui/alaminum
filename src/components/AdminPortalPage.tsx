@@ -78,7 +78,7 @@ import {
 import { AdminUsersTab } from './AdminUsersTab';
 import { AdminCategoriesTab } from './AdminCategoriesTab';
 import { CurrencyType, formatCurrency } from '../utils/currency';
-import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault, subscribeToLocalProducts } from '../services/productService';
+import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault } from '../services/productService';
 import { autoTranslateFullProduct } from '../services/translateService';
 import { loadProductDivisions, saveProductDivisions, subscribeToDivisions, resetProductDivisionsToDefault, updateModelInDivision, deleteModelFromDivision } from '../services/productNavigationService';
 import { loadSharedCmsSection, saveSharedCmsSection } from '../services/cmsService';
@@ -480,12 +480,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   useEffect(() => {
     return subscribeToDivisions((updated) => {
       setDivisions(updated);
-    });
-  }, []);
-
-  useEffect(() => {
-    return subscribeToLocalProducts((updated) => {
-      setProductList(updated);
     });
   }, []);
 
