@@ -87,6 +87,17 @@ import { GalleryMediaItem, loadGalleryItems, normalizeGalleryItems, saveGalleryI
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { ITEM_LOCALES, SHOWCASE_TEXT_BY_LANG } from './SignatureShowcase';
 import { getPartnerLogos, PartnerBrand, isImageFlag } from './PartnerLogos';
+import {
+  loadArchitectureCards,
+  saveArchitectureCards,
+  ArchitectureCatalogueCard,
+  DEFAULT_CATALOGUE_CARDS
+} from '../services/architectureCardsService';
+import { Admin3DCarouselTab } from './Admin3DCarouselTab';
+import { AdminAllProjectsTab } from './AdminAllProjectsTab';
+import { AdminArchCardsTab } from './AdminArchCardsTab';
+import { AdminWindowsSectionTab } from './AdminWindowsSectionTab';
+import { AdminDoorsSectionTab } from './AdminDoorsSectionTab';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -209,8 +220,8 @@ const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
 };
 
 const uploadCmsMediaFile = async (file: File): Promise<string> => {
-  if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm'].includes(file.type)) {
-    throw new Error('Use a JPG, PNG, WebP, GIF, MP4, or WebM file.');
+  if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'application/pdf'].includes(file.type)) {
+    throw new Error('Use a JPG, PNG, WebP, GIF, MP4, WebM, or PDF file.');
   }
   if (file.size > MAX_MEDIA_UPLOAD_BYTES) {
     throw new Error('File is too large. Upload a file smaller than 100 MB.');
@@ -279,7 +290,19 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     return () => window.removeEventListener('hashchange', syncSectionWithHash);
   }, []);
   const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
-  const [cmsSubTab, setCmsSubTab] = useState<'gallery' | 'bento' | 'hero'>('gallery');
+  const [cmsSubTab, setCmsSubTab] = useState<
+    '3d-carousel' | 'all-projects' | 'arch-cards' | 'windows-section' | 'doors-section' | 'hero'
+  >('3d-carousel');
+
+  // Architecture Catalogue Cards State
+  const [archCards, setArchCards] = useState<ArchitectureCatalogueCard[]>(() => loadArchitectureCards());
+  const [archCardsSaving, setArchCardsSaving] = useState(false);
+  const [archCardsSaveFeedback, setArchCardsSaveFeedback] = useState('');
+  const archLogoInput1Ref = React.useRef<HTMLInputElement>(null);
+  const archLogoInput2Ref = React.useRef<HTMLInputElement>(null);
+  const archPdfInput1Ref = React.useRef<HTMLInputElement>(null);
+  const archPdfInput2Ref = React.useRef<HTMLInputElement>(null);
+  const [isUploadingArchFile, setIsUploadingArchFile] = useState(false);
 
   // Seed Production Data Handler
   const handleSeedProductionData = () => {
@@ -897,8 +920,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       loadSharedCmsSection<unknown>('gallery'),
       loadSharedCmsSection<unknown>('products'),
       loadSharedCmsSection<unknown>('divisions'),
-      loadSharedCmsSection<unknown>('partnerLogos')
-    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions, sharedLogos]) => {
+      loadSharedCmsSection<unknown>('partnerLogos'),
+      loadSharedCmsSection<ArchitectureCatalogueCard[]>('archCards').catch(() => null)
+    ]).then(([sharedHomepage, sharedGallery, sharedProducts, sharedDivisions, sharedLogos, sharedArchCards]) => {
       if (cancelled) return;
       if (sharedHomepage && typeof sharedHomepage === 'object' && !Array.isArray(sharedHomepage)) {
         setHomepageMedia((previous) => ({ ...previous, ...sharedHomepage }));
@@ -909,6 +933,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         saveProductDivisions(sharedDivisions as ProductCategoryDivision[]);
       }
       if (Array.isArray(sharedLogos)) setPartnerLogos(sharedLogos as any[]);
+      if (Array.isArray(sharedArchCards) && sharedArchCards.length >= 2) {
+        setArchCards(sharedArchCards);
+        saveArchitectureCards(sharedArchCards);
+      }
       setCmsHydrated(true);
     }).catch(() => {
       if (!cancelled) setCmsSaveFeedback('Shared content is unavailable. Existing local data was preserved.');
@@ -987,6 +1015,21 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     }, 300);
     return () => window.clearTimeout(timer);
   }, [cmsHydrated, partnerLogos]);
+
+  useEffect(() => {
+    if (!cmsHydrated) return;
+    try {
+      saveArchitectureCards(archCards);
+    } catch (e) {
+      console.warn('LocalStorage save error for arch cards:', e);
+    }
+    const timer = window.setTimeout(() => {
+      void saveSharedCmsSection('archCards', archCards).catch((error) => {
+        console.warn('Architecture cards shared save failed:', error);
+      });
+    }, 350);
+    return () => window.clearTimeout(timer);
+  }, [cmsHydrated, archCards]);
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, destination: 'gallery' | 'about' | 'hero' = 'gallery') => {
     const files = Array.from(e.target.files || []);
@@ -1152,7 +1195,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       saveGalleryItems(galleryImages);
       await Promise.all([
         saveSharedCmsSection('homepage', homepageMedia),
-        saveSharedCmsSection('gallery', galleryImages)
+        saveSharedCmsSection('gallery', galleryImages),
+        saveSharedCmsSection('archCards', archCards).catch(() => {})
       ]);
       setCmsSaveFeedback('✓ All Section Media & Text Confirmed & Saved to Website!');
       setTimeout(() => setCmsSaveFeedback(''), 4000);
@@ -1716,43 +1760,148 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
-        {/* SECTION: CMS & PROJECT GALLERY (3D CAROUSEL, BENTO, HERO) */}
+        {/* SECTION: CMS & GALLERY (3D CAROUSEL, ALL PROJECTS, ARCH CARDS, WINDOWS, DOORS, HERO) */}
         {activeSection === 'cms' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
             {/* Sub-Navigation Pills for CMS */}
             <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 overflow-x-auto no-scrollbar shrink-0">
               <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
+                {/* 1. 3D Carousel (12 Slots) */}
                 <button
                   type="button"
-                  onClick={() => setCmsSubTab('gallery')}
+                  onClick={() => setCmsSubTab('3d-carousel')}
                   className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'gallery'
+                    cmsSubTab === '3d-carousel'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'كاروسيل 3D التفاعلي (12 سلايد)'
+                      : currentLanguage.code === 'ckb'
+                      ? 'کارۆسێلی 3D (١٢ سلاید)'
+                      : '3D Carousel (12 Slots)'}
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                      cmsSubTab === '3d-carousel' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    12
+                  </span>
+                </button>
+
+                {/* 2. All Projects Portfolio */}
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('all-projects')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'all-projects'
                       ? 'bg-red-600 text-white shadow-sm'
                       : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
                   }`}
                 >
                   <ImageIcon className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'معرض المشاريع (3D Carousel)' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : '3D Projects Carousel'}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'gallery' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}>
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'أرشيف كل المشاريع'
+                      : currentLanguage.code === 'ckb'
+                      ? 'ئەرشیفی هەموو پڕۆژەکان'
+                      : 'All Projects Portfolio'}
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                      cmsSubTab === 'all-projects' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}
+                  >
                     {galleryImages.length}
                   </span>
                 </button>
 
+                {/* 3. 2 Architecture Cards */}
                 <button
                   type="button"
-                  onClick={() => setCmsSubTab('bento')}
+                  onClick={() => setCmsSubTab('arch-cards')}
                   className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                    cmsSubTab === 'bento'
+                    cmsSubTab === 'arch-cards'
                       ? 'bg-red-600 text-white shadow-sm'
                       : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <Layers className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'الأنظمة الخمسة المميزة' : currentLanguage.code === 'ckb' ? '٥ سیستەمی سەرەکی' : '5 Signature Systems'}</span>
+                  <FileText className="w-3.5 h-3.5" />
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'كتالوجات الشركاء المعماريين'
+                      : currentLanguage.code === 'ckb'
+                      ? 'کاتالۆگی هاوبەشە ئەوروپییەکان'
+                      : '2 Architecture Catalogues'}
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                      cmsSubTab === 'arch-cards' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    2
+                  </span>
                 </button>
 
+                {/* 4. Windows Section Media */}
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('windows-section')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'windows-section'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'ميديا قسم النوافذ'
+                      : currentLanguage.code === 'ckb'
+                      ? 'میدیای بەشی پەنجەرەکان'
+                      : 'Windows Section Media'}
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                      cmsSubTab === 'windows-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    {productList.filter((p) => p.division === 'windows' || p.category === 'windows').length}
+                  </span>
+                </button>
+
+                {/* 5. Doors Section Media */}
+                <button
+                  type="button"
+                  onClick={() => setCmsSubTab('doors-section')}
+                  className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                    cmsSubTab === 'doors-section'
+                      ? 'bg-red-600 text-white shadow-sm'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  <Package className="w-3.5 h-3.5" />
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'ميديا قسم الأبواب'
+                      : currentLanguage.code === 'ckb'
+                      ? 'میدیای بەشی دەرگاکان'
+                      : 'Doors Section Media'}
+                  </span>
+                  <span
+                    className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                      cmsSubTab === 'doors-section' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    {productList.filter((p) => p.division === 'doors' || p.category === 'doors').length}
+                  </span>
+                </button>
+
+                {/* 6. Hero & About Banners */}
                 <button
                   type="button"
                   onClick={() => setCmsSubTab('hero')}
@@ -1762,8 +1911,14 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                       : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
                   }`}
                 >
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'بانر الواجهة والشركة' : currentLanguage.code === 'ckb' ? 'باگراوند و ناساندن' : 'Hero & About Media'}</span>
+                  <Layers className="w-3.5 h-3.5" />
+                  <span>
+                    {currentLanguage.code === 'ar'
+                      ? 'بانر الواجهة والشركة'
+                      : currentLanguage.code === 'ckb'
+                      ? 'باگراوند و ناساندن'
+                      : 'Hero & About Media'}
+                  </span>
                 </button>
               </div>
             </div>
@@ -1781,402 +1936,185 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               </div>
             )}
 
-            {/* Hidden file inputs for Logo & Flag uploads */}
-            <input
-              type="file"
-              ref={logoFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleLogoFileUpload}
-            />
-            <input
-              type="file"
-              ref={newFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleNewFlagFileUpload}
-            />
-            <input
-              type="file"
-              ref={cardFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleCardFlagFileUpload}
-            />
-
-            {/* SUB-VIEW: 3D PROJECTS CAROUSEL */}
-            {cmsSubTab === 'gallery' && (
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-6">
-              {/* Header with Title & Direct Card Add Button */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                <div>
-                  <h3 className="text-lg font-black text-slate-900">Reference Projects & 3D Carousel Media ({galleryImages.length})</h3>
-                  <p className="text-xs text-slate-500 mt-1">
-                    Cards 01 to 12 below are featured in the interactive 3D Gallery Carousel. You can replace images/videos, edit titles/descriptions, and reorder them with the arrows.
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-2 shrink-0">
-                  <button
-                    type="button"
-                    onClick={handleManualSaveCMS}
-                    className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow-md shadow-emerald-600/20 transition-all cursor-pointer"
-                  >
-                    <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Save All</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* 3D Carousel Top 12 Info Note */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-700">
-                <div className="font-bold text-slate-900 text-xs sm:text-sm">
-                  Homepage 3D Carousel (Cards #01 to #12)
-                </div>
-                <p className="text-slate-600 leading-relaxed text-[11px] sm:text-xs mt-1">
-                  Cards #01 through #12 correspond directly to the 12 slides in the 3D Carousel on the public homepage. Use <strong>Replace</strong> to change any photo or video, and use the <strong>↑ / ↓</strong> arrows to reorder their position. Changes save automatically.
-                </p>
-              </div>
-
-              <div className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xs">
-                <label className="block text-xs font-bold text-slate-800">Project title
-                  <input value={newGalleryTitle} onChange={(e) => setNewGalleryTitle(e.target.value)} placeholder="Project title" className="mt-1 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs text-slate-900" />
-                </label>
-                <AdvancedTextarea
-                  value={newGalleryDescription}
-                  onChange={setNewGalleryDescription}
-                  placeholder="Detailed project description & architectural specifications..."
-                  label="Project Description (Press Tab to indent, blank lines supported)"
-                  rows={5}
-                  minHeight="140px"
-                />
-                <button type="button" disabled={isUploadingGalleryMedia} onClick={() => galleryFileInputRef.current?.click()} className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-xs font-bold text-white hover:bg-red-700 disabled:opacity-50">
-                  <Upload className="h-4 w-4" /> {isUploadingGalleryMedia ? 'Uploading…' : 'Upload images and videos'}
-                </button>
-                <input ref={galleryFileInputRef} type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm" onChange={handleFileUpload} className="hidden" />
-                <p className="text-xs text-slate-500">Select several files together. Each gets its own card with this title and description; you can edit them individually afterward.</p>
-                {galleryUploadError && <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-bold text-rose-700">{galleryUploadError}</p>}
-              </div>
-
-              {/* Active Photos Grid */}
-              <div className="space-y-3 pt-2">
-                <h4 className="text-xs font-extrabold text-slate-700 uppercase tracking-wider">
-                  Current Gallery Media ({galleryImages.length})
-                </h4>
-
-                {galleryImages.length === 0 ? (
-                  <div className="py-12 text-center text-slate-400 font-bold text-xs bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                    No projects in the gallery yet. Upload an image or video above.
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {galleryImages.map((item, idx) => {
-                      return (
-                        <div
-                          key={item.id || idx}
-                          className="rounded-2xl border border-slate-200 bg-white p-3 space-y-2.5 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between"
-                        >
-                          {/* Top Card Index & Reorder Controls — ZERO Loud Badges */}
-                          <div className="flex items-center justify-between gap-1 pb-1">
-                            <span className="text-xs font-mono font-bold text-slate-500 tracking-wider">
-                              #{String(idx + 1).padStart(2, '0')}
-                            </span>
-
-                            {/* Reorder Arrows */}
-                            <div className="flex items-center gap-1">
-                              <button
-                                type="button"
-                                disabled={idx === 0}
-                                onClick={() => handleMoveGalleryImage(idx, 'up')}
-                                className="p-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition-colors"
-                                title="Move Up in Carousel"
-                              >
-                                <ArrowUp className="w-3.5 h-3.5" />
-                              </button>
-                              <button
-                                type="button"
-                                disabled={idx === galleryImages.length - 1}
-                                onClick={() => handleMoveGalleryImage(idx, 'down')}
-                                className="p-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 disabled:opacity-25 disabled:pointer-events-none transition-colors"
-                                title="Move Down in Carousel"
-                              >
-                                <ArrowDown className="w-3.5 h-3.5" />
-                              </button>
-                            </div>
-                          </div>
-
-                          {/* Thumbnail Preview */}
-                          <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-100">
-                            {item.mediaType === 'video' ? (
-                              <video src={item.src} muted playsInline preload="metadata" className="h-full w-full object-cover" />
-                            ) : (
-                              <img src={item.src} alt={item.title} className="w-full h-full object-cover" />
-                            )}
-                            <span className="absolute bottom-1.5 end-1.5 px-1.5 py-0.5 rounded bg-black/70 text-white font-mono text-[9px] uppercase tracking-widest backdrop-blur-xs">
-                              {item.mediaType === 'video' ? 'Video' : 'Photo'}
-                            </span>
-                          </div>
-
-                          {/* Editable Title & Advanced Description (Auto-saved on blur) */}
-                          <div className="space-y-1.5">
-                            <input
-                              value={item.title}
-                              onChange={(e) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, title: e.target.value } : entry))}
-                              onBlur={() => persistGalleryUpdates(galleryImages)}
-                              aria-label="Project title"
-                              placeholder="Project title"
-                              className="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-900 focus:border-red-500 focus:outline-none"
-                            />
-                            <AdvancedTextarea
-                              value={item.description}
-                              onChange={(val) => setGalleryImages((prev) => prev.map((entry, i) => i === idx ? { ...entry, description: val } : entry))}
-                              onBlur={() => persistGalleryUpdates(galleryImages)}
-                              placeholder="Project description & architectural details..."
-                              rows={6}
-                              minHeight="150px"
-                            />
-                          </div>
-
-                          {/* Replace & Delete Buttons */}
-                          <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
-                            <label className="flex-1 py-1.5 px-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-red-200 transition-all cursor-pointer">
-                              <Upload className="w-3 h-3" />
-                              <span>Replace</span>
-                              <input
-                                type="file"
-                                accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
-                                onChange={(e) => handleReplaceGalleryImage(idx, e)}
-                                className="hidden"
-                              />
-                            </label>
-
-                            <button
-                              type="button"
-                              onClick={() => handleDeleteGalleryImage(idx)}
-                              className="py-1.5 px-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-[11px] flex items-center justify-center gap-1 border border-rose-200 transition-all cursor-pointer"
-                              title="Delete project"
-                            >
-                              <Trash2 className="w-3 h-3" />
-                              <span>Delete</span>
-                            </button>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            </div>
+            {/* TAB 1: 3D INTERACTIVE CAROUSEL (12 SLOTS) */}
+            {cmsSubTab === '3d-carousel' && (
+              <Admin3DCarouselTab
+                galleryImages={galleryImages}
+                onUpdateGallery={persistGalleryUpdates}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+              />
             )}
 
-            {/* SUB-VIEW: 5 ARCHITECTURAL SIGNATURE SYSTEMS */}
-            {cmsSubTab === 'bento' && (
-            <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="text-base font-black text-slate-900">
-                    5 Architectural Window & Door Systems — Card Content
-                  </h4>
-                  <p className="text-xs text-slate-500 mt-0.5">
-                    Replace each card image, title, and description. The five card slots stay fixed.
-                  </p>
-                </div>
-                <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 font-extrabold text-[11px] border border-slate-200">
-                  Fixed Slots (5 Signature Cards)
-                </span>
-              </div>
-
-              <div className="rounded-2xl border border-red-100 bg-red-50/50 p-4 space-y-3">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h5 className="text-sm font-black text-slate-900">Section heading and introduction</h5>
-                    <p className="text-xs text-slate-500">Edit the text above the five cards for each website language.</p>
-                  </div>
-                  <select value={showcaseTextLanguage} onChange={(event) => setShowcaseTextLanguage(event.target.value)} aria-label="Showcase text language" className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-800">
-                    <option value="en">English</option><option value="ckb">Sorani</option><option value="kmr">Kurmanji</option><option value="ar">Arabic</option><option value="tr">Turkish</option><option value="de">German</option>
-                  </select>
-                </div>
-                <label className="block text-[11px] font-bold text-slate-700">Heading</label>
-                <input value={homepageMedia.showcaseSectionText?.[showcaseTextLanguage]?.title ?? SHOWCASE_TEXT_BY_LANG[showcaseTextLanguage].title} onChange={(event) => setHomepageMedia((previous) => ({ ...previous, showcaseSectionText: { ...(previous.showcaseSectionText || {}), [showcaseTextLanguage]: { ...(previous.showcaseSectionText?.[showcaseTextLanguage] || {}), title: event.target.value } } }))} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900" />
-                <label className="block text-[11px] font-bold text-slate-700">Introduction</label>
-                <textarea rows={3} value={homepageMedia.showcaseSectionText?.[showcaseTextLanguage]?.subtitle ?? SHOWCASE_TEXT_BY_LANG[showcaseTextLanguage].subtitle} onChange={(event) => setHomepageMedia((previous) => ({ ...previous, showcaseSectionText: { ...(previous.showcaseSectionText || {}), [showcaseTextLanguage]: { ...(previous.showcaseSectionText?.[showcaseTextLanguage] || {}), subtitle: event.target.value } } }))} className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900" />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 pt-2">
-                {[
-                  { key: 'legend-80', title: 'Deceuninck Legend 80', description: 'Flagship European passive-certified uPVC series engineered with 6 insulation chambers to withstand Erbil summer heat over 50°C.', category: 'Passive uPVC', defaultSrc: './assets/doorhome/10.png' },
-                  { key: 'lorenzo-70ls', title: 'Lorenzoline 70LS Monumental', description: 'Architectural sliding system enabling panoramic floor-to-ceiling glass spans up to 3 meters with finger-touch glide.', category: 'Monumental Sliding', defaultSrc: './assets/doorhome/LIFT-SLIDE-70LS-Medium-300x300.jpeg' },
-                  { key: 'curtain-50f', title: 'Façade 50F Curtain Wall', description: 'Structural mullion facade system fabricated for corporate towers, automobile showrooms, and luxury modern villas across Iraq.', category: 'Commercial Facade', defaultSrc: './assets/doorhome/24-1.jpg' },
-                  { key: 'hs76-sliding', title: 'Hebe-Schiebe HS76 System', description: 'Heavyweight lift-and-slide engineering delivering airtight sealing against high-velocity dry desert winds and seasonal sandstorms.', category: 'uPVC Lift & Slide', defaultSrc: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg' },
-                  { key: 'winsa-dorado-76', title: 'Winsa Dorado 76 Acoustic', description: 'Class A wall-thickness acoustic profile with multi-chamber interior baffling to isolate indoor spaces from heavy city traffic noise.', category: 'Class A Soundproof', defaultSrc: './assets/doorhome/2-1.png' }
-                ].map((sys) => {
-                  const currentSrc = homepageMedia.showcaseImages?.[sys.key] || sys.defaultSrc;
-                  return (
-                    <div key={sys.key} className="p-3 bg-white rounded-2xl border border-slate-200 hover:border-red-300 space-y-3 flex flex-col justify-between shadow-2xs transition-colors">
-                      <div className="space-y-2">
-                        <div className="aspect-square rounded-xl overflow-hidden bg-white border border-slate-200 flex items-center justify-center p-2">
-                          <img src={currentSrc} alt={sys.title} className="max-h-full max-w-full object-contain" />
-                        </div>
-                      </div>
-
-                      <div className="space-y-2">
-                        <label className="block text-[10px] font-bold text-slate-600">Title</label>
-                        <input value={showcaseCardValue(sys.key, 'title', ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.title || sys.title)} onChange={(e) => updateShowcaseCardValue(sys.key, 'title', e.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-900" />
-                        <label className="block text-[10px] font-bold text-slate-600">Line under title</label>
-                        <input value={showcaseCardValue(sys.key, 'subtitle', '')} placeholder={[ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.brand, ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.category].filter(Boolean).join(' • ') || 'Optional — small line in the five-card list'} onChange={(e) => updateShowcaseCardValue(sys.key, 'subtitle', e.target.value)} className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1.5 text-xs text-slate-900" />
-                        <label className="block text-[10px] font-bold text-slate-600">Description</label>
-                        <AdvancedTextarea
-                          value={showcaseCardValue(sys.key, 'description', ITEM_LOCALES[showcaseTextLanguage]?.[sys.key]?.description || sys.description)}
-                          onChange={(val) => updateShowcaseCardValue(sys.key, 'description', val)}
-                          placeholder="System description..."
-                          rows={3}
-                          minHeight="70px"
-                        />
-                      </div>
-
-                      {/* Action buttons */}
-                      <div className="flex items-center gap-2 pt-2 border-t border-slate-200">
-                        <label className="flex-1 py-1.5 px-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-[11px] flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs">
-                          <Upload className="w-3 h-3" />
-                          <span>Replace File</span>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => handleReplaceShowcaseImage(sys.key, e)}
-                            className="hidden"
-                          />
-                        </label>
-
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setHomepageMedia((prev) => ({
-                              ...prev,
-                              showcaseImages: { ...(prev.showcaseImages || {}), [sys.key]: sys.defaultSrc }
-                            }))
-                          }
-                          className="py-1.5 px-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-700 font-extrabold text-[11px] transition-all cursor-pointer"
-                          title="Reset to default image"
-                        >
-                          Reset
-                        </button>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            {/* TAB 2: ALL PROJECTS ARCHIVE & PORTFOLIO */}
+            {cmsSubTab === 'all-projects' && (
+              <AdminAllProjectsTab
+                galleryImages={galleryImages}
+                onUpdateGallery={persistGalleryUpdates}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+                AdvancedTextarea={AdvancedTextarea}
+              />
             )}
 
-            {/* SUB-VIEW: ABOUT SECTION & HERO BANNER */}
+            {/* TAB 3: 2 ARCHITECTURE CARDS & CATALOGUES */}
+            {cmsSubTab === 'arch-cards' && (
+              <AdminArchCardsTab
+                archCards={archCards}
+                onUpdateArchCards={setArchCards}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+                homepageMedia={homepageMedia}
+                setHomepageMedia={setHomepageMedia}
+              />
+            )}
+
+            {/* TAB 4: WINDOWS SECTION MEDIA & MODELS */}
+            {cmsSubTab === 'windows-section' && (
+              <AdminWindowsSectionTab
+                productList={productList}
+                setProductList={setProductList}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
+              />
+            )}
+
+            {/* TAB 5: DOORS SECTION MEDIA & MODELS */}
+            {cmsSubTab === 'doors-section' && (
+              <AdminDoorsSectionTab
+                productList={productList}
+                setProductList={setProductList}
+                onUploadMedia={uploadCmsMediaFile}
+                onSaveFeedback={(msg) => {
+                  setCmsSaveFeedback(msg);
+                  setTimeout(() => setCmsSaveFeedback(''), 4000);
+                }}
+                onOpenNewProductModal={(cat) => handleOpenAddProductForCategory(cat)}
+              />
+            )}
+
+            {/* TAB 6: HERO BANNER & ABOUT COMPANY MEDIA */}
             {cmsSubTab === 'hero' && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* About Section Media & Text Manager */}
-              <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-extrabold text-slate-900">Why Choose Doorhome — Image</h4>
-                    <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* About Section Media & Text Manager */}
+                <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-sm font-extrabold text-slate-900">Why Choose Doorhome — Image</h4>
+                      <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
+                    </div>
+                    <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
+                      <img src={homepageMedia.aboutFactoryImage} alt="About factory" className="w-full h-full object-cover" />
+                    </div>
+                    
+                    {/* Upload File & Reset Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => aboutFileInputRef.current?.click()}
+                        className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+                      >
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>Upload / Replace File</span>
+                      </button>
+                      <input
+                        ref={aboutFileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload(e, 'about')}
+                        className="hidden"
+                      />
+
+                      <button
+                        type="button"
+                        onClick={() => setHomepageMedia((prev) => ({ ...prev, aboutFactoryImage: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg' }))}
+                        className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Reset</span>
+                      </button>
+                    </div>
+
                   </div>
-                  <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
-                    <img src={homepageMedia.aboutFactoryImage} alt="About factory" className="w-full h-full object-cover" />
-                  </div>
-                  
-                  {/* Upload File & Reset Buttons */}
-                  <div className="flex items-center gap-2">
+
+                  <div className="pt-3 border-t border-slate-100">
                     <button
                       type="button"
-                      onClick={() => aboutFileInputRef.current?.click()}
-                      className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+                      onClick={handleManualSaveCMS}
+                      className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
                     >
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>Upload / Replace File</span>
-                    </button>
-                    <input
-                      ref={aboutFileInputRef}
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => handleFileUpload(e, 'about')}
-                      className="hidden"
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => setHomepageMedia((prev) => ({ ...prev, aboutFactoryImage: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg' }))}
-                      className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      <span>Reset</span>
+                      <Check className="w-4 h-4 stroke-[3]" />
+                      <span>Confirm & Apply About Section</span>
                     </button>
                   </div>
-
                 </div>
 
-                <div className="pt-3 border-t border-slate-100">
-                  <button
-                    type="button"
-                    onClick={handleManualSaveCMS}
-                    className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
-                  >
-                    <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Confirm & Apply About Section</span>
-                  </button>
+                {/* Hero Section Background / Poster Manager */}
+                <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-sm font-extrabold text-slate-900">Hero Section — Main Banner Poster</h4>
+                      <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
+                    </div>
+                    <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
+                      <img src={homepageMedia.heroPosterImage} alt="Hero banner" className="w-full h-full object-cover" />
+                    </div>
+
+                    {/* Upload File & Reset Buttons */}
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => heroFileInputRef.current?.click()}
+                        className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
+                      >
+                        <Upload className="w-3.5 h-3.5" />
+                        <span>Upload / Replace File</span>
+                      </button>
+                      <input
+                        ref={heroFileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => handleFileUpload(e, 'hero')}
+                        className="hidden"
+                      />
+
+                      <button
+                        type="button"
+                        onClick={() => setHomepageMedia((prev) => ({ ...prev, heroPosterImage: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg' }))}
+                        className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Reset</span>
+                      </button>
+                    </div>
+
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100">
+                    <button
+                      type="button"
+                      onClick={handleManualSaveCMS}
+                      className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
+                    >
+                      <Check className="w-4 h-4 stroke-[3]" />
+                      <span>Confirm & Apply Hero Banner</span>
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              {/* Hero Section Background / Poster Manager */}
-              <div className="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h4 className="text-sm font-extrabold text-slate-900">Hero Section — Main Banner Poster</h4>
-                    <span className="text-[10px] font-extrabold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">Homepage Live</span>
-                  </div>
-                  <div className="aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 relative group">
-                    <img src={homepageMedia.heroPosterImage} alt="Hero banner" className="w-full h-full object-cover" />
-                  </div>
-
-                  {/* Upload File & Reset Buttons */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => heroFileInputRef.current?.click()}
-                      className="flex-1 cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all"
-                    >
-                      <Upload className="w-3.5 h-3.5" />
-                      <span>Upload / Replace File</span>
-                    </button>
-                    <input
-                      ref={heroFileInputRef}
-                      type="file"
-                      accept="image/*"
-                      onChange={(e) => handleFileUpload(e, 'hero')}
-                      className="hidden"
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => setHomepageMedia((prev) => ({ ...prev, heroPosterImage: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg' }))}
-                      className="py-2.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-extrabold text-xs border border-rose-200 flex items-center justify-center gap-1 cursor-pointer transition-all"
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                      <span>Reset</span>
-                    </button>
-                  </div>
-
-                </div>
-
-                <div className="pt-3 border-t border-slate-100">
-                  <button
-                    type="button"
-                    onClick={handleManualSaveCMS}
-                    className="w-full py-2.5 px-4 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all"
-                  >
-                    <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Confirm & Apply Hero Banner</span>
-                  </button>
-                </div>
-              </div>
-            </div>
             )}
           </main>
         )}

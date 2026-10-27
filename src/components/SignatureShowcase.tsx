@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ExternalLink, FileText } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
+import { loadArchitectureCards, subscribeToArchitectureCards, ArchitectureCatalogueCard, DEFAULT_CATALOGUE_CARDS } from '../services/architectureCardsService';
 
 interface SignatureShowcaseProps {
   onSelectProduct?: (product: ProductItem) => void;
@@ -417,37 +418,53 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     });
   }, [currentItemLocales]);
 
+  // Architecture Catalogue Cards (Managed dynamically via Admin CMS)
+  const [archCards, setArchCards] = useState<ArchitectureCatalogueCard[]>(() => loadArchitectureCards());
+
+  useEffect(() => {
+    return subscribeToArchitectureCards((updated) => {
+      setArchCards(updated);
+    });
+  }, []);
+
   // Translations for the 2 Catalog Cards
   const isAr = currentLanguage.code === 'ar';
   const isKu = currentLanguage.code === 'ckb' || currentLanguage.code === 'kmr';
   const isTr = currentLanguage.code === 'tr';
 
+  const rawCat1 = archCards[0] || DEFAULT_CATALOGUE_CARDS[0];
+  const rawCat2 = archCards[1] || DEFAULT_CATALOGUE_CARDS[1];
+
   const cat1 = {
-    logo: '/assets/showcase/wiek-logo.png',
-    title: isAr ? 'كتالوج شركة WIEK بلجيكا' : isKu ? 'کەتەلۆگی کۆمپانیای WIEKی بەلجیکی' : isTr ? 'WIEK Belçika Mimari Kataloğu' : 'WIEK Belgium Architectural Catalog',
-    desc: isAr
+    logo: rawCat1.logo || '/assets/showcase/wiek-logo.png',
+    title: rawCat1.translations?.[currentLanguage.code]?.title || rawCat1.title || (isAr ? 'كتالوج شركة WIEK بلجيكا' : isKu ? 'کەتەلۆگی کۆمپانیای WIEKی بەلجیکی' : isTr ? 'WIEK Belçika Mimari Kataloğu' : 'WIEK Belgium Architectural Catalog'),
+    desc: rawCat1.translations?.[currentLanguage.code]?.desc || rawCat1.desc || (isAr
       ? 'المفصلات المخفية والأنظمة المعمارية 2026'
       : isKu
       ? 'چارەسەری نەرمەلۆی شاردراوە و سیستەمی تەلارسازی'
       : isTr
       ? 'Gizli menteşe ve mimari kapı pencere donanımları'
-      : 'Concealed hinge solutions & architectural fenestration',
-    pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
-    fileName: 'WIEK-General-Catalog-2026.pdf'
+      : 'Concealed hinge solutions & architectural fenestration'),
+    pdfUrl: rawCat1.pdfUrl || '/catalogs/wiek-general-catalog-2026.pdf',
+    fileName: rawCat1.fileName || 'WIEK-General-Catalog-2026.pdf',
+    buttonText: rawCat1.translations?.[currentLanguage.code]?.buttonText || rawCat1.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'),
+    company: rawCat1.company || 'WIEK Belgium'
   };
 
   const cat2 = {
-    logo: '/assets/showcase/stac-logo.png',
-    title: isAr ? 'كتالوج شركة STAC إسبانيا' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی' : isTr ? 'STAC İspanya Donanım Kataloğu' : 'STAC Spain Hardware Catalog',
-    desc: isAr
+    logo: rawCat2.logo || '/assets/showcase/stac-logo.png',
+    title: rawCat2.translations?.[currentLanguage.code]?.title || rawCat2.title || (isAr ? 'كتالوج شركة STAC إسبانيا' : isKu ? 'کەتەلۆگی گشتی STACی ئیسپانی' : isTr ? 'STAC İspanya Donanım Kataloğu' : 'STAC Spain Hardware Catalog'),
+    desc: rawCat2.translations?.[currentLanguage.code]?.desc || rawCat2.desc || (isAr
       ? 'المقابض المينيماليست وتروس الرفع والسحب'
       : isKu
       ? 'دەسکی مۆدێرن و سیستەمی لیفت و سلایدینگ'
       : isTr
       ? 'Minimalist kollar ve hebeschiebe donanımları'
-      : 'Minimalist cremones & monumental lift & slide hardware',
-    pdfUrl: '/catalogs/stac-hardware-accessories.pdf',
-    fileName: 'STAC-Hardware-Accessories-Catalogue.pdf'
+      : 'Minimalist cremones & monumental lift & slide hardware'),
+    pdfUrl: rawCat2.pdfUrl || '/catalogs/stac-hardware-accessories.pdf',
+    fileName: rawCat2.fileName || 'STAC-Hardware-Accessories-Catalogue.pdf',
+    buttonText: rawCat2.translations?.[currentLanguage.code]?.buttonText || rawCat2.buttonText || (isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'),
+    company: rawCat2.company || 'STAC Spain'
   };
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -515,10 +532,10 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
+                <span>{cat1.buttonText}</span>
                 <ExternalLink className="w-3 h-3 opacity-80" />
               </a>
-              <span className="text-xs text-slate-500 font-medium">WIEK Belgium</span>
+              <span className="text-xs text-slate-500 font-medium">{cat1.company}</span>
             </div>
           </div>
 
@@ -528,7 +545,7 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
               <div className="h-7 flex items-center">
                 <img
                   src={cat2.logo}
-                  alt="STAC Spain"
+                  alt={cat2.title}
                   className="max-h-6 sm:max-h-7 max-w-[120px] w-auto object-contain"
                 />
               </div>
@@ -550,10 +567,10 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                 className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs shadow-xs transition-all cursor-pointer"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>{isAr ? 'فتح الكتالوج' : isKu ? 'کردنەوەی کەتەلۆگ' : 'Open Catalog'}</span>
+                <span>{cat2.buttonText}</span>
                 <ExternalLink className="w-3 h-3 opacity-80" />
               </a>
-              <span className="text-xs text-slate-500 font-medium">STAC Spain</span>
+              <span className="text-xs text-slate-500 font-medium">{cat2.company}</span>
             </div>
           </div>
         </div>

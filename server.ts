@@ -78,7 +78,8 @@ async function startServer() {
     gallery: path.join(process.cwd(), 'cms_gallery_db.json'),
     products: path.join(process.cwd(), 'cms_products_db.json'),
     divisions: path.join(process.cwd(), 'cms_divisions_db.json'),
-    partnerLogos: path.join(process.cwd(), 'cms_partner_logos_db.json')
+    partnerLogos: path.join(process.cwd(), 'cms_partner_logos_db.json'),
+    archCards: path.join(process.cwd(), 'cms_arch_cards_db.json')
   };
   const adminUploadSessions = new Map<string, { expires: number; userId: string }>();
   try {
@@ -170,10 +171,10 @@ async function startServer() {
   app.post('/api/cms/upload', (req, res, next) => {
     if (!hasAdminCmsSession(req)) return res.status(401).json({ error: 'Your admin session expired. Sign in again to upload media.' });
     next();
-  }, express.raw({ type: ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm'], limit: '100mb' }), async (req, res) => {
+  }, express.raw({ type: ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'application/pdf'], limit: '100mb' }), async (req, res) => {
     const extensionByType: Record<string, string> = {
       'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif',
-      'video/mp4': 'mp4', 'video/webm': 'webm'
+      'video/mp4': 'mp4', 'video/webm': 'webm', 'application/pdf': 'pdf'
     };
     const extension = extensionByType[req.headers['content-type'] || ''];
     if (!extension || !Buffer.isBuffer(req.body) || req.body.length === 0) {
@@ -332,7 +333,7 @@ async function startServer() {
     const file = cmsContentFiles[req.params.section as keyof typeof cmsContentFiles];
     if (!file) return res.status(404).json({ error: 'Unknown CMS section.' });
     const data = req.body?.data;
-    if ((['gallery', 'products', 'divisions', 'partnerLogos'].includes(req.params.section) && !Array.isArray(data)) ||
+    if ((['gallery', 'products', 'divisions', 'partnerLogos', 'archCards'].includes(req.params.section) && !Array.isArray(data)) ||
         (req.params.section === 'homepage' && (!data || typeof data !== 'object' || Array.isArray(data)))) {
       return res.status(400).json({ error: 'Invalid CMS content.' });
     }
