@@ -426,8 +426,8 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                     value={item.description}
                     onChange={(val) => handleCardFieldChange(globalIdx, 'description', val)}
                     placeholder="Project details..."
-                    rows={3}
-                    minHeight="70px"
+                    rows={4}
+                    minHeight="110px"
                   />
                 </div>
 

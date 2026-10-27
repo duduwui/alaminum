@@ -458,8 +458,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                     value={cardDescAr}
                     onChange={(e) => handleUpdateCardField(idx, 'desc', e.target.value)}
                     placeholder="وصف ومواصفات الكتالوج..."
-                    rows={2}
-                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
+                    rows={4}
+                    className="w-full text-xs sm:text-sm text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2.5 min-h-[110px] outline-none resize-y leading-relaxed transition-all"
                   />
 
                   {/* Bottom Row: PDF File Upload & Button Text */}
@@ -634,8 +634,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                     value={itemDescAr}
                     onChange={(e) => handleUpdateShowcaseField(idx, 'description', e.target.value)}
                     placeholder="شرح ومواصفات النظام..."
-                    rows={2}
-                    className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2 outline-none resize-none leading-relaxed transition-all"
+                    rows={4}
+                    className="w-full text-xs sm:text-sm text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2.5 min-h-[110px] outline-none resize-y leading-relaxed transition-all"
                   />
 
                   {/* Bottom Row: PDF File Upload & Button Text */}

@@ -784,11 +784,11 @@ export const AdminFinancialsTab: React.FC<AdminFinancialsTabProps> = ({
               <div>
                 <label className="block mb-1 font-bold text-slate-700 uppercase text-[10px]">Administrative Notes</label>
                 <textarea
-                  rows={2}
+                  rows={4}
                   value={formNotes}
                   onChange={(e) => setFormNotes(e.target.value)}
                   placeholder="Payment receipt wire note, branch, or site inspection notes..."
-                  className="w-full px-3 py-2 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium"
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 text-slate-900 font-medium min-h-[100px] resize-y leading-relaxed text-xs sm:text-sm"
                 />
               </div>
 

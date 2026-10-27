@@ -1501,17 +1501,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               <span className="hidden sm:inline">{t('admin_btn_back_home')} ↗</span>
             </button>
 
-            {activeSection === 'products' && (
-              <button
-                type="button"
-                onClick={handleOpenAddProduct}
-                className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
-              >
-                <Plus className="w-4 h-4 stroke-[3]" />
-                <span>{t('admin_btn_add_product')}</span>
-              </button>
-            )}
-
             <div className="w-7 h-7 rounded-full bg-red-50 text-red-700 font-black text-xs flex items-center justify-center border border-red-200">
               AD
             </div>
@@ -1608,17 +1597,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   </span>
                 </button>
               </div>
-
-              {productSubTab === 'products' && (
-                <button
-                  type="button"
-                  onClick={handleOpenAddProduct}
-                  className="bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer shrink-0"
-                >
-                  <Plus className="w-4 h-4 stroke-[3]" />
-                  <span>{t('admin_btn_add_product')}</span>
-                </button>
-              )}
             </div>
 
             {productSubTab === 'products' && (
@@ -2480,8 +2458,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                     onChange={setFormDescription}
                     placeholder="Describe this product (specifications, thermal rating, glass types...)"
                     label={t('admin_form_desc') || 'Product Description'}
-                    rows={4}
-                    minHeight="95px"
+                    rows={5}
+                    minHeight="140px"
                   />
                 </div>
 

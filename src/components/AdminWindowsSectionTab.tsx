@@ -267,11 +267,11 @@ export const AdminWindowsSectionTab: React.FC<AdminWindowsSectionTabProps> = ({
                         Description
                       </label>
                       <textarea
-                        rows={2}
+                        rows={4}
                         value={prod.description}
                         onChange={(e) => handleFieldChange(prod.id, 'description', e.target.value)}
                         placeholder="Window specifications and architectural details..."
-                        className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 outline-none focus:border-red-400 bg-slate-50/50 resize-y"
+                        className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs sm:text-sm text-slate-800 outline-none focus:border-red-400 bg-slate-50/50 min-h-[110px] resize-y leading-relaxed transition-all"
                       />
                     </div>
                   </div>

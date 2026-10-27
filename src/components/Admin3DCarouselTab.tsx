@@ -213,8 +213,8 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                       value={slot.description || ''}
                       onChange={(e) => handleSlotFieldChange(idx, 'description', e.target.value)}
                       placeholder="Detailed project description..."
-                      rows={3}
-                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white resize-y transition-all leading-relaxed"
+                      rows={4}
+                      className="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-700 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white min-h-[110px] resize-y transition-all leading-relaxed"
                     />
                   </div>
                 </div>

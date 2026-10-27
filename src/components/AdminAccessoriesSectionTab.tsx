@@ -344,11 +344,11 @@ export const AdminAccessoriesSectionTab: React.FC<AdminAccessoriesSectionTabProp
                         الوصف والمواصفات
                       </label>
                       <textarea
-                        rows={2}
+                        rows={4}
                         value={prodDesc}
                         onChange={(e) => handleFieldChange(prod.id, 'description', e.target.value)}
                         placeholder="مواصفات وتفاصيل الإكسسوار..."
-                        className="w-full text-xs text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3 py-2 outline-none resize-none leading-relaxed transition-all"
+                        className="w-full text-xs sm:text-sm text-slate-700 bg-slate-50 hover:bg-white focus:bg-white border border-slate-200 focus:border-red-500 focus:ring-2 focus:ring-red-100 rounded-xl px-3.5 py-2.5 min-h-[110px] outline-none resize-y leading-relaxed transition-all"
                       />
                     </div>
                   </div>
