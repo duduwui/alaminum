@@ -22,7 +22,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
     
     // Fetch live from CMS server to guarantee all uploaded images and videos are loaded
     fetchGalleryItemsFromCms().then((cmsItems) => {
-      if (Array.isArray(cmsItems) && cmsItems.length > 0) {
+      if (Array.isArray(cmsItems)) {
         setItems(cmsItems);
       }
     });

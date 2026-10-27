@@ -38,35 +38,27 @@ export function loadLocalProducts(): ProductItem[] {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved !== null) {
       const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
+        const deletedIds = getDeletedProductIds();
         const merged: ProductItem[] = parsed
-          .filter((item: ProductItem) => defaultMap.has(item.id) || item.image?.startsWith('/uploads'))
+          .filter((item: ProductItem) => item && item.id && !deletedIds.has(item.id))
           .map((item: ProductItem) => {
             const defaultItem = defaultMap.get(item.id);
             if (defaultItem) {
               return {
                 ...defaultItem,
                 ...item,
-                division: defaultItem.division,
-                category: defaultItem.category,
+                division: item.division || defaultItem.division,
+                category: item.category || defaultItem.category,
                 videoUrl: item.videoUrl || defaultItem.videoUrl,
                 mediaType: item.mediaType || defaultItem.mediaType,
-                image: item.image?.startsWith('/uploads') ? item.image : defaultItem.image,
+                image: item.image || defaultItem.image,
                 translations: { ...defaultItem.translations, ...item.translations }
               };
             }
             return item;
           });
-
-        // Append any new default products that were not present in cache and not deleted
-        const deletedIds = getDeletedProductIds();
-        const existingIds = new Set(merged.map((p) => p.id));
-        ALL_PRODUCTS.forEach((dp) => {
-          if (!existingIds.has(dp.id) && !deletedIds.has(dp.id)) {
-            merged.push(dp);
-          }
-        });
 
         return merged;
       }
@@ -74,21 +66,22 @@ export function loadLocalProducts(): ProductItem[] {
   } catch (e) {
     console.error('Error loading products from storage:', e);
   }
-  // If never initialized before, set default products
+  // If never initialized before, set default products (minus any explicitly deleted IDs)
+  const deletedIds = getDeletedProductIds();
+  const initial = ALL_PRODUCTS.filter((p) => !deletedIds.has(p.id));
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(ALL_PRODUCTS));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
   } catch (e) {
     // ignore
   }
-  return ALL_PRODUCTS;
+  return initial;
 }
 
 export function saveLocalProducts(products: ProductItem[]): void {
   try {
     const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
-    const existingIds = new Set(products.map((p) => p.id));
     const merged: ProductItem[] = products
-      .filter((item: ProductItem) => defaultMap.has(item.id) || item.image?.startsWith('/uploads'))
+      .filter((item: ProductItem) => Boolean(item && item.id))
       .map((item) => {
         const defaultItem = defaultMap.get(item.id);
         if (defaultItem) {
@@ -99,7 +92,7 @@ export function saveLocalProducts(products: ProductItem[]): void {
             category: item.category || defaultItem.category,
             videoUrl: item.videoUrl || defaultItem.videoUrl,
             mediaType: item.mediaType || defaultItem.mediaType,
-            image: item.image?.startsWith('/uploads') ? item.image : (item.image || defaultItem.image),
+            image: item.image || defaultItem.image,
             fallbackImage: defaultItem.fallbackImage || item.fallbackImage,
             translations: { ...defaultItem.translations, ...item.translations }
           };

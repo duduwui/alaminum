@@ -185,9 +185,9 @@ export const DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS: ArchitectureShowcaseItem[] = [
 export function loadArchitectureCards(): ArchitectureCatalogueCard[] {
   try {
     const raw = localStorage.getItem(ARCH_CARDS_STORAGE_KEY);
-    if (raw) {
+    if (raw !== null) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length >= 1) {
+      if (Array.isArray(parsed)) {
         return parsed;
       }
     }
@@ -221,9 +221,9 @@ export function subscribeToArchitectureCards(callback: (cards: ArchitectureCatal
 export function loadArchitectureShowcaseItems(): ArchitectureShowcaseItem[] {
   try {
     const raw = localStorage.getItem(ARCH_SHOWCASE_STORAGE_KEY);
-    if (raw) {
+    if (raw !== null) {
       const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length >= 1) {
+      if (Array.isArray(parsed)) {
         const hasOldPlaceholders = parsed.some(
           (p: any) => p.image?.includes('/assets/showcase/') || p.id === 'wiek-hidden-hinge'
         );

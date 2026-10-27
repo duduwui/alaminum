@@ -17,22 +17,19 @@ export const AccessoriesSection: React.FC<AccessoriesSectionProps> = ({ onSelect
 
   const [products, setProducts] = useState<ProductItem[]>(() => {
     const all = loadLocalProducts();
-    const acc = all.filter((p) => p.category === 'accessories' || p.division === 'accessories');
-    return acc.length > 0 ? acc : ACCESSORIES_LINES;
+    return all.filter((p) => p.category === 'accessories' || p.division === 'accessories');
   });
 
   useEffect(() => {
     const unsubscribe = subscribeToLocalProducts((all) => {
       const acc = all.filter((p) => p.category === 'accessories' || p.division === 'accessories');
-      if (acc.length > 0) {
-        setProducts(acc);
-      }
+      setProducts(acc);
     });
     return unsubscribe;
   }, []);
 
   const localizedLines = products.map((line) => getLocalizedProduct(line, currentLanguage.code));
-  const activeProduct = localizedLines[currentIndex] || localizedLines[0];
+  const activeProduct = localizedLines[currentIndex % Math.max(localizedLines.length, 1)] || localizedLines[0];
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + localizedLines.length) % localizedLines.length);

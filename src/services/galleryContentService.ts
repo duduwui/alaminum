@@ -57,7 +57,7 @@ export async function fetchGalleryItemsFromCms(): Promise<GalleryMediaItem[]> {
     if (res.ok) {
       const payload = await res.json();
       const rawList = Array.isArray(payload) ? payload : payload?.data;
-      if (Array.isArray(rawList) && rawList.length > 0) {
+      if (Array.isArray(rawList)) {
         // Ignore stale server data if the user edited/deleted locally while this request was in flight
         if (lastLocalWriteAt > startedAt) return loadGalleryItems();
         const normalized = normalizeGalleryItems(rawList);
@@ -74,9 +74,9 @@ export async function fetchGalleryItemsFromCms(): Promise<GalleryMediaItem[]> {
 export function loadGalleryItems(): GalleryMediaItem[] {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    if (saved !== null) {
       const parsed = normalizeGalleryItems(JSON.parse(saved));
-      if (Array.isArray(parsed) && parsed.length > 0) {
+      if (Array.isArray(parsed)) {
         if (typeof window !== 'undefined' && !isSyncing) {
           isSyncing = true;
           fetchGalleryItemsFromCms().finally(() => {
