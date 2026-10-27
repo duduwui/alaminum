@@ -457,28 +457,32 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
     : DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (activeShowcaseList.length <= 1) return;
+    if (isPaused || activeShowcaseList.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % activeShowcaseList.length);
-    }, 4000);
+    }, 8500);
     return () => clearInterval(timer);
-  }, [activeShowcaseList.length]);
+  }, [isPaused, activeShowcaseList.length, currentIndex]);
 
-  const activeItem = activeShowcaseList[currentIndex] || activeShowcaseList[0];
+  const safeIndex = activeShowcaseList.length > 0 ? currentIndex % activeShowcaseList.length : 0;
+  const activeItem = activeShowcaseList[safeIndex] || activeShowcaseList[0];
 
-  const activeTitle = isAr
-    ? (activeItem.titleAr || activeItem.title)
-    : isKu
-    ? (activeItem.titleKu || activeItem.title)
-    : activeItem.title;
-
-  const activeDesc = isAr
-    ? (activeItem.descriptionAr || activeItem.description)
-    : isKu
-    ? (activeItem.descriptionKu || activeItem.description)
-    : activeItem.description;
+  const getItemText = (item: ArchitectureShowcaseItem) => {
+    const title = isAr
+      ? (item.titleAr || item.title)
+      : isKu
+      ? (item.titleKu || item.title)
+      : item.title;
+    const desc = isAr
+      ? (item.descriptionAr || item.description)
+      : isKu
+      ? (item.descriptionKu || item.description)
+      : item.description;
+    return { title, desc };
+  };
 
   const activeBtnText = isAr
     ? (activeItem.buttonTextAr || '(PDF) فتح الكتالوج المعتمد')
@@ -580,23 +584,47 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
           })}
         </div>
 
-        {/* Clean Interactive Architecture Card (Auto-slides every 4 seconds) */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden transition-all duration-300">
+        {/* Clean Interactive Architecture Card (Auto-slides every 8.5 seconds with zero layout shift or remount flash) */}
+        <div
+          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            {/* 1. Large Image Stage */}
-            <div className="lg:col-span-6 relative bg-slate-50 flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] h-full w-full p-6 sm:p-10">
-              <img
-                key={activeItem.id || currentIndex}
-                src={activeItem.image}
-                alt={activeTitle}
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = activeItem.fallbackImage || '/assets/catalogs/wiek_page_50_limiting_hinge.png';
-                }}
-                className="max-h-full max-w-full object-contain animate-in fade-in zoom-in-95 duration-500 cursor-pointer drop-shadow-sm"
-                onClick={() => handleOpenPdf(activeItem.pdfUrl)}
-              />
+            {/* 1. Large Image Stage (Stacked so images never unmount/remount) */}
+            <div className="lg:col-span-6 relative bg-slate-50 overflow-hidden h-[300px] sm:h-[380px] lg:h-auto lg:min-h-[440px] w-full shrink-0">
+              {activeShowcaseList.map((slideItem, slideIdx) => {
+                const isSlideActive = slideIdx === safeIndex;
+                const { title: slideTitle } = getItemText(slideItem);
+                return (
+                  <div
+                    key={slideItem.id || slideIdx}
+                    aria-hidden={!isSlideActive}
+                    className={`absolute inset-0 w-full h-full bg-slate-50 flex items-center justify-center p-6 sm:p-10 ${
+                      isSlideActive
+                        ? 'opacity-100 visible z-[2] pointer-events-auto transition-opacity duration-500 ease-out'
+                        : 'opacity-0 invisible z-[1] pointer-events-none transition-none'
+                    }`}
+                  >
+                    <img
+                      src={slideItem.image}
+                      alt={slideTitle}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src =
+                          slideItem.fallbackImage || '/assets/catalogs/wiek_page_50_limiting_hinge.png';
+                      }}
+                      className="max-h-full max-w-full object-contain cursor-pointer drop-shadow-sm"
+                      onClick={() => handleOpenPdf(slideItem.pdfUrl)}
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                );
+              })}
 
-              {/* Clean Slide Indicators (No Ugly Arrows) */}
+              {/* Clean Slide Indicators */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
                 <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md">
                   {activeShowcaseList.map((_, dotIdx) => (
@@ -606,36 +634,54 @@ export const SignatureShowcase: React.FC<SignatureShowcaseProps> = ({
                       onClick={() => setCurrentIndex(dotIdx)}
                       aria-label={`Go to slide ${dotIdx + 1}`}
                       className={`transition-all duration-300 rounded-full cursor-pointer ${
-                        dotIdx === currentIndex
+                        dotIdx === safeIndex
                           ? 'w-5 h-1.5 bg-red-500'
                           : 'w-1.5 h-1.5 bg-white/50 hover:bg-white/90'
                       }`}
                     />
                   ))}
                   <span className="text-[10px] font-mono font-bold text-white/90 ms-1">
-                    {currentIndex + 1}/{activeShowcaseList.length}
+                    {safeIndex + 1}/{activeShowcaseList.length}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* 2. Details: Title, Description & Technical PDF Button */}
-            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[300px] lg:min-h-[440px] h-auto text-start">
-              <div className="space-y-4 my-auto">
-                <h3
-                  onClick={() => handleOpenPdf(activeItem.pdfUrl)}
-                  className="text-2xl sm:text-3xl font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-tight"
-                >
-                  <bdi dir="auto">{activeTitle}</bdi>
-                </h3>
+            {/* 2. Details: Pinned Title, Grid-Stacked Description & Technical PDF Button */}
+            <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between min-h-[300px] lg:min-h-[440px] h-auto text-start bg-white">
+              <div className="grid grid-cols-1 grid-rows-1 my-auto">
+                {activeShowcaseList.map((slideItem, slideIdx) => {
+                  const isSlideActive = slideIdx === safeIndex;
+                  const { title: slideTitle, desc: slideDesc } = getItemText(slideItem);
+                  return (
+                    <div
+                      key={slideItem.id || slideIdx}
+                      aria-hidden={!isSlideActive}
+                      className={`col-start-1 row-start-1 flex flex-col space-y-4 ${
+                        isSlideActive
+                          ? 'opacity-100 visible z-[2] pointer-events-auto transition-opacity duration-300 ease-out'
+                          : 'opacity-0 invisible z-[1] pointer-events-none select-none transition-none'
+                      }`}
+                    >
+                      <div className="sticky top-20 z-10 bg-white pb-3 border-b border-slate-100">
+                        <h3
+                          onClick={() => handleOpenPdf(slideItem.pdfUrl)}
+                          className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"
+                        >
+                          <bdi dir="auto">{slideTitle}</bdi>
+                        </h3>
+                      </div>
 
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal whitespace-pre-line">
-                  <bdi dir="auto">{activeDesc}</bdi>
-                </p>
+                      <p className="text-sm sm:text-[15px] text-slate-600 leading-relaxed font-normal whitespace-pre-line">
+                        <bdi dir="auto">{slideDesc}</bdi>
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Action Button: Technical PDF */}
-              <div className="pt-6 border-t border-slate-100 mt-6 lg:mt-0 flex items-center justify-start">
+              <div className="pt-6 border-t border-slate-100 mt-6 flex items-center justify-start">
                 <button
                   type="button"
                   onClick={() => handleOpenPdf(activeItem.pdfUrl)}

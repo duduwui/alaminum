@@ -7,7 +7,7 @@ import {
   subscribeToHomepageSections,
   getLocalizedSectionHeader
 } from '../services/homepageSectionsService';
-import { ChevronRight, ChevronLeft, ArrowRight } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 
@@ -26,7 +26,10 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
   onSelectProduct
 }) => {
   const { currentLanguage, t } = useLanguage();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideState, setSlideState] = useState<{ current: number; prev: number }>({
+    current: 0,
+    prev: 0
+  });
   const [isPaused, setIsPaused] = useState(false);
   const autoSwapRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -36,22 +39,33 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
     currentLanguage.code
   );
 
+  const goToSlide = (nextIdx: number) => {
+    if (localizedItems.length <= 1) return;
+    setSlideState((prev) => {
+      const safeCurrent = prev.current % localizedItems.length;
+      const safeNext = ((nextIdx % localizedItems.length) + localizedItems.length) % localizedItems.length;
+      if (safeNext === safeCurrent) return prev;
+      return { current: safeNext, prev: safeCurrent };
+    });
+  };
+
   // Auto-swap every 8.5s with pause on hover
   useEffect(() => {
     if (isPaused || localizedItems.length <= 1) return;
     autoSwapRef.current = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % localizedItems.length);
+      setSlideState((prev) => {
+        const safeCurrent = prev.current % localizedItems.length;
+        const safeNext = (safeCurrent + 1) % localizedItems.length;
+        return { current: safeNext, prev: safeCurrent };
+      });
     }, 8500);
     return () => {
       if (autoSwapRef.current) clearInterval(autoSwapRef.current);
     };
-  }, [isPaused, localizedItems.length, currentIndex]);
+  }, [isPaused, localizedItems.length, slideState.current]);
 
-  if (localizedItems.length === 0) return null;
-
-  const safeIndex = currentIndex % localizedItems.length;
-  const activeProduct = localizedItems[safeIndex] || localizedItems[0];
-  const isAccessoryStyle = section.key === 'accessories';
+  const safeIndex = localizedItems.length > 0 ? slideState.current % localizedItems.length : 0;
+  const safePrevIndex = localizedItems.length > 0 ? slideState.prev % localizedItems.length : 0;
   const videoRefs = useRef<Record<number, HTMLVideoElement | null>>({});
 
   useEffect(() => {
@@ -66,18 +80,25 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
     });
   }, [safeIndex]);
 
+  if (localizedItems.length === 0) return null;
+
+  const activeProduct = localizedItems[safeIndex] || localizedItems[0];
+  const isAccessoryStyle = section.key === 'accessories';
+
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + localizedItems.length) % localizedItems.length);
+    goToSlide(safeIndex - 1);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % localizedItems.length);
+    goToSlide(safeIndex + 1);
   };
 
   const bgClass =
     sectionIndex % 2 === 0
       ? 'bg-gradient-to-b from-slate-50 via-white to-slate-50'
       : 'bg-white';
+
+  const mediaBgClass = isAccessoryStyle ? 'bg-slate-50' : 'bg-slate-950';
 
   return (
     <section
@@ -86,7 +107,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 dh-reveal">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             {sectionTitle && (
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
@@ -110,14 +131,13 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
           onTouchEnd={() => setIsPaused(false)}
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-            {/* Left: Stacked Media Slides (Zero unmount/remount glitch & fixed ratio) */}
+            {/* Left: Stacked Media Slides (Solid under-layer prevents any dark background flash during swap) */}
             <div
-              className={`lg:col-span-6 relative ${
-                isAccessoryStyle ? 'bg-slate-50' : 'bg-slate-950'
-              } overflow-hidden h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[500px] w-full shrink-0`}
+              className={`lg:col-span-6 relative ${mediaBgClass} overflow-hidden h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[500px] w-full shrink-0`}
             >
               {localizedItems.map((slideItem, slideIdx) => {
                 const isSlideActive = slideIdx === safeIndex;
+                const isSlidePrev = slideIdx === safePrevIndex && safePrevIndex !== safeIndex;
                 const slideIsVideo =
                   Boolean(slideItem.videoUrl) ||
                   /\.(mp4|webm|mov)(\?|#|$)/i.test(slideItem.image);
@@ -127,10 +147,12 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                   <div
                     key={slideItem.id || slideIdx}
                     aria-hidden={!isSlideActive}
-                    className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out ${
+                    className={`absolute inset-0 w-full h-full ${mediaBgClass} ${
                       isSlideActive
-                        ? 'opacity-100 z-[2] pointer-events-auto'
-                        : 'opacity-0 z-[1] pointer-events-none'
+                        ? 'opacity-100 z-[3] pointer-events-auto transition-opacity duration-500 ease-out'
+                        : isSlidePrev
+                        ? 'opacity-100 z-[2] pointer-events-none transition-none'
+                        : 'opacity-0 z-[1] pointer-events-none transition-none'
                     }`}
                   >
                     {slideIsVideo ? (
@@ -143,7 +165,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                         loop
                         muted
                         playsInline
-                        preload="metadata"
+                        preload="auto"
                         className="w-full h-full object-cover"
                       />
                     ) : (
@@ -164,7 +186,8 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                             ? 'object-contain p-6 sm:p-10 drop-shadow-sm'
                             : 'object-cover'
                         } cursor-pointer`}
-                        loading={slideIdx === 0 ? 'eager' : 'lazy'}
+                        loading="eager"
+                        decoding="async"
                       />
                     )}
                   </div>
@@ -178,7 +201,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                     <button
                       key={dotIdx}
                       type="button"
-                      onClick={() => setCurrentIndex(dotIdx)}
+                      onClick={() => goToSlide(dotIdx)}
                       aria-label={`Go to item ${dotIdx + 1}`}
                       className={`transition-all duration-300 rounded-full cursor-pointer ${
                         dotIdx === safeIndex
@@ -213,7 +236,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
 
             {/* Right: Pinned/Sticky Title, Full No-Scroll Text (Grid-stacked so card height never changes on swap) & Uiverse Red Button */}
             <div className="lg:col-span-6 p-6 sm:p-8 lg:p-10 flex flex-col justify-between text-start bg-white">
-              {/* Grid-stacked slides: locks height to the tallest slide in the section with zero scrollbar */}
+              {/* Grid-stacked slides: locks height to the tallest slide in the section with zero scrollbar and zero text overlap */}
               <div className="grid grid-cols-1 grid-rows-1">
                 {localizedItems.map((slideItem, slideIdx) => {
                   const isSlideActive = slideIdx === safeIndex;
@@ -221,14 +244,14 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
                     <div
                       key={slideItem.id || slideIdx}
                       aria-hidden={!isSlideActive}
-                      className={`col-start-1 row-start-1 flex flex-col space-y-4 transition-opacity duration-500 ease-in-out ${
+                      className={`col-start-1 row-start-1 flex flex-col space-y-4 ${
                         isSlideActive
-                          ? 'opacity-100 z-[2] pointer-events-auto'
-                          : 'opacity-0 z-[1] pointer-events-none select-none'
+                          ? 'opacity-100 visible z-[2] pointer-events-auto transition-opacity duration-300 ease-out'
+                          : 'opacity-0 invisible z-[1] pointer-events-none select-none transition-none'
                       }`}
                     >
                       {slideItem.name && (
-                        <div className="sticky top-20 z-10 bg-white/95 backdrop-blur-xs pb-3 border-b border-slate-100">
+                        <div className="sticky top-20 z-10 bg-white pb-3 border-b border-slate-100">
                           <h3
                             onClick={() => onSelectProduct(slideItem)}
                             className="text-xl sm:text-2xl lg:text-[26px] font-black text-slate-900 hover:text-red-600 transition-colors cursor-pointer leading-snug"

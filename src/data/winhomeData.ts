@@ -1,6 +1,7 @@
 export interface ProductItem {
   id: string;
   name: string;
+  subtitle?: string;
   kurdishName?: string;
   arabicName?: string;
   category: 'windows' | 'doors' | 'glass' | 'railings' | 'accessories' | 'upvc' | 'aluminum' | string;
@@ -44,9 +45,12 @@ export interface ProductItem {
   };
   translations?: Record<string, {
     name?: string;
+    title?: string;
+    subtitle?: string;
     description?: string;
     subCategory?: string;
     features?: string[];
+    specifications?: Record<string, string>;
   }>;
 }
 

@@ -17,27 +17,39 @@ export function initScrollRevealObserver(): () => void {
 
   const observer = new IntersectionObserver(handleIntersect, {
     root: null,
-    rootMargin: '0px 0px -40px 0px',
-    threshold: 0.05
+    rootMargin: '40px 0px 0px 0px',
+    threshold: 0.02
   });
 
   const observeAll = () => {
+    const vh = window.innerHeight || document.documentElement.clientHeight || 800;
     const targets = document.querySelectorAll<HTMLElement>(
       '.dh-reveal, .dh-reveal-left, .dh-reveal-right, .dh-reveal-zoom, .reveal-on-scroll'
     );
     targets.forEach((el) => {
       if (!el.classList.contains('is-revealed')) {
-        observer.observe(el);
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh) {
+          // Element is already in or above the viewport: reveal immediately with no transition flash
+          el.style.transition = 'none';
+          el.classList.add('is-revealed');
+          requestAnimationFrame(() => {
+            el.style.transition = '';
+          });
+        } else {
+          observer.observe(el);
+        }
       }
     });
   };
 
-  // Initial observe
+  // Run immediately so in-viewport elements never flash from opacity 0
+  observeAll();
   requestAnimationFrame(observeAll);
 
   // Observe dynamically mounted elements (e.g. tabs change, shop filter, language change)
   const mutationObserver = new MutationObserver(() => {
-    requestAnimationFrame(observeAll);
+    observeAll();
   });
 
   mutationObserver.observe(document.body, {

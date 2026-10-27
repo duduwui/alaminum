@@ -505,21 +505,18 @@ body {
    Silky-smooth, elegant, and professional transitions
    ========================================================= */
 
-/* Smooth page transition animation */
+/* Smooth page transition animation (no transform so position: sticky works natively) */
 @keyframes pageFadeIn {
   from {
-    opacity: 0;
-    transform: translateY(8px);
+    opacity: 0.98;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 .page-transition {
-  animation: pageFadeIn 0.35s ease-out forwards;
-  will-change: opacity, transform;
+  animation: pageFadeIn 0.15s ease-out;
 }
 
 /* Base Scroll reveal - Gentle vertical lift and smooth opacity fade */

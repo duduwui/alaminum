@@ -1,4 +1,5 @@
-import { ProductItem, ALL_PRODUCTS } from '../data/winhomeData';
+import { ProductItem } from '../data/winhomeData';
+import { PRODUCTION_PRODUCTS_SEED } from '../data/productionProductsSeed';
 import {
   db,
   collection,
@@ -9,7 +10,7 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v5';
+const STORAGE_KEY = 'winhome_admin_products_v6';
 const DELETED_PRODUCTS_KEY = 'winhome_deleted_product_ids';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
@@ -38,78 +39,34 @@ export function loadLocalProducts(): ProductItem[] {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved !== null) {
       const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed)) {
-        const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
+      if (Array.isArray(parsed) && parsed.length > 0) {
         const deletedIds = getDeletedProductIds();
-        const merged: ProductItem[] = parsed
-          .filter((item: ProductItem) => item && item.id && !deletedIds.has(item.id))
-          .map((item: ProductItem) => {
-            const defaultItem = defaultMap.get(item.id);
-            if (defaultItem) {
-              return {
-                ...defaultItem,
-                ...item,
-                division: item.division || defaultItem.division,
-                category: item.category || defaultItem.category,
-                videoUrl: item.videoUrl || defaultItem.videoUrl,
-                mediaType: item.mediaType || defaultItem.mediaType,
-                image: item.image || defaultItem.image,
-                translations: { ...defaultItem.translations, ...item.translations }
-              };
-            }
-            return item;
-          });
-
-        return merged;
+        return parsed.filter((item: ProductItem) => item && item.id && !deletedIds.has(item.id));
       }
     }
   } catch (e) {
     console.error('Error loading products from storage:', e);
   }
-  // If never initialized before, set default products (minus any explicitly deleted IDs)
   const deletedIds = getDeletedProductIds();
-  const initial = ALL_PRODUCTS.filter((p) => !deletedIds.has(p.id));
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
-  } catch (e) {
-    // ignore
-  }
-  return initial;
+  return PRODUCTION_PRODUCTS_SEED.filter((p) => !deletedIds.has(p.id));
 }
 
 export function saveLocalProducts(products: ProductItem[]): void {
   try {
-    const defaultMap = new Map(ALL_PRODUCTS.map((p) => [p.id, p]));
-    const merged: ProductItem[] = products
-      .filter((item: ProductItem) => Boolean(item && item.id))
-      .map((item) => {
-        const defaultItem = defaultMap.get(item.id);
-        if (defaultItem) {
-          return {
-            ...defaultItem,
-            ...item,
-            division: item.division || defaultItem.division,
-            category: item.category || defaultItem.category,
-            videoUrl: item.videoUrl || defaultItem.videoUrl,
-            mediaType: item.mediaType || defaultItem.mediaType,
-            image: item.image || defaultItem.image,
-            fallbackImage: defaultItem.fallbackImage || item.fallbackImage,
-            translations: { ...defaultItem.translations, ...item.translations }
-          };
-        }
-        return item;
-      });
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: merged }));
+    const cleaned: ProductItem[] = products.filter((item: ProductItem) => Boolean(item && item.id));
+    const nextJson = JSON.stringify(cleaned);
+    const prevJson = localStorage.getItem(STORAGE_KEY);
+    if (prevJson === nextJson) return;
+    localStorage.setItem(STORAGE_KEY, nextJson);
+    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: cleaned }));
   } catch (e) {
     console.error('Error saving products locally:', e);
   }
 }
 
 export function resetProductsToDefault(): ProductItem[] {
-  saveLocalProducts(ALL_PRODUCTS);
-  return ALL_PRODUCTS;
+  saveLocalProducts(PRODUCTION_PRODUCTS_SEED);
+  return PRODUCTION_PRODUCTS_SEED;
 }
 
 export function subscribeToLocalProducts(callback: (products: ProductItem[]) => void): () => void {
@@ -130,7 +87,6 @@ export function subscribeToLocalProducts(callback: (products: ProductItem[]) => 
 }
 
 export async function fetchAllProducts(): Promise<ProductItem[]> {
-  // 1. Try Firebase Firestore
   try {
     const snapshot = await getDocs(collection(db, COLLECTION_NAME));
     if (!snapshot.empty) {
@@ -145,19 +101,16 @@ export async function fetchAllProducts(): Promise<ProductItem[]> {
     console.warn('Firestore fetch products warning (using local):', err);
   }
 
-  // 2. Fall back to local products
   return loadLocalProducts();
 }
 
 export async function saveProductToCloud(product: ProductItem): Promise<void> {
-  // 1. Save to Firestore
   try {
     await setDoc(doc(db, COLLECTION_NAME, product.id), product);
   } catch (err) {
     console.warn('Firestore save product error:', err);
   }
 
-  // 2. Update local cache
   try {
     const current = loadLocalProducts();
     const updated = [product, ...current.filter((p) => p.id !== product.id)];
@@ -169,14 +122,12 @@ export async function saveProductToCloud(product: ProductItem): Promise<void> {
 
 export async function deleteProductFromCloud(productId: string): Promise<void> {
   markProductAsDeleted(productId);
-  // 1. Delete from Firestore
   try {
     await deleteDoc(doc(db, COLLECTION_NAME, productId));
   } catch (err) {
     console.warn('Firestore delete product error:', err);
   }
 
-  // 2. Update local cache
   try {
     const current = loadLocalProducts();
     const filtered = current.filter((p) => p.id !== productId);
