@@ -33,14 +33,10 @@ import { loadLocalProducts, saveLocalProducts } from './services/productService'
 import { hasAdminCmsSession, loadSharedCmsSection } from './services/cmsService';
 import { normalizeGalleryItems, saveGalleryItems } from './services/galleryContentService';
 import { loadProductDivisions, saveProductDivisions } from './services/productNavigationService';
-import { HomepageSectionConfig, loadHomepageSections, saveHomepageSections } from './services/homepageSectionsService';
+import { HomepageSectionConfig, saveHomepageSections } from './services/homepageSectionsService';
 import { ProductCategoryDivision } from './data/productNavigationData';
 import { SEARCH_PAGES, SITE_URL, searchPagePath } from './utils/searchMetadata';
 import { initScrollRevealObserver } from './utils/scrollObserver';
-
-const isKnownProductSectionKey = (key: string) =>
-  loadHomepageSections().some((sec) => sec.key === key) ||
-  loadProductDivisions().some((division) => division.key === key);
 
 export default function App() {
   const { isTranslating, targetLanguage } = useLanguage();
@@ -56,7 +52,7 @@ export default function App() {
       if (route === 'articles' || route.startsWith('article-')) return 'articles';
       if (route === 'reviews' || route === 'rate' || route === 'feedback') return 'reviews';
       if (route === 'auth' || route === 'login' || route === 'register') return 'auth';
-      if (route === 'products' || isKnownProductSectionKey(route)) return route;
+      if (route === 'products' || loadProductDivisions().some((division) => division.key === route)) return route;
       if (route === 'contact' || route === 'contactus') return 'contact';
     }
     return 'home';
@@ -77,7 +73,7 @@ export default function App() {
       const hash = rawHash.split('?')[0];
       const path = rawPath.split('?')[0];
       const route = hash || path;
-      if (isKnownProductSectionKey(route)) return route;
+      if (loadProductDivisions().some((division) => division.key === route)) return route;
       if (route === 'products') return 'all';
     }
     return 'all';
@@ -320,7 +316,7 @@ export default function App() {
       } else if (route === 'auth' || route === 'login' || route === 'register') {
         setActiveTab('auth');
         window.scrollTo({ top: 0, behavior: 'instant' });
-      } else if (route === 'products' || isKnownProductSectionKey(route)) {
+      } else if (route === 'products' || loadProductDivisions().some((division) => division.key === route)) {
         setActiveTab(route);
         setShopCategory(route === 'products' ? 'all' : route);
         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -360,7 +356,7 @@ export default function App() {
       return;
     }
 
-    if (id === 'products' || isKnownProductSectionKey(id)) {
+    if (id === 'products' || loadProductDivisions().some((division) => division.key === id)) {
       setActiveTab(id);
       setShopCategory(id === 'products' ? 'all' : id);
       window.location.hash = `#${id}`;
@@ -487,7 +483,7 @@ export default function App() {
   };
 
   const totalCartCount = cartItems.reduce((acc, it) => acc + (it.quantity || 1), 0);
-  const isProductShopView = activeTab === 'products' || isKnownProductSectionKey(activeTab);
+  const isProductShopView = activeTab === 'products' || loadProductDivisions().some((division) => division.key === activeTab);
   const isAdminView = activeTab === 'admin';
   const isAuthView = activeTab === 'auth' || activeTab === 'login' || activeTab === 'register';
 
