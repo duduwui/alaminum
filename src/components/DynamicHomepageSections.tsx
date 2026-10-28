@@ -86,11 +86,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
   const activeProduct = localizedItems[safeIndex] || localizedItems[0];
   const isAccessoryStyle = section.key === 'accessories';
   const isRtl = currentLanguage.code === 'ar' || currentLanguage.code === 'ckb';
-  const isRailingSection =
-    section.key === 'sec-1793119387374' ||
-    section.key.includes('railing') ||
-    Boolean(section.title && section.title.includes('حواجز')) ||
-    section.key === 'railings';
+  const isRailingSection = section.key === 'sec-1793119387374';
 
   const handlePrev = () => {
     goToSlide(safeIndex - 1);
