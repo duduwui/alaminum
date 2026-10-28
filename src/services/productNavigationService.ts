@@ -116,7 +116,7 @@ export const addModelToDivision = (
     if (div.id !== divisionId) return div;
     
     // Check if subCategory exists, else push into first subCategory
-    let subCats = [...div.subCategories];
+    let subCats = [...(div.subCategories || [])];
     if (subCats.length === 0) {
       subCats = [
         {
@@ -150,9 +150,9 @@ export const updateModelInDivision = (
   const current = loadProductDivisions();
   const updated = current.map((div) => {
     if (div.id !== divisionId) return div;
-    const updatedSubCats = div.subCategories.map((sub) => ({
+    const updatedSubCats = (div.subCategories || []).map((sub) => ({
       ...sub,
-      items: sub.items.map((m) => (m.id === modelId ? { ...m, ...updates } : m))
+      items: (sub.items || []).map((m) => (m.id === modelId ? { ...m, ...updates } : m))
     }));
     return { ...div, subCategories: updatedSubCats };
   });
@@ -163,9 +163,9 @@ export const deleteModelFromDivision = (divisionId: string, modelId: string): vo
   const current = loadProductDivisions();
   const updated = current.map((div) => {
     if (div.id !== divisionId) return div;
-    const updatedSubCats = div.subCategories.map((sub) => ({
+    const updatedSubCats = (div.subCategories || []).map((sub) => ({
       ...sub,
-      items: sub.items.filter((m) => m.id !== modelId)
+      items: (sub.items || []).filter((m) => m.id !== modelId)
     }));
     return { ...div, subCategories: updatedSubCats };
   });

@@ -29,7 +29,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
   useEffect(() => subscribeToLocalProducts(setProducts), []);
 
-  // Related suggestions
+  // Related suggestions (Show 2 rows of 3 items = 6 items)
   const suggestions = useMemo(
     () =>
       products
@@ -43,7 +43,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             Boolean(product.division && right.division === product.division);
           return Number(rightMatches) - Number(leftMatches);
         })
-        .slice(0, 3),
+        .slice(0, 6),
     [products, product.id, product.category, product.division]
   );
 

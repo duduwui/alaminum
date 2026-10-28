@@ -92,7 +92,7 @@ export const AdminCategoriesTab: React.FC = () => {
   };
 
   const removeCategory = (category: ProductCategoryDivision) => {
-    const modelCount = category.subCategories.reduce((count, subCategory) => count + subCategory.items.length, 0);
+    const modelCount = (category.subCategories || []).reduce((count, subCategory) => count + (subCategory?.items?.length || 0), 0);
     const warning = modelCount
       ? `Delete “${category.title}” and its ${modelCount} linked model${modelCount === 1 ? '' : 's'}?`
       : `Delete “${category.title}”?`;

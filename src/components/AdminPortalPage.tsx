@@ -700,7 +700,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const handleDirectDeleteProduct = (productId: string, productName: string) => {
     if (confirm(`Are you sure you want to delete "${productName}" from the website?`)) {
-      divisions.forEach((division) => division.subCategories.forEach((sub) => sub.items.forEach((model) => {
+      divisions.forEach((division) => (division.subCategories || []).forEach((sub) => (sub.items || []).forEach((model) => {
         if (model.productId === productId) deleteModelFromDivision(division.id, model.id);
       })));
       const updated = productList.filter((p) => p.id !== productId);
@@ -754,7 +754,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     const safeDesc = formDescription.trim();
     const categoryChanged = Boolean(editingProduct && editingProduct.category !== formCategory);
     if (editingProduct?.modelId) {
-      const ownedDivision = divisions.find((division) => division.subCategories.some((sub) => sub.items.some((model) => model.id === editingProduct.modelId && model.productId === productId)));
+      const ownedDivision = divisions.find((division) => (division.subCategories || []).some((sub) => (sub.items || []).some((model) => model.id === editingProduct.modelId && model.productId === productId)));
       if (ownedDivision) {
         if (categoryChanged) deleteModelFromDivision(ownedDivision.id, editingProduct.modelId);
         else updateModelInDivision(ownedDivision.id, editingProduct.modelId, { name: safeName, description: safeDesc, image: formImage.trim() });
@@ -831,7 +831,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const handleDeleteProduct = (id: string) => {
     if (confirm('Are you sure you want to delete this product system from the catalog?')) {
-      divisions.forEach((division) => division.subCategories.forEach((sub) => sub.items.forEach((model) => {
+      divisions.forEach((division) => (division.subCategories || []).forEach((sub) => (sub.items || []).forEach((model) => {
         if (model.productId === id) deleteModelFromDivision(division.id, model.id);
       })));
       setProductList((prev) => prev.filter((p) => p.id !== id));

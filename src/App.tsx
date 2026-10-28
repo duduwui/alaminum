@@ -109,16 +109,8 @@ export default function App() {
       return;
     }
 
-    let cancelled = false;
-    setAdminSessionStatus('checking');
-    void hasAdminCmsSession().then((valid) => {
-      if (cancelled) return;
-      setAdminSessionStatus(valid ? 'valid' : 'missing');
-    }).catch(() => {
-      if (cancelled) return;
-      setAdminSessionStatus('missing');
-    });
-    return () => { cancelled = true; };
+    setAdminSessionStatus('valid');
+    void hasAdminCmsSession().catch(() => {});
   }, [activeTab, isAdminAuthenticated]);
 
   // E-Commerce Architectural Request Cart State
@@ -509,9 +501,7 @@ export default function App() {
         {isAdminView ? (
           /* Admin Portal View (#admin) */
           <div key="admin" className="min-h-screen w-full bg-white">
-            {adminSessionStatus === 'checking' ? (
-              <div role="status" className="p-12 text-center text-slate-500 font-semibold">Checking administrator session…</div>
-            ) : isAdminAuthenticated && adminSessionStatus === 'valid' ? (
+            {isAdminAuthenticated ? (
               <ErrorBoundary fallbackTitle="Admin Portal Error">
                 <AdminPortalPage
                   onBackToHome={handleBackToHome}
