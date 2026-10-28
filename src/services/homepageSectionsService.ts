@@ -6,7 +6,7 @@ export interface HomepageSectionConfig {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = "winhome_homepage_sections_v1";
+const STORAGE_KEY = "winhome_homepage_sections_v2";
 export const HOMEPAGE_SECTIONS_UPDATED_EVENT = "winhome_homepage_sections_updated";
 
 export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [

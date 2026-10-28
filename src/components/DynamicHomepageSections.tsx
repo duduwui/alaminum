@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ProductItem } from '../data/winhomeData';
+import { PRODUCTION_PRODUCTS_SEED } from '../data/productionProductsSeed';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
 import {
   HomepageSectionConfig,
@@ -335,9 +336,30 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
   return (
     <>
       {sections.map((section, idx) => {
-        const sectionItems = products.filter(
-          (p) => p.division === section.key || p.category === section.key
-        );
+        const sKey = (section.key || '').toLowerCase();
+        const sId = (section.id || '').toLowerCase();
+        let sectionItems = products.filter((p) => {
+          const pDiv = (p.division || '').toLowerCase();
+          const pCat = (p.category || '').toLowerCase();
+          if (pDiv === sKey || pCat === sKey || pDiv === sId || pCat === sId) return true;
+          if ((sKey.includes('window') || sId.includes('window')) && (pDiv.includes('window') || pCat.includes('window'))) return true;
+          if ((sKey.includes('door') || sId.includes('door')) && (pDiv.includes('door') || pCat.includes('door'))) return true;
+          if ((sKey.includes('accessor') || sId.includes('accessor')) && (pDiv.includes('accessor') || pCat.includes('accessor'))) return true;
+          const rawSecKey = sKey.replace(/^sec-/, '');
+          const rawPDiv = pDiv.replace(/^sec-/, '');
+          const rawPCat = pCat.replace(/^sec-/, '');
+          return Boolean(rawSecKey && (rawPDiv === rawSecKey || rawPCat === rawSecKey));
+        });
+
+        // Fail-safe: if local products for a default section (e.g. windows) are empty, pull from seed
+        if (sectionItems.length === 0) {
+          sectionItems = PRODUCTION_PRODUCTS_SEED.filter((p) => {
+            const pDiv = (p.division || '').toLowerCase();
+            const pCat = (p.category || '').toLowerCase();
+            return pDiv === sKey || pCat === sKey || pDiv === sId || pCat === sId ||
+              ((sKey.includes('window') || sId.includes('window')) && (pDiv.includes('window') || pCat.includes('window')));
+          });
+        }
         return (
           <SingleDynamicSection
             key={section.id || section.key}

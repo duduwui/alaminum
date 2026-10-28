@@ -266,6 +266,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                 const effectiveKey = selectedDivisionKey || homepageSections[0]?.key || 'windows';
                 const currentSec = homepageSections.find((s) => s.key === effectiveKey || s.id === effectiveKey) || homepageSections[0];
                 if (!currentSec) return null;
+                const currentSecHeader = getLocalizedSectionHeader(currentSec, currentLanguage.code);
                 return (
                   <div className="doorhome-products-menu bg-white rounded-b-3xl shadow-2xl border border-slate-200 p-6 z-50 animate-in fade-in duration-150">
                     <div className="grid grid-cols-12 gap-6 items-start">
@@ -401,7 +402,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                 <div className="relative h-44 overflow-hidden">
                                   <img
                                     src={featuredImg}
-                                    alt={currentDivision.title}
+                                    alt={currentSecHeader.title || currentSec.title}
                                     className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-500"
                                     onError={(e) => {
                                       (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
@@ -410,22 +411,22 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
                                   <div className="absolute bottom-2.5 left-3 right-3 text-white">
                                     <span className="text-[10px] font-black uppercase tracking-widest text-red-400 block">
-                                      {getDivisionLabel(currentDivision)}
+                                      {currentSecHeader.title || currentSec.title}
                                     </span>
                                     <h4 className="text-xs font-black leading-tight text-white mt-0.5">
-                                      {getDivisionTitle(currentDivision)}
+                                      {currentSecHeader.title || currentSec.title}
                                     </h4>
                                   </div>
                                 </div>
                                 <div className="p-3 bg-white space-y-2">
                                   <p className="text-[11px] text-slate-500 line-clamp-2 leading-snug">
-                                    {divisionProducts[0] ? getLocalizedProduct(divisionProducts[0], currentLanguage.code).description : currentDivision.featuredSubtitle}
+                                    {divisionProducts[0] ? getLocalizedProduct(divisionProducts[0], currentLanguage.code).description : (currentSecHeader.description || currentSec.description)}
                                   </p>
                                   <button
-                                    onClick={() => handleNavClick(currentDivision.key)}
+                                    onClick={() => handleNavClick(currentSec.key)}
                                     className="w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-extrabold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                                   >
-                                    <span>{isArabic ? `استكشف ${getDivisionTitle(currentDivision)}` : isKurdish ? `بینینی گشت ${getDivisionTitle(currentDivision)}` : `Explore ${currentDivision.title}`}</span>
+                                    <span>{isArabic ? `استكشف ${currentSecHeader.title || currentSec.title}` : isKurdish ? `بینینی گشت ${currentSecHeader.title || currentSec.title}` : `Explore ${currentSecHeader.title || currentSec.title}`}</span>
                                     <ArrowRight className="w-3 h-3" />
                                   </button>
                                 </div>
@@ -664,7 +665,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                           if (onSelectProduct) {
                                             onSelectProduct(prod);
                                           } else {
-                                            handleNavClick(div.key);
+                                            handleNavClick(sec.key);
                                           }
                                         }}
                                         className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
@@ -679,10 +680,10 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
                                   {/* Item 11: View all in this category */}
                                   <button
-                                    onClick={() => handleNavClick(div.key)}
+                                    onClick={() => handleNavClick(sec.key)}
                                     className="w-full text-right py-2.5 px-3 text-xs sm:text-sm font-black text-red-600 hover:underline flex items-center justify-end gap-1 cursor-pointer pt-1.5"
                                   >
-                                    <span>{isArabic ? `عرض جميع ${getDivisionTitle(div)} ←` : isKurdish ? `بینینی گشت ${getDivisionTitle(div)} ←` : `View all ${div.title} →`}</span>
+                                    <span>{isArabic ? `عرض جميع ${header.title || sec.title} ←` : isKurdish ? `بینینی گشت ${header.title || sec.title} ←` : `View all ${header.title || sec.title} →`}</span>
                                   </button>
                                 </div>
                               );

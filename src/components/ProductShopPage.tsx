@@ -56,7 +56,20 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
     return products
       .map((product) => getLocalizedProduct(product, currentLanguage.code))
       .filter((product) => {
-        if (selectedCategory !== 'all' && product.category !== selectedCategory && product.division !== selectedCategory) return false;
+        if (selectedCategory !== 'all') {
+          const sCat = selectedCategory.toLowerCase();
+          const pCat = (product.category || '').toLowerCase();
+          const pDiv = (product.division || '').toLowerCase();
+          const matches =
+            pCat === sCat ||
+            pDiv === sCat ||
+            (sCat.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
+            (sCat.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
+            (sCat.includes('accessor') && (pCat.includes('accessor') || pDiv.includes('accessor'))) ||
+            pCat.replace(/^sec-/, '') === sCat.replace(/^sec-/, '') ||
+            pDiv.replace(/^sec-/, '') === sCat.replace(/^sec-/, '');
+          if (!matches) return false;
+        }
         return !query || product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query);
       });
   }, [products, currentLanguage.code, selectedCategory, searchQuery]);
@@ -99,15 +112,26 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
               return (
                 <button key={product.id} type="button" onClick={() => onSelectProduct(product)} className="overflow-hidden rounded-2xl border border-slate-200 bg-white text-start shadow-sm transition hover:border-red-300 hover:shadow-lg cursor-pointer">
                   <div className="h-52 overflow-hidden bg-slate-50">
-                    <img
-                      src={product.image || product.fallbackImage}
-                      alt=""
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                      onError={(event) => {
-                        if (product.fallbackImage && event.currentTarget.src !== product.fallbackImage) event.currentTarget.src = product.fallbackImage;
-                      }}
-                    />
+                    {/\.(mp4|webm|mov)(\?|#|$)/i.test(product.image || '') ? (
+                      <video
+                        src={product.image}
+                        muted
+                        playsInline
+                        autoPlay
+                        loop
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={product.image || product.fallbackImage}
+                        alt=""
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                        onError={(event) => {
+                          if (product.fallbackImage && event.currentTarget.src !== product.fallbackImage) event.currentTarget.src = product.fallbackImage;
+                        }}
+                      />
+                    )}
                   </div>
                   <div className="space-y-2 p-4">
                     <h2 className="line-clamp-2 text-base font-black text-slate-900"><bdi dir="auto">{product.name}</bdi></h2>
