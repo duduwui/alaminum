@@ -263,8 +263,9 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 
               {/* Products Mega-Menu Dropdown with Website Sections */}
               {activeMegaMenu === 'products' && (() => {
-                const effectiveKey = selectedDivisionKey || homepageSections[0]?.key || 'windows';
-                const currentSec = homepageSections.find((s) => s.key === effectiveKey || s.id === effectiveKey) || homepageSections[0];
+                const productSections = homepageSections.filter((sec) => sec.isProductSection !== false);
+                const effectiveKey = selectedDivisionKey || productSections[0]?.key || 'windows';
+                const currentSec = productSections.find((s) => s.key === effectiveKey || s.id === effectiveKey) || productSections[0];
                 if (!currentSec) return null;
                 const currentSecHeader = getLocalizedSectionHeader(currentSec, currentLanguage.code);
                 return (
@@ -275,7 +276,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         <div className="text-[11px] font-black uppercase text-slate-400 tracking-wider px-3 pb-1">
                           {isArabic ? 'أقسام المنتجات' : isKurdish ? 'بەشەکانی بەرهەم' : 'Product Sections'}
                         </div>
-                        {homepageSections.map((sec) => {
+                        {productSections.map((sec) => {
                           const isSelected = effectiveKey === sec.key || effectiveKey === sec.id;
                           const header = getLocalizedSectionHeader(sec, currentLanguage.code);
                           return (
@@ -618,7 +619,9 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         <ChevronRight className="w-4 h-4 text-red-600 rotate-180" />
                       </button>
 
-                      {homepageSections.map((sec) => {
+                      {homepageSections
+                        .filter((sec) => sec.isProductSection !== false)
+                        .map((sec) => {
                         const isCatOpen = mobileExpandedCategory === sec.key || mobileExpandedCategory === sec.id;
                         const header = getLocalizedSectionHeader(sec, currentLanguage.code);
                         return (

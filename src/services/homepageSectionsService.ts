@@ -3,11 +3,37 @@ export interface HomepageSectionConfig {
   key: string;
   title: string;
   description: string;
+  isProductSection?: boolean;
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
 const STORAGE_KEY = "winhome_homepage_sections_v2";
+const DELETED_KEYS_STORAGE_KEY = "winhome_deleted_homepage_sections_v1";
 export const HOMEPAGE_SECTIONS_UPDATED_EVENT = "winhome_homepage_sections_updated";
+
+export function markSectionAsDeleted(keyOrId: string): void {
+  try {
+    const raw = localStorage.getItem(DELETED_KEYS_STORAGE_KEY);
+    const list: string[] = raw ? JSON.parse(raw) : [];
+    if (!list.includes(keyOrId)) {
+      list.push(keyOrId);
+      localStorage.setItem(DELETED_KEYS_STORAGE_KEY, JSON.stringify(list));
+    }
+  } catch (err) {
+    console.warn("Failed to mark section as deleted:", err);
+  }
+}
+
+export function isSectionDeleted(keyOrId: string): boolean {
+  try {
+    const raw = localStorage.getItem(DELETED_KEYS_STORAGE_KEY);
+    if (!raw) return false;
+    const list: string[] = JSON.parse(raw);
+    return list.includes(keyOrId);
+  } catch {
+    return false;
+  }
+}
 
 export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
   {
@@ -15,6 +41,7 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     "key": "windows",
     "title": "أنظمة النوافذ المعمارية",
     "description": "نوافذ عصرية تجمع بين الإطلالة البانورامية الواسعة والعزل المتكامل، مصممة لتمنح منزلك إضاءة طبيعية ساحرة وهدوءاً تاماً في جميع الفصول.",
+    "isProductSection": true,
     "translations": {
       "ar": {
         "name": "أنظمة النوافذ المعمارية",
@@ -58,6 +85,7 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     "key": "doors",
     "title": "أنظمة الأبواب والمداخل العصرية",
     "description": "تشكيلة مختارة من الأبواب والبوابات العصرية التي تجمع بين الفخامة والصلابة، لتمنح مدخل منزلك حضوراً مميزاً يعكس ذوقك الرفيع منذ اللحظة الأولى.",
+    "isProductSection": true,
     "translations": {
       "ar": {
         "name": "أنظمة الأبواب والمداخل العصرية",
@@ -101,6 +129,7 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     "key": "accessories",
     "title": "الإكسسوارات والمقابض المعمارية",
     "description": "مقابض وأقفال وإكسسوارات هندسية دقيقة تضيف اللمسة النهائية الأنيقة لأبوابك ونوافذك وتجمع بين راحة الاستخدام اليومي والأمان العالي.",
+    "isProductSection": true,
     "translations": {
       "ar": {
         "name": "الإكسسوارات والمقابض المعمارية",
@@ -144,6 +173,7 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     "key": "sec-1793119387374",
     "title": "حواجز السلالم الزجاجية",
     "description": "تجمع حواجز السلالم الزجاجية بين الأناقة العصرية والأمان، بتصاميم أنيقة تضفي إحساساً بالاتساع وتبرز جمال التفاصيل المعمارية. تتوفر بخيارات متنوعة تناسب مختلف أنماط الديكور، لتمنح منزلك أو مشروعك لمسة راقية تجمع بين الجمال والعملية.",
+    "isProductSection": true,
     "translations": {
       "ar": {
         "name": "حواجز السلالم الزجاجية",
@@ -187,6 +217,7 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     "key": "sec-1793119430295",
     "title": "حواجز الشرفات الزجاجية",
     "description": "تضفي حواجز الشرفات الزجاجية لمسة من الأناقة والحداثة على واجهات المباني، مع تصميم يمنحك إطلالة مفتوحة وإحساساً بالاتساع. تتوفر بتشطيبات وأطر متنوعة تتناسب مع مختلف التصاميم المعمارية، لتجمع بين المظهر الراقي والعملية، مع مراعاة متطلبات الأمان والجودة.",
+    "isProductSection": true,
     "translations": {
       "ar": {
         "name": "حواجز الشرفات الزجاجية",
@@ -233,10 +264,14 @@ export function loadHomepageSections(): HomepageSectionConfig[] {
     if (raw !== null) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Ensure all default sections exist (e.g. if accessories was missing from an older cache)
+        // Ensure default sections exist if not explicitly deleted
         const existingKeys = new Set(parsed.map((s) => s.key || s.id));
         const missingDefaults = DEFAULT_HOMEPAGE_SECTIONS.filter(
-          (d) => !existingKeys.has(d.key) && !existingKeys.has(d.id)
+          (d) =>
+            !existingKeys.has(d.key) &&
+            !existingKeys.has(d.id) &&
+            !isSectionDeleted(d.key) &&
+            !isSectionDeleted(d.id)
         );
         if (missingDefaults.length > 0) {
           const merged = [...parsed, ...missingDefaults];
@@ -254,17 +289,12 @@ export function loadHomepageSections(): HomepageSectionConfig[] {
 
 export function saveHomepageSections(sections: HomepageSectionConfig[]): void {
   try {
-    const existingKeys = new Set(sections.map((s) => s.key || s.id));
-    const missingDefaults = DEFAULT_HOMEPAGE_SECTIONS.filter(
-      (d) => !existingKeys.has(d.key) && !existingKeys.has(d.id)
-    );
-    const fullSections = missingDefaults.length > 0 ? [...sections, ...missingDefaults] : sections;
-    const nextJson = JSON.stringify(fullSections);
+    const nextJson = JSON.stringify(sections);
     const prevJson = localStorage.getItem(STORAGE_KEY);
     if (prevJson === nextJson) return;
     localStorage.setItem(STORAGE_KEY, nextJson);
     window.dispatchEvent(
-      new CustomEvent(HOMEPAGE_SECTIONS_UPDATED_EVENT, { detail: fullSections })
+      new CustomEvent(HOMEPAGE_SECTIONS_UPDATED_EVENT, { detail: sections })
     );
   } catch (err) {
     console.error("Failed to save homepage sections:", err);

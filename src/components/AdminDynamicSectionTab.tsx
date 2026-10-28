@@ -19,7 +19,8 @@ import { saveLocalProducts, deleteProductFromCloud } from '../services/productSe
 import { saveSharedCmsSection } from '../services/cmsService';
 import {
   HomepageSectionConfig,
-  saveHomepageSections
+  saveHomepageSections,
+  markSectionAsDeleted
 } from '../services/homepageSectionsService';
 import { autoTranslateFullProduct } from '../services/translateService';
 
@@ -147,8 +148,33 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
     onSaveFeedback('✓ تم تعديل ترتيب القسم في الصفحة الرئيسية.');
   };
 
+  const isProductSection = section.isProductSection !== false;
+
+  // Toggle whether this section creates a product category in catalog & forms
+  const handleToggleProductSection = (isProd: boolean) => {
+    const updatedSections = allSections.map((sec) => {
+      if (sec.id !== section.id && sec.key !== section.key) return sec;
+      return {
+        ...sec,
+        isProductSection: isProd
+      };
+    });
+    setAllSections(updatedSections);
+    saveHomepageSections(updatedSections);
+    void saveSharedCmsSection('homepageSections', updatedSections);
+    onSaveFeedback(
+      isProd
+        ? '✓ تم تعيين القسم كـ "قسم منتجات وكتالوج" (يظهر الآن في فئات المنتجات وقوائم الإضافة والفلترة)'
+        : '✓ تم تعيين القسم كـ "قسم استعراض عام" (تمت إزالته من فئات المنتجات مع بقائه كمعرض على الصفحة الرئيسية)'
+    );
+  };
+
   // Confirm delete entire section
   const confirmDeleteSection = () => {
+    // Permanently record deletion so default sections or custom sections never resurrect
+    markSectionAsDeleted(section.key);
+    markSectionAsDeleted(section.id);
+
     const remainingSections = allSections.filter(
       (s) => s.id !== section.id && s.key !== section.key
     );
@@ -452,6 +478,54 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
             >
               <Trash2 className="w-3.5 h-3.5" />
               <span>حذف القسم بالكامل</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Section Type & Category Integration Banner */}
+        <div className="bg-slate-50/80 p-4 rounded-2xl border border-slate-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-black text-slate-900">
+                تصنيف وغرض القسم في الموقع:
+              </span>
+              <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-black ${
+                isProductSection
+                  ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
+                  : 'bg-indigo-100 text-indigo-800 border border-indigo-200'
+              }`}>
+                {isProductSection ? 'قسم منتجات وكتالوج رسمي' : 'قسم استعراض ووسائط عام'}
+              </span>
+            </div>
+            <p className="text-xs text-slate-500">
+              {isProductSection
+                ? 'مرتبط بكتالوج المنتجات: يظهر هذا القسم كفئة اختيارية في نافذة "إضافة منتج جديد" وفي فلاتر الكتالوج.'
+                : 'قسم استعراض عام: يظهر على الصفحة الرئيسية فقط للمشاريع والوسائط، ولا يظهر في فئات تصنيف المنتجات.'}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => handleToggleProductSection(true)}
+              className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                isProductSection
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              قسم منتجات وكتالوج
+            </button>
+            <button
+              type="button"
+              onClick={() => handleToggleProductSection(false)}
+              className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
+                !isProductSection
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'bg-white border border-slate-300 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              قسم استعراض ووسائط عام
             </button>
           </div>
         </div>

@@ -42,13 +42,15 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
 
   const categories = useMemo(() => [
     { id: 'all', label: t('all_categories') || 'All categories' },
-    ...sections.map((sec) => {
-      const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-      return {
-        id: sec.key,
-        label: header.title || sec.title || sec.key
-      };
-    })
+    ...sections
+      .filter((sec) => sec.isProductSection !== false)
+      .map((sec) => {
+        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
+        return {
+          id: sec.key,
+          label: header.title || sec.title || sec.key
+        };
+      })
   ], [sections, currentLanguage.code, t]);
 
   const visibleProducts = useMemo(() => {
