@@ -1,6 +1,6 @@
 import { ProductCategoryDivision, ProductNavModel, PRODUCT_DIVISIONS } from '../data/productNavigationData';
 
-const STORAGE_KEY = 'winhome_product_divisions_v3';
+const STORAGE_KEY = 'winhome_product_divisions_v4';
 const DIVISIONS_CHANGE_EVENT = 'winhome_divisions_updated';
 
 export const loadProductDivisions = (): ProductCategoryDivision[] => {

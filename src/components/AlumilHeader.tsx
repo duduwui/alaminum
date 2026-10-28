@@ -316,102 +316,73 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                             (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
                             (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
                             (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                            (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade'))) ||
-                            (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware')))
+                            (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade') || pCat.includes('1793119387374') || pDiv.includes('1793119387374') || pCat.includes('1793119430295') || pDiv.includes('1793119430295') || pCat.includes('1793119426372') || pDiv.includes('1793119426372'))) ||
+                            (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware') || pCat.includes('1793119339308') || pDiv.includes('1793119339308')))
                           );
                         });
 
-                        const activeSubCategories = (currentDivision.subCategories || []).filter(
-                          (sub) => sub.items && sub.items.length > 0
-                        );
-
-                        const featuredImg = (divisionProducts.length > 0 && divisionProducts[0].image)
-                          ? divisionProducts[0].image
+                        const featuredImg = (divisionProducts.length > 0 && (divisionProducts[0].image || divisionProducts[0].fallbackImage))
+                          ? (divisionProducts[0].image || divisionProducts[0].fallbackImage)
                           : (currentDivision.featuredImage || './assets/doorhome/03-2.jpg');
 
                         return (
                           <>
-                            <div className="col-span-5 space-y-4 max-h-[380px] overflow-y-auto pr-2 no-scrollbar">
-                              {activeSubCategories.length > 0 ? (
-                                activeSubCategories.map((sub) => (
-                                  <div key={sub.id} className="space-y-2">
-                                    <div className="flex items-center justify-between border-b border-slate-100 pb-1">
-                                      <span className="text-xs font-black text-slate-900">
-                                        {getSubTitle(sub)}
-                                      </span>
-                                    </div>
-                                    <div className="space-y-1.5">
-                                      {sub.items.slice(0, 15).map((model) => (
-                                        <button
-                                          key={model.id}
-                                          onClick={() => handleModelClick(model, currentDivision.key)}
-                                          className="w-full text-left p-2.5 rounded-xl bg-slate-50/80 hover:bg-red-50/80 hover:border-red-200 border border-slate-100 transition-all flex items-start justify-between group cursor-pointer"
-                                        >
-                                          <div className="space-y-0.5">
-                                            <div className="flex items-center gap-2">
-                                              <span className="text-xs font-extrabold text-slate-900 group-hover:text-red-700 transition-colors">
-                                                {getModelName(model)}
-                                              </span>
-                                            </div>
-                                            <p className="text-[10px] text-slate-400 line-clamp-1">
-                                              {(() => {
-                                                const p = productList.find(product => product.id === model.productId || product.modelId === model.id);
-                                                return p ? getLocalizedProduct(p, currentLanguage.code).description : (model.description || '');
-                                              })()}
-                                            </p>
-                                          </div>
-                                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />
-                                        </button>
-                                      ))}
-                                    </div>
-                                  </div>
-                                ))
-                              ) : divisionProducts.length > 0 ? (
+                            <div className="col-span-5 space-y-3 max-h-[380px] overflow-y-auto pr-2 no-scrollbar">
+                              {divisionProducts.length > 0 ? (
                                 <div className="space-y-2">
-                                  <div className="flex items-center justify-between border-b border-slate-100 pb-1">
+                                  <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
                                     <span className="text-xs font-black text-slate-900">
-                                      {isArabic ? 'المنتجات المتوفرة' : isKurdish ? 'بەرهەمە بەردەستەکان' : 'Available Products'}
+                                      {isArabic ? 'المنتجات والأنظمة المتوفرة' : isKurdish ? 'بەرهەم و سیستەمە بەردەستەکان' : 'Available Systems & Products'}
                                     </span>
-                                    <span className="text-[10px] font-bold text-slate-400">
+                                    <span className="text-[10px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded-full">
                                       {divisionProducts.length} {isArabic ? 'منتج' : isKurdish ? 'بەرهەم' : 'items'}
                                     </span>
                                   </div>
                                   <div className="space-y-1.5">
-                                    {divisionProducts.slice(0, 5).map((prod) => (
-                                      <button
-                                        key={prod.id}
-                                        onClick={() => handleNavClick('products')}
-                                        className="w-full text-left p-2 rounded-xl bg-slate-50/80 hover:bg-red-50/80 hover:border-red-200 border border-slate-100 transition-all flex items-center justify-between group cursor-pointer"
-                                      >
-                                        <div className="flex items-center gap-2.5 min-w-0">
-                                          {prod.image && (
+                                    {divisionProducts.slice(0, 8).map((prod) => {
+                                      const locProd = getLocalizedProduct(prod, currentLanguage.code);
+                                      return (
+                                        <button
+                                          key={prod.id}
+                                          onClick={() => {
+                                            setActiveMegaMenu(null);
+                                            setMobileMenuOpen(false);
+                                            if (onSelectProduct) {
+                                              onSelectProduct(prod);
+                                            } else {
+                                              handleNavClick('products');
+                                            }
+                                          }}
+                                          className="w-full text-left p-2.5 rounded-xl bg-slate-50/80 hover:bg-red-50/80 hover:border-red-200 border border-slate-100 transition-all flex items-center justify-between group cursor-pointer"
+                                        >
+                                          <div className="flex items-center gap-2.5 min-w-0">
                                             <img
-                                              src={prod.image}
-                                              alt={prod.name}
-                                              className="w-9 h-9 rounded-lg object-cover border border-slate-200 shrink-0"
+                                              src={locProd.image || locProd.fallbackImage || './assets/doorhome/03-2.jpg'}
+                                              alt={locProd.name}
+                                              className="w-10 h-10 rounded-lg object-cover border border-slate-200 shrink-0 bg-slate-100"
                                               onError={(e) => {
                                                 (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
                                               }}
                                             />
-                                          )}
-                                          <div className="space-y-0.5 min-w-0">
-                                            <span className="text-xs font-extrabold text-slate-900 group-hover:text-red-700 transition-colors block truncate">
-                                              {getLocalizedProduct(prod, currentLanguage.code).name}
-                                            </span>
-                                            <p className="text-[10px] text-slate-400 truncate">
-                                              {prod.subCategory || prod.category || ''}
-                                            </p>
+                                            <div className="space-y-0.5 min-w-0">
+                                              <span className="text-xs font-extrabold text-slate-900 group-hover:text-red-700 transition-colors block truncate">
+                                                {locProd.name}
+                                              </span>
+                                              <p className="text-[10px] text-slate-500 line-clamp-1 truncate">
+                                                {locProd.description ? locProd.description.slice(0, 65) + '...' : ''}
+                                              </p>
+                                            </div>
                                           </div>
-                                        </div>
-                                        <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-                                      </button>
-                                    ))}
+                                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
+                                        </button>
+                                      );
+                                    })}
                                   </div>
                                 </div>
                               ) : (
                                 <div className="p-8 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-200">
                                   <p className="text-xs font-bold text-slate-400">
-                                    {isArabic ? 'لا توجد منتجات أو موديلات حالياً' : isKurdish ? 'هیچ مۆدێل یان بەرهەمێک بەردەست نییە لەم بەشەدا' : 'No models or products in this division'}
+                                    {isArabic ? 'لا توجد منتجات حالياً في هذا القسم' : isKurdish ? 'هیچ بەرهەمێک بەردەست نییە لەم بەشەدا' : 'No products in this division'}
                                   </p>
                                 </div>
                               )}
@@ -673,35 +644,24 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                   (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
                                   (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
                                   (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                                  (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade'))) ||
-                                  (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware')))
+                                  (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade') || pCat.includes('1793119387374') || pDiv.includes('1793119387374') || pCat.includes('1793119430295') || pDiv.includes('1793119430295') || pCat.includes('1793119426372') || pDiv.includes('1793119426372'))) ||
+                                  (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware') || pCat.includes('1793119339308') || pDiv.includes('1793119339308')))
                                 );
                               });
-                              const models = div.subCategories.flatMap((s) => s.items || []);
 
                               return (
                                 <div className="pr-3 pl-1 py-1.5 space-y-1 border-r-2 border-red-200/80 mr-3 animate-in fade-in duration-150 text-right">
-                                  {models.length > 0 ? (
-                                    models.slice(0, 10).map((model) => (
-                                      <button
-                                        key={model.id}
-                                        onClick={() => {
-                                          handleModelClick(model, div.key);
-                                        }}
-                                        className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
-                                      >
-                                        <span className="truncate pl-2">
-                                          {getModelName(model)}
-                                        </span>
-                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 transition-all shrink-0 rotate-180" />
-                                      </button>
-                                    ))
-                                  ) : divProds.length > 0 ? (
+                                  {divProds.length > 0 ? (
                                     divProds.slice(0, 10).map((prod) => (
                                       <button
                                         key={prod.id}
                                         onClick={() => {
-                                          handleNavClick(div.key);
+                                          setMobileMenuOpen(false);
+                                          if (onSelectProduct) {
+                                            onSelectProduct(prod);
+                                          } else {
+                                            handleNavClick(div.key);
+                                          }
                                         }}
                                         className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
                                       >
