@@ -190,7 +190,14 @@ export function loadHomepageSections(): HomepageSectionConfig[] {
     if (raw !== null) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        // Automatically filter out deprecated/unwanted accessories section from cache
+        const cleaned = parsed.filter(
+          (s) => s.key !== 'accessories' && s.id !== 'sec-accessories'
+        );
+        if (cleaned.length !== parsed.length) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
+        }
+        return cleaned.length > 0 ? cleaned : DEFAULT_HOMEPAGE_SECTIONS;
       }
     }
   } catch (err) {

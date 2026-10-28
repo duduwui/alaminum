@@ -267,11 +267,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'products' | 'sections' | 'users' | 'cms' | 'logos'
+    'products' | 'users' | 'cms' | 'logos'
   >(() => {
     if (typeof window !== 'undefined') {
       const h = (window.location.hash || '').toLowerCase();
-      if (h.includes('sections')) return 'sections';
       if (h.includes('cms') || h.includes('gallery')) return 'cms';
       if (h.includes('users') || h.includes('team')) return 'users';
       if (h.includes('logos') || h.includes('brands')) return 'logos';
@@ -283,9 +282,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   useEffect(() => {
     const syncSectionWithHash = () => {
       const h = (window.location.hash || '').toLowerCase();
-      if (h.includes('sections')) {
-        setActiveSection('sections');
-      } else if (h.includes('cms') || h.includes('gallery')) {
+      if (h.includes('cms') || h.includes('gallery')) {
         setActiveSection('cms');
       } else if (h.includes('users') || h.includes('team')) {
         setActiveSection('users');
@@ -298,10 +295,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   }, []);
   const [cmsSubTab, setCmsSubTab] = useState<string>('3d-carousel');
   const [homepageSections, setHomepageSections] = useState<HomepageSectionConfig[]>(() => loadHomepageSections());
-  const [sectionsSubTab, setSectionsSubTab] = useState<string>(() => {
-    const initialSec = loadHomepageSections()[0]?.key || 'windows';
-    return `sec:${initialSec}`;
-  });
   const [isAddSectionModalOpen, setIsAddSectionModalOpen] = useState(false);
   const [newSectionTitle, setNewSectionTitle] = useState('');
   const [newSectionSubtitle, setNewSectionSubtitle] = useState('');
@@ -1385,29 +1378,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   </span>
                 </button>
 
-                {/* HOMEPAGE PRODUCT SECTIONS TAB */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveSection('sections');
-                  }}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'sections'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Layers className={`w-4 h-4 ${activeSection === 'sections' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'أقسام منتجات الموقع' : currentLanguage.code === 'ckb' ? 'بەشەکانی بەرهەمی ماڵپەڕ' : 'Product Sections'}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'sections' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    {homepageSections.length}
-                  </span>
-                </button>
-
                 <button
                   type="button"
                   onClick={() => setActiveSection('users')}
@@ -1498,7 +1468,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           <div className="flex items-center gap-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900">
               {activeSection === 'products' && (currentLanguage.code === 'ar' ? 'إدارة المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'بەڕێوەبردنی بەرهەمەکان' : 'Products & Catalog')}
-              {activeSection === 'sections' && (currentLanguage.code === 'ar' ? 'أقسام منتجات الموقع (الصفحة الرئيسية)' : currentLanguage.code === 'ckb' ? 'بەشەکانی بەرهەمی ماڵپەڕ' : 'Homepage Product Sections')}
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
               {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
@@ -1582,18 +1551,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 : 'text-white/90 hover:bg-white/10'
             }`}
           >
-            {currentLanguage.code === 'ar' ? 'المنتجات' : 'Products'} ({productList.length})
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('sections')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'sections'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'أقسام الموقع' : 'Sections'} ({homepageSections.length})
+            {currentLanguage.code === 'ar' ? 'المنتجات والكتالوج' : 'Products'} ({productList.length})
           </button>
           <button
             type="button"
@@ -1760,88 +1718,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           </main>
         )}
 
-        {/* SECTION 3: HOMEPAGE PRODUCT SECTIONS (PUBLIC SHOWCASE) */}
-        {activeSection === 'sections' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
-            {/* Sub-Navigation Pills for Product Sections */}
-            <div className="bg-white p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-wrap items-center gap-2">
-              {homepageSections.map((sec) => {
-                const tabId = `sec:${sec.key}`;
-                const isActive = sectionsSubTab === tabId;
-                const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-                const count = productList.filter((p) => p.division === sec.key || p.category === sec.key).length;
-                return (
-                  <button
-                    key={sec.id}
-                    type="button"
-                    onClick={() => setSectionsSubTab(tabId)}
-                    className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                      isActive
-                        ? 'bg-red-600 text-white shadow-sm'
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>{header.title || sec.title}</span>
-                    <span
-                      className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                      }`}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-
-              <button
-                type="button"
-                onClick={() => {
-                  setNewSectionTitle('');
-                  setNewSectionSubtitle('');
-                  setIsAddSectionModalOpen(true);
-                }}
-                className="px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'إضافة قسم جديد للموقع'
-                    : currentLanguage.code === 'ckb'
-                    ? 'زیادکردنی بەشی نوێ'
-                    : 'Add New Section'}
-                </span>
-              </button>
-            </div>
-
-            {/* Active Product Section Management */}
-            {(() => {
-              const secKey = sectionsSubTab.replace('sec:', '');
-              const activeSec = homepageSections.find((s) => s.key === secKey) || homepageSections[0];
-              if (!activeSec) return null;
-              return (
-                <AdminDynamicSectionTab
-                  section={activeSec}
-                  allSections={homepageSections}
-                  setAllSections={setHomepageSections}
-                  onSelectSectionKey={(nextKey) => {
-                    if (nextKey) {
-                      setSectionsSubTab(`sec:${nextKey}`);
-                    }
-                  }}
-                  productList={productList}
-                  setProductList={setProductList}
-                  onUploadMedia={uploadCmsMediaFile}
-                  onSaveFeedback={(msg) => {
-                    setCmsSaveFeedback(msg);
-                    setTimeout(() => setCmsSaveFeedback(''), 4000);
-                  }}
-                />
-              );
-            })()}
-          </main>
-        )}
-
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
@@ -1921,6 +1797,56 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                     : currentLanguage.code === 'ckb'
                     ? 'کەتەلۆگ و سیستەمە تەلارسازییەکان'
                     : 'Architecture Catalogues & Systems'}
+                </span>
+              </button>
+
+              {/* Dynamic Homepage Sections */}
+              {homepageSections.map((sec) => {
+                const tabId = `sec:${sec.key}`;
+                const isActive = cmsSubTab === tabId;
+                const header = getLocalizedSectionHeader(sec, currentLanguage.code);
+                const count = productList.filter((p) => p.division === sec.key || p.category === sec.key).length;
+                return (
+                  <button
+                    key={sec.id}
+                    type="button"
+                    onClick={() => setCmsSubTab(tabId)}
+                    className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
+                      isActive
+                        ? 'bg-red-600 text-white shadow-sm'
+                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                    }`}
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    <span>{header.title || sec.title}</span>
+                    <span
+                      className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
+                      }`}
+                    >
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+
+              {/* + Add New Homepage Section Button */}
+              <button
+                type="button"
+                onClick={() => {
+                  setNewSectionTitle('');
+                  setNewSectionSubtitle('');
+                  setIsAddSectionModalOpen(true);
+                }}
+                className="px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>
+                  {currentLanguage.code === 'ar'
+                    ? 'إضافة قسم جديد للموقع'
+                    : currentLanguage.code === 'ckb'
+                    ? 'زیادکردنی بەشی نوێ'
+                    : 'Add New Section'}
                 </span>
               </button>
             </div>
@@ -2039,8 +1965,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                           saveHomepageSections(updated);
                           await saveSharedCmsSection('homepageSections', updated);
                           setIsAddSectionModalOpen(false);
-                          setActiveSection('sections');
-                          setSectionsSubTab(`sec:${key}`);
+                          setActiveSection('cms');
+                          setCmsSubTab(`sec:${key}`);
                           setCmsSaveFeedback(
                             currentLanguage.code === 'ar'
                               ? `تم إنشاء القسم "${newSec.title}" وترجمته لجميع اللغات بنجاح`
@@ -2125,6 +2051,32 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 }}
               />
             )}
+
+            {/* TAB 4+: DYNAMIC HOMEPAGE PRODUCT SECTIONS */}
+            {cmsSubTab.startsWith('sec:') && (() => {
+              const secKey = cmsSubTab.replace('sec:', '');
+              const activeSec = homepageSections.find((s) => s.key === secKey) || homepageSections[0];
+              if (!activeSec) return null;
+              return (
+                <AdminDynamicSectionTab
+                  section={activeSec}
+                  allSections={homepageSections}
+                  setAllSections={setHomepageSections}
+                  onSelectSectionKey={(nextKey) => {
+                    if (nextKey) {
+                      setCmsSubTab(`sec:${nextKey}`);
+                    }
+                  }}
+                  productList={productList}
+                  setProductList={setProductList}
+                  onUploadMedia={uploadCmsMediaFile}
+                  onSaveFeedback={(msg) => {
+                    setCmsSaveFeedback(msg);
+                    setTimeout(() => setCmsSaveFeedback(''), 4000);
+                  }}
+                />
+              );
+            })()}
           </main>
         )}
 
