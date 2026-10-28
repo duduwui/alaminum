@@ -475,8 +475,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "name": "قلب وآلية قفل داخلي احترافي للأبواب من الستانلس ستيل المقاوم للصدأ",
     "brand": "STAC Spain",
     "image": "/uploads/4219143d-f76d-4207-af22-4c31301ad01a.jpg",
-    "category": "accessories",
-    "division": "accessories",
+    "category": "doors",
+    "division": "doors",
     "features": [
       "تصميم مريح عصري",
       "مقاوم للتآكل والعوامل الجوية",
@@ -545,8 +545,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "name": "مقبض نوافذ وأبواب عصري باللون الأسود المطفي وتصميم انسيابي مريح",
     "brand": "STAC Spain",
     "image": "/uploads/e2aef215-082a-406c-af70-c82ca6c62f3f.jpg",
-    "category": "accessories",
-    "division": "accessories",
+    "category": "doors",
+    "division": "doors",
     "features": [
       "تصميم مريح عصري",
       "مقاوم للتآكل والعوامل الجوية",

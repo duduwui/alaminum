@@ -5,6 +5,12 @@ import { useLanguage } from '../context/LanguageContext';
 import { LanguageModal } from './LanguageModal';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { loadProductDivisions, subscribeToDivisions } from '../services/productNavigationService';
+import {
+  HomepageSectionConfig,
+  loadHomepageSections,
+  subscribeToHomepageSections,
+  getLocalizedSectionHeader
+} from '../services/homepageSectionsService';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
 import { getCurrentUser, logoutUser } from '../services/authService';
 import { User as UserType } from '../types/auth';
@@ -61,6 +67,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 }) => {
   const { currentLanguage, t } = useLanguage();
   const [divisions, setDivisions] = useState<ProductCategoryDivision[]>(() => loadProductDivisions());
+  const [homepageSections, setHomepageSections] = useState<HomepageSectionConfig[]>(() => loadHomepageSections());
   const [productList, setProductList] = useState<ProductItem[]>(() => loadLocalProducts());
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -81,6 +88,8 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
       window.removeEventListener('storage', handleAuth);
     };
   }, []);
+
+  useEffect(() => subscribeToHomepageSections(setHomepageSections), []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -252,27 +261,29 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                 <ChevronDown className="w-4 h-4 text-slate-400" />
               </button>
 
-              {/* Products Mega-Menu Dropdown with Divisions */}
+              {/* Products Mega-Menu Dropdown with Website Sections */}
               {activeMegaMenu === 'products' && (() => {
-                const currentDivision = divisions.find((d) => d.key === selectedDivisionKey || d.id === selectedDivisionKey) || divisions[0];
-                if (!currentDivision) return null;
+                const effectiveKey = selectedDivisionKey || homepageSections[0]?.key || 'windows';
+                const currentSec = homepageSections.find((s) => s.key === effectiveKey || s.id === effectiveKey) || homepageSections[0];
+                if (!currentSec) return null;
                 return (
                   <div className="doorhome-products-menu bg-white rounded-b-3xl shadow-2xl border border-slate-200 p-6 z-50 animate-in fade-in duration-150">
                     <div className="grid grid-cols-12 gap-6 items-start">
-                      {/* Left: Categories / Divisions */}
+                      {/* Left: Categories / Sections */}
                       <div className="col-span-4 border-r border-slate-100 pr-4 space-y-1.5">
                         <div className="text-[11px] font-black uppercase text-slate-400 tracking-wider px-3 pb-1">
-                          {isArabic ? 'الأقسام الرئيسية' : isKurdish ? 'بەشە سەرەکییەکان' : 'Categories'}
+                          {isArabic ? 'أقسام المنتجات' : isKurdish ? 'بەشەکانی بەرهەم' : 'Product Sections'}
                         </div>
-                        {divisions.map((div) => {
-                          const isSelected = selectedDivisionKey === div.key || selectedDivisionKey === div.id;
+                        {homepageSections.map((sec) => {
+                          const isSelected = effectiveKey === sec.key || effectiveKey === sec.id;
+                          const header = getLocalizedSectionHeader(sec, currentLanguage.code);
                           return (
                             <button
-                              key={div.id}
-                              onMouseEnter={() => setSelectedDivisionKey(div.key || div.id)}
+                              key={sec.id}
+                              onMouseEnter={() => setSelectedDivisionKey(sec.key || sec.id)}
                               onClick={() => {
-                                setSelectedDivisionKey(div.key || div.id);
-                                handleNavClick(div.key);
+                                setSelectedDivisionKey(sec.key || sec.id);
+                                handleNavClick(sec.key);
                               }}
                               className={`w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-between group cursor-pointer ${
                                 isSelected
@@ -282,7 +293,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                             >
                               <div className="flex flex-col">
                                 <span className="text-xs font-black leading-snug">
-                                  {getDivisionLabel(div)}
+                                  {header.title || sec.title}
                                 </span>
                               </div>
                               <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'translate-x-0.5 text-white' : 'text-slate-400 group-hover:text-slate-600'}`} />
@@ -301,29 +312,25 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         </div>
                       </div>
 
-                      {/* Middle Column: Sub-Categories & Models or Live Products */}
+                      {/* Middle Column: Products in this Section */}
                       {(() => {
-                        const divKeyLower = (currentDivision.key || currentDivision.id || '').toLowerCase();
-                        const catTargetLower = (currentDivision.categoryTarget || '').toLowerCase();
+                        const secKeyLower = (currentSec.key || currentSec.id || '').toLowerCase();
                         const divisionProducts = productList.filter((p) => {
                           const pCat = (p.category || '').toLowerCase();
                           const pDiv = (p.division || '').toLowerCase();
                           return (
-                            pDiv === divKeyLower ||
-                            pCat === divKeyLower ||
-                            pDiv === catTargetLower ||
-                            pCat === catTargetLower ||
-                            (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
-                            (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
-                            (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                            (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade') || pCat.includes('1793119387374') || pDiv.includes('1793119387374') || pCat.includes('1793119430295') || pDiv.includes('1793119430295') || pCat.includes('1793119426372') || pDiv.includes('1793119426372'))) ||
-                            (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware') || pCat.includes('1793119339308') || pDiv.includes('1793119339308')))
+                            pDiv === secKeyLower ||
+                            pCat === secKeyLower ||
+                            (secKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
+                            (secKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
+                            (secKeyLower.includes('1793119387374') && (pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
+                            (secKeyLower.includes('1793119430295') && (pCat.includes('1793119430295') || pDiv.includes('1793119430295')))
                           );
                         });
 
                         const featuredImg = (divisionProducts.length > 0 && (divisionProducts[0].image || divisionProducts[0].fallbackImage))
                           ? (divisionProducts[0].image || divisionProducts[0].fallbackImage)
-                          : (currentDivision.featuredImage || './assets/doorhome/03-2.jpg');
+                          : ((currentSec as any)?.featuredImage || './assets/doorhome/03-2.jpg');
 
                         return (
                           <>
@@ -610,13 +617,14 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         <ChevronRight className="w-4 h-4 text-red-600 rotate-180" />
                       </button>
 
-                      {divisions.map((div) => {
-                        const isCatOpen = mobileExpandedCategory === div.key || mobileExpandedCategory === div.id;
+                      {homepageSections.map((sec) => {
+                        const isCatOpen = mobileExpandedCategory === sec.key || mobileExpandedCategory === sec.id;
+                        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
                         return (
-                          <div key={div.id} className="space-y-1">
+                          <div key={sec.id} className="space-y-1">
                             {/* Category Level 2 */}
                             <button
-                              onClick={() => setMobileExpandedCategory(isCatOpen ? null : (div.key || div.id))}
+                              onClick={() => setMobileExpandedCategory(isCatOpen ? null : (sec.key || sec.id))}
                               className={`w-full text-right py-3 px-3 rounded-xl flex items-center justify-between flex-row-reverse text-[15px] sm:text-base transition-colors cursor-pointer ${
                                 isCatOpen
                                   ? 'bg-red-50 text-red-700 font-black'
@@ -624,28 +632,24 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                               }`}
                             >
                               <span>
-                                {getDivisionLabel(div)}
+                                {header.title || sec.title}
                               </span>
                               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isCatOpen ? 'rotate-180 text-red-600' : 'text-slate-400'}`} />
                             </button>
 
                             {/* Models Level 3 (Max 10 items shown, item 11 is 'View all') */}
                             {isCatOpen && (() => {
-                              const divKeyLower = (div.key || div.id || '').toLowerCase();
-                              const catTargetLower = (div.categoryTarget || '').toLowerCase();
+                              const secKeyLower = (sec.key || sec.id || '').toLowerCase();
                               const divProds = productList.filter((p) => {
                                 const pCat = (p.category || '').toLowerCase();
                                 const pDiv = (p.division || '').toLowerCase();
                                 return (
-                                  pDiv === divKeyLower ||
-                                  pCat === divKeyLower ||
-                                  pDiv === catTargetLower ||
-                                  pCat === catTargetLower ||
-                                  (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
-                                  (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
-                                  (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                                  (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade') || pCat.includes('1793119387374') || pDiv.includes('1793119387374') || pCat.includes('1793119430295') || pDiv.includes('1793119430295') || pCat.includes('1793119426372') || pDiv.includes('1793119426372'))) ||
-                                  (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware') || pCat.includes('1793119339308') || pDiv.includes('1793119339308')))
+                                  pDiv === secKeyLower ||
+                                  pCat === secKeyLower ||
+                                  (secKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
+                                  (secKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
+                                  (secKeyLower.includes('1793119387374') && (pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
+                                  (secKeyLower.includes('1793119430295') && (pCat.includes('1793119430295') || pDiv.includes('1793119430295')))
                                 );
                               });
 

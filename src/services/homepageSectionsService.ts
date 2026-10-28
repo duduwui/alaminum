@@ -97,49 +97,6 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     }
   },
   {
-    "id": "sec-accessories",
-    "key": "accessories",
-    "title": "الإكسسوارات والمقابض المعمارية",
-    "description": "مقابض وأقفال وإكسسوارات هندسية دقيقة تضيف اللمسة النهائية الأنيقة لأبوابك ونوافذك وتجمع بين راحة الاستخدام اليومي والأمان العالي.",
-    "translations": {
-      "ar": {
-        "name": "الإكسسوارات والمقابض المعمارية",
-        "title": "الإكسسوارات والمقابض المعمارية",
-        "description": "مقابض وأقفال وإكسسوارات هندسية دقيقة تضيف اللمسة النهائية الأنيقة لأبوابك ونوافذك وتجمع بين راحة الاستخدام اليومي والأمان العالي."
-      },
-      "en": {
-        "name": "Architectural Hardware & Accessories",
-        "title": "Architectural Hardware & Accessories",
-        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
-      },
-      "tr": {
-        "name": "Mimari Aksesuar ve Kol Sistemleri",
-        "title": "Mimari Aksesuar ve Kol Sistemleri",
-        "description": "Kapı ve pencerelerinize zarif bir son dokunuş katan, günlük kullanım konforunu yüksek güvenlikle birleştiren hassas mühendislik ürünü kollar, kilitler ve aksesuarlar."
-      },
-      "ckb": {
-        "name": "ئێکسسوارات و دەسکی نژیاروانی",
-        "title": "ئێکسسوارات و دەسکی نژیاروانی",
-        "description": "دەسک و قفڵ و ئێکسسواراتی ئەندازیاری ورد کە کۆتا دەستلێدانی جوانی دەبەخشنە دەرگا و پەنجەرەکانت لەگەڵ ئاسایش و ئاسوودەیی ڕۆژانە."
-      },
-      "kmr": {
-        "name": "Aksesûar û Destikên Mîmarî",
-        "title": "Aksesûar û Destikên Mîmarî",
-        "description": "Destik, kilît û aksesûarên endezyariya ورد ên ku bedewiya dawîn li derî û pencereyên we zêde dikin û rehetiya rojane bi ewlehiya bilind re digihînin hev."
-      },
-      "en-GB": {
-        "name": "Architectural Hardware & Accessories",
-        "title": "Architectural Hardware & Accessories",
-        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
-      },
-      "en-US": {
-        "name": "Architectural Hardware & Accessories",
-        "title": "Architectural Hardware & Accessories",
-        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
-      }
-    }
-  },
-  {
     "id": "sec-id-1793119395093",
     "key": "sec-1793119387374",
     "title": "حواجز السلالم الزجاجية",
