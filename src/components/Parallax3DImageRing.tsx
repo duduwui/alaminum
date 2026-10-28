@@ -34,7 +34,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
-  // Physics & Animation state stored in refs for 60-120fps hardware execution (zero React re-renders)
+  // Physics & Animation state stored in refs for 60-120fps direct GPU rendering
   const currentRotRef = useRef<number>(0);
   const targetRotRef = useRef<number>(0);
   const velocityRef = useRef<number>(0);
@@ -47,18 +47,18 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
   const lastTimeRef = useRef<number>(0);
   const hasMovedRef = useRef<boolean>(false);
 
-  // Responsive radius
-  const [radius, setRadius] = useState<number>(380);
+  // Proportional radius to prevent clipping inside the 3D perspective viewport
+  const [radius, setRadius] = useState<number>(360);
 
   useEffect(() => {
     const updateRadius = () => {
       const w = window.innerWidth;
       if (w < 640) {
-        setRadius(250);
+        setRadius(230);
       } else if (w < 1024) {
-        setRadius(340);
+        setRadius(300);
       } else {
-        setRadius(420);
+        setRadius(360);
       }
     };
     updateRadius();
@@ -66,7 +66,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
     return () => window.removeEventListener('resize', updateRadius);
   }, []);
 
-  // 60-120fps direct hardware rendering loop
+  // 60-120fps hardware rendering loop with gentle damping and calm auto-orbit
   useEffect(() => {
     let animId: number;
     let lastTimestamp = performance.now();
@@ -76,20 +76,19 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
       lastTimestamp = timestamp;
 
       if (isDraggingRef.current) {
-        // While dragging: smoothly interpolate currentRot to targetRot
-        currentRotRef.current += (targetRotRef.current - currentRotRef.current) * 0.35;
+        // Smoothly interpolate current rotation towards target on drag
+        currentRotRef.current += (targetRotRef.current - currentRotRef.current) * 0.25;
       } else {
-        // While idle or floating:
-        if (Math.abs(velocityRef.current) > 0.04) {
-          // Momentum coasting with silky friction
-          velocityRef.current *= 0.94;
+        if (Math.abs(velocityRef.current) > 0.02) {
+          // Controlled momentum coasting
+          velocityRef.current *= 0.92;
           targetRotRef.current += velocityRef.current;
-          currentRotRef.current += (targetRotRef.current - currentRotRef.current) * 0.25;
+          currentRotRef.current += (targetRotRef.current - currentRotRef.current) * 0.2;
         } else {
           velocityRef.current = 0;
           if (!isHoveredRef.current) {
-            // Gentle continuous idle rotation (smooth 6 deg/sec)
-            targetRotRef.current -= 6.0 * dt;
+            // Calm, elegant idle auto-orbit: 2.2 deg/sec
+            targetRotRef.current -= 2.2 * dt;
             currentRotRef.current = targetRotRef.current;
           }
         }
@@ -121,7 +120,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
   const handlePointerMove = (clientX: number) => {
     if (!isDraggingRef.current) return;
     const deltaX = clientX - startXRef.current;
-    if (Math.abs(deltaX) > 4) {
+    if (Math.abs(deltaX) > 5) {
       hasMovedRef.current = true;
     }
 
@@ -129,12 +128,14 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
     const dt = Math.max(1, now - lastTimeRef.current);
     const stepDelta = clientX - lastXRef.current;
 
-    // Direct responsive sensitivity (inverted in RTL for natural finger feel)
-    const factor = isRtl ? -0.38 : 0.38;
+    // Natural drag direction: swiping right rotates right, swiping left rotates left
+    // Factor 0.18 ensures calm, weighted, luxurious control rather than fast spinning
+    const factor = 0.18;
     targetRotRef.current = startRotRef.current + deltaX * factor;
 
-    // Instantaneous velocity
-    velocityRef.current = (stepDelta / dt) * 16 * factor;
+    // Smoothly clamped velocity
+    const rawVel = (stepDelta / dt) * 4 * factor;
+    velocityRef.current = Math.max(-2.5, Math.min(2.5, rawVel));
 
     lastXRef.current = clientX;
     lastTimeRef.current = now;
@@ -153,8 +154,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
   return (
     <div
       ref={containerRef}
-      dir={isRtl ? 'rtl' : 'ltr'}
-      className="relative w-full py-8 sm:py-12 select-none overflow-hidden"
+      className="relative w-full py-4 sm:py-8 select-none overflow-hidden"
       onMouseEnter={() => {
         isHoveredRef.current = true;
       }}
@@ -170,17 +170,17 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
       onTouchEnd={handlePointerUp}
       style={{ cursor: 'grab' }}
     >
-      {/* 3D Perspective Viewport */}
+      {/* 3D Perspective Viewport with ample headroom to prevent any vertical or horizontal clipping */}
       <div
-        className="relative mx-auto flex items-center justify-center h-[380px] sm:h-[460px] md:h-[500px] w-full"
+        className="relative mx-auto flex items-center justify-center h-[460px] sm:h-[530px] md:h-[580px] w-full"
         style={{
-          perspective: '1200px',
+          perspective: '1600px',
           perspectiveOrigin: '50% 50%'
         }}
       >
-        {/* Soft Ambient Depth Shadow */}
+        {/* Soft Ambient Depth Floor Shadow */}
         <div
-          className="absolute bottom-4 w-[420px] sm:w-[580px] h-16 rounded-full bg-slate-900/10 blur-2xl pointer-events-none -translate-x-1/2 left-1/2"
+          className="absolute bottom-6 w-[420px] sm:w-[580px] h-16 rounded-full bg-slate-900/10 blur-2xl pointer-events-none -translate-x-1/2 left-1/2"
           aria-hidden="true"
         />
 
@@ -201,7 +201,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
               <div
                 key={`${prod.id}-${slotIdx}`}
                 onClick={() => handleCardClick(prod)}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] sm:w-[290px] md:w-[330px] h-[340px] sm:h-[410px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-200 cursor-pointer group hover:scale-[1.02]"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[270px] md:w-[310px] h-[320px] sm:h-[380px] md:h-[420px] rounded-3xl overflow-hidden shadow-2xl transition-all duration-200 cursor-pointer group hover:scale-[1.02]"
                 style={{
                   transformStyle: 'preserve-3d',
                   transform: `rotateY(${slotAngle}deg) translateZ(${radius}px)`,
@@ -224,10 +224,10 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/25 to-transparent pointer-events-none" />
 
                   {/* Card Bottom Info Overlay */}
-                  <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 z-10 flex flex-col justify-end space-y-1.5 pointer-events-none">
+                  <div className="absolute bottom-0 inset-x-0 p-4 sm:p-6 z-10 flex flex-col justify-end space-y-1.5 pointer-events-none">
                     <h3
                       dir="auto"
-                      className="text-white text-sm sm:text-base font-black line-clamp-2 leading-snug drop-shadow-md group-hover:text-red-400 transition-colors"
+                      className="text-white text-xs sm:text-sm md:text-base font-black line-clamp-2 leading-snug drop-shadow-md group-hover:text-red-400 transition-colors"
                     >
                       {localized.name}
                     </h3>
