@@ -1,9 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, Search, X } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
-import { ProductCategoryDivision } from '../data/productNavigationData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
-import { loadProductDivisions, subscribeToDivisions } from '../services/productNavigationService';
+import {
+  HomepageSectionConfig,
+  loadHomepageSections,
+  subscribeToHomepageSections,
+  getLocalizedSectionHeader
+} from '../services/homepageSectionsService';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
 
@@ -23,30 +27,29 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
   onOpenCart
 }) => {
   const { currentLanguage, t } = useLanguage();
-  const [divisions, setDivisions] = useState<ProductCategoryDivision[]>(loadProductDivisions);
+  const [sections, setSections] = useState<HomepageSectionConfig[]>(loadHomepageSections);
   const [products, setProducts] = useState<ProductItem[]>(loadLocalProducts);
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
 
-  useEffect(() => subscribeToDivisions(setDivisions), []);
+  useEffect(() => subscribeToHomepageSections(setSections), []);
   useEffect(() => subscribeToLocalProducts(setProducts), []);
   useEffect(() => {
-    if (selectedCategory !== 'all' && !divisions.some((division) => division.key === selectedCategory)) {
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
+  useEffect(() => {
+    if (selectedCategory !== 'all' && !sections.some((sec) => sec.key === selectedCategory)) {
       setSelectedCategory('all');
     }
-  }, [divisions, selectedCategory]);
+  }, [sections, selectedCategory]);
 
   const categories = useMemo(() => [
     { id: 'all', label: t('all_categories') || 'All categories' },
-    ...divisions.map((division) => ({
-      id: division.key,
-      label: ((division as any).translations?.[currentLanguage.code] || (division as any).translations?.[currentLanguage.code.split('-')[0]])?.name || (currentLanguage.code === 'ckb'
-        ? division.kurdishTitle || division.title
-        : currentLanguage.code === 'ar'
-          ? division.arabicTitle || division.title
-          : division.title)
+    ...sections.map((sec) => ({
+      id: sec.key,
+      label: getLocalizedSectionHeader(sec, currentLanguage.code).title
     }))
-  ], [divisions, currentLanguage.code, t]);
+  ], [sections, currentLanguage.code, t]);
 
   const visibleProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();

@@ -6,6 +6,12 @@ import { LanguageModal } from './LanguageModal';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { loadProductDivisions, subscribeToDivisions } from '../services/productNavigationService';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
+import {
+  HomepageSectionConfig,
+  loadHomepageSections,
+  subscribeToHomepageSections,
+  getLocalizedSectionHeader
+} from '../services/homepageSectionsService';
 import { getCurrentUser, logoutUser } from '../services/authService';
 import { User as UserType } from '../types/auth';
 import { getLocalizedProduct } from '../utils/localizedContent';
@@ -61,11 +67,15 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
 }) => {
   const { currentLanguage, t } = useLanguage();
   const [divisions, setDivisions] = useState<ProductCategoryDivision[]>(() => loadProductDivisions());
+  const [sections, setSections] = useState<HomepageSectionConfig[]>(() => loadHomepageSections());
   const [productList, setProductList] = useState<ProductItem[]>(() => loadLocalProducts());
   const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
-  const [selectedDivisionKey, setSelectedDivisionKey] = useState<string>('windows');
+  const [selectedDivisionKey, setSelectedDivisionKey] = useState<string>(() => {
+    const initialSections = loadHomepageSections();
+    return initialSections[0]?.key || 'windows';
+  });
   const [mobileProductsOpen, setMobileProductsOpen] = useState<boolean>(false);
   const [mobileExpandedCategory, setMobileExpandedCategory] = useState<string | null>(null);
   const [currentUser, setCurrentUser] = useState<UserType | null>(() => getCurrentUser());
@@ -103,46 +113,41 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
   }, []);
 
   useEffect(() => {
+    return subscribeToHomepageSections((updated) => {
+      setSections(updated);
+    });
+  }, []);
+
+  useEffect(() => {
     return subscribeToLocalProducts((updated) => {
       setProductList(updated);
     });
   }, []);
 
   const isKurdish = currentLanguage.code === 'ckb';
+  const isKurmanji = currentLanguage.code === 'kmr';
+  const isTurkish = currentLanguage.code === 'tr';
   const isArabic = currentLanguage.code === 'ar';
   // Keep hidden from header navigation bar as requested, while routes and pages remain fully accessible
   const SHOW_ARTICLES_AND_REVIEWS_TABS = false;
 
-  // Helper: get the best display name for a division/sub/model based on language
-  const getDivisionLabel = (div: any) => {
-    const translated = div.translations?.[currentLanguage.code] || div.translations?.[currentLanguage.code.split('-')[0]];
-    if (translated?.title || translated?.name) return translated.title || translated.name;
-    if (isArabic) return div.arabicDivisionLabel || div.arabicTitle || div.title;
-    if (isKurdish) return div.kurdishDivisionLabel || div.kurdishTitle || div.title;
-    return div.title;
+  const getSectionProducts = (sectionKey: string) => {
+    const keyLower = (sectionKey || '').toLowerCase();
+    return productList.filter((p) => {
+      const pCat = (p.category || '').toLowerCase();
+      const pDiv = (p.division || '').toLowerCase();
+      return pDiv === keyLower || pCat === keyLower;
+    });
   };
-  const getDivisionTitle = (div: any) => {
-    const translated = div.translations?.[currentLanguage.code] || div.translations?.[currentLanguage.code.split('-')[0]];
-    if (translated?.title || translated?.name) return translated.title || translated.name;
-    if (isArabic) return div.arabicTitle || div.title;
-    if (isKurdish) return div.kurdishTitle || div.title;
-    return div.title;
-  };
-  const getSubTitle = (sub: any) => {
-    const translated = sub.translations?.[currentLanguage.code] || sub.translations?.[currentLanguage.code.split('-')[0]];
-    if (translated?.name || translated?.title) return translated.name || translated.title;
-    if (isArabic) return sub.arabicTitle || sub.title;
-    if (isKurdish) return sub.kurdishTitle || sub.title;
-    return sub.title;
-  };
-  const getModelName = (model: any) => {
-    const linked = productList.find(product => product.id === model.productId || product.modelId === model.id);
-    if (linked) return getLocalizedProduct(linked, currentLanguage.code).name;
-    const translated = model.translations?.[currentLanguage.code] || model.translations?.[currentLanguage.code.split('-')[0]];
-    if (translated?.name) return translated.name;
-    if (isArabic) return model.arabicName || model.name;
-    if (isKurdish) return model.kurdishName || model.name;
-    return model.name;
+
+  const handleProductClick = (product: ProductItem) => {
+    setActiveMegaMenu(null);
+    setMobileMenuOpen(false);
+    if (onSelectProduct) {
+      onSelectProduct(product);
+    } else {
+      handleNavClick(product.division || product.category || 'products');
+    }
   };
 
 
@@ -252,40 +257,53 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                 <ChevronDown className="w-4 h-4 text-slate-400" />
               </button>
 
-              {/* Products Mega-Menu Dropdown with Divisions */}
+              {/* Products Mega-Menu Dropdown with Live Homepage Sections & Products */}
               {activeMegaMenu === 'products' && (() => {
-                const currentDivision = divisions.find((d) => d.key === selectedDivisionKey || d.id === selectedDivisionKey) || divisions[0];
-                if (!currentDivision) return null;
+                const currentSection = sections.find((s) => s.key === selectedDivisionKey || s.id === selectedDivisionKey) || sections[0];
+                if (!currentSection) return null;
+                const currentHeader = getLocalizedSectionHeader(currentSection, currentLanguage.code);
+                const sectionProducts = getSectionProducts(currentSection.key);
+                const featuredImg = (sectionProducts.length > 0 && (sectionProducts[0].image || sectionProducts[0].fallbackImage))
+                  ? (sectionProducts[0].image || sectionProducts[0].fallbackImage)
+                  : './assets/doorhome/03-2.jpg';
+
                 return (
-                  <div className="doorhome-products-menu bg-white rounded-b-3xl shadow-2xl border border-slate-200 p-6 z-50 animate-in fade-in duration-150">
+                  <div className="doorhome-products-menu bg-white/98 backdrop-blur-xl rounded-b-3xl shadow-[0_30px_80px_-20px_rgba(15,23,42,0.3)] border border-slate-200/90 p-6 z-50 animate-in fade-in duration-150">
                     <div className="grid grid-cols-12 gap-6 items-start">
-                      {/* Left: Categories / Divisions */}
+                      {/* Left: Live Dynamic Sections */}
                       <div className="col-span-4 border-r border-slate-100 pr-4 space-y-1.5">
                         <div className="text-[11px] font-black uppercase text-slate-400 tracking-wider px-3 pb-1">
-                          {isArabic ? 'الأقسام الرئيسية' : isKurdish ? 'بەشە سەرەکییەکان' : 'Categories'}
+                          {isArabic ? 'الأقسام الرئيسية' : isKurdish ? 'بەشە سەرەکییەکان' : isKurmanji ? 'Beşên Sereke' : isTurkish ? 'Ana Bölümler' : 'Main Sections'}
                         </div>
-                        {divisions.map((div) => {
-                          const isSelected = selectedDivisionKey === div.key || selectedDivisionKey === div.id;
+                        {sections.map((sec) => {
+                          const isSelected = currentSection.key === sec.key || currentSection.id === sec.id;
+                          const secHeader = getLocalizedSectionHeader(sec, currentLanguage.code);
+                          const count = getSectionProducts(sec.key).length;
                           return (
                             <button
-                              key={div.id}
-                              onMouseEnter={() => setSelectedDivisionKey(div.key || div.id)}
+                              key={sec.id}
+                              onMouseEnter={() => setSelectedDivisionKey(sec.key)}
                               onClick={() => {
-                                setSelectedDivisionKey(div.key || div.id);
-                                handleNavClick(div.key);
+                                setSelectedDivisionKey(sec.key);
+                                handleNavClick(sec.key);
                               }}
-                              className={`w-full text-left px-3.5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-between group cursor-pointer ${
+                              className={`w-full text-start px-3.5 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-between gap-2 group cursor-pointer ${
                                 isSelected
-                                  ? 'bg-red-600 text-white shadow-md'
+                                  ? 'bg-red-600 text-white shadow-md shadow-red-600/20'
                                   : 'text-slate-800 hover:bg-slate-50'
                               }`}
                             >
-                              <div className="flex flex-col">
-                                <span className="text-xs font-black leading-snug">
-                                  {getDivisionLabel(div)}
+                              <span dir="auto" className="text-xs font-black leading-snug truncate">
+                                {secHeader.title}
+                              </span>
+                              <div className="flex items-center gap-1.5 shrink-0">
+                                <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full ${
+                                  isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500 group-hover:bg-slate-200/70'
+                                }`}>
+                                  {count}
                                 </span>
+                                <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'translate-x-0.5 text-white' : 'text-slate-400 group-hover:text-slate-600'}`} />
                               </div>
-                              <ChevronRight className={`w-4 h-4 transition-transform ${isSelected ? 'translate-x-0.5 text-white' : 'text-slate-400 group-hover:text-slate-600'}`} />
                             </button>
                           );
                         })}
@@ -293,170 +311,125 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         <div className="pt-3 mt-3 border-t border-slate-100">
                           <button
                             onClick={() => handleNavClick('products')}
-                            className="w-full text-left px-3 py-2 text-xs font-extrabold text-red-600 hover:text-red-700 flex items-center justify-between rounded-lg hover:bg-red-50 transition-colors"
+                            className="w-full text-start px-3.5 py-2.5 text-xs font-extrabold text-red-600 hover:text-red-700 flex items-center justify-between rounded-xl hover:bg-red-50 transition-colors cursor-pointer"
                           >
-                            <span>{isArabic ? 'عرض جميع المنتجات في المتجر' : isKurdish ? 'بینینی گشت بەرهەمەکان لە فرۆشگا' : 'View All Products in Shop'}</span>
-                            <ArrowRight className="w-3.5 h-3.5" />
+                            <span>
+                              {isArabic
+                                ? 'عرض جميع المنتجات في المتجر'
+                                : isKurdish
+                                  ? 'بینینی گشت بەرهەمەکان لە فرۆشگا'
+                                  : isKurmanji
+                                    ? 'Hemû Berheman Bibîne'
+                                    : isTurkish
+                                      ? 'Tüm Ürünleri Görüntüle'
+                                      : 'View All Products in Catalog'}
+                            </span>
+                            <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                           </button>
                         </div>
                       </div>
 
-                      {/* Middle Column: Sub-Categories & Models or Live Products */}
-                      {(() => {
-                        const divKeyLower = (currentDivision.key || currentDivision.id || '').toLowerCase();
-                        const catTargetLower = (currentDivision.categoryTarget || '').toLowerCase();
-                        const divisionProducts = productList.filter((p) => {
-                          const pCat = (p.category || '').toLowerCase();
-                          const pDiv = (p.division || '').toLowerCase();
-                          return (
-                            pDiv === divKeyLower ||
-                            pCat === divKeyLower ||
-                            pDiv === catTargetLower ||
-                            pCat === catTargetLower ||
-                            (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
-                            (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
-                            (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                            (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade'))) ||
-                            (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware')))
-                          );
-                        });
+                      {/* Middle Column: Live Products in Selected Section */}
+                      <div className="col-span-5 space-y-3 max-h-[390px] overflow-y-auto pr-2 no-scrollbar">
+                        <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                          <span dir="auto" className="text-xs font-black text-slate-900 truncate">
+                            {currentHeader.title}
+                          </span>
+                          <span className="text-[11px] font-bold text-slate-400 shrink-0">
+                            {sectionProducts.length} {isArabic ? 'منتج' : isKurdish ? 'بەرهەم' : isKurmanji ? 'berhem' : isTurkish ? 'ürün' : 'items'}
+                          </span>
+                        </div>
 
-                        const activeSubCategories = (currentDivision.subCategories || []).filter(
-                          (sub) => sub.items && sub.items.length > 0
-                        );
-
-                        const featuredImg = (divisionProducts.length > 0 && divisionProducts[0].image)
-                          ? divisionProducts[0].image
-                          : (currentDivision.featuredImage || './assets/doorhome/03-2.jpg');
-
-                        return (
-                          <>
-                            <div className="col-span-5 space-y-4 max-h-[380px] overflow-y-auto pr-2 no-scrollbar">
-                              {activeSubCategories.length > 0 ? (
-                                activeSubCategories.map((sub) => (
-                                  <div key={sub.id} className="space-y-2">
-                                    <div className="flex items-center justify-between border-b border-slate-100 pb-1">
-                                      <span className="text-xs font-black text-slate-900">
-                                        {getSubTitle(sub)}
+                        {sectionProducts.length > 0 ? (
+                          <div className="space-y-2">
+                            {sectionProducts.map((prod) => {
+                              const localizedProd = getLocalizedProduct(prod, currentLanguage.code);
+                              return (
+                                <button
+                                  key={prod.id}
+                                  onClick={() => handleProductClick(prod)}
+                                  className="w-full text-start p-2.5 rounded-2xl bg-slate-50/70 hover:bg-red-50/60 hover:border-red-200 border border-slate-200/70 transition-all flex items-center justify-between gap-3 group cursor-pointer shadow-2xs hover:shadow-sm"
+                                >
+                                  <div className="flex items-center gap-3 min-w-0 flex-1">
+                                    <div className="w-12 h-12 rounded-xl overflow-hidden bg-white border border-slate-200/80 shrink-0">
+                                      <img
+                                        src={localizedProd.image || localizedProd.fallbackImage || './assets/doorhome/03-2.jpg'}
+                                        alt={localizedProd.name}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        onError={(e) => {
+                                          (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                                        }}
+                                      />
+                                    </div>
+                                    <div className="space-y-0.5 min-w-0 flex-1">
+                                      <span dir="auto" className="text-xs font-black text-slate-900 group-hover:text-red-700 transition-colors block truncate">
+                                        {localizedProd.name}
                                       </span>
-                                    </div>
-                                    <div className="space-y-1.5">
-                                      {sub.items.slice(0, 15).map((model) => (
-                                        <button
-                                          key={model.id}
-                                          onClick={() => handleModelClick(model, currentDivision.key)}
-                                          className="w-full text-left p-2.5 rounded-xl bg-slate-50/80 hover:bg-red-50/80 hover:border-red-200 border border-slate-100 transition-all flex items-start justify-between group cursor-pointer"
-                                        >
-                                          <div className="space-y-0.5">
-                                            <div className="flex items-center gap-2">
-                                              <span className="text-xs font-extrabold text-slate-900 group-hover:text-red-700 transition-colors">
-                                                {getModelName(model)}
-                                              </span>
-                                            </div>
-                                            <p className="text-[10px] text-slate-400 line-clamp-1">
-                                              {(() => {
-                                                const p = productList.find(product => product.id === model.productId || product.modelId === model.id);
-                                                return p ? getLocalizedProduct(p, currentLanguage.code).description : (model.description || '');
-                                              })()}
-                                            </p>
-                                          </div>
-                                          <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all mt-1 shrink-0" />
-                                        </button>
-                                      ))}
+                                      <p dir="auto" className="text-[11px] text-slate-500 line-clamp-1 leading-relaxed">
+                                        {localizedProd.description}
+                                      </p>
                                     </div>
                                   </div>
-                                ))
-                              ) : divisionProducts.length > 0 ? (
-                                <div className="space-y-2">
-                                  <div className="flex items-center justify-between border-b border-slate-100 pb-1">
-                                    <span className="text-xs font-black text-slate-900">
-                                      {isArabic ? 'المنتجات المتوفرة' : isKurdish ? 'بەرهەمە بەردەستەکان' : 'Available Products'}
-                                    </span>
-                                    <span className="text-[10px] font-bold text-slate-400">
-                                      {divisionProducts.length} {isArabic ? 'منتج' : isKurdish ? 'بەرهەم' : 'items'}
-                                    </span>
-                                  </div>
-                                  <div className="space-y-1.5">
-                                    {divisionProducts.slice(0, 5).map((prod) => (
-                                      <button
-                                        key={prod.id}
-                                        onClick={() => handleNavClick('products')}
-                                        className="w-full text-left p-2 rounded-xl bg-slate-50/80 hover:bg-red-50/80 hover:border-red-200 border border-slate-100 transition-all flex items-center justify-between group cursor-pointer"
-                                      >
-                                        <div className="flex items-center gap-2.5 min-w-0">
-                                          {prod.image && (
-                                            <img
-                                              src={prod.image}
-                                              alt={prod.name}
-                                              className="w-9 h-9 rounded-lg object-cover border border-slate-200 shrink-0"
-                                              onError={(e) => {
-                                                (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
-                                              }}
-                                            />
-                                          )}
-                                          <div className="space-y-0.5 min-w-0">
-                                            <span className="text-xs font-extrabold text-slate-900 group-hover:text-red-700 transition-colors block truncate">
-                                              {getLocalizedProduct(prod, currentLanguage.code).name}
-                                            </span>
-                                            <p className="text-[10px] text-slate-400 truncate">
-                                              {prod.subCategory || prod.category || ''}
-                                            </p>
-                                          </div>
-                                        </div>
-                                        <ArrowRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all shrink-0 ml-2" />
-                                      </button>
-                                    ))}
-                                  </div>
-                                </div>
-                              ) : (
-                                <div className="p-8 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                                  <p className="text-xs font-bold text-slate-400">
-                                    {isArabic ? 'لا توجد منتجات أو موديلات حالياً' : isKurdish ? 'هیچ مۆدێل یان بەرهەمێک بەردەست نییە لەم بەشەدا' : 'No models or products in this division'}
-                                  </p>
-                                </div>
-                              )}
-                            </div>
+                                  <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-red-600 group-hover:translate-x-0.5 transition-all shrink-0" />
+                                </button>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <div className="p-8 text-center bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                            <p className="text-xs font-bold text-slate-400">
+                              {isArabic ? 'لا توجد منتجات حالياً في هذا القسم' : isKurdish ? 'هیچ بەرهەمێک بەردەست نییە لەم بەشەدا' : 'No products in this section'}
+                            </p>
+                          </div>
+                        )}
+                      </div>
 
-                            {/* Right Column: Featured Category Photo & Direct Action */}
-                            <div className="col-span-3">
-                              <div className="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/80 shadow-sm relative group/photo flex flex-col justify-between">
-                                <div className="relative h-44 overflow-hidden">
-                                  <img
-                                    src={featuredImg}
-                                    alt={currentDivision.title}
-                                    className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-500"
-                                    onError={(e) => {
-                                      (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
-                                    }}
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent" />
-                                  <div className="absolute bottom-2.5 left-3 right-3 text-white">
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-red-400 block">
-                                      {getDivisionLabel(currentDivision)}
-                                    </span>
-                                    <h4 className="text-xs font-black leading-tight text-white mt-0.5">
-                                      {getDivisionTitle(currentDivision)}
-                                    </h4>
-                                  </div>
-                                </div>
-                                <div className="p-3 bg-white space-y-2">
-                                  <p className="text-[11px] text-slate-500 line-clamp-2 leading-snug">
-                                    {divisionProducts[0] ? getLocalizedProduct(divisionProducts[0], currentLanguage.code).description : currentDivision.featuredSubtitle}
-                                  </p>
-                                  <button
-                                    onClick={() => handleNavClick(currentDivision.key)}
-                                    className="w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-extrabold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
-                                  >
-                                    <span>{isArabic ? `استكشف ${getDivisionTitle(currentDivision)}` : isKurdish ? `بینینی گشت ${getDivisionTitle(currentDivision)}` : `Explore ${currentDivision.title}`}</span>
-                                    <ArrowRight className="w-3 h-3" />
-                                  </button>
-                                </div>
-                              </div>
+                      {/* Right Column: Featured Section Showcase Card */}
+                      <div className="col-span-3">
+                        <div className="rounded-2xl overflow-hidden bg-slate-950 border border-slate-200/80 shadow-md relative group/photo flex flex-col justify-between">
+                          <div className="relative h-48 overflow-hidden">
+                            <img
+                              src={featuredImg}
+                              alt={currentHeader.title}
+                              className="w-full h-full object-cover group-hover/photo:scale-105 transition-transform duration-500"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                              }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent" />
+                            <div className="absolute bottom-3 left-3.5 right-3.5 text-white">
+                              <span className="text-[10px] font-black uppercase tracking-widest text-red-400 block">
+                                Doorhome
+                              </span>
+                              <h4 dir="auto" className="text-sm font-black leading-snug text-white mt-0.5 line-clamp-2">
+                                {currentHeader.title}
+                              </h4>
                             </div>
-                          </>
-                        );
-                      })()}
-
+                          </div>
+                          <div className="p-3.5 bg-white space-y-3">
+                            <p dir="auto" className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
+                              {currentHeader.description}
+                            </p>
+                            <button
+                              onClick={() => handleNavClick(currentSection.key)}
+                              className="w-full py-2.5 px-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                            >
+                              <span dir="auto" className="truncate">
+                                {isArabic
+                                  ? `استكشف ${currentHeader.title}`
+                                  : isKurdish
+                                    ? `بینینی ${currentHeader.title}`
+                                    : isKurmanji
+                                      ? `Vekole ${currentHeader.title}`
+                                      : isTurkish
+                                        ? `${currentHeader.title} Keşfet`
+                                        : `Explore ${currentHeader.title}`}
+                              </span>
+                              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -639,90 +612,73 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         <ChevronRight className="w-4 h-4 text-red-600 rotate-180" />
                       </button>
 
-                      {divisions.map((div) => {
-                        const isCatOpen = mobileExpandedCategory === div.key || mobileExpandedCategory === div.id;
+                      {sections.map((sec) => {
+                        const isCatOpen = mobileExpandedCategory === sec.key || mobileExpandedCategory === sec.id;
+                        const secHeader = getLocalizedSectionHeader(sec, currentLanguage.code);
+                        const secProds = getSectionProducts(sec.key);
                         return (
-                          <div key={div.id} className="space-y-1">
+                          <div key={sec.id} className="space-y-1">
                             {/* Category Level 2 */}
                             <button
-                              onClick={() => setMobileExpandedCategory(isCatOpen ? null : (div.key || div.id))}
+                              onClick={() => setMobileExpandedCategory(isCatOpen ? null : sec.key)}
                               className={`w-full text-right py-3 px-3 rounded-xl flex items-center justify-between flex-row-reverse text-[15px] sm:text-base transition-colors cursor-pointer ${
                                 isCatOpen
                                   ? 'bg-red-50 text-red-700 font-black'
                                   : 'text-slate-800 hover:bg-slate-50 hover:text-red-600 font-bold'
                               }`}
                             >
-                              <span>
-                                {getDivisionLabel(div)}
+                              <span dir="auto">
+                                {secHeader.title}
                               </span>
                               <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isCatOpen ? 'rotate-180 text-red-600' : 'text-slate-400'}`} />
                             </button>
 
-                            {/* Models Level 3 (Max 10 items shown, item 11 is 'View all') */}
-                            {isCatOpen && (() => {
-                              const divKeyLower = (div.key || div.id || '').toLowerCase();
-                              const catTargetLower = (div.categoryTarget || '').toLowerCase();
-                              const divProds = productList.filter((p) => {
-                                const pCat = (p.category || '').toLowerCase();
-                                const pDiv = (p.division || '').toLowerCase();
-                                return (
-                                  pDiv === divKeyLower ||
-                                  pCat === divKeyLower ||
-                                  pDiv === catTargetLower ||
-                                  pCat === catTargetLower ||
-                                  (divKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window') || pCat === 'upvc' || pDiv === 'upvc')) ||
-                                  (divKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door') || pCat === 'aluminum' || pDiv === 'aluminum')) ||
-                                  (divKeyLower.includes('glass') && (pCat.includes('glass') || pDiv.includes('glass') || pCat.includes('facade'))) ||
-                                  (divKeyLower.includes('railing') && (pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('balustrade'))) ||
-                                  (divKeyLower.includes('access') && (pCat.includes('access') || pDiv.includes('access') || pCat.includes('hardware')))
-                                );
-                              });
-                              const models = div.subCategories.flatMap((s) => s.items || []);
-
-                              return (
-                                <div className="pr-3 pl-1 py-1.5 space-y-1 border-r-2 border-red-200/80 mr-3 animate-in fade-in duration-150 text-right">
-                                  {models.length > 0 ? (
-                                    models.slice(0, 10).map((model) => (
-                                      <button
-                                        key={model.id}
-                                        onClick={() => {
-                                          handleModelClick(model, div.key);
-                                        }}
-                                        className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
-                                      >
-                                        <span className="truncate pl-2">
-                                          {getModelName(model)}
+                            {/* Live Products Level 3 */}
+                            {isCatOpen && (
+                              <div className="pr-3 pl-1 py-1.5 space-y-1 border-r-2 border-red-200/80 mr-3 animate-in fade-in duration-150 text-right">
+                                {secProds.slice(0, 10).map((prod) => {
+                                  const localizedProd = getLocalizedProduct(prod, currentLanguage.code);
+                                  return (
+                                    <button
+                                      key={prod.id}
+                                      onClick={() => handleProductClick(prod)}
+                                      className="w-full text-right py-2 px-2.5 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse gap-2.5 group cursor-pointer"
+                                    >
+                                      <div className="flex items-center gap-2.5 flex-row-reverse min-w-0">
+                                        {localizedProd.image && (
+                                          <img
+                                            src={localizedProd.image}
+                                            alt=""
+                                            className="w-8 h-8 rounded-lg object-cover border border-slate-200 shrink-0"
+                                            onError={(e) => {
+                                              (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                                            }}
+                                          />
+                                        )}
+                                        <span dir="auto" className="truncate">
+                                          {localizedProd.name}
                                         </span>
-                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 transition-all shrink-0 rotate-180" />
-                                      </button>
-                                    ))
-                                  ) : divProds.length > 0 ? (
-                                    divProds.slice(0, 10).map((prod) => (
-                                      <button
-                                        key={prod.id}
-                                        onClick={() => {
-                                          handleNavClick(div.key);
-                                        }}
-                                        className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
-                                      >
-                                        <span className="truncate pl-2">
-                                          {getLocalizedProduct(prod, currentLanguage.code).name}
-                                        </span>
-                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 transition-all shrink-0 rotate-180" />
-                                      </button>
-                                    ))
-                                  ) : null}
+                                      </div>
+                                      <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 transition-all shrink-0 rotate-180" />
+                                    </button>
+                                  );
+                                })}
 
-                                  {/* Item 11: View all in this category */}
-                                  <button
-                                    onClick={() => handleNavClick(div.key)}
-                                    className="w-full text-right py-2.5 px-3 text-xs sm:text-sm font-black text-red-600 hover:underline flex items-center justify-end gap-1 cursor-pointer pt-1.5"
-                                  >
-                                    <span>{isArabic ? `عرض جميع ${getDivisionTitle(div)} ←` : isKurdish ? `بینینی گشت ${getDivisionTitle(div)} ←` : `View all ${div.title} →`}</span>
-                                  </button>
-                                </div>
-                              );
-                            })()}
+                                {/* View all in this section */}
+                                <button
+                                  onClick={() => handleNavClick(sec.key)}
+                                  className="w-full text-right py-2.5 px-3 text-xs sm:text-sm font-black text-red-600 hover:underline flex items-center justify-end gap-1 cursor-pointer pt-1.5"
+                                >
+                                  <span dir="auto">
+                                    {isArabic
+                                      ? `عرض جميع ${secHeader.title} ←`
+                                      : isKurdish
+                                        ? `بینینی گشت ${secHeader.title} ←`
+                                        : `View all ${secHeader.title} →`}
+                                  </span>
+                                </button>
+                              </div>
+                            )}
                           </div>
                         );
                       })}
