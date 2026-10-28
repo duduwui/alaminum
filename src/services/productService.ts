@@ -37,11 +37,21 @@ export function markProductAsDeleted(id: string): void {
 export function loadLocalProducts(): ProductItem[] {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
+    const deletedIds = getDeletedProductIds();
     if (saved !== null) {
       const parsed = JSON.parse(saved);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        const deletedIds = getDeletedProductIds();
-        return parsed.filter((item: ProductItem) => item && item.id && !deletedIds.has(item.id));
+        const existingIds = new Set(parsed.map((item: ProductItem) => item?.id).filter(Boolean));
+        const missingSeed = PRODUCTION_PRODUCTS_SEED.filter(
+          (p) => !existingIds.has(p.id) && !deletedIds.has(p.id)
+        );
+        const validParsed = parsed.filter((item: ProductItem) => item && item.id && !deletedIds.has(item.id));
+        if (missingSeed.length > 0) {
+          const merged = [...validParsed, ...missingSeed];
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          return merged;
+        }
+        return validParsed;
       }
     }
   } catch (e) {
@@ -53,12 +63,18 @@ export function loadLocalProducts(): ProductItem[] {
 
 export function saveLocalProducts(products: ProductItem[]): void {
   try {
-    const cleaned: ProductItem[] = products.filter((item: ProductItem) => Boolean(item && item.id));
-    const nextJson = JSON.stringify(cleaned);
+    const deletedIds = getDeletedProductIds();
+    const cleaned: ProductItem[] = products.filter((item: ProductItem) => Boolean(item && item.id && !deletedIds.has(item.id)));
+    const existingIds = new Set(cleaned.map((item) => item.id));
+    const missingSeed = PRODUCTION_PRODUCTS_SEED.filter(
+      (p) => !existingIds.has(p.id) && !deletedIds.has(p.id)
+    );
+    const fullProducts = missingSeed.length > 0 ? [...cleaned, ...missingSeed] : cleaned;
+    const nextJson = JSON.stringify(fullProducts);
     const prevJson = localStorage.getItem(STORAGE_KEY);
     if (prevJson === nextJson) return;
     localStorage.setItem(STORAGE_KEY, nextJson);
-    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: cleaned }));
+    window.dispatchEvent(new CustomEvent(PRODUCTS_UPDATED_EVENT, { detail: fullProducts }));
   } catch (e) {
     console.error('Error saving products locally:', e);
   }

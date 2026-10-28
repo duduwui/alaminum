@@ -97,6 +97,49 @@ export const DEFAULT_HOMEPAGE_SECTIONS: HomepageSectionConfig[] = [
     }
   },
   {
+    "id": "sec-accessories",
+    "key": "accessories",
+    "title": "الإكسسوارات والمقابض المعمارية",
+    "description": "مقابض وأقفال وإكسسوارات هندسية دقيقة تضيف اللمسة النهائية الأنيقة لأبوابك ونوافذك وتجمع بين راحة الاستخدام اليومي والأمان العالي.",
+    "translations": {
+      "ar": {
+        "name": "الإكسسوارات والمقابض المعمارية",
+        "title": "الإكسسوارات والمقابض المعمارية",
+        "description": "مقابض وأقفال وإكسسوارات هندسية دقيقة تضيف اللمسة النهائية الأنيقة لأبوابك ونوافذك وتجمع بين راحة الاستخدام اليومي والأمان العالي."
+      },
+      "en": {
+        "name": "Architectural Hardware & Accessories",
+        "title": "Architectural Hardware & Accessories",
+        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
+      },
+      "tr": {
+        "name": "Mimari Aksesuar ve Kol Sistemleri",
+        "title": "Mimari Aksesuar ve Kol Sistemleri",
+        "description": "Kapı ve pencerelerinize zarif bir son dokunuş katan, günlük kullanım konforunu yüksek güvenlikle birleştiren hassas mühendislik ürünü kollar, kilitler ve aksesuarlar."
+      },
+      "ckb": {
+        "name": "ئێکسسوارات و دەسکی نژیاروانی",
+        "title": "ئێکسسوارات و دەسکی نژیاروانی",
+        "description": "دەسک و قفڵ و ئێکسسواراتی ئەندازیاری ورد کە کۆتا دەستلێدانی جوانی دەبەخشنە دەرگا و پەنجەرەکانت لەگەڵ ئاسایش و ئاسوودەیی ڕۆژانە."
+      },
+      "kmr": {
+        "name": "Aksesûar û Destikên Mîmarî",
+        "title": "Aksesûar û Destikên Mîmarî",
+        "description": "Destik, kilît û aksesûarên endezyariya ورد ên ku bedewiya dawîn li derî û pencereyên we zêde dikin û rehetiya rojane bi ewlehiya bilind re digihînin hev."
+      },
+      "en-GB": {
+        "name": "Architectural Hardware & Accessories",
+        "title": "Architectural Hardware & Accessories",
+        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
+      },
+      "en-US": {
+        "name": "Architectural Hardware & Accessories",
+        "title": "Architectural Hardware & Accessories",
+        "description": "Precision-engineered handles, locks, and accessories that add the finishing touch of elegance to your doors and windows while combining daily comfort with lasting security."
+      }
+    }
+  },
+  {
     "id": "sec-id-1793119395093",
     "key": "sec-1793119387374",
     "title": "حواجز السلالم الزجاجية",
@@ -190,14 +233,17 @@ export function loadHomepageSections(): HomepageSectionConfig[] {
     if (raw !== null) {
       const parsed = JSON.parse(raw);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        // Automatically filter out deprecated/unwanted accessories section from cache
-        const cleaned = parsed.filter(
-          (s) => s.key !== 'accessories' && s.id !== 'sec-accessories'
+        // Ensure all default sections exist (e.g. if accessories was missing from an older cache)
+        const existingKeys = new Set(parsed.map((s) => s.key || s.id));
+        const missingDefaults = DEFAULT_HOMEPAGE_SECTIONS.filter(
+          (d) => !existingKeys.has(d.key) && !existingKeys.has(d.id)
         );
-        if (cleaned.length !== parsed.length) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(cleaned));
+        if (missingDefaults.length > 0) {
+          const merged = [...parsed, ...missingDefaults];
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          return merged;
         }
-        return cleaned.length > 0 ? cleaned : DEFAULT_HOMEPAGE_SECTIONS;
+        return parsed;
       }
     }
   } catch (err) {
@@ -208,12 +254,17 @@ export function loadHomepageSections(): HomepageSectionConfig[] {
 
 export function saveHomepageSections(sections: HomepageSectionConfig[]): void {
   try {
-    const nextJson = JSON.stringify(sections);
+    const existingKeys = new Set(sections.map((s) => s.key || s.id));
+    const missingDefaults = DEFAULT_HOMEPAGE_SECTIONS.filter(
+      (d) => !existingKeys.has(d.key) && !existingKeys.has(d.id)
+    );
+    const fullSections = missingDefaults.length > 0 ? [...sections, ...missingDefaults] : sections;
+    const nextJson = JSON.stringify(fullSections);
     const prevJson = localStorage.getItem(STORAGE_KEY);
     if (prevJson === nextJson) return;
     localStorage.setItem(STORAGE_KEY, nextJson);
     window.dispatchEvent(
-      new CustomEvent(HOMEPAGE_SECTIONS_UPDATED_EVENT, { detail: sections })
+      new CustomEvent(HOMEPAGE_SECTIONS_UPDATED_EVENT, { detail: fullSections })
     );
   } catch (err) {
     console.error("Failed to save homepage sections:", err);
