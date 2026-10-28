@@ -2,6 +2,57 @@ import { ProductItem } from "./winhomeData";
 
 export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
+  "id": "prod-1793179501744",
+  "name": "نظام النوافذ والواجهات الزجاجية البانورامية المتحركة (المقصلة الأوتوماتيكية) للمطاعم والتراسات",
+  "image": "/uploads/9fe52448-aec4-4080-b871-e7485b761645.jpg",
+  "category": "windows",
+  "division": "windows",
+  "features": [
+    "نظام المقصلة الأوتوماتيكي (Guillotine System)",
+    "محركات دفع صامتة وموثوقة",
+    "إطلالة بانورامية كاملة 100%",
+    "عزل حراري وصوتي عالي الكفاءة",
+    "مقاومة فائقة للرياح والأمطار"
+  ],
+  "mediaType": "image",
+  "arabicName": "نظام النوافذ والواجهات الزجاجية البانورامية المتحركة (المقصلة الأوتوماتيكية) للمطاعم والتراسات",
+  "description": "ارتقِ بمساحتك الخارجية إلى أفق جديد من الفخامة والعملية مع نظام النوافذ والواجهات الزجاجية البانورامية الأوتوماتيكية (Guillotine Glass System). صُمم هذا النظام الهندسي المتقدم خصيصاً للتراسات العصرية والمطاعم والفلل الراقية ليمنحك إطلالة بانورامية مفتوحة بنسبة 100% وإمكانية تحويل المساحة من جلسة خارجية مفتوحة إلى صالة مغلقة ومكيفة بلمسة زر واحدة.\n\nيتميز النظام بألواح زجاجية معزولة ومتحركة عمودياً بمحركات صامتة وفائقة الاعتمادية، حيث تعمل الألواح السفلية كحاجز زجاجي أنيق وآمن عند الفتح، بينما توفر عند الإغلاق عزلاً فائقاً ضد الرياح والأمطار وتقلبات الطقس والضوضاء الخارجية. كما يتناغم النظام بسلاسة تامة مع أسقف البرجولا والمظلات الهندسية الحديثة مع إضاءات مدمجة تضفي دفئاً وسحراً استثنائياً على المكان.\n\nاستثمار معماري مثالي يجمع بين المتانة العالية والتحكم الذكي، ليوفر لعملائك أو عائلتك أجواءً ساحرة ومريحة في جميع فصول السنة.",
+  "translations": {
+    "ar": {
+      "name": "نظام النوافذ والواجهات الزجاجية البانورامية المتحركة (المقصلة الأوتوماتيكية) للمطاعم والتراسات",
+      "description": "ارتقِ بمساحتك الخارجية إلى أفق جديد من الفخامة والعملية مع نظام النوافذ والواجهات الزجاجية البانورامية الأوتوماتيكية (Guillotine Glass System). صُمم هذا النظام الهندسي المتقدم خصيصاً للتراسات العصرية والمطاعم والفلل الراقية ليمنحك إطلالة بانورامية مفتوحة بنسبة 100% وإمكانية تحويل المساحة من جلسة خارجية مفتوحة إلى صالة مغلقة ومكيفة بلمسة زر واحدة.\n\nيتميز النظام بألواح زجاجية معزولة ومتحركة عمودياً بمحركات صامتة وفائقة الاعتمادية، حيث تعمل الألواح السفلية كحاجز زجاجي أنيق وآمن عند الفتح، بينما توفر عند الإغلاق عزلاً فائقاً ضد الرياح والأمطار وتقلبات الطقس والضوضاء الخارجية. كما يتناغم النظام بسلاسة تامة مع أسقف البرجولا والمظلات الهندسية الحديثة مع إضاءات مدمجة تضفي دفئاً وسحراً استثنائياً على المكان.\n\nاستثمار معماري مثالي يجمع بين المتانة العالية والتحكم الذكي، ليوفر لعملائك أو عائلتك أجواءً ساحرة ومريحة في جميع فصول السنة."
+    },
+    "en": {
+      "name": "Automated Guillotine Glass Window & Panoramic Terrace Enclosure System",
+      "description": "Elevate your outdoor and commercial living spaces with our state-of-the-art motorized Guillotine Glass Window & Panoramic Enclosure System. Specially engineered for luxury restaurants, cafes, terraces, and modern villas, this system enables effortless transitions between open-air outdoor environments and fully insulated, climate-controlled indoor spaces with the push of a button.\n\nConstructed with premium architectural aluminum profiles and high-performance insulated glass panels, the vertical sliding panels are powered by quiet, heavy-duty automated drives. When opened, the lower glass pane functions as a sturdy, elegant safety balustrade; when closed, it provides exceptional thermal and acoustic insulation, shielding interiors from wind, rain, dust, and temperature extremes.\n\nEngineered for seamless integration with bioclimatic pergolas and modern architectural canopies, this system delivers an uncompromising blend of refined aesthetics, maximum natural daylight, and year-round operational comfort."
+    },
+    "en-US": {
+      "name": "Automated Guillotine Glass Window & Panoramic Terrace Enclosure System",
+      "description": "Elevate your outdoor and commercial living spaces with our state-of-the-art motorized Guillotine Glass Window & Panoramic Enclosure System. Specially engineered for luxury restaurants, cafes, terraces, and modern villas, this system enables effortless transitions between open-air outdoor environments and fully insulated, climate-controlled indoor spaces with the push of a button.\n\nConstructed with premium architectural aluminum profiles and high-performance insulated glass panels, the vertical sliding panels are powered by quiet, heavy-duty automated drives. When opened, the lower glass pane functions as a sturdy, elegant safety balustrade; when closed, it provides exceptional thermal and acoustic insulation, shielding interiors from wind, rain, dust, and temperature extremes.\n\nEngineered for seamless integration with bioclimatic pergolas and modern architectural canopies, this system delivers an uncompromising blend of refined aesthetics, maximum natural daylight, and year-round operational comfort."
+    },
+    "en-GB": {
+      "name": "Automated Guillotine Glass Window & Panoramic Terrace Enclosure System",
+      "description": "Elevate your outdoor and commercial living spaces with our state-of-the-art motorized Guillotine Glass Window & Panoramic Enclosure System. Specially engineered for luxury restaurants, cafes, terraces, and modern villas, this system enables effortless transitions between open-air outdoor environments and fully insulated, climate-controlled indoor spaces with the push of a button.\n\nConstructed with premium architectural aluminum profiles and high-performance insulated glass panels, the vertical sliding panels are powered by quiet, heavy-duty automated drives. When opened, the lower glass pane functions as a sturdy, elegant safety balustrade; when closed, it provides exceptional thermal and acoustic insulation, shielding interiors from wind, rain, dust, and temperature extremes.\n\nEngineered for seamless integration with bioclimatic pergolas and modern architectural canopies, this system delivers an uncompromising blend of refined aesthetics, maximum natural daylight, and year-round operational comfort."
+    },
+    "tr": {
+      "name": "Motorlu Giyotin Cam Pencere ve Panoramik Teras Kapatma Sistemi",
+      "description": "Modern restoranlar, kafeler, teraslar ve lüks konutlar için özel olarak tasarlanmış motorlu giyotin cam sistemi ile mekanlarınıza prestij ve fonksiyonellik katın. Tek bir tuşla açık hava terasından tamamen yalıtımlı, konforlu bir kapalı alana dönüşebilen bu sistem, kesintisiz panoramik manzara ve ferahlık hissi sunar.\n\nSessiz ve güçlü otomasyon motorlarıyla dikey olarak hareket eden çift camlı yalıtımlı paneller, açıldığında şık ve güvenli bir cam korkuluk işlevi görür. Kapalı konumda ise rüzgara, yağmura, gürültüye ve olumsuz hava koşullarına karşı üstün ısı ve ses yalıtımı sağlar. Bioklimatik pergola ve mimari tavan sistemleriyle kusursuz uyum göstererek dört mevsim boyunca benzersiz bir konfor deneyimi yaratır."
+    },
+    "ckb": {
+      "name": "سیستەمی پەنجەرە و ڕووکاری شووشەیی جووڵاوی ئۆتۆماتیکی (گیۆتین) بۆ تەراس و چێشتخانەکان",
+      "description": "بەرەو ئاستێکی باڵاتر لە فەخامەت و هاوچەرخی لەگەڵ سیستەمی پێشکەوتووی پەنجەرەی شووشەیی جووڵاوی ئۆتۆماتیکی (Guillotine Glass). ئەم سیستەمە ئەندازیارییە نایابە بە تایبەتی بۆ تەراسە مۆدێرنەکان، چێشتخانەکان، کافێکان و ڤێلا ناوازەکان دیزاین کراوە تا بە یەک پەنجەنان بە دوگمەیەک شوێنەکەت لە کەشێکی کراوەی دڵگیرەوە بگۆڕێت بۆ هۆڵێکی داپۆشراو و عەزلی فێنککەرەوە و گەرمکەرەوە.\n\nپانێڵە شووشەییە ئەستوور و عەزلکراوەکان بە شێوەی ستوونی بە بزوێنەری بێدەنگ و زۆر بەهێز دەجووڵێن، کە لە کاتی کرانەوەدا بەشە خوارەوەکەی وەک مەحاجەرەیەکی شووشەیی پتەو و پارێزراو کار دەکات، و لە کاتی داخرانیشدا عەزلێکی بێوێنە دژی با، باران، تەپوتۆز و دەنگەدەنگی دەرەوە دابین دەکات. گونجاندنی تەواوی لەگەڵ سەقفی پەرگۆلا و ڕووناکییە مۆدێرنەکاندا دیمەنێکی هێندەی تر سەرنجڕاکێش و بەشکۆ دەبەخشێتە بیناکەت."
+    },
+    "kmr": {
+      "name": "Sîstema Pencere û Rûyê Camî ya Otomatîk (Giyotin) ji bo Teras û Xwaringehan",
+      "description": "Bi sîstema nûjen a pace û rûyên camî yên otomatîk (Guillotine Glass) cîhên xwe yên derve veguherînin qadeke luks û pir-fonksiyonel. Ev sîstem ji bo xwaringeh, qehwexane, teras û vîlayên bilind hatiye endezyarkirin, da ku bi tenê pêlkirina bişkokekê qada we ji eywaneke vekirî bigihîne odeyeke bi tevahî îzolekirî û parastî.\n\nPanelên camî yên stûr bi awayekî asoyî bi motorên bêdeng û xurt tevdigerin. Dema vedibin, beşa jêrîn wekî hesinbendek (korkuluk) camî ya ewle û xweşik kar dike; dema girtî ne, li hember ba, baran û guhertinên hewayê îzolasyoneke bilind pêşkêş dikin. Li gel pergolayên nûjen û ronahîkirina taybet ahengiyek bêhempa diafirîne."
+    }
+  },
+  "fallbackImage": "/uploads/9fe52448-aec4-4080-b871-e7485b761645.jpg",
+  "arabicDescription": "ارتقِ بمساحتك الخارجية إلى أفق جديد من الفخامة والعملية مع نظام النوافذ والواجهات الزجاجية البانورامية الأوتوماتيكية (Guillotine Glass System). صُمم هذا النظام الهندسي المتقدم خصيصاً للتراسات العصرية والمطاعم والفلل الراقية ليمنحك إطلالة بانورامية مفتوحة بنسبة 100% وإمكانية تحويل المساحة من جلسة خارجية مفتوحة إلى صالة مغلقة ومكيفة بلمسة زر واحدة.\n\nيتميز النظام بألواح زجاجية معزولة ومتحركة عمودياً بمحركات صامتة وفائقة الاعتمادية، حيث تعمل الألواح السفلية كحاجز زجاجي أنيق وآمن عند الفتح، بينما توفر عند الإغلاق عزلاً فائقاً ضد الرياح والأمطار وتقلبات الطقس والضوضاء الخارجية. كما يتناغم النظام بسلاسة تامة مع أسقف البرجولا والمظلات الهندسية الحديثة مع إضاءات مدمجة تضفي دفئاً وسحراً استثنائياً على المكان.\n\nاستثمار معماري مثالي يجمع بين المتانة العالية والتحكم الذكي، ليوفر لعملائك أو عائلتك أجواءً ساحرة ومريحة في جميع فصول السنة.",
+  "kurdishName": "سیستەمی پەنجەرە و ڕووکاری شووشەیی جووڵاوی ئۆتۆماتیکی (گیۆتین) بۆ تەراس و چێشتخانەکان",
+  "kurdishDescription": "بەرەو ئاستێکی باڵاتر لە فەخامەت و هاوچەرخی لەگەڵ سیستەمی پێشکەوتووی پەنجەرەی شووشەیی جووڵاوی ئۆتۆماتیکی (Guillotine Glass). ئەم سیستەمە ئەندازیارییە نایابە بە تایبەتی بۆ تەراسە مۆدێرنەکان، چێشتخانەکان، کافێکان و ڤێلا ناوازەکان دیزاین کراوە تا بە یەک پەنجەنان بە دوگمەیەک شوێنەکەت لە کەشێکی کراوەی دڵگیرەوە بگۆڕێت بۆ هۆڵێکی داپۆشراو و عەزلی فێنککەرەوە و گەرمکەرەوە.\n\nپانێڵە شووشەییە ئەستوور و عەزلکراوەکان بە شێوەی ستوونی بە بزوێنەری بێدەنگ و زۆر بەهێز دەجووڵێن، کە لە کاتی کرانەوەدا بەشە خوارەوەکەی وەک مەحاجەرەیەکی شووشەیی پتەو و پارێزراو کار دەکات، و لە کاتی داخرانیشدا عەزلێکی بێوێنە دژی با، باران، تەپوتۆز و دەنگەدەنگی دەرەوە دابین دەکات. گونجاندنی تەواوی لەگەڵ سەقفی پەرگۆلا و ڕووناکییە مۆدێرنەکاندا دیمەنێکی هێندەی تر سەرنجڕاکێش و بەشکۆ دەبەخشێتە بیناکەت."
+},
+  {
     "id": "prod-1793119550776",
     "name": "حاجز سلم زجاجي شفاف بدون إطار مع مثبتات سوداء ومقبض علوي بلون الخشب الدافئ",
     "image": "/uploads/d450c202-44ba-4ab0-a3a5-616d06e3dd08.jpg",
