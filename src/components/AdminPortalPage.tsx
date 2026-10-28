@@ -76,7 +76,6 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { AdminUsersTab } from './AdminUsersTab';
-import { AdminCategoriesTab } from './AdminCategoriesTab';
 import { CurrencyType, formatCurrency } from '../utils/currency';
 import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault } from '../services/productService';
 import { autoTranslateFullProduct } from '../services/translateService';
@@ -268,7 +267,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
-    'products' | 'categories' | 'users' | 'cms' | 'logos'
+    'products' | 'users' | 'cms' | 'logos'
   >(() => {
     if (typeof window !== 'undefined') {
       const h = (window.location.hash || '').toLowerCase();
@@ -294,7 +293,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     window.addEventListener('hashchange', syncSectionWithHash);
     return () => window.removeEventListener('hashchange', syncSectionWithHash);
   }, []);
-  const [productSubTab, setProductSubTab] = useState<'products' | 'categories'>('products');
   const [cmsSubTab, setCmsSubTab] = useState<string>('3d-carousel');
   const [homepageSections, setHomepageSections] = useState<HomepageSectionConfig[]>(() => loadHomepageSections());
   const [isAddSectionModalOpen, setIsAddSectionModalOpen] = useState(false);
@@ -1372,24 +1370,24 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 {currentLanguage.code === 'ar' ? 'القائمة الرئيسية' : currentLanguage.code === 'ckb' ? 'مێنۆی سەرەکی' : 'Main Menu'}
               </span>
               <nav className="space-y-1.5">
-                {/* COMBINED PRODUCTS & CATEGORIES TAB */}
+                {/* PRODUCTS CATALOG TAB */}
                 <button
                   type="button"
                   onClick={() => {
                     setActiveSection('products');
                   }}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'products' || activeSection === 'categories'
+                    activeSection === 'products'
                       ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
                       : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <Package className={`w-4 h-4 ${activeSection === 'products' || activeSection === 'categories' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات' : currentLanguage.code === 'ckb' ? 'بەرهەم و هاوپۆلەکان' : 'Products & Categories'}</span>
+                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-white'}`} />
+                    <span>{currentLanguage.code === 'ar' ? 'المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'لیستی بەرهەمەکان' : 'Products Catalog'}</span>
                   </div>
                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'products' || activeSection === 'categories' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
+                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
                   }`}>
                     {productList.length}
                   </span>
@@ -1484,7 +1482,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         <header className="bg-white border-b border-slate-200 py-3 px-6 flex items-center justify-between shrink-0 z-20">
           <div className="flex items-center gap-3">
             <h2 className="text-base sm:text-lg font-black text-slate-900">
-              {(activeSection === 'products' || activeSection === 'categories') && (currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات الهندسية' : currentLanguage.code === 'ckb' ? 'بەرهەم و هاوپۆلەکان' : 'Products & Categories')}
+              {activeSection === 'products' && (currentLanguage.code === 'ar' ? 'إدارة المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'بەڕێوەبردنی بەرهەمەکان' : 'Products & Catalog')}
               {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
               {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
@@ -1563,12 +1561,12 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             type="button"
             onClick={() => setActiveSection('products')}
             className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'products' || activeSection === 'categories'
+              activeSection === 'products'
                 ? 'bg-white text-red-700 shadow-sm'
                 : 'text-white/90 hover:bg-white/10'
             }`}
           >
-            {currentLanguage.code === 'ar' ? 'المنتجات والتصنيفات' : 'Products & Categories'} ({productList.length})
+            {currentLanguage.code === 'ar' ? 'المنتجات والكتالوج' : 'Products'} ({productList.length})
           </button>
           <button
             type="button"
@@ -1605,52 +1603,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           </button>
         </div>
 
-        {/* SECTION 2: COMBINED PRODUCTS & CATEGORIES MANAGEMENT */}
-        {(activeSection === 'products' || activeSection === 'categories') && (
+        {/* SECTION 2: PRODUCTS CATALOG MANAGEMENT */}
+        {activeSection === 'products' && (
           <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            {/* Sub-Navigation Switcher between Products and Categories */}
-            <div className="bg-white p-2 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-3 shrink-0">
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar">
-                <button
-                  type="button"
-                  onClick={() => setProductSubTab('products')}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
-                    productSubTab === 'products'
-                      ? 'bg-red-600 text-white shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  <Package className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'قائمة المنتجات والأنظمة' : currentLanguage.code === 'ckb' ? 'لیستی بەرهەمەکان' : 'Products Catalog'}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    productSubTab === 'products' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}>
-                    {productList.length}
-                  </span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setProductSubTab('categories')}
-                  className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 ${
-                    productSubTab === 'categories'
-                      ? 'bg-red-600 text-white shadow-xs'
-                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                  <span>{currentLanguage.code === 'ar' ? 'الأقسام والتصنيفات الهندسية' : currentLanguage.code === 'ckb' ? 'هاوپۆلەکان و بەشەکان' : 'Categories & Divisions'}</span>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    productSubTab === 'categories' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}>
-                    {divisions.length}
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {productSubTab === 'products' && (
-              <>
             {/* Action Bar & Filters */}
             <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 w-full sm:w-auto">
@@ -1670,7 +1625,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onChange={(e) => setProductCategoryFilter(e.target.value)}
                   className="py-2 px-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-semibold text-slate-700 cursor-pointer shadow-2xs"
                 >
-                  <option value="all">{t('admin_filter_all_divisions') || 'All Sections / Categories'}</option>
+                  <option value="all">{currentLanguage.code === 'ar' ? 'جميع أقسام الموقع' : currentLanguage.code === 'ckb' ? 'هەموو بەشەکانی ماڵپەڕ' : 'All Website Sections'}</option>
                   {allCategoryOptions.map((opt) => (
                     <option key={opt.key} value={opt.key}>
                       {opt.label}
@@ -1775,13 +1730,6 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </table>
               </div>
             </div>
-              </>
-            )}
-
-            {/* Sub-View: Categories Hierarchy */}
-            {productSubTab === 'categories' && (
-              <AdminCategoriesTab />
-            )}
           </main>
         )}
 
@@ -2614,11 +2562,29 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px] font-black">{t('admin_simple_category') || 'Section / Category'}</label>
-                  <select value={formCategory} onChange={(e) => setFormCategory(e.target.value)} required className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 font-bold text-slate-900 cursor-pointer">
+                  <label className="mb-1 block text-slate-900 uppercase text-[10px] font-black">
+                    {currentLanguage.code === 'ar' ? 'قسم العرض في الموقع (Homepage Section)' : currentLanguage.code === 'ckb' ? 'بەشی پەخش لە ماڵپەڕ' : 'Website Public Section'}
+                  </label>
+                  <select
+                    value={formCategory}
+                    onChange={(e) => setFormCategory(e.target.value)}
+                    required
+                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 font-bold text-slate-900 cursor-pointer focus:ring-2 focus:ring-red-400 focus:bg-white"
+                  >
                     {allCategoryOptions.length === 0 && <option value="">No sections available</option>}
-                    {allCategoryOptions.map((opt) => <option key={opt.key} value={opt.key}>{opt.label}</option>)}
+                    {allCategoryOptions.map((opt) => (
+                      <option key={opt.key} value={opt.key}>
+                        {opt.label}
+                      </option>
+                    ))}
                   </select>
+                  <p className="mt-1 text-[11px] text-slate-500 font-normal">
+                    {currentLanguage.code === 'ar'
+                      ? 'حدد القسم العام الذي سيظهر فيه هذا المنتج على الصفحة الرئيسية للموقع'
+                      : currentLanguage.code === 'ckb'
+                      ? 'دیاری بکە ئەم بەرهەمە لە کام بەشی پەڕەی سەرەکی ماڵپەڕ نیشان بدرێت'
+                      : 'Select which public homepage section will display this product on the website.'}
+                  </p>
                 </div>
               </div>
 
