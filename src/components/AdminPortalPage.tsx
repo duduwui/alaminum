@@ -96,6 +96,12 @@ import { Admin3DCarouselTab } from './Admin3DCarouselTab';
 import { AdminAllProjectsTab } from './AdminAllProjectsTab';
 import { AdminArchCardsTab } from './AdminArchCardsTab';
 import { AdminDynamicSectionTab } from './AdminDynamicSectionTab';
+import { AdminSidebar } from './admin/AdminSidebar';
+import { AdminProductsTab } from './admin/AdminProductsTab';
+import { AdminProductModal } from './admin/AdminProductModal';
+import { AdminCmsTab } from './admin/AdminCmsTab';
+import { AdminPartnerLogosTab } from './admin/AdminPartnerLogosTab';
+import { AdvancedTextarea } from './admin/AdvancedTextarea';
 import {
   HomepageSectionConfig,
   loadHomepageSections,
@@ -144,84 +150,6 @@ const compressImageFile = (file: File, maxWidth = 1000, quality = 0.8): Promise<
 const MAX_IMAGE_UPLOAD_BYTES = 15 * 1024 * 1024;
 const MAX_MEDIA_UPLOAD_BYTES = 100 * 1024 * 1024;
 
-interface AdvancedTextareaProps {
-  value: string;
-  onChange: (val: string) => void;
-  onBlur?: () => void;
-  placeholder?: string;
-  rows?: number;
-  label?: string;
-  minHeight?: string;
-}
-
-const AdvancedTextarea: React.FC<AdvancedTextareaProps> = ({
-  value,
-  onChange,
-  onBlur,
-  placeholder = 'Type detailed architectural description...',
-  rows = 5,
-  label,
-  minHeight = '150px'
-}) => {
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // Auto-grow height so all lines are visible without needing an internal scrollbar
-  useEffect(() => {
-    const el = textareaRef.current;
-    if (!el) return;
-    el.style.height = 'auto';
-    const minH = parseInt(minHeight, 10) || 150;
-    const scrollH = el.scrollHeight;
-    el.style.height = `${Math.max(minH, scrollH)}px`;
-  }, [value, minHeight]);
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      const textarea = textareaRef.current;
-      if (!textarea) return;
-      const start = textarea.selectionStart;
-      const end = textarea.selectionEnd;
-      const tabSpaces = '    '; // 4 spaces for clean indentation
-      const currentVal = value || '';
-      const nextVal = currentVal.substring(0, start) + tabSpaces + currentVal.substring(end);
-      onChange(nextVal);
-      requestAnimationFrame(() => {
-        if (textareaRef.current) {
-          textareaRef.current.selectionStart = textareaRef.current.selectionEnd = start + tabSpaces.length;
-        }
-      });
-    }
-  };
-
-  const lineCount = (value || '').split('\n').length;
-  const charCount = (value || '').length;
-
-  return (
-    <div className="space-y-1 w-full text-start">
-      {label && (
-        <div className="flex items-center justify-between text-xs font-bold text-slate-800">
-          <span>{label}</span>
-          <span className="text-[10px] text-slate-400 font-normal">
-            {charCount} chars • {lineCount} line{lineCount > 1 ? 's' : ''}
-          </span>
-        </div>
-      )}
-
-      <textarea
-        ref={textareaRef}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onKeyDown={handleKeyDown}
-        onBlur={onBlur}
-        rows={rows}
-        placeholder={placeholder}
-        style={{ minHeight }}
-        className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-xs sm:text-sm text-slate-900 leading-relaxed font-normal focus:border-red-500 focus:ring-1 focus:ring-red-500/20 focus:outline-none transition-all resize-y"
-      />
-    </div>
-  );
-};
 
 const uploadCmsMediaFile = async (file: File): Promise<string> => {
   if (!['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'video/mp4', 'video/webm', 'application/pdf'].includes(file.type)) {
@@ -878,6 +806,76 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     }
   };
 
+  const handleSaveProductFromModal = async (data: {
+    id?: string;
+    name: string;
+    description: string;
+    category: string;
+    image: string;
+  }) => {
+    let fullTranslations: Record<string, { name: string; description: string }> | undefined;
+    if (data.name || data.description) {
+      try {
+        fullTranslations = await autoTranslateFullProduct({
+          name: data.name,
+          description: data.description
+        });
+      } catch (err) {
+        console.warn('Auto translate product warning:', err);
+      }
+    }
+
+    const arName = fullTranslations?.ar?.name || data.name;
+    const arDesc = fullTranslations?.ar?.description || data.description;
+    const kuName = fullTranslations?.ckb?.name;
+    const kuDesc = fullTranslations?.ckb?.description;
+    const safeName = fullTranslations?.en?.name || data.name;
+    const safeDesc = fullTranslations?.en?.description || data.description;
+
+    if (data.id) {
+      const existing = productList.find((p) => p.id === data.id);
+      const updatedProduct: ProductItem = {
+        ...(existing || ({} as any)),
+        id: data.id,
+        name: safeName,
+        category: data.category as any,
+        division: data.category as any,
+        image: data.image || existing?.image || '',
+        fallbackImage: data.image || existing?.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
+        description: safeDesc,
+        arabicName: arName,
+        arabicDescription: arDesc,
+        kurdishName: kuName,
+        kurdishDescription: kuDesc,
+        translations: fullTranslations || existing?.translations
+      };
+      setProductList((prev) => prev.map((p) => (p.id === data.id ? updatedProduct : p)));
+      saveProductToCloud(updatedProduct);
+    } else {
+      const newProd: ProductItem = {
+        id: `prod-${Date.now()}`,
+        name: safeName,
+        category: data.category as any,
+        division: data.category as any,
+        image: data.image,
+        fallbackImage: data.image || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
+        description: safeDesc,
+        basePrice: 0,
+        currency: 'USD',
+        pricePerSqm: 0,
+        unitPrice: 0,
+        features: [],
+        translations: fullTranslations,
+        arabicName: arName,
+        arabicDescription: arDesc,
+        kurdishName: kuName,
+        kurdishDescription: kuDesc
+      };
+      setProductList((prev) => [newProd, ...prev]);
+      saveProductToCloud(newProd);
+    }
+  };
+
   // Homepage Section Media State (About, Hero, Signature Showcase, etc.)
   const [homepageMedia, setHomepageMedia] = useState<{
     aboutFactoryImage: string;
@@ -1326,142 +1324,19 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   return (
     <div dir="ltr" className="doorhome-admin-workspace bg-slate-50 text-slate-900 font-sans flex h-screen overflow-hidden antialiased">
       
-      {/* LEFT SIDEBAR NAVIGATION - RED BRAND PALETTE WITH WHITE TEXT & ICONS */}
-      <aside className="w-64 bg-red-600 text-white border-r border-red-700 shrink-0 flex flex-col justify-between hidden md:flex h-full overflow-y-auto z-30 shadow-md select-none">
-        <div>
-          {/* Logo & Brand Header */}
-          <div className="p-5 border-b border-red-500/60 flex items-center gap-3">
-            <div className="h-10 w-10 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm">
-              <img
-                src={DOORHOME_CONTACT.logo}
-                alt="Doorhome Logo"
-                className="h-full w-full object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = DOORHOME_CONTACT.logoFallback;
-                }}
-              />
-            </div>
-            <div>
-              <h1 className="text-sm font-black text-white leading-tight tracking-wide">
-                Doorhome Console
-              </h1>
-              <span className="text-[10px] text-red-100 font-medium">
-                {currentLanguage.code === 'ar' ? 'لوحة الإدارة الهندسية' : currentLanguage.code === 'ckb' ? 'پەنێڵی بەڕێوەبردن' : 'Architecture & Catalog'}
-              </span>
-            </div>
-          </div>
-
-          {/* Nav Section Links */}
-          <div className="p-4 space-y-6">
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
-                {currentLanguage.code === 'ar' ? 'القائمة الرئيسية' : currentLanguage.code === 'ckb' ? 'مێنۆی سەرەکی' : 'Main Menu'}
-              </span>
-              <nav className="space-y-1.5">
-                {/* PRODUCTS CATALOG TAB */}
-                <button
-                  type="button"
-                  onClick={() => {
-                    setActiveSection('products');
-                  }}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'products'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Package className={`w-4 h-4 ${activeSection === 'products' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'قائمة المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'لیستی بەرهەمەکان' : 'Products Catalog'}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'products' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    {productList.length}
-                  </span>
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('users')}
-                  className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'users'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <Users className={`w-4 h-4 ${activeSection === 'users' ? 'text-red-600' : 'text-white'}`} />
-                  <span>{t('admin_tab_users')}</span>
-                </button>
-              </nav>
-            </div>
-
-            <div>
-              <span className="text-[10px] font-black uppercase tracking-wider text-red-200 block px-3 mb-2">
-                {currentLanguage.code === 'ar' ? 'المحتوى والهوية' : currentLanguage.code === 'ckb' ? 'ناوەڕۆک و براند' : 'Content & Branding'}
-              </span>
-              <nav className="space-y-1.5">
-                {/* CMS & GALLERY TAB */}
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('cms')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'cms'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <ImageIcon className={`w-4 h-4 ${activeSection === 'cms' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery'}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'cms' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    {galleryImages.length}
-                  </span>
-                </button>
-
-                {/* PARTNER BRANDS & FLAGS TAB */}
-                <button
-                  type="button"
-                  onClick={() => setActiveSection('logos')}
-                  className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs transition-all cursor-pointer ${
-                    activeSection === 'logos'
-                      ? 'bg-white text-red-700 font-extrabold shadow-md border border-white'
-                      : 'text-white/90 hover:text-white hover:bg-white/15 font-bold'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <Globe className={`w-4 h-4 ${activeSection === 'logos' ? 'text-red-600' : 'text-white'}`} />
-                    <span>{currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags'}</span>
-                  </div>
-                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
-                    activeSection === 'logos' ? 'bg-red-100 text-red-700' : 'bg-red-700/80 text-white border border-red-400/40'
-                  }`}>
-                    {partnerLogos.length}
-                  </span>
-                </button>
-              </nav>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Sidebar Action */}
-        <div className="p-4 border-t border-red-500/60">
-          <button
-            type="button"
-            onClick={() => {
-              window.location.hash = '';
-              onBackToHome();
-            }}
-            className="w-full py-2.5 px-3 rounded-xl bg-white/15 hover:bg-white text-white hover:text-red-700 font-extrabold text-xs transition-all flex items-center justify-center gap-2 border border-white/30 cursor-pointer shadow-sm"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-            <span>{currentLanguage.code === 'ar' ? 'العودة للموقع الرئيسي' : currentLanguage.code === 'ckb' ? 'گەڕانەوە بۆ ماڵپەڕ' : 'Back to Website'} ↗</span>
-          </button>
-        </div>
-      </aside>
+      {/* MODULAR ADMIN SIDEBAR & MOBILE NAVIGATION */}
+      <AdminSidebar
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        productsCount={productList.length}
+        cmsCount={galleryImages.length}
+        logosCount={partnerLogos.length}
+        currentLanguage={currentLanguage}
+        setLanguage={setLanguage}
+        onBackToHome={onBackToHome}
+        t={t}
+        supportedLanguages={SUPPORTED_LANGUAGES}
+      />
 
       {/* RIGHT MAIN CONTENT CONTAINER */}
       <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden bg-white">
@@ -1543,1167 +1418,76 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           </div>
         </header>
 
-        {/* Mobile Navigation Tabs - Red & White */}
-        <div className="md:hidden bg-red-600 text-white border-b border-red-700 px-3 py-2 flex items-center gap-1.5 overflow-x-auto scrollbar-none shrink-0 z-10">
-          <button
-            type="button"
-            onClick={() => setActiveSection('products')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'products'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'المنتجات والكتالوج' : 'Products'} ({productList.length})
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('users')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'users'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {t('admin_tab_users')}
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('cms')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'cms'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'معرض المشاريع (CMS)' : 'CMS & Gallery'} ({galleryImages.length})
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveSection('logos')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold shrink-0 transition-colors ${
-              activeSection === 'logos'
-                ? 'bg-white text-red-700 shadow-sm'
-                : 'text-white/90 hover:bg-white/10'
-            }`}
-          >
-            {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : 'Partner Brands'} ({partnerLogos.length})
-          </button>
-        </div>
-
-        {/* SECTION 2: PRODUCTS CATALOG MANAGEMENT */}
+        {/* SECTION 1: PRODUCTS TAB */}
         {activeSection === 'products' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto">
-            {/* Action Bar & Filters */}
-            <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 w-full sm:w-auto">
-                <div className="relative flex-1 sm:w-72">
-                  <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={productSearchQuery}
-                    onChange={(e) => setProductSearchQuery(e.target.value)}
-                    placeholder={t('admin_search_products_ph')}
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-medium text-slate-900 placeholder:text-slate-400 shadow-2xs"
-                  />
-                </div>
-
-                <select
-                  value={productCategoryFilter}
-                  onChange={(e) => setProductCategoryFilter(e.target.value)}
-                  className="py-2 px-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-semibold text-slate-700 cursor-pointer shadow-2xs"
-                >
-                  <option value="all">{currentLanguage.code === 'ar' ? 'جميع أقسام الموقع' : currentLanguage.code === 'ckb' ? 'هەموو بەشەکانی ماڵپەڕ' : 'All Website Sections'}</option>
-                  {allCategoryOptions.map((opt) => (
-                    <option key={opt.key} value={opt.key}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="flex items-center gap-2 w-full sm:w-auto">
-                {productList.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (confirm('Are you sure you want to clear all products from the catalog?')) {
-                        setProductList([]);
-                        saveLocalProducts([]);
-                      }
-                    }}
-                    className="px-3 py-2 rounded-lg bg-white hover:bg-rose-50 text-slate-500 hover:text-rose-700 font-medium text-xs border border-slate-200 hover:border-rose-200 transition-colors flex items-center gap-1.5 cursor-pointer"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>{t('admin_btn_clear_catalog')}</span>
-                  </button>
-                )}
-
-                <button
-                  type="button"
-                  onClick={handleOpenAddProduct}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                >
-                  <Plus className="w-4 h-4 stroke-[3]" />
-                  <span>{t('admin_btn_add_product')}</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="rounded-2xl border border-slate-200 bg-white shadow-xs overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[720px] text-sm border-collapse text-left">
-                  <thead className="bg-slate-50 border-b border-slate-200 text-slate-700 text-xs font-bold uppercase tracking-wider">
-                    <tr>
-                      <th className="px-6 py-3.5 text-left">{t('admin_col_name')}</th>
-                      <th className="px-6 py-3.5 text-left">{t('admin_col_category')}</th>
-                      <th className="px-6 py-3.5 text-right">{t('admin_col_actions')}</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {filteredProducts.map(prod => {
-                      const localized = getLocalizedProduct(prod, currentLanguage.code);
-                      const category = getProductCategoryLabel(prod);
-                      return (
-                        <tr key={prod.id} className="hover:bg-red-50/30 transition-colors">
-                          <td className="px-6 py-4">
-                            <div className="flex items-center gap-4">
-                              <a href={prod.image || prod.fallbackImage} target="_blank" rel="noopener noreferrer" className="shrink-0 group">
-                                <img
-                                  src={prod.image || prod.fallbackImage}
-                                  alt={localized.name}
-                                  loading="lazy"
-                                  className="h-20 w-28 rounded-xl object-cover border border-slate-200/80 shadow-2xs group-hover:scale-102 transition-transform"
-                                />
-                              </a>
-                              <button type="button" onClick={() => handleOpenEditProduct(prod)} className="text-left group cursor-pointer">
-                                <span className="block text-sm sm:text-base font-bold text-slate-900 group-hover:text-red-600 transition-colors">
-                                  {localized.name}
-                                </span>
-                                <span className="mt-1 block max-w-lg text-xs leading-relaxed text-slate-500 line-clamp-2">
-                                  {localized.description}
-                                </span>
-                              </button>
-                            </div>
-                          </td>
-                          <td className="px-6 py-4">
-                            <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200/60">
-                              {category}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 text-right">
-                            <div className="flex items-center justify-end gap-2">
-                              <button
-                                type="button"
-                                onClick={() => handleOpenEditProduct(prod)}
-                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-semibold text-xs transition-colors shadow-2xs cursor-pointer"
-                              >
-                                <Edit className="w-3.5 h-3.5 text-slate-400" />
-                                <span>{t('admin_modal_edit_product')}</span>
-                              </button>
-                              <button
-                                type="button"
-                                onClick={() => handleDeleteProduct(prod.id)}
-                                className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors cursor-pointer"
-                                title="Delete"
-                              >
-                                <Trash2 className="w-4 h-4" />
-                              </button>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </main>
+          <AdminProductsTab
+            productList={productList}
+            allCategoryOptions={allCategoryOptions}
+            getProductCategoryLabel={getProductCategoryLabel}
+            onOpenAddProduct={handleOpenAddProduct}
+            onOpenEditProduct={handleOpenEditProduct}
+            onDeleteProduct={handleDeleteProduct}
+            onClearCatalog={() => {
+              if (confirm('Are you sure you want to clear all products from the catalog?')) {
+                setProductList([]);
+                saveLocalProducts([]);
+              }
+            }}
+            currentLanguage={currentLanguage}
+            t={t}
+          />
         )}
 
         {/* SECTION 5: TEAM & USER ACCESS CONTROL */}
         {activeSection === 'users' && <AdminUsersTab />}
 
-        {/* SECTION: CMS & GALLERY (3D CAROUSEL, ALL PROJECTS, ARCH CARDS, WINDOWS, DOORS) */}
+        {/* SECTION 3: CMS & DYNAMIC SECTIONS */}
         {activeSection === 'cms' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
-            {/* Sub-Navigation Pills for CMS - Flex-wrap, ZERO horizontal side-scrolling */}
-            <div className="bg-white p-2.5 rounded-2xl border border-slate-200/90 shadow-2xs flex flex-wrap items-center gap-2">
-              {/* 1. 3D Project Showcase */}
-              <button
-                type="button"
-                onClick={() => setCmsSubTab('3d-carousel')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === '3d-carousel'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                <bdi>
-                  {currentLanguage.code === 'ar'
-                    ? 'معرض المشاريع 3D'
-                    : currentLanguage.code === 'ckb'
-                    ? 'پێشانگای پڕۆژەکان 3D'
-                    : currentLanguage.code === 'tr'
-                    ? '3D Proje Vitrini'
-                    : '3D Project Showcase'}
-                </bdi>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === '3d-carousel' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  12
-                </span>
-              </button>
-
-              {/* 2. All Projects Portfolio */}
-              <button
-                type="button"
-                onClick={() => setCmsSubTab('all-projects')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === 'all-projects'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'أرشيف كل المشاريع'
-                    : currentLanguage.code === 'ckb'
-                    ? 'ئەرشیفی هەموو پڕۆژەکان'
-                    : currentLanguage.code === 'tr'
-                    ? 'Tüm Projeler Arşivi'
-                    : 'All Projects Portfolio'}
-                </span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                    cmsSubTab === 'all-projects' ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                  }`}
-                >
-                  {galleryImages.length}
-                </span>
-              </button>
-
-              {/* 3. Architecture Catalogues & Systems Showcase */}
-              <button
-                type="button"
-                onClick={() => setCmsSubTab('arch-cards')}
-                className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                  cmsSubTab === 'arch-cards'
-                    ? 'bg-red-600 text-white shadow-sm'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'الكتالوجات والأنظمة المعمارية'
-                    : currentLanguage.code === 'ckb'
-                    ? 'کەتەلۆگ و سیستەمە تەلارسازییەکان'
-                    : currentLanguage.code === 'tr'
-                    ? 'Mimari Kataloglar ve Sistemler'
-                    : 'Architecture Catalogues & Systems'}
-                </span>
-              </button>
-
-              {/* Dynamic Homepage Sections */}
-              {homepageSections.map((sec) => {
-                const tabId = `sec:${sec.key}`;
-                const isActive = cmsSubTab === tabId;
-                const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-                const count = productList.filter((p) => p.division === sec.key || p.category === sec.key).length;
-                const isProdSec = sec.isProductSection !== false;
-                return (
-                  <button
-                    key={sec.id}
-                    type="button"
-                    onClick={() => setCmsSubTab(tabId)}
-                    className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-                      isActive
-                        ? 'bg-red-600 text-white shadow-sm'
-                        : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                    }`}
-                  >
-                    <span>{header.title || sec.title}</span>
-                    {!isProdSec && (
-                      <span
-                        className={`text-[9px] px-1.5 py-0.5 rounded font-black tracking-wider ${
-                          isActive ? 'bg-white/25 text-white' : 'bg-amber-100 text-amber-800'
-                        }`}
-                      >
-                        {currentLanguage.code === 'ar' ? 'استعراض' : 'Showcase'}
-                      </span>
-                    )}
-                    <span
-                      className={`text-[10px] px-2 py-0.5 rounded-full font-black ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-slate-200 text-slate-700'
-                      }`}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-
-              {/* + Add New Homepage Section Button */}
-              <button
-                type="button"
-                onClick={() => {
-                  setNewSectionTitle('');
-                  setNewSectionSubtitle('');
-                  setNewSectionIsProduct(true);
-                  setIsAddSectionModalOpen(true);
-                }}
-                className="px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 shrink-0 bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm"
-              >
-                <Plus className="w-3.5 h-3.5" />
-                <span>
-                  {currentLanguage.code === 'ar'
-                    ? 'إضافة قسم جديد للموقع'
-                    : currentLanguage.code === 'ckb'
-                    ? 'زیادکردنی بەشی نوێ'
-                    : 'Add New Section'}
-                </span>
-              </button>
-            </div>
-
-            {/* Add New Homepage Section Modal */}
-            {isAddSectionModalOpen && (
-              <div className="fixed inset-0 z-[9999] bg-slate-950/60 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-150">
-                <div className="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 space-y-5">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <div>
-                      <h4 className="text-base font-black text-slate-900">
-                        {currentLanguage.code === 'ar'
-                          ? 'إنشاء قسم جديد في الصفحة الرئيسية'
-                          : currentLanguage.code === 'ckb'
-                          ? 'دروستکردنی بەشی نوێ لە پەڕەی سەرەکی'
-                          : 'Create New Homepage Section'}
-                      </h4>
-                      <p className="text-xs text-slate-500 mt-0.5">
-                        {currentLanguage.code === 'ar'
-                          ? 'أدخل عنوان ووصف القسم وحدد ما إذا كان قسم منتجات رسمي أو للعرض فقط'
-                          : 'Enter section details and choose whether it serves as a product category'}
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setIsAddSectionModalOpen(false)}
-                      className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 cursor-pointer"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-
-                  <div className="space-y-4">
-                    {/* Section Purpose & Type Selector */}
-                    <div>
-                      <label className="text-[11px] font-black text-slate-700 block mb-2">
-                        {currentLanguage.code === 'ar' ? 'نوع القسم والغرض منه *' : 'Section Purpose & Type *'}
-                      </label>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        <button
-                          type="button"
-                          onClick={() => setNewSectionIsProduct(true)}
-                          className={`p-3 rounded-2xl border text-right transition-all cursor-pointer flex flex-col gap-1 ${
-                            newSectionIsProduct
-                              ? 'border-emerald-500 bg-emerald-50/70 ring-2 ring-emerald-500/20'
-                              : 'border-slate-200 hover:border-slate-300 bg-white'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-black text-slate-900">
-                              {currentLanguage.code === 'ar' ? 'قسم منتجات وكتالوج' : 'Product Category'}
-                            </span>
-                            <span className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] font-black ${
-                              newSectionIsProduct ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-slate-300'
-                            }`}>
-                              {newSectionIsProduct && '✓'}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-relaxed">
-                            {currentLanguage.code === 'ar'
-                              ? 'يظهر كتصنيف مستقل عند إضافة المنتجات في الكتالوج وفلاتر الموقع'
-                              : 'Creates a product category in catalog & Add Product dropdown'}
-                          </p>
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => setNewSectionIsProduct(false)}
-                          className={`p-3 rounded-2xl border text-right transition-all cursor-pointer flex flex-col gap-1 ${
-                            !newSectionIsProduct
-                              ? 'border-indigo-500 bg-indigo-50/70 ring-2 ring-indigo-500/20'
-                              : 'border-slate-200 hover:border-slate-300 bg-white'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-black text-slate-900">
-                              {currentLanguage.code === 'ar' ? 'قسم استعراض ووسائط عام' : 'Showcase / Media Only'}
-                            </span>
-                            <span className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] font-black ${
-                              !newSectionIsProduct ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300'
-                            }`}>
-                              {!newSectionIsProduct && '✓'}
-                            </span>
-                          </div>
-                          <p className="text-[11px] text-slate-500 leading-relaxed">
-                            {currentLanguage.code === 'ar'
-                              ? 'للعرض بالصفحة الرئيسية فقط دون إضافته لقوائم وتصنيفات المنتجات'
-                              : 'Homepage showcase only; does not pollute product category lists'}
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-[11px] font-black text-slate-700 block mb-1.5">
-                        {currentLanguage.code === 'ar' ? 'اسم / عنوان القسم *' : 'Section Title *'}
-                      </label>
-                      <input
-                        type="text"
-                        value={newSectionTitle}
-                        onChange={(e) => setNewSectionTitle(e.target.value)}
-                        placeholder={
-                          currentLanguage.code === 'ar'
-                            ? 'مثال: الواجهات الزجاجية والستائر الحائطية'
-                            : 'e.g. Glass Facades & Curtain Walls'
-                        }
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold focus:outline-none focus:border-red-500"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-[11px] font-black text-slate-700 block mb-1.5">
-                        {currentLanguage.code === 'ar' ? 'وصف القسم (تحت العنوان)' : 'Section Description / Subtitle'}
-                      </label>
-                      <textarea
-                        rows={3}
-                        value={newSectionSubtitle}
-                        onChange={(e) => setNewSectionSubtitle(e.target.value)}
-                        placeholder={
-                          currentLanguage.code === 'ar'
-                            ? 'أدخل وصفاً مختصراً يظهر تحت عنوان القسم في الصفحة الرئيسية...'
-                            : 'Enter a subtitle or description displayed under the section title...'
-                        }
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-red-500 resize-y"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-end gap-2 pt-2">
-                    <button
-                      type="button"
-                      disabled={isCreatingSection}
-                      onClick={() => setIsAddSectionModalOpen(false)}
-                      className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-black transition-all cursor-pointer"
-                    >
-                      {currentLanguage.code === 'ar' ? 'إلغاء' : 'Cancel'}
-                    </button>
-                    <button
-                      type="button"
-                      disabled={isCreatingSection || !newSectionTitle.trim()}
-                      onClick={async () => {
-                        if (!newSectionTitle.trim()) return;
-                        setIsCreatingSection(true);
-                        try {
-                          const key = `sec-${Date.now()}`;
-                          let translations: Record<string, { name?: string; title?: string; description?: string }> = {
-                            [currentLanguage.code]: {
-                              name: newSectionTitle.trim(),
-                              title: newSectionTitle.trim(),
-                              description: newSectionSubtitle.trim()
-                            }
-                          };
-                          try {
-                            const translatedMap = await autoTranslateFullProduct({
-                              name: newSectionTitle.trim(),
-                              description: newSectionSubtitle.trim()
-                            });
-                            Object.entries(translatedMap).forEach(([code, data]) => {
-                              translations[code] = {
-                                name: data.name || newSectionTitle.trim(),
-                                title: data.name || newSectionTitle.trim(),
-                                description: data.description || newSectionSubtitle.trim()
-                              };
-                            });
-                          } catch {
-                            // keep current language fallback
-                          }
-                          const newSec: HomepageSectionConfig = {
-                            id: `sec-id-${Date.now()}`,
-                            key,
-                            title: translations.ar?.title || newSectionTitle.trim(),
-                            description: translations.ar?.description || newSectionSubtitle.trim(),
-                            isProductSection: newSectionIsProduct,
-                            translations
-                          };
-                          const updated = [...homepageSections, newSec];
-                          setHomepageSections(updated);
-                          saveHomepageSections(updated);
-                          await saveSharedCmsSection('homepageSections', updated);
-                          setIsAddSectionModalOpen(false);
-                          setActiveSection('cms');
-                          setCmsSubTab(`sec:${key}`);
-                          setCmsSaveFeedback(
-                            currentLanguage.code === 'ar'
-                              ? `تم إنشاء القسم "${newSec.title}" وترجمته لجميع اللغات بنجاح`
-                              : `Section "${newSectionTitle.trim()}" created & translated into all languages`
-                          );
-                          setTimeout(() => setCmsSaveFeedback(''), 4000);
-                        } finally {
-                          setIsCreatingSection(false);
-                        }
-                      }}
-                      className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-sm"
-                    >
-                      {isCreatingSection ? (
-                        <>
-                          <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                          <span>{currentLanguage.code === 'ar' ? 'جاري الإنشاء والترجمة...' : 'Creating...'}</span>
-                        </>
-                      ) : (
-                        <>
-                          <Check className="w-3.5 h-3.5" />
-                          <span>{currentLanguage.code === 'ar' ? 'إنشاء وتطبيق فوراً' : 'Create Section'}</span>
-                        </>
-                      )}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* CMS Feedback Banner */}
-            {cmsSaveFeedback && (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-2xl flex items-center justify-between shadow-sm animate-in fade-in duration-200">
-                <div className="flex items-center gap-2 text-xs font-black">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                  <span>{cmsSaveFeedback}</span>
-                </div>
-                <button type="button" onClick={() => setCmsSaveFeedback('')} className="text-emerald-600 text-xs font-bold">
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            )}
-
-            {/* TAB 1: 3D INTERACTIVE CAROUSEL (12 SLOTS) */}
-            {cmsSubTab === '3d-carousel' && (
-              <Admin3DCarouselTab
-                galleryImages={galleryImages}
-                onUpdateGallery={persistGalleryUpdates}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-              />
-            )}
-
-            {/* TAB 2: ALL PROJECTS ARCHIVE & PORTFOLIO */}
-            {cmsSubTab === 'all-projects' && (
-              <AdminAllProjectsTab
-                galleryImages={galleryImages}
-                onUpdateGallery={persistGalleryUpdates}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-                AdvancedTextarea={AdvancedTextarea}
-              />
-            )}
-
-            {/* TAB 3: ARCHITECTURE CARDS & CATALOGUES */}
-            {cmsSubTab === 'arch-cards' && (
-              <AdminArchCardsTab
-                archCards={archCards}
-                onUpdateArchCards={setArchCards}
-                onUploadMedia={uploadCmsMediaFile}
-                onSaveFeedback={(msg) => {
-                  setCmsSaveFeedback(msg);
-                  setTimeout(() => setCmsSaveFeedback(''), 4000);
-                }}
-              />
-            )}
-
-            {/* TAB 4+: DYNAMIC HOMEPAGE PRODUCT SECTIONS */}
-            {cmsSubTab.startsWith('sec:') && (() => {
-              const secKey = cmsSubTab.replace('sec:', '');
-              const activeSec = homepageSections.find((s) => s.key === secKey) || homepageSections[0];
-              if (!activeSec) return null;
-              return (
-                <AdminDynamicSectionTab
-                  section={activeSec}
-                  allSections={homepageSections}
-                  setAllSections={setHomepageSections}
-                  onSelectSectionKey={(nextKey) => {
-                    if (nextKey) {
-                      setCmsSubTab(`sec:${nextKey}`);
-                    }
-                  }}
-                  productList={productList}
-                  setProductList={setProductList}
-                  onUploadMedia={uploadCmsMediaFile}
-                  onSaveFeedback={(msg) => {
-                    setCmsSaveFeedback(msg);
-                    setTimeout(() => setCmsSaveFeedback(''), 4000);
-                  }}
-                />
-              );
-            })()}
-          </main>
+          <AdminCmsTab
+            cmsSubTab={cmsSubTab}
+            setCmsSubTab={setCmsSubTab}
+            homepageSections={homepageSections}
+            setHomepageSections={setHomepageSections}
+            galleryImages={galleryImages}
+            persistGalleryUpdates={persistGalleryUpdates}
+            archCards={archCards}
+            setArchCards={setArchCards}
+            productList={productList}
+            setProductList={setProductList}
+            onUploadMedia={uploadCmsMediaFile}
+            cmsSaveFeedback={cmsSaveFeedback}
+            setCmsSaveFeedback={setCmsSaveFeedback}
+            currentLanguage={currentLanguage}
+            t={t}
+          />
         )}
 
-        {/* SECTION: PARTNER BRANDS & COUNTRY FLAGS */}
+        {/* SECTION 4: PARTNER BRANDS & COUNTRY FLAGS */}
         {activeSection === 'logos' && (
-          <main className="p-6 space-y-6 flex-1 overflow-y-auto bg-slate-50/60">
-            {/* Hidden file inputs for Logo & Flag uploads */}
-            <input
-              type="file"
-              ref={logoFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleLogoFileUpload}
-            />
-            <input
-              type="file"
-              ref={newFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleNewFlagFileUpload}
-            />
-            <input
-              type="file"
-              ref={cardFlagFileInputRef}
-              accept="image/*"
-              className="hidden"
-              onChange={handleCardFlagFileUpload}
-            />
-
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
-                  <span className="w-2.5 h-6 bg-red-600 rounded-full inline-block" />
-                  Partner Brands & Country Flags
-                </h2>
-                <p className="text-xs text-slate-500 mt-1">
-                  Manage partner brand logos and upload custom country flags (PNG, SVG, WebP) or select flag emojis.
-                </p>
-              </div>
-              {logosSaveFeedback && (
-                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-2 rounded-xl text-xs font-black flex items-center gap-2 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-red-600" />
-                  {logosSaveFeedback}
-                </div>
-              )}
-            </div>
-
-            {/* Add New Logo Card */}
-            <div className="bg-white rounded-2xl border-2 border-red-100 p-5 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="font-black text-sm text-slate-900 flex items-center gap-2">
-                  <Plus className="w-4 h-4 text-red-600 stroke-[3]" /> Add New Partner Brand
-                </h3>
-                <span className="text-[11px] font-bold text-red-600 bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full">
-                  Image Uploads Supported
-                </span>
-              </div>
-
-              {/* Country & Flag Quick Presets */}
-              <div>
-                <label className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
-                  Quick Country & Flag Presets
-                </label>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    { country: 'Kurdistan', flag: '/assets/flags/kurdish_flag.png', label: 'Kurdistan' },
-                    { country: 'Iraq', flag: '🇮🇶', label: 'Iraq' },
-                    { country: 'Germany', flag: '🇩🇪', label: 'Germany' },
-                    { country: 'Italy', flag: '🇮🇹', label: 'Italy' },
-                    { country: 'Turkey', flag: '🇹🇷', label: 'Turkey' },
-                    { country: 'Belgium', flag: '🇧🇪', label: 'Belgium' },
-                    { country: 'Spain', flag: '🇪🇸', label: 'Spain' },
-                    { country: 'Greece', flag: '🇬🇷', label: 'Greece' },
-                    { country: 'United Kingdom', flag: '🇬🇧', label: 'UK' },
-                    { country: 'United States', flag: '🇺🇸', label: 'USA' },
-                    { country: 'France', flag: '🇫🇷', label: 'France' },
-                  ].map((p) => (
-                    <button
-                      key={p.label}
-                      type="button"
-                      onClick={() => setNewLogo((prev) => ({ ...prev, country: p.country, flag: p.flag }))}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border ${
-                        newLogo.country === p.country
-                          ? 'bg-red-600 text-white border-red-600 shadow-xs'
-                          : 'bg-white hover:bg-red-50 hover:border-red-200 text-slate-700 border-slate-200'
-                      }`}
-                    >
-                      {isImageFlag(p.flag) ? (
-                        <img src={p.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block shadow-2xs" />
-                      ) : (
-                        <span>{p.flag}</span>
-                      )}
-                      <span>{p.label}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Name *</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. SCHÜCO"
-                    value={newLogo.name}
-                    onChange={(e) => setNewLogo((l) => ({ ...l, name: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Brand Logo Image *</label>
-                  <div className="flex gap-2">
-                    <input
-                      type="text"
-                      placeholder="Image URL or upload"
-                      value={newLogo.src}
-                      onChange={(e) => setNewLogo((l) => ({ ...l, src: e.target.value }))}
-                      className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
-                    />
-                    <button
-                      type="button"
-                      disabled={isUploadingLogo}
-                      onClick={() => logoFileInputRef.current?.click()}
-                      className="shrink-0 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
-                      title="Upload Brand Logo Image"
-                    >
-                      <Upload className="w-3.5 h-3.5 text-red-600" />
-                      <span>{isUploadingLogo ? '...' : 'Upload'}</span>
-                    </button>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1">Country Name</label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Germany / Iraq"
-                    value={newLogo.country}
-                    onChange={(e) => setNewLogo((l) => ({ ...l, country: e.target.value }))}
-                    className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-bold text-slate-600 uppercase mb-1 flex items-center justify-between">
-                    <span>Country Flag (Upload or Emoji)</span>
-                    {newLogo.flag && (
-                      <button
-                        type="button"
-                        onClick={() => setNewLogo((l) => ({ ...l, flag: '' }))}
-                        className="text-red-600 hover:underline text-[10px] font-semibold"
-                      >
-                        clear
-                      </button>
-                    )}
-                  </label>
-                  <div className="flex gap-2">
-                    <div className="relative flex-1 flex items-center">
-                      {newLogo.flag && isImageFlag(newLogo.flag) ? (
-                        <div className="w-full flex items-center gap-2 border border-slate-300 rounded-xl px-2.5 py-1.5 bg-white">
-                          <img
-                            src={newLogo.flag}
-                            alt="Flag"
-                            className="w-6 h-4 object-cover rounded-xs border border-slate-200 shrink-0 shadow-2xs"
-                          />
-                          <span className="text-xs text-slate-600 truncate flex-1 font-mono text-[11px]">{newLogo.flag}</span>
-                        </div>
-                      ) : (
-                        <input
-                          type="text"
-                          placeholder="e.g. 🇩🇪 or upload flag image"
-                          value={newLogo.flag}
-                          onChange={(e) => setNewLogo((l) => ({ ...l, flag: e.target.value }))}
-                          className="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-red-400 focus:border-red-500 outline-none bg-white"
-                        />
-                      )}
-                    </div>
-                    <button
-                      type="button"
-                      disabled={isUploadingFlag}
-                      onClick={() => newFlagFileInputRef.current?.click()}
-                      className="shrink-0 px-3 py-2 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
-                      title="Upload Flag Icon Image"
-                    >
-                      <Upload className="w-3.5 h-3.5 text-red-600" />
-                      <span>{isUploadingFlag ? '...' : 'Upload'}</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Preview of logo & flag badge */}
-              {newLogo.src && (
-                <div className="flex items-center gap-4 p-3 bg-red-50/40 rounded-xl border border-red-100">
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="h-10 px-4 bg-white rounded-lg border border-slate-200 flex items-center justify-center shadow-xs">
-                      <img
-                        src={newLogo.src}
-                        alt={newLogo.name}
-                        className="max-h-8 max-w-[120px] object-contain"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).style.display = 'none';
-                        }}
-                      />
-                    </div>
-                    {newLogo.flag && (
-                      <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-bold shadow-xs">
-                        {isImageFlag(newLogo.flag) ? (
-                          <img src={newLogo.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block" />
-                        ) : (
-                          <span>{newLogo.flag}</span>
-                        )}
-                        {newLogo.country && <span>{newLogo.country}</span>}
-                      </div>
-                    )}
-                  </div>
-                  <span className="text-xs text-slate-600 font-medium">Live preview of how the brand logo & flag appear</span>
-                </div>
-              )}
-
-              <div className="flex justify-end pt-1">
-                <button
-                  type="button"
-                  onClick={() => {
-                    if (!newLogo.name.trim() || !newLogo.src.trim()) {
-                      alert('Please provide brand name and image URL/file.');
-                      return;
-                    }
-                    const logo = {
-                      id: `logo-${Date.now()}`,
-                      name: newLogo.name.trim(),
-                      src: newLogo.src.trim(),
-                      alt: newLogo.alt || newLogo.name.trim(),
-                      country: newLogo.country.trim() || undefined,
-                      flag: newLogo.flag.trim() || undefined,
-                    };
-                    const updated = [...partnerLogos, logo];
-                    setPartnerLogos(updated);
-                    setNewLogo({ name: '', src: '', alt: '', country: '', flag: '' });
-                    try {
-                      localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
-                      window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                    } catch {}
-                    void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
-                  }}
-                  className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-1.5"
-                >
-                  <Plus className="w-4 h-4 stroke-[3]" />
-                  <span>Add Brand to List</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Active Partner Logos Grid */}
-            <div className="space-y-3">
-              <div className="flex items-center justify-between">
-                <h3 className="font-black text-sm text-slate-900 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-600" />
-                  Configured Brands ({partnerLogos.length})
-                </h3>
-                <span className="text-xs text-slate-500 font-medium">
-                  Changes save automatically and update the website in real-time.
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {partnerLogos.map((logo, idx) => (
-                  <div
-                    key={logo.id || idx}
-                    className="bg-white rounded-2xl border border-slate-200 hover:border-red-300 p-4 shadow-xs flex flex-col justify-between gap-3 transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="shrink-0 flex flex-col items-center gap-1.5">
-                        <div className="w-20 h-14 rounded-xl bg-white border border-slate-200 flex items-center justify-center p-1.5 shadow-2xs">
-                          <img
-                            src={logo.src}
-                            alt={logo.alt || logo.name}
-                            className="max-h-10 max-w-[70px] object-contain"
-                            onError={(e) => {
-                              const t = e.target as HTMLImageElement;
-                              t.style.display = 'none';
-                            }}
-                          />
-                        </div>
-                        {logo.flag && (
-                          <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-900 text-white text-[10px] font-extrabold shadow-2xs">
-                            {isImageFlag(logo.flag) ? (
-                              <img src={logo.flag} alt="" className="w-4 h-3 object-cover rounded-2xs inline-block" />
-                            ) : (
-                              <span>{logo.flag}</span>
-                            )}
-                            {logo.country && <span className="truncate max-w-[65px]">{logo.country}</span>}
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex-1 min-w-0 space-y-2">
-                        <div className="font-extrabold text-sm text-slate-900 truncate">{logo.name}</div>
-                        <input
-                          type="text"
-                          value={logo.country || ''}
-                          placeholder="Country (e.g. Italy)"
-                          onChange={(e) => {
-                            const updated = [...partnerLogos];
-                            updated[idx] = { ...updated[idx], country: e.target.value };
-                            setPartnerLogos(updated);
-                          }}
-                          className="w-full border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400 bg-white"
-                        />
-                        <div className="flex items-center gap-1.5">
-                          <input
-                            type="text"
-                            value={logo.flag || ''}
-                            placeholder="Flag (emoji or URL)"
-                            onChange={(e) => {
-                              const updated = [...partnerLogos];
-                              updated[idx] = { ...updated[idx], flag: e.target.value };
-                              setPartnerLogos(updated);
-                            }}
-                            className="flex-1 min-w-0 border border-slate-200 rounded-lg px-2.5 py-1 text-xs text-slate-800 outline-none focus:border-red-400 bg-white"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setUploadingFlagCardIdx(idx);
-                              cardFlagFileInputRef.current?.click();
-                            }}
-                            className="shrink-0 px-2 py-1 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-[10px] font-bold transition-colors cursor-pointer flex items-center gap-1"
-                            title="Upload Flag Image for this brand"
-                          >
-                            <Upload className="w-3 h-3 text-red-600" />
-                            <span>Upload</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                      <div className="flex items-center gap-1">
-                        <button
-                          type="button"
-                          disabled={idx === 0}
-                          onClick={() => {
-                            if (idx === 0) return;
-                            const updated = [...partnerLogos];
-                            const temp = updated[idx - 1];
-                            updated[idx - 1] = updated[idx];
-                            updated[idx - 1] = temp;
-                            setPartnerLogos(updated);
-                          }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
-                          title="Move Left"
-                        >
-                          <ChevronLeft className="w-4 h-4" />
-                        </button>
-                        <button
-                          type="button"
-                          disabled={idx === partnerLogos.length - 1}
-                          onClick={() => {
-                            if (idx === partnerLogos.length - 1) return;
-                            const updated = [...partnerLogos];
-                            const temp = updated[idx + 1];
-                            updated[idx + 1] = updated[idx];
-                            updated[idx] = temp;
-                            setPartnerLogos(updated);
-                          }}
-                          className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
-                          title="Move Right"
-                        >
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-
-                      <button
-                        type="button"
-                        onClick={() => {
-                          const updated = partnerLogos.filter((_, i) => i !== idx);
-                          setPartnerLogos(updated);
-                          try {
-                            localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(updated));
-                            window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                          } catch {}
-                          void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
-                        }}
-                        className="p-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors cursor-pointer"
-                        title="Remove Logo"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Save Button */}
-            <div className="flex justify-end pt-4 pb-8">
-              <button
-                type="button"
-                disabled={logosSaving}
-                onClick={async () => {
-                  setLogosSaving(true);
-                  try {
-                    await saveSharedCmsSection('partnerLogos', partnerLogos);
-                    localStorage.setItem('winhome_cms_partner_logos', JSON.stringify(partnerLogos));
-                    window.dispatchEvent(new Event('cms_partner_logos_updated'));
-                    setLogosSaveFeedback('✓ Partner logos and flags saved to website!');
-                    setTimeout(() => setLogosSaveFeedback(''), 4000);
-                  } catch (e: any) {
-                    setLogosSaveFeedback('Failed to save: ' + (e?.message || 'Network error'));
-                  } finally {
-                    setLogosSaving(false);
-                  }
-                }}
-                className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
-              >
-                <Save className="w-4 h-4" />
-                <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
-              </button>
-            </div>
-          </main>
+          <AdminPartnerLogosTab
+            partnerLogos={partnerLogos}
+            setPartnerLogos={setPartnerLogos}
+            onUploadMedia={uploadCmsMediaFile}
+            onSaveFeedback={(msg) => {
+              setCmsSaveFeedback(msg);
+              setTimeout(() => setCmsSaveFeedback(''), 4000);
+            }}
+            currentLanguage={currentLanguage}
+          />
         )}
-
       </div>
 
       {/* ADD / EDIT PRODUCT MODAL */}
-      {isProductModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-950/70 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative bg-white rounded-3xl shadow-2xl border border-slate-200 w-full max-w-xl max-h-[90vh] flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
-            <div className="px-6 py-4.5 bg-slate-50 border-b border-slate-100 flex items-center justify-between shrink-0">
-              <h3 className="text-base sm:text-lg font-black text-slate-900">
-                {editingProduct ? t('admin_modal_edit_product') : t('admin_modal_create_product')}
-              </h3>
-              <button
-                type="button"
-                onClick={() => setIsProductModalOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-200/60 text-slate-600 hover:text-slate-900 flex items-center justify-center font-bold cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleSaveProduct} className="flex-1 overflow-y-auto p-6 space-y-4 text-xs font-bold text-slate-700">
-              {/* Product Basic Info */}
-              <div className="space-y-3">
-                <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_form_name')} (Optional)</label>
-                  <input
-                    type="text"
-                    value={formName}
-                    onChange={(e) => setFormName(e.target.value)}
-                    placeholder="Optional — leave blank if adding title later..."
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-extrabold text-sm"
-                  />
-                </div>
-
-                <div>
-                  <AdvancedTextarea
-                    value={formDescription}
-                    onChange={setFormDescription}
-                    placeholder="Describe this product (specifications, thermal rating, glass types...)"
-                    label={t('admin_form_desc') || 'Product Description'}
-                    rows={5}
-                    minHeight="140px"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px] font-black">
-                    {currentLanguage.code === 'ar' ? 'قسم العرض في الموقع (Homepage Section)' : currentLanguage.code === 'ckb' ? 'بەشی پەخش لە ماڵپەڕ' : 'Website Public Section'}
-                  </label>
-                  <select
-                    value={formCategory}
-                    onChange={(e) => setFormCategory(e.target.value)}
-                    required
-                    className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 font-bold text-slate-900 cursor-pointer focus:ring-2 focus:ring-red-400 focus:bg-white"
-                  >
-                    {allCategoryOptions.length === 0 && <option value="">No sections available</option>}
-                    {allCategoryOptions.map((opt) => (
-                      <option key={opt.key} value={opt.key}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                  <p className="mt-1 text-[11px] text-slate-500 font-normal">
-                    {currentLanguage.code === 'ar'
-                      ? 'حدد القسم العام الذي سيظهر فيه هذا المنتج على الصفحة الرئيسية للموقع'
-                      : currentLanguage.code === 'ckb'
-                      ? 'دیاری بکە ئەم بەرهەمە لە کام بەشی پەڕەی سەرەکی ماڵپەڕ نیشان بدرێت'
-                      : 'Select which public homepage section will display this product on the website.'}
-                  </p>
-                </div>
-              </div>
-
-              {/* Product Image */}
-              <div className="space-y-2">
-                <label className="block text-slate-900 uppercase text-[10px]">{t('admin_form_image')}</label>
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => productFileInputRef.current?.click()}
-                    className="cursor-pointer bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-sm transition-all shrink-0"
-                  >
-                    <Upload className="w-4 h-4" />
-                    <span>{isUploadingProductImage ? t('admin_uploading') : t('admin_form_upload')}</span>
-                  </button>
-                  <input
-                    ref={productFileInputRef}
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
-                    onChange={handleProductImageFileUpload}
-                    className="hidden"
-                  />
-
-                </div>
-
-                {formImage && (
-                  <div className="flex items-center gap-3 p-2 bg-slate-100 rounded-xl border border-slate-200 mt-2">
-                    {/\.(mp4|webm|mov)(\?|#|$)/i.test(formImage) ? (
-                      <video src={formImage} muted autoPlay loop playsInline className="w-12 h-12 rounded-lg object-cover bg-black" />
-                    ) : (
-                      <img src={formImage} alt="Product preview" className="w-12 h-12 rounded-lg object-contain bg-white p-1" />
-                    )}
-                    <span className="text-[11px] font-bold text-slate-900">{t('admin_image_ready')}</span>
-                  </div>
-                )}
-              </div>
-
-              {productFormError && <p role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs text-rose-700">{productFormError}</p>}
-
-              {/* Action Buttons */}
-              <div className="pt-3 border-t border-slate-100 flex justify-end gap-2 shrink-0">
-                <button
-                  type="button"
-                  onClick={() => setIsProductModalOpen(false)}
-                  className="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold hover:bg-slate-100 transition-colors cursor-pointer"
-                >
-                  {t('admin_form_cancel')}
-                </button>
-
-                <button
-                  type="submit"
-                  disabled={isUploadingProductImage}
-                  className="px-6 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold shadow-md transition-all cursor-pointer disabled:opacity-50"
-                >
-                  {t('admin_form_save')}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
+      <AdminProductModal
+        isOpen={isProductModalOpen}
+        onClose={() => setIsProductModalOpen(false)}
+        editingProduct={editingProduct}
+        allCategoryOptions={allCategoryOptions}
+        onSave={handleSaveProductFromModal}
+        onUploadMedia={uploadCmsMediaFile}
+        currentLanguage={currentLanguage}
+        t={t}
+      />
 
       {/* REQUEST & CONTACT MESSAGE INSPECTION MODAL */}
       {selectedRequest && (
