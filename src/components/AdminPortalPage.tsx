@@ -480,17 +480,69 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const [productSearchQuery, setProductSearchQuery] = useState<string>('');
   const [productCategoryFilter, setProductCategoryFilter] = useState<string>('all');
+
+  // Unified Section / Category Options (Homepage Sections define the true categories)
+  const allCategoryOptions = useMemo(() => {
+    const list: Array<{ key: string; label: string }> = [];
+    const seen = new Set<string>();
+
+    // 1. All Dynamic Homepage Sections first
+    homepageSections.forEach((sec) => {
+      const k = sec.key || sec.id;
+      if (!seen.has(k)) {
+        seen.add(k);
+        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
+        list.push({
+          key: k,
+          label: header.title || sec.title || k
+        });
+      }
+    });
+
+    // 2. Standard Divisions as fallback
+    divisions.forEach((div) => {
+      const k = div.key || div.id;
+      if (!seen.has(k)) {
+        seen.add(k);
+        const translated = (div as any)?.translations?.[currentLanguage.code] || (div as any)?.translations?.[currentLanguage.code.split('-')[0]];
+        let label = div.title;
+        if (translated?.name || translated?.title) label = translated.name || translated.title;
+        else if (currentLanguage.code === 'ar') label = div.arabicTitle || div.arabicDivisionLabel || div.title;
+        else if (currentLanguage.code === 'ckb') label = div.kurdishTitle || div.kurdishDivisionLabel || div.title;
+        list.push({ key: k, label });
+      }
+    });
+
+    return list;
+  }, [homepageSections, divisions, currentLanguage.code]);
+
+  const getProductCategoryLabel = (prod: ProductItem) => {
+    const key = prod.division || prod.category || '';
+    const foundOpt = allCategoryOptions.find((opt) => opt.key === key || opt.key.toLowerCase() === key.toLowerCase());
+    if (foundOpt) return foundOpt.label;
+
+    const sec = homepageSections.find((s) => s.key === key || s.id === key);
+    if (sec) return getLocalizedSectionHeader(sec, currentLanguage.code).title || sec.title;
+
+    if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ' : 'Windows';
+    if (key === 'doors') return currentLanguage.code === 'ar' ? 'أنظمة الأبواب' : 'Doors';
+    if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الإكسسوارات' : 'Accessories';
+    if (key === 'glass') return currentLanguage.code === 'ar' ? 'الزجاج والواجهات' : 'Glass & Facades';
+    if (key === 'railings') return currentLanguage.code === 'ar' ? 'الدرابزينات' : 'Railings';
+    return key;
+  };
+
   useEffect(() => {
-    if (productCategoryFilter !== 'all' && !divisions.some((division) => division.key === productCategoryFilter)) {
+    if (productCategoryFilter !== 'all' && !allCategoryOptions.some((opt) => opt.key === productCategoryFilter)) {
       setProductCategoryFilter('all');
     }
-  }, [divisions, productCategoryFilter]);
+  }, [allCategoryOptions, productCategoryFilter]);
   const [isProductModalOpen, setIsProductModalOpen] = useState<boolean>(false);
   const [editingProduct, setEditingProduct] = useState<ProductItem | null>(null);
 
   // Product Form State - Simple & Clear
   const [formName, setFormName] = useState('');
-  const [formCategory, setFormCategory] = useState<string>(() => divisions[0]?.key || '');
+  const [formCategory, setFormCategory] = useState<string>(() => allCategoryOptions[0]?.key || 'windows');
   const [formImage, setFormImage] = useState('');
   const [formDescription, setFormDescription] = useState('');
   const [formSellingPrice, setFormSellingPrice] = useState<number>(140);
@@ -644,7 +696,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     setProductFormError('');
     setEditingProduct(null);
     setFormName('');
-    setFormCategory(divisions[0]?.key || '');
+    setFormCategory(allCategoryOptions[0]?.key || '');
     setFormImage('');
     setFormDescription('');
     setFormSellingPrice(0);
@@ -658,7 +710,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     setProductFormError('');
     setEditingProduct(null);
     setFormName('');
-    setFormCategory(divisions.some((division) => division.key === categoryOrDivision) ? categoryOrDivision : divisions[0]?.key || '');
+    setFormCategory(allCategoryOptions.some((opt) => opt.key === categoryOrDivision) ? categoryOrDivision : allCategoryOptions[0]?.key || '');
     setFormImage('');
     setFormDescription('');
     setFormSellingPrice(0);
@@ -716,7 +768,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     setProductFormError('');
     setEditingProduct(prod);
     setFormName(prod.name);
-    setFormCategory(divisions.some((division) => division.key === prod.category) ? prod.category : divisions[0]?.key || '');
+    const cat = prod.division || prod.category || '';
+    setFormCategory(allCategoryOptions.some((opt) => opt.key === cat) ? cat : allCategoryOptions[0]?.key || '');
     setFormImage(prod.image);
     setFormDescription(prod.description);
     setFormSellingPrice(prod.pricePerSqm || prod.basePrice || prod.unitPrice || 140);
@@ -1617,10 +1670,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   onChange={(e) => setProductCategoryFilter(e.target.value)}
                   className="py-2 px-3 text-xs rounded-xl border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 font-semibold text-slate-700 cursor-pointer shadow-2xs"
                 >
-                  <option value="all">{t('admin_filter_all_divisions')}</option>
-                  {divisions.map((div) => (
-                    <option key={div.id} value={div.key || div.id}>
-                      {div.title}
+                  <option value="all">{t('admin_filter_all_divisions') || 'All Sections / Categories'}</option>
+                  {allCategoryOptions.map((opt) => (
+                    <option key={opt.key} value={opt.key}>
+                      {opt.label}
                     </option>
                   ))}
                 </select>
@@ -1667,8 +1720,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                   <tbody className="divide-y divide-slate-100">
                     {filteredProducts.map(prod => {
                       const localized = getLocalizedProduct(prod, currentLanguage.code);
-                      const division = divisions.find(div => div.key === (prod.division || prod.category));
-                      const category = ((division as any)?.translations?.[currentLanguage.code] || (division as any)?.translations?.[currentLanguage.code.split('-')[0]])?.name || (currentLanguage.code === 'ar' ? division?.arabicTitle : currentLanguage.code === 'ckb' ? division?.kurdishTitle : division?.title) || prod.category;
+                      const category = getProductCategoryLabel(prod);
                       return (
                         <tr key={prod.id} className="hover:bg-red-50/30 transition-colors">
                           <td className="px-6 py-4">
@@ -2562,10 +2614,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
                 </div>
 
                 <div>
-                  <label className="mb-1 block text-slate-900 uppercase text-[10px]">{t('admin_simple_category')}</label>
-                  <select value={formCategory} onChange={(e) => setFormCategory(e.target.value)} required className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 font-bold text-slate-900">
-                    {divisions.length === 0 && <option value="">Create a category first</option>}
-                    {divisions.map((div) => <option key={div.id} value={div.key || div.id}>{div.title}</option>)}
+                  <label className="mb-1 block text-slate-900 uppercase text-[10px] font-black">{t('admin_simple_category') || 'Section / Category'}</label>
+                  <select value={formCategory} onChange={(e) => setFormCategory(e.target.value)} required className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 font-bold text-slate-900 cursor-pointer">
+                    {allCategoryOptions.length === 0 && <option value="">No sections available</option>}
+                    {allCategoryOptions.map((opt) => <option key={opt.key} value={opt.key}>{opt.label}</option>)}
                   </select>
                 </div>
               </div>
