@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { ProductItem } from '../data/winhomeData';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
-import { ChevronLeft, ChevronRight, Eye, Hand, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Eye, Hand } from 'lucide-react';
 
 interface Parallax3DImageRingProps {
   items: ProductItem[];
@@ -149,6 +149,7 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
   return (
     <div
       ref={containerRef}
+      dir={isRtl ? 'rtl' : 'ltr'}
       className="relative w-full py-10 sm:py-14 select-none overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
@@ -228,14 +229,6 @@ export const Parallax3DImageRing: React.FC<Parallax3DImageRingProps> = ({
                   {/* Dramatic 3D Vignette & Lighting Gradients */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Glassmorphic Front Pill Badge */}
-                  <div className="absolute top-4 start-4 z-10">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] font-extrabold shadow-sm">
-                      <Sparkles className="w-3 h-3 text-red-400" />
-                      <span>Doorhome 3D</span>
-                    </span>
-                  </div>
 
                   {/* Card Bottom Info Overlay & Action */}
                   <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 flex flex-col justify-end space-y-2.5 bg-gradient-to-t from-slate-950 via-slate-950/85 to-transparent">

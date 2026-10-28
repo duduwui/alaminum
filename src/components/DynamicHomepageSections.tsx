@@ -113,10 +113,10 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
       className={`${bgClass} border-b border-slate-200 scroll-mt-20 py-12 sm:py-16 relative overflow-hidden`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header: Unified, clean, tightly paired title & description in true text-start alignment */}
+        {/* Section Header: Full width start-aligned, strictly right-aligned in RTL and left-aligned in LTR */}
         <div
           dir={isRtl ? 'rtl' : 'ltr'}
-          className="mb-8 text-start max-w-4xl"
+          className="mb-8 w-full text-start"
         >
           {sectionTitle && (
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
@@ -124,7 +124,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
             </h2>
           )}
           {sectionDesc && (
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-2.5 whitespace-pre-line">
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-2.5 max-w-3xl whitespace-pre-line">
               {sectionDesc}
             </p>
           )}
