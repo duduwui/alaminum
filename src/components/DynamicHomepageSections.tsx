@@ -10,6 +10,7 @@ import {
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getLocalizedProduct } from '../utils/localizedContent';
+import { Parallax3DImageRing } from './Parallax3DImageRing';
 
 interface SingleDynamicSectionProps {
   section: HomepageSectionConfig;
@@ -84,6 +85,12 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
 
   const activeProduct = localizedItems[safeIndex] || localizedItems[0];
   const isAccessoryStyle = section.key === 'accessories';
+  const isRtl = currentLanguage.code === 'ar' || currentLanguage.code === 'ckb';
+  const isRailingSection =
+    section.key === 'sec-1793119387374' ||
+    section.key.includes('railing') ||
+    Boolean(section.title && section.title.includes('حواجز')) ||
+    section.key === 'railings';
 
   const handlePrev = () => {
     goToSlide(safeIndex - 1);
@@ -106,37 +113,38 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
       className={`${bgClass} border-b border-slate-200 scroll-mt-20 py-12 sm:py-16 relative overflow-hidden`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div className="w-full">
-            {sectionTitle && (
-              <h2
-                dir="auto"
-                className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight"
-              >
-                {sectionTitle}
-              </h2>
-            )}
-            {sectionDesc && (
-              <p
-                dir="auto"
-                className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mt-1.5 max-w-2xl whitespace-pre-line"
-              >
-                {sectionDesc}
-              </p>
-            )}
-          </div>
+        {/* Section Header: Unified, clean, tightly paired title & description in true text-start alignment */}
+        <div
+          dir={isRtl ? 'rtl' : 'ltr'}
+          className="mb-8 text-start max-w-4xl"
+        >
+          {sectionTitle && (
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              {sectionTitle}
+            </h2>
+          )}
+          {sectionDesc && (
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-2.5 whitespace-pre-line">
+              {sectionDesc}
+            </p>
+          )}
         </div>
 
-        {/* Interactive Auto-Swapping Product Showcase Card */}
-        <div
-          className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+        {/* Dynamic Showcase: Draggable 3D Parallax Image Ring for Staircase Railings, or Card Swap for other sections */}
+        {isRailingSection ? (
+          <Parallax3DImageRing
+            items={items}
+            onSelectProduct={onSelectProduct}
+          />
+        ) : (
+          <div
+            className="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             {/* Left: Stacked Media Slides (Solid under-layer prevents any dark background flash during swap) */}
             <div
               className={`lg:col-span-6 relative ${mediaBgClass} overflow-hidden h-[320px] sm:h-[400px] lg:h-auto lg:min-h-[500px] w-full shrink-0`}
@@ -298,6 +306,7 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
             </div>
           </div>
         </div>
+        )}
       </div>
     </section>
   );
