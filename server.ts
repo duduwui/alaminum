@@ -124,6 +124,28 @@ async function startServer() {
     }
   }));
 
+  // Fallback to find images/videos inside any of the 5 website section subfolders
+  const findProductAssetFile = (filename: string): string | null => {
+    const categories = ['doors', 'windows', 'accessories', 'stairs', 'balconies', 'stair-railings', 'balcony-railings'];
+    for (const cat of categories) {
+      const candidate = path.join(process.cwd(), 'products&assets', cat, filename);
+      if (fs.existsSync(candidate)) return candidate;
+    }
+    return null;
+  };
+
+  const handleProductAssetFallback = (req: express.Request, res: express.Response, next: express.NextFunction) => {
+    const filename = path.basename(req.params.file || req.path);
+    const found = findProductAssetFile(filename);
+    if (found) {
+      res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
+      return res.sendFile(found);
+    }
+    next();
+  };
+
+  app.use(['/products&assets/:file', '/products-assets/:file'], handleProductAssetFallback);
+
   const getAdminCmsSessionToken = (req: express.Request) => {
     const candidates = [req.headers.authorization?.replace(/^Bearer\s+/i, ''), req.headers['x-admin-token'] as string,
       ...(req.headers.cookie?.split(';').map((part) => part.trim()).filter((part) => part.startsWith('dh_admin_session=')).map((part) => part.slice('dh_admin_session='.length)) || [])];
