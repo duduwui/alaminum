@@ -124,9 +124,9 @@ async function startServer() {
     }
   }));
 
-  // Fallback to find images/videos inside any of the 5 website section subfolders
+  // Fallback to find images/videos inside any of the category subfolders
   const findProductAssetFile = (filename: string): string | null => {
-    const categories = ['doors', 'windows', 'accessories', 'stairs', 'balconies', 'stair-railings', 'balcony-railings'];
+    const categories = ['doors', 'windows', 'accessories', 'stairs', 'balconies', 'unclears', 'stair-railings', 'balcony-railings'];
     for (const cat of categories) {
       const candidate = path.join(process.cwd(), 'products&assets', cat, filename);
       if (fs.existsSync(candidate)) return candidate;
