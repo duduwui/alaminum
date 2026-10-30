@@ -503,81 +503,62 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
 
       if (isVideo) {
         let videoCleaned = false;
-        const video = document.createElement('video');
-        video.crossOrigin = 'anonymous';
-        video.muted = true;
-        video.playsInline = true;
-        video.preload = 'auto';
+        const posterUrl = item.poster || item.cover || item.thumbnail;
 
-        const renderPoster = (videoEl?: HTMLVideoElement) => {
-          if (!alive || !slots.includes(slot) || videoCleaned) return;
-          const canvas = document.createElement('canvas');
-          const w = (videoEl && videoEl.videoWidth) ? videoEl.videoWidth : 800;
-          const h = (videoEl && videoEl.videoHeight) ? videoEl.videoHeight : 560;
-          canvas.width = Math.max(w, 400);
-          canvas.height = Math.max(h, 300);
-          const ctx = canvas.getContext('2d');
-          if (ctx) {
-            if (videoEl && videoEl.readyState >= 2) {
-              ctx.drawImage(videoEl, 0, 0, canvas.width, canvas.height);
-            } else {
-              const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-              grad.addColorStop(0, '#0f172a');
-              grad.addColorStop(0.5, '#1e293b');
-              grad.addColorStop(1, '#020617');
-              ctx.fillStyle = grad;
-              ctx.fillRect(0, 0, canvas.width, canvas.height);
-            }
+        const drawPlayBadge = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
+          const cx = width / 2;
+          const cy = height / 2;
+          const r = Math.min(width, height) * 0.13;
 
-            // Draw sleek Play Badge overlay
-            const cx = canvas.width / 2;
-            const cy = canvas.height / 2;
-            const r = Math.min(canvas.width, canvas.height) * 0.13;
+          // Shadow
+          ctx.save();
+          ctx.shadowColor = 'rgba(0, 0, 0, 0.65)';
+          ctx.shadowBlur = 18;
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.82)';
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
 
-            // Blur shadow
-            ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
-            ctx.shadowBlur = 18;
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.78)';
-            ctx.beginPath();
-            ctx.arc(cx, cy, r, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.shadowBlur = 0;
+          // Red border
+          ctx.strokeStyle = 'rgba(239, 68, 68, 0.95)';
+          ctx.lineWidth = Math.max(3, r * 0.08);
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.stroke();
 
-            // Red border
-            ctx.strokeStyle = 'rgba(239, 68, 68, 0.95)';
-            ctx.lineWidth = Math.max(3, r * 0.08);
-            ctx.stroke();
+          // Play Triangle
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          const tri = r * 0.52;
+          ctx.moveTo(cx - tri * 0.35, cy - tri * 0.58);
+          ctx.lineTo(cx + tri * 0.68, cy);
+          ctx.lineTo(cx - tri * 0.35, cy + tri * 0.58);
+          ctx.closePath();
+          ctx.fill();
 
-            // Play Triangle
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            const tri = r * 0.52;
-            ctx.moveTo(cx - tri * 0.35, cy - tri * 0.58);
-            ctx.lineTo(cx + tri * 0.68, cy);
-            ctx.lineTo(cx - tri * 0.35, cy + tri * 0.58);
-            ctx.closePath();
-            ctx.fill();
-
-            // Badge text "VIDEO"
-            ctx.fillStyle = 'rgba(220, 38, 38, 0.9)';
-            const bw = 84;
-            const bh = 24;
-            const bx = cx - bw / 2;
-            const by = cy + r + 12;
-            ctx.beginPath();
-            if (ctx.roundRect) {
-              ctx.roundRect(bx, by, bw, bh, 12);
-            } else {
-              ctx.rect(bx, by, bw, bh);
-            }
-            ctx.fill();
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 11px system-ui, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('▶ VIDEO', cx, by + bh / 2);
+          // Badge text "VIDEO"
+          ctx.fillStyle = 'rgba(220, 38, 38, 0.92)';
+          const bw = 84;
+          const bh = 24;
+          const bx = cx - bw / 2;
+          const by = cy + r + 12;
+          ctx.beginPath();
+          if (ctx.roundRect) {
+            ctx.roundRect(bx, by, bw, bh, 12);
+          } else {
+            ctx.rect(bx, by, bw, bh);
           }
+          ctx.fill();
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 11px system-ui, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('▶ VIDEO', cx, by + bh / 2);
+        };
 
+        const applyCanvasToSlot = (canvas: HTMLCanvasElement) => {
+          if (!alive || !slots.includes(slot) || videoCleaned) return;
           texture.image = canvas;
           texture.update();
           slot.image = [canvas.width, canvas.height];
@@ -588,23 +569,87 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
           start();
         };
 
-        // Render fallback poster immediately
-        renderPoster();
+        // 1. If explicit poster image exists, load it immediately as primary cover frame
+        if (posterUrl) {
+          const posterImg = new Image();
+          if (posterUrl.startsWith('http') && typeof window !== 'undefined' && !posterUrl.includes(window.location.host)) {
+            posterImg.crossOrigin = 'anonymous';
+          }
+          posterImg.decoding = 'async';
+          posterImg.onload = () => {
+            if (!alive || !slots.includes(slot) || videoCleaned) return;
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.max(posterImg.naturalWidth || 800, 400);
+            canvas.height = Math.max(posterImg.naturalHeight || 560, 300);
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              ctx.drawImage(posterImg, 0, 0, canvas.width, canvas.height);
+              drawPlayBadge(ctx, canvas.width, canvas.height);
+            }
+            applyCanvasToSlot(canvas);
+          };
+          posterImg.src = posterUrl;
+        }
 
-        video.onloadeddata = () => {
-          try {
-            if (video.currentTime === 0) video.currentTime = 0.1;
-          } catch {}
-          renderPoster(video);
+        // 2. Video element frame capture fallback
+        const video = document.createElement('video');
+        if (item.src.startsWith('http') && typeof window !== 'undefined' && !item.src.includes(window.location.host)) {
+          video.crossOrigin = 'anonymous';
+        }
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = 'auto';
+
+        const captureVideoFrame = () => {
+          if (!alive || !slots.includes(slot) || videoCleaned) return;
+          if (video.videoWidth && video.videoHeight) {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              try {
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                drawPlayBadge(ctx, canvas.width, canvas.height);
+                applyCanvasToSlot(canvas);
+                return;
+              } catch {}
+            }
+          }
         };
-        video.onseeked = () => renderPoster(video);
-        video.onerror = () => renderPoster();
+
+        video.onloadedmetadata = () => {
+          try {
+            video.currentTime = Math.min(1.0, (video.duration || 2) * 0.1);
+          } catch {}
+        };
+        video.onseeked = () => captureVideoFrame();
+        video.onloadeddata = () => captureVideoFrame();
         video.src = item.src;
         video.load();
+
+        // 3. Fallback gradient only if no poster was provided
+        if (!posterUrl) {
+          const canvas = document.createElement('canvas');
+          canvas.width = 800;
+          canvas.height = 560;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            grad.addColorStop(0, '#0f172a');
+            grad.addColorStop(0.5, '#1e293b');
+            grad.addColorStop(1, '#020617');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            drawPlayBadge(ctx, canvas.width, canvas.height);
+          }
+          applyCanvasToSlot(canvas);
+        }
 
         slot.dispose = () => {
           videoCleaned = true;
           video.onloadeddata = null;
+          video.onloadedmetadata = null;
           video.onseeked = null;
           video.onerror = null;
           video.src = '';

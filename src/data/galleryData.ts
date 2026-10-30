@@ -8,6 +8,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "system": "Lorenzo 70LS Thermal Aluminum",
     "category": "villa",
     "src": "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
+    "poster": "/uploads/poster_slot11.jpg",
     "mediaType": "video",
     "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. (Live on-site installation video in Empire World, Erbil).",
     "year": "2024",

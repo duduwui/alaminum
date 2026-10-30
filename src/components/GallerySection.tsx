@@ -60,6 +60,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
       return {
         id: item.id || `carousel-item-${idx}`,
         src: cleanSrc,
+        poster: item.poster,
         mediaType: isVideo ? 'video' : 'image',
         alt: item.title,
         title: item.title,
@@ -292,6 +293,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                 {selected.mediaType === 'video' || /\.(mp4|webm|mov|m4v)(\?|#|$)/i.test(selected.src) ? (
                   <video
                     src={selected.src.startsWith('./') ? selected.src.replace('./', '/') : selected.src}
+                    poster={selected.poster}
                     controls
                     autoPlay
                     playsInline

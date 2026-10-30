@@ -262,6 +262,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                   {isVideo ? (
                     <video
                       src={slot.src}
+                      poster={slot.poster}
                       muted
                       playsInline
                       preload="metadata"

@@ -3,6 +3,7 @@ export interface GalleryMediaItem {
   title: string;
   description: string;
   src: string;
+  poster?: string;
   mediaType: 'image' | 'video';
   category: 'villa' | 'commercial' | 'doors' | 'facade' | 'stairs' | 'railings' | 'windows' | 'pergolas' | string;
   location: string;
@@ -42,7 +43,8 @@ export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
       location: typeof item.location === 'string' ? item.location : '',
       system: typeof item.system === 'string' ? item.system : 'Doorhome Certified European Systems',
       year: typeof item.year === 'string' ? item.year : undefined,
-      glassArea: typeof item.glassArea === 'string' ? item.glassArea : undefined
+      glassArea: typeof item.glassArea === 'string' ? item.glassArea : undefined,
+      poster: typeof (item as any).poster === 'string' ? (item as any).poster : undefined
     }];
   });
 }

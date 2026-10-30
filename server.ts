@@ -108,18 +108,21 @@ async function startServer() {
   app.use('/uploads', express.static(mediaUploadDir, {
     maxAge: '7d',
     setHeaders: (res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
     }
   }));
   app.use('/products&assets', express.static(path.join(process.cwd(), 'products&assets'), {
     maxAge: '7d',
     setHeaders: (res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
     }
   }));
   app.use('/products-assets', express.static(path.join(process.cwd(), 'products&assets'), {
     maxAge: '7d',
     setHeaders: (res) => {
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Cache-Control', 'public, max-age=604800, stale-while-revalidate=2592000');
     }
   }));
