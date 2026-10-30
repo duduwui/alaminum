@@ -421,10 +421,24 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [productSearchQuery, setProductSearchQuery] = useState<string>('');
   const [productCategoryFilter, setProductCategoryFilter] = useState<string>('all');
 
-  // Unified Section / Category Options (Strictly homepage sections designated as product sections)
+  // Unified Section / Category Options (Strictly categorized as per user folders)
   const allCategoryOptions = useMemo(() => {
     const list: Array<{ key: string; label: string }> = [];
     const seen = new Set<string>();
+
+    const standardCategories = [
+      { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
+      { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
+      { key: 'balconies', label: currentLanguage.code === 'ar' ? 'حواجز البلكونات' : currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies' },
+      { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa' },
+      { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
+      { key: 'accessories', label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware' },
+    ];
+
+    standardCategories.forEach((sc) => {
+      seen.add(sc.key);
+      list.push(sc);
+    });
 
     homepageSections.forEach((sec) => {
       // Exclude showcase / media sections that are not product categories
@@ -444,19 +458,21 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   }, [homepageSections, currentLanguage.code]);
 
   const getProductCategoryLabel = (prod: ProductItem) => {
-    const key = prod.division || prod.category || '';
-    const foundOpt = allCategoryOptions.find((opt) => opt.key === key || opt.key.toLowerCase() === key.toLowerCase());
+    const key = (prod.category || prod.division || '').toLowerCase();
+    
+    if (key === 'shorfa') return currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa');
+    if (key === 'balconies') return currentLanguage.code === 'ar' ? 'حواجز البلكونات' : (currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies');
+    if (key === 'doors') return currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : (currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances');
+    if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : (currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems');
+    if (key === 'stairs' || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');
+    if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : (currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware');
+
+    const foundOpt = allCategoryOptions.find((opt) => opt.key === key || opt.key.toLowerCase() === key);
     if (foundOpt) return foundOpt.label;
 
     const sec = homepageSections.find((s) => s.key === key || s.id === key);
     if (sec) return getLocalizedSectionHeader(sec, currentLanguage.code).title || sec.title;
 
-    if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ' : 'Windows';
-    if (key === 'doors') return currentLanguage.code === 'ar' ? 'أنظمة الأبواب' : 'Doors';
-    if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الإكسسوارات' : 'Accessories';
-    if (key.includes('stair') || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم الزجاجية' : (currentLanguage.code === 'ckb' ? 'مەحاجەرەی شووشەیی قادرمە' : 'Glass Staircase Railings');
-    if (key.includes('balcon') || key.includes('shorfa') || key === 'sec-1793119430295' || key === 'railings') return currentLanguage.code === 'ar' ? 'حواجز الشرفات الزجاجية' : (currentLanguage.code === 'ckb' ? 'حاجزی بالکۆنی شووشەیی' : 'Glass Balcony Railings');
-    if (key === 'glass') return currentLanguage.code === 'ar' ? 'الزجاج والواجهات' : 'Glass & Facades';
     return key;
   };
 

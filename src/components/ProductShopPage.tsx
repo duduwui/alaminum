@@ -34,24 +34,69 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
 
   useEffect(() => subscribeToHomepageSections(setSections), []);
   useEffect(() => subscribeToLocalProducts(setProducts), []);
+
+  const categories = useMemo(() => {
+    const list: Array<{ id: string; label: string }> = [
+      { id: 'all', label: t('all_categories') || 'All categories' }
+    ];
+    const seen = new Set<string>(['all']);
+
+    // Standard architectural categories
+    const standardCats = [
+      {
+        id: 'doors',
+        label: currentLanguage.code === 'ar' ? 'أنظمة الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances'
+      },
+      {
+        id: 'windows',
+        label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems'
+      },
+      {
+        id: 'balconies',
+        label: currentLanguage.code === 'ar' ? 'حواجز البلكونات' : currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies'
+      },
+      {
+        id: 'shorfa',
+        label: currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa'
+      },
+      {
+        id: 'stairs',
+        label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings'
+      },
+      {
+        id: 'accessories',
+        label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware'
+      }
+    ];
+
+    standardCats.forEach((c) => {
+      seen.add(c.id);
+      list.push(c);
+    });
+
+    // Also include dynamic homepage sections if any extra custom sections exist
+    sections
+      .filter((sec) => sec.isProductSection !== false)
+      .forEach((sec) => {
+        const k = sec.key || sec.id;
+        if (!seen.has(k) && !seen.has(k.toLowerCase())) {
+          seen.add(k);
+          const header = getLocalizedSectionHeader(sec, currentLanguage.code);
+          list.push({
+            id: k,
+            label: header.title || sec.title || k
+          });
+        }
+      });
+
+    return list;
+  }, [sections, currentLanguage.code, t]);
+
   useEffect(() => {
-    if (selectedCategory !== 'all' && !sections.some((sec) => sec.key === selectedCategory || sec.id === selectedCategory)) {
+    if (selectedCategory !== 'all' && !categories.some((c) => c.id === selectedCategory)) {
       setSelectedCategory('all');
     }
-  }, [sections, selectedCategory]);
-
-  const categories = useMemo(() => [
-    { id: 'all', label: t('all_categories') || 'All categories' },
-    ...sections
-      .filter((sec) => sec.isProductSection !== false)
-      .map((sec) => {
-        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-        return {
-          id: sec.key,
-          label: header.title || sec.title || sec.key
-        };
-      })
-  ], [sections, currentLanguage.code, t]);
+  }, [categories, selectedCategory]);
 
   const visibleProducts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -63,17 +108,28 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           const pCat = (product.category || '').toLowerCase();
           const pDiv = (product.division || '').toLowerCase();
           const pSub = (product.subCategory || '').toLowerCase();
-          const matches =
-            pCat === sCat ||
-            pDiv === sCat ||
-            (sCat.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
-            (sCat.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
-            (sCat.includes('accessor') && (pCat.includes('accessor') || pDiv.includes('accessor'))) ||
-            ((sCat.includes('1793119387374') || sCat.includes('stair')) && (pCat.includes('stair') || pDiv.includes('stair') || pSub.includes('stair') || pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
-            ((sCat.includes('1793119430295') || sCat.includes('balcon') || sCat.includes('shorfa') || sCat.includes('railing')) && (pCat.includes('balcon') || pDiv.includes('balcon') || pSub.includes('balcon') || pCat.includes('shorfa') || pDiv.includes('shorfa') || pSub.includes('shorfa') || pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('1793119430295') || pDiv.includes('1793119430295'))) ||
-            pCat.replace(/^sec-/, '') === sCat.replace(/^sec-/, '') ||
-            pDiv.replace(/^sec-/, '') === sCat.replace(/^sec-/, '');
-          if (!matches) return false;
+
+          if (sCat === 'shorfa') {
+            if (pCat !== 'shorfa' && pDiv !== 'shorfa' && !pSub.includes('shorfa')) return false;
+          } else if (sCat === 'balconies') {
+            if (pCat !== 'balconies' && pDiv !== 'balconies' && !pSub.includes('balcon')) return false;
+          } else if (sCat === 'doors') {
+            if (pCat !== 'doors' && pDiv !== 'doors' && !pSub.includes('door') && !pSub.includes('gate')) return false;
+          } else if (sCat === 'windows') {
+            if (pCat !== 'windows' && pDiv !== 'windows' && !pSub.includes('window')) return false;
+          } else if (sCat === 'stairs') {
+            if (pCat !== 'stairs' && pDiv !== 'stairs' && !pSub.includes('stair') && !pCat.includes('1793119387374')) return false;
+          } else if (sCat === 'accessories') {
+            if (pCat !== 'accessories' && pDiv !== 'accessories' && !pSub.includes('accessor')) return false;
+          } else if (sCat.includes('1793119430295')) {
+            // Homepage section for exterior glass railings & balconies
+            if (!pCat.includes('balcon') && !pCat.includes('shorfa') && !pDiv.includes('balcon') && !pDiv.includes('shorfa')) return false;
+          } else if (sCat.includes('1793119387374')) {
+            if (!pCat.includes('stair') && !pDiv.includes('stair')) return false;
+          } else {
+            const matches = pCat === sCat || pDiv === sCat;
+            if (!matches) return false;
+          }
         }
         return !query || product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query);
       });
