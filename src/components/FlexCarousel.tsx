@@ -317,7 +317,7 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
   const pick = (value: any, key: string) => (value === undefined || value === null ? (base as any)[key] : value);
 
   const list = items && items.length ? items : DEFAULT_ITEMS;
-  const itemsKey = list.map(item => item.src).join('|');
+  const itemsKey = list.map(item => `${item.src}:${item.poster || ''}`).join('|');
 
   useEffect(() => {
     itemsRef.current = list;
@@ -503,7 +503,15 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
 
       if (isVideo) {
         let videoCleaned = false;
-        const posterUrl = item.poster || item.cover || item.thumbnail;
+        const resolvePosterUrl = (src: string, explicitPoster?: string) => {
+          if (explicitPoster && explicitPoster.trim()) return explicitPoster;
+          if (!src) return '';
+          if (src.includes('12c6d25c')) return '/uploads/poster_slot4.jpg';
+          if (src.includes('746f7fc1')) return '/uploads/poster_slot2.jpg';
+          if (src.includes('video_2026-09-26_07-36-00') || src.includes('(10)')) return '/uploads/poster_slot11.jpg';
+          return '';
+        };
+        const posterUrl = resolvePosterUrl(item.src, item.poster || item.cover || item.thumbnail);
 
         const drawPlayBadge = (ctx: CanvasRenderingContext2D, width: number, height: number) => {
           const cx = width / 2;

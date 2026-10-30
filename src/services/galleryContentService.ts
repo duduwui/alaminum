@@ -13,7 +13,7 @@ export interface GalleryMediaItem {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = 'winhome_admin_gallery_images';
+const STORAGE_KEY = 'winhome_admin_gallery_images_v4';
 export const GALLERY_UPDATED_EVENT = 'cms_gallery_updated';
 
 import { MASTER_GALLERY_ITEMS } from '../data/galleryData';
@@ -44,7 +44,15 @@ export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
       system: typeof item.system === 'string' ? item.system : 'Doorhome Certified European Systems',
       year: typeof item.year === 'string' ? item.year : undefined,
       glassArea: typeof item.glassArea === 'string' ? item.glassArea : undefined,
-      poster: typeof (item as any).poster === 'string' ? (item as any).poster : undefined
+      poster: typeof (item as any).poster === 'string' && (item as any).poster.trim()
+        ? (item as any).poster.trim()
+        : src.includes('12c6d25c')
+        ? '/uploads/poster_slot4.jpg'
+        : src.includes('746f7fc1')
+        ? '/uploads/poster_slot2.jpg'
+        : src.includes('video_2026') || src.includes('(10)')
+        ? '/uploads/poster_slot11.jpg'
+        : undefined
     }];
   });
 }

@@ -57,10 +57,17 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
         ? (currentLanguage.code === 'ar' ? 'فيديو معماري • اضغط لتشغيل الفيديو' : currentLanguage.code === 'ckb' ? 'ڤیدیۆی نژیاروانی • کلیک بکە بۆ لێدان' : 'Architectural Video • Click to Play')
         : (item.system || item.location || 'Doorhome Architectural System');
 
+      let poster = item.poster;
+      if (!poster) {
+        if (cleanSrc.includes('12c6d25c')) poster = '/uploads/poster_slot4.jpg';
+        else if (cleanSrc.includes('746f7fc1')) poster = '/uploads/poster_slot2.jpg';
+        else if (cleanSrc.includes('video_2026') || cleanSrc.includes('(10)')) poster = '/uploads/poster_slot11.jpg';
+      }
+
       return {
         id: item.id || `carousel-item-${idx}`,
         src: cleanSrc,
-        poster: item.poster,
+        poster,
         mediaType: isVideo ? 'video' : 'image',
         alt: item.title,
         title: item.title,
