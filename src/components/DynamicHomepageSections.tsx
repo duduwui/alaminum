@@ -341,23 +341,32 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
         let sectionItems = products.filter((p) => {
           const pDiv = (p.division || '').toLowerCase();
           const pCat = (p.category || '').toLowerCase();
+          const pSub = (p.subCategory || '').toLowerCase();
           if (pDiv === sKey || pCat === sKey || pDiv === sId || pCat === sId) return true;
           if ((sKey.includes('window') || sId.includes('window')) && (pDiv.includes('window') || pCat.includes('window'))) return true;
           if ((sKey.includes('door') || sId.includes('door')) && (pDiv.includes('door') || pCat.includes('door'))) return true;
           if ((sKey.includes('accessor') || sId.includes('accessor')) && (pDiv.includes('accessor') || pCat.includes('accessor'))) return true;
+          if ((sKey.includes('1793119387374') || sKey.includes('stair') || sId.includes('stair')) && (pDiv.includes('stair') || pCat.includes('stair') || pSub.includes('stair') || pDiv.includes('1793119387374') || pCat.includes('1793119387374'))) return true;
+          if ((sKey.includes('1793119430295') || sKey.includes('balcon') || sKey.includes('shorfa') || sKey.includes('railing') || sId.includes('balcon')) && (pDiv.includes('balcon') || pCat.includes('balcon') || pSub.includes('balcon') || pDiv.includes('shorfa') || pCat.includes('shorfa') || pSub.includes('shorfa') || pDiv.includes('railing') || pCat.includes('railing') || pDiv.includes('1793119430295') || pCat.includes('1793119430295'))) return true;
           const rawSecKey = sKey.replace(/^sec-/, '');
           const rawPDiv = pDiv.replace(/^sec-/, '');
           const rawPCat = pCat.replace(/^sec-/, '');
           return Boolean(rawSecKey && (rawPDiv === rawSecKey || rawPCat === rawSecKey));
         });
 
-        // Fail-safe: if local products for a default section (e.g. windows) are empty, pull from seed
+        // Fail-safe: if local products for a section are empty, pull from seed
         if (sectionItems.length === 0) {
           sectionItems = PRODUCTION_PRODUCTS_SEED.filter((p) => {
             const pDiv = (p.division || '').toLowerCase();
             const pCat = (p.category || '').toLowerCase();
-            return pDiv === sKey || pCat === sKey || pDiv === sId || pCat === sId ||
-              ((sKey.includes('window') || sId.includes('window')) && (pDiv.includes('window') || pCat.includes('window')));
+            const pSub = (p.subCategory || '').toLowerCase();
+            if (pDiv === sKey || pCat === sKey || pDiv === sId || pCat === sId) return true;
+            if ((sKey.includes('window') || sId.includes('window')) && (pDiv.includes('window') || pCat.includes('window'))) return true;
+            if ((sKey.includes('door') || sId.includes('door')) && (pDiv.includes('door') || pCat.includes('door'))) return true;
+            if ((sKey.includes('accessor') || sId.includes('accessor')) && (pDiv.includes('accessor') || pCat.includes('accessor'))) return true;
+            if ((sKey.includes('1793119387374') || sKey.includes('stair') || sId.includes('stair')) && (pDiv.includes('stair') || pCat.includes('stair') || pSub.includes('stair') || pDiv.includes('1793119387374') || pCat.includes('1793119387374'))) return true;
+            if ((sKey.includes('1793119430295') || sKey.includes('balcon') || sKey.includes('shorfa') || sKey.includes('railing') || sId.includes('balcon')) && (pDiv.includes('balcon') || pCat.includes('balcon') || pSub.includes('balcon') || pDiv.includes('shorfa') || pCat.includes('shorfa') || pSub.includes('shorfa') || pDiv.includes('railing') || pCat.includes('railing') || pDiv.includes('1793119430295') || pCat.includes('1793119430295'))) return true;
+            return false;
           });
         }
         return (

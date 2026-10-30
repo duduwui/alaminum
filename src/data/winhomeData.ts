@@ -1332,13 +1332,10 @@ export const ACCESSORIES_LINES: ProductItem[] = [
   ...ACCESSORIES_PRODUCTS
 ];
 
+import { PRODUCTION_PRODUCTS_SEED } from './productionProductsSeed';
+
 export const ALL_PRODUCTS: ProductItem[] = [
-  ...WINDOWS_PRODUCTS,
-  ...DOORS_PRODUCTS,
-  ...OUTDOOR_PRODUCTS,
-  ...GLASS_PRODUCTS,
-  ...RAILINGS_PRODUCTS,
-  ...ACCESSORIES_PRODUCTS
+  ...PRODUCTION_PRODUCTS_SEED
 ];
 
 

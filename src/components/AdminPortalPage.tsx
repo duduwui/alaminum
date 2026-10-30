@@ -454,8 +454,9 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ' : 'Windows';
     if (key === 'doors') return currentLanguage.code === 'ar' ? 'أنظمة الأبواب' : 'Doors';
     if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الإكسسوارات' : 'Accessories';
+    if (key.includes('stair') || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم الزجاجية' : (currentLanguage.code === 'ckb' ? 'مەحاجەرەی شووشەیی قادرمە' : 'Glass Staircase Railings');
+    if (key.includes('balcon') || key.includes('shorfa') || key === 'sec-1793119430295' || key === 'railings') return currentLanguage.code === 'ar' ? 'حواجز الشرفات الزجاجية' : (currentLanguage.code === 'ckb' ? 'حاجزی بالکۆنی شووشەیی' : 'Glass Balcony Railings');
     if (key === 'glass') return currentLanguage.code === 'ar' ? 'الزجاج والواجهات' : 'Glass & Facades';
-    if (key === 'railings') return currentLanguage.code === 'ar' ? 'الدرابزينات' : 'Railings';
     return key;
   };
 

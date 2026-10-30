@@ -62,12 +62,15 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           const sCat = selectedCategory.toLowerCase();
           const pCat = (product.category || '').toLowerCase();
           const pDiv = (product.division || '').toLowerCase();
+          const pSub = (product.subCategory || '').toLowerCase();
           const matches =
             pCat === sCat ||
             pDiv === sCat ||
             (sCat.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
             (sCat.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
             (sCat.includes('accessor') && (pCat.includes('accessor') || pDiv.includes('accessor'))) ||
+            ((sCat.includes('1793119387374') || sCat.includes('stair')) && (pCat.includes('stair') || pDiv.includes('stair') || pSub.includes('stair') || pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
+            ((sCat.includes('1793119430295') || sCat.includes('balcon') || sCat.includes('shorfa') || sCat.includes('railing')) && (pCat.includes('balcon') || pDiv.includes('balcon') || pSub.includes('balcon') || pCat.includes('shorfa') || pDiv.includes('shorfa') || pSub.includes('shorfa') || pCat.includes('railing') || pDiv.includes('railing') || pCat.includes('1793119430295') || pDiv.includes('1793119430295'))) ||
             pCat.replace(/^sec-/, '') === sCat.replace(/^sec-/, '') ||
             pDiv.replace(/^sec-/, '') === sCat.replace(/^sec-/, '');
           if (!matches) return false;
