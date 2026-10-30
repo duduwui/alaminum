@@ -21,6 +21,8 @@ interface AdminCmsTabProps {
   setArchCards: React.Dispatch<React.SetStateAction<any[]>>;
   productList: ProductItem[];
   setProductList: React.Dispatch<React.SetStateAction<ProductItem[]>>;
+  sectionSlides?: ProductItem[];
+  setSectionSlides?: React.Dispatch<React.SetStateAction<ProductItem[]>>;
   onUploadMedia: (file: File) => Promise<string>;
   cmsSaveFeedback: string;
   setCmsSaveFeedback: (msg: string) => void;
@@ -39,6 +41,8 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
   setArchCards,
   productList,
   setProductList,
+  sectionSlides,
+  setSectionSlides,
   onUploadMedia,
   cmsSaveFeedback,
   setCmsSaveFeedback,
@@ -188,7 +192,8 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
           const tabId = `sec:${sec.key}`;
           const isActive = cmsSubTab === tabId;
           const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-          const count = productList.filter((p) => p.division === sec.key || p.category === sec.key).length;
+          const slidesSource = sectionSlides || [];
+          const count = slidesSource.filter((p) => p.division === sec.key || p.category === sec.key).length;
           const isProdSec = sec.isProductSection !== false;
           return (
             <button
@@ -471,8 +476,12 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
                 setCmsSubTab(`sec:${nextKey}`);
               }
             }}
-            productList={productList}
-            setProductList={setProductList}
+            productList={sectionSlides || []}
+            setProductList={(val) => {
+              if (setSectionSlides) {
+                setSectionSlides(val);
+              }
+            }}
             onUploadMedia={onUploadMedia}
             onSaveFeedback={(msg) => {
               setCmsSaveFeedback(msg);

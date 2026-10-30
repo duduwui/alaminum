@@ -109,6 +109,11 @@ import {
   saveHomepageSections,
   getLocalizedSectionHeader
 } from '../services/homepageSectionsService';
+import {
+  loadHomepageSectionItems,
+  saveHomepageSectionItems,
+  subscribeToHomepageSectionItems
+} from '../services/homepageSectionItemsService';
 
 interface AdminPortalPageProps {
   onBackToHome: () => void;
@@ -407,7 +412,18 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Products CRUD State
   const [productList, setProductList] = useState<ProductItem[]>(() => loadLocalProducts());
+  const [sectionSlides, setSectionSlides] = useState<ProductItem[]>(() => loadHomepageSectionItems());
   const [divisions, setDivisions] = useState(() => loadProductDivisions());
+
+  useEffect(() => {
+    return subscribeToHomepageSectionItems((updated) => {
+      setSectionSlides(updated);
+    });
+  }, []);
+
+  useEffect(() => {
+    saveHomepageSectionItems(sectionSlides);
+  }, [sectionSlides]);
 
   const doorProducts = productList.filter((p) => p.division === 'doors' || p.category === 'doors');
   const windowProducts = productList.filter((p) => p.division === 'windows' || p.category === 'windows');
@@ -1496,6 +1512,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             setArchCards={setArchCards}
             productList={productList}
             setProductList={setProductList}
+            sectionSlides={sectionSlides}
+            setSectionSlides={setSectionSlides}
             onUploadMedia={uploadCmsMediaFile}
             cmsSaveFeedback={cmsSaveFeedback}
             setCmsSaveFeedback={setCmsSaveFeedback}

@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ProductItem } from '../data/winhomeData';
-import { PRODUCTION_PRODUCTS_SEED } from '../data/productionProductsSeed';
-import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
+import { HOMEPAGE_SECTION_ITEMS_SEED } from '../data/homepageSectionItemsSeed';
+import {
+  loadHomepageSectionItems,
+  subscribeToHomepageSectionItems
+} from '../services/homepageSectionItemsService';
 import {
   HomepageSectionConfig,
   loadHomepageSections,
@@ -322,14 +325,16 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
   const [sections, setSections] = useState<HomepageSectionConfig[]>(() =>
     loadHomepageSections()
   );
-  const [products, setProducts] = useState<ProductItem[]>(() => loadLocalProducts());
+  const [sectionSlides, setSectionSlides] = useState<ProductItem[]>(() =>
+    loadHomepageSectionItems()
+  );
 
   useEffect(() => {
     const unsubSections = subscribeToHomepageSections(setSections);
-    const unsubProducts = subscribeToLocalProducts(setProducts);
+    const unsubSlides = subscribeToHomepageSectionItems(setSectionSlides);
     return () => {
       unsubSections();
-      unsubProducts();
+      unsubSlides();
     };
   }, []);
 
@@ -338,7 +343,7 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
       {sections.map((section, idx) => {
         const sKey = (section.key || '').toLowerCase();
         const sId = (section.id || '').toLowerCase();
-        let sectionItems = products.filter((p) => {
+        let sectionItems = sectionSlides.filter((p) => {
           const pDiv = (p.division || '').toLowerCase();
           const pCat = (p.category || '').toLowerCase();
           const pSub = (p.subCategory || '').toLowerCase();
@@ -354,9 +359,9 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
           return Boolean(rawSecKey && (rawPDiv === rawSecKey || rawPCat === rawSecKey));
         });
 
-        // Fail-safe: if local products for a section are empty, pull from seed
+        // Fail-safe: if items for a section are empty, pull from HOMEPAGE_SECTION_ITEMS_SEED
         if (sectionItems.length === 0) {
-          sectionItems = PRODUCTION_PRODUCTS_SEED.filter((p) => {
+          sectionItems = HOMEPAGE_SECTION_ITEMS_SEED.filter((p) => {
             const pDiv = (p.division || '').toLowerCase();
             const pCat = (p.category || '').toLowerCase();
             const pSub = (p.subCategory || '').toLowerCase();

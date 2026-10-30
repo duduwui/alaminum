@@ -1,4 +1,4 @@
-import type { ProductItem } from "./winhomeData";
+import type { ProductItem } from './winhomeData';
 
 export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
@@ -143,41 +143,64 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/balconies/photo_31_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/balconies/photo_31_2026-09-26_07-36-01.jpg",
     "features": [
-      "Monolithic Two-Tier Frameless Glass Facade Integration",
-      "Concealed Bottom Structural Shoe Anchored into Solid Concrete Slab",
+      "Monolithic Two-Tier Frameless Glass Facade Integration for Travertine Villas",
+      "Concealed Bottom Structural Shoe Anchored into Solid Cantilevered Slab",
       "Deep Smoke Grey Tinting for Exceptional Daytime Privacy & Solar Glare Control",
-      "Integrated Warm Recessed LED Soffit Lighting Illuminating Villa Terrace",
-      "Zero Top Rail Design for Unbroken Panoramic Vistas"
+      "Integrated Warm Directional Exterior Soffit Spotlights Illuminating Terraces",
+      "Zero Top Rail Design for Unbroken Geometric Luxury Elevation"
     ],
     "specs": {
-      "Glass Specification": "10 mm Toughened + 1.52 mm PVB + 10 mm Toughened Grey Tint",
-      "Linear Load Capacity": "1.5 kN/m Verified High-Wind Residential Testing",
-      "Mounting Style": "Concealed Fascia-Mount Extruded Aluminum Sub-Base",
-      "Thermal & UV Resistance": "Blocks 99% UV Radiation with Acoustic Dampening"
+      "System Typology": "Dual-Level Architectural Concealed Base Balustrade",
+      "Glass Specification": "10+10 mm Toughened Laminated Smoked Safety Glass",
+      "Base Channel": "Heavy Structural Grade 6060 Anodized Aluminum Profile",
+      "Fastening": "Heavy M12 Chemical Expansion Anchors in Concrete Core",
+      "Wind Resistance": "Tested to 2.2 kN/m Line Load (Class C4/C5)",
+      "Lighting": "Concealed 24V Warm Exterior Spotlights Integrated in Soffit"
     },
-    "description": "Engineered for high-end private residences, this double-tier balustrade pairs warm natural stone architecture with cool, smoked tempered laminated glass to forge an ultra-luxurious modern facade presence.",
+    "description": "Architecturally choreographed for prestigious stone-clad residences, this double-tier structural glass balustrade establishes a commanding, ultra-modern facade presence against warm natural travertine and honed marble masonry. The two-level staggered design creates depth and geometric rhythm along expansive villa elevations, giving upper master suites and guest terraces a private, elevated outlook.\n\nGlazed with monolithic smoked tempered laminated safety glass, the panels provide daytime privacy and solar glare attenuation while reflecting the sky in a mirror-like sheen. The base is anchored using heavy-duty structural aluminum shoes embedded securely into the villa’s cantilevered concrete slab, hidden behind travertine stone cladding bands for a zero-hardware exterior finish. Integrated directional spotlighting beneath the balcony soffit illuminates the outdoor terraces at night, turning the balustrade into a luminous facade beacon.\n\nCertified to exceed standard European balcony safety thresholds, this dual-level balustrade delivers lifelong stability, superior wind resistance, and undeniable luxury appeal for bespoke villa architecture.",
     "translations": {
       "ar": {
         "name": "دربزين بلكونة زجاجي مصفح مزدوج لفلل الحجر والترافرتين مع إضاءة سبوتلايت دافئة",
-        "subCategory": "دربزينات بلكونات الفلل الزجاجية",
-        "description": "نظام دربزين زجاجي راقٍ يندمج بسلاسة مع واجهات الحجر الطبيعي والترافرتين للفلل الحديثة. زجاج مصفح رمادي داكن يمنحك خصوصية كاملة وإطلالة بانورامية ساحرة مع إضاءة سفلية دافئة."
+        "description": "صُمم هذا النظام المعماري المزدوج خصيصاً للفلل والقصور المكسوة بالحجر الطبيعي وترافرتين المرمر، ليرسم حضوراً فخماً يجمع بين دفء الحجر وبريق الزجاج الإنشائي المصفح. يمنح التصميم ثنائي المستويات عمقاً معمارياً وحركة هندسية أنيقة لواجهات الفيلا، مع توفير أقصى درجات الخصوصية والأمان لأجنحة النوم الرئيسية وتراسات الاستقبال.\n\nتتميز ألواح الزجاج بلونها الرمادي الدخاني المعالج ضد الصدمات، حيث توفر عزلاً بصرياً ممتازاً في ساعات النهار مع عكس زرقة السماء ببريق زجاجي ناعم، بينما يتيح لمن بداخل البلكونة التمتع بالمناظر الطبيعية المحيطة بوضوح وراحة تامة. وتثبت الألواح عبر مجارٍ ألمنيوم هيكلية ثقيلة مخفية تماماً داخل الصبة الخرسانية وتحت أحزمة الحجر، مع إضاءات سبوتلايت موجهة في أسفل الشرفة تبرز جمال الواجهة ليلاً.\n\nنظام مصمم ليتحمل أعتى قوى الرياح وعوامل المناخ القاسية، مع ضمان ثبات يدوم لعشرات السنين دون الحاجة لصيانة معقدة.",
+        "features": [
+          "Monolithic Two-Tier Frameless Glass Facade Integration for Travertine Villas",
+          "Concealed Bottom Structural Shoe Anchored into Solid Cantilevered Slab",
+          "Deep Smoke Grey Tinting for Exceptional Daytime Privacy & Solar Glare Control",
+          "Integrated Warm Directional Exterior Soffit Spotlights Illuminating Terraces",
+          "Zero Top Rail Design for Unbroken Geometric Luxury Elevation"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی باڵکۆنی شووشەیی دەبڵ بە تیشکی داپۆشراو بۆ ڤێلاکانی بەردی تراڤەرتین",
-        "subCategory": "دەربزینی شووشەیی باڵکۆنی ڤێلا",
-        "description": "سیستەمێکی دەربزینی شووشەیی شاهانە کە بە شێوەیەکی سەردەمیانە لەگەڵ بەردی سروشتی ڤێلاکەت یەکدەگرێتەوە، بە شووشەی تاریکی ئەستوور بۆ پاراستنی تایبەتمەندی و ڕووناکیی لید."
+        "name": "دەستەچنی باڵکۆنی شووشەیی دبل لامینەیت بۆ ڤێلای بەرد و تراڤەرتین بە ڕووناکی دڵگیر",
+        "description": "دیزاین کراوە بۆ ڤێلا و کۆشکە قەسرەکان کە بە بەردی سروشتی و تراڤەرتین داپۆشراون، تا دیمەنێکی مۆدێرن و شاهانە بە باڵکۆنەکان ببەخشێت. دیزاینی دوو نهۆمیی شووشەکە جوانی و قوڵاییەکی تەلارسازی بە ڕوکاری پێشەوەی بیناکە دەدات، و لە یەک کاتدا پارێزراوی تەواو بۆ ژوورەکانی خەوتن و تەراسی میوان دەستەبەر دەکات.\n\nشووشە سێکۆریتە لامینەیتە داپۆشراوەکە بە ڕەنگی ڕەساسی تۆخ کار کراوە کە لە ڕۆژدا ڕێگری لە بینینی ناوەوە دەکات و تیشکی تیژی خۆر کەم دەکاتەوە، لە کاتێکدا لە ناوەوە دیمەنێکی زۆر ڕوون دەبینیت. چوارچێوەی ئەلەمنیۆمی قورس لەناو کۆنکرێتی باڵکۆنەکەدا لەژێر بەردی تراڤەرتینەکەدا شاردراوەتەوە تا هیچ ئاسنێکی دەرکەوتوو نەبینرێت، لەگەڵ ڕووناکی سپۆتلایتی ئاراستەکراو لەژێر باڵکۆنەکە بۆ دروستکردنی دیمەنێکی سەرنجڕاکێش لە شەودا.\n\nبەرزترین ستانداردەکانی سەلامەتی ئەوروپی لەم سیستەمەدا ڕەچاوکراوە، کە بەرگری تەواوی هەیە بەرامبەر با و گۆڕانی کەشوهەوای ناوچەکە بۆ دەیان ساڵ.",
+        "features": [
+          "Monolithic Two-Tier Frameless Glass Facade Integration for Travertine Villas",
+          "Concealed Bottom Structural Shoe Anchored into Solid Cantilevered Slab",
+          "Deep Smoke Grey Tinting for Exceptional Daytime Privacy & Solar Glare Control",
+          "Integrated Warm Directional Exterior Soffit Spotlights Illuminating Terraces",
+          "Zero Top Rail Design for Unbroken Geometric Luxury Elevation"
+        ]
       },
       "en": {
         "name": "Double-Tier Tinted Tempered Glass Balcony Railing for Luxury Travertine Stone Villas",
-        "subCategory": "Frameless Villa Glass Balconies",
-        "description": "Engineered for high-end private residences, this double-tier balustrade pairs warm natural stone architecture with cool, smoked tempered laminated glass to forge an ultra-luxurious modern facade presence."
+        "description": "Architecturally choreographed for prestigious stone-clad residences, this double-tier structural glass balustrade establishes a commanding, ultra-modern facade presence against warm natural travertine and honed marble masonry. The two-level staggered design creates depth and geometric rhythm along expansive villa elevations, giving upper master suites and guest terraces a private, elevated outlook.\n\nGlazed with monolithic smoked tempered laminated safety glass, the panels provide daytime privacy and solar glare attenuation while reflecting the sky in a mirror-like sheen. The base is anchored using heavy-duty structural aluminum shoes embedded securely into the villa’s cantilevered concrete slab, hidden behind travertine stone cladding bands for a zero-hardware exterior finish. Integrated directional spotlighting beneath the balcony soffit illuminates the outdoor terraces at night, turning the balustrade into a luminous facade beacon.\n\nCertified to exceed standard European balcony safety thresholds, this dual-level balustrade delivers lifelong stability, superior wind resistance, and undeniable luxury appeal for bespoke villa architecture.",
+        "features": [
+          "Monolithic Two-Tier Frameless Glass Facade Integration for Travertine Villas",
+          "Concealed Bottom Structural Shoe Anchored into Solid Cantilevered Slab",
+          "Deep Smoke Grey Tinting for Exceptional Daytime Privacy & Solar Glare Control",
+          "Integrated Warm Directional Exterior Soffit Spotlights Illuminating Terraces",
+          "Zero Top Rail Design for Unbroken Geometric Luxury Elevation"
+        ]
       }
-    }
+    },
+    "arabicDescription": "صُمم هذا النظام المعماري المزدوج خصيصاً للفلل والقصور المكسوة بالحجر الطبيعي وترافرتين المرمر، ليرسم حضوراً فخماً يجمع بين دفء الحجر وبريق الزجاج الإنشائي المصفح. يمنح التصميم ثنائي المستويات عمقاً معمارياً وحركة هندسية أنيقة لواجهات الفيلا، مع توفير أقصى درجات الخصوصية والأمان لأجنحة النوم الرئيسية وتراسات الاستقبال.\n\nتتميز ألواح الزجاج بلونها الرمادي الدخاني المعالج ضد الصدمات، حيث توفر عزلاً بصرياً ممتازاً في ساعات النهار مع عكس زرقة السماء ببريق زجاجي ناعم، بينما يتيح لمن بداخل البلكونة التمتع بالمناظر الطبيعية المحيطة بوضوح وراحة تامة. وتثبت الألواح عبر مجارٍ ألمنيوم هيكلية ثقيلة مخفية تماماً داخل الصبة الخرسانية وتحت أحزمة الحجر، مع إضاءات سبوتلايت موجهة في أسفل الشرفة تبرز جمال الواجهة ليلاً.\n\nنظام مصمم ليتحمل أعتى قوى الرياح وعوامل المناخ القاسية، مع ضمان ثبات يدوم لعشرات السنين دون الحاجة لصيانة معقدة.",
+    "kurdishName": "دەستەچنی باڵکۆنی شووشەیی دبل لامینەیت بۆ ڤێلای بەرد و تراڤەرتین بە ڕووناکی دڵگیر",
+    "kurdishDescription": "دیزاین کراوە بۆ ڤێلا و کۆشکە قەسرەکان کە بە بەردی سروشتی و تراڤەرتین داپۆشراون، تا دیمەنێکی مۆدێرن و شاهانە بە باڵکۆنەکان ببەخشێت. دیزاینی دوو نهۆمیی شووشەکە جوانی و قوڵاییەکی تەلارسازی بە ڕوکاری پێشەوەی بیناکە دەدات، و لە یەک کاتدا پارێزراوی تەواو بۆ ژوورەکانی خەوتن و تەراسی میوان دەستەبەر دەکات.\n\nشووشە سێکۆریتە لامینەیتە داپۆشراوەکە بە ڕەنگی ڕەساسی تۆخ کار کراوە کە لە ڕۆژدا ڕێگری لە بینینی ناوەوە دەکات و تیشکی تیژی خۆر کەم دەکاتەوە، لە کاتێکدا لە ناوەوە دیمەنێکی زۆر ڕوون دەبینیت. چوارچێوەی ئەلەمنیۆمی قورس لەناو کۆنکرێتی باڵکۆنەکەدا لەژێر بەردی تراڤەرتینەکەدا شاردراوەتەوە تا هیچ ئاسنێکی دەرکەوتوو نەبینرێت، لەگەڵ ڕووناکی سپۆتلایتی ئاراستەکراو لەژێر باڵکۆنەکە بۆ دروستکردنی دیمەنێکی سەرنجڕاکێش لە شەودا.\n\nبەرزترین ستانداردەکانی سەلامەتی ئەوروپی لەم سیستەمەدا ڕەچاوکراوە، کە بەرگری تەواوی هەیە بەرامبەر با و گۆڕانی کەشوهەوای ناوچەکە بۆ دەیان ساڵ."
   },
   {
     "id": "balcony-indoor-mezzanine-gallery",
     "name": "Interior Mezzanine & Courtyard Frameless Glass Balustrade with Flush Aluminum Cap",
-    "arabicName": "دربزين شرفة وبلكونة خارجية بزجاج إنشائي وإضاءة مخفية في فناء الفيلا",
+    "arabicName": "دربزين شرفة وبلكونة داخلية بزجاج إنشائي وإضاءة مخفية في فناء الفيلا الداخلي",
     "category": "balconies",
     "division": "balconies",
     "subCategory": "Mezzanine & Open-Gallery Balustrades",
@@ -187,36 +210,59 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/balconies/photo_67_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/balconies/photo_67_2026-09-26_07-36-01.jpg",
     "features": [
-      "Continuous Clear Glass Spans Across Dual Storey Open Well",
-      "Slim Anodized Micro Top Rail in Satin Black Anodized Finish",
-      "Concealed Expansion Joints for Perfectly Aligned Long Runs",
-      "Structural Dry-Glazed Gasket Clamping System for Zero Mess",
-      "Crystal Optic Transparency Accentuating High-Ceiling Architecture"
+      "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
+      "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
+      "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
+      "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+      "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
     ],
     "specs": {
-      "Height": "1100 mm Standard Safety Code Compliance",
-      "Base Profile": "Heavy-Duty Continuous 6063-T6 Aluminum Channel",
-      "Fixing Method": "Heavy-Duty Hilti M12 Expansion Anchors into Concrete Slab",
-      "Safety Rating": "Category B Structural Occupancy Load Rated"
+      "Glass Material": "16 mm / 20.76 mm Extra-Clear Optiwhite Laminated Safety Glass",
+      "Top Rail": "Minimalist 20 x 20 mm U-Channel Handrail in Satin Black Anodized",
+      "Mounting Shoe": "Recessed Heavy-Duty Floor Channel Alloy 6063-T6",
+      "Gasket Type": "Continuous Anti-Aging EPDM Clamping Gaskets",
+      "Impact Performance": "Certified 1.5 kN/m Heavy Interior Void Protection",
+      "Light Transmission": "91% (Highest Optical Purity)"
     },
-    "description": "A pristine architectural balustrade designed for interior light wells, courtyards, and mezzanine living areas, emphasizing verticality, transparency, and serene open-plan continuity.",
+    "description": "A pristine architectural balustrade engineered for interior light wells, central courtyard balconies, and double-height mezzanine galleries. Designed to emphasize verticality, light continuity, and open-plan spatial harmony, this minimalist system connects upper-level corridors with ground-floor living salons through crystal-clear Optiwhite low-iron structural glass.\n\nEquipped with a micro-profile flush aluminum top cap in satin anodized black or champagne finish, the balustrade provides a defined tactile hand-rest without introducing visual bulk. High-precision dry-glazed EPDM structural gaskets ensure a silent, squeak-free installation with zero adhesive mess, while the bottom profile is fully concealed within the finished floor screed. The exceptional clarity of the glass allows maximum natural illumination from central roof skylights to penetrate deep into the lower living spaces.\n\nA masterclass in contemporary interior architecture, providing certified fall protection and structural rigidity while maintaining an atmosphere of sheer weightlessness.",
     "translations": {
       "ar": {
-        "name": "دربزين شرفة وبلكونة خارجية بزجاج إنشائي وإضاءة مخفية في فناء الفيلا",
-        "subCategory": "دربزينات الأفنية والبلكونات الإنشائية",
-        "description": "حاجز زجاجي شفاف فائق النقاء مصمم للبلكونات الداخلية والمطلات العلوية، يمنحك شعوراً بالاتساع والرحابة وانسيابية الضوء في أرجاء المكان مع أعلى معايير الأمان الإنشائي."
+        "name": "دربزين شرفة وبلكونة داخلية بزجاج إنشائي وإضاءة مخفية في فناء الفيلا الداخلي",
+        "description": "حاجز زجاجي شفاف فائق النقاء مصمم خصيصاً للبلكونات والمطلات الداخلية المحيطة بالأفنية السماوية ومناور الإضاءة المفتوحة في الفلل الفخمة. يعزز هذا النظام انسيابية الضوء والاتصال البصري بين الصالات السفلية وممرات الطابق العلوي، ليعطي إحساساً رائعاً بارتفاع الأسقف والرحابة المعمارية.\n\nيتميز النظام بقضيب علوي فائق النحافة (Micro Top Cap) من الألمنيوم المؤكسد بلون أسود ساتان أو شامبين، يمنح مسكة يد مريحة وآمنة دون حجب الرؤية أو المساس ببساطة التصميم. وتثبت ألواح الزجاج الإنشائي فائق النقاء (Optiwhite) بسماكة 16 إلى 21.5 ملم بواسطة جوانات مطاطية هندسية تمنع أي صرير أو اهتزاز أثناء الاستناد، مع دفن بروفايل التثبيت السفلي بالكامل تحت مستوى الرخام.\n\nتحفة معمارية داخلية تجمع بين أعلى معايير الأمان الإنشائي والشفافية البصرية الكاملة، لتسمح للضوء الطبيعي بالتغلغل في أرجاء المنزل بكل سلاسة.",
+        "features": [
+          "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
+          "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
+          "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
+          "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+          "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شووشەی بێ-چوارچێوە بۆ باڵکۆنی ناوەوە و حەوشەی ڤێلا",
-        "subCategory": "دەربزینی باڵکۆن و هۆڵی کراوە",
-        "description": "دەربزینێکی شووشەیی ڕوونی سەردەمی بۆ باڵکۆن و هۆڵە بەرزەکان، کە هەستی فراوانی و ڕووناکی بێسنوور دەبەخشێت بە خانووەکەت لەگەڵ بەرزترین مەرجی سەلامەتی ئەندازیاری."
+        "name": "دەستەچنی شووشەیی باڵکۆنی ناوخۆیی و گەلەری بە کڵاوی ئەلەمنیۆمی زۆر باریک",
+        "description": "دەستەچنێکی شووشەیی ڕوونی بێ چوارچێوەیە کە بە تایبەتی بۆ باڵکۆن و شوێنە کراوەکانی ناوەوەی ڤێلا لە دەوری فەزای ناوەندی و مناوەر دیزاین کراوە. ئەم سیستەمە پەیوەندییەکی بینراوی جوان لە نێوان هۆڵی خوارەوە و ڕێڕەوەکانی نهۆمی سەرەوە دروست دەکات، تا هەستێکی پڕ لە ڕووناکی و بەرزی بە سەقف و ژوورەکان ببەخشێت.\n\nدەستەچنەکە بە کڵاوێکی ئەلەمنیۆمی زۆر باریکی ڕەشی مات یان شامپاین لە سەرەوە تەواو کراوە کە دەستگرتنێکی ئاسوودە و سەلامەت دابین دەکات بێ ئەوەی دیمەنی شووشەکە بشێوێنێت. شووشە ئەستوورە دبل سێکۆریتە Optiwhite ە ڕوونەکە بە لاستیکی ئەندازیاری EPDM جێگیر دەکرێت تا هیچ دەنگ و لەرزینێک دروست نەکات لە کاتی پاڵپێوەناندا، و چوارچێوەی خوارەوەشی لەژێر مەڕمەڕدا شاردراوەتەوە.\n\nشاکارێکی ناوخۆیی مۆدێرنە کە پاراستنی سەدا سەد و ڕوونی بێگەرد دەبەخشێت تا ڕووناکی سروشتی سەربان بە تەواوی ماڵەکەدا بڵاوببێتەوە.",
+        "features": [
+          "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
+          "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
+          "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
+          "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+          "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
+        ]
       },
       "en": {
         "name": "Interior Mezzanine & Courtyard Frameless Glass Balustrade with Flush Aluminum Cap",
-        "subCategory": "Mezzanine & Open-Gallery Balustrades",
-        "description": "A pristine architectural balustrade designed for interior light wells, courtyards, and mezzanine living areas, emphasizing verticality, transparency, and serene open-plan continuity."
+        "description": "A pristine architectural balustrade engineered for interior light wells, central courtyard balconies, and double-height mezzanine galleries. Designed to emphasize verticality, light continuity, and open-plan spatial harmony, this minimalist system connects upper-level corridors with ground-floor living salons through crystal-clear Optiwhite low-iron structural glass.\n\nEquipped with a micro-profile flush aluminum top cap in satin anodized black or champagne finish, the balustrade provides a defined tactile hand-rest without introducing visual bulk. High-precision dry-glazed EPDM structural gaskets ensure a silent, squeak-free installation with zero adhesive mess, while the bottom profile is fully concealed within the finished floor screed. The exceptional clarity of the glass allows maximum natural illumination from central roof skylights to penetrate deep into the lower living spaces.\n\nA masterclass in contemporary interior architecture, providing certified fall protection and structural rigidity while maintaining an atmosphere of sheer weightlessness.",
+        "features": [
+          "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
+          "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
+          "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
+          "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+          "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
+        ]
       }
-    }
+    },
+    "arabicDescription": "حاجز زجاجي شفاف فائق النقاء مصمم خصيصاً للبلكونات والمطلات الداخلية المحيطة بالأفنية السماوية ومناور الإضاءة المفتوحة في الفلل الفخمة. يعزز هذا النظام انسيابية الضوء والاتصال البصري بين الصالات السفلية وممرات الطابق العلوي، ليعطي إحساساً رائعاً بارتفاع الأسقف والرحابة المعمارية.\n\nيتميز النظام بقضيب علوي فائق النحافة (Micro Top Cap) من الألمنيوم المؤكسد بلون أسود ساتان أو شامبين، يمنح مسكة يد مريحة وآمنة دون حجب الرؤية أو المساس ببساطة التصميم. وتثبت ألواح الزجاج الإنشائي فائق النقاء (Optiwhite) بسماكة 16 إلى 21.5 ملم بواسطة جوانات مطاطية هندسية تمنع أي صرير أو اهتزاز أثناء الاستناد، مع دفن بروفايل التثبيت السفلي بالكامل تحت مستوى الرخام.\n\nتحفة معمارية داخلية تجمع بين أعلى معايير الأمان الإنشائي والشفافية البصرية الكاملة، لتسمح للضوء الطبيعي بالتغلغل في أرجاء المنزل بكل سلاسة.",
+    "kurdishName": "دەستەچنی شووشەیی باڵکۆنی ناوخۆیی و گەلەری بە کڵاوی ئەلەمنیۆمی زۆر باریک",
+    "kurdishDescription": "دەستەچنێکی شووشەیی ڕوونی بێ چوارچێوەیە کە بە تایبەتی بۆ باڵکۆن و شوێنە کراوەکانی ناوەوەی ڤێلا لە دەوری فەزای ناوەندی و مناوەر دیزاین کراوە. ئەم سیستەمە پەیوەندییەکی بینراوی جوان لە نێوان هۆڵی خوارەوە و ڕێڕەوەکانی نهۆمی سەرەوە دروست دەکات، تا هەستێکی پڕ لە ڕووناکی و بەرزی بە سەقف و ژوورەکان ببەخشێت.\n\nدەستەچنەکە بە کڵاوێکی ئەلەمنیۆمی زۆر باریکی ڕەشی مات یان شامپاین لە سەرەوە تەواو کراوە کە دەستگرتنێکی ئاسوودە و سەلامەت دابین دەکات بێ ئەوەی دیمەنی شووشەکە بشێوێنێت. شووشە ئەستوورە دبل سێکۆریتە Optiwhite ە ڕوونەکە بە لاستیکی ئەندازیاری EPDM جێگیر دەکرێت تا هیچ دەنگ و لەرزینێک دروست نەکات لە کاتی پاڵپێوەناندا، و چوارچێوەی خوارەوەشی لەژێر مەڕمەڕدا شاردراوەتەوە.\n\nشاکارێکی ناوخۆیی مۆدێرنە کە پاراستنی سەدا سەد و ڕوونی بێگەرد دەبەخشێت تا ڕووناکی سروشتی سەربان بە تەواوی ماڵەکەدا بڵاوببێتەوە."
   },
   {
     "id": "balcony-cantilever-dark-glass",
@@ -232,40 +278,63 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "fallbackImage": "/products-assets/balconies/photo_68_2026-09-26_07-36-01.jpg",
     "features": [
       "Cantilever Structural Geometry Matching Modernist Cube Architecture",
-      "Reflective Tinted Glass Providing Absolute Privacy from Exterior Street Angles",
-      "Completely Flush Bottom Attachment into Travertine Balcony Soffit",
-      "Hydrophobic Self-Cleaning Glass Nano-Coating Resisting Dust & Water Spots",
-      "Wind Pressure Rating Exceeding 2.0 kPa"
+      "Reflective Dark Laminated Glass Providing Absolute Street Privacy",
+      "Completely Flush Bottom Sub-Floor Attachment into Balcony Soffit",
+      "Hydrophobic Nano-Coating Repelling Rain Streaks, Dust & Water Spots",
+      "Aerodynamic Wind Pressure Rating Exceeding 2.2 kPa on Exposed Balconies"
     ],
     "specs": {
-      "Total Thickness": "21.52 mm (10 mm Glass + 1.52 mm Black PVB + 10 mm Glass)",
-      "Finish Options": "Onyx Black, Deep Bronze, or Mirror Smoke",
-      "Drainage": "Integrated Concealed Water Weep Channels",
-      "Glass Edge": "Machine Flat Polished and Arris Beveled Edges"
+      "System Type": "Frameless Structural Cantilever Balcony System",
+      "Glass Build": "10+10 mm Toughened Laminated Dark Grey (21.52 mm overall)",
+      "Interlayer": "1.52 mm Structural PVB Solar-Control Membrane",
+      "Base Channel": "Recessed Concealed Alloy 6060-T6 Heavy Base Profile",
+      "Wind Resistance": "Aerodynamic Tested > 2.2 kPa Continuous Wind Load",
+      "Surface Treatment": "Dual-Sided Hydrophobic Anti-Stain Nano Polymer"
     },
-    "description": "A daring cantilevered balcony statement featuring dark mirrored structural glass that harmonizes with stone and dark wood rainscreen cladding while providing impenetrable privacy for upper-level master suites.",
+    "description": "A daring architectural statement designed for projecting cantilevered balconies, upper terraces, and modernist cube villas. Featuring deep dark tinted structural laminated glass, this system harmonizes flawlessly with natural limestone, travertine, and dark wood rainscreen cladding while providing impenetrable privacy for upper-level master bedroom suites.\n\nConstructed with monolithic 10+10 mm tempered laminated safety glass, the panels reflect external light during daytime hours, completely shielding the bedroom and balcony interior from street sightlines while maintaining a crystal-clear, sun-softened view from within. The balustrade is anchored into the reinforced concrete slab via a heavy-gauge structural aluminum sub-shoe with hidden expansion anchors, completely concealed beneath stone floor tiles so the glass rises effortlessly from the balcony deck. Specialized hydrophobic coatings on the exterior glass face repel rain streaks, dust accumulation, and water spots.\n\nEngineered to withstand heavy aerodynamic wind loads and thermal cycling, this cantilevered glass balcony delivers a striking, futuristic silhouette and absolute family privacy.",
     "translations": {
       "ar": {
         "name": "بلكونة معمارية كابولية بارزة بزجاج داكن للخصوصية ومثبتة ببروفايل أرضي مخفي",
-        "subCategory": "بلكونات معمارية كابولية",
-        "description": "تصميم جريء ومستقبلي للبلكونات البارزة لغرف النوم الرئيسية. زجاج مصفح أسود داكن يمنحك عزلاً بصرياً كاملاً من الخارج مع الحفاظ على الإطلالة المفتوحة من الداخل وثبات إنشائي فائق."
+        "description": "تصميم جريء ومستقبلي للبلكونات المعمارية البارزة وتراسات غرف النوم الماستر في الفلل الحديثة ذات الكتل الهندسية المكعبة. يجمع هذا النظام بين فخامة الزجاج الإنشائي المصفح الداكن والتناغم التام مع واجهات الحجر والكسوات الخشبية العصرية، ليمنحك خصوصية مطلقة لا يمكن اختراقها من الشارع.\n\nصُنعت الألواح من زجاج مقسى ومصفح مزدوج بسماكة (10+10 ملم) بلون رمادي دخاني معتم، حيث يعمل السطح الخارجي في النهار كمرآة عاكسة تعزل الفراغات الداخلية تماماً عن أعين المارة بينما يتمتع الجالسون في الداخل بإطلالة مريحة وخالية من التوهج. وتثبت الألواح بقاعدة ألمنيوم إنشائية ثقيلة تُدفن بالكامل في الصبة الخرسانية وتحت بلاط الشرفة، لتظهر ألواح الزجاج وكأنها تنبثق مباشرة من الأرضية دون أي براغٍ أو حواف معدنية ظاهرة.\n\nنظام مصفح عالي القوة مصمم ليقاوم ضغوط الرياح الشديدة على أطراف البلكونات المعلقة مع معالجة نانوية للزجاج تمنع التصاق الأتربة وبقع الأمطار، ليوفر لفيلاك إطلالة فاخرة تدوم طويلاً.",
+        "features": [
+          "Cantilever Structural Geometry Matching Modernist Cube Architecture",
+          "Reflective Dark Laminated Glass Providing Absolute Street Privacy",
+          "Completely Flush Bottom Sub-Floor Attachment into Balcony Soffit",
+          "Hydrophobic Nano-Coating Repelling Rain Streaks, Dust & Water Spots",
+          "Aerodynamic Wind Pressure Rating Exceeding 2.2 kPa on Exposed Balconies"
+        ]
       },
       "ckb": {
-        "name": "باڵکۆنی نژیاروانی دەرپەڕیو بە شووشەی تاریکی مۆدێرن و پڕۆفایلی شاراوە",
-        "subCategory": "باڵکۆنی دەرپەڕیوی شووشەیی",
-        "description": "دیزاینێکی پێشکەوتوو بۆ باڵکۆنە دەرپەڕیوەکانی نهۆمی سەرەوە، بە شووشەی تاریکی ئەستوور کە لە دەرەوە ناوەوە دیار نییە و پەستانێکی بێوێنەی با ڕادەگرێت."
+        "name": "باڵکۆنی تەلارسازیی کانتلیڤەر بە شووشەی تاریکی داپۆشراو و پرۆفایلی شاراوە",
+        "description": "دیزاینێکی بوێرانە و هاوچەرخە بۆ باڵکۆنە هەڵواسراو و دەرپەڕیوەکانی ڤێلا مۆدێرنەکان و ژووری خەوتنی سەرەکی ماستەر. ئەم سیستەمە لە نێوان جوانی شووشەی ئەندازیاری تاریک و ڕوکاری بەردی سروشتی و داری مۆدێرندا هاوسەنگی دروست دەکات، تا تایبەتمەندی و داپۆشراوییەکی بێوێنە دەستەبەر بکات کە لە دەرەوە بە هیچ جۆرێک ناوەوە نەبینرێت.\n\nتەختە شووشە ئەستوورە دبل سێکۆریتەکان ١٠+١٠ ملم لە دەرەوە بە تەواوی وەک ئاوێنەی تاریک کار دەکەن و چاوی دەرەوە دەشکێنن، لە کاتێکدا لە ناوەوە دەتوانیت بە ئاسوودەیی دیمەنی دەرەوە ببینی بێ ئەوەی تیشکی تیژی خۆر بێزارت بکات. پایەی ئەلەمنیۆمی قورسی خوارەوە بە تەواوی لەناو کۆنکرێت و لەژێر کاشی باڵکۆنەکەدا دەشاردرێتەوە، تا وا دەربکەوێت شووشەکان بەبێ هیچ جێگیرکەرێکی کانزایی لە زەوییەکەوە سەرکەوتبن.\n\nبە تەکنەلۆژیای نانۆ داپۆشراوە بۆ ڕێگری لە لکانی تەپوتۆز و دڵۆپەی باران، و بەرگەی توندترین ڕەشەبای نهۆمە بەرزەکان دەگرێت تا سەلامەتی و ئارامی بۆ خێزانەکەت دەستەبەر بکات.",
+        "features": [
+          "Cantilever Structural Geometry Matching Modernist Cube Architecture",
+          "Reflective Dark Laminated Glass Providing Absolute Street Privacy",
+          "Completely Flush Bottom Sub-Floor Attachment into Balcony Soffit",
+          "Hydrophobic Nano-Coating Repelling Rain Streaks, Dust & Water Spots",
+          "Aerodynamic Wind Pressure Rating Exceeding 2.2 kPa on Exposed Balconies"
+        ]
       },
       "en": {
         "name": "Cantilevered Villa Glass Balcony Railing with Dark Tinted Laminated Glass & Concealed Base Profile",
-        "subCategory": "Cantilever Balconies & Exterior Railings",
-        "description": "A daring cantilevered balcony statement featuring dark mirrored structural glass that harmonizes with stone and dark wood rainscreen cladding while providing impenetrable privacy for upper-level master suites."
+        "description": "A daring architectural statement designed for projecting cantilevered balconies, upper terraces, and modernist cube villas. Featuring deep dark tinted structural laminated glass, this system harmonizes flawlessly with natural limestone, travertine, and dark wood rainscreen cladding while providing impenetrable privacy for upper-level master bedroom suites.\n\nConstructed with monolithic 10+10 mm tempered laminated safety glass, the panels reflect external light during daytime hours, completely shielding the bedroom and balcony interior from street sightlines while maintaining a crystal-clear, sun-softened view from within. The balustrade is anchored into the reinforced concrete slab via a heavy-gauge structural aluminum sub-shoe with hidden expansion anchors, completely concealed beneath stone floor tiles so the glass rises effortlessly from the balcony deck. Specialized hydrophobic coatings on the exterior glass face repel rain streaks, dust accumulation, and water spots.\n\nEngineered to withstand heavy aerodynamic wind loads and thermal cycling, this cantilevered glass balcony delivers a striking, futuristic silhouette and absolute family privacy.",
+        "features": [
+          "Cantilever Structural Geometry Matching Modernist Cube Architecture",
+          "Reflective Dark Laminated Glass Providing Absolute Street Privacy",
+          "Completely Flush Bottom Sub-Floor Attachment into Balcony Soffit",
+          "Hydrophobic Nano-Coating Repelling Rain Streaks, Dust & Water Spots",
+          "Aerodynamic Wind Pressure Rating Exceeding 2.2 kPa on Exposed Balconies"
+        ]
       }
-    }
+    },
+    "arabicDescription": "تصميم جريء ومستقبلي للبلكونات المعمارية البارزة وتراسات غرف النوم الماستر في الفلل الحديثة ذات الكتل الهندسية المكعبة. يجمع هذا النظام بين فخامة الزجاج الإنشائي المصفح الداكن والتناغم التام مع واجهات الحجر والكسوات الخشبية العصرية، ليمنحك خصوصية مطلقة لا يمكن اختراقها من الشارع.\n\nصُنعت الألواح من زجاج مقسى ومصفح مزدوج بسماكة (10+10 ملم) بلون رمادي دخاني معتم، حيث يعمل السطح الخارجي في النهار كمرآة عاكسة تعزل الفراغات الداخلية تماماً عن أعين المارة بينما يتمتع الجالسون في الداخل بإطلالة مريحة وخالية من التوهج. وتثبت الألواح بقاعدة ألمنيوم إنشائية ثقيلة تُدفن بالكامل في الصبة الخرسانية وتحت بلاط الشرفة، لتظهر ألواح الزجاج وكأنها تنبثق مباشرة من الأرضية دون أي براغٍ أو حواف معدنية ظاهرة.\n\nنظام مصفح عالي القوة مصمم ليقاوم ضغوط الرياح الشديدة على أطراف البلكونات المعلقة مع معالجة نانوية للزجاج تمنع التصاق الأتربة وبقع الأمطار، ليوفر لفيلاك إطلالة فاخرة تدوم طويلاً.",
+    "kurdishName": "باڵکۆنی تەلارسازیی کانتلیڤەر بە شووشەی تاریکی داپۆشراو و پرۆفایلی شاراوە",
+    "kurdishDescription": "دیزاینێکی بوێرانە و هاوچەرخە بۆ باڵکۆنە هەڵواسراو و دەرپەڕیوەکانی ڤێلا مۆدێرنەکان و ژووری خەوتنی سەرەکی ماستەر. ئەم سیستەمە لە نێوان جوانی شووشەی ئەندازیاری تاریک و ڕوکاری بەردی سروشتی و داری مۆدێرندا هاوسەنگی دروست دەکات، تا تایبەتمەندی و داپۆشراوییەکی بێوێنە دەستەبەر بکات کە لە دەرەوە بە هیچ جۆرێک ناوەوە نەبینرێت.\n\nتەختە شووشە ئەستوورە دبل سێکۆریتەکان ١٠+١٠ ملم لە دەرەوە بە تەواوی وەک ئاوێنەی تاریک کار دەکەن و چاوی دەرەوە دەشکێنن، لە کاتێکدا لە ناوەوە دەتوانیت بە ئاسوودەیی دیمەنی دەرەوە ببینی بێ ئەوەی تیشکی تیژی خۆر بێزارت بکات. پایەی ئەلەمنیۆمی قورسی خوارەوە بە تەواوی لەناو کۆنکرێت و لەژێر کاشی باڵکۆنەکەدا دەشاردرێتەوە، تا وا دەربکەوێت شووشەکان بەبێ هیچ جێگیرکەرێکی کانزایی لە زەوییەکەوە سەرکەوتبن.\n\nبە تەکنەلۆژیای نانۆ داپۆشراوە بۆ ڕێگری لە لکانی تەپوتۆز و دڵۆپەی باران، و بەرگەی توندترین ڕەشەبای نهۆمە بەرزەکان دەگرێت تا سەلامەتی و ئارامی بۆ خێزانەکەت دەستەبەر بکات."
   },
   {
     "id": "shorfa-terrace-panoramic-open",
     "name": "Panoramic Outdoor Terrace Glass Balustrade with Minimal Posts & Unobstructed Horizon Views",
-    "arabicName": "حاجز شرفة وتراس زجاجي خارجي بإطلالة بانورامية واسعة وأعمدة تثبيت أنيقة",
+    "arabicName": "حاجز شرفة وتراس زجاجي بانورامي مفتوح مع أعمدة نحيفة وإطلالة لا متناهية على الأفق",
     "category": "shorfa",
     "division": "shorfa",
     "subCategory": "Outdoor Terrace Glass Systems",
@@ -276,40 +345,63 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "fallbackImage": "/products-assets/shorfa/photo_11_2026-09-26_07-36-01.jpg",
     "features": [
       "Unobstructed Wide-Span Glass Panels for Expansive Garden & Horizon Views",
-      "Heavy-Duty Slim Architectural Uprights in Matte Black Finish",
-      "Engineered for High-Exposure Rooftop & Upper Terrace Wind Conditions",
-      "Concealed Bottom Clamping Gaskets Preventing Vibration & Rattle",
-      "UV-Resistant Dual-Sealed Safety Edge Interlayers"
+      "High-Tensile 6063-T6 Aluminum Uprights with 25-Micron Architectural Matte Black Finish",
+      "Certified for High-Exposure Rooftop & Elevated Terrace Wind Pressures up to 2.0 kN/m",
+      "Concealed Silicone Vibration-Dampening Gaskets Eliminating Wind Whistling & Rattle",
+      "Continuous Integrated Weep-Hole Drainage System Preventing Water Stagnation"
     ],
     "specs": {
-      "Glass Thickness": "16 mm Heavy Structural Tempered Glass",
-      "Post Spacing": "Up to 1.5 m Modular Center-to-Center Spans",
-      "Height": "1100 mm Building Code Verified",
-      "Corrosion Resistance": "C4 Marine Grade Coating Rating"
+      "Glass Type": "16 mm to 21.52 mm Low-Iron Tempered Laminated Safety Glass",
+      "Interlayer": "1.52 mm High-Tensile Structural PVB",
+      "Profile": "Architectural Extruded 6063-T6 Aluminum",
+      "Surface Finish": "Qualicoat Class 2 Electrostatic Matte Black",
+      "Wind Load Rating": "Class C5 (Up to 2.0 kN/m)",
+      "Safety Compliance": "EN 12600 Class 1B1 / BS 6180 Heavy Residential"
     },
-    "description": "Transform your villa terrace or penthouse roof garden into a boundless outdoor lounge. This minimalist glass balustrade keeps wind at bay while maximizing pristine landscape panoramas.",
+    "description": "Transform your villa terrace, rooftop sky lounge, or penthouse garden into an expansive architectural living space with our Panoramic Open Glass Shorfa Balustrade System. Specifically engineered for elevated outdoor applications, this high-performance system pairs monolithic 16 mm to 21.52 mm low-iron tempered laminated glass panels with ultra-slimline structural aluminum uprights in a deep matte black electrostatic powder finish, providing certified barrier safety without disrupting your panoramic skyline or garden vistas.\n\nEach glass panel features precision CNC-polished flat edges and a dual-layer acoustic and structural PVB interlayer that dampens exterior wind buffeting while resisting severe thermal expansion and high regional wind loads. Custom internal silicone-cushioned clamp gaskets eliminate mechanical rattling and whistling during high-wind storms, while concealed base drainage weep channels ensure swift rainwater evacuation with zero pooling along the terrace perimeter.\n\nEngineered to comply with stringent European EN 12600 and BS 6180 structural safety codes, this balustrade delivers an uncompromising standard of durability, child-safe peace of mind, and timeless minimalist elegance for modern luxury villas.",
     "translations": {
       "ar": {
-        "name": "حاجز شرفة وتراس زجاجي خارجي بإطلالة بانورامية واسعة وأعمدة تثبيت أنيقة",
-        "subCategory": "أنظمة شرفات وتراسات خارجية",
-        "description": "حوّل تراس منزلك أو حديقة السطح إلى واحة استرخاء مفتوحة على الأفق. يوفر هذا النظام حماية ممتازة من الرياح مع إطلالة مفتوحة 100% دون أي عوائق بصرية."
+        "name": "حاجز شرفة وتراس زجاجي بانورامي مفتوح مع أعمدة نحيفة وإطلالة لا متناهية على الأفق",
+        "description": "ارتقِ بجلسات التراس العلوية وحدائق الأسطح في فيلتك إلى مستوى جديد تماماً من الفخامة والانفتاح مع نظام دربزين الشرفات الزجاجي البانورامي المفتوح. صُمم هذا النظام الهندسي المتقدم خصيصاً للمساحات الخارجية المعرضة لتقلبات الطقس والرياح، حيث يجمع بين ألواح الزجاج المقسى فائق النقاء وسماكة 16 إلى 21.5 ملم مع أعمدة ألمنيوم معمارية فائقة النحافة باللون الأسود المطفي، ليمنحك حماية متكاملة دون حجب إطلالة الحديقة أو الأفق الخارجي.\n\nتتميز ألواح الزجاج بمعالجة حرارية مزدوجة وطبقات أمان مصفحة عازلة للصوت ومقاومة للكسر والصدمات العنيفة، بالإضافة إلى جوانات مطاطية مرنة مدمجة داخل مجاري التثبيت تمنع حدوث أي اهتزازات أو صفير ناتج عن الرياح أثناء العواصف الترابية الصيفية. كما تم تزويد القاعدة السفلية بفتحات تصريف مخفية تضمن انسياب مياه الأمطار والغسيل تلقائياً دون أي تراكم للمياه.\n\nاستثمار معماري مثالي للفلل العصرية وتراسات البنتهاوس الراقية، يوفر أماناً شاملاً لأفراد العائلة مع إحساس مطلق بالاتساع والحرية البصرية طوال فصول السنة.",
+        "features": [
+          "Unobstructed Wide-Span Glass Panels for Expansive Garden & Horizon Views",
+          "High-Tensile 6063-T6 Aluminum Uprights with 25-Micron Architectural Matte Black Finish",
+          "Certified for High-Exposure Rooftop & Elevated Terrace Wind Pressures up to 2.0 kN/m",
+          "Concealed Silicone Vibration-Dampening Gaskets Eliminating Wind Whistling & Rattle",
+          "Continuous Integrated Weep-Hole Drainage System Preventing Water Stagnation"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شووشەیی تراس و شرفەی دەرەوە بە دیمەنی پانۆرامای کراوە",
-        "subCategory": "سیستەمی شرفە و تراسەکان",
-        "description": "تراسەکەت بکە بە شوێنێکی دڵڕفێن بە شووشەی ئەستووری پارێزراو لە با کە دیمەنێکی پانۆرامای تەواو لە سروشت و دەوروبەر پێشکەش دەکات بەبێ هیچ بەربەستێک."
+        "name": "پەرژینی شووشەیی پانۆرامای تەراسی دەرەوە بە کۆڵەکەی زۆر باریک و دیمەنی کراوەی ئاسۆ",
+        "description": "تەراس و باخچەی سەربانی ڤێلاکەت بگۆڕە بۆ شوێنێکی حەوانەوەی شاهانە و کراوە لەگەڵ سیستەمی پێشکەوتووی پەرژینی شووشەیی پانۆرامای شۆرفە. ئەم سیستەمە ئەندازیارییە نایابە بە تایبەتی بۆ شوێنە بەرزە کراوەکان دیزاین کراوە و شووشەی ئەستووری مۆنۆلیتی ١٦ تا ٢١.٥ ملم لەگەڵ کۆڵەکەی ئەلەمنیۆمی زۆر باریکی ڕەشی مات کۆدەکاتەوە، تا بەبێ گرتنی دیمەنی سروشت و ئاسۆ بەرزترین ئاستی سەلامەتیت بۆ مسۆگەر بکات.\n\nشووشەکان بە دوو چین سێکۆریت و لامینەیت دروستکراون کە بەرگرییەکی بێوێنەیان هەیە دژی شکان و پەستانی بەهێزی با و گەرمای هاوین، و لاستیکی تایبەتی ناوەکی ڕێگری دەکات لە هەر لەرزین یان دەنگی فیکەی با لە کاتی ڕەشەبادا. هەروەها کەناڵی ئاوەڕۆی شاراوەی لەژێرەوە بۆ دانراوە تا ئاوی باران کۆنەبێتەوە و بە خێرایی بڕوات.\n\nهەڵبژاردەیەکی نموونەییە بۆ ڤێلا هاوچەرخەکان و پنتهاوس، کە ئارامی و سەلامەتی بۆ خێزانەکەت دەستەبەر دەکات هاوکات لەگەڵ بەخشینی هەستێکی بێسنوور لە فراوانی و جوانی تەلارسازی.",
+        "features": [
+          "Unobstructed Wide-Span Glass Panels for Expansive Garden & Horizon Views",
+          "High-Tensile 6063-T6 Aluminum Uprights with 25-Micron Architectural Matte Black Finish",
+          "Certified for High-Exposure Rooftop & Elevated Terrace Wind Pressures up to 2.0 kN/m",
+          "Concealed Silicone Vibration-Dampening Gaskets Eliminating Wind Whistling & Rattle",
+          "Continuous Integrated Weep-Hole Drainage System Preventing Water Stagnation"
+        ]
       },
       "en": {
         "name": "Panoramic Outdoor Terrace Glass Balustrade with Minimal Posts & Unobstructed Horizon Views",
-        "subCategory": "Outdoor Terrace Glass Systems",
-        "description": "Transform your villa terrace or penthouse roof garden into a boundless outdoor lounge. This minimalist glass balustrade keeps wind at bay while maximizing pristine landscape panoramas."
+        "description": "Transform your villa terrace, rooftop sky lounge, or penthouse garden into an expansive architectural living space with our Panoramic Open Glass Shorfa Balustrade System. Specifically engineered for elevated outdoor applications, this high-performance system pairs monolithic 16 mm to 21.52 mm low-iron tempered laminated glass panels with ultra-slimline structural aluminum uprights in a deep matte black electrostatic powder finish, providing certified barrier safety without disrupting your panoramic skyline or garden vistas.\n\nEach glass panel features precision CNC-polished flat edges and a dual-layer acoustic and structural PVB interlayer that dampens exterior wind buffeting while resisting severe thermal expansion and high regional wind loads. Custom internal silicone-cushioned clamp gaskets eliminate mechanical rattling and whistling during high-wind storms, while concealed base drainage weep channels ensure swift rainwater evacuation with zero pooling along the terrace perimeter.\n\nEngineered to comply with stringent European EN 12600 and BS 6180 structural safety codes, this balustrade delivers an uncompromising standard of durability, child-safe peace of mind, and timeless minimalist elegance for modern luxury villas.",
+        "features": [
+          "Unobstructed Wide-Span Glass Panels for Expansive Garden & Horizon Views",
+          "High-Tensile 6063-T6 Aluminum Uprights with 25-Micron Architectural Matte Black Finish",
+          "Certified for High-Exposure Rooftop & Elevated Terrace Wind Pressures up to 2.0 kN/m",
+          "Concealed Silicone Vibration-Dampening Gaskets Eliminating Wind Whistling & Rattle",
+          "Continuous Integrated Weep-Hole Drainage System Preventing Water Stagnation"
+        ]
       }
-    }
+    },
+    "arabicDescription": "ارتقِ بجلسات التراس العلوية وحدائق الأسطح في فيلتك إلى مستوى جديد تماماً من الفخامة والانفتاح مع نظام دربزين الشرفات الزجاجي البانورامي المفتوح. صُمم هذا النظام الهندسي المتقدم خصيصاً للمساحات الخارجية المعرضة لتقلبات الطقس والرياح، حيث يجمع بين ألواح الزجاج المقسى فائق النقاء وسماكة 16 إلى 21.5 ملم مع أعمدة ألمنيوم معمارية فائقة النحافة باللون الأسود المطفي، ليمنحك حماية متكاملة دون حجب إطلالة الحديقة أو الأفق الخارجي.\n\nتتميز ألواح الزجاج بمعالجة حرارية مزدوجة وطبقات أمان مصفحة عازلة للصوت ومقاومة للكسر والصدمات العنيفة، بالإضافة إلى جوانات مطاطية مرنة مدمجة داخل مجاري التثبيت تمنع حدوث أي اهتزازات أو صفير ناتج عن الرياح أثناء العواصف الترابية الصيفية. كما تم تزويد القاعدة السفلية بفتحات تصريف مخفية تضمن انسياب مياه الأمطار والغسيل تلقائياً دون أي تراكم للمياه.\n\nاستثمار معماري مثالي للفلل العصرية وتراسات البنتهاوس الراقية، يوفر أماناً شاملاً لأفراد العائلة مع إحساس مطلق بالاتساع والحرية البصرية طوال فصول السنة.",
+    "kurdishName": "پەرژینی شووشەیی پانۆرامای تەراسی دەرەوە بە کۆڵەکەی زۆر باریک و دیمەنی کراوەی ئاسۆ",
+    "kurdishDescription": "تەراس و باخچەی سەربانی ڤێلاکەت بگۆڕە بۆ شوێنێکی حەوانەوەی شاهانە و کراوە لەگەڵ سیستەمی پێشکەوتووی پەرژینی شووشەیی پانۆرامای شۆرفە. ئەم سیستەمە ئەندازیارییە نایابە بە تایبەتی بۆ شوێنە بەرزە کراوەکان دیزاین کراوە و شووشەی ئەستووری مۆنۆلیتی ١٦ تا ٢١.٥ ملم لەگەڵ کۆڵەکەی ئەلەمنیۆمی زۆر باریکی ڕەشی مات کۆدەکاتەوە، تا بەبێ گرتنی دیمەنی سروشت و ئاسۆ بەرزترین ئاستی سەلامەتیت بۆ مسۆگەر بکات.\n\nشووشەکان بە دوو چین سێکۆریت و لامینەیت دروستکراون کە بەرگرییەکی بێوێنەیان هەیە دژی شکان و پەستانی بەهێزی با و گەرمای هاوین، و لاستیکی تایبەتی ناوەکی ڕێگری دەکات لە هەر لەرزین یان دەنگی فیکەی با لە کاتی ڕەشەبادا. هەروەها کەناڵی ئاوەڕۆی شاراوەی لەژێرەوە بۆ دانراوە تا ئاوی باران کۆنەبێتەوە و بە خێرایی بڕوات.\n\nهەڵبژاردەیەکی نموونەییە بۆ ڤێلا هاوچەرخەکان و پنتهاوس، کە ئارامی و سەلامەتی بۆ خێزانەکەت دەستەبەر دەکات هاوکات لەگەڵ بەخشینی هەستێکی بێسنوور لە فراوانی و جوانی تەلارسازی."
   },
   {
     "id": "shorfa-wall-mounted-soffit-led",
     "name": "Wall-Mounted Structural Glass Shorfa Railing with Integrated Soffit Ambient LED Lighting",
-    "arabicName": "دربزين شرفة زجاجي مثبت على جدار مع إضاءة ليد مخفية وزجاج مصفح عازل",
+    "arabicName": "دربزين شرفة زجاجي إنشائي مثبت على الجدار مع إضاءة ليد مخفية وزجاج مصفح عازل",
     "category": "shorfa",
     "division": "shorfa",
     "subCategory": "Illuminated Architectural Shorfa Systems",
@@ -319,41 +411,64 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/shorfa/photo_20_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/shorfa/photo_20_2026-09-26_07-36-01.jpg",
     "features": [
-      "Continuous Under-Mounted Warm Ambient LED Lighting Channel",
-      "Side Parapet-Mounted Base Integration for Maximum Walkable Floor Space",
-      "Deep Smoke Tinted Glass Providing Sleek Contrast Against Light Walls",
-      "High-Strength Clamping System Resisting Over 1.8 kN/m Point Load",
-      "Concealed Electrical Conduit Pass-Through"
+      "Side Parapet-Mounted Base Freeing 100% of Balcony Floor Space",
+      "Concealed IP67 Waterproof 3000K Warm Ambient Architectural LED Channel",
+      "10+10 mm Heavy Tempered Laminated Safety Glass with Smoke Privacy Tint",
+      "Engineered Fascia Anchor Brackets Rated for High Horizontal Line Loads",
+      "Hidden Electrical Cable Pass-Through & Watertight Silicone Seals"
     ],
     "specs": {
-      "Mounting": "Heavy Parapet Wall Fascia Mount with 316 Stainless Anchors",
-      "Lighting": "IP67 Waterproof 3000K Warm Architectural Strip LED",
-      "Glass Spec": "12 mm Toughened + 1.52 mm Smoke SentryGlas + 12 mm Toughened",
-      "Warranty": "10-Year Structural Integrity Guarantee"
+      "Glass Composition": "10+10 mm Smoked Toughened Laminated (21.52 mm overall)",
+      "Lighting Specification": "24V DC IP67 Silicone Extruded Linear LED (3000K Warm White)",
+      "Mounting System": "Side-Fascia Parapet Structural Anchor Channel",
+      "Fasteners": "Grade 316 Marine Stainless Steel Chemical Expansion Studs",
+      "Horizontal Load Capacity": "2.2 kN/m Point & Line Load Certified",
+      "Finish": "Deep Architectural Graphite Anodized / Custom Facade Powder Coat"
     },
-    "description": "An exquisite integration of light and architectural glass. Mounted directly to perimeter terrace parapets, it creates a floating perimeter illuminated by glowing warm light lines at night.",
+    "description": "Maximize usable floor area and elevate your villa facade with our Wall-Mounted Structural Glass Shorfa Balustrade System featuring integrated architectural soffit illumination. Designed for side-fascia mounting directly into the reinforced concrete parapet wall, this advanced structural system completely frees up the balcony floor, providing 100% unobstructed walkable surface area right to the perimeter edge.\n\nThe extruded architectural base profile conceals an integrated optical light cove housing high-efficiency IP67 waterproof warm ambient LED ribbon (3000K). At night, this concealed light wash illuminates the terrace deck with a warm architectural glow while accentuating the building’s exterior elevation. The balustrade is glazed with heavy 10+10 mm tempered laminated structural glass with a subtle dark smoke tint, delivering exceptional wind shear resistance, daytime solar glare control, and refined privacy from street sightlines.\n\nEngineered to withstand horizontal line loads in excess of 2.0 kN/m, this illuminated shorfa system pairs supreme structural security with dramatic night-time visual prestige for discerning luxury homeowners.",
     "translations": {
       "ar": {
-        "name": "دربزين شرفة زجاجي مثبت على جدار مع إضاءة ليد مخفية وزجاج مصفح عازل",
-        "subCategory": "شرفات معمارية مضيئة",
-        "description": "تناغم مذهل بين الإضاءة والزجاج الإنشائي. يثبت مباشرة على حافة جدار التراس أو الشرفة ليمنحك مساحة حركة أكبر مع خطوط إضاءة دافئة ساحرة ليلاً."
+        "name": "دربزين شرفة زجاجي إنشائي مثبت على الجدار مع إضاءة ليد مخفية وزجاج مصفح عازل",
+        "description": "حقق أقصى استفادة من مساحة شرفتك وتراسك الخارجي مع نظام دربزين الشرفات الزجاجي الإنشائي المثبت جانبياً على جدار الحافة (Fascia Mount). بفضل تقنية التثبيت الجانبي على سترة الجدار الخارجية بدلاً من التثبيت فوق أرضية التراس، يمنحك هذا النظام مساحة مشي وحركة حرة بنسبة 100% دون أي اقتطاع من أرضيات الرخام أو البورسلان.\n\nيتوج التصميم بمجرى هندسي سفلي مدمج لإضاءة الليد الشريطية الدافئة (Warm Ambient 3000K) المقاومة للماء والأتربة بمعيار IP67، حيث ينعكس الضوء بهدوء على جدران وأرضية التراس ليخلق مشهداً ليلياً ساحراً يبرز التفاصيل المعمارية للفيلا. وتوفر ألواح الزجاج المصفح والمقسى المزدوج (10+10 ملم) بلونها الدخاني المعتم خصوصية رفيعة وأماناً فائقاً يتحمل ضغوط الرياح العاتية.\n\nحل هندسي متكامل يجمع بين المتانة الإنشائية وتوفير المساحة والإضاءة الجمالية الخاطفة للأنظار، ليكون الخيار الأمثل للواجهات الخارجية والأسطح المكشوفة للفلل الفارهة.",
+        "features": [
+          "Side Parapet-Mounted Base Freeing 100% of Balcony Floor Space",
+          "Concealed IP67 Waterproof 3000K Warm Ambient Architectural LED Channel",
+          "10+10 mm Heavy Tempered Laminated Safety Glass with Smoke Privacy Tint",
+          "Engineered Fascia Anchor Brackets Rated for High Horizontal Line Loads",
+          "Hidden Electrical Cable Pass-Through & Watertight Silicone Seals"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شرفەی شووشەیی دیواری بە ڕووناکیی لیدی دڵڕفێنی شاردراوە",
-        "subCategory": "شرفەی شووشەیی ڕووناکیکراو",
-        "description": "تێکەڵەیەکی جوان لە شووشەی تاریک و ڕووناکیی لیدی شاردراوە کە لەسەر دیواری شرفە جێگیر دەکرێت و شەوانە دیمەنێکی شاهانە و درەوشاوە بە خانووەکەت دەبەخشێت."
+        "name": "پەرژینی شووشەیی شۆرفە جێگیرکراو لەسەر دیوار بە ڕووناکی لیدی شاراوە و شووشەی داپۆشراو",
+        "description": "سوودی تەواو لە ڕووبەری باڵکۆن و تەراسەکەت وەرگرە لەگەڵ سیستەمی پەرژینی شووشەیی شۆرفە کە لە تەنیشتەوە لەسەر دیواری پەرژین دادەمەزرێت. بەهۆی ئەم شێوازە دابەستنە، تەواوی ڕووبەری زەوی باڵکۆنەکە بە بەتاڵی دەمێنێتەوە بۆ هاتووچۆ و دانیشتن بەبێ ئەوەی هیچ شوێنێک لە زەوی مەڕمەڕ یان کاشییەکە بگرێت.\n\nدیزاینەکە دەوڵەمەند کراوە بە کەناڵێکی ئەندازیاری شاراوە بۆ ڕووناکی لیدی گەرم (3000K) دژە ئاو و تەپوتۆز کە لە شەواندا دیمەنێکی ڕۆمانسی و ئەفسوناوی بە ڕوکاری دەرەوەی بیناکەت دەبەخشێت. شووشە ئەستوورە دبل سێکۆریتە ١٠+١٠ ملمیە ڕەساسییە داپۆشراوەکە هەستێکی قووڵ لە پارێزراوی و تایبەتمەندی دەستەبەر دەکات و بەرگەی توندترین ڕەشەبا دەگرێت.\n\nچارەسەرێکی تەلارسازیی بێهاوتایە کە هێزی فیزیایی، پاراستنی ڕووبەر، و جوانی ڕووناکی شەوانە پێکەوە دەبەستێتەوە بۆ ڤێلا شاهانەکان.",
+        "features": [
+          "Side Parapet-Mounted Base Freeing 100% of Balcony Floor Space",
+          "Concealed IP67 Waterproof 3000K Warm Ambient Architectural LED Channel",
+          "10+10 mm Heavy Tempered Laminated Safety Glass with Smoke Privacy Tint",
+          "Engineered Fascia Anchor Brackets Rated for High Horizontal Line Loads",
+          "Hidden Electrical Cable Pass-Through & Watertight Silicone Seals"
+        ]
       },
       "en": {
         "name": "Wall-Mounted Structural Glass Shorfa Railing with Integrated Soffit Ambient LED Lighting",
-        "subCategory": "Illuminated Architectural Shorfa Systems",
-        "description": "An exquisite integration of light and architectural glass. Mounted directly to perimeter terrace parapets, it creates a floating perimeter illuminated by glowing warm light lines at night."
+        "description": "Maximize usable floor area and elevate your villa facade with our Wall-Mounted Structural Glass Shorfa Balustrade System featuring integrated architectural soffit illumination. Designed for side-fascia mounting directly into the reinforced concrete parapet wall, this advanced structural system completely frees up the balcony floor, providing 100% unobstructed walkable surface area right to the perimeter edge.\n\nThe extruded architectural base profile conceals an integrated optical light cove housing high-efficiency IP67 waterproof warm ambient LED ribbon (3000K). At night, this concealed light wash illuminates the terrace deck with a warm architectural glow while accentuating the building’s exterior elevation. The balustrade is glazed with heavy 10+10 mm tempered laminated structural glass with a subtle dark smoke tint, delivering exceptional wind shear resistance, daytime solar glare control, and refined privacy from street sightlines.\n\nEngineered to withstand horizontal line loads in excess of 2.0 kN/m, this illuminated shorfa system pairs supreme structural security with dramatic night-time visual prestige for discerning luxury homeowners.",
+        "features": [
+          "Side Parapet-Mounted Base Freeing 100% of Balcony Floor Space",
+          "Concealed IP67 Waterproof 3000K Warm Ambient Architectural LED Channel",
+          "10+10 mm Heavy Tempered Laminated Safety Glass with Smoke Privacy Tint",
+          "Engineered Fascia Anchor Brackets Rated for High Horizontal Line Loads",
+          "Hidden Electrical Cable Pass-Through & Watertight Silicone Seals"
+        ]
       }
-    }
+    },
+    "arabicDescription": "حقق أقصى استفادة من مساحة شرفتك وتراسك الخارجي مع نظام دربزين الشرفات الزجاجي الإنشائي المثبت جانبياً على جدار الحافة (Fascia Mount). بفضل تقنية التثبيت الجانبي على سترة الجدار الخارجية بدلاً من التثبيت فوق أرضية التراس، يمنحك هذا النظام مساحة مشي وحركة حرة بنسبة 100% دون أي اقتطاع من أرضيات الرخام أو البورسلان.\n\nيتوج التصميم بمجرى هندسي سفلي مدمج لإضاءة الليد الشريطية الدافئة (Warm Ambient 3000K) المقاومة للماء والأتربة بمعيار IP67، حيث ينعكس الضوء بهدوء على جدران وأرضية التراس ليخلق مشهداً ليلياً ساحراً يبرز التفاصيل المعمارية للفيلا. وتوفر ألواح الزجاج المصفح والمقسى المزدوج (10+10 ملم) بلونها الدخاني المعتم خصوصية رفيعة وأماناً فائقاً يتحمل ضغوط الرياح العاتية.\n\nحل هندسي متكامل يجمع بين المتانة الإنشائية وتوفير المساحة والإضاءة الجمالية الخاطفة للأنظار، ليكون الخيار الأمثل للواجهات الخارجية والأسطح المكشوفة للفلل الفارهة.",
+    "kurdishName": "پەرژینی شووشەیی شۆرفە جێگیرکراو لەسەر دیوار بە ڕووناکی لیدی شاراوە و شووشەی داپۆشراو",
+    "kurdishDescription": "سوودی تەواو لە ڕووبەری باڵکۆن و تەراسەکەت وەرگرە لەگەڵ سیستەمی پەرژینی شووشەیی شۆرفە کە لە تەنیشتەوە لەسەر دیواری پەرژین دادەمەزرێت. بەهۆی ئەم شێوازە دابەستنە، تەواوی ڕووبەری زەوی باڵکۆنەکە بە بەتاڵی دەمێنێتەوە بۆ هاتووچۆ و دانیشتن بەبێ ئەوەی هیچ شوێنێک لە زەوی مەڕمەڕ یان کاشییەکە بگرێت.\n\nدیزاینەکە دەوڵەمەند کراوە بە کەناڵێکی ئەندازیاری شاراوە بۆ ڕووناکی لیدی گەرم (3000K) دژە ئاو و تەپوتۆز کە لە شەواندا دیمەنێکی ڕۆمانسی و ئەفسوناوی بە ڕوکاری دەرەوەی بیناکەت دەبەخشێت. شووشە ئەستوورە دبل سێکۆریتە ١٠+١٠ ملمیە ڕەساسییە داپۆشراوەکە هەستێکی قووڵ لە پارێزراوی و تایبەتمەندی دەستەبەر دەکات و بەرگەی توندترین ڕەشەبا دەگرێت.\n\nچارەسەرێکی تەلارسازیی بێهاوتایە کە هێزی فیزیایی، پاراستنی ڕووبەر، و جوانی ڕووناکی شەوانە پێکەوە دەبەستێتەوە بۆ ڤێلا شاهانەکان."
   },
   {
     "id": "shorfa-corridor-spigot-balustrade",
     "name": "Continuous Glass Corridor Shorfa Balustrade with Stainless Steel Spigots",
-    "arabicName": "دربزين شرفة وممر زجاجي بدون إطار بنظام سبیگوت ستانلس ستيل فائق النقاء",
+    "arabicName": "دربزين ممرات وشرفات زجاجي بدون إطار بنظام سبیگوت ستانلس ستيل فائق النقاء",
     "category": "shorfa",
     "division": "shorfa",
     "subCategory": "Spigot Mounted Corridor Shorfa",
@@ -364,35 +479,58 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "fallbackImage": "/products-assets/shorfa/photo_35_2026-09-26_07-36-01.jpg",
     "features": [
       "Friction-Fit Core-Drilled Duplex 2205 Stainless Steel Floor Spigots",
-      "Zero Glass Holes Required Ensuring Zero Stress Concentration Points",
-      "Continuous 20 mm Drainage Gap Beneath Glass for Rapid Rainwater Evacuation",
-      "Crystal Optiwhite Glass with Zero Green Edge Tint",
-      "Ideal for Long Villa Gallery Corridors & Upper Connecting Bridges"
+      "Zero Holes Drilled Through Glass Panels Eliminating Stress Cracking Points",
+      "Continuous 25 mm Bottom Gap for Uninterrupted Floor Flow & Drainage",
+      "Optiwhite Ultra-Clear Glass with Diamond-Polished Rounded Arrises",
+      "Patented 3-Way Laser Alignment System for Millimeter-Exact Installation"
     ],
     "specs": {
-      "Spigot Alloy": "Duplex 2205 Stainless (Superior Corrosion Resistance)",
-      "Spigot Height": "160 mm Above Floor Level",
-      "Glass Height": "1000 mm / 1100 mm Standard",
-      "Adjustment": "Tilt-Adjustable Alignment Screws (± 2.5° Alignment Precision)"
+      "Spigot Material": "Duplex 2205 Marine Grade Cast & CNC Stainless Steel",
+      "Glass Options": "12 mm / 15 mm Monolithic Toughened or 8+8 mm Laminated",
+      "Finish Options": "Satin Brushed Inox / Matte Black PVD Titanium",
+      "Fixing Method": "M16 Core-Drilled Chemical Grout Anchorage (100 mm depth)",
+      "Load Rating": "1.8 kN/m to 2.5 kN/m Heavy Duty Residential",
+      "Clamping Type": "Internal Non-Marking Polyurethane Friction Wedge"
     },
-    "description": "Seamless, transparent, and mechanically pure. Spigot-mounted corridor balustrades offer the ultimate floating glass aesthetic, allowing natural flooring stones to continue beneath the glass line without interruption.",
+    "description": "Embrace pure architectural transparency and mechanical precision with our Core-Drilled Spigot Glass Shorfa Balustrade System. By eliminating bulky continuous bottom channels and vertical posts, this system creates the stunning visual illusion of solid glass panels floating weightlessly along your villa corridors, mezzanine bridges, and outdoor upper terraces.\n\nEach panel of 12 mm or 15 mm Optiwhite toughened safety glass is secured using solid CNC-machined Duplex 2205 marine-grade stainless steel floor spigots, offering vastly superior tensile strength and corrosion resistance compared to standard 304 or 316 alloys. The engineered 25 mm air clearance beneath the glass allows natural marble and travertine flooring to continue unbroken across sightlines, while serving as a natural self-clearing channel for rainwater runoff and dust evacuation. Patented internal friction-fit clamping allows laser-precise vertical alignment without requiring stress-inducing drilled holes through the glass.\n\nPerfect for long villa colonnades, luxury gallery walkways, and poolside terraces, this system represents the gold standard in frameless structural fenestration.",
     "translations": {
       "ar": {
-        "name": "دربزين شرفة وممر زجاجي بدون إطار بنظام سبیگوت ستانلس ستيل فائق النقاء",
-        "subCategory": "دربزينات الممرات والشرفات الطولية",
-        "description": "نظام زجاجي عائم يثبت بقواعد سبیگوت من الستانلس ستيل المقاوم للصدأ. يمنح الممرات والشرفات مظهراً عصرياً انسيابياً مع فتحة تصريف مياه مستمرة أسفل الزجاج."
+        "name": "دربزين ممرات وشرفات زجاجي بدون إطار بنظام سبیگوت ستانلس ستيل فائق النقاء",
+        "description": "جسّد أرقى معاني البساطة المعمارية والانسيابية البصرية مع دربزين الممرات والشرفات الزجاجي بنظام قواعد السبیگوت (Spigot System). يستغني هذا النظام تماماً عن القواطع الرأسية والمجاري الأرضية المستمرة، حيث تثبت ألواح الزجاج الإنشائي بواسطة قواعد سبیگوت مصمتة ومصنوعة من الستانلس ستيل البحري Duplex 2205 شديد المقاومة للصدأ والتآكل.\n\nيرتفع الزجاج بمقدار 25 ملم فوق مستوى الأرضية، مما يتيح لرخام الممرات أو الحجر الطبيعي الامتداد بسلاسة تحت الزجاج دون أي انقطاع بصري، فضلاً عن توفير مجرى حر ومستمر لتصريف مياه الأمطار والغسيل والأتربة دون أدنى عائق. تتميز قواعد التثبيت بنظام ضبط زاوية الميلان الداخلي (Friction Clamp) الذي يتيح موازنة الألواح بالليزر بدقة المليمتر دون الحاجة لحفر ثقوب مضعفة في الزجاج.\n\nخيار هندسي استثنائي لممرات الفلل الواسعة، الجسور الرابطة بين الأجنحة، وبلكونات المسابح الخارجية، يضفي مظهراً زجاجياً عائماً يجمع بين القوة الميكانيكية والنقاء البصري المطلق.",
+        "features": [
+          "Friction-Fit Core-Drilled Duplex 2205 Stainless Steel Floor Spigots",
+          "Zero Holes Drilled Through Glass Panels Eliminating Stress Cracking Points",
+          "Continuous 25 mm Bottom Gap for Uninterrupted Floor Flow & Drainage",
+          "Optiwhite Ultra-Clear Glass with Diamond-Polished Rounded Arrises",
+          "Patented 3-Way Laser Alignment System for Millimeter-Exact Installation"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شووشەیی ڕێڕەو و شرفەی درێژ بە سیستەمی سپیگۆتی ستیل",
-        "subCategory": "دەربزینی شووشەیی مۆدێرن بە سپیگۆت",
-        "description": "سیستەمێکی شووشەیی سەرنجڕاکێش بە پایەی ستیلی دژە-ژەنگ کە ڕێگە دەدات ئاو و باران لە ژێر شووشەکەوە دەربچێت و دیمەنێکی تەواو شەفاف دەبەخشێت."
+        "name": "پەرژینی شۆرفە و ڕێڕەوی شووشەیی بێ چوارچێوە بە سیستەمی سپیگۆتی ستیلی بێگەرد",
+        "description": "بەرزترین ئاستی سادەیی مۆدێرن و ڕوونی بینین ئەزموون بکە لەگەڵ پەرژینی شووشەیی ڕێڕەو و باڵکۆن بە سیستەمی پایەی سپیگۆت (Spigot). ئەم سیستەمە بە تەواوی کۆڵەکەی ستوونی و چوارچێوەی ئەستوور لا دەبات، بەڵکو تەختە شووشە پتەوەکان بە پایەی ستیلی دژە ژەنگی دەریایی Duplex 2205 جێگیر دەکرێن کە هێزێکی بێوێنە و بەرگرییەکی تەواوی لە بەرامبەر شێ و ژەنگ هەیە.\n\nشووشەکە بە بەرزی ٢٥ ملم لەسەر زەوییەکە بەرز دەبێتەوە، کە وادەکات نەخشی مەڕمەڕی ڕێڕەوەکە بە شێوەیەکی کراوە و جوان لەژێر شووشەکەدا دەربکەوێت، و هاوکات ڕێگەیەکی کراوە دەبێت بۆ ڕۆیشتنی ئاوی باران و شۆردن بێ ئەوەی ئاو لە سوچەکاندا کۆبێتەوە. سیستەمی جێگیرکردنی ناوەکی ڕێگە دەدات بە ڕێکخستنی شووشەکان بە تەواوی ڕێکی بە لێزەر بەبێ ئەوەی پێویست بە کون کردنی شووشەکە بکات.\n\nهەڵبژاردەیەکی نایابە بۆ ڕێڕەوە درێژەکانی ناو ڤێلا، پردی نێوان باڵەکان، و باڵکۆنی دەوروبەری مەلەوانگە، کە دیمەنێکی شووشەیی مەلەوان و شاهانە دەبەخشێت.",
+        "features": [
+          "Friction-Fit Core-Drilled Duplex 2205 Stainless Steel Floor Spigots",
+          "Zero Holes Drilled Through Glass Panels Eliminating Stress Cracking Points",
+          "Continuous 25 mm Bottom Gap for Uninterrupted Floor Flow & Drainage",
+          "Optiwhite Ultra-Clear Glass with Diamond-Polished Rounded Arrises",
+          "Patented 3-Way Laser Alignment System for Millimeter-Exact Installation"
+        ]
       },
       "en": {
         "name": "Continuous Glass Corridor Shorfa Balustrade with Stainless Steel Spigots",
-        "subCategory": "Spigot Mounted Corridor Shorfa",
-        "description": "Seamless, transparent, and mechanically pure. Spigot-mounted corridor balustrades offer the ultimate floating glass aesthetic, allowing natural flooring stones to continue beneath the glass line without interruption."
+        "description": "Embrace pure architectural transparency and mechanical precision with our Core-Drilled Spigot Glass Shorfa Balustrade System. By eliminating bulky continuous bottom channels and vertical posts, this system creates the stunning visual illusion of solid glass panels floating weightlessly along your villa corridors, mezzanine bridges, and outdoor upper terraces.\n\nEach panel of 12 mm or 15 mm Optiwhite toughened safety glass is secured using solid CNC-machined Duplex 2205 marine-grade stainless steel floor spigots, offering vastly superior tensile strength and corrosion resistance compared to standard 304 or 316 alloys. The engineered 25 mm air clearance beneath the glass allows natural marble and travertine flooring to continue unbroken across sightlines, while serving as a natural self-clearing channel for rainwater runoff and dust evacuation. Patented internal friction-fit clamping allows laser-precise vertical alignment without requiring stress-inducing drilled holes through the glass.\n\nPerfect for long villa colonnades, luxury gallery walkways, and poolside terraces, this system represents the gold standard in frameless structural fenestration.",
+        "features": [
+          "Friction-Fit Core-Drilled Duplex 2205 Stainless Steel Floor Spigots",
+          "Zero Holes Drilled Through Glass Panels Eliminating Stress Cracking Points",
+          "Continuous 25 mm Bottom Gap for Uninterrupted Floor Flow & Drainage",
+          "Optiwhite Ultra-Clear Glass with Diamond-Polished Rounded Arrises",
+          "Patented 3-Way Laser Alignment System for Millimeter-Exact Installation"
+        ]
       }
-    }
+    },
+    "arabicDescription": "جسّد أرقى معاني البساطة المعمارية والانسيابية البصرية مع دربزين الممرات والشرفات الزجاجي بنظام قواعد السبیگوت (Spigot System). يستغني هذا النظام تماماً عن القواطع الرأسية والمجاري الأرضية المستمرة، حيث تثبت ألواح الزجاج الإنشائي بواسطة قواعد سبیگوت مصمتة ومصنوعة من الستانلس ستيل البحري Duplex 2205 شديد المقاومة للصدأ والتآكل.\n\nيرتفع الزجاج بمقدار 25 ملم فوق مستوى الأرضية، مما يتيح لرخام الممرات أو الحجر الطبيعي الامتداد بسلاسة تحت الزجاج دون أي انقطاع بصري، فضلاً عن توفير مجرى حر ومستمر لتصريف مياه الأمطار والغسيل والأتربة دون أدنى عائق. تتميز قواعد التثبيت بنظام ضبط زاوية الميلان الداخلي (Friction Clamp) الذي يتيح موازنة الألواح بالليزر بدقة المليمتر دون الحاجة لحفر ثقوب مضعفة في الزجاج.\n\nخيار هندسي استثنائي لممرات الفلل الواسعة، الجسور الرابطة بين الأجنحة، وبلكونات المسابح الخارجية، يضفي مظهراً زجاجياً عائماً يجمع بين القوة الميكانيكية والنقاء البصري المطلق.",
+    "kurdishName": "پەرژینی شۆرفە و ڕێڕەوی شووشەیی بێ چوارچێوە بە سیستەمی سپیگۆتی ستیلی بێگەرد",
+    "kurdishDescription": "بەرزترین ئاستی سادەیی مۆدێرن و ڕوونی بینین ئەزموون بکە لەگەڵ پەرژینی شووشەیی ڕێڕەو و باڵکۆن بە سیستەمی پایەی سپیگۆت (Spigot). ئەم سیستەمە بە تەواوی کۆڵەکەی ستوونی و چوارچێوەی ئەستوور لا دەبات، بەڵکو تەختە شووشە پتەوەکان بە پایەی ستیلی دژە ژەنگی دەریایی Duplex 2205 جێگیر دەکرێن کە هێزێکی بێوێنە و بەرگرییەکی تەواوی لە بەرامبەر شێ و ژەنگ هەیە.\n\nشووشەکە بە بەرزی ٢٥ ملم لەسەر زەوییەکە بەرز دەبێتەوە، کە وادەکات نەخشی مەڕمەڕی ڕێڕەوەکە بە شێوەیەکی کراوە و جوان لەژێر شووشەکەدا دەربکەوێت، و هاوکات ڕێگەیەکی کراوە دەبێت بۆ ڕۆیشتنی ئاوی باران و شۆردن بێ ئەوەی ئاو لە سوچەکاندا کۆبێتەوە. سیستەمی جێگیرکردنی ناوەکی ڕێگە دەدات بە ڕێکخستنی شووشەکان بە تەواوی ڕێکی بە لێزەر بەبێ ئەوەی پێویست بە کون کردنی شووشەکە بکات.\n\nهەڵبژاردەیەکی نایابە بۆ ڕێڕەوە درێژەکانی ناو ڤێلا، پردی نێوان باڵەکان، و باڵکۆنی دەوروبەری مەلەوانگە، کە دیمەنێکی شووشەیی مەلەوان و شاهانە دەبەخشێت."
   },
   {
     "id": "shorfa-fluted-aluminum-posts",
@@ -407,36 +545,59 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/shorfa/photo_49_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/shorfa/photo_49_2026-09-26_07-36-01.jpg",
     "features": [
-      "Fluted Architectural Post Columns Blending Modern & Neoclassical Lines",
-      "Electrostatic Deep Satin Black Finish Resisting Weather & Sun Oxidation",
-      "Impact-Resistant Laminated Tinted Glass Panels with Precision Channel Glazing",
-      "Concealed Heavy-Gauge Base Anchor Flanges with Decorative Skirting",
-      "Robust Structural Rigidity for Expansive Villa Balconies"
+      "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+      "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
+      "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
+      "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
+      "Concealed Base Anchors with Decorative Cast Aluminum Skirting Rings"
     ],
     "specs": {
-      "Post Profile": "80 x 80 mm Fluted Architectural Aluminum Column",
-      "Glass Thickness": "12 mm (6+6 mm Laminated Tinted PVB)",
-      "Height": "1150 mm",
-      "Coating": "AkzoNobel Interpon D2525 Ultra-Durable Powder Coating"
+      "Post Profile": "65 x 65 mm Fluted Heavy Structural Aluminum Alloy 6063-T6",
+      "Glass Type": "10 mm Toughened or 6+6 mm Laminated Smoke Tint",
+      "Handrail": "Integrated Contoured Slim Aluminum Cap Profile",
+      "Coating": "Matte Jet Black / Metallic Dark Bronze Electrostatic (80 microns)",
+      "Fixing Flange": "Internal Solid Steel Base Foot with 4x M10 Anchor Studs",
+      "Weather Resistance": "Salt Spray Tested > 1000 hrs, High UV Stability"
     },
-    "description": "A refined architectural synthesis combining neoclassical fluted column profiles with dark smoked safety glass, adding rhythmic sophistication and enduring strength to villa elevations.",
+    "description": "Bridging neoclassical grandeur and contemporary structural engineering, our Fluted Architectural Post Shorfa Balustrade brings rhythmic sophistication and substantial presence to luxury villa elevations. Custom-extruded vertical post columns feature subtle classical fluting inspired by European monumental architecture, coated in AkzoNobel Qualicoat Class 2 architectural electrostatic powder coating that actively resists solar chalking, intense UV degradation, and scratch wear.\n\nFramed securely within rubber-cushioned aluminum channels are heavy-duty dark smoke grey tempered laminated safety glass panels. This specialized solar-tinted glass reduces harsh solar glare by 65% while providing complete daytime visual privacy from street view without darkening the terrace interior. The balustrade is crowned by a sculpted continuous top handrail designed for ergonomic comfort, supported by concealed high-tensile steel base anchors hidden beneath decorative die-cast skirting rings.\n\nAn ideal choice for classical, Mediterranean, and contemporary villas seeking an imposing, timeless balustrade design that delivers lifelong stability and distinguished curb appeal.",
     "translations": {
       "ar": {
         "name": "دربزين شرفة وتراس بأعمدة ألمنيوم مضلعة وزجاج رمادي مدخن فائق القوة",
-        "subCategory": "شرفات معمارية بأعمدة مضلعة",
-        "description": "يجمع هذا النظام بين فخامة الأعمدة المضلعة الكلاسيكية والعصرية وزجاج الأمان المدخن لحماية متكاملة ومظهر معماري فخم يتناسب مع الفلل الكلاسيكية والحديثة."
+        "description": "يجمع هذا النظام المعماري المتفرد بين فخامة الأعمدة الكلاسيكية المضلعة وحداثة الزجاج الإنشائي المصفح، ليمنح واجهات الفلل والشرفات الخارجية رونقاً استثنائياً يلفت الأنظار. صُممت الأعمدة الرأسية من قطاعات ألمنيوم إنشائية مسحوبة ومضلعة بخطوط هندسية كلاسيكية مستوحاة من العمارة الإيطالية، ومطلية ببودرة إلكتروستاتيكية ذات ملمس ناعم مقاوم لأشعة الشمس الحارقة والخدوش.\n\nتتكامل الأعمدة مع ألواح زجاج أمان مصفح ومقسى بلون رمادي مدخن (Euro-Grey Smoke) يقلل من وهج أشعة الشمس بنسبة 65%، مما يمنح الشرفة أجواءً معتدلة ومظللة ويضمن خصوصية تامة للجالسين من أعين المارة. كما يتميز النظام بمقبض علوي انسيابي مصمم لمسكة يد مريحة وآمنة، مع قواعد تثبيت سفلية فولاذية مخفية تحت أغطية ديكورية أنيقة تحمي مسامير التثبيت من الرطوبة والعوامل الجوية.\n\nالخيار المثالي للفلل الكلاسيكية الحديثة (Neo-Classical) والقصور التي تبحث عن توازن دقيق بين الهيبة المعمارية والحماية الفائقة لسنوات طويلة.",
+        "features": [
+          "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+          "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
+          "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
+          "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
+          "Concealed Base Anchors with Decorative Cast Aluminum Skirting Rings"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شرفە و تراس بە ستوونی ئەلەمنیۆمی مۆدێرن و شووشەی دووکەڵی",
-        "subCategory": "سیستەمی شرفە بە ستوونی ئەلەمنیۆم",
-        "description": "شاکارێکی دیزاین کە ستوونی ئەلەمنیۆمی ڕەشی پتەو و شووشەی تاریکی پارێزەر کۆدەکاتەوە بۆ بەخشینی هەیبەت و جوانی بە ڕووکاری دەرەوەی بیناکەت."
+        "name": "پەرژینی شۆرفە و باڵکۆن بە کۆڵەکەی ئەلەمنیۆمی نەخشدار و شووشەی دووکەڵی زۆر بەهێز",
+        "description": "ئەم سیستەمە تەلارسازییە تایبەتە لە نێوان جوانی کۆڵەکەی کلاسیکی و پتەوی شووشەی ئەندازیاریدا هاوسەنگی دروست دەکات، تا شکۆیەکی سەرنجڕاکێش بە باڵکۆن و ڕوکاری دەرەوەی ڤێلاکەت ببەخشێت. کۆڵەکە ئەستوورەکان لە پرۆفایلی ئەلەمنیۆمی نەخشدار و هێڵکاری کلاسیکی ئیتاڵی دروستکراون و بە بۆیەی ئەلیکترۆستاتیکی بەرگریدار دژی تیشکی خۆر و لێشێوان ڕەنگ کراون.\n\nکۆڵەکەکان لەگەڵ تەختە شووشەی ئەستووری سێکۆریت بە ڕەنگی ڕەساسی دووکەڵی (Smoke) یەکدەگرن کە تیشکی تیژی خۆر بە ڕێژەی ٦٥٪ کەمدەکاتەوە، تا لە کاتی دانیشتن لە باڵکۆندا هەست بە فێنکی بکەیت و لە چاوی دەرەوەش بە تەواوی بپارێزرێیت. هەروەها دەسکێکی سەرەوەی زۆر ئاسوودەی بۆ دانراوە و بنکە ئاسنینە پتەوەکانیشی لەژێر کڵاوی جوانکاری پارێزراودا شاردراونەتەوە تا بە باران و شێ تێکنەچن.\n\nهەڵبژاردەیەکی ناوازەیە بۆ کۆشک و ڤێلا کلاسیکە نوێیەکان کە دەیانەوێت جوانییەکی هەمیشەیی و سەلامەتییەکی باوەڕپێکراویان هەبێت بۆ دەیان ساڵ.",
+        "features": [
+          "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+          "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
+          "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
+          "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
+          "Concealed Base Anchors with Decorative Cast Aluminum Skirting Rings"
+        ]
       },
       "en": {
         "name": "Architectural Shorfa Balustrade with Fluted Aluminum Posts and Smoke Glass",
-        "subCategory": "Fluted Post Shorfa Systems",
-        "description": "A refined architectural synthesis combining neoclassical fluted column profiles with dark smoked safety glass, adding rhythmic sophistication and enduring strength to villa elevations."
+        "description": "Bridging neoclassical grandeur and contemporary structural engineering, our Fluted Architectural Post Shorfa Balustrade brings rhythmic sophistication and substantial presence to luxury villa elevations. Custom-extruded vertical post columns feature subtle classical fluting inspired by European monumental architecture, coated in AkzoNobel Qualicoat Class 2 architectural electrostatic powder coating that actively resists solar chalking, intense UV degradation, and scratch wear.\n\nFramed securely within rubber-cushioned aluminum channels are heavy-duty dark smoke grey tempered laminated safety glass panels. This specialized solar-tinted glass reduces harsh solar glare by 65% while providing complete daytime visual privacy from street view without darkening the terrace interior. The balustrade is crowned by a sculpted continuous top handrail designed for ergonomic comfort, supported by concealed high-tensile steel base anchors hidden beneath decorative die-cast skirting rings.\n\nAn ideal choice for classical, Mediterranean, and contemporary villas seeking an imposing, timeless balustrade design that delivers lifelong stability and distinguished curb appeal.",
+        "features": [
+          "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+          "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
+          "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
+          "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
+          "Concealed Base Anchors with Decorative Cast Aluminum Skirting Rings"
+        ]
       }
-    }
+    },
+    "arabicDescription": "يجمع هذا النظام المعماري المتفرد بين فخامة الأعمدة الكلاسيكية المضلعة وحداثة الزجاج الإنشائي المصفح، ليمنح واجهات الفلل والشرفات الخارجية رونقاً استثنائياً يلفت الأنظار. صُممت الأعمدة الرأسية من قطاعات ألمنيوم إنشائية مسحوبة ومضلعة بخطوط هندسية كلاسيكية مستوحاة من العمارة الإيطالية، ومطلية ببودرة إلكتروستاتيكية ذات ملمس ناعم مقاوم لأشعة الشمس الحارقة والخدوش.\n\nتتكامل الأعمدة مع ألواح زجاج أمان مصفح ومقسى بلون رمادي مدخن (Euro-Grey Smoke) يقلل من وهج أشعة الشمس بنسبة 65%، مما يمنح الشرفة أجواءً معتدلة ومظللة ويضمن خصوصية تامة للجالسين من أعين المارة. كما يتميز النظام بمقبض علوي انسيابي مصمم لمسكة يد مريحة وآمنة، مع قواعد تثبيت سفلية فولاذية مخفية تحت أغطية ديكورية أنيقة تحمي مسامير التثبيت من الرطوبة والعوامل الجوية.\n\nالخيار المثالي للفلل الكلاسيكية الحديثة (Neo-Classical) والقصور التي تبحث عن توازن دقيق بين الهيبة المعمارية والحماية الفائقة لسنوات طويلة.",
+    "kurdishName": "پەرژینی شۆرفە و باڵکۆن بە کۆڵەکەی ئەلەمنیۆمی نەخشدار و شووشەی دووکەڵی زۆر بەهێز",
+    "kurdishDescription": "ئەم سیستەمە تەلارسازییە تایبەتە لە نێوان جوانی کۆڵەکەی کلاسیکی و پتەوی شووشەی ئەندازیاریدا هاوسەنگی دروست دەکات، تا شکۆیەکی سەرنجڕاکێش بە باڵکۆن و ڕوکاری دەرەوەی ڤێلاکەت ببەخشێت. کۆڵەکە ئەستوورەکان لە پرۆفایلی ئەلەمنیۆمی نەخشدار و هێڵکاری کلاسیکی ئیتاڵی دروستکراون و بە بۆیەی ئەلیکترۆستاتیکی بەرگریدار دژی تیشکی خۆر و لێشێوان ڕەنگ کراون.\n\nکۆڵەکەکان لەگەڵ تەختە شووشەی ئەستووری سێکۆریت بە ڕەنگی ڕەساسی دووکەڵی (Smoke) یەکدەگرن کە تیشکی تیژی خۆر بە ڕێژەی ٦٥٪ کەمدەکاتەوە، تا لە کاتی دانیشتن لە باڵکۆندا هەست بە فێنکی بکەیت و لە چاوی دەرەوەش بە تەواوی بپارێزرێیت. هەروەها دەسکێکی سەرەوەی زۆر ئاسوودەی بۆ دانراوە و بنکە ئاسنینە پتەوەکانیشی لەژێر کڵاوی جوانکاری پارێزراودا شاردراونەتەوە تا بە باران و شێ تێکنەچن.\n\nهەڵبژاردەیەکی ناوازەیە بۆ کۆشک و ڤێلا کلاسیکە نوێیەکان کە دەیانەوێت جوانییەکی هەمیشەیی و سەلامەتییەکی باوەڕپێکراویان هەبێت بۆ دەیان ساڵ."
   },
   {
     "id": "shorfa-corner-cantilever-privacy",
@@ -451,36 +612,59 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/shorfa/photo_55_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/shorfa/photo_55_2026-09-26_07-36-01.jpg",
     "features": [
-      "Frameless 90° Glass-to-Glass Mitered Corner Junction",
-      "High Privacy Dark Smoked Lamination Blocking Sightlines from Street",
-      "Concealed Flush Anchor Base Concealed Inside Marble Balcony Screed",
-      "UV Protection Factor UPF 50+ Reducing Solar Heat Transfer to Interiors",
-      "Engineered for Severe Regional Thermal Expansion & Contraction"
+      "Frameless 90° Glass-to-Glass Mitered Corner without Vertical Posts",
+      "High-Privacy Dark Reflective Lamination Blocking All Sightlines from Below",
+      "Recessed Sub-Floor Aluminum Shoe Concealed Completely Beneath Stone Screed",
+      "Solar UV Protection Factor UPF 50+ Reducing Radiant Heat Transfer",
+      "Engineered for Severe Corner Vortex Wind Pressures up to 2.4 kPa"
     ],
     "specs": {
-      "Corner Type": "90° Frameless Structural Miter with Clear UV Silicone Bond",
-      "Glass Construction": "10 mm Dark Grey Tempered + 1.52 mm PVB + 10 mm Clear Tempered",
-      "Height": "1100 mm",
-      "Impact Resistance": "Meets ASTM E2358 Class 3 Impact Standards"
+      "Corner Geometry": "90° CNC Mitered Glass Junction with Clear Structural Bonding",
+      "Glass Specification": "10+10 mm Toughened Laminated Dark Reflective (21.52 mm total)",
+      "Interlayer": "DuPont SentryGlas (SGP) 1.52 mm High-Modulus Ionoplast",
+      "Base Channel": "Heavy Structural Grade 6060 Anodized Aluminum Shoe",
+      "Wind Vortex Resistance": "Tested to 2.4 kPa Dynamic Wind Load",
+      "Visual Privacy Level": "One-Way Mirror Daylight Privacy (12% Light Transmission)"
     },
-    "description": "Designed for private corner terraces and master suites, this seamless corner balustrade delivers an unobstructed 270-degree vista from inside while shielding occupants behind a dark reflective privacy veil from below.",
+    "description": "Tailored specifically for bold cantilevered corner balconies and master bedroom executive suites, this frameless corner balustrade joins two heavy structural glass panels at a sharp 90-degree angle without any vertical corner posts, opening up an unbroken 270-degree panorama that accentuates modern cubic architecture.\n\nThe corner junction is executed using CNC waterjet-mitered glass edges bonded with high-modulus, UV-stable structural silicone, engineered to withstand intense corner wind vortex loads up to 2.4 kPa on elevated multi-storey villas. The dark reflective Euro-Bronze or Smoke-Grey laminated glass functions as a one-way privacy shield: from the outside street level, it presents an impenetrable, mirror-like obsidian reflection that safeguards your intimate family spaces, while occupants inside enjoy clear, glare-free views with UPF 50+ solar UV reduction.\n\nAnchored via a continuous heavy-gauge aluminum sub-shoe completely recessed flush beneath marble terrace screeds, the glass appears to emerge seamlessly from the floor with zero visible hardware.",
     "translations": {
       "ar": {
         "name": "شرفة كابولية زاوية بزجاج مظلل للخصوصية الفائقة وتشطيب رخامي ناعم",
-        "subCategory": "شرفات زاوية كابولية",
-        "description": "مصممة خصيصاً لزوايا الشرفات وغرف النوم الماستر. اتصال زجاجي زاوي بدون أعمدة يعطيك زاوية رؤية واسعة 270 درجة مع حجب الرؤية تماماً من الشارع لضمان خصوصيتك."
+        "description": "صُمم هذا النظام الهندسي المبتكر خصيصاً للشرفات الكابولية البارزة وأجنحة النوم الرئيسية الماستر، حيث يلتقي لوحان من الزجاج الإنشائي بزاوية قائمة 90 درجة بدون أي أعمدة زاوية معدنية، ليوفر إطلالة بانورامية واسعة ومفتوحة بزاوية 270 درجة تعزز الإحساس بالحرية والفخامة المعمارية.\n\nتعتمد زاوية الالتقاء على تقنية القطع المائل المائي فائق الدقة (Waterjet Mitered Joint) مع لحام سيليكوني إنشائي شفاف وعالي القوة ومقاوم للأشعة فوق البنفسجية، مما يضمن ثباتاً مطلقاً للزاوية ضد عواصف الرياح العاتية وضغوط الدوامات الهوائية في الطوابق المرتفعة. وتوفر ألواح الزجاج المصفح بلونها البرونزي أو الرمادي الداكن العاكس حماية خصوصية بنسبة 100%، حيث تعمل كمرآة عاكسة من الخارج تحجب الرؤية تماماً بينما تتيح لمن في الداخل رؤية واضحة ومريحة للعين.\n\nيثبت النظام عبر بروفايل أرضي إنشائي ثقيل يُدفن بالكامل تحت بلاط الرخام، لتبدو ألواح الزجاج وكأنها تنبثق مباشرة من الأرضية في لوحة فنية تجسد قمة العمارة المودرن.",
+        "features": [
+          "Frameless 90° Glass-to-Glass Mitered Corner without Vertical Posts",
+          "High-Privacy Dark Reflective Lamination Blocking All Sightlines from Below",
+          "Recessed Sub-Floor Aluminum Shoe Concealed Completely Beneath Stone Screed",
+          "Solar UV Protection Factor UPF 50+ Reducing Radiant Heat Transfer",
+          "Engineered for Severe Corner Vortex Wind Pressures up to 2.4 kPa"
+        ]
       },
       "ckb": {
-        "name": "شرفەی گۆشەی دەرپەڕیو بە شووشەی تاریکی پارێزەری تایبەتمەندی",
-        "subCategory": "شرفەی گۆشەی شووشەیی",
-        "description": "بۆ گۆشەی تراس و ژووری ماستەر، بە بەیەکگەیشتنی شووشە بە بێ ستوون کە بینینی ٢٧٠ پلەی پانۆراما دەبەخشێت و لە خوارەوە ناوەوە بە تەواوی دەشارێتەوە."
+        "name": "شۆرفەی کانتلیڤەری گۆشە بە شووشەی تاریکی داپۆشراو بۆ تایبەتمەندی و ڕوکاری مەڕمەڕ",
+        "description": "ئەم سیستەمە ئەندازیارییە پێشکەوتووە بە تایبەتی بۆ باڵکۆنە دەرپەڕیوەکانی گۆشە و ژووری خەوتنی سەرەکی ماستەر دیزاین کراوە، کە تیایدا دوو تەختە شووشەی گەورە لە گۆشەی ٩٠ پلەدا بەبێ هیچ کۆڵەکەیەکی کانزایی لە سووچەکەدا بەیەک دەگەن، تا دیمەنێکی پانۆرامای ٢٧٠ پلەیی کراوە پێشکەش بکات.\n\nپێکگەیشتنی گۆشەکە بە تەکنەلۆژیای بڕینی ئاوی زۆر ورد (Waterjet Mitered) و چەسپاندنی سیلیۆنی ئەندازیاری ڕوونی دژە تیشکی خۆر ئەنجام دەدرێت، کە بەرگرییەکی سەرسوڕهێنەر دابین دەکات دژی سوڕانەوەی ڕەشەبای بەهێز لە نهۆمە بەرزەکاندا. شووشە داپۆشراوە ڕەش یان قاوەییە ئاوێنەییەکەی لە دەرەوە بە تەواوی وەک ئاوێنە کار دەکات و ڕێگری دەکات لە بینینی ناوەوە، لە کاتێکدا لە ناوەوە دیمەنێکی زۆر ئارام و بێ کێشە دەبینیت.\n\nسیستەمەکە بە چوارچێوەیەکی قورسی شاراوە لەژێر کاشی مەڕمەڕی باڵکۆنەکەدا قایم دەکرێت، تا وا دەربکەوێت شووشەکان ڕاستەوخۆ لەناو زەوییەکەوە سەرکەوتبن بەبێ دەرکەوتنی هیچ بزمار و ئاسنێک.",
+        "features": [
+          "Frameless 90° Glass-to-Glass Mitered Corner without Vertical Posts",
+          "High-Privacy Dark Reflective Lamination Blocking All Sightlines from Below",
+          "Recessed Sub-Floor Aluminum Shoe Concealed Completely Beneath Stone Screed",
+          "Solar UV Protection Factor UPF 50+ Reducing Radiant Heat Transfer",
+          "Engineered for Severe Corner Vortex Wind Pressures up to 2.4 kPa"
+        ]
       },
       "en": {
         "name": "Corner Cantilevered Villa Shorfa with Dark Tinted Privacy Glass",
-        "subCategory": "Corner Cantilever Shorfa",
-        "description": "Designed for private corner terraces and master suites, this seamless corner balustrade delivers an unobstructed 270-degree vista from inside while shielding occupants behind a dark reflective privacy veil from below."
+        "description": "Tailored specifically for bold cantilevered corner balconies and master bedroom executive suites, this frameless corner balustrade joins two heavy structural glass panels at a sharp 90-degree angle without any vertical corner posts, opening up an unbroken 270-degree panorama that accentuates modern cubic architecture.\n\nThe corner junction is executed using CNC waterjet-mitered glass edges bonded with high-modulus, UV-stable structural silicone, engineered to withstand intense corner wind vortex loads up to 2.4 kPa on elevated multi-storey villas. The dark reflective Euro-Bronze or Smoke-Grey laminated glass functions as a one-way privacy shield: from the outside street level, it presents an impenetrable, mirror-like obsidian reflection that safeguards your intimate family spaces, while occupants inside enjoy clear, glare-free views with UPF 50+ solar UV reduction.\n\nAnchored via a continuous heavy-gauge aluminum sub-shoe completely recessed flush beneath marble terrace screeds, the glass appears to emerge seamlessly from the floor with zero visible hardware.",
+        "features": [
+          "Frameless 90° Glass-to-Glass Mitered Corner without Vertical Posts",
+          "High-Privacy Dark Reflective Lamination Blocking All Sightlines from Below",
+          "Recessed Sub-Floor Aluminum Shoe Concealed Completely Beneath Stone Screed",
+          "Solar UV Protection Factor UPF 50+ Reducing Radiant Heat Transfer",
+          "Engineered for Severe Corner Vortex Wind Pressures up to 2.4 kPa"
+        ]
       }
-    }
+    },
+    "arabicDescription": "صُمم هذا النظام الهندسي المبتكر خصيصاً للشرفات الكابولية البارزة وأجنحة النوم الرئيسية الماستر، حيث يلتقي لوحان من الزجاج الإنشائي بزاوية قائمة 90 درجة بدون أي أعمدة زاوية معدنية، ليوفر إطلالة بانورامية واسعة ومفتوحة بزاوية 270 درجة تعزز الإحساس بالحرية والفخامة المعمارية.\n\nتعتمد زاوية الالتقاء على تقنية القطع المائل المائي فائق الدقة (Waterjet Mitered Joint) مع لحام سيليكوني إنشائي شفاف وعالي القوة ومقاوم للأشعة فوق البنفسجية، مما يضمن ثباتاً مطلقاً للزاوية ضد عواصف الرياح العاتية وضغوط الدوامات الهوائية في الطوابق المرتفعة. وتوفر ألواح الزجاج المصفح بلونها البرونزي أو الرمادي الداكن العاكس حماية خصوصية بنسبة 100%، حيث تعمل كمرآة عاكسة من الخارج تحجب الرؤية تماماً بينما تتيح لمن في الداخل رؤية واضحة ومريحة للعين.\n\nيثبت النظام عبر بروفايل أرضي إنشائي ثقيل يُدفن بالكامل تحت بلاط الرخام، لتبدو ألواح الزجاج وكأنها تنبثق مباشرة من الأرضية في لوحة فنية تجسد قمة العمارة المودرن.",
+    "kurdishName": "شۆرفەی کانتلیڤەری گۆشە بە شووشەی تاریکی داپۆشراو بۆ تایبەتمەندی و ڕوکاری مەڕمەڕ",
+    "kurdishDescription": "ئەم سیستەمە ئەندازیارییە پێشکەوتووە بە تایبەتی بۆ باڵکۆنە دەرپەڕیوەکانی گۆشە و ژووری خەوتنی سەرەکی ماستەر دیزاین کراوە، کە تیایدا دوو تەختە شووشەی گەورە لە گۆشەی ٩٠ پلەدا بەبێ هیچ کۆڵەکەیەکی کانزایی لە سووچەکەدا بەیەک دەگەن، تا دیمەنێکی پانۆرامای ٢٧٠ پلەیی کراوە پێشکەش بکات.\n\nپێکگەیشتنی گۆشەکە بە تەکنەلۆژیای بڕینی ئاوی زۆر ورد (Waterjet Mitered) و چەسپاندنی سیلیۆنی ئەندازیاری ڕوونی دژە تیشکی خۆر ئەنجام دەدرێت، کە بەرگرییەکی سەرسوڕهێنەر دابین دەکات دژی سوڕانەوەی ڕەشەبای بەهێز لە نهۆمە بەرزەکاندا. شووشە داپۆشراوە ڕەش یان قاوەییە ئاوێنەییەکەی لە دەرەوە بە تەواوی وەک ئاوێنە کار دەکات و ڕێگری دەکات لە بینینی ناوەوە، لە کاتێکدا لە ناوەوە دیمەنێکی زۆر ئارام و بێ کێشە دەبینیت.\n\nسیستەمەکە بە چوارچێوەیەکی قورسی شاراوە لەژێر کاشی مەڕمەڕی باڵکۆنەکەدا قایم دەکرێت، تا وا دەربکەوێت شووشەکان ڕاستەوخۆ لەناو زەوییەکەوە سەرکەوتبن بەبێ دەرکەوتنی هیچ بزمار و ئاسنێک."
   },
   {
     "id": "shorfa-villa-interior-mezzanine-glass",
@@ -495,36 +679,59 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/shorfa/shorfa_mezzanine_villa.jpg",
     "fallbackImage": "/products-assets/shorfa/shorfa_mezzanine_villa.jpg",
     "features": [
-      "Smoked Dark Glass Imparting Rich Contemporary Contrast to White Marble Floors",
-      "Precision Solid Matte Black Stainless Steel Floor Spigot Anchors",
-      "Flush Zero-Obstruction Top Line Ensuring Light Floods the Ground Floor Hall",
-      "Engineered for Indoor Void Protection Across Multi-Level Villa Foyers",
-      "Silent Gasket-Cushioned Glazing with Zero Creaking Under Load"
+      "Smoked Acoustic Glass Imparting Rich Contemporary Contrast to White Marble",
+      "Precision Solid Matte Black PVD Stainless Steel Floor Spigot Anchors",
+      "Acoustic PVB Core Reducing Room Sound Reverberation & Echo across Foyers",
+      "Epoxy Chemical Anchor Studs Embedded 120 mm Deep into Solid Slab",
+      "Diamond CNC-Polished Pencil-Round Edges with Silky Smooth Tactile Feel"
     ],
     "specs": {
-      "Glass Thickness": "25.52 mm (12 mm Tempered + 1.52 mm Dark Interlayer + 12 mm Tempered)",
-      "Spigot Material": "Grade 316 Stainless Steel with Hard Anodized Matte Black Ceramic Coating",
-      "Height": "1100 mm Compliant with Interior Residential Drop Codes",
-      "Base Mounting": "Dual M12 Chemically Anchored Threaded Rods per Spigot"
+      "Glass Type": "10+10 mm Smoked Toughened Laminated Acoustic Securit (20.76 mm)",
+      "Acoustic Rating": "Rw = 39 dB (High Sound Reverberation Suppression)",
+      "Spigot Construction": "Solid Billet CNC Machined Grade 304/316 Stainless Steel",
+      "Spigot Finish": "Velvet Matte Black PVD Titanium Ceramic Hardcoat",
+      "Anchorage": "M12 High-Yield Threaded Studs with Fischer Injection Mortar",
+      "Application": "Double-Height Atriums, Mezzanines, Open Living Bridges"
     },
-    "description": "An interior architectural showpiece custom-crafted for double-height villa mezzanines. Features smoky tinted safety glass held securely by sculpted matte black floor mounts, framing open halls with breathtaking sophistication.",
+    "description": "A commanding interior architectural statement custom-crafted for double-height villa entrance foyers, open-plan mezzanine galleries, and executive bridge walkways. This frameless balustrade frames open interior voids with sculptural sophistication, pairing soft smoky-grey tempered laminated glass with solid matte-black stainless steel floor spigot mounts that create rich contemporary contrast against polished white Italian marble.\n\nGlazed with 10+10 mm heavy-duty acoustic laminated tempered safety glass, the panels feature a specialized 0.76 mm sound-dampening PVB interlayer that significantly reduces acoustic flutter and room echo across large, high-ceilinged residential atriums. The solid CNC-milled stainless steel spigots are anchored 120 mm deep into the reinforced concrete slab using structural epoxy resin, ensuring zero creaking, flex, or deflection under sustained crowd and leaning loads.\n\nEvery exposed glass edge is diamond-polished to a flawless pencil-round profile, offering a silky tactile touch with absolute safety for children and family members across open-void living spaces.",
     "translations": {
       "ar": {
         "name": "دربزين شرفة وصالة داخلية بزجاج مدخن وقواعد سبیگوت سوداء على أرضيات الرخام الفاخرة",
-        "subCategory": "دربزينات الشرفات والصالات الداخلية",
-        "description": "تحفة هندسية معمارية مخصصة للصالات العلوية والمطلات الداخلية للفلل. زجاج مدخن فخم مثبت بقواعد سبیگوت سوداء أنيقة ليعكس بريق الرخام ويمنح صالتك اتساعاً وفخامة لا مثيل لها."
+        "description": "تحفة فنية داخلية صُممت لتكون حجر الزاوية في الديكور المعماري للفلل الفارهة ذات الأسقف المرتفعة والمطلات المفتوحة (Double-Height Mezzanines). يحيط هذا النظام بالصالات العلوية وممرات التوزيع الداخلية، حامياً الفراغات المفتوحة بألواح زجاج أمان مصفح ومقسى بلون دخاني ناعم يتناغم بسحر لا يُقاوم مع أرضيات الرخام الأبيض والإضاءات الكريستالية المتدلية.\n\nتثبت الألواح بقواعد سبیگوت مربعة مصنوعة من الستانلس ستيل المصمت بطلاء أسود مخملي مطفي (Matte Black Velvet)، مثبتة بمسامير هيكلية مغروسة بعمق 120 ملم داخل الخرسانة مع لواصق إيبوكسي إنشائية لضمان ثبات مطلق وثقة تامة عند الاستناد. كما تم تزويد الزجاج بطبقة أمان صوتية (Acoustic PVB) تمتص ارتداد الأصوات وتقلل الصدى في الصالات الواسعة والمفتوحة.\n\nخيار لا غنى عنه للباحثين عن الرقي المعماري الداخلي، حيث يجمع بين حماية الفراغات العلوية وإبراز فخامة الفيلا دون حجب تدفق الضوء بين الطوابق.",
+        "features": [
+          "Smoked Acoustic Glass Imparting Rich Contemporary Contrast to White Marble",
+          "Precision Solid Matte Black PVD Stainless Steel Floor Spigot Anchors",
+          "Acoustic PVB Core Reducing Room Sound Reverberation & Echo across Foyers",
+          "Epoxy Chemical Anchor Studs Embedded 120 mm Deep into Solid Slab",
+          "Diamond CNC-Polished Pencil-Round Edges with Silky Smooth Tactile Feel"
+        ]
       },
       "ckb": {
-        "name": "دەربزینی شووشەیی شرفەی هۆڵی ناوەوە بە سپیگۆتی ڕەشی مات و شووشەی تاریک",
-        "subCategory": "دەربزینی شرفەی ناوەوەی ڤێلا",
-        "description": "دیزاینێکی ناوازە بۆ هۆڵە بەرزەکان و شرفەی ناوەوەی نهۆمی سەرەوەی ڤێلا، بە شووشەی تاریکی مۆدێرن و پایەی سپیگۆتی ڕەشی مات لەسەر مەڕمەڕی سپی."
+        "name": "پەرژینی شووشەیی شۆرفە و هۆڵی ناوەوە بە شووشەی دووکەڵی و پایەی ستیلی ڕەشی مات بۆ مەڕمەڕی شاهانە",
+        "description": "شاکارێکی ئەندازیاری ناوخۆییە کە بە تایبەتی بۆ هۆڵە بەرزەکان و بەشە کراوەکانی نهۆمی دووەمی ڤێلا شاهانەکان (Mezzanine) دیزاین کراوە. ئەم پەرژینە لە دەوری هۆڵی سەرەوە و پردی پەڕینەوە دادەنرێت، کە بە شووشەی ئەستووری دووکەڵی نەرم هەستێکی سەرسوڕهێنەر و کەشخە لەگەڵ مەڕمەڕی سپی و ڕووناکییەکانی چەندانەی کریستاڵدا دروست دەکات.\n\nتەختە شووشەکان بە پایەی ستیلی چوارگۆشەی ڕەشی ماتی مەخمەڵی (Matte Black) جێگیر دەکرێن کە بە بزماری ئەندازیاری ١٢٠ ملم لەناو کۆنکرێتدا قایم کراون بە مادەی ئیپۆکسی بۆ دەستەبەرکردنی جێگیرییەکی سەدا سەد. هەروەها چینێکی عەزلی دەنگ (Acoustic PVB) لەناو شووشەکەدا بەکارهاتووە تا دەنگدانەوە و سەدا لە هۆڵە گەورەکاندا کەم بکاتەوە.\n\nپێویستییەکی تەلارسازییە بۆ ئەوانەی بەدوای کەشخەیی و سەردەمییدا دەگەڕێن، کە لە یەک کاتدا سەلامەتی کەوتنی نهۆمی سەرەوە دەپارێزێت و جوانی ڤێلاکەش دوو هێندە دەکات بێ ئەوەی ڕێگری لە ڕووناکی بکات.",
+        "features": [
+          "Smoked Acoustic Glass Imparting Rich Contemporary Contrast to White Marble",
+          "Precision Solid Matte Black PVD Stainless Steel Floor Spigot Anchors",
+          "Acoustic PVB Core Reducing Room Sound Reverberation & Echo across Foyers",
+          "Epoxy Chemical Anchor Studs Embedded 120 mm Deep into Solid Slab",
+          "Diamond CNC-Polished Pencil-Round Edges with Silky Smooth Tactile Feel"
+        ]
       },
       "en": {
         "name": "Luxury Villa Interior Mezzanine Glass Balustrade with Matte Black Spigots & Smoked Safety Glass",
-        "subCategory": "Interior Mezzanine Shorfa Systems",
-        "description": "An interior architectural showpiece custom-crafted for double-height villa mezzanines. Features smoky tinted safety glass held securely by sculpted matte black floor mounts, framing open halls with breathtaking sophistication."
+        "description": "A commanding interior architectural statement custom-crafted for double-height villa entrance foyers, open-plan mezzanine galleries, and executive bridge walkways. This frameless balustrade frames open interior voids with sculptural sophistication, pairing soft smoky-grey tempered laminated glass with solid matte-black stainless steel floor spigot mounts that create rich contemporary contrast against polished white Italian marble.\n\nGlazed with 10+10 mm heavy-duty acoustic laminated tempered safety glass, the panels feature a specialized 0.76 mm sound-dampening PVB interlayer that significantly reduces acoustic flutter and room echo across large, high-ceilinged residential atriums. The solid CNC-milled stainless steel spigots are anchored 120 mm deep into the reinforced concrete slab using structural epoxy resin, ensuring zero creaking, flex, or deflection under sustained crowd and leaning loads.\n\nEvery exposed glass edge is diamond-polished to a flawless pencil-round profile, offering a silky tactile touch with absolute safety for children and family members across open-void living spaces.",
+        "features": [
+          "Smoked Acoustic Glass Imparting Rich Contemporary Contrast to White Marble",
+          "Precision Solid Matte Black PVD Stainless Steel Floor Spigot Anchors",
+          "Acoustic PVB Core Reducing Room Sound Reverberation & Echo across Foyers",
+          "Epoxy Chemical Anchor Studs Embedded 120 mm Deep into Solid Slab",
+          "Diamond CNC-Polished Pencil-Round Edges with Silky Smooth Tactile Feel"
+        ]
       }
-    }
+    },
+    "arabicDescription": "تحفة فنية داخلية صُممت لتكون حجر الزاوية في الديكور المعماري للفلل الفارهة ذات الأسقف المرتفعة والمطلات المفتوحة (Double-Height Mezzanines). يحيط هذا النظام بالصالات العلوية وممرات التوزيع الداخلية، حامياً الفراغات المفتوحة بألواح زجاج أمان مصفح ومقسى بلون دخاني ناعم يتناغم بسحر لا يُقاوم مع أرضيات الرخام الأبيض والإضاءات الكريستالية المتدلية.\n\nتثبت الألواح بقواعد سبیگوت مربعة مصنوعة من الستانلس ستيل المصمت بطلاء أسود مخملي مطفي (Matte Black Velvet)، مثبتة بمسامير هيكلية مغروسة بعمق 120 ملم داخل الخرسانة مع لواصق إيبوكسي إنشائية لضمان ثبات مطلق وثقة تامة عند الاستناد. كما تم تزويد الزجاج بطبقة أمان صوتية (Acoustic PVB) تمتص ارتداد الأصوات وتقلل الصدى في الصالات الواسعة والمفتوحة.\n\nخيار لا غنى عنه للباحثين عن الرقي المعماري الداخلي، حيث يجمع بين حماية الفراغات العلوية وإبراز فخامة الفيلا دون حجب تدفق الضوء بين الطوابق.",
+    "kurdishName": "پەرژینی شووشەیی شۆرفە و هۆڵی ناوەوە بە شووشەی دووکەڵی و پایەی ستیلی ڕەشی مات بۆ مەڕمەڕی شاهانە",
+    "kurdishDescription": "شاکارێکی ئەندازیاری ناوخۆییە کە بە تایبەتی بۆ هۆڵە بەرزەکان و بەشە کراوەکانی نهۆمی دووەمی ڤێلا شاهانەکان (Mezzanine) دیزاین کراوە. ئەم پەرژینە لە دەوری هۆڵی سەرەوە و پردی پەڕینەوە دادەنرێت، کە بە شووشەی ئەستووری دووکەڵی نەرم هەستێکی سەرسوڕهێنەر و کەشخە لەگەڵ مەڕمەڕی سپی و ڕووناکییەکانی چەندانەی کریستاڵدا دروست دەکات.\n\nتەختە شووشەکان بە پایەی ستیلی چوارگۆشەی ڕەشی ماتی مەخمەڵی (Matte Black) جێگیر دەکرێن کە بە بزماری ئەندازیاری ١٢٠ ملم لەناو کۆنکرێتدا قایم کراون بە مادەی ئیپۆکسی بۆ دەستەبەرکردنی جێگیرییەکی سەدا سەد. هەروەها چینێکی عەزلی دەنگ (Acoustic PVB) لەناو شووشەکەدا بەکارهاتووە تا دەنگدانەوە و سەدا لە هۆڵە گەورەکاندا کەم بکاتەوە.\n\nپێویستییەکی تەلارسازییە بۆ ئەوانەی بەدوای کەشخەیی و سەردەمییدا دەگەڕێن، کە لە یەک کاتدا سەلامەتی کەوتنی نهۆمی سەرەوە دەپارێزێت و جوانی ڤێلاکەش دوو هێندە دەکات بێ ئەوەی ڕێگری لە ڕووناکی بکات."
   },
   {
     "id": "stair-floating-wood-glass",

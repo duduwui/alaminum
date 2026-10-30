@@ -15,7 +15,7 @@ import {
   Layers
 } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
-import { saveLocalProducts, deleteProductFromCloud } from '../services/productService';
+import { saveHomepageSectionItems } from '../services/homepageSectionItemsService';
 import { saveSharedCmsSection } from '../services/cmsService';
 import {
   HomepageSectionConfig,
@@ -182,16 +182,13 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
     saveHomepageSections(remainingSections);
     void saveSharedCmsSection('homepageSections', remainingSections);
 
-    // Also remove products belonging exclusively to this section
+    // Also remove slides belonging exclusively to this section
     const remainingProducts = productList.filter(
       (p) => p.division !== section.key && p.category !== section.key
     );
-    sectionProducts.forEach((p) => {
-      void deleteProductFromCloud(p.id);
-    });
     setProductList(remainingProducts);
-    saveLocalProducts(remainingProducts);
-    void saveSharedCmsSection('products', remainingProducts);
+    saveHomepageSectionItems(remainingProducts);
+    void saveSharedCmsSection('homepageSectionSlides', remainingProducts);
 
     setIsDeleteSectionModalOpen(false);
     onSaveFeedback(`✓ تم حذف قسم "${section.title || section.key}" بالكامل.`);
@@ -229,8 +226,8 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
       );
 
       setProductList(updated);
-      saveLocalProducts(updated);
-      void saveSharedCmsSection('products', updated);
+      saveHomepageSectionItems(updated);
+      void saveSharedCmsSection('homepageSectionSlides', updated);
       onSaveFeedback('✓ تم تحديث الميديا ومباشرة على الموقع!');
     } catch (err: any) {
       alert(err.message || 'فشل في رفع الميديا');
@@ -262,8 +259,8 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
     });
 
     setProductList(updated);
-    saveLocalProducts(updated);
-    void saveSharedCmsSection('products', updated);
+    saveHomepageSectionItems(updated);
+    void saveSharedCmsSection('homepageSectionSlides', updated);
   };
 
   // Auto-translate a single card into all 31 languages
@@ -321,8 +318,8 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
     updated[idxB] = temp;
 
     setProductList(updated);
-    saveLocalProducts(updated);
-    void saveSharedCmsSection('products', updated);
+    saveHomepageSectionItems(updated);
+    void saveSharedCmsSection('homepageSectionSlides', updated);
     onSaveFeedback('✓ تم تعديل ترتيب البطاقة.');
   };
 
@@ -332,9 +329,8 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
     const prodName = prod.translations?.ar?.name || prod.name || 'البطاقة';
     const updated = productList.filter((p) => p.id !== prod.id);
     setProductList(updated);
-    saveLocalProducts(updated);
-    void saveSharedCmsSection('products', updated);
-    void deleteProductFromCloud(prod.id);
+    saveHomepageSectionItems(updated);
+    void saveSharedCmsSection('homepageSectionSlides', updated);
     setDeleteTargetProd(null);
     onSaveFeedback(`✓ تم حذف "${prodName}" بنجاح.`);
   };
@@ -406,8 +402,8 @@ export const AdminDynamicSectionTab: React.FC<AdminDynamicSectionTabProps> = ({
 
       const updated = [newCard, ...productList];
       setProductList(updated);
-      saveLocalProducts(updated);
-      void saveSharedCmsSection('products', updated);
+      saveHomepageSectionItems(updated);
+      void saveSharedCmsSection('homepageSectionSlides', updated);
       onSaveFeedback('✓ تم إضافة البطاقة وترجمتها لجميع اللغات بنجاح!');
 
       setIsAddModalOpen(false);

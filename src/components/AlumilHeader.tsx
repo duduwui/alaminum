@@ -73,8 +73,6 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
   const [selectedDivisionKey, setSelectedDivisionKey] = useState<string>('windows');
-  const [mobileProductsOpen, setMobileProductsOpen] = useState<boolean>(false);
-  const [mobileExpandedCategory, setMobileExpandedCategory] = useState<string | null>(null);
   const [currentUser, setCurrentUser] = useState<UserType | null>(() => getCurrentUser());
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const userMenuRef = useRef<HTMLDivElement>(null);
@@ -589,126 +587,18 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                   {t('nav_home')}
                 </button>
 
-                {/* Mobile Products Nested Dropdown Accordion */}
-                <div className="border-y border-slate-100 py-1.5 my-1.5">
-                  <button
-                    onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                    className="w-full text-right py-2.5 px-2.5 flex items-center justify-between flex-row-reverse text-slate-900 hover:text-red-600 font-black text-[17px] transition-colors cursor-pointer"
-                  >
-                    <span className="flex items-center gap-2.5 flex-row-reverse">
-                      <LayoutGrid className="w-5 h-5 text-red-600" />
-                      <span>{t('nav_products')}</span>
-                    </span>
-                    <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${mobileProductsOpen ? 'rotate-180 text-red-600' : ''}`} />
-                  </button>
-
-                  {mobileProductsOpen && (
-                    <div className="pr-3 pl-1 py-2 space-y-2 border-r-2 border-slate-100 mr-2 animate-in fade-in duration-200 text-right">
-                      {/* Direct 'See All Products' Action Banner at top of products dropdown */}
-                      <button
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          handleNavClick('products');
-                        }}
-                        className="w-full py-2.5 px-3 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200/80 rounded-xl font-black text-sm flex items-center justify-between flex-row-reverse transition-all cursor-pointer shadow-xs"
-                      >
-                        <span className="flex items-center gap-2 flex-row-reverse">
-                          <LayoutGrid className="w-4 h-4 text-red-600 shrink-0" />
-                          <span>{isArabic ? 'تصفح جميع المنتجات' : isKurdish ? 'بینینی هەموو بەرهەمەکان' : 'See All Products'}</span>
-                        </span>
-                        <ChevronRight className="w-4 h-4 text-red-600 rotate-180" />
-                      </button>
-
-                      {homepageSections
-                        .filter((sec) => sec.isProductSection !== false)
-                        .map((sec) => {
-                        const isCatOpen = mobileExpandedCategory === sec.key || mobileExpandedCategory === sec.id;
-                        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-                        return (
-                          <div key={sec.id} className="space-y-1">
-                            {/* Category Level 2 */}
-                            <button
-                              onClick={() => setMobileExpandedCategory(isCatOpen ? null : (sec.key || sec.id))}
-                              className={`w-full text-right py-3 px-3 rounded-xl flex items-center justify-between flex-row-reverse text-[15px] sm:text-base transition-colors cursor-pointer ${
-                                isCatOpen
-                                  ? 'bg-red-50 text-red-700 font-black'
-                                  : 'text-slate-800 hover:bg-slate-50 hover:text-red-600 font-bold'
-                              }`}
-                            >
-                              <span>
-                                {header.title || sec.title}
-                              </span>
-                              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isCatOpen ? 'rotate-180 text-red-600' : 'text-slate-400'}`} />
-                            </button>
-
-                            {/* Models Level 3 (Max 10 items shown, item 11 is 'View all') */}
-                            {isCatOpen && (() => {
-                              const secKeyLower = (sec.key || sec.id || '').toLowerCase();
-                              const divProds = productList.filter((p) => {
-                                const pCat = (p.category || '').toLowerCase();
-                                const pDiv = (p.division || '').toLowerCase();
-                                return (
-                                  pDiv === secKeyLower ||
-                                  pCat === secKeyLower ||
-                                  (secKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
-                                  (secKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
-                                  (secKeyLower.includes('1793119387374') && (pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
-                                  (secKeyLower.includes('1793119430295') && (pCat.includes('1793119430295') || pDiv.includes('1793119430295')))
-                                );
-                              });
-
-                              return (
-                                <div className="pr-3 pl-1 py-1.5 space-y-1 border-r-2 border-red-200/80 mr-3 animate-in fade-in duration-150 text-right">
-                                  {divProds.length > 0 ? (
-                                    divProds.slice(0, 10).map((prod) => (
-                                      <button
-                                        key={prod.id}
-                                        onClick={() => {
-                                          setMobileMenuOpen(false);
-                                          if (onSelectProduct) {
-                                            onSelectProduct(prod);
-                                          } else {
-                                            handleNavClick(sec.key);
-                                          }
-                                        }}
-                                        className="w-full text-right py-2.5 px-3 rounded-lg text-[14px] sm:text-[15px] font-semibold text-slate-700 hover:text-red-600 hover:bg-red-50/50 transition-colors flex items-center justify-between flex-row-reverse group cursor-pointer"
-                                      >
-                                        <span className="truncate pl-2">
-                                          {getLocalizedProduct(prod, currentLanguage.code).name}
-                                        </span>
-                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-red-600 transition-all shrink-0 rotate-180" />
-                                      </button>
-                                    ))
-                                  ) : null}
-
-                                  {/* Item 11: View all in this category */}
-                                  <button
-                                    onClick={() => handleNavClick(sec.key)}
-                                    className="w-full text-right py-2.5 px-3 text-xs sm:text-sm font-black text-red-600 hover:underline flex items-center justify-end gap-1 cursor-pointer pt-1.5"
-                                  >
-                                    <span>{isArabic ? `عرض جميع ${header.title || sec.title} ←` : isKurdish ? `بینینی گشت ${header.title || sec.title} ←` : `View all ${header.title || sec.title} →`}</span>
-                                  </button>
-                                </div>
-                              );
-                            })()}
-                          </div>
-                        );
-                      })}
-
-                      {/* Prominent Bottom See All Products Button */}
-                      <button
-                        onClick={() => {
-                          setMobileMenuOpen(false);
-                          handleNavClick('products');
-                        }}
-                        className="w-full mt-3 py-3 px-4 bg-slate-900 hover:bg-red-600 text-white rounded-xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md"
-                      >
-                        <LayoutGrid className="w-4 h-4 text-red-400" />
-                        <span>{isArabic ? 'فتح كتالوج المنتجات بالكامل' : isKurdish ? 'کردنەوەی کەتەلۆکی گشت بەرهەمەکان' : 'Open Full Products Catalog'}</span>
-                      </button>
-                    </div>
-                  )}
-                </div>
+                {/* Mobile Products Button - Single Direct Click to Products Page */}
+                <button
+                  onClick={() => handleNavClick('products')}
+                  className={`w-full text-right py-2.5 px-2.5 flex items-center justify-between flex-row-reverse hover:text-red-600 font-black text-[17px] transition-colors cursor-pointer ${
+                    activeTab === 'products' ? 'text-red-600 bg-red-50/60 rounded-xl' : 'text-slate-900'
+                  }`}
+                >
+                  <span className="flex items-center gap-2.5 flex-row-reverse">
+                    <LayoutGrid className="w-5 h-5 text-red-600" />
+                    <span>{t('nav_products')}</span>
+                  </span>
+                </button>
 
                 <button onClick={() => handleNavClick('projects')} className="w-full text-right py-2.5 px-2.5 hover:text-red-600 transition-colors cursor-pointer block">
                   {t('nav_projects')}
