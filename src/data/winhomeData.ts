@@ -1001,7 +1001,7 @@ export const RAILINGS_PRODUCTS: ProductItem[] = [
     soldCount: "680+ meters",
     videoUrl: "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
     mediaType: "video",
-    image: "/products-assets/photo_80_2026-09-26_07-36-01.jpg",
+    image: "/products-assets/balconies/photo_68_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/23-1.jpg",
     description: "Floor-mounted and fascia-mounted continuous aluminum base shoe systems holding heavy 16mm-21.5mm laminated glass panels without vertical posts.",
     depth: "120 mm base",

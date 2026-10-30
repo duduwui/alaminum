@@ -1492,7 +1492,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "name": "Structural Glass Balcony Railings",
     "brand": "Doorhome Architectural",
     "depth": "120 mm base",
-    "image": "/products-assets/photo_80_2026-09-26_07-36-01.jpg",
+    "image": "/products-assets/balconies/photo_68_2026-09-26_07-36-01.jpg",
     "specs": {
       "Profile Weight": "Heavy Structural Grade",
       "Glass Thickness": "8+8 mm or 10+10 mm PVB / SGP"

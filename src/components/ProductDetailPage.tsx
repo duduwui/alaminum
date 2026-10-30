@@ -175,17 +175,17 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 )}
               </div>
 
-              {/* Red WhatsApp CTA Button (No price button, no chat button) */}
+              {/* Green WhatsApp CTA Button */}
               <div className="pt-3.5 lg:pt-4 flex items-center justify-start">
                 <a
                   href={`https://wa.me/9647507388748?text=${waMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 sm:gap-3 rounded-full bg-red-600 hover:bg-red-700 active:scale-95 text-white px-6 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-extrabold shadow-lg shadow-red-600/25 transition-all hover:scale-[1.02] cursor-pointer"
+                  className="inline-flex items-center gap-2.5 sm:gap-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] active:scale-95 text-white px-6 sm:px-7 py-2.5 sm:py-3 text-xs sm:text-sm font-extrabold shadow-lg shadow-[#25D366]/30 transition-all hover:scale-[1.02] cursor-pointer"
                 >
                   {/* WhatsApp White Circular Badge */}
                   <span
-                    className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full bg-white text-red-600 flex items-center justify-center shrink-0 shadow-xs"
+                    className="w-7 h-7 sm:w-7.5 sm:h-7.5 rounded-full bg-white text-[#25D366] flex items-center justify-center shrink-0 shadow-xs"
                     aria-hidden="true"
                   >
                     <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">

@@ -1987,7 +1987,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "location": "Vank City, Erbil",
     "system": "Lorenzo 70LS Thermal Aluminum",
     "category": "villa",
-    "src": "/products-assets/photo_80_2026-09-26_07-36-01.jpg",
+    "src": "/products-assets/doors/photo_14_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
     "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.",
     "year": "2023",
