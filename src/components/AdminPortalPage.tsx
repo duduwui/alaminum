@@ -76,6 +76,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { AdminUsersTab } from './AdminUsersTab';
+import { logoutUser } from '../services/authService';
 import { CurrencyType, formatCurrency } from '../utils/currency';
 import { saveProductToCloud, deleteProductFromCloud, loadLocalProducts, saveLocalProducts, resetProductsToDefault } from '../services/productService';
 import { autoTranslateFullProduct } from '../services/translateService';
@@ -112,6 +113,7 @@ import {
 interface AdminPortalPageProps {
   onBackToHome: () => void;
   onGoToProducts: () => void;
+  onSignOut?: () => void;
 }
 
 const compressImageFile = (file: File, maxWidth = 1000, quality = 0.8): Promise<string> => {
@@ -188,10 +190,21 @@ const uploadCmsImageFile = async (file: File): Promise<string> => {
 
 export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   onBackToHome,
-  onGoToProducts
+  onGoToProducts,
+  onSignOut
 }) => {
   const { currentLanguage, setLanguage, t } = useLanguage();
   const isRtl = ['ckb', 'kmr', 'ar'].includes(currentLanguage.code);
+
+  const handleSignOut = () => {
+    logoutUser();
+    if (onSignOut) {
+      onSignOut();
+    } else {
+      window.location.hash = '';
+      onBackToHome();
+    }
+  };
 
   // Navigation tab state
   const [activeSection, setActiveSection] = useState<
@@ -1334,6 +1347,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         currentLanguage={currentLanguage}
         setLanguage={setLanguage}
         onBackToHome={onBackToHome}
+        onSignOut={handleSignOut}
         t={t}
         supportedLanguages={SUPPORTED_LANGUAGES}
       />
@@ -1410,6 +1424,17 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             >
               <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
               <span className="hidden sm:inline">{t('admin_btn_back_home')} ↗</span>
+            </button>
+
+            {/* Sign Out Button */}
+            <button
+              type="button"
+              onClick={handleSignOut}
+              className="px-3 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 hover:text-rose-800 font-bold text-xs border border-rose-200 transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs"
+              title="Sign Out of Admin Console"
+            >
+              <LogOut className="w-3.5 h-3.5 text-rose-600" />
+              <span>{currentLanguage.code === 'ar' ? 'تسجيل الخروج' : currentLanguage.code === 'ckb' ? 'چوونەدەرەوە' : 'Sign Out'}</span>
             </button>
 
             <div className="w-7 h-7 rounded-full bg-red-50 text-red-700 font-black text-xs flex items-center justify-center border border-red-200">

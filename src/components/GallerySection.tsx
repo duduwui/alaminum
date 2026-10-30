@@ -309,13 +309,17 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
               {/* Right Column: Editorial Project Info & Right-Aligned WhatsApp Button */}
               <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6 text-start">
                 <div className="space-y-4">
-                  <h3 dir="auto" className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
-                    {localize(items.find(item => item.id === selected.id) || selected).title}
-                  </h3>
+                  {Boolean(localize(items.find(item => item.id === selected.id) || selected).title) && (
+                    <h3 dir="auto" className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 leading-snug">
+                      {localize(items.find(item => item.id === selected.id) || selected).title}
+                    </h3>
+                  )}
 
-                  <p dir="auto" className="text-sm sm:text-base leading-[1.8] text-slate-600 font-normal whitespace-pre-line">
-                    {localize(items.find(item => item.id === selected.id) || selected).description}
-                  </p>
+                  {Boolean(localize(items.find(item => item.id === selected.id) || selected).description) && (
+                    <p dir="auto" className="text-sm sm:text-base leading-[1.8] text-slate-600 font-normal whitespace-pre-line">
+                      {localize(items.find(item => item.id === selected.id) || selected).description}
+                    </p>
+                  )}
                 </div>
 
                 {/* Action Bar: All Products on Left, Modern WhatsApp Button on Right */}
@@ -347,7 +351,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                   </button>
 
                   <a
-                    href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I am inquiring about this project: ${selected.title}. System: ${selected.system || 'Standard'}.`)}`}
+                    href={`https://wa.me/9647507388748?text=${encodeURIComponent(`Hello Doorhome, I am inquiring about this project: ${selected.title || 'Architectural System'}. System: ${selected.system || 'Standard'}.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="whatsapp-cta-btn ms-auto"

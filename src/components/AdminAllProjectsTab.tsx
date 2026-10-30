@@ -287,12 +287,14 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
-                <label className="block text-[11px] font-bold text-slate-700 mb-1">Project Title</label>
+                <label className="block text-[11px] font-bold text-slate-700 mb-1">
+                  Project Title <span className="text-slate-400 font-normal">(Optional)</span>
+                </label>
                 <input
                   type="text"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="e.g. Modern Erbil Dream City Villa"
+                  placeholder="Optional — leave blank for image only"
                   className="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 bg-white outline-none focus:border-red-500"
                 />
               </div>
@@ -329,8 +331,8 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
               <AdvancedTextarea
                 value={newDescription}
                 onChange={setNewDescription}
-                label="Project Description (Press Tab to indent, blank lines supported)"
-                placeholder="Architectural specifications, glass type, profile dimensions..."
+                label="Project Description (Optional — leave blank for image only)"
+                placeholder="Optional — leave blank if no description needed..."
                 rows={4}
                 minHeight="100px"
               />

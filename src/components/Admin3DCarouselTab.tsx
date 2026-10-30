@@ -5,7 +5,8 @@ import {
   ArrowRight,
   Sparkles,
   Film,
-  Image as ImageIcon
+  Image as ImageIcon,
+  Eraser
 } from 'lucide-react';
 import { GalleryMediaItem } from '../services/galleryContentService';
 
@@ -25,6 +26,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
   const [replacingSlotIdx, setReplacingSlotIdx] = useState<number | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const bulkFileInputRef = React.useRef<HTMLInputElement>(null);
 
   // Exactly 12 slots for the homepage 3D WebGL Liquid Lens Carousel
   const slots12 = galleryImages.slice(0, 12);
@@ -74,6 +76,67 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
     }
   };
 
+  // Upload one or multiple images directly to 3D slides with no title or description required
+  const handleBulkUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    try {
+      setIsUploading(true);
+      const newItems: GalleryMediaItem[] = [];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const url = await onUploadMedia(file);
+        const isVideo = file.type.startsWith('video/') || /\.(mp4|webm|mov)(\?|#|$)/i.test(url);
+        newItems.push({
+          id: `slide-3d-${Date.now()}-${i}`,
+          title: '', // No title required
+          description: '', // No description required
+          src: url,
+          mediaType: isVideo ? 'video' : 'image',
+          category: 'villa',
+          location: '',
+          system: ''
+        });
+      }
+
+      // Prepend so new images immediately occupy the active 3D carousel slots
+      const updated = [...newItems, ...galleryImages];
+      await onUpdateGallery(updated);
+      onSaveFeedback(`✓ Added ${files.length} image(s) to 3D Slides with no title or description required!`);
+    } catch (err: any) {
+      alert(err.message || 'Upload failed');
+    } finally {
+      setIsUploading(false);
+      if (e.target) e.target.value = '';
+    }
+  };
+
+  const handleClearSlotText = async (slotIndex: number) => {
+    const updated = [...galleryImages];
+    updated[slotIndex] = {
+      ...updated[slotIndex],
+      title: '',
+      description: ''
+    };
+    await onUpdateGallery(updated);
+    onSaveFeedback(`✓ Card #${slotIndex + 1} text cleared (image-only slide)`);
+  };
+
+  const handleClearAll12SlidesText = async () => {
+    if (!window.confirm('Clear titles and descriptions from all 12 active 3D carousel slides so they display pure images?')) return;
+    const updated = [...galleryImages];
+    for (let i = 0; i < Math.min(12, updated.length); i++) {
+      updated[i] = {
+        ...updated[i],
+        title: '',
+        description: ''
+      };
+    }
+    await onUpdateGallery(updated);
+    onSaveFeedback('✓ All 12 3D carousel slides are now image-only (titles & descriptions cleared).');
+  };
+
   const handleSlotFieldChange = (slotIndex: number, field: 'title' | 'description', value: string) => {
     const updated = [...galleryImages];
     updated[slotIndex] = {
@@ -85,13 +148,23 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* Hidden file input for slot media replacement */}
+      {/* Hidden file input for single slot replacement */}
       <input
         ref={fileInputRef}
         type="file"
         accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
         className="hidden"
         onChange={handleFileInputChange}
+      />
+
+      {/* Hidden file input for batch slide image upload */}
+      <input
+        ref={bulkFileInputRef}
+        type="file"
+        multiple
+        accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm"
+        className="hidden"
+        onChange={handleBulkUpload}
       />
 
       {/* Header & Explainer Card */}
@@ -106,12 +179,33 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
             </div>
             <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
               These 12 cards correspond directly to the 12 slides rendered in the interactive WebGL 3D carousel on the public homepage.
-              Each card has its image/video, title, and description. Use <strong>Upload / Replace</strong> to change media, and the arrow buttons to re-order their sequence.
+              You can <strong>upload just images</strong> without entering any title or description. All text fields are completely optional.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
-            <span className="px-3.5 py-1.5 rounded-xl bg-red-50 text-red-700 border border-red-200 font-extrabold text-xs flex items-center gap-1.5">
+          <div className="flex items-center gap-2.5 flex-wrap shrink-0">
+            {/* Direct Upload Just Images Button */}
+            <button
+              type="button"
+              disabled={isUploading}
+              onClick={() => bulkFileInputRef.current?.click()}
+              className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-2 shadow-xs transition-all cursor-pointer"
+            >
+              <Upload className="w-3.5 h-3.5" />
+              <span>{isUploading ? 'Uploading…' : 'Upload Images (No Title/Description Required)'}</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={handleClearAll12SlidesText}
+              className="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer"
+              title="Clear all titles and descriptions from the 12 slides so they display pure images"
+            >
+              <Eraser className="w-3.5 h-3.5 text-slate-500" />
+              <span className="hidden sm:inline">Make Image-Only</span>
+            </button>
+
+            <span className="px-3.5 py-2 rounded-xl bg-red-50 text-red-700 border border-red-200 font-extrabold text-xs flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-red-600" />
               <span>12 Active 3D Slides</span>
             </span>
@@ -176,7 +270,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                   ) : (
                     <img
                       src={slot.src}
-                      alt={slot.title}
+                      alt={slot.title || '3D Slide'}
                       className="w-full h-full object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
@@ -190,31 +284,44 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                   )}
                 </div>
 
-                {/* Slot Details: Title & Description */}
+                {/* Slot Details: Title & Description (OPTIONAL) */}
                 <div className="space-y-2.5">
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
-                      Title
-                    </label>
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500">
+                        Title <span className="text-slate-400 font-semibold normal-case">(Optional)</span>
+                      </label>
+                      {(slot.title || slot.description) && (
+                        <button
+                          type="button"
+                          onClick={() => handleClearSlotText(idx)}
+                          className="text-[10px] text-slate-400 hover:text-red-600 flex items-center gap-1 transition-colors cursor-pointer"
+                          title="Clear title and description for this slide"
+                        >
+                          <Eraser className="w-2.5 h-2.5" />
+                          <span>Clear text</span>
+                        </button>
+                      )}
+                    </div>
                     <input
                       type="text"
-                      value={slot.title}
+                      value={slot.title || ''}
                       onChange={(e) => handleSlotFieldChange(idx, 'title', e.target.value)}
-                      placeholder="e.g. Minimalist Villa Fenestration"
+                      placeholder="Optional — leave blank for image only"
                       className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white transition-all"
                     />
                   </div>
 
                   <div>
                     <label className="block text-[10px] font-black uppercase tracking-wider text-slate-500 mb-1">
-                      Description
+                      Description <span className="text-slate-400 font-semibold normal-case">(Optional)</span>
                     </label>
                     <textarea
                       value={slot.description || ''}
                       onChange={(e) => handleSlotFieldChange(idx, 'description', e.target.value)}
-                      placeholder="Detailed project description..."
-                      rows={4}
-                      className="w-full border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm text-slate-700 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white min-h-[110px] resize-y transition-all leading-relaxed"
+                      placeholder="Optional — leave blank for image only"
+                      rows={3}
+                      className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs text-slate-700 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white min-h-[85px] resize-y transition-all leading-relaxed"
                     />
                   </div>
                 </div>

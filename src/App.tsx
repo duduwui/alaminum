@@ -103,6 +103,16 @@ export default function App() {
   const [isAdminAuthModalOpen, setIsAdminAuthModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
+    const handleAuth = () => {
+      const user = getCurrentUser();
+      const isAdmin = user?.role === 'admin' || user?.role === 'super_admin';
+      setIsAdminAuthenticated(isAdmin);
+    };
+    window.addEventListener('auth-changed', handleAuth);
+    return () => window.removeEventListener('auth-changed', handleAuth);
+  }, []);
+
+  useEffect(() => {
     if (activeTab !== 'admin') return;
     if (!isAdminAuthenticated) {
       setAdminSessionStatus('missing');
@@ -419,6 +429,13 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const handleAdminSignOut = () => {
+    logoutUser();
+    setIsAdminAuthenticated(false);
+    setAdminSessionStatus('missing');
+    handleBackToHome();
+  };
+
   // Cart Management Handlers
   const handleAddToCart = (newItem: RequestItem) => {
     setCartItems((prev) => {
@@ -506,6 +523,7 @@ export default function App() {
                 <AdminPortalPage
                   onBackToHome={handleBackToHome}
                   onGoToProducts={() => handleGoToProductShop('all')}
+                  onSignOut={handleAdminSignOut}
                 />
               </ErrorBoundary>
             ) : (
