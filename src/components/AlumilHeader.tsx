@@ -328,8 +328,8 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                           );
                         });
 
-                        const featuredImg = (divisionProducts.length > 0 && (divisionProducts[0].image || divisionProducts[0].fallbackImage))
-                          ? (divisionProducts[0].image || divisionProducts[0].fallbackImage)
+                        const featuredImg = (divisionProducts.length > 0)
+                          ? ((divisionProducts[0].image && !/\.(mp4|webm)(\?|#|$)/i.test(divisionProducts[0].image)) ? divisionProducts[0].image : (divisionProducts[0].poster || divisionProducts[0].fallbackImage || './assets/doorhome/03-2.jpg'))
                           : ((currentSec as any)?.featuredImage || './assets/doorhome/03-2.jpg');
 
                         return (
@@ -348,6 +348,9 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                   <div className="space-y-1.5">
                                     {divisionProducts.slice(0, 8).map((prod) => {
                                       const locProd = getLocalizedProduct(prod, currentLanguage.code);
+                                      const prodThumb = (locProd.image && !/\.(mp4|webm)(\?|#|$)/i.test(locProd.image))
+                                        ? locProd.image
+                                        : (locProd.poster || locProd.fallbackImage || './assets/doorhome/03-2.jpg');
                                       return (
                                         <button
                                           key={prod.id}
@@ -364,7 +367,7 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                                         >
                                           <div className="flex items-center gap-2.5 min-w-0">
                                             <img
-                                              src={locProd.image || locProd.fallbackImage || './assets/doorhome/03-2.jpg'}
+                                              src={prodThumb}
                                               alt={locProd.name}
                                               className="w-10 h-10 rounded-lg object-cover border border-slate-200 shrink-0 bg-slate-100"
                                               onError={(e) => {

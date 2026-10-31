@@ -80,10 +80,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose, onSel
                 <div className="flex items-center gap-3.5 min-w-0">
                   <div className="w-12 h-12 rounded-xl bg-white p-1.5 flex items-center justify-center shrink-0 border border-slate-200 shadow-2xs group-hover:scale-105 transition-transform">
                     <img
-                      src={product.image}
+                      src={product.image && !/\.(mp4|webm)(\?|#|$)/i.test(product.image) ? product.image : ((product as any).poster || product.fallbackImage || './assets/doorhome/03-2.jpg')}
                       alt={product.name}
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = product.fallbackImage;
+                        (e.target as HTMLImageElement).src = product.fallbackImage || './assets/doorhome/03-2.jpg';
                       }}
                       className="max-h-full max-w-full object-contain"
                     />

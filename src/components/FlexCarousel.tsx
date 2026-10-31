@@ -508,8 +508,18 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
           if (!src) return '';
           if (src.includes('12c6d25c')) return '/uploads/poster_slot4.jpg';
           if (src.includes('746f7fc1')) return '/uploads/poster_slot2.jpg';
-          if (src.includes('video_2026-09-26_07-36-00') || src.includes('(10)')) return '/uploads/poster_slot11.jpg';
-          return '';
+          if (src.includes('video_2026-09-26_07-36-00') || src.includes('(10)')) return '/products-assets/windows/poster_vid10.jpg';
+          if (src.includes('(11)')) return '/products-assets/windows/poster_vid11.jpg';
+          if (src.includes('(3)')) return '/products-assets/windows/poster_vid3.jpg';
+          if (src.includes('(4)')) return '/products-assets/windows/poster_vid4.jpg';
+          if (src.includes('(5)')) return '/products-assets/windows/poster_vid5.jpg';
+          if (src.includes('(6)')) return '/products-assets/windows/poster_vid6.jpg';
+          if (src.includes('(7)')) return '/products-assets/windows/poster_vid7.jpg';
+          if (src.includes('(8)')) return '/products-assets/unclears/poster_unclear_vid8.jpg';
+          if (src.includes('(9)')) return '/products-assets/windows/poster_vid9.jpg';
+          if (src.includes('6.19.54')) return '/products-assets/unclears/poster_unclear_tower_balconies.jpg';
+          if (src.includes('5.10.04')) return '/products-assets/unclears/poster_unclear_patio_enclosure.jpg';
+          return '/uploads/poster_slot11.jpg';
         };
         const posterUrl = resolvePosterUrl(item.src, item.poster || item.cover || item.thumbnail);
 
@@ -566,13 +576,14 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
         };
 
         const applyCanvasToSlot = (canvas: HTMLCanvasElement) => {
-          if (!alive || !slots.includes(slot) || videoCleaned) return;
+          if (!alive || videoCleaned) return;
           texture.image = canvas;
           texture.update();
           slot.image = [canvas.width, canvas.height];
           slot.aspect = canvas.width / canvas.height;
-          slot.color = [0.1, 0.12, 0.18];
+          slot.color = [0.18, 0.22, 0.28];
           slot.loaded = true;
+          slot.ready = 1;
           dirty = true;
           start();
         };
@@ -585,7 +596,7 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
           }
           posterImg.decoding = 'async';
           posterImg.onload = () => {
-            if (!alive || !slots.includes(slot) || videoCleaned) return;
+            if (!alive || videoCleaned) return;
             const canvas = document.createElement('canvas');
             canvas.width = Math.max(posterImg.naturalWidth || 800, 400);
             canvas.height = Math.max(posterImg.naturalHeight || 560, 300);
@@ -596,10 +607,27 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
             }
             applyCanvasToSlot(canvas);
           };
+          posterImg.onerror = () => {
+            if (!alive || videoCleaned) return;
+            const canvas = document.createElement('canvas');
+            canvas.width = 800;
+            canvas.height = 560;
+            const ctx = canvas.getContext('2d');
+            if (ctx) {
+              const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+              grad.addColorStop(0, '#1e293b');
+              grad.addColorStop(0.5, '#334155');
+              grad.addColorStop(1, '#0f172a');
+              ctx.fillStyle = grad;
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              drawPlayBadge(ctx, canvas.width, canvas.height);
+            }
+            applyCanvasToSlot(canvas);
+          };
           posterImg.src = posterUrl;
         }
 
-        // 2. Video element frame capture fallback
+        // 2. Video element frame capture fallback (only if not pitch-black)
         const video = document.createElement('video');
         if (item.src.startsWith('http') && typeof window !== 'undefined' && !item.src.includes(window.location.host)) {
           video.crossOrigin = 'anonymous';
@@ -609,7 +637,7 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
         video.preload = 'auto';
 
         const captureVideoFrame = () => {
-          if (!alive || !slots.includes(slot) || videoCleaned) return;
+          if (!alive || videoCleaned) return;
           if (video.videoWidth && video.videoHeight) {
             const canvas = document.createElement('canvas');
             canvas.width = video.videoWidth;
@@ -618,9 +646,18 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
             if (ctx) {
               try {
                 ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                drawPlayBadge(ctx, canvas.width, canvas.height);
-                applyCanvasToSlot(canvas);
-                return;
+                // Check if captured frame is completely black
+                const imgData = ctx.getImageData(0, 0, Math.min(canvas.width, 20), Math.min(canvas.height, 20)).data;
+                let total = 0;
+                for (let i = 0; i < imgData.length; i += 4) {
+                  total += imgData[i] + imgData[i + 1] + imgData[i + 2];
+                }
+                const mean = total / (imgData.length * 0.75);
+                if (mean > 15) {
+                  drawPlayBadge(ctx, canvas.width, canvas.height);
+                  applyCanvasToSlot(canvas);
+                  return;
+                }
               } catch {}
             }
           }
@@ -644,9 +681,9 @@ export const FlexCarousel: React.FC<FlexCarouselProps> = ({
           const ctx = canvas.getContext('2d');
           if (ctx) {
             const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-            grad.addColorStop(0, '#0f172a');
-            grad.addColorStop(0.5, '#1e293b');
-            grad.addColorStop(1, '#020617');
+            grad.addColorStop(0, '#1e293b');
+            grad.addColorStop(0.5, '#334155');
+            grad.addColorStop(1, '#0f172a');
             ctx.fillStyle = grad;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             drawPlayBadge(ctx, canvas.width, canvas.height);

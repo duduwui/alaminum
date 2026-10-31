@@ -10,10 +10,38 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v9';
+const STORAGE_KEY = 'winhome_admin_products_v11';
 const DELETED_PRODUCTS_KEY = 'winhome_deleted_product_ids';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
+
+let isFetchingCmsProducts = false;
+
+// Clean up old stale caches
+try {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_products_v9');
+    localStorage.removeItem('winhome_admin_products_v8');
+    localStorage.removeItem('winhome_admin_products_v7');
+  }
+} catch {}
+
+export async function fetchProductsFromCms(): Promise<ProductItem[]> {
+  try {
+    const res = await fetch('/api/cms/products', { cache: 'no-cache' });
+    if (res.ok) {
+      const payload = await res.json();
+      const rawList = Array.isArray(payload) ? payload : payload?.data;
+      if (Array.isArray(rawList) && rawList.length > 0) {
+        saveLocalProducts(rawList);
+        return rawList;
+      }
+    }
+  } catch (err) {
+    console.warn('Failed to fetch CMS products from server:', err);
+  }
+  return loadLocalProducts();
+}
 
 export function getDeletedProductIds(): Set<string> {
   try {
@@ -35,6 +63,13 @@ export function markProductAsDeleted(id: string): void {
 }
 
 export function loadLocalProducts(): ProductItem[] {
+  if (typeof window !== 'undefined' && !isFetchingCmsProducts) {
+    isFetchingCmsProducts = true;
+    fetchProductsFromCms().finally(() => {
+      isFetchingCmsProducts = false;
+    });
+  }
+
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     const deletedIds = getDeletedProductIds();

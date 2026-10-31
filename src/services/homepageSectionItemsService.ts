@@ -1,7 +1,7 @@
 import { ProductItem } from '../data/winhomeData';
 import { HOMEPAGE_SECTION_ITEMS_SEED } from '../data/homepageSectionItemsSeed';
 
-const STORAGE_KEY = 'winhome_homepage_section_slides_v2';
+const STORAGE_KEY = 'winhome_homepage_section_slides_v3';
 export const SECTION_ITEMS_UPDATED_EVENT = 'winhome_section_items_updated';
 
 let isFetchingCms = false;

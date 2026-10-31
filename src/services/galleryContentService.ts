@@ -13,8 +13,15 @@ export interface GalleryMediaItem {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = 'winhome_admin_gallery_images_v4';
+const STORAGE_KEY = 'winhome_admin_gallery_images_v5';
 export const GALLERY_UPDATED_EVENT = 'cms_gallery_updated';
+
+try {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_gallery_images_v4');
+    localStorage.removeItem('winhome_admin_gallery_images_v3');
+  }
+} catch {}
 
 import { MASTER_GALLERY_ITEMS } from '../data/galleryData';
 
@@ -50,8 +57,28 @@ export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
         ? '/uploads/poster_slot4.jpg'
         : src.includes('746f7fc1')
         ? '/uploads/poster_slot2.jpg'
-        : src.includes('video_2026') || src.includes('(10)')
-        ? '/uploads/poster_slot11.jpg'
+        : src.includes('(10)') || src.includes('video_2026-09-26_07-36-00')
+        ? '/products-assets/windows/poster_vid10.jpg'
+        : src.includes('(11)')
+        ? '/products-assets/windows/poster_vid11.jpg'
+        : src.includes('(3)')
+        ? '/products-assets/windows/poster_vid3.jpg'
+        : src.includes('(4)')
+        ? '/products-assets/windows/poster_vid4.jpg'
+        : src.includes('(5)')
+        ? '/products-assets/windows/poster_vid5.jpg'
+        : src.includes('(6)')
+        ? '/products-assets/windows/poster_vid6.jpg'
+        : src.includes('(7)')
+        ? '/products-assets/windows/poster_vid7.jpg'
+        : src.includes('(8)')
+        ? '/products-assets/unclears/poster_unclear_vid8.jpg'
+        : src.includes('(9)')
+        ? '/products-assets/windows/poster_vid9.jpg'
+        : src.includes('6.19.54')
+        ? '/products-assets/unclears/poster_unclear_tower_balconies.jpg'
+        : src.includes('5.10.04')
+        ? '/products-assets/unclears/poster_unclear_patio_enclosure.jpg'
         : undefined
     }];
   });

@@ -211,19 +211,44 @@ const SingleDynamicSection: React.FC<SingleDynamicSectionProps> = ({
               {/* Slide Counter, Dots & Prev/Next Pagination Controls */}
               <div className="absolute bottom-4 end-4 flex items-center gap-2 z-10">
                 <div className="flex items-center gap-1.5 bg-black/65 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg border border-white/10">
-                  {localizedItems.map((_, dotIdx) => (
-                    <button
-                      key={dotIdx}
-                      type="button"
-                      onClick={() => goToSlide(dotIdx)}
-                      aria-label={`Go to item ${dotIdx + 1}`}
-                      className={`transition-all duration-300 rounded-full cursor-pointer ${
-                        dotIdx === safeIndex
-                          ? 'w-5 h-2 bg-red-500'
-                          : 'w-2 h-2 bg-white/50 hover:bg-white'
-                      }`}
-                    />
-                  ))}
+                  {localizedItems.length <= 6 ? (
+                    localizedItems.map((_, dotIdx) => (
+                      <button
+                        key={dotIdx}
+                        type="button"
+                        onClick={() => goToSlide(dotIdx)}
+                        aria-label={`Go to item ${dotIdx + 1}`}
+                        className={`transition-all duration-300 rounded-full cursor-pointer ${
+                          dotIdx === safeIndex
+                            ? 'w-5 h-2 bg-red-500'
+                            : 'w-2 h-2 bg-white/50 hover:bg-white'
+                        }`}
+                      />
+                    ))
+                  ) : (
+                    // Smart capped window of at most 5 indicator dots
+                    Array.from({ length: Math.min(5, localizedItems.length) }).map((_, i) => {
+                      const total = localizedItems.length;
+                      let targetIdx = safeIndex - 2 + i;
+                      if (safeIndex < 2) targetIdx = i;
+                      else if (safeIndex > total - 3) targetIdx = total - 5 + i;
+                      targetIdx = ((targetIdx % total) + total) % total;
+                      const isCurrent = targetIdx === safeIndex;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => goToSlide(targetIdx)}
+                          aria-label={`Go to item ${targetIdx + 1}`}
+                          className={`transition-all duration-300 rounded-full cursor-pointer ${
+                            isCurrent
+                              ? 'w-4 h-2 bg-red-500'
+                              : 'w-1.5 h-1.5 bg-white/50 hover:bg-white'
+                          }`}
+                        />
+                      );
+                    })
+                  )}
                   <span className="text-[11px] font-mono font-bold text-white/90 ms-1 px-1">
                     {safeIndex + 1} / {localizedItems.length}
                   </span>
@@ -374,12 +399,14 @@ export const DynamicHomepageSections: React.FC<DynamicHomepageSectionsProps> = (
             return false;
           });
         }
+        // Cap homepage section showcase to at most 6 curated featured slides
+        const featuredSectionItems = sectionItems.slice(0, 6);
         return (
           <SingleDynamicSection
             key={section.id || section.key}
             section={section}
             sectionIndex={idx}
-            items={sectionItems}
+            items={featuredSectionItems}
             onSelectProduct={onSelectProduct}
             onExploreCategory={onExploreCategory}
           />
