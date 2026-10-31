@@ -17,3 +17,5 @@ translation_cache_db.json
 /*.pdf
 .env*
 !.env.example
+__pycache__/
+*.pyc
