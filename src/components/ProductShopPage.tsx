@@ -90,28 +90,15 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           const pSub = (product.subCategory || '').toLowerCase();
 
           if (sCat === 'doors') {
-            const isDoorOrGate =
-              pCat === 'doors' ||
-              pDiv === 'doors' ||
-              pSub.includes('gate') ||
-              (pSub.includes('door') && !pSub.includes('outdoor'));
-            if (!isDoorOrGate) return false;
+            if (pCat !== 'doors' && pDiv !== 'doors') return false;
           } else if (sCat === 'shorfa') {
-            const isShorfaOrBalcony =
-              pCat === 'shorfa' ||
-              pCat === 'balconies' ||
-              pDiv === 'shorfa' ||
-              pDiv === 'balconies' ||
-              pSub.includes('shorfa') ||
-              pSub.includes('balcon') ||
-              pSub.includes('terrace');
-            if (!isShorfaOrBalcony) return false;
+            if (pCat !== 'shorfa' && pCat !== 'balconies' && pDiv !== 'shorfa' && pDiv !== 'balconies') return false;
           } else if (sCat === 'windows') {
-            if (pCat !== 'windows' && pDiv !== 'windows' && !pSub.includes('window')) return false;
+            if (pCat !== 'windows' && pDiv !== 'windows') return false;
           } else if (sCat === 'stairs') {
-            if (pCat !== 'stairs' && pDiv !== 'stairs' && !pSub.includes('stair') && !pSub.includes('railing')) return false;
+            if (pCat !== 'stairs' && pDiv !== 'stairs') return false;
           } else if (sCat === 'accessories') {
-            if (pCat !== 'accessories' && pDiv !== 'accessories' && !pSub.includes('accessor') && !pSub.includes('lock') && !pSub.includes('handle')) return false;
+            if (pCat !== 'accessories' && pDiv !== 'accessories') return false;
           } else {
             const matches = pCat === sCat || pDiv === sCat;
             if (!matches) return false;

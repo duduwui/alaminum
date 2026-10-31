@@ -439,38 +439,14 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   // Unified Section / Category Options (Strictly categorized as per user folders)
   const allCategoryOptions = useMemo(() => {
-    const list: Array<{ key: string; label: string }> = [];
-    const seen = new Set<string>();
-
-    const standardCategories = [
+    return [
       { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
       { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
       { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies' },
       { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
       { key: 'accessories', label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware' },
     ];
-
-    standardCategories.forEach((sc) => {
-      seen.add(sc.key);
-      list.push(sc);
-    });
-
-    homepageSections.forEach((sec) => {
-      // Exclude showcase / media sections that are not product categories
-      if (sec.isProductSection === false) return;
-      const k = sec.key || sec.id;
-      if (!seen.has(k)) {
-        seen.add(k);
-        const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-        list.push({
-          key: k,
-          label: header.title || sec.title || k
-        });
-      }
-    });
-
-    return list;
-  }, [homepageSections, currentLanguage.code]);
+  }, [currentLanguage.code]);
 
   const getProductCategoryLabel = (prod: ProductItem) => {
     const key = (prod.category || prod.division || '').toLowerCase();
