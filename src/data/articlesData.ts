@@ -35,16 +35,16 @@ export interface ArchitecturalArticle {
 }
 
 export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
-  // 1. Thermal Break Aluminum
+  // 1. العازل حرارياً Aluminum
   {
     id: 'art-01',
     slug: 'thermal-break-aluminum-iraq-climate',
     category: 'windows',
     categoryLabel: { ar: 'شبابيك ألمنيوم', ckb: 'پەنجەرەی ئەلەمنیۆم', en: 'Aluminum Windows' },
     title: {
-      ar: 'شبابيك الألمنيوم الحراري (Thermal Break): حل حرارة الصيف الشديدة في العراق',
-      ckb: 'پەنجەرەی ئەلەمنیۆمی گەرمایی (Thermal Break): چارەسەری گەرمای توندی هاوینی عێراق',
-      en: 'Thermal Break Aluminum Windows: Beating Iraq’s 50°C Summer Heat'
+      ar: 'شبابيك الألمنيوم الحراري العازل حرارياً: حل حرارة الصيف الشديدة في العراق',
+      ckb: 'پەنجەرەی ئەلەمنیۆمی گەرمایی العازل حرارياً: چارەسەری گەرمای توندی هاوینی عێراق',
+      en: 'العازل حرارياً Aluminum Windows: Beating Iraq’s 50°C Summer Heat'
     },
     summary: {
       ar: 'دليل هندسي متكامل يوضح كيف تعمل حواجز البولي أميد العازلة والزجاج المزدوج مع غاز الآرجون على منع انتقال حرارة الصيف القائظ إلى داخل منزلك.',
@@ -55,7 +55,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-25',
     author: 'Doorhome Architectural Team',
     image: './assets/showcase/showcase_lorenzo70ls_1789926091155.jpg',
-    tags: ['Thermal Break', 'شبابيك ألمنيوم', 'Lorenzo 70LS', 'عزل حراري', 'عراق'],
+    tags: ['العازل حرارياً', 'شبابيك ألمنيوم', 'لورنزو 70 للسحب المعماري', 'عزل حراري', 'عراق'],
     keySpecs: [
       { label: 'Uf Thermal Insulation', value: '1.3 W/m²K' },
       { label: 'Acoustic Barrier', value: '42 dB (Rw)' },
@@ -68,12 +68,12 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
           body: 'الألمنيوم معدن موصل ممتاز للحرارة. عندما تصل درجات الحرارة الخارجية في بغداد والبصرة وأربيل إلى 50 درجة مئوية، ينقل الألمنيوم العادي غير المعزول الحرارة إلى داخل الغرف، مما يجعل أجهزة التكييف تعمل بطاقتها القصوى دون جدوى ويزيد من فاتورة الكهرباء بشكل هائل.'
         },
         {
-          heading: 'سر تقنية الكسر الحراري (Thermal Break)',
+          heading: 'سر تقنية الكسر الحراري العازل حرارياً',
           body: 'تعتمد تقنية الثيرمال بريك على فصل قطاع الألمنيوم الخارجي عن القطاع الداخلي تماماً بواسطة عازل غير موصل من مادة البولي أميد المدعمة بالألياف الزجاجية (PA66 GF25). هذا الفاصل يقطع الجسر الحراري بنسبة 100% ويمنع تسرب الحرارة أو البرودة.'
         },
         {
-          heading: 'أنظمة Lorenzo 70LS و 58TT المعتمدة لدى Doorhome',
-          body: 'نستخدم قطاعات Lorenzo الأوروبية المصممة خصيصاً لمناخ الشرق الأوسط، والتي تجمع بين خفة الوزن ومتانة التحمل ومظهر المقاطع النحيفة (Minimalist Sightlines)، مما يسمح بنفاذ أقصى قدر من الإضاءة الطبيعية مع عزل حراري مثالي.'
+          heading: 'أنظمة لورنزو 70 للسحب المعماري و 58 المعزول المعتمدة لدى Doorhome',
+          body: 'نستخدم قطاعات لورنزو الأوروبية المصممة خصيصاً لمناخ الشرق الأوسط، والتي تجمع بين خفة الوزن ومتانة التحمل ومظهر المقاطع النحيفة (Minimalist Sightlines)، مما يسمح بنفاذ أقصى قدر من الإضاءة الطبيعية مع عزل حراري مثالي.'
         }
       ],
       en: [
@@ -82,12 +82,12 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
           body: 'Aluminum is an extraordinary thermal conductor. When external summer temperatures in Baghdad, Basra, and Erbil soar past 50°C, non-insulated aluminum frames absorb and conduct solar heat directly inside living spaces, overburdening HVAC units.'
         },
         {
-          heading: 'The Polyamide Thermal Break Mechanism',
+          heading: 'The Polyamide العازل حرارياً Mechanism',
           body: 'A thermal break profile mechanically locks an insulating structural polyamide strip (PA66 GF25) between the exterior and interior aluminum extrusions. This breaks the thermal bridge completely, stopping conductive heat transfer.'
         },
         {
-          heading: 'Certified Lorenzo Systems at Doorhome',
-          body: 'Doorhome specifies Lorenzo 70LS and 58TT profiles engineered with 24mm polyamide insulation strips and multi-point STAC perimeter seals, delivering industry-leading U-values and unmatched durability.'
+          heading: 'Certified لورنزو Systems at Doorhome',
+          body: 'Doorhome specifies لورنزو 70 للسحب المعماري and 58 المعزول profiles engineered with 24mm polyamide insulation strips and multi-point STAC perimeter seals, delivering industry-leading U-values and unmatched durability.'
         }
       ]
     }
@@ -151,29 +151,29 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 3. uPVC vs Aluminum
+  // 3. يو بي في سي عالي العزل vs Aluminum
   {
     id: 'art-03',
     slug: 'upvc-vs-aluminum-windows-iraq-climate-guide',
     category: 'upvc',
     categoryLabel: { ar: 'مقارنة هندسية', ckb: 'بەراوردکردنی ئەندازیاری', en: 'Material Guide' },
     title: {
-      ar: 'أيهما تختار لبيتك في العراق: شبابيك uPVC أم الألمنيوم الحراري؟',
-      ckb: 'کامە هەڵدەبژێریت بۆ ماڵەکەت: پەنجەرەی uPVC یان ئەلەمنیۆمی عازل؟',
-      en: 'uPVC vs. Thermal-Break Aluminum: The Ultimate Iraqi Homeowner Guide'
+      ar: 'أيهما تختار لبيتك في العراق: شبابيك يو بي في سي عالي العزل أم الألمنيوم الحراري؟',
+      ckb: 'کامە هەڵدەبژێریت بۆ ماڵەکەت: پەنجەرەی يو بي في سي عالي العزل یان ئەلەمنیۆمی عازل؟',
+      en: 'يو بي في سي عالي العزل vs. Thermal-Break Aluminum: The Ultimate Iraqi Homeowner Guide'
     },
     summary: {
       ar: 'مقارنة موضوعية ودقيقة بين كفاءة العزل الحراري، المتانة، السعر، والعزل الصوتي لكل من أنظمة بي في سي والألمنيوم.',
-      ckb: 'بەراوردێکی زانستی و ورد لەنێوان عەزلی گەرمی، بەهێزی، نرخ، و عەزلی دەنگی uPVC و ئەلەمنیۆم.',
+      ckb: 'بەراوردێکی زانستی و ورد لەنێوان عەزلی گەرمی، بەهێزی، نرخ، و عەزلی دەنگی يو بي في سي عالي العزل و ئەلەمنیۆم.',
       en: 'An objective side-by-side comparison of thermal insulation, acoustic barriers, structural longevity, and cost factors in Iraq.'
     },
     readingTime: '6 min read',
     date: '2026-09-23',
     author: 'Eng. Ahmed Al-Doorhome',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
-    tags: ['uPVC', 'المنيوم', 'مقارنة', 'Deceuninck', 'Lorenzo', 'عزل صوت'],
+    tags: ['يو بي في سي عالي العزل', 'المنيوم', 'مقارنة', 'ديكونينك', 'لورنزو', 'عزل صوت'],
     keySpecs: [
-      { label: 'Best for Small/Med Windows', value: 'uPVC 6-Chamber (Legend 80)' },
+      { label: 'Best for Small/Med Windows', value: 'يو بي في سي عالي العزل 6-Chamber (Legend 80)' },
       { label: 'Best for Giant Sliding Doors', value: 'Thermal Aluminum (70LS)' },
       { label: 'Lifespan', value: '40+ Years Maintenance Free' }
     ],
@@ -181,7 +181,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'العزل الحراري: لمن الغلبة؟',
-          body: 'يتفوق نظام uPVC متعدد الحجرات (مثل Deceuninck Legend 80 سداسي الحجرات) في العزل الحراري بنسبة تفوق معظم قطاعات الألمنيوم العادية، لأن مادة البوليمر لا توصل الحرارة بطبيعتها. في المقابل، فإن الألمنيوم المزود بكسر حراري بولي أميد 24 ملم يقترب جداً من نفس كفاءة العزل مع تفوق هائل في المتانة الهيكلية.'
+          body: 'يتفوق نظام يو بي في سي عالي العزل متعدد الحجرات (مثل ديكونينك Legend 80 سداسي الحجرات) في العزل الحراري بنسبة تفوق معظم قطاعات الألمنيوم العادية، لأن مادة البوليمر لا توصل الحرارة بطبيعتها. في المقابل، فإن الألمنيوم المزود بكسر حراري بولي أميد 24 ملم يقترب جداً من نفس كفاءة العزل مع تفوق هائل في المتانة الهيكلية.'
         },
         {
           heading: 'المتانة الهيكلية والفتحات البانورامية الضخمة',
@@ -189,13 +189,13 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'التوصية الهندسية المتوازنة',
-          body: 'ننصح في Doorhome باستخدام uPVC لغرف النوم ومكاتب العمل للحصول على هدوء وعزل تام، واستخدام الألمنيوم الحراري للصالات ومداخل الفلل والواجهات الزجاجية المطلة على الحديقة.'
+          body: 'ننصح في Doorhome باستخدام يو بي في سي عالي العزل لغرف النوم ومكاتب العمل للحصول على هدوء وعزل تام، واستخدام الألمنيوم الحراري للصالات ومداخل الفلل والواجهات الزجاجية المطلة على الحديقة.'
         }
       ],
       en: [
         {
           heading: 'Thermal Isolation Comparison',
-          body: '6-chamber uPVC profiles inherently outperform standard metals in thermal resistance because vinyl does not conduct heat. However, modern 24mm polyamide thermal-break aluminum closes the gap while offering architectural rigidity.'
+          body: '6-chamber يو بي في سي عالي العزل profiles inherently outperform standard metals in thermal resistance because vinyl does not conduct heat. However, modern 24mm polyamide thermal-break aluminum closes the gap while offering architectural rigidity.'
         },
         {
           heading: 'Structural Span and Monumental Openings',
@@ -203,7 +203,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'The Hybrid Villa Recommendation',
-          body: 'Leading architects combine both: Deploying Deceuninck Legend 80 uPVC for upper-floor bedrooms to maximize acoustic insulation, and Lorenzo 70LS aluminum for ground-floor panoramic garden terraces.'
+          body: 'Leading architects combine both: Deploying ديكونينك Legend 80 يو بي في سي عالي العزل for upper-floor bedrooms to maximize acoustic insulation, and لورنزو 70 للسحب المعماري aluminum for ground-floor panoramic garden terraces.'
         }
       ]
     }
@@ -229,7 +229,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-22',
     author: 'Doorhome Fenestration Specialists',
     image: './assets/showcase/showcase_hs76_1789926153920.jpg',
-    tags: ['أبواب سحاب', 'Lift and Slide', 'Lorenzo 70LS', 'فلل حديثة', 'أبواب بانوراما'],
+    tags: ['أبواب سحاب', 'Lift and Slide', 'لورنزو 70 للسحب المعماري', 'فلل حديثة', 'أبواب بانوراما'],
     keySpecs: [
       { label: 'Max Sash Weight', value: '400 kg' },
       { label: 'Max Panel Height', value: '3.2 meters' },
@@ -273,7 +273,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     summary: {
       ar: 'شرح هندسي لشبكة الألمنيوم الإنشائية 50 ملم المقاومة لأحمال الرياح، وتصريف مياه الأمطار الذاتي والزجاج العاكس للحرارة.',
       ckb: 'شیکردنەوەی ئەندازیاری تۆڕی ئەلەمنیۆمی ٥٠ ملم بەرگری با و ئاوەڕۆی ناوەکی و جامی عازل.',
-      en: 'Engineering analysis of 50mm structural mullion-transom stick facades, pressure equalization, and Low-E solar glazing.'
+      en: 'Engineering analysis of 50mm structural mullion-transom stick facades, pressure equalization, and منخفض الانبعاثية الحرارية solar glazing.'
     },
     readingTime: '7 min read',
     date: '2026-09-21',
@@ -498,7 +498,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     tags: ['عزل صوت', 'هدوء', 'دبل كلاس', 'ضوضاء', 'EPDM'],
     keySpecs: [
       { label: 'Acoustic Sound Reduction', value: 'Up to 45 dB (Rw)' },
-      { label: 'Glass Configuration', value: '6mm + 16mm Argon + 8.76mm Acoustic PVB' },
+      { label: 'Glass Configuration', value: '6mm + 16mm الغاز الخامل العازل + 8.76mm Acoustic PVB' },
       { label: 'Gasket System', value: 'Triple Perimeter EPDM Vulcanized' }
     ],
     sections: {
@@ -517,16 +517,16 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 11. Low-E Glazing & Argon
+  // 11. منخفض الانبعاثية الحرارية Glazing & الغاز الخامل العازل
   {
     id: 'art-11',
     slug: 'low-e-double-triple-glazing-argon-gas',
     category: 'glass',
     categoryLabel: { ar: 'الزجاج المعماري', ckb: 'جامی ئەندازیاری', en: 'Architectural Glazing' },
     title: {
-      ar: 'زجاج Low-E المزدوج وغاز الآرجون: العلم وراء عكس الأشعة تحت الحمراء وخفض فاتورة الكهرباء',
-      ckb: 'جامی لۆو-ئی (Low-E) و گازی ئارگۆن: زانستی عەزل و کەمکردنەوەی خەرجی کارەبا',
-      en: 'Low-E Double Glazing & Argon Gas: Solar Control Science & Energy Efficiency'
+      ar: 'زجاج منخفض الانبعاثية الحرارية المزدوج وغاز الآرجون: العلم وراء عكس الأشعة تحت الحمراء وخفض فاتورة الكهرباء',
+      ckb: 'جامی لۆو-ئی منخفض الانبعاثية الحرارية و گازی ئارگۆن: زانستی عەزل و کەمکردنەوەی خەرجی کارەبا',
+      en: 'منخفض الانبعاثية الحرارية Double Glazing & الغاز الخامل العازل Gas: Solar Control Science & Energy Efficiency'
     },
     summary: {
       ar: 'كيف تعكس طبقات أكسيد الفضة المجهرية حرارة الشمس دون حجب الضوء، ودور غاز الآرجون في منع انتقال الحرارة بالتوصيل.',
@@ -537,17 +537,17 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-15',
     author: 'Doorhome Energy Team',
     image: './assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg',
-    tags: ['Low-E', 'غاز آرجون', 'زجاج مزدوج', 'توفير الطاقة', 'حرارة الصيف'],
+    tags: ['منخفض الانبعاثية الحرارية', 'غاز آرجون', 'زجاج مزدوج', 'توفير الطاقة', 'حرارة الصيف'],
     sections: {
       ar: [
         {
-          heading: 'ما هو زجاج Low-E (الإنبعاثية المنخفضة)؟',
+          heading: 'ما هو زجاج منخفض الانبعاثية الحرارية (الإنبعاثية المنخفضة)؟',
           body: 'هو زجاج معماري شفاف مطلي مجهرياً بطبقات نانوية غير مرئية من أكاسيد المعادن والفضة. يسمح بمرور الضوء الطبيعي المرئي بنسبة 70%، بينما يعكس الأشعة تحت الحمراء الحرارية وأشعة UV الضارة بنسبة تفوق 80%.'
         }
       ],
       en: [
         {
-          heading: 'The Physics of Low-Emissivity Coatings',
+          heading: 'The Physics of منخفض الانبعاثية الحراريةmissivity Coatings',
           body: 'Microscopically thin metallic oxide coatings permit visible sunlight to illuminate rooms while selectively reflecting solar infrared heat radiation back outside.'
         }
       ]
@@ -672,7 +672,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     category: 'windows',
     categoryLabel: { ar: 'شبابيك كهربائية', ckb: 'پەنجەرەی کارەبایی', en: 'Automated Systems' },
     title: {
-      ar: 'نوافذ الجيوتين الرأسية الآلية (Guillotine Glass): فخامة المقاهي والحدائق المنزلية',
+      ar: 'نوافذ الجيوتين الرأسية الآلية : فخامة المقاهي والحدائق المنزلية',
       ckb: 'پەنجەرەی گیۆتینی کارەبایی: لووتکەی مۆدێرنی کافێ و حەوشەی ماڵان',
       en: 'Automated Vertical Guillotine Windows: Motorized Glass Walls for Terraces & Cafes'
     },
@@ -716,7 +716,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     summary: {
       ar: 'كيف تصمم سقفاً زجاجياً عازلاً ومقاوماً لتسرب مياه الأمطار الشديدة والأشعة الشمسية الحارقة للصالات والممرات الداخلية.',
       ckb: 'چۆن سەربانی شووشە دروست دەکرێت بۆ ڕۆشنکردنەوەی ژوورەوە.',
-      en: 'Engineering structural glass pyramid and sloped atriums using ceramic frit and Low-E laminated double safety glass.'
+      en: 'Engineering structural glass pyramid and sloped atriums using ceramic frit and منخفض الانبعاثية الحرارية laminated double safety glass.'
     },
     readingTime: '5 min read',
     date: '2026-09-10',
@@ -858,16 +858,16 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 20. Deceuninck Legend 80
+  // 20. ديكونينك Legend 80
   {
     id: 'art-20',
     slug: 'deceuninck-legend-80-passive-house-upvc-iraq',
     category: 'upvc',
-    categoryLabel: { ar: 'نوافذ uPVC', ckb: 'پەنجەرەی یو پی ڤی سی', en: 'uPVC Windows' },
+    categoryLabel: { ar: 'نوافذ يو بي في سي عالي العزل', ckb: 'پەنجەرەی یو پی ڤی سی', en: 'يو بي في سي عالي العزل Windows' },
     title: {
-      ar: 'نظام ديكونينك ليجند 80 (Deceuninck Legend 80): معيار المنازل السلبية الألمانية في العراق',
+      ar: 'نظام ديكونينك ليجند 80 (ديكونينك Legend 80): معيار المنازل السلبية الألمانية في العراق',
       ckb: 'دیکۆنیک لیجەند ٨٠: ستانداردی ئەڵمانی بۆ پەنجەرەی عەزلی تەواو',
-      en: 'Deceuninck Legend 80: The 6-Chamber German Passive House Standard in Iraq'
+      en: 'ديكونينك Legend 80: The 6-Chamber German Passive House Standard in Iraq'
     },
     summary: {
       ar: 'عمق إطار 80 ملم، 6 حجرات عزل هوائية، وثلاث حشوات إحكام مطاطية تحقق أقصى درجات حفظ التبريد والهدوء الصوتي.',
@@ -876,9 +876,9 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-06',
-    author: 'Doorhome uPVC Department',
+    author: 'Doorhome يو بي في سي عالي العزل Department',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
-    tags: ['Deceuninck', 'Legend 80', 'uPVC', 'عزل حراري', 'المانيا'],
+    tags: ['ديكونينك', 'Legend 80', 'يو بي في سي عالي العزل', 'عزل حراري', 'المانيا'],
     sections: {
       ar: [
         {
@@ -902,25 +902,25 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     category: 'upvc',
     categoryLabel: { ar: 'شهادات الجودة', ckb: 'بڕوانامەی کوالێتی', en: 'Certifications' },
     title: {
-      ar: 'شهادة المناخ القاسي Class S: لماذا يجب أن تتأكد منها قبل شراء نوافذ uPVC؟',
-      ckb: 'بڕوانامەی کەشوهەوای توندی Class S بۆ پەنجەرەی uPVC',
-      en: 'Class S Severe Climate Certification: Why It Is Crucial for Iraq uPVC Profiles'
+      ar: 'شهادة المناخ القاسي Class S: لماذا يجب أن تتأكد منها قبل شراء نوافذ يو بي في سي عالي العزل؟',
+      ckb: 'بڕوانامەی کەشوهەوای توندی Class S بۆ پەنجەرەی يو بي في سي عالي العزل',
+      en: 'Class S Severe Climate Certification: Why It Is Crucial for Iraq يو بي في سي عالي العزل Profiles'
     },
     summary: {
       ar: 'كيف تضمن شهادة Class S المعتمدة أوروبياً عدم اصفرار البروفايل أو تفتته أو انحنائه تحت أشعة الشمس فوق البنفسجية في صيف العراق.',
-      ckb: 'چۆن دڵنیا دەبیتەوە پەنجەرەی uPVC لە بەر خۆردا زەرد نابێت و ناشکێت.',
+      ckb: 'چۆن دڵنیا دەبیتەوە پەنجەرەی يو بي في سي عالي العزل لە بەر خۆردا زەرد نابێت و ناشکێت.',
       en: 'Understanding European EN 12608 Class S formulation with titanium dioxide stabilization against harsh solar UV radiation.'
     },
     readingTime: '4 min read',
     date: '2026-09-05',
     author: 'Doorhome Quality Assurance',
     image: './assets/doorhome/10.png',
-    tags: ['Class S', 'جودة uPVC', 'مقاومة الاصفرار', 'مواصفات اوروبية'],
+    tags: ['Class S', 'جودة يو بي في سي عالي العزل', 'مقاومة الاصفرار', 'مواصفات اوروبية'],
     sections: {
       ar: [
         {
           heading: 'خطر النوافذ غير المطابقة للمواصفات',
-          body: 'البروفايلات الرخيصة المصممة لأوروبا المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات uPVC في Doorhome حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
+          body: 'البروفايلات الرخيصة المصممة لأوروبا المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات يو بي في سي عالي العزل في Doorhome حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
         }
       ],
       en: [
@@ -1013,7 +1013,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     category: 'guide',
     categoryLabel: { ar: 'دليل الأسعار', ckb: 'ڕێبەری نرخ', en: 'Pricing Guide' },
     title: {
-      ar: 'دليل أسعار وتكلفة شبابيك وأبواب الألمنيوم والـ uPVC في بغداد وأربيل',
+      ar: 'دليل أسعار وتكلفة شبابيك وأبواب الألمنيوم والـ يو بي في سي عالي العزل في بغداد وأربيل',
       ckb: 'ڕێبەری نرخ و تێچووی پەنجەرە و دەرگای ئەلەمنیۆم لە بەغدا و هەولێر',
       en: 'Window & Door Cost Guide in Iraq: What Dictates Prices per Square Meter?'
     },
@@ -1031,7 +1031,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'لماذا تتفاوت الأسعار في السوق العراقي؟',
-          body: 'يتفاجأ الكثير من العملاء باختلاف أسعار المتر المربع بين الشركات. الفارق يكمن في: سماكة جدار الألمنيوم (1.4 ملم مقابل 2.0 ملم)، جودة الزجاج (عادي مقابل Low-E معبأ بغاز الآرجون)، ونوعية الإكسسوارات (صينية رخيصة مقابل إسبانية وإيطالية مضمونة 25,000 دورة فتح وإغلاق).'
+          body: 'يتفاجأ الكثير من العملاء باختلاف أسعار المتر المربع بين الشركات. الفارق يكمن في: سماكة جدار الألمنيوم (1.4 ملم مقابل 2.0 ملم)، جودة الزجاج (عادي مقابل منخفض الانبعاثية الحرارية معبأ بغاز الآرجون)، ونوعية الإكسسوارات (صينية رخيصة مقابل إسبانية وإيطالية مضمونة 25,000 دورة فتح وإغلاق).'
         }
       ],
       en: [

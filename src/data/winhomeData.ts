@@ -72,7 +72,7 @@ export const DOORHOME_CONTACT = {
   companyName: "Doorhome Company",
   parentCompany: "Bab Al Manzil",
   fullName: "Doorhome Company (Bab Al Manzil)",
-  tagline: "Architectural uPVC & Aluminum Solutions in Iraq",
+  tagline: "Architectural يو بي في سي عالي العزل & Aluminum Solutions in Iraq",
   logo: "/doorhome-logo.jpg",
   logoFallback: "/doorhome-logo.jpg",
   nafzaLogo: "/doorhome-logo.jpg",
@@ -95,7 +95,7 @@ export const DOORHOME_CONTACT = {
       name: "Manufacturing & Fabrication Plant",
       phones: ["+964 750 738 8748", "+964 750 222 0402"],
       phonesRaw: ["+9647507388748", "+9647502220402"],
-      description: "CNC profile processing, double glazing assembly & logistics dispatch"
+      description: "بالتحكم الرقمي فائق الدقة profile processing, double glazing assembly & logistics dispatch"
     }
   },
   emails: ["info@doorhome.company", "info@doorhome.co", "doorhome-iq@hotmail.com"],
@@ -120,9 +120,9 @@ export const PARTNER_LOGOS = [
     src: "./assets/doorhome/1-2.png",
     fallbackSrc: "http://doorhome.co/wp-content/uploads/2018/12/1-2.png",
     alt: "Deceuninck",
-    title: "Deceuninck uPVC Systems",
+    title: "Deceuninck يو بي في سي عالي العزل Systems",
     country: "Belgium",
-    category: "uPVC Profiles"
+    category: "يو بي في سي عالي العزل Profiles"
   },
   {
     src: "./assets/doorhome/2-1.png",
@@ -130,7 +130,7 @@ export const PARTNER_LOGOS = [
     alt: "Winsa",
     title: "Winsa Windows & Doors",
     country: "Europe",
-    category: "uPVC Profiles"
+    category: "يو بي في سي عالي العزل Profiles"
   },
   {
     src: "./assets/doorhome/3-1.png",
@@ -176,7 +176,7 @@ export const PARTNER_LOGOS = [
     src: "./assets/doorhome/8-1.png",
     fallbackSrc: "http://doorhome.co/wp-content/uploads/2018/12/8-1.png",
     alt: "Gretsch-Unitas",
-    title: "G-U Lift & Slide Systems",
+    title: "G-U السحاب والرفع المعماري Systems",
     country: "Germany",
     category: "Sliding Systems"
   },
@@ -206,7 +206,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     division: "windows",
     subCategory: "Ultra Thermal Performance",
     modelNumber: "Legend 80",
-    material: "uPVC Class S Severe Climate",
+    material: "يو بي في سي عالي العزل المقاومة للمناخ القاسي Severe Climate",
     brand: "Deceuninck",
     origin: "Deceuninck • Belgium / Erbil Plant",
     rating: 5.0,
@@ -276,7 +276,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     division: "windows",
     subCategory: "Acoustic Insulation",
     modelNumber: "Dorado 76",
-    material: "uPVC Multi-Chamber",
+    material: "يو بي في سي عالي العزل Multi-Chamber",
     brand: "Winsa",
     origin: "Winsa • Europe / Doorhome",
     rating: 4.9,
@@ -341,7 +341,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     division: "windows",
     subCategory: "Classic Residential",
     modelNumber: "Everest Max 60",
-    material: "uPVC Class S",
+    material: "يو بي في سي عالي العزل المقاومة للمناخ القاسي",
     brand: "Deceuninck",
     origin: "Deceuninck • Belgium / Erbil Plant",
     rating: 4.8,
@@ -393,7 +393,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     division: "windows",
     subCategory: "Premium Architectural",
     modelNumber: "Legend Art 70",
-    material: "uPVC Class S",
+    material: "يو بي في سي عالي العزل المقاومة للمناخ القاسي",
     brand: "Deceuninck",
     origin: "Deceuninck • Belgium / Erbil Plant",
     rating: 4.9,
@@ -495,11 +495,11 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
 export const DOORS_PRODUCTS: ProductItem[] = [
   {
     id: "lorenzo-70ls",
-    name: "Lorenzoline 70LS Lift & Slide Doors",
+    name: "Lorenzoline 70 للسحب المعماري السحاب والرفع المعماري Doors",
     category: "doors",
     division: "doors",
-    subCategory: "Panoramic Lift & Slide",
-    modelNumber: "Lorenzo 70LS",
+    subCategory: "Panoramic السحاب والرفع المعماري",
+    modelNumber: "Lorenzo 70 للسحب المعماري",
     material: "Thermal Break Aluminum (Polyamide 24mm)",
     brand: "Lorenzoline",
     origin: "Lorenzoline • Europe / Doorhome Erbil",
@@ -536,7 +536,7 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "لورينزولاين 70LS نظام أبواب السحب والرفع البانورامي",
+        name: "لورينزولاين 70 للسحب المعماري نظام أبواب السحب والرفع البانورامي",
         description: "أبواب سحاب عملاقة ذات إطلالة زجاجية ممتدة من الأرض إلى السقف حتى ارتفاع 3.2 متر مع حركة انسيابية بلمسة إصبع وعتبة أرضية مستوية خالية من العوائق.",
         subCategory: "سحاب عملاق عازل حرارياً",
         features: [
@@ -547,7 +547,7 @@ export const DOORS_PRODUCTS: ProductItem[] = [
         ]
       },
       ckb: {
-        name: "لۆرێنزۆلاین 70LS سیستەمی لیفت ئەند سلاید",
+        name: "لۆرێنزۆلاین 70 للسحب المعماري سیستەمی لیفت ئەند سلاید",
         description: "دەرگای سلایدینگی زەبەلاحی پانۆراما بۆ دیمەنی سەرانسەری لە زەویەوە بۆ بنمیچ تا بەرزی 3.2 مەتر بە جوڵەیەکی زۆر نەرم و ئاسان.",
         subCategory: "سلایدینگی پانۆرامای عەزل",
         features: [
@@ -560,12 +560,12 @@ export const DOORS_PRODUCTS: ProductItem[] = [
   },
   {
     id: "hs76-sliding",
-    name: "Hebe-Schiebe HS76 Lift & Slide Door",
+    name: "Hebe-Schiebe 76 فائق العزل السحاب والرفع المعماري Door",
     category: "doors",
     division: "doors",
     subCategory: "Monumental Patio Doors",
-    modelNumber: "HS76",
-    material: "uPVC Heavy Gauge",
+    modelNumber: "76 فائق العزل",
+    material: "يو بي في سي عالي العزل Heavy Gauge",
     brand: "Winsa / Deceuninck",
     origin: "Deceuninck • Belgium / Erbil Plant",
     rating: 5.0,
@@ -594,7 +594,7 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     ],
     colors: ["Anthracite Grey", "Golden Oak", "Nussbaum", "White"],
     specs: {
-      "System Type": "Lift & Slide (HS)",
+      "System Type": "السحاب والرفع المعماري (HS)",
       "Sash Depth": "76 mm",
       "Frame Depth": "175 mm",
       "Max Sash Weight": "300 kg",
@@ -602,12 +602,12 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     },
     translations: {
       ar: {
-        name: "هيبي-شيبه HS76 أبواب سحب ورفع uPVC فائقة العزل",
-        description: "أبواب شرفة وتراس بانورامية بآلية الرفع الألمانية Lift & Slide تضمن إحكام الإغلاق التام ضد الأتربة ومياه الأمطار والرياح مع سهولة فائقة لحركة الضلف الثقيلة.",
+        name: "هيبي-شيبه 76 فائق العزل أبواب سحب ورفع يو بي في سي عالي العزل فائقة العزل",
+        description: "أبواب شرفة وتراس بانورامية بآلية الرفع الألمانية السحاب والرفع المعماري تضمن إحكام الإغلاق التام ضد الأتربة ومياه الأمطار والرياح مع سهولة فائقة لحركة الضلف الثقيلة.",
         subCategory: "أبواب بانورامية عازلة"
       },
       ckb: {
-        name: "هیبی-شیبە HS76 دەرگای لیفت ئەند سلاید uPVC",
+        name: "هیبی-شیبە 76 فائق العزل دەرگای لیفت ئەند سلاید يو بي في سي عالي العزل",
         description: "دەرگای سلایدینگی گەورەی ئەڵمانی بە سیستەمی بەرزکردنەوە بۆ جوڵەی سووک تا کێشی 300 کیلۆگرام بە بەربەستی خوارەوەی هاوتا لەگەڵ زەوی.",
         subCategory: "دەرگای پانۆرامای عەزل"
       }
@@ -671,7 +671,7 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     modelNumber: "Pivot 100",
     material: "Heavy Gauge Structural Aluminum",
     brand: "Doorhome Custom",
-    origin: "Doorhome • Erbil CNC Plant",
+    origin: "Doorhome • Erbil بالتحكم الرقمي فائق الدقة Plant",
     rating: 5.0,
     reviewsCount: 72,
     discountBadge: "18% OFF",
@@ -1297,7 +1297,7 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     pricing: { unitPrice: 85, currency: "USD" },
     features: [
       "High load bearing capacity rated for 400kg sash weight",
-      "Precision CNC stainless steel ball bearings",
+      "Precision بالتحكم الرقمي فائق الدقة stainless steel ball bearings",
       "Height adjustable by 6mm for perfect alignment"
     ],
     translations: {
@@ -1317,8 +1317,8 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
 
 // Backwards-compatibility groupings for home sections
 export const UPVC_PRODUCTS: ProductItem[] = [
-  ...WINDOWS_PRODUCTS.filter(p => p.material?.includes('uPVC')),
-  ...DOORS_PRODUCTS.filter(p => p.material?.includes('uPVC'))
+  ...WINDOWS_PRODUCTS.filter(p => p.material?.includes('يو بي في سي عالي العزل')),
+  ...DOORS_PRODUCTS.filter(p => p.material?.includes('يو بي في سي عالي العزل'))
 ];
 
 export const ALUMINUM_PRODUCTS: ProductItem[] = [
@@ -1364,11 +1364,11 @@ export const BROCHURES_DATA: BrochureItem[] = [
     pages: 442,
     fileSize: "140.2 MB",
     downloadUrl: "/catalogs/stac-hardware-accessories.pdf",
-    highlights: ["Flush Minimalist Handles", "Lift & Slide 400kg", "Polyamide Thermal Breaks", "Grade 5 Corrosion EN 1670"]
+    highlights: ["Flush Minimalist Handles", "السحاب والرفع المعماري 400kg", "Polyamide Thermal Breaks", "Grade 5 Corrosion EN 1670"]
   },
   {
     id: "brochure-deceuninck",
-    title: "Deceuninck uPVC Systems Complete Catalogue",
+    title: "Deceuninck يو بي في سي عالي العزل Systems Complete Catalogue",
     brand: "Deceuninck",
     origin: "Belgium",
     coverImage: "./assets/doorhome/brouchour-deceuninck-1-1000x1000.jpg",
@@ -1403,7 +1403,7 @@ export const BROCHURES_DATA: BrochureItem[] = [
     pages: 148,
     fileSize: "22.1 MB",
     downloadUrl: "#",
-    highlights: ["Profile inertia charts", "Curtain wall 50F details", "Lift & Slide 70LS assembly", "Polyamide specifications"]
+    highlights: ["Profile inertia charts", "Curtain wall 50F details", "السحاب والرفع المعماري 70 للسحب المعماري assembly", "Polyamide specifications"]
   },
   {
     id: "brochure-comunello",

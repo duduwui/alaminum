@@ -333,7 +333,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'facade-50f': {
-      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50F',
+      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50 للواجهات الزجاجية',
       description: 'سیستەمی فەسادی شوشەیی بۆ کۆمپانیاکان، هۆتێل و پێشانگاکان بە پانی ٥٠ ملم پرۆفایلی بینراو.',
       subCategory: 'ڕوکاری باڵەخانە و کۆمپانیا',
       features: [
@@ -344,7 +344,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'curtain-50f': {
-      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50F',
+      name: 'ڕووکاری شوشەیی کەرتن وۆڵ 50 للواجهات الزجاجية',
       description: 'سیستەمی تەواوی ئەندازیاری ڕوکار بۆ عەزلی گەرمی، کۆنترۆڵی تیشکی خۆر و سەقامگیری باڵەخانە مۆدێرنەکان.',
       subCategory: 'ڕوکاری باڵەخانە و کۆمپانیا',
       features: ['پانی ٥٠ ملم', 'بەرگری باڵا لە ڕەشەبا', 'بەربەستی پۆلیەمایدی عەزل']
@@ -478,7 +478,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'hs76-sliding': {
-      name: 'أبواب سحاب ثقيلة uPVC هيب شيب',
+      name: 'أبواب سحاب ثقيلة يو بي في سي عالي العزل هيب شيب',
       description: 'هندسة متطورة للأبواب البانورامية المنزلقة تتحمل أوزاناً تصل إلى 300 كجم مع عتبة أرضية منبسطة وحركة انسيابية فائقة.',
       subCategory: 'سحب بانورامي ثقيل',
       features: [
@@ -521,7 +521,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'facade-50f': {
-      name: 'واجهات زجاجية كيرتن وول 50F',
+      name: 'واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية',
       description: 'نظام واجهات زجاجية هيكلية بعرض مرئي 50 ملم مصمم للأبراج والشركات والفنادق ومعارض السيارات.',
       subCategory: 'واجهات تجارية وأبراج',
       features: [
@@ -532,7 +532,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'curtain-50f': {
-      name: 'واجهات زجاجية كيرتن وول 50F',
+      name: 'واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية',
       description: 'نظام هندسي متكامل للواجهات يوفر العزل الحراري والتحكم الشمسي والأمان الإنشائي للمباني الحديثة.',
       subCategory: 'واجهات تجارية وأبراج',
       features: ['عرض مرئي 50 ملم', 'مقاومة فائقة للرياح', 'جسور عزل بولي أميد']

@@ -6,29 +6,30 @@ async function sync() {
     connectionString: process.env.DATABASE_URL || 'postgres://doorhome_user:Doorhome_Pg_2026_SecureKey@localhost:5432/doorhome_db'
   });
 
+  const filesToSync = [
+    { key: 'products', file: 'cms_products_db.json' },
+    { key: 'gallery', file: 'cms_gallery_db.json' },
+    { key: 'homepageSectionSlides', file: 'cms_homepage_section_slides_db.json' },
+    { key: 'archShowcase', file: 'cms_arch_showcase_db.json' },
+    { key: 'divisions', file: 'cms_divisions_db.json' },
+    { key: 'homepageSections', file: 'cms_homepage_sections_db.json' }
+  ];
+
+  for (const item of filesToSync) {
+    if (fs.existsSync(item.file)) {
+      const data = JSON.parse(fs.readFileSync(item.file, 'utf8'));
+      await pool.query(`
+        INSERT INTO cms_content (section_key, data, updated_at)
+        VALUES ($1, $2, CURRENT_TIMESTAMP)
+        ON CONFLICT (section_key) DO UPDATE
+        SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
+      `, [item.key, JSON.stringify(data)]);
+      console.log(`Synced cms_content for key "${item.key}" (${Array.isArray(data) ? data.length + ' items' : 'object'}).`);
+    }
+  }
+
+  // Sync products table
   const products = JSON.parse(fs.readFileSync('cms_products_db.json', 'utf8'));
-  const gallery = JSON.parse(fs.readFileSync('cms_gallery_db.json', 'utf8'));
-
-  console.log('Read ' + products.length + ' products, ' + gallery.length + ' gallery items.');
-
-  // 1. Update cms_content
-  await pool.query(`
-    INSERT INTO cms_content (section_key, data, updated_at)
-    VALUES ('products', $1, CURRENT_TIMESTAMP)
-    ON CONFLICT (section_key) DO UPDATE
-    SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
-  `, [JSON.stringify(products)]);
-
-  await pool.query(`
-    INSERT INTO cms_content (section_key, data, updated_at)
-    VALUES ('gallery', $1, CURRENT_TIMESTAMP)
-    ON CONFLICT (section_key) DO UPDATE
-    SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
-  `, [JSON.stringify(gallery)]);
-
-  console.log('cms_content table updated successfully.');
-
-  // 2. Sync products table
   await pool.query('DELETE FROM products;');
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
@@ -66,7 +67,7 @@ async function sync() {
     ]);
   }
 
-  console.log('products table synced with ' + products.length + ' products.');
+  console.log(`products table synced with ${products.length} products.`);
   await pool.end();
 }
 
