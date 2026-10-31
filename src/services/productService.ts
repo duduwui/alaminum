@@ -10,7 +10,7 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v13';
+const STORAGE_KEY = 'winhome_admin_products_v14';
 const DELETED_PRODUCTS_KEY = 'winhome_deleted_product_ids';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
@@ -20,6 +20,7 @@ let isFetchingCmsProducts = false;
 // Clean up old stale caches
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_products_v13');
     localStorage.removeItem('winhome_admin_products_v12');
     localStorage.removeItem('winhome_admin_products_v11');
     localStorage.removeItem('winhome_admin_products_v10');

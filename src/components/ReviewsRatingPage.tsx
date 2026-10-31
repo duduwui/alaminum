@@ -268,12 +268,12 @@ export const ReviewsRatingPage: React.FC<{
     }
     return {
       badge: 'منصة التقييم وآراء العملاء المعتمدة',
-      heroTitle: 'قيم شركة Doorhome (باب المنزل) وشاركنا رأيك لتطوير خدماتنا',
+      heroTitle: 'قيم شركة باب المنزل وشاركنا رأيك لتطوير خدماتنا',
       heroSubtitle: 'تقييمك الصادق وتجربتك معنا يساعداننا في تقديم أعلى معايير الجودة والتصنيع الهندسي في أربيل وبغداد وكافة محافظات العراق.',
       ratingScoreTitle: 'التقييم الإجمالي لرضا العملاء والمقاولين',
       basedOn: `بناءً على ${reviews.length} تقييماً معتمداً وموثقاً`,
       formTitle: 'شاركنا تقييمك وملاحظاتك',
-      overallRatingLabel: 'تقييمك الإجمالي لشركة Doorhome:',
+      overallRatingLabel: 'تقييمك الإجمالي لشركة باب المنزل:',
       qualityLabel: 'جودة قطاعات الألمنيوم والزجاج:',
       speedLabel: 'الالتزام بمواعيد التوريد والتسليم:',
       engLabel: 'المعاينة والاستشارة الهندسية:',
@@ -341,7 +341,7 @@ export const ReviewsRatingPage: React.FC<{
 
               <a
                 href={`https://wa.me/?text=${encodeURIComponent(
-                  `${isRtl ? 'مرحباً! يرجى تقييم شركة Doorhome (باب المنزل) لمساعدتنا في تحسين خدماتنا:' : 'Hello, please take a moment to rate Doorhome Company to help us improve:'}\n${shareUrl}`
+                  `${isRtl ? 'مرحباً! يرجى تقييم شركة باب المنزل لمساعدتنا في تحسين خدماتنا:' : 'Hello, please take a moment to rate Doorhome Company to help us improve:'}\n${shareUrl}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -661,7 +661,7 @@ export const ReviewsRatingPage: React.FC<{
                 {/* Date */}
                 <div className="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-400 flex items-center justify-between">
                   <span>{rev.date}</span>
-                  <span className="text-emerald-700 font-medium">✓ موثق لدى إدارة Doorhome</span>
+                  <span className="text-emerald-700 font-medium">✓ موثق لدى إدارة باب المنزل</span>
                 </div>
               </div>
             ))}

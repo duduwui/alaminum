@@ -112,7 +112,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
     <div className="min-h-screen bg-[#F5F6F8] px-4 py-8 text-slate-900 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-7xl">
         <button type="button" onClick={onBackToHome} className="mb-6 inline-flex items-center gap-2 text-sm font-bold text-slate-700 hover:text-red-600">
-          <ArrowLeft className="h-4 w-4" /> Doorhome
+          <ArrowLeft className="h-4 w-4" /> {currentLanguage.code === 'ar' ? 'الرئيسية' : currentLanguage.code === 'ckb' ? 'سەرەکی' : 'Home'}
         </button>
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div>

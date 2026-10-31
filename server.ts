@@ -1000,6 +1000,9 @@ async function startServer() {
       try {
         if (req.path.startsWith('/api/') || /\.[a-z0-9]+$/i.test(req.path)) return res.status(404).send('Not found');
         const template = await fs.promises.readFile(path.join(distPath, 'index.html'), 'utf8');
+        res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
         res.type('html').send(renderSearchMetadata(template, req.path));
       } catch (error) { next(error); }
     });

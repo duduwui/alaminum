@@ -164,7 +164,7 @@ export const ArticlesPage: React.FC<ArticlesPageProps> = ({
     }
     return {
       badge: 'المرجع الهندسي والمعماري الشامل',
-      title: 'دليل Doorhome الهندسي: 30 مقالاً يغطي كافة الأنظمة المعمارية',
+      title: 'دليل باب المنزل الهندسي: 30 مقالاً يغطي كافة الأنظمة المعمارية',
       subtitle: 'أكبر مكتبة معرفية متخصصة في شبابيك وأبواب الألمنيوم الحراري، السلالم الزجاجية المعلقة، نوافذ uPVC، والأسعار في العراق.',
       searchPh: 'ابحث في 30 مقالاً (مثال: درج زجاجي، أسعار، عزل حراري، سحاب، uPVC)...',
       readMore: 'قراءة المقال بالكامل',
@@ -330,7 +330,7 @@ export const ArticlesPage: React.FC<ArticlesPageProps> = ({
 
               <div className="flex items-center gap-2">
                 <a
-                  href={`https://wa.me/9647517945498?text=${encodeURIComponent(`مرحباً Doorhome، لدي استفسار حول مقال: ${articleTitle}`)}`}
+                  href={`https://wa.me/9647517945498?text=${encodeURIComponent(`مرحباً شركة باب المنزل، لدي استفسار حول مقال: ${articleTitle}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-colors"
