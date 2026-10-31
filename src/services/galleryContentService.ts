@@ -13,7 +13,7 @@ export interface GalleryMediaItem {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = 'winhome_admin_gallery_images_v6';
+const STORAGE_KEY = 'winhome_admin_gallery_images_v7';
 export const GALLERY_UPDATED_EVENT = 'cms_gallery_updated';
 
 try {

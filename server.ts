@@ -2,6 +2,7 @@ import express from 'express';
 import cloudTranslation from './server/cloudTranslation.cjs';
 import path from 'path';
 import fs from 'fs';
+import { exec } from 'child_process';
 import { randomUUID, randomBytes, scryptSync, timingSafeEqual, createHash } from 'crypto';
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
@@ -211,7 +212,18 @@ async function startServer() {
     try {
       await fs.promises.mkdir(mediaUploadDir, { recursive: true });
       const filename = `${randomUUID()}.${extension}`;
-      await fs.promises.writeFile(path.join(mediaUploadDir, filename), req.body, { flag: 'wx' });
+      const filePath = path.join(mediaUploadDir, filename);
+      await fs.promises.writeFile(filePath, req.body, { flag: 'wx' });
+
+      if (extension === 'mp4' || extension === 'webm') {
+        const posterPath = path.join(mediaUploadDir, `${filename}.poster.jpg`);
+        exec(`ffmpeg -y -ss 00:00:01 -i "${filePath}" -vframes 1 -q:v 2 "${posterPath}"`, (err) => {
+          if (err) {
+            exec(`ffmpeg -y -ss 00:00:00 -i "${filePath}" -vframes 1 -q:v 2 "${posterPath}"`);
+          }
+        });
+      }
+
       res.status(201).json({ url: `/uploads/${filename}` });
     } catch (error) {
       console.error('CMS media upload failed:', error);

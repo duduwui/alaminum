@@ -94,12 +94,19 @@ export const AdminProductModal: React.FC<AdminProductModalProps> = ({
     try {
       setIsSaving(true);
       setError('');
+      const trimmedImg = formImage.trim();
+      const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(trimmedImg);
+      const fallbackImg = isVid
+        ? trimmedImg.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')
+        : (editingProduct?.fallbackImage || trimmedImg);
+
       await onSave({
         id: editingProduct?.id,
         name: formName.trim(),
         description: formDescription.trim(),
         category: formCategory,
-        image: formImage.trim()
+        image: trimmedImg,
+        fallbackImage: fallbackImg
       });
       onClose();
     } catch (err: any) {

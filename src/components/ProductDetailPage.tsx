@@ -65,6 +65,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   );
 
   const productImage = localizedProduct.image || localizedProduct.fallbackImage || './assets/doorhome/03-2.jpg';
+  const isHeroVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.fallbackImage || '');
+  const heroPoster = localizedProduct.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image)
+    ? (localizedProduct.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.fallbackImage)
+        ? localizedProduct.fallbackImage
+        : localizedProduct.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+    : (localizedProduct.fallbackImage || './assets/doorhome/03-2.jpg');
 
   return (
     <div className="relative min-h-screen bg-[#FAF7F2] text-slate-900 px-4 py-4 sm:px-6 sm:py-6 lg:py-6 overflow-hidden">
@@ -140,15 +146,28 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-center">
             {/* Left Column (Image): Constrained within frame so it never forces scrolling */}
             <div className={`lg:col-span-5 xl:col-span-5 w-full flex justify-center ${isRtl ? 'order-1 lg:order-2' : 'order-1 lg:order-1'}`}>
-              <div className="relative w-full max-w-[420px] lg:max-w-[440px] h-[300px] sm:h-[360px] lg:h-[400px] xl:h-[430px] max-h-[52vh] rounded-[1.75rem] lg:rounded-[2rem] overflow-hidden bg-slate-100 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-slate-200/60">
-                <img
-                  src={productImage}
-                  alt={localizedProduct.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
-                  }}
-                />
+              <div className="relative w-full max-w-[420px] lg:max-w-[440px] h-[300px] sm:h-[360px] lg:h-[400px] xl:h-[430px] max-h-[52vh] rounded-[1.75rem] lg:rounded-[2rem] overflow-hidden bg-slate-900 shadow-[0_15px_35px_-10px_rgba(0,0,0,0.12)] border border-slate-200/60">
+                {isHeroVid ? (
+                  <video
+                    src={localizedProduct.image || localizedProduct.fallbackImage}
+                    poster={heroPoster}
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover bg-black"
+                  />
+                ) : (
+                  <img
+                    src={productImage}
+                    alt={localizedProduct.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                    }}
+                  />
+                )}
               </div>
             </div>
 
@@ -218,6 +237,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {suggestions.map((suggestion) => {
                 const localized = getLocalizedProduct(suggestion, langCode);
+                const isSugVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(localized.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(localized.fallbackImage || '');
+                const sugPoster = localized.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(localized.image)
+                  ? (localized.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(localized.fallbackImage)
+                      ? localized.fallbackImage
+                      : localized.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+                  : (localized.image || localized.fallbackImage || './assets/doorhome/03-2.jpg');
+
                 return (
                   <button
                     key={suggestion.id}
@@ -227,15 +253,27 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                   >
                     <div className="w-full">
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                        <img
-                          src={localized.image || localized.fallbackImage || './assets/doorhome/03-2.jpg'}
-                          alt={localized.name}
-                          loading="lazy"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
-                          }}
-                        />
+                        {isSugVid ? (
+                          <video
+                            src={localized.image || localized.fallbackImage}
+                            poster={sugPoster}
+                            muted
+                            playsInline
+                            autoPlay
+                            loop
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <img
+                            src={localized.image || localized.fallbackImage || './assets/doorhome/03-2.jpg'}
+                            alt={localized.name}
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).src = './assets/doorhome/03-2.jpg';
+                            }}
+                          />
+                        )}
                         <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-slate-800 group-hover:bg-red-600 group-hover:text-white flex items-center justify-center shadow-sm transition-colors">
                           <ArrowUpRight className="w-4 h-4" />
                         </div>

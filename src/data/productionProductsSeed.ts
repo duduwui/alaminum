@@ -2,6 +2,88 @@ import { ProductItem } from './winhomeData';
 
 export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
+    "id": "prod-polycarb-transparent-shutter",
+    "name": "Architectural Transparent Polycarbonate Security Rolling Shutter System",
+    "arabicName": "شتر رول بولي كربونات شفاف كريستالي للمحلات والواجهات وتراسات الفلل (دراب شفاف)",
+    "description": "High-security crystal clear transparent rolling shutter engineered with impact-resistant polycarbonate slats and extruded architectural aluminum guides. Delivers 95% daylight visibility with heavy-duty burglary and storm protection for luxury storefronts and villa terraces.\n\nEquipped with an ultra-quiet motorized drive, remote control automation, smart home integration, and precision weather stripping to seal against dust and wind.\n\nCombines the visual elegance of architectural glass with the impenetrable strength of steel, UV stabilized to ensure long-lasting clarity.",
+    "arabicDescription": "شتر رول شفاف عالي الحماية مصنع من شرائح بولي كربونات فائقة النقاء وغير قابلة للكسر، يمنح رؤية بانورامية كريستالية بنسبة 95% مع توفير أعلى درجات الأمان وحماية المحلات التجارية وتراسات الفلل والحدائق الشتوية من العواصف والغبار مع مقاومة للأشعة فوق البنفسجية.\n\nيعمل بمحرك كهربائي صامت مع إمكانية التحكم عن بعد والربط مع أنظمة المنزل الذكي، ومزود بمجاري جانبية من الألمنيوم الإنشائي المعالج حرارياً وقفل أمان ميكانيكي متين.\n\nتصميم أنيق وعصري يجمع بين جمالية الزجاج وصلابة الفولاذ، مع عزل حراري وصوتي ممتاز وعمر افتراضي طويل دون بهتان أو اصفرار.",
+    "translations": {
+      "ckb": {
+        "name": "دەڕابی شەفافی پۆلیکاربۆنات بۆ ڕووکار و پێشانگا و تەراس",
+        "description": "سیستەمی دەڕابی شەفافی بێ وێنە بە شەڕایحی پۆلیکاربۆناتی دژە شکاندن و ڕووناکی تەواو، دیزاین کراوە بۆ پاراستنی بەرزی پێشانگاکان و تەراسی ڤێلاکان بە دیمەنێکی مۆدێرن و ڕوون.\n\nبە ماتۆڕی کارەبایی بێدەنگ و کۆنتڕۆڵی دوورەوە کار دەکات، خاوەن پرۆفایلی بەهێزی ئەلەمنیۆم و عازلی تۆز و با و ڕێگر لە تیشکی بەتینی خۆر.\n\nتێکەڵەیەکە لە جوانی شووشە و پتەوی و سەلامەتی پۆڵا، کە شێوازی بینا بەرز دەکاتەوە و پارێزگاری لە پاکوخاوێنی و تەناهی دەکات."
+      }
+    },
+    "category": "doors",
+    "division": "doors",
+    "subCategory": "Polycarbonate Rolling Shutters",
+    "modelNumber": "DH-POLY-CRYSTAL-01",
+    "material": "Unbreakable Polycarbonate & Architectural Aluminum",
+    "brand": "Doorhome Architectural",
+    "image": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "fallbackImage": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "features": {
+      "ar": [
+        "شرائح بولي كربونات فائقة النقاء وغير قابلة للكسر مع حماية من الأشعة فوق البنفسجية",
+        "رؤية بانورامية كريستالية تسمح بعرض المعروضات وحماية التراسات دون حجب الإضاءة",
+        "محرك كهربائي صامت مع إمكانية التحكم الذكي عن بعد والربط بالمنزل الذكي",
+        "مجاري جانبية من الألمنيوم المعالج حرارياً مع جوانات مطاطية مانعة للأتربة والرياح",
+        "قفل أمان مركزي عالي المتانة يوفر حماية قصوى ضد السطو والكسر"
+      ],
+      "en": [
+        "Impact-Resistant Crystal Clear Polycarbonate Slats with Anti-UV Stabilization",
+        "Panoramic 95% Natural Light Visibility with Heavy-Duty Storm & Burglary Protection",
+        "Ultra-Quiet Automated Motorized Tubular Drive with Smart Remote Controls",
+        "Structural Aluminum Extruded Guide Channels with Multi-Stage Perimeter Weather Sealing",
+        "High-Security Mechanical Locking System for Luxury Villas and Storefronts"
+      ]
+    },
+    "basePrice": 0,
+    "unitPrice": 0,
+    "pricePerSqm": 0,
+    "currency": "USD"
+  },
+  {
+    "id": "prod-black-zip-screen-shutter",
+    "name": "Architectural Motorized Exterior Zip Screen Shutter for Facades & Skylights",
+    "arabicName": "شتر زيب سكرين الخارجي العازل للحرارة والبرد والحشرات والغبار والحرائق (دراب أسود للواجهات والسكاي لايت)",
+    "description": "Engineered heavy-duty exterior motorized zip screen shutter system crafted for architectural glazed facades, roof skylights, and patio enclosures. Features precision zip-guided side channels that create an airtight barrier to lock out cold drafts, severe heat, windblown dust, worms, and insects.\n\nFabricated with fire-retardant high-tensile fiberglass composite mesh offering superior UV deflection, flame resistance, and wind-load stability up to gale-force conditions.\n\nOperates via automated tubular motor drives compatible with smart climatic sensors, protecting interior comfort and thermal performance throughout every season.",
+    "arabicDescription": "شتر زيب سكرين خارجي عالي الكفاءة مصمم خصيصاً للواجهات المعمارية والقباب السماوية (السكاي لايت) وتراسات المنازل. يوفر عزلاً استثنائياً يمنع تسرب البرودة والحرارة الشديدة، ويشكل حاجزاً منيعاً ومحكماً يمنع دخول الغبار والأتربة والديدان والحشرات الطائرة والزاحفة بفضل نظام القفل الجانبي بالسحاب (الزيپ).\n\nيتميز بنسيج فايبرجلاس هندسي عالي المتانة ومقاوم للحرائق والاشتعال، ومصمم ليتحمل أعتى الرياح والعواصف دون تمزق. يمنح حماية متكاملة للواجهات الزجاجية مع الحفاظ على الخصوصية والرؤية المريحة من الداخل.\n\nمزود بمحرك كهربائي فائق الهدوء وأنظمة تحكم ذكية، يركب على واجهات الفلل والمنازل والسكاي لايت ليضمن بيئة داخلية نقية ومحمية على مدار فصول السنة.",
+    "translations": {
+      "ckb": {
+        "name": "دەڕابی زیپ سکرینی دەرەوە بۆ ڕووکار و سەقف (عازلی گەرما و سەرما و تۆز و مێروو و دژە ئاگر)",
+        "description": "دەڕابی زیپ سکرینی پێشکەوتووی دەرەکی بۆ ڕووکاری باڵەخانە و سەربانی شووشەیی (سکای لایت) و تەراسی ماڵان. بە سیستەمی قوفڵی تەنیشت بە شێوازی زیپ، بە تەواوی ڕێگری دەکات لە چوونەژوورەوەی سەرما، گەرما، تۆزوخۆڵ، کرم و مێرووە زیانبەخشەکان.\n\nدروستکراوە لە قوماشی ئەندازیاری تایبەت کە دژە ئاگرە و توانای بەرگەگرتنی بەهێزترین ڕەشەبا و گەردەلوولی هەیە بەبێ دڕان، لە هەمان کاتدا پارێزگاری لە نهێنی و جوانی بینا دەکات.\n\nبە ماتۆڕی کارەبایی زیرەک کار دەکات و بۆ هەموو وەرزەکان کەشێکی پاکژ و پارێزراو بۆ ماڵەکەت دەستەبەر دەکات."
+      }
+    },
+    "category": "windows",
+    "division": "windows",
+    "subCategory": "Exterior Motorized Zip Screens",
+    "modelNumber": "DH-ZIP-BLACK-FIREPROOF",
+    "material": "Fire-Retardant Fiberglass Composite & Structural Aluminum",
+    "brand": "Doorhome Architectural",
+    "image": "/uploads/exterior_black_zip_screen_shutter.png",
+    "fallbackImage": "/uploads/exterior_black_zip_screen_shutter.png",
+    "features": {
+      "ar": [
+        "نسيج فايبرجلاس هندسي عالي الكثافة مقاوم للاشتعال والحرائق ومعتمد معمارياً",
+        "نظام زيپ جانبي محكم يغلق تماماً ضد البرودة الشديدة والرياح والعواصف الرملية",
+        "حاجز منيع ومثالي يمنع دخول الغبار والديدان والحشرات والآفات الزاحفة والطائرة",
+        "مناسب للواجهات الزجاجية البانورامية والقباب السماوية (السكاي لايت) وتراسات الفلل",
+        "محرك كهربائي ذكي متصل بحساسات الطقس والرياح للتشغيل التلقائي المريح"
+      ],
+      "en": [
+        "Certified Flame-Retardant High-Tensile Fiberglass Composite Shading Fabric",
+        "Precision Zip-Guided Side Retainers Locking Out Severe Cold, Storms, and Wind Drafts",
+        "Impermeable Environmental Barrier Stopping Insects, Worms, Pests, and Sandstorms",
+        "Engineered for Large Facades, Atrium Skylights, and Open Pergola Enclosures",
+        "Smart Tubular Motor Compatible with Wind and Solar Automated Climatic Sensors"
+      ]
+    },
+    "basePrice": 0,
+    "unitPrice": 0,
+    "pricePerSqm": 0,
+    "currency": "USD"
+  },
+  {
     "id": "acc-stac-multipoint-lock",
     "name": "High-Security Multi-Point Mortise Locking Mechanism for Architectural Doors & Windows",
     "arabicName": "آلية القفل المحكم متعدد النقاط للأبواب والنوافذ المعمارية الإسبانية الصنع",

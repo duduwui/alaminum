@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Trash2, Edit } from 'lucide-react';
+import { Search, Plus, Trash2, Edit, Play } from 'lucide-react';
 import { ProductItem } from '../../data/winhomeData';
 import { getLocalizedProduct } from '../../utils/localizedContent';
 
@@ -121,6 +121,13 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
               {filteredProducts.map((prod) => {
                 const localized = getLocalizedProduct(prod, currentLanguage.code);
                 const category = getProductCategoryLabel(prod);
+                const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.fallbackImage || '');
+                const posterUrl = prod.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image)
+                  ? (prod.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(prod.fallbackImage)
+                      ? prod.fallbackImage
+                      : prod.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+                  : (prod.image || prod.fallbackImage);
+
                 return (
                   <tr key={prod.id} className="hover:bg-red-50/30 transition-colors">
                     <td className="px-6 py-4">
@@ -129,14 +136,46 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
                           href={prod.image || prod.fallbackImage}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="shrink-0 group"
+                          className="shrink-0 group relative block h-20 w-28 rounded-xl overflow-hidden border border-slate-200/80 shadow-2xs group-hover:scale-102 transition-transform bg-slate-900"
                         >
-                          <img
-                            src={prod.image || prod.fallbackImage}
-                            alt={localized.name}
-                            loading="lazy"
-                            className="h-20 w-28 rounded-xl object-cover border border-slate-200/80 shadow-2xs group-hover:scale-102 transition-transform"
-                          />
+                          {isVid ? (
+                            <>
+                              <img
+                                src={posterUrl}
+                                alt={localized.name}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                  const vid = e.currentTarget.parentElement?.querySelector('video');
+                                  if (vid) vid.classList.remove('hidden');
+                                }}
+                              />
+                              <video
+                                src={prod.image}
+                                muted
+                                playsInline
+                                preload="metadata"
+                                className="h-full w-full object-cover hidden pointer-events-none"
+                              />
+                              <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-md bg-black/80 text-white text-[10px] font-bold flex items-center gap-1 shadow-sm">
+                                <Play className="w-2.5 h-2.5 fill-current" />
+                                <span>{currentLanguage.code === 'ar' ? 'فيديو' : currentLanguage.code === 'ckb' ? 'ڤیدیۆ' : 'Video'}</span>
+                              </span>
+                            </>
+                          ) : (
+                            <img
+                              src={prod.image || prod.fallbackImage}
+                              alt={localized.name}
+                              loading="lazy"
+                              className="h-full w-full object-cover"
+                              onError={(e) => {
+                                if (prod.fallbackImage && e.currentTarget.src !== prod.fallbackImage) {
+                                  e.currentTarget.src = prod.fallbackImage;
+                                }
+                              }}
+                            />
+                          )}
                         </a>
                         <button
                           type="button"

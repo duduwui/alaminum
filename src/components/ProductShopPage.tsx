@@ -143,12 +143,20 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleProducts.map((product) => {
+              const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(product.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(product.fallbackImage || '');
+              const posterUrl = product.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(product.image)
+                ? (product.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(product.fallbackImage)
+                    ? product.fallbackImage
+                    : product.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+                : (product.image || product.fallbackImage);
+
               return (
                 <button key={product.id} type="button" onClick={() => onSelectProduct(product)} className="overflow-hidden rounded-2xl border border-slate-200 bg-white text-start shadow-sm transition hover:border-red-300 hover:shadow-lg cursor-pointer">
-                  <div className="h-52 overflow-hidden bg-slate-50">
-                    {/\.(mp4|webm|mov)(\?|#|$)/i.test(product.image || '') ? (
+                  <div className="h-52 overflow-hidden bg-slate-900 relative">
+                    {isVid ? (
                       <video
-                        src={product.image}
+                        src={product.image || product.fallbackImage}
+                        poster={posterUrl}
                         muted
                         playsInline
                         autoPlay

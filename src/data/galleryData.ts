@@ -2,6 +2,50 @@ import { GalleryMediaItem } from '../services/galleryContentService';
 
 export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
+    "id": "gallery-proj-polycarb-transparent-shutter",
+    "title": "Luxury Villa Garden Pavilion Transparent Polycarbonate Shutter Installation",
+    "description": "Custom installation by Doorhome architectural team featuring transparent polycarbonate rolling shutters for an outdoor villa pavilion and veranda. Provides all-weather shelter against wind and dust while preserving full panoramic landscape views.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "src": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "translations": {
+      "ar": {
+        "title": "مشروع تركيب شتر رول بولي كربونات شفاف لتراس وكابينة حديقة فيلا",
+        "description": "تنفيذ احترافي متكامل من فريق خبراء شركة باب المنزل لتركيب شتر رول بولي كربونات شفاف لكابينة وتراس خارجي في أربيل. تم تصميم الشتر ليحمي الجلسة الخارجية من الرياح والأتربة والتقلبات الجوية دون حجب الإطلالة الخضراء الساحرة للحديقة، مع تشغيل كهربائي ذكي وسلس يعكس خبرة ومهارة كادرنا الهندسي المتخصص.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص، بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بالتصنيع الفائق، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية."
+      },
+      "ckb": {
+        "title": "پڕۆژەی دەڕابی شەفافی پۆلیکاربۆنات بۆ تەراسی ڤێلای تایبەت",
+        "description": "جێبەجێکردنی پرۆفیشناڵ لە لایەن دەستەی ئەندازیارانی شارەزای کۆمپانیای دەرگای ماڵ بۆ دامەزراندنی دەڕابی شەفافی پۆلیکاربۆنات لەسەر تەراسی ڤێلایەکی تایبەت. پارێزگاری تەواو لە تۆز و با و سەرما دەکات بەبێ ئەوەی دیمەنی سەوزایی حەوشەکە بشارێتەوە."
+      }
+    },
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Erbil, Kurdistan Region",
+    "system": "Transparent Polycarbonate Rolling Shutter",
+    "year": "2024",
+    "glassArea": "45 m²"
+  },
+  {
+    "id": "gallery-proj-black-zip-screen-shutter",
+    "title": "Architectural Motorized Black Zip Screen Facade Shutter Installation Project",
+    "description": "Turnkey exterior facade drop zip-screen project executed with precision by Doorhome installation engineers. Features automated flame-retardant black mesh providing solar control, insect barrier, cold air protection, and dust resistance.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "src": "/uploads/exterior_black_zip_screen_shutter.png",
+    "translations": {
+      "ar": {
+        "title": "مشروع حماية وتظليل واجهة معمارية وسكاي لايت بشتر زيب سكرين عازل للحرائق والحشرات",
+        "description": "إنجاز هندسي متقن من فريق عمل شركة باب المنزل لتركيب شتر زيب سكرين خارجي أسود مقاوم للحريق والظروف الجوية القاسية للواجهات والسكاي لايت. يوفر المشروع عازلية تامة لواجهة المبنى ضد البرودة والحشرات والأتربة مع تشغيل آلي هادئ ومقاومة فائقة للحرائق.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص، مع ضمان أقصى درجات الإحكام الميكانيكي ومقاومة الرياح والعواصف الترابية بكفاءة مطلقة."
+      },
+      "ckb": {
+        "title": "پڕۆژەی دانانی دەڕابی زیپ سکرینی دژە ئاگر و مێروو بۆ ڕووکاری دەرەوە و سکای لایت",
+        "description": "پڕۆژەیەکی دەستکردی سەرکەوتووی دەستەی ئەندازیارانی دەرگای ماڵ بۆ دانانی دەڕابی زیپ سکرینی دەرەکی کە بەرگری تەواوی هەیە لە ئاگر، سەرما، تۆز و مێروو، بە کارکردنی نەرم و کوالیتی بێهاوتا."
+      }
+    },
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Erbil, Kurdistan Region",
+    "system": "Exterior Motorized Zip Screen Shutter",
+    "year": "2024",
+    "glassArea": "60 m²"
+  },
+  {
     "id": "proj-photo-1",
     "title": "Precision On-Site Installation by Certified Doorhome Technicians",
     "description": "Every window and door is installed with millimeter precision by our trained in-house crew. We ensure perfect leveling, seamless operation, and airtight insulation for complete peace of mind.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
