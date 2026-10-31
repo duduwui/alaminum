@@ -72,7 +72,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
           body: 'تعتمد تقنية الثيرمال بريك على فصل قطاع الألمنيوم الخارجي عن القطاع الداخلي تماماً بواسطة عازل غير موصل من مادة البولي أميد المدعمة بالألياف الزجاجية (PA66 GF25). هذا الفاصل يقطع الجسر الحراري بنسبة 100% ويمنع تسرب الحرارة أو البرودة.'
         },
         {
-          heading: 'أنظمة لورنزو 70 للسحب المعماري و 58 المعزول المعتمدة لدى Doorhome',
+          heading: 'أنظمة لورنزو 70 للسحب المعماري و 58 المعزول المعتمدة لدى شركة باب المنزل',
           body: 'نستخدم قطاعات لورنزو الأوروبية المصممة خصيصاً لمناخ الشرق الأوسط، والتي تجمع بين خفة الوزن ومتانة التحمل ومظهر المقاطع النحيفة (Minimalist Sightlines)، مما يسمح بنفاذ أقصى قدر من الإضاءة الطبيعية مع عزل حراري مثالي.'
         }
       ],
@@ -86,7 +86,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
           body: 'A thermal break profile mechanically locks an insulating structural polyamide strip (PA66 GF25) between the exterior and interior aluminum extrusions. This breaks the thermal bridge completely, stopping conductive heat transfer.'
         },
         {
-          heading: 'Certified لورنزو Systems at Doorhome',
+          heading: 'Certified Lorenzoline Systems at Doorhome',
           body: 'Doorhome specifies لورنزو 70 للسحب المعماري and 58 المعزول profiles engineered with 24mm polyamide insulation strips and multi-point STAC perimeter seals, delivering industry-leading U-values and unmatched durability.'
         }
       ]
@@ -189,7 +189,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'التوصية الهندسية المتوازنة',
-          body: 'ننصح في Doorhome باستخدام يو بي في سي عالي العزل لغرف النوم ومكاتب العمل للحصول على هدوء وعزل تام، واستخدام الألمنيوم الحراري للصالات ومداخل الفلل والواجهات الزجاجية المطلة على الحديقة.'
+          body: 'ننصح في شركة باب المنزل باستخدام يو بي في سي عالي العزل لغرف النوم ومكاتب العمل للحصول على هدوء وعزل تام، واستخدام الألمنيوم الحراري للصالات ومداخل الفلل والواجهات الزجاجية المطلة على الحديقة.'
         }
       ],
       en: [
@@ -227,7 +227,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-22',
-    author: 'Doorhome Fenestration Specialists',
+    author: 'باب المنزل Fenestration Specialists',
     image: './assets/showcase/showcase_hs76_1789926153920.jpg',
     tags: ['أبواب سحاب', 'Lift and Slide', 'لورنزو 70 للسحب المعماري', 'فلل حديثة', 'أبواب بانوراما'],
     keySpecs: [
@@ -243,7 +243,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'عتبة أرضية مستوية بدون تعثر (Flush Zero-Threshold)',
-          body: 'تتميز أنظمة Doorhome بإمكانية غمس العتبة الأرضية بالكامل في أرضية الصالة والحديقة، مما يوفر انتقالاً آمناً وانسيابياً ومظهراً فندقياً فاخراً.'
+          body: 'تتميز أنظمة باب المنزل بإمكانية غمس العتبة الأرضية بالكامل في أرضية الصالة والحديقة، مما يوفر انتقالاً آمناً وانسيابياً ومظهراً فندقياً فاخراً.'
         }
       ],
       en: [
@@ -277,7 +277,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '7 min read',
     date: '2026-09-21',
-    author: 'Doorhome Facade Engineering Dept',
+    author: 'باب المنزل Facade Engineering Dept',
     image: './assets/showcase/showcase_curtain50f_1789926115841.jpg',
     tags: ['واجهات زجاجية', 'كيرتن وول', 'Curtain Wall 50F', 'استركشر', 'مباني تجارية'],
     keySpecs: [
@@ -327,7 +327,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-20',
-    author: 'Doorhome Safety Engineers',
+    author: 'باب المنزل Safety Engineers',
     image: './assets/doorhome/photo_2023-07-03_15-38-36-600x390.jpg',
     tags: ['درابزين زجاجي', 'محاجر', 'قواعد ستانلس ستيل', 'بلكونات', 'زجاج سيكوريت'],
     keySpecs: [
@@ -377,7 +377,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-19',
-    author: 'Doorhome Design Studio',
+    author: 'باب المنزل Design Studio',
     image: './assets/doorhome/03-2.jpg',
     tags: ['بلكونة فرنسية', 'حواجز زجاج', 'شبابيك طويلة', 'أمان الأطفال'],
     sections: {
@@ -414,7 +414,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-18',
-    author: 'Doorhome Entrance Division',
+    author: 'باب المنزل Entrance Division',
     image: './assets/doorhome/03-2.jpg',
     tags: ['أبواب بيفوت', 'أبواب فلل', 'أبواب محورية', 'أقفال ذكية', 'فخامة'],
     keySpecs: [
@@ -456,7 +456,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-17',
-    author: 'Doorhome Systems Engineer',
+    author: 'باب المنزل Systems Engineer',
     image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
     tags: ['أبواب فولدنج', 'أبواب أكورديون', 'Bi-Fold', 'مسابح', 'حدائق'],
     sections: {
@@ -493,7 +493,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '6 min read',
     date: '2026-09-16',
-    author: 'Doorhome Acoustic Lab',
+    author: 'باب المنزل Acoustic Lab',
     image: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg',
     tags: ['عزل صوت', 'هدوء', 'دبل كلاس', 'ضوضاء', 'EPDM'],
     keySpecs: [
@@ -505,7 +505,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'سر الزجاج غير المتماثل (Asymmetric Glazing)',
-          body: 'إذا كانت طبقتا الزجاج المزدوج بنفس السماكة (مثلاً 6 ملم + 6 ملم)، فإنهما تهتزان بنفس التردد الصوتي وتنقلان الضوضاء. في Doorhome نستخدم تركيبة غير متماثلة مثل (6 ملم خارجي + فاصل غاز آرجون 16 ملم + 8.76 ملم زجاج لاميناتي مع طبقة سكون Acoustic PVB داخلي)، مما يكسر موجات الصوت ويخفض الضوضاء بنسبة تصل إلى 85%.'
+          body: 'إذا كانت طبقتا الزجاج المزدوج بنفس السماكة (مثلاً 6 ملم + 6 ملم)، فإنهما تهتزان بنفس التردد الصوتي وتنقلان الضوضاء. في شركة باب المنزل نستخدم تركيبة غير متماثلة مثل (6 ملم خارجي + فاصل غاز آرجون 16 ملم + 8.76 ملم زجاج لاميناتي مع طبقة سكون Acoustic PVB داخلي)، مما يكسر موجات الصوت ويخفض الضوضاء بنسبة تصل إلى 85%.'
         }
       ],
       en: [
@@ -535,7 +535,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-15',
-    author: 'Doorhome Energy Team',
+    author: 'باب المنزل Energy Team',
     image: './assets/doorhome/photo_2023-07-03_15-50-46-1104x700.jpg',
     tags: ['منخفض الانبعاثية الحرارية', 'غاز آرجون', 'زجاج مزدوج', 'توفير الطاقة', 'حرارة الصيف'],
     sections: {
@@ -572,7 +572,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-14',
-    author: 'Doorhome Hardware Dept',
+    author: 'باب المنزل Hardware Dept',
     image: './assets/doorhome/brouchour-stac-1-1000x1000.jpg',
     tags: ['STAC Spain', 'أقفال أمان', 'إكسسوارات شبابيك', 'مفصلات أوروبية'],
     sections: {
@@ -609,7 +609,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-13',
-    author: 'Doorhome Hardware Dept',
+    author: 'باب المنزل Hardware Dept',
     image: './assets/doorhome/brouchour-Master-1-1000x1000.jpg',
     tags: ['Master Italy', 'Comunello', 'مقابض ايطالية', 'عجلات سحاب', 'تحمل عالي'],
     sections: {
@@ -646,20 +646,20 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-12',
-    author: 'Doorhome Material Specialists',
+    author: 'باب المنزل Material Specialists',
     image: './assets/doorhome/2-1.png',
     tags: ['EPDM', 'عواصف ترابية', 'عزل غبار', 'حشوات مطاطية', 'مقاومة الشمس'],
     sections: {
       ar: [
         {
           heading: 'تحدي الغبار الناعم في مدن العراق',
-          body: 'عواصف الغبار الصيفية في بغداد والأنبار والنجف تتسلل عبر أدنى فجوة ميكروية. حشوات EPDM المتواصلة في زوايا قطاعات Doorhome تضغط بإحكام محكم يمنع دخول أصغر جزيئات التراب.'
+          body: 'عواصف الغبار الصيفية في بغداد والأنبار والنجف تتسلل عبر أدنى فجوة ميكروية. حشوات EPDM المتواصلة في زوايا قطاعات شركة باب المنزل تضغط بإحكام محكم يمنع دخول أصغر جزيئات التراب.'
         }
       ],
       en: [
         {
           heading: 'Middle Eastern Dust Storm Infiltration',
-          body: 'Fine suspended dust penetrates conventional seals. Doorhome utilizes vulcanized continuous EPDM compression gaskets that adapt dynamically without shrinking.'
+          body: 'Fine suspended dust penetrates conventional seals. باب المنزل utilizes vulcanized continuous EPDM compression gaskets that adapt dynamically without shrinking.'
         }
       ]
     }
@@ -683,7 +683,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-11',
-    author: 'Doorhome Automation Studio',
+    author: 'باب المنزل Automation Studio',
     image: './assets/doorhome/signature-bg.jpg',
     tags: ['شبابيك جيوتين', 'نوافذ كهربائية', 'كافيهات', 'مطاعم', 'Somfy'],
     sections: {
@@ -720,7 +720,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-10',
-    author: 'Doorhome Facade Engineering Dept',
+    author: 'باب المنزل Facade Engineering Dept',
     image: './assets/doorhome/photo_2023-07-03_15-42-28-1120x716.jpg',
     tags: ['سكاي لايت', 'اسقف زجاجية', 'اتريوم', 'ضوء طبيعي', 'عزل مائي'],
     sections: {
@@ -757,7 +757,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-09',
-    author: 'Doorhome Outdoor Architecture',
+    author: 'باب المنزل Outdoor Architecture',
     image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
     tags: ['برجولات', 'مظلات المنيوم', 'حدائق', 'جلسات خارجية', 'مطر'],
     sections: {
@@ -794,7 +794,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-08',
-    author: 'Doorhome Commercial Division',
+    author: 'باب المنزل Commercial Division',
     image: './assets/doorhome/OFFICE-PARTITION-24Z-Large-300x300.jpeg',
     tags: ['قواطع مكاتب', 'مكاتب زجاجية', 'عزل صوت للشركات', '24Z'],
     sections: {
@@ -831,7 +831,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-07',
-    author: 'Doorhome Quality Assurance',
+    author: 'باب المنزل Quality Assurance',
     image: './assets/doorhome/24-1.jpg',
     tags: ['سيكوريت', 'لاميناتي', 'زجاج امان', 'مقاومة الصدمات', 'حماية'],
     sections: {
@@ -876,7 +876,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-06',
-    author: 'Doorhome يو بي في سي عالي العزل Department',
+    author: 'باب المنزل يو بي في سي عالي العزل Department',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
     tags: ['ديكونينك', 'Legend 80', 'يو بي في سي عالي العزل', 'عزل حراري', 'المانيا'],
     sections: {
@@ -913,20 +913,20 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-05',
-    author: 'Doorhome Quality Assurance',
+    author: 'باب المنزل Quality Assurance',
     image: './assets/doorhome/10.png',
     tags: ['Class S', 'جودة يو بي في سي عالي العزل', 'مقاومة الاصفرار', 'مواصفات اوروبية'],
     sections: {
       ar: [
         {
           heading: 'خطر النوافذ غير المطابقة للمواصفات',
-          body: 'البروفايلات الرخيصة المصممة لأوروبا المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات يو بي في سي عالي العزل في Doorhome حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
+          body: 'البروفايلات الرخيصة المصممة لأوروبا المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات يو بي في سي عالي العزل في شركة باب المنزل حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
         }
       ],
       en: [
         {
           heading: 'The Threat of Moderate Climate Profiles',
-          body: 'Low-cost profiles engineered for mild Europe (Class M) yellow and turn brittle in Iraq. Doorhome profiles carry certified Class S severe climate ratings stabilized with titanium dioxide.'
+          body: 'Low-cost profiles engineered for mild Europe (Class M) yellow and turn brittle in Iraq. باب المنزل profiles carry certified Class S severe climate ratings stabilized with titanium dioxide.'
         }
       ]
     }
@@ -944,13 +944,13 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'Laser 3D On-Site Surveying: Why Every Millimeter Dictates Window Air-Tightness'
     },
     summary: {
-      ar: 'خطوات الفحص الهندسي الميداني المجاني من Doorhome لضبط زوايا الفتحات والتأكد من استواء الحوائط الخرسانية قبل بدء التصنيع.',
+      ar: 'خطوات الفحص الهندسي الميداني المجاني من شركة باب المنزل لضبط زوايا الفتحات والتأكد من استواء الحوائط الخرسانية قبل بدء التصنيع.',
       ckb: 'هەنگاوەکانی پێوانەکردنی بێبەرامبەر بە لەیزەر پێش دروستکردنی پەنجەرەکان.',
       en: 'How calibrated laser optical tools detect structural wall out-of-plumb deviations before factory CNC cutting begins.'
     },
     readingTime: '4 min read',
     date: '2026-09-04',
-    author: 'Doorhome Field Survey Team',
+    author: 'باب المنزل Field Survey Team',
     image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
     tags: ['قياس ليزري', 'معاينة هندسية', 'تركيب شبابيك', 'دقة المصنع'],
     sections: {
@@ -963,7 +963,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: [
         {
           heading: 'Zero Room for Tape-Measure Estimation',
-          body: 'Rough masonry openings frequently exhibit tilt and diagonal variance. Doorhome uses calibrated 3D laser scanners to inspect plumb and diagonal squareness prior to CNC fabrication.'
+          body: 'Rough masonry openings frequently exhibit tilt and diagonal variance. باب المنزل uses calibrated 3D laser scanners to inspect plumb and diagonal squareness prior to CNC fabrication.'
         }
       ]
     }
@@ -987,7 +987,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-09-03',
-    author: 'Doorhome Engineering Lab',
+    author: 'باب المنزل Engineering Lab',
     image: './assets/doorhome/photo_2023-07-03_15-42-28-1120x716.jpg',
     tags: ['تسرب مياه', 'تصريف امطار', 'عزل مائي', 'شتاء العراق'],
     sections: {
@@ -1024,7 +1024,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '6 min read',
     date: '2026-09-02',
-    author: 'Doorhome Commercial Estimation Desk',
+    author: 'باب المنزل Commercial Estimation Desk',
     image: './assets/doorhome/bg_catalogues.jpeg',
     tags: ['اسعار شبابيك المنيوم', 'تكلفة الابواب', 'سعر المتر', 'عروض اسعار', 'عراق'],
     sections: {
@@ -1061,7 +1061,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-09-01',
-    author: 'Doorhome Surface Finishing Dept',
+    author: 'باب المنزل Surface Finishing Dept',
     image: './assets/doorhome/03-2.jpg',
     tags: ['الوان المنيوم', 'انودايز', 'بودرة حرارية', 'انثراسيت', 'Qualicoat'],
     sections: {
@@ -1098,7 +1098,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-08-30',
-    author: 'Doorhome Safety Engineers',
+    author: 'باب المنزل Safety Engineers',
     image: './assets/doorhome/signature-bg.jpg',
     tags: ['حواجز مسابح', 'سياج زجاجي', 'امان الاطفال', 'مسابح فلل'],
     sections: {
@@ -1135,7 +1135,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-08-28',
-    author: 'Doorhome Commercial Team',
+    author: 'باب المنزل Commercial Team',
     image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
     tags: ['واجهات محلات', 'ابواب اوتوماتيكية', 'سيكوريت تجاري', 'معارض'],
     sections: {
@@ -1172,7 +1172,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '4 min read',
     date: '2026-08-25',
-    author: 'Doorhome Smart Solutions',
+    author: 'باب المنزل Smart Solutions',
     image: './assets/doorhome/03-2.jpg',
     tags: ['أقفال ذكية', 'بصمة الاصبع', 'أبواب المنيوم ذكية', 'سمارت هوم'],
     sections: {
@@ -1185,7 +1185,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: [
         {
           heading: 'Keyless Convenience Meets Physical Security',
-          body: 'Doorhome seamlessly integrates multi-bolt smart digital locks inside insulated aluminum doors, giving owners remote access logging and biometric ease.'
+          body: 'باب المنزل seamlessly integrates multi-bolt smart digital locks inside insulated aluminum doors, giving owners remote access logging and biometric ease.'
         }
       ]
     }
@@ -1209,7 +1209,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     },
     readingTime: '5 min read',
     date: '2026-08-20',
-    author: 'Doorhome After-Sales Service',
+    author: 'باب المنزل After-Sales Service',
     image: './assets/doorhome/bg.jpeg',
     tags: ['صيانة شبابيك', 'تنظيف الزجاج', 'صيانة ابواب سحاب', 'ارشادات'],
     sections: {
@@ -1228,19 +1228,19 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 30. Why Doorhome Standard
+  // 30. Why باب المنزل Standard
   {
     id: 'art-30',
     slug: 'why-doorhome-engineering-factory-precision-10-year-warranty',
     category: 'guide',
     categoryLabel: { ar: 'معايير باب المنزل', ckb: 'ستانداردی دەرگای ماڵ', en: 'Doorhome Standard' },
     title: {
-      ar: 'معايير Doorhome الهندسية: دقة المصنع، القص بالليزر، وضمان رسمي 10 سنوات',
-      ckb: 'ستانداردەکانی دەرگای ماڵ (Doorhome): کارگەی پێشکەوتوو و گرەنتی ١٠ ساڵ',
+      ar: 'معايير شركة باب المنزل الهندسية: دقة المصنع، القص بالليزر، وضمان رسمي 10 سنوات',
+      ckb: 'ستانداردەکانی دەرگای ماڵ : کارگەی پێشکەوتوو و گرەنتی ١٠ ساڵ',
       en: 'The Doorhome Standard: Factory CNC Precision, Zero Compromise & 10-Year Warranty'
     },
     summary: {
-      ar: 'ما الذي يجعل مصنع ومعرض Doorhome في أربيل وبغداد الخيار الموثوق لأصحاب الفلل، المهندسين المعماريين، وشركات المقاولات في العراق.',
+      ar: 'ما الذي يجعل مصنع ومعرض شركة باب المنزل في أربيل وبغداد الخيار الموثوق لأصحاب الفلل، المهندسين المعماريين، وشركات المقاولات في العراق.',
       ckb: 'بۆچی کۆمپانیای دەرگای ماڵ متمانەپێکراوترینە بۆ خاوەن ڤێلا و ئەندازیاران.',
       en: 'How state-of-the-art CNC machining, certified European profiles, and an official 10-year warranty set the gold standard in Iraq.'
     },
@@ -1248,7 +1248,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-08-15',
     author: 'Doorhome Executive Engineering Management',
     image: './assets/doorhome/doorhome-logo.jpg',
-    tags: ['Doorhome', 'باب المنزل', 'دەرگای ماڵ', 'ضمان 10 سنوات', 'مصنع أربيل وبغداد', 'كواليتي'],
+    tags: ['باب المنزل', 'باب المنزل', 'دەرگای ماڵ', 'ضمان 10 سنوات', 'مصنع أربيل وبغداد', 'كواليتي'],
     keySpecs: [
       { label: 'Official Warranty', value: '10 Years Comprehensive' },
       { label: 'Machining Standard', value: '4-Axis CNC Milling & Corner Crimping' },
@@ -1258,7 +1258,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'الهندسة التي تبدأ من المصنع وليس من الورشة',
-          body: 'في Doorhome، تخضع جميع القطاعات لقص وتفريز آلي باستخدام ماكينات CNC رباعية المحاور، مع كبس الزوايا بضغط هيدروليكي وحقن إيبوكسي ألماني (2-Part Corner Adhesive)، مما يجعل الزوايا كتلة واحدة صلبة لا تنفصل أو تتسرب منها المياه أبداً.'
+          body: 'في شركة باب المنزل، تخضع جميع القطاعات لقص وتفريز آلي باستخدام ماكينات CNC رباعية المحاور، مع كبس الزوايا بضغط هيدروليكي وحقن إيبوكسي ألماني (2-Part Corner Adhesive)، مما يجعل الزوايا كتلة واحدة صلبة لا تنفصل أو تتسرب منها المياه أبداً.'
         },
         {
           heading: 'الضمان الرسمي ودعم ما بعد البيع في كل محافظات العراق',

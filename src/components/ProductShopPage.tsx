@@ -29,20 +29,26 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
   const { currentLanguage, t } = useLanguage();
   const [sections, setSections] = useState<HomepageSectionConfig[]>(loadHomepageSections);
   const [products, setProducts] = useState<ProductItem[]>(loadLocalProducts);
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const normalizeCategory = (cat: string) => {
+    const lower = (cat || '').toLowerCase();
+    if (lower === 'balconies' || lower.includes('1793119430295')) return 'shorfa';
+    if (lower === 'stair' || lower.includes('1793119387374')) return 'stairs';
+    return lower || 'all';
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => normalizeCategory(initialCategory));
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    setSelectedCategory(normalizeCategory(initialCategory));
+  }, [initialCategory]);
 
   useEffect(() => subscribeToHomepageSections(setSections), []);
   useEffect(() => subscribeToLocalProducts(setProducts), []);
 
   const categories = useMemo(() => {
-    const list: Array<{ id: string; label: string }> = [
-      { id: 'all', label: t('all_categories') || 'All categories' }
-    ];
-    const seen = new Set<string>(['all']);
-
-    // Standard architectural categories
-    const standardCats = [
+    return [
+      { id: 'all', label: t('all_categories') || 'All categories' },
       {
         id: 'doors',
         label: currentLanguage.code === 'ar' ? 'أنظمة الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances'
@@ -52,12 +58,8 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
         label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems'
       },
       {
-        id: 'balconies',
-        label: currentLanguage.code === 'ar' ? 'حواجز البلكونات' : currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies'
-      },
-      {
         id: 'shorfa',
-        label: currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa'
+        label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies'
       },
       {
         id: 'stairs',
@@ -68,29 +70,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
         label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware'
       }
     ];
-
-    standardCats.forEach((c) => {
-      seen.add(c.id);
-      list.push(c);
-    });
-
-    // Also include dynamic homepage sections if any extra custom sections exist
-    sections
-      .filter((sec) => sec.isProductSection !== false)
-      .forEach((sec) => {
-        const k = sec.key || sec.id;
-        if (!seen.has(k) && !seen.has(k.toLowerCase())) {
-          seen.add(k);
-          const header = getLocalizedSectionHeader(sec, currentLanguage.code);
-          list.push({
-            id: k,
-            label: header.title || sec.title || k
-          });
-        }
-      });
-
-    return list;
-  }, [sections, currentLanguage.code, t]);
+  }, [currentLanguage.code, t]);
 
   useEffect(() => {
     if (selectedCategory !== 'all' && !categories.some((c) => c.id === selectedCategory)) {
@@ -104,28 +84,34 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
       .map((product) => getLocalizedProduct(product, currentLanguage.code))
       .filter((product) => {
         if (selectedCategory !== 'all') {
-          const sCat = selectedCategory.toLowerCase();
+          const sCat = normalizeCategory(selectedCategory);
           const pCat = (product.category || '').toLowerCase();
           const pDiv = (product.division || '').toLowerCase();
           const pSub = (product.subCategory || '').toLowerCase();
 
-          if (sCat === 'shorfa') {
-            if (pCat !== 'shorfa' && pDiv !== 'shorfa' && !pSub.includes('shorfa')) return false;
-          } else if (sCat === 'balconies') {
-            if (pCat !== 'balconies' && pDiv !== 'balconies' && !pSub.includes('balcon')) return false;
-          } else if (sCat === 'doors') {
-            if (pCat !== 'doors' && pDiv !== 'doors' && !pSub.includes('door') && !pSub.includes('gate')) return false;
+          if (sCat === 'doors') {
+            const isDoorOrGate =
+              pCat === 'doors' ||
+              pDiv === 'doors' ||
+              pSub.includes('gate') ||
+              (pSub.includes('door') && !pSub.includes('outdoor'));
+            if (!isDoorOrGate) return false;
+          } else if (sCat === 'shorfa') {
+            const isShorfaOrBalcony =
+              pCat === 'shorfa' ||
+              pCat === 'balconies' ||
+              pDiv === 'shorfa' ||
+              pDiv === 'balconies' ||
+              pSub.includes('shorfa') ||
+              pSub.includes('balcon') ||
+              pSub.includes('terrace');
+            if (!isShorfaOrBalcony) return false;
           } else if (sCat === 'windows') {
             if (pCat !== 'windows' && pDiv !== 'windows' && !pSub.includes('window')) return false;
           } else if (sCat === 'stairs') {
-            if (pCat !== 'stairs' && pDiv !== 'stairs' && !pSub.includes('stair') && !pCat.includes('1793119387374')) return false;
+            if (pCat !== 'stairs' && pDiv !== 'stairs' && !pSub.includes('stair') && !pSub.includes('railing')) return false;
           } else if (sCat === 'accessories') {
-            if (pCat !== 'accessories' && pDiv !== 'accessories' && !pSub.includes('accessor')) return false;
-          } else if (sCat.includes('1793119430295')) {
-            // Homepage section for exterior glass railings & balconies
-            if (!pCat.includes('balcon') && !pCat.includes('shorfa') && !pDiv.includes('balcon') && !pDiv.includes('shorfa')) return false;
-          } else if (sCat.includes('1793119387374')) {
-            if (!pCat.includes('stair') && !pDiv.includes('stair')) return false;
+            if (pCat !== 'accessories' && pDiv !== 'accessories' && !pSub.includes('accessor') && !pSub.includes('lock') && !pSub.includes('handle')) return false;
           } else {
             const matches = pCat === sCat || pDiv === sCat;
             if (!matches) return false;

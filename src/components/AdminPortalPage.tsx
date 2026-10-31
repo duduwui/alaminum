@@ -445,8 +445,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     const standardCategories = [
       { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
       { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
-      { key: 'balconies', label: currentLanguage.code === 'ar' ? 'حواجز البلكونات' : currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies' },
-      { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa' },
+      { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies' },
       { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
       { key: 'accessories', label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware' },
     ];
@@ -476,8 +475,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const getProductCategoryLabel = (prod: ProductItem) => {
     const key = (prod.category || prod.division || '').toLowerCase();
     
-    if (key === 'shorfa') return currentLanguage.code === 'ar' ? 'أنظمة الشرفات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و تراسەکان' : 'Terraces & Shorfa');
-    if (key === 'balconies') return currentLanguage.code === 'ar' ? 'حواجز البلكونات' : (currentLanguage.code === 'ckb' ? 'باڵکۆنەکان' : 'Glass Balconies');
+    if (key === 'shorfa' || key === 'balconies' || key.includes('1793119430295')) return currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies');
     if (key === 'doors') return currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : (currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances');
     if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : (currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems');
     if (key === 'stairs' || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');

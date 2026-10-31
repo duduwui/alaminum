@@ -318,13 +318,17 @@ export const AlumilHeader: React.FC<AlumilHeaderProps> = ({
                         const divisionProducts = productList.filter((p) => {
                           const pCat = (p.category || '').toLowerCase();
                           const pDiv = (p.division || '').toLowerCase();
+                          const pSub = (p.subCategory || '').toLowerCase();
                           return (
                             pDiv === secKeyLower ||
                             pCat === secKeyLower ||
                             (secKeyLower.includes('window') && (pCat.includes('window') || pDiv.includes('window'))) ||
                             (secKeyLower.includes('door') && (pCat.includes('door') || pDiv.includes('door'))) ||
-                            (secKeyLower.includes('1793119387374') && (pCat.includes('1793119387374') || pDiv.includes('1793119387374'))) ||
-                            (secKeyLower.includes('1793119430295') && (pCat.includes('1793119430295') || pDiv.includes('1793119430295')))
+                            (secKeyLower.includes('accessor') && (pCat.includes('accessor') || pDiv.includes('accessor'))) ||
+                            ((secKeyLower.includes('stair') || secKeyLower.includes('1793119387374')) &&
+                              (pCat.includes('stair') || pDiv.includes('stair') || pSub.includes('stair'))) ||
+                            ((secKeyLower.includes('shorfa') || secKeyLower.includes('balcon') || secKeyLower.includes('1793119430295')) &&
+                              (pCat.includes('shorfa') || pCat.includes('balcon') || pDiv.includes('shorfa') || pDiv.includes('balcon') || pSub.includes('shorfa') || pSub.includes('balcon')))
                           );
                         });
 
