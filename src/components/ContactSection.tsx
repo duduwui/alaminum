@@ -52,15 +52,29 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
 
                 {/* Direct Hotline Phone */}
                 <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <Phone className="w-5 h-5 text-red-600 shrink-0" />
+                  <div className="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-red-600" />
+                  </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">{t('phone_label') || 'Phone / Hotline'}</span>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1">
-                      <a href={`tel:${DOORHOME_CONTACT.hotlineRaw}`} dir="ltr" className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors">
-                        {DOORHOME_CONTACT.phone}
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1.5">{t('phone_label') || 'Phone / Hotline'}</span>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <a
+                        href={`tel:${DOORHOME_CONTACT.hotlineRaw}`}
+                        dir="ltr"
+                        className="shiny-phone-badge px-3 py-1.5 rounded-xl bg-white border border-red-200/90 text-xs sm:text-sm font-black text-slate-900 shadow-2xs hover:border-red-500 hover:shadow-md hover:scale-[1.02] transition-all group"
+                      >
+                        <span className="shiny-phone-text text-red-600 group-hover:text-red-700">
+                          {DOORHOME_CONTACT.phone}
+                        </span>
                       </a>
-                      <a href={`tel:${DOORHOME_CONTACT.phoneSecondaryRaw}`} dir="ltr" className="text-xs sm:text-sm font-black text-slate-800 hover:text-red-600 transition-colors">
-                        {DOORHOME_CONTACT.phoneSecondary}
+                      <a
+                        href={`tel:${DOORHOME_CONTACT.phoneSecondaryRaw}`}
+                        dir="ltr"
+                        className="shiny-phone-badge px-3 py-1.5 rounded-xl bg-white border border-red-200/90 text-xs sm:text-sm font-black text-slate-900 shadow-2xs hover:border-red-500 hover:shadow-md hover:scale-[1.02] transition-all group"
+                      >
+                        <span className="shiny-phone-text text-red-600 group-hover:text-red-700">
+                          {DOORHOME_CONTACT.phoneSecondary}
+                        </span>
                       </a>
                     </div>
                   </div>

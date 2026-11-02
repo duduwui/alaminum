@@ -99,11 +99,11 @@ export const DOORHOME_CONTACT = {
     }
   },
   emails: ["info@doorhome.company", "info@doorhome.co", "doorhome-iq@hotmail.com"],
-  address: "Baghdad, Iraq • 33.3118611° N, 44.4608056° E",
+  address: "Baghdad, Iraq",
   coordinates: {
     lat: 33.3118611,
     lng: 44.4608056,
-    formatted: "33.3118611° N, 44.4608056° E"
+    formatted: "Baghdad, Iraq"
   },
   workHours: "Saturday – Thursday: 9:00 AM – 6:00 PM (Friday: Closed)",
   workHoursArabic: "السبت – الخميس: ٠٩:٠٠ صباحاً – ٠٦:٠٠ مساءً (الجمعة عطلة)",

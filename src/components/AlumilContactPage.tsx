@@ -483,8 +483,14 @@ export const AlumilContactPage: React.FC<AlumilContactPageProps> = ({
                   <Phone className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-slate-900 block">Sales Hotline:</span>
-                    <a href={`tel:${DOORHOME_CONTACT.hotlineRaw}`} className="text-red-600 font-bold hover:underline">
-                      {DOORHOME_CONTACT.hotline}
+                    <a
+                      href={`tel:${DOORHOME_CONTACT.hotlineRaw}`}
+                      dir="ltr"
+                      className="shiny-phone-badge px-2.5 py-1 rounded-lg bg-red-50/90 border border-red-200 text-xs font-black hover:border-red-400 transition-all mt-1 inline-block"
+                    >
+                      <span className="shiny-phone-text text-red-600">
+                        {DOORHOME_CONTACT.hotline}
+                      </span>
                     </a>
                   </div>
                 </div>

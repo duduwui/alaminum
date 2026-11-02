@@ -744,5 +744,91 @@ body {
   }
 }
 
+/* Shiny Phone Numbers Animation */
+@keyframes shiny-sweep {
+  0%, 15% {
+    background-position: -200% center;
+  }
+  85%, 100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shiny-badge-sweep {
+  0%, 20% {
+    left: -150%;
+  }
+  80%, 100% {
+    left: 200%;
+  }
+}
+
+.shiny-phone-text {
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    currentColor 35%,
+    #ef4444 45%,
+    #ffffff 50%,
+    #ef4444 55%,
+    currentColor 65%,
+    currentColor 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shiny-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+  will-change: background-position;
+}
+
+.shiny-phone-text-light {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 35%,
+    #fca5a5 45%,
+    #ffffff 50%,
+    #ef4444 55%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shiny-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  display: inline-block;
+  will-change: background-position;
+}
+
+.shiny-phone-badge {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.shiny-phone-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 80%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  animation: shiny-badge-sweep 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+
 
 

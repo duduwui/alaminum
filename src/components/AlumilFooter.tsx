@@ -131,14 +131,26 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate }) => {
             <div className="space-y-2.5 text-xs text-slate-300">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-red-400 shrink-0" />
-                <a href="tel:+9647507388748" dir="ltr" className="hover:text-red-400 transition-colors font-medium">
-                  +964 750 738 8748
+                <a
+                  href="tel:+9647507388748"
+                  dir="ltr"
+                  className="shiny-phone-badge px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700/80 hover:border-red-500/80 transition-all font-bold text-xs"
+                >
+                  <span className="shiny-phone-text-light font-black tracking-wide">
+                    +964 750 738 8748
+                  </span>
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-red-400 shrink-0" />
-                <a href="tel:+9647708080402" dir="ltr" className="hover:text-red-400 transition-colors font-medium">
-                  +964 770 808 0402
+                <a
+                  href="tel:+9647708080402"
+                  dir="ltr"
+                  className="shiny-phone-badge px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700/80 hover:border-red-500/80 transition-all font-bold text-xs"
+                >
+                  <span className="shiny-phone-text-light font-black tracking-wide">
+                    +964 770 808 0402
+                  </span>
                 </a>
               </div>
               <div className="flex items-center gap-2">
