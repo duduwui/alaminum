@@ -991,11 +991,11 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   },
   {
     "id": "stair-floating-wood-glass",
-    "name": "Structural Frameless Glass Railing for Floating Cantilever Wooden Staircases",
-    "arabicName": "درابزين زجاجي إنشائي شفاف بدون إطار للسلالم الخشبية المعلقة",
+    "name": "Modern Glass Railing for Interior Stairs",
+    "arabicName": "درابزين زجاجي عصري للسلالم الداخلية",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "Floating Cantilever Stair Systems",
+    "subCategory": "حواجز السلالم الزجاجية",
     "modelNumber": "DH-STR-FLT-16",
     "material": "12+12 mm SentryGlas Structural Glass with Solid European White Oak Treads",
     "brand": "Doorhome Architectural",
@@ -1030,12 +1030,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Fixing Detail": "Heavy Concealed Structural Steel Spine Embedded in Concrete Load-Bearing Wall",
       "Handrail": "Integrated Grooved Solid Oak Cap 45 x 45 mm"
     },
-    "description": "Transform interior residential circulation into a floating architectural sculpture with this frameless glass staircase balustrade. Specifically engineered to complement floating cantilevered solid hardwood and oak stair treads, the system utilizes monolithic, ultra-clear low-iron laminated safety glass panels that seem to hover weightlessly, creating an unobstructed sense of spatial volume and pure minimalist luxury within double-height living spaces.\n\nEach panel consists of 17.52 mm to 21.52 mm thick multi-layered tempered safety glass bonded with an ultra-rigid acoustic and structural interlayer. The glass panels are rigidly anchored directly into the structural stair stringer using concealed, heavy-duty Marine Grade 316 stainless steel standoff anchors, engineered with precision multi-axis alignment bushings that guarantee zero panel deflection and zero rattles.\n\nFinished with CNC diamond-polished flat edges and crowned by an optional ultra-slimline architectural black or satin stainless micro-top cap, this railing complies with rigorous European safety standards (EN 12600 / BS 6180) while delivering unmatched interior sophistication.",
+    "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي إنشائي شفاف بدون إطار للسلالم الخشبية المعلقة",
-        "subCategory": "السلالم العائمة المعلقة",
-        "description": "حوّل درج فيلتك الداخلي إلى تحفة معمارية مجسمة تفيض بالنقاء والاتساع مع هذا الدرابزين الزجاجي الإنشائي الشفاف بدون إطار. صُمم هذا النظام الهندسي الراقي ليتكامل بانسجام تام مع السلالم الخشبية المعلقة وعتبات خشب البلوط الطبيعي الفاخر، حيث تمنح ألواح الزجاج النقي فائق الشفافية إحساساً بالانعدام التام للوزن، مما يبرز تفاصيل الدرج الخشبي المعماري ويخلق شعوراً بالرحابة والفخامة المطلقة في الصالات المفتوحة ذات الارتفاعات المزدوجة.\n\nتتكون الألواح من زجاج مقسى ومصفح متعدد الطبقات بسماكة تصل إلى واحد وعشرين مليمتراً ومترابط بطبقات حماية داخلية فائقة الصلابة تمتص الصدمات العنيفة وتمنع الكسر. وتم تثبيت الألواح مباشرة في جسر الدرج الخرساني أو الفولاذي باستخدام قواعد تثبيت نقطية دائرية مصنوعة من الستانلس ستيل البحري المصقول المقاوم للصدأ والمزود بجلبات موازنة دقيقة تمنع أي اهتزاز عند الصعود والنزول.\n\nتتميز الحواف الزجاجية بصقل ماسي فائق النعومة والأمان للأطفال، مع إمكانية إضافة إطار علوي نحيف من الألمنيوم الأسود المطفي أو الستانلس ستيل، لتوفر أعلى معايير السلامة والأمان المعتمدة أوروبياً مع وقار معماري لا يضاهى.",
+        "name": "درابزين زجاجي عصري للسلالم الداخلية",
+        "subCategory": "حواجز السلالم الزجاجية",
+        "description": "يمنح هذا النظام من الدربزينات الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للدرابزين دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الدرابزين بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
         "features": [
           "ألواح زجاجية نقية خالية من الإطارات تمنح إحساساً بالاتساع وتبرز جمال السلالم المعلقة",
           "قواعد تثبيت نقطية صلبة من الستانلس ستيل البحري المقاوم للصدأ ومجهزة للموازنة الدقيقة",
@@ -1045,9 +1045,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "محاجەرەی شووشەی بێ چوارچێوە بۆ پلیەکانی تەختەی هەڵواسراو",
-        "subCategory": "قادرمەی هەڵواسراوی نژیاروانی",
-        "description": "پلیەکانی ناوەوەی ڤێلاکەت بگۆڕە بۆ شاکارێکی نژیاروانی بە محاجەرەی شووشەی بێ چوارچێوە کە بە تەواوی لەگەڵ پلیکانی تەختەی هەڵواسراوی مۆدێرندا دەگونجێت و هەستێکی فراوان و ڕووناک بە ژوورەکە دەبەخشێت.\n\nشووشەی لامینەیتی سێکۆریتی ئەستووری تا 21 ملمی تێدا بەکارهاتووە کە بە چینێکی بەهێزی ناوەکی بەستراوەتەوە و هەرگیز ناشکێت. بە کڵامپی خڕی ستانلێس ستیلی 316ی دەریایی جێگیرکراوە کە بەبێ هیچ لەرینەوەیەک بە توندی لە جێی خۆیدا دەمێنێتەوە.\n\nقەراغەکانی بە ئەڵماس پۆڵیش کراون بۆ سەلامەتی تەواوی منداڵان و خێزان، لەگەڵ هەموو بڕوانامەیەکی سەلامەتی ئەوروپی بۆ پارێزگاری لە کاتی بەکارهێناندا.",
+        "name": "دەستەوانی شووشەیی مۆدێرن بۆ پلیکانەی ناوەوە",
+        "subCategory": "دەستەوانی شووشەیی پلیکانە",
+        "description": "ئەم سیستمە لە دەستەوانی شووشەیی دیمەنێکی مۆدێرن و سەرنجڕاکێش بە شوێنەکە دەبەخشێت، بەجۆرێک کە سادەیی لە دیزاین و کراوەیی لە بینیندا کۆدەکاتەوە. هەڵبژاردنێکی زۆر گونجاوە بۆ شوێنە ناوخۆییە جیاوازەکان وەک ماڵە هاوچەرخەکان، پێشانگاکان و هۆڵە گەورەکان، چونکە ڕێگە دەدات ڕووناکی سروشتی بە تەواوی بڵاوببێتەوە و هەستی فراوانی و ئارامی لە تەواوی فەزاکەدا دروست بکات.\n\nتەختە شووشەکان لە شووشەی سێکۆریتی زۆر بەهێز و دژە زەبر دروستکراون بۆ دەستەبەرکردنی بەرزترین ئاستی پارێزگاری و سەلامەتی ڕۆژانە بۆ خێزان و میوانان. هەروەها سیستمەکە بە جێگیرکەری تەنیشتی پۆڵایینی دژە ژەنگ بەستراوەتەوە کە ڕاگرتنی تەواو و بێ لەرزین بۆ دەستەوانەکە دابین دەکات، هاوکات هێڵە ئەندازیارییە جوان و پاکەکان دەپارێزێت کە لەگەڵ جۆرە جیاوازەکانی دیکۆر دەگونجێت.\n\nئەم جۆرە دەستەوانەیە بە ئاسانی پاک دەبێتەوە و لە بەرامبەر ڕووشاندا خۆڕاگرە، کە ئەمەش دەیکاتە هەڵبژاردنێکی کرداری و بەردەوام بۆ ساڵانێکی زۆر بێ ئەوەی جوانییەکەی لەدەست بدات. تیمی پسپۆڕی دەرگای ماڵ بە وردبینییەکی ئەندازیاری بەرز پێوانەکردن و دامەزراندنی بۆ ئەنجام دەدەن تا بە تەواوی لەگەڵ پلیکانەکەتاندا بگونجێت و دیمەنێکی تەواو و سەردەمیانە بە شوێنەکەتان ببەخشێت.",
         "features": [
           "شووشەی ڕۆشنی بێ چوارچێوە بۆ بەخشینی دیمەنێکی مۆدێرن و فراوانکردنی ژوورەوە",
           "کڵامپی ستانلێس ستیلی دەریایی 316 بۆ جێگیرکردنی زۆر بەهێز لەسەر پلیکانە",
@@ -1057,12 +1057,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Structural Frameless Glass Railing for Floating Cantilever Wooden Staircases",
-        "subCategory": "Floating Cantilever Stair Systems",
-        "description": "Transform interior residential circulation into a floating architectural sculpture with this frameless glass staircase balustrade. Specifically engineered to complement floating cantilevered solid hardwood and oak stair treads, the system utilizes monolithic, ultra-clear low-iron laminated safety glass panels that seem to hover weightlessly, creating an unobstructed sense of spatial volume and pure minimalist luxury within double-height living spaces.\n\nEach panel consists of 17.52 mm to 21.52 mm thick multi-layered tempered safety glass bonded with an ultra-rigid acoustic and structural interlayer. The glass panels are rigidly anchored directly into the structural stair stringer using concealed, heavy-duty Marine Grade 316 stainless steel standoff anchors, engineered with precision multi-axis alignment bushings that guarantee zero panel deflection and zero rattles.\n\nFinished with CNC diamond-polished flat edges and crowned by an optional ultra-slimline architectural black or satin stainless micro-top cap, this railing complies with rigorous European safety standards (EN 12600 / BS 6180) while delivering unmatched interior sophistication."
+        "name": "Modern Glass Railing for Interior Stairs",
+        "subCategory": "Glass Stair Railings",
+        "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish."
       }
     },
-    "arabicDescription": "حوّل درج فيلتك الداخلي إلى تحفة معمارية مجسمة تفيض بالنقاء والاتساع مع هذا الدرابزين الزجاجي الإنشائي الشفاف بدون إطار. صُمم هذا النظام الهندسي الراقي ليتكامل بانسجام تام مع السلالم الخشبية المعلقة وعتبات خشب البلوط الطبيعي الفاخر، حيث تمنح ألواح الزجاج النقي فائق الشفافية إحساساً بالانعدام التام للوزن، مما يبرز تفاصيل الدرج الخشبي المعماري ويخلق شعوراً بالرحابة والفخامة المطلقة في الصالات المفتوحة ذات الارتفاعات المزدوجة.\n\nتتكون الألواح من زجاج مقسى ومصفح متعدد الطبقات بسماكة تصل إلى واحد وعشرين مليمتراً ومترابط بطبقات حماية داخلية فائقة الصلابة تمتص الصدمات العنيفة وتمنع الكسر. وتم تثبيت الألواح مباشرة في جسر الدرج الخرساني أو الفولاذي باستخدام قواعد تثبيت نقطية دائرية مصنوعة من الستانلس ستيل البحري المصقول المقاوم للصدأ والمزود بجلبات موازنة دقيقة تمنع أي اهتزاز عند الصعود والنزول.\n\nتتميز الحواف الزجاجية بصقل ماسي فائق النعومة والأمان للأطفال، مع إمكانية إضافة إطار علوي نحيف من الألمنيوم الأسود المطفي أو الستانلس ستيل، لتوفر أعلى معايير السلامة والأمان المعتمدة أوروبياً مع وقار معماري لا يضاهى.",
+    "arabicDescription": "يمنح هذا النظام من الدربزينات الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للدرابزين دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الدرابزين بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة من سبعة عشر إلى واحد وعشرين مليمتراً",
@@ -1088,15 +1088,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "سەلامەتی": "بڕوانامەی ئەوروپی المعايير الأوروبية لسلامة الزجاج الفئة الأولى المعتمدةB1",
         "قەراغەکان": "پۆڵیشکراو بە ئەڵماس بە ئامێری بالتحكم الرقمي فائق الدقة"
       }
-    }
+    },
+    "kurdishName": "دەستەوانی شووشەیی مۆدێرن بۆ پلیکانەی ناوەوە",
+    "kurdishDescription": "ئەم سیستمە لە دەستەوانی شووشەیی دیمەنێکی مۆدێرن و سەرنجڕاکێش بە شوێنەکە دەبەخشێت، بەجۆرێک کە سادەیی لە دیزاین و کراوەیی لە بینیندا کۆدەکاتەوە. هەڵبژاردنێکی زۆر گونجاوە بۆ شوێنە ناوخۆییە جیاوازەکان وەک ماڵە هاوچەرخەکان، پێشانگاکان و هۆڵە گەورەکان، چونکە ڕێگە دەدات ڕووناکی سروشتی بە تەواوی بڵاوببێتەوە و هەستی فراوانی و ئارامی لە تەواوی فەزاکەدا دروست بکات.\n\nتەختە شووشەکان لە شووشەی سێکۆریتی زۆر بەهێز و دژە زەبر دروستکراون بۆ دەستەبەرکردنی بەرزترین ئاستی پارێزگاری و سەلامەتی ڕۆژانە بۆ خێزان و میوانان. هەروەها سیستمەکە بە جێگیرکەری تەنیشتی پۆڵایینی دژە ژەنگ بەستراوەتەوە کە ڕاگرتنی تەواو و بێ لەرزین بۆ دەستەوانەکە دابین دەکات، هاوکات هێڵە ئەندازیارییە جوان و پاکەکان دەپارێزێت کە لەگەڵ جۆرە جیاوازەکانی دیکۆر دەگونجێت.\n\nئەم جۆرە دەستەوانەیە بە ئاسانی پاک دەبێتەوە و لە بەرامبەر ڕووشاندا خۆڕاگرە، کە ئەمەش دەیکاتە هەڵبژاردنێکی کرداری و بەردەوام بۆ ساڵانێکی زۆر بێ ئەوەی جوانییەکەی لەدەست بدات. تیمی پسپۆڕی دەرگای ماڵ بە وردبینییەکی ئەندازیاری بەرز پێوانەکردن و دامەزراندنی بۆ ئەنجام دەدەن تا بە تەواوی لەگەڵ پلیکانەکەتاندا بگونجێت و دیمەنێکی تەواو و سەردەمیانە بە شوێنەکەتان ببەخشێت."
   },
   {
     "id": "stair-tinted-mezzanine-landing",
-    "name": "Tinted Tempered Glass Balustrade for Mezzanine Landings & Modern Stairwells",
-    "arabicName": "درابزين زجاجي ملون ومعتم لشرفات الميزانين وصالات الفلل العصرية",
+    "name": "Tinted Glass Railing for Open Landings and Stairs",
+    "arabicName": "حاجز زجاجي مظلل للشرفات والسلالم المفتوحة",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "Mezzanine & Void Stair Railings",
+    "subCategory": "حواجز زجاجية مظللة",
     "modelNumber": "DH-STR-MZZ-41",
     "material": "10+10 mm Smoked Tempered Laminated Glass with Anodized Brushed Stainless Cap",
     "brand": "Doorhome Architectural",
@@ -1131,12 +1133,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Spigot Material": "Grade 316 Stainless Steel with PVD Titanium Black Finish",
       "Wind & Load Class": "Class 2 Heavy Domestic & Commercial Void Protection"
     },
-    "description": "Infuse dramatic contemporary sophistication into grand multi-level villa interiors with this tinted architectural glass balustrade. Featuring monolithic panels of deep Euro-Grey or crystal Bronze tinted tempered laminated safety glass, this railing creates a striking sculptural boundary along mezzanine gallery landings and cantilevered staircases, subtly dampening glare while enhancing privacy for elevated private living quarters.\n\nEngineered with a continuous structural floor-mounted aluminum base shoe channel finished in fine-texture matte black powder coating, the system clamps the 17.52 mm tinted glass rigidly without requiring through-glass drilling holes or visible clamp posts. Internal isolation gaskets and micro-adjustment leveling wedges ensure razor-sharp vertical alignment across sweeping spans.\n\nThe tinted glass panels feature precision CNC-polished edges and a dual structural PVB interlayer that resists high kinetic impact loads. Tested and certified to European safety standard EN 12600, it delivers an uncompromising standard of fall protection, durability, and bold modern luxury.",
+    "description": "Combining the richness of tinted architectural glass with the comfort of a smooth top handrail, this railing system creates a refined balance between subtle privacy and visual openness for elevated walkways, landings, and staircases. It adds a sophisticated layer to multi-level interiors and double-height spaces, gently softening glare while enriching the surrounding architectural aesthetic.\n\nEngineered with toughened safety glass panels secured by robust floor-mounted clamps, the assembly delivers unwavering structural rigidity and superior load resistance. The contoured top rail offers a natural, reassuring grip, making it a dependable, child-safe safeguard for elevated interior balconies, mezzanines, and stair treads.\n\nThe tinted finish is designed to retain its pristine allure with minimal maintenance, resisting surface smudges while wiping clean with ease. The Doorhome technical team provides end-to-end site survey and tailored installation to guarantee exact alignment, safety compliance, and flawless execution.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي ملون ومعتم لشرفات الميزانين وصالات الفلل العصرية",
-        "subCategory": "دربزينات مهابط الدرج والصالات المفتوحة",
-        "description": "أضف لمسة معمارية عصرية بالغة الفخامة والخصوصية إلى بهو فيلتك الداخلية مع هذا الدرابزين الزجاجي المعماري الملون. يتميز النظام بألواح زجاجية مقساة ومصفحة بتدرجات اللون الرمادي الأوروبي المدخن أو البرونزي الدافئ، لتخلق حاجزاً جمالياً ساحراً على ممرات الميزانين وصالات الاستقبال العلوية والسلالم المفتوحة، مما يقلل من وهج الإضاءة ويمنح الطوابق العلوية خصوصية بصرية راقية.\n\nتم تثبيت الزجاج داخل مجرى ألمنيوم إنشائي أرضي متواصل باللون الأسود المطفي بدون الحاجة لأي براغي ظاهرة أو ثقوب مشوهة للزجاج. ويحتوي المجرى على أسافين موازنة ذكية وجوانات مطاطية مرنة تضمن استقامة الألواح رأسياً بدقة متناهية وتمتص أي اهتزازات ناتجة عن الحركة.\n\nتتكون الألواح من زجاج مقسى مزدوج مصفح بسماكة تقارب ثمانية عشر مليمتراً بحواف مصقولة بالماس، ومطابق لأعلى المواصفات الأوروبية لمقاومة الصدمات والأمان السكني، ليمنح أسرتك حماية كاملة مع إطلالة داخلية تخطف الأنظار.",
+        "name": "حاجز زجاجي مظلل للشرفات والسلالم المفتوحة",
+        "subCategory": "حواجز زجاجية مظللة",
+        "description": "يجمع هذا النظام بين فخامة الزجاج المظلل ودفء الإطار العلوي، مما يمنح الشرفات الداخلية والسلالم إطلالة راقية توفر توازناً مثالياً بين الخصوصية والانفتاح المعماري. يُعتبر هذا التصميم إضافة رائعة للمباني المتعددة الطوابق والصالات ذات الأسقف المرتفعة، حيث يحد من وهج الإضاءة ويضفي طابعاً هادئاً ومميزاً على المساحة المحيطة.\n\nتم تزويد الحاجز بألواح زجاجية معالجة حرارياً لمقاومة الصدمات والأوزان، مثبتة بقواعد أرضية سوداء أنيقة تمنح الهيكل ثباتاً فائقاً وتحملاً استثنائياً. كما يتيح المقبض العلوي راحة تامة أثناء الاستناد والاستخدام اليومي، مما يجعله آمناً تماماً للأطفال وكبار السن في المناطق المرتفعة وممرات العبور.\n\nيتميز الزجاج المظلل بقدرته على الحفاظ على رونقه ونظافته لفترات طويلة دون أن يتأثر بالاستخدام المستمر، مع توفير سهولة تامة في التنظيف والعناية. ويتكفل فريق باب المنزل بكافة مراحل القياس والتنفيذ لضمان التثبيت الدقيق والمحكم الذي يلبي أعلى متطلبات الأمان والجمال.",
         "features": [
           "زجاج معماري ملون بتدرجات الرمادي المدخن أو البرونزي يضفي فخامة وخصوصية بصرية راقية",
           "مجرى ألمنيوم أرضي هيكلي متواصل يثبت الزجاج بدون أي مسامير ظاهرة لمظهر أرضي نقي",
@@ -1146,9 +1148,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "محاجەرەی شووشەی ڕەنگدار بۆ میزانین و هۆڵی کراوەی ڤێلا",
-        "subCategory": "دەربزینی هۆڵ و قادرمەی کراوە",
-        "description": "محاجەرەیەکی شووشەیی زۆر شیک بە ڕەنگی ڕەساسی ئەوروپی تۆخ یان برۆنزی گەرم بۆ میزانینی سەرەوە و پلیەکانی ناوەوەی ڤێلا کە تایبەتمەندی و جوانییەکی تایبەت بە نهۆمی سەرەوە دەبەخشێت بەبێ کەمکردنەوەی ڕووناکی.\n\nلە ناو کەناڵی ئەلەمنیۆمی پتەوی زەوی بە شێوەیەکی بەردەوام بەستراوە بەبێ ئەوەی هیچ بزمار یان کونێک لە شووشەکەدا هەبێت. لاستیکی ناوەکی هەیە بۆ ڕێگری لە لەرینەوە و ڕاگرتنی ڕێکی شووشەکە بە تەواوی.\n\nشووشەی لامینەیتی سێکۆریتی 17.52 ملمی تێدایە بە قەراغی پۆڵیشکراوی ئەڵماس و بڕوانامەی ئەوروپی بۆ سەلامەتی تەواوی ئەندامانی خێزان لە کەوتنەخوارەوە.",
+        "name": "بەربەستی شووشەیی تۆخ بۆ باڵکۆن و پلیکانەی کراوە",
+        "subCategory": "بەربەستی شووشەیی تۆخ",
+        "description": "ئەم سیستمە فەخامەتی شووشەی تۆخ و گەرموگوڕی دەسکی سەرەوە لەخۆدەگرێت، کە دیمەنێکی سەرنجڕاکێش بە باڵکۆنە ناوخۆییەکان و پلیکانەکان دەبەخشێت و هاوسەنگییەکی تەواو لە نێوان تایبەتمەندی و کراوەیی تەلارسازیدا دروست دەکات. ئەم دیزاینە تایبەتمەندییەکی شایستەیە بۆ نهۆمە بەرزەکان و هۆڵە گەورەکان، چونکە تیشکی زیادە کەم دەکاتەوە و کەشێکی ئارام و ناوازە دەبەخشێت.\n\nبەربەستەکە بە تەختە شووشەی سێکۆریتی بەهێز بۆ بەرگەگرتنی زەبر و قورسایی دروستکراوە، کە بە بنکەی زەوی ڕەشی قایم جێگیر کراوە بۆ ئەوەی هێز و جێگیرییەکی باڵا دابین بکات. هەروەها دەسکی سەرەوە ئاسوودەیی تەواو لە کاتی گرتن و بەکارهێنانی ڕۆژانەدا دەبەخشێت، کە سەلامەتی تەواو بۆ منداڵان و گەورەکان لە شوێنە بەرزەکاندا مسۆگەر دەکات.\n\nشووشەی تۆخ تایبەتمەندی ئەوەی هەیە کە جوانی و پاکیی خۆی بۆ ماوەیەکی زۆر دەپارێزێت بێ ئەوەی بە بەکارهێنانی بەردەوام تێکبچێت، لەگەڵ ئاسانی تەواو لە خاوێنکردنەوەدا. تیمی شارەزای دەرگای ماڵ سەرجەم هەنگاوەکانی پێوانە و جێبەجێکردن لەئەستۆ دەگرن بۆ دڵنیابوون لە دامەزراندنێکی تۆکمە کە بەرزترین پێوەرەکانی سەلامەتی و جوانی بەدی بهێنێت.",
         "features": [
           "شووشەی لامینەیتی ڕەنگداری ڕەساسی یان برۆنزی بۆ جوانی و پاراستنی نهێنی",
           "کەناڵی ئەلەمنیۆمی زەوی بەبێ دەرکەوتنی هیچ بزمارێک بۆ هێڵی خاوێنی زەوی",
@@ -1158,12 +1160,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Tinted Tempered Glass Balustrade for Mezzanine Landings & Modern Stairwells",
-        "subCategory": "Mezzanine & Void Stair Railings",
-        "description": "Infuse dramatic contemporary sophistication into grand multi-level villa interiors with this tinted architectural glass balustrade. Featuring monolithic panels of deep Euro-Grey or crystal Bronze tinted tempered laminated safety glass, this railing creates a striking sculptural boundary along mezzanine gallery landings and cantilevered staircases, subtly dampening glare while enhancing privacy for elevated private living quarters.\n\nEngineered with a continuous structural floor-mounted aluminum base shoe channel finished in fine-texture matte black powder coating, the system clamps the 17.52 mm tinted glass rigidly without requiring through-glass drilling holes or visible clamp posts. Internal isolation gaskets and micro-adjustment leveling wedges ensure razor-sharp vertical alignment across sweeping spans.\n\nThe tinted glass panels feature precision CNC-polished edges and a dual structural PVB interlayer that resists high kinetic impact loads. Tested and certified to European safety standard EN 12600, it delivers an uncompromising standard of fall protection, durability, and bold modern luxury."
+        "name": "Tinted Glass Railing for Open Landings and Stairs",
+        "subCategory": "Tinted Glass Balustrades",
+        "description": "Combining the richness of tinted architectural glass with the comfort of a smooth top handrail, this railing system creates a refined balance between subtle privacy and visual openness for elevated walkways, landings, and staircases. It adds a sophisticated layer to multi-level interiors and double-height spaces, gently softening glare while enriching the surrounding architectural aesthetic.\n\nEngineered with toughened safety glass panels secured by robust floor-mounted clamps, the assembly delivers unwavering structural rigidity and superior load resistance. The contoured top rail offers a natural, reassuring grip, making it a dependable, child-safe safeguard for elevated interior balconies, mezzanines, and stair treads.\n\nThe tinted finish is designed to retain its pristine allure with minimal maintenance, resisting surface smudges while wiping clean with ease. The Doorhome technical team provides end-to-end site survey and tailored installation to guarantee exact alignment, safety compliance, and flawless execution."
       }
     },
-    "arabicDescription": "أضف لمسة معمارية عصرية بالغة الفخامة والخصوصية إلى بهو فيلتك الداخلية مع هذا الدرابزين الزجاجي المعماري الملون. يتميز النظام بألواح زجاجية مقساة ومصفحة بتدرجات اللون الرمادي الأوروبي المدخن أو البرونزي الدافئ، لتخلق حاجزاً جمالياً ساحراً على ممرات الميزانين وصالات الاستقبال العلوية والسلالم المفتوحة، مما يقلل من وهج الإضاءة ويمنح الطوابق العلوية خصوصية بصرية راقية.\n\nتم تثبيت الزجاج داخل مجرى ألمنيوم إنشائي أرضي متواصل باللون الأسود المطفي بدون الحاجة لأي براغي ظاهرة أو ثقوب مشوهة للزجاج. ويحتوي المجرى على أسافين موازنة ذكية وجوانات مطاطية مرنة تضمن استقامة الألواح رأسياً بدقة متناهية وتمتص أي اهتزازات ناتجة عن الحركة.\n\nتتكون الألواح من زجاج مقسى مزدوج مصفح بسماكة تقارب ثمانية عشر مليمتراً بحواف مصقولة بالماس، ومطابق لأعلى المواصفات الأوروبية لمقاومة الصدمات والأمان السكني، ليمنح أسرتك حماية كاملة مع إطلالة داخلية تخطف الأنظار.",
+    "arabicDescription": "يجمع هذا النظام بين فخامة الزجاج المظلل ودفء الإطار العلوي، مما يمنح الشرفات الداخلية والسلالم إطلالة راقية توفر توازناً مثالياً بين الخصوصية والانفتاح المعماري. يُعتبر هذا التصميم إضافة رائعة للمباني المتعددة الطوابق والصالات ذات الأسقف المرتفعة، حيث يحد من وهج الإضاءة ويضفي طابعاً هادئاً ومميزاً على المساحة المحيطة.\n\nتم تزويد الحاجز بألواح زجاجية معالجة حرارياً لمقاومة الصدمات والأوزان، مثبتة بقواعد أرضية سوداء أنيقة تمنح الهيكل ثباتاً فائقاً وتحملاً استثنائياً. كما يتيح المقبض العلوي راحة تامة أثناء الاستناد والاستخدام اليومي، مما يجعله آمناً تماماً للأطفال وكبار السن في المناطق المرتفعة وممرات العبور.\n\nيتميز الزجاج المظلل بقدرته على الحفاظ على رونقه ونظافته لفترات طويلة دون أن يتأثر بالاستخدام المستمر، مع توفير سهولة تامة في التنظيف والعناية. ويتكفل فريق باب المنزل بكافة مراحل القياس والتنفيذ لضمان التثبيت الدقيق والمحكم الذي يلبي أعلى متطلبات الأمان والجمال.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح ملون بسماكة تقارب ثمانية عشر مليمتراً",
@@ -1189,15 +1191,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "سەلامەتی": "بڕوانامەی ئەوروپی المعايير الأوروبية لسلامة الزجاج الفئة الأولى المعتمدةB1",
         "جۆری بەستن": "بەستنی سەر زەوی یان شاراوە لە ناو مەڕمەڕ بە داپۆشەری جوان"
       }
-    }
+    },
+    "kurdishName": "بەربەستی شووشەیی تۆخ بۆ باڵکۆن و پلیکانەی کراوە",
+    "kurdishDescription": "ئەم سیستمە فەخامەتی شووشەی تۆخ و گەرموگوڕی دەسکی سەرەوە لەخۆدەگرێت، کە دیمەنێکی سەرنجڕاکێش بە باڵکۆنە ناوخۆییەکان و پلیکانەکان دەبەخشێت و هاوسەنگییەکی تەواو لە نێوان تایبەتمەندی و کراوەیی تەلارسازیدا دروست دەکات. ئەم دیزاینە تایبەتمەندییەکی شایستەیە بۆ نهۆمە بەرزەکان و هۆڵە گەورەکان، چونکە تیشکی زیادە کەم دەکاتەوە و کەشێکی ئارام و ناوازە دەبەخشێت.\n\nبەربەستەکە بە تەختە شووشەی سێکۆریتی بەهێز بۆ بەرگەگرتنی زەبر و قورسایی دروستکراوە، کە بە بنکەی زەوی ڕەشی قایم جێگیر کراوە بۆ ئەوەی هێز و جێگیرییەکی باڵا دابین بکات. هەروەها دەسکی سەرەوە ئاسوودەیی تەواو لە کاتی گرتن و بەکارهێنانی ڕۆژانەدا دەبەخشێت، کە سەلامەتی تەواو بۆ منداڵان و گەورەکان لە شوێنە بەرزەکاندا مسۆگەر دەکات.\n\nشووشەی تۆخ تایبەتمەندی ئەوەی هەیە کە جوانی و پاکیی خۆی بۆ ماوەیەکی زۆر دەپارێزێت بێ ئەوەی بە بەکارهێنانی بەردەوام تێکبچێت، لەگەڵ ئاسانی تەواو لە خاوێنکردنەوەدا. تیمی شارەزای دەرگای ماڵ سەرجەم هەنگاوەکانی پێوانە و جێبەجێکردن لەئەستۆ دەگرن بۆ دڵنیابوون لە دامەزراندنێکی تۆکمە کە بەرزترین پێوەرەکانی سەلامەتی و جوانی بەدی بهێنێت."
   },
   {
     "id": "stair-marble-tinted-spigot",
-    "name": "Panoramic Glass Railing for Marble Staircases with Stainless Steel Spigots",
-    "arabicName": "درابزين زجاجي بانورامي للسلالم الرخامية بقواعد ستانلس ستيل بحرية",
+    "name": "Elegant Glass Railing with Wood Handrail and Floor Spigots",
+    "arabicName": "درابزين زجاجي أنيق بمقبض خشبي وقواعد أرضية",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "Marble Stair Glass Systems",
+    "subCategory": "درابزين زجاجي بمقبض خشبي",
     "modelNumber": "DH-STR-MRB-60",
     "material": "12 mm Crystal Clear Toughened Glass with Walnut Timber Handrail & 316 Spigots",
     "brand": "Doorhome Architectural",
@@ -1232,12 +1236,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Spigot Anchor": "High-Load Chemical Resin Anchoring (Zero Tile Cracking)",
       "Safety Standard": "Meets BS 6180:2011 Barriers in and about Buildings"
     },
-    "description": "Elevate the monumental beauty of polished Italian marble or Turkish limestone stairways with this spigot-mounted glass railing. Featuring continuous monolithic panels of 16 mm to 20 mm low-iron or smoked tempered laminated glass held by heavy-duty cylindrical stainless steel spigots, this system keeps the marble tread surfaces 100% visible, emphasizing stone grain and craftsmanship.\n\nEach structural spigot clamp is precision CNC-machined from solid duplex or Marine Grade 316 stainless steel, boasting extreme tensile strength and superior resistance to domestic cleaning chemicals and humidity. The internal friction-plate clamping mechanism holds the glass with high compression force without requiring fragile glass drill-holes that can cause stress cracking over time.\n\nEquipped with internal neoprene isolation pads and spherical leveling grub screws, the spigots allow micro-adjustments to ensure perfectly flat, unbroken alignment across complex curved or straight marble stair flights, complying with European residential fall barrier safety codes.",
+    "description": "Harmonizing ultra-clear glass panels with the organic warmth of a sculpted wood top rail, this model creates a timeless architectural balance that enhances stone, marble, and hardwood staircases. Its open-view structure maximizes natural illumination and accentuates flooring craftsmanship, making it a distinguished centerpiece for main reception foyers and stairwells.\n\nThe tempered safety glass panels are anchored with heavy-duty black floor spigots engineered for outstanding rigidity and long-term durability. The tactile wooden handrail offers a comfortable, warm feel to the touch, providing steady, dependable physical support for family members and visitors of all generations.\n\nBuilt for endurance, the materials require minimal upkeep and resist surface wear, preserving their pristine appearance throughout years of continuous use. The Doorhome technical team delivers custom surveying and meticulous installation to follow the exact contours and pitch of your staircase with complete precision.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي بانورامي للسلالم الرخامية بقواعد ستانلس ستيل بحرية",
-        "subCategory": "دربزينات السلالم الرخامية الفاخرة",
-        "description": "أبرز فخامة عروق الرخام الإيطالي وأحجار السلالم الطبيعية في فيلتك مع هذا الدرابزين الزجاجي المثبت بقواعد الستانلس ستيل الأسطوانية الفاخرة. يتميز النظام بألواح زجاجية مقساة ومصفحة فائقة النقاء أو مدخنة مثبتة بواسطة كتل ستانلس ستيل أسطوانية متينة، مما يترك أطراف الدرج الرخامي وعتباته ظاهرة بالكامل بنسبة مئة بالمئة لتعكس جمال التصميم والأصالة الحجرية الفاخرة.\n\nتم تصنيع قواعد التثبيت بالخراطة الرقمية الدقيقة من كتل صلبة من الستانلس ستيل البحري المقاوم للصدأ ومواد التنظيف المنزلية. وتعتمد القواعد على تقنية التثبيت بالضغط الاحتكاكي المحكم التي تمسك الزجاج بقوة فائقة دون الحاجة لعمل ثقوب داخل الألواح التي قد تسبب شروخاً إجهادية مع مرور السنين، مع جوانات داخلية مرنة تمتص الصدمات والاهتزازات.\n\nزُوّدت القواعد بمسامير موازنة دقيقة تضمن استقامة ألواح الزجاج رأسياً بتناغم تام على امتداد السلالم المستقيمة أو الدائرية، لتمنحك أماناً محكماً لجميع أفراد العائلة ومظهراً معمارياً ملكياً يليق بأفخم القصور.",
+        "name": "درابزين زجاجي أنيق بمقبض خشبي وقواعد أرضية",
+        "subCategory": "درابزين زجاجي بمقبض خشبي",
+        "description": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الدرابزين بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الدرابزين مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
         "features": [
           "قواعد أسطوانية صلبة من الستانلس ستيل البحري عالي المتانة المقاوم للصدأ والرطوبة",
           "تقنية التثبيت بالضغط بدون ثقوب تحمي الزجاج من الشروخ الإجهادية وتضمن متانة دائمة",
@@ -1247,9 +1251,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "محاجەرەی شووشەی پانۆراما بۆ پلیەی مەڕمەڕ بە بنکەی ستانلێس ستیل",
-        "subCategory": "دەربزینی شووشەیی بۆ قادرمەی مەڕمەڕ",
-        "description": "جوانی مەڕمەڕی سروشتی پلیەکانی ڤێلاکەت پیشان بدە بەم محاجەرە شووشەییە کە بە بنکەی لوولەیی ستانلێس ستیل جێگیر دەکرێت بەبێ ئەوەی دەستکاری یان شاردنەوەی لێواری مەڕمەڕەکە بکات.\n\nلە ستانلێس ستیلی 316ی دەریاوانی بە تەکنەلۆژیای کڵامپی پەستان دروستکراوە کە پێویستی بە هیچ کونێک لە شووشەکەدا نییە، ئەمەش ناهێڵێت شووشەکە قڵیش ببات. لە ناوەوە لاستیکی پارێزەری هەیە بۆ نەهێشتنی لەرینەوە لە کاتی هاتوچۆدا.\n\nشووشەی لامینەیتی سێکۆریتی ئەستووری تا 20 ملمی تێدایە بە پێوانەی وردی ڕێکخستنی ستوونی بۆ دروستکردنی هێڵێکی تەواو ساف بە درێژایی پلیەکانی مەڕمەڕ.",
+        "name": "دەستەوانی شووشەیی شیک بە دەسکی دارین و بنکەی زەوی",
+        "subCategory": "دەستەوانی شووشەیی بە دەسکی دار",
+        "description": "ئەم مۆدێلە ڕوونی شووشەی بێگەرد و گەرمی داری سروشتی یەکدەخات، تا هاوئاهەنگییەکی هاوچەرخ پیشان بدات کە لەگەڵ جۆرە جیاوازەکانی پلیکانەی مەڕمەڕ و بەردین دەگونجێت. ئەم دیزاینە ڕوانینێکی فراوان دەڕەخسێنێت کە ڕووناکی سروشتی زیاد دەکات و جوانی پلیکانەکە دەردەخات، بۆیە زۆر گونجاوە بۆ دەروازە سەرەکییەکان و هۆڵە گەورەکان.\n\nتەختە شووشە بەهێزکراوەکان بە کەڵامپی زەوی ڕەشی زۆر پتەو جێگیر کراون کە ڕاگرتنێکی بەهێز و تایبەت بۆ دەستەوانەکە دەستەبەر دەکەن. هەروەها دەسکە دارینە ئاسوودەبەخشەکە هەستێکی سروشتی و گەرم لە کاتی بەکارهێناندا دەبەخشێت و پاڵپشتییەکی دڵنیابەخش و پارێزراو بۆ هەموو ئەندامانی خێزان و میوانان فەراهەم دەکات.\n\nئەم سیستمە بە بەرگەگرتنی بەرزی لە بەرامبەر بەکارهێنانی ڕۆژانە و ئاسانی لە خاوێنکردنەوەدا ناسراوە تا هەمیشە بە درەوشاوەیی بمێنێتەوە. ئەندازیاران و شارەزایانی دەرگای ماڵ ڕاوێژی تەکنیکی تەواو و جێبەجێکردنێکی ورد پێشکەش دەکەن تا دەستەوانەکە بە تەواوی لەگەڵ گۆشە و لاربوونەوەی پلیکانەکەتاندا بگونجێت.",
         "features": [
           "بنکەی لوولەیی ستانلێس ستیلی 316ی زۆر بەهێز دژە ژەنگ و شێ",
           "بەستنی بەهێز بە پەستان بەبێ کون بۆ پاراستنی شووشە لە قڵیشان",
@@ -1259,12 +1263,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Panoramic Glass Railing for Marble Staircases with Stainless Steel Spigots",
-        "subCategory": "Marble Stair Glass Systems",
-        "description": "Elevate the monumental beauty of polished Italian marble or Turkish limestone stairways with this spigot-mounted glass railing. Featuring continuous monolithic panels of 16 mm to 20 mm low-iron or smoked tempered laminated glass held by heavy-duty cylindrical stainless steel spigots, this system keeps the marble tread surfaces 100% visible, emphasizing stone grain and craftsmanship.\n\nEach structural spigot clamp is precision CNC-machined from solid duplex or Marine Grade 316 stainless steel, boasting extreme tensile strength and superior resistance to domestic cleaning chemicals and humidity. The internal friction-plate clamping mechanism holds the glass with high compression force without requiring fragile glass drill-holes that can cause stress cracking over time.\n\nEquipped with internal neoprene isolation pads and spherical leveling grub screws, the spigots allow micro-adjustments to ensure perfectly flat, unbroken alignment across complex curved or straight marble stair flights, complying with European residential fall barrier safety codes."
+        "name": "Elegant Glass Railing with Wood Handrail and Floor Spigots",
+        "subCategory": "Glass Railings with Wood Handrail",
+        "description": "Harmonizing ultra-clear glass panels with the organic warmth of a sculpted wood top rail, this model creates a timeless architectural balance that enhances stone, marble, and hardwood staircases. Its open-view structure maximizes natural illumination and accentuates flooring craftsmanship, making it a distinguished centerpiece for main reception foyers and stairwells.\n\nThe tempered safety glass panels are anchored with heavy-duty black floor spigots engineered for outstanding rigidity and long-term durability. The tactile wooden handrail offers a comfortable, warm feel to the touch, providing steady, dependable physical support for family members and visitors of all generations.\n\nBuilt for endurance, the materials require minimal upkeep and resist surface wear, preserving their pristine appearance throughout years of continuous use. The Doorhome technical team delivers custom surveying and meticulous installation to follow the exact contours and pitch of your staircase with complete precision."
       }
     },
-    "arabicDescription": "أبرز فخامة عروق الرخام الإيطالي وأحجار السلالم الطبيعية في فيلتك مع هذا الدرابزين الزجاجي المثبت بقواعد الستانلس ستيل الأسطوانية الفاخرة. يتميز النظام بألواح زجاجية مقساة ومصفحة فائقة النقاء أو مدخنة مثبتة بواسطة كتل ستانلس ستيل أسطوانية متينة، مما يترك أطراف الدرج الرخامي وعتباته ظاهرة بالكامل بنسبة مئة بالمئة لتعكس جمال التصميم والأصالة الحجرية الفاخرة.\n\nتم تصنيع قواعد التثبيت بالخراطة الرقمية الدقيقة من كتل صلبة من الستانلس ستيل البحري المقاوم للصدأ ومواد التنظيف المنزلية. وتعتمد القواعد على تقنية التثبيت بالضغط الاحتكاكي المحكم التي تمسك الزجاج بقوة فائقة دون الحاجة لعمل ثقوب داخل الألواح التي قد تسبب شروخاً إجهادية مع مرور السنين، مع جوانات داخلية مرنة تمتص الصدمات والاهتزازات.\n\nزُوّدت القواعد بمسامير موازنة دقيقة تضمن استقامة ألواح الزجاج رأسياً بتناغم تام على امتداد السلالم المستقيمة أو الدائرية، لتمنحك أماناً محكماً لجميع أفراد العائلة ومظهراً معمارياً ملكياً يليق بأفخم القصور.",
+    "arabicDescription": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الدرابزين بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الدرابزين مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح نقي أو مدخن بسماكة من ستة عشر إلى عشرين مليمتراً",
@@ -1290,15 +1294,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "بەرگەی کێش": "بەرگەی پاڵنانی تا 1.5 کیلۆنیوتن/مەتر دەگرێت",
         "سەلامەتی": "ستانداردی ئەوروپی المعايير الأوروبية لسلامة الزجاج بۆ سەلامەتی باڵەخانە"
       }
-    }
+    },
+    "kurdishName": "دەستەوانی شووشەیی شیک بە دەسکی دارین و بنکەی زەوی",
+    "kurdishDescription": "ئەم مۆدێلە ڕوونی شووشەی بێگەرد و گەرمی داری سروشتی یەکدەخات، تا هاوئاهەنگییەکی هاوچەرخ پیشان بدات کە لەگەڵ جۆرە جیاوازەکانی پلیکانەی مەڕمەڕ و بەردین دەگونجێت. ئەم دیزاینە ڕوانینێکی فراوان دەڕەخسێنێت کە ڕووناکی سروشتی زیاد دەکات و جوانی پلیکانەکە دەردەخات، بۆیە زۆر گونجاوە بۆ دەروازە سەرەکییەکان و هۆڵە گەورەکان.\n\nتەختە شووشە بەهێزکراوەکان بە کەڵامپی زەوی ڕەشی زۆر پتەو جێگیر کراون کە ڕاگرتنێکی بەهێز و تایبەت بۆ دەستەوانەکە دەستەبەر دەکەن. هەروەها دەسکە دارینە ئاسوودەبەخشەکە هەستێکی سروشتی و گەرم لە کاتی بەکارهێناندا دەبەخشێت و پاڵپشتییەکی دڵنیابەخش و پارێزراو بۆ هەموو ئەندامانی خێزان و میوانان فەراهەم دەکات.\n\nئەم سیستمە بە بەرگەگرتنی بەرزی لە بەرامبەر بەکارهێنانی ڕۆژانە و ئاسانی لە خاوێنکردنەوەدا ناسراوە تا هەمیشە بە درەوشاوەیی بمێنێتەوە. ئەندازیاران و شارەزایانی دەرگای ماڵ ڕاوێژی تەکنیکی تەواو و جێبەجێکردنێکی ورد پێشکەش دەکەن تا دەستەوانەکە بە تەواوی لەگەڵ گۆشە و لاربوونەوەی پلیکانەکەتاندا بگونجێت."
   },
   {
     "id": "stair-black-aluminum-post",
-    "name": "Contemporary Black Aluminum Post-and-Rail Interior Staircase Balustrade",
-    "arabicName": "درابزين سلالم داخلي عصري بأعمدة ألمنيوم سوداء مطفية وألواح زجاجية",
+    "name": "Geometric Matte Black Aluminum Stair Railing",
+    "arabicName": "درابزين ألمنيوم هندسي باللون الأسود المطفي",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "Geometric Grid Stair Balustrades",
+    "subCategory": "درابزين ألمنيوم هندسي",
     "modelNumber": "DH-STR-GRD-69",
     "material": "Heavy Structural Aluminum Extrusion with Welded Geometric Grid & Fine Texture Powder Coat",
     "brand": "Doorhome Architectural",
@@ -1306,25 +1312,25 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "fallbackImage": "/products-assets/stairs/photo_69_2026-09-26_07-36-01.jpg",
     "features": {
       "ar": [
-        "أعمدة ألمنيوم رأسية عالية الصلابة بقواعد تثبيت أرضية مخفية بالكامل تمنح ثباتاً مطلقاً",
-        "ألواح زجاج أمان مقسى عالي المتانة ومقاوم للصدمات بحواف ناعمة ومصقولة بالكامل",
-        "جوانات مطاطية مرنة مدمجة تمنع اهتزاز الزجاج وتلغي أي أصوات احتكاك معدني نهائياً",
-        "مقبض يد علوي مستطيل انسيابي من الألمنيوم الأسود يوفر قبضة مريحة وآمنة للغاية",
-        "طلاء بودرة إلكتروستاتيكي حراري كلاس 2 أسود مطفي فائق المقاومة للخدوش والبصمات"
-      ],
-      "en": [
-        "High-Tensile Extruded 6063-T6 Aluminum Upright Posts with Fully Concealed Base Footplates",
-        "12 mm Monolithic Tempered Safety Glass Infill Panels Delivering Superior Impact Resistance",
-        "Integrated Santoprene Vibration Gaskets Preventing Glass Chattering & Rattle Noise",
-        "Continuous Ergonomic Architectural Aluminum Rectangular Handrail in Satin Black",
-        "Qualicoat Class 2 Fine-Texture Electrostatic Powder Finish Immune to Scratches & Stains"
+        "هيكل ألمنيوم إنشائي متين بتصميم هندسي عصري يمنح الدرج حماية قوية ومظهراً مميزاً",
+        "قواطع وأعمدة ألمنيوم رأسية وأفقية متناسقة تمنع السقوط وتوفر أقصى درجات الأمان للعائلة",
+        "طلاء حراري أسود مطفي فائق الجودة ومقاوم للخدش والصدأ والتآكل لسنوات طويلة",
+        "مقبض يد علوي مريح ومصمم بعناية لتوفير إسناد ثابت ومريح أثناء الصعود والنزول",
+        "تثبيت أرضي صلب وعالي التحمل يضمن استقرار الهيكل بالكامل دون أي اهتزاز"
       ],
       "ckb": [
-        "کۆڵەکەی ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابةی بەهێز بە بنکەی شاراوە بۆ جێگیربوونی تەواو",
-        "شووشەی سێکۆریتی 12 ملمی ئەستوور بە قەراغی پۆڵیشکراوی ساف",
-        "لاستیکی تایبەت بۆ نەهێشتنی دەنگ و لەرینەوەی شووشە لە کاتی گرتندا",
-        "دەسکی سەرەوەی لاکێشەیی ئەلەمنیۆم بۆ گرتنی ئاسان و سەلامەت لە کاتی هاتووچۆ",
-        "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ڕەشی مات دژە شووشت"
+        "پەیکەری ئەلەمنیۆمی ئەندازیاری بەهێز کە پارێزگاری باڵا و دیمەنێکی سەرنجڕاکێش بە پلیکانە دەبەخشێت",
+        "ستوون و هێڵە ئەندازیارییە ڕێکخراوەکان ڕێگری لە کەوتنەخوارەوە دەکەن و سەلامەتی خێزان دەپارێزن",
+        "بۆیەی حەراری ڕەشی ماتی دژە ڕووشان و ژەنگ کە جوانییەکەی بۆ ساڵانێکی زۆر دەمێنێتەوە",
+        "دەسکی سەرەوەی ئاسوودە و داڕێژراو بۆ دەستگرتنی دڵنیابەخش لە کاتی سەرکەوتن و دابەزیندا",
+        "جێگیرکردنی زەوی زۆر بەهێز کە ڕاگرتنی تەواوی پەیکەرەکە بێ هیچ لەرینەوەیەک دەستەبەر دەکات"
+      ],
+      "en": [
+        "Heavy-duty architectural aluminum frame with modern geometric styling for superior protection",
+        "Precisely spaced vertical and horizontal baluster bars ensuring child safety and fall prevention",
+        "Premium matte black thermal powder-coat finish highly resistant to scratches and corrosion",
+        "Ergonomic top handrail profile providing a solid, comfortable, and reassuring grip",
+        "Rigid floor anchor mounting delivering unwavering stability with zero wobble"
       ]
     },
     "specs": {
@@ -1333,12 +1339,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Finish": "Qualicoat Class 1 Textured Black Powder Coating",
       "Rigidity": "Zero Lateral Flexing Across Continuous Long Flights"
     },
-    "description": "Marry structural strength with contemporary geometric clarity through this black aluminum post-and-rail staircase balustrade. Featuring extruded 6063-T6 aluminum vertical upright stanchions finished in a Qualicoat Class 2 matte black powder coating, the system supports 12 mm tempered safety glass infill panels, creating an assertive, industrial-modern aesthetic for multi-story private residences.\n\nEach aluminum upright features an internal reinforced dual-wall profile anchored into the floor with concealed, heavy-duty structural steel footplates. Glass infill panels are secured using precision aluminum side clamps lined with Santoprene vibration dampening pads, eliminating glass chattering and metal contact. Crowned by a continuous ergonomic rectangular top handrail that provides a secure, comfortable tactile grip.\n\nCompletely corrosion-proof and impervious to moisture, cleaning chemicals, and scratch abrasion, this balustrade provides exceptional fall protection certified to European safety standards, making it the definitive choice for modern villas and townhomes.",
+    "description": "Featuring bold architectural geometry and a sleek matte black profile, this aluminum post-and-rail balustrade delivers an assertive, contemporary look for interior stairwells and corridors. It offers a practical yet refined safety solution for both residential and commercial spaces, providing dependable barrier protection while allowing air and natural ambient light to flow uninterrupted.\n\nCrafted entirely from heavy-duty structural aluminum with a resilient thermal powder coating, the assembly is impervious to rust, peeling, and surface wear. Solid anchor posts and evenly spaced vertical/horizontal safety bars deliver exceptional structural rigidity, offering superior fall prevention that is particularly reassuring in busy households and multi-story spaces.\n\nThis railing is exceptionally low-maintenance, requiring only a simple wipe-down to preserve its pristine satin appearance over decades of everyday use. The Doorhome installation crew handles custom fabrication, precise site measurements, and rigid anchorage to guarantee lifelong structural integrity.",
     "translations": {
       "ar": {
-        "name": "درابزين سلالم داخلي عصري بأعمدة ألمنيوم سوداء مطفية وألواح زجاجية",
-        "subCategory": "حواجز السلالم المعدنية الهندسية",
-        "description": "اجمع بين القوة الإنشائية المتينة والنقاء الهندسي المعاصر مع هذا الدرابزين الداخلي المصمم بأعمدة الألمنيوم السوداء والألواح الزجاجية. يتميز النظام بأعمدة ألمنيوم رأسية مصنعة من سبائك معمارية عالية الصلابة ومطلية ببودرة إلكتروستاتيكية سوداء مطفية فائقة الفخامة، تحتضن بينها ألواح زجاج أمان مقسى لتمنح السلالم الداخلية طابعاً معمارياً عصري يجمع بين الهيبة والأناقة في الفلل العصرية.\n\nتم تزويد كل عمود بهيكل داخلي مزدوج الجدار ومثبت في الأرضيات بصفائح فولاذية مخفية تضمن ثباتاً إنشائياً مطلقاً يمنع أي ميلان. وثُبتت الألواح الزجاجية بمرابط ألمنيوم جانبية مبطنة بربلات مرنة ممتصة للصدمات تمنع أي اهتزاز أو أصوات احتكاك أثناء الاستخدام، يعلوها مقبض يد مستطيل انسيابي يوفر قبضة يد مريحة وآمنة لجميع أفراد الأسرة أثناء الصعود والنزول.\n\nيتميز الدرابزين بمقاومة تامة للصدأ والخدوش والمنظفات المنزلية، مع مطابقته لأعلى معايير الأمان والسلامة الأوروبية لحماية الأطفال والكبار، ليكون الخيار المثالي للفلل الفاخرة والمنازل العصرية.",
+        "name": "درابزين ألمنيوم هندسي باللون الأسود المطفي",
+        "subCategory": "درابزين ألمنيوم هندسي",
+        "description": "يتميز هذا الدرابزين بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الدرابزين من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
         "features": [
           "أعمدة ألمنيوم رأسية عالية الصلابة بقواعد تثبيت أرضية مخفية بالكامل تمنح ثباتاً مطلقاً",
           "ألواح زجاج أمان مقسى عالي المتانة ومقاوم للصدمات بحواف ناعمة ومصقولة بالكامل",
@@ -1348,9 +1354,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "محاجەرەی مۆدێرنی پلیە بە کۆڵەکەی ئەلەمنیۆمی ڕەشی مات و شووشەی پارێزراو",
-        "subCategory": "دەربزینی ئەندازەیی قادرمە",
-        "description": "محاجەرەیەکی زۆر بەهێز و مۆدێرن بۆ پلیەکانی ناوەوەی ڤێلا بە تێکەڵەی کۆڵەکەی ئەلەمنیۆمی ڕەشی ماتی فەخم و تەبەقەی شووشەی سێکۆریتی کە دیمەنێکی مۆدێرن و شکۆدار بە دەوروبەری پلیەکان دەبەخشێت.\n\nهەر کۆڵەکەیەک بە دیواری دووانی پتەو لە خوارەوە بە پەڕەی ئاسنی شاراوە لە ناو زەویدا دەبەسترێت بۆ ئەوەی هەرگیز نەجووڵێت. شووشەکان بە کڵامپی تایبەت بە لاستیکی نەرم جێگیرکراون بۆ نەهێشتنی هیچ دەنگێکی لەرینەوە، لەگەڵ دەسکێکی لاکێشەیی نەرم لە سەرەوە بۆ گرتنی زۆر ئاسان و سەلامەت.\n\n100% دژە ژەنگ و ڕووشانە و بە بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بۆیاخ کراوە، لەگەڵ هەموو ستانداردە ئەوروپییەکان بۆ پاراستنی منداڵ و خێزان لە کەوتنەخوارەوە.",
+        "name": "دەستەوانی ئەلەمنیۆمی ئەندازیاری بە ڕەنگی ڕەشی مات",
+        "subCategory": "دەستەوانی ئەلەمنیۆمی ئەندازیاری",
+        "description": "ئەم دەستەوانەیە بە دیزاینێکی تەلارسازی پتەو لەسەر بنەمای هێڵە ئەندازیارییەکانی ئەلەمنیۆم بە ڕەنگی ڕەشی مات جیا دەکرێتەوە، تا دیمەنێکی بەهێز و سەردەمیانە بە شوێنە ناوخۆییەکان ببەخشێت. چارەسەرێکی زۆر گونجاوە بۆ پلیکانە و ڕێڕەوە کراوەکان لە بینای نیشتەجێبوون و بازرگانیدا، بە جۆرێک کە جوانی ڕێکخراو و پارێزگاری کاریگەر پێکەوە کۆدەکاتەوە بێ ئەوەی ڕێگری لە هەوا و ڕووناکی بکات.\n\nپەیکەری دەستەوانەکە بە تەواوی لە ئەلەمنیۆمی بەهێز بە بۆیەی حەراری دروستکراوە کە دژی ژەنگ، خوراندن و ڕووشانە، لەگەڵ ستوونی سەرەکی پتەو کە جێگیرییەکی هەمیشەیی دەستەبەر دەکەن. هەروەها دوورییە ئەندازیارییە دیاریکراوەکانی نێوان هێڵەکان بەرزترین ئاستی پارێزگاری لە کەوتنەخوارەوە دابین دەکەن، کە بۆ شوێنە قەرەباڵغەکان و ئەو خێزانانەی منداڵیان هەیە زۆر پەسەندە.\n\nئەم دەستەوانەیە لە کرداریدا یەکێکە لە باشترین هەڵبژاردنەکان و پێویستی بە ماندووبوونی خاوێنکردنەوە نییە، تەنها بە سڕینێکی ئاسایی شێوازی جوان و ڕێکی خۆی بۆ چەندین ساڵ دەپارێزێت. تیمی دەرگای ماڵ پێوانەکردن بەوپەڕی وردبینی و جێگیرکردنی زۆر قایم بۆ مسۆگەرکردنی سەلامەتی بەردەوام ئەنجام دەدەن.",
         "features": [
           "کۆڵەکەی ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابةی بەهێز بە بنکەی شاراوە بۆ جێگیربوونی تەواو",
           "شووشەی سێکۆریتی 12 ملمی ئەستوور بە قەراغی پۆڵیشکراوی ساف",
@@ -1360,12 +1366,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Contemporary Black Aluminum Post-and-Rail Interior Staircase Balustrade",
-        "subCategory": "Geometric Grid Stair Balustrades",
-        "description": "Marry structural strength with contemporary geometric clarity through this black aluminum post-and-rail staircase balustrade. Featuring extruded 6063-T6 aluminum vertical upright stanchions finished in a Qualicoat Class 2 matte black powder coating, the system supports 12 mm tempered safety glass infill panels, creating an assertive, industrial-modern aesthetic for multi-story private residences.\n\nEach aluminum upright features an internal reinforced dual-wall profile anchored into the floor with concealed, heavy-duty structural steel footplates. Glass infill panels are secured using precision aluminum side clamps lined with Santoprene vibration dampening pads, eliminating glass chattering and metal contact. Crowned by a continuous ergonomic rectangular top handrail that provides a secure, comfortable tactile grip.\n\nCompletely corrosion-proof and impervious to moisture, cleaning chemicals, and scratch abrasion, this balustrade provides exceptional fall protection certified to European safety standards, making it the definitive choice for modern villas and townhomes."
+        "name": "Geometric Matte Black Aluminum Stair Railing",
+        "subCategory": "Geometric Aluminum Balustrades",
+        "description": "Featuring bold architectural geometry and a sleek matte black profile, this aluminum post-and-rail balustrade delivers an assertive, contemporary look for interior stairwells and corridors. It offers a practical yet refined safety solution for both residential and commercial spaces, providing dependable barrier protection while allowing air and natural ambient light to flow uninterrupted.\n\nCrafted entirely from heavy-duty structural aluminum with a resilient thermal powder coating, the assembly is impervious to rust, peeling, and surface wear. Solid anchor posts and evenly spaced vertical/horizontal safety bars deliver exceptional structural rigidity, offering superior fall prevention that is particularly reassuring in busy households and multi-story spaces.\n\nThis railing is exceptionally low-maintenance, requiring only a simple wipe-down to preserve its pristine satin appearance over decades of everyday use. The Doorhome installation crew handles custom fabrication, precise site measurements, and rigid anchorage to guarantee lifelong structural integrity."
       }
     },
-    "arabicDescription": "اجمع بين القوة الإنشائية المتينة والنقاء الهندسي المعاصر مع هذا الدرابزين الداخلي المصمم بأعمدة الألمنيوم السوداء والألواح الزجاجية. يتميز النظام بأعمدة ألمنيوم رأسية مصنعة من سبائك معمارية عالية الصلابة ومطلية ببودرة إلكتروستاتيكية سوداء مطفية فائقة الفخامة، تحتضن بينها ألواح زجاج أمان مقسى لتمنح السلالم الداخلية طابعاً معمارياً عصري يجمع بين الهيبة والأناقة في الفلل العصرية.\n\nتم تزويد كل عمود بهيكل داخلي مزدوج الجدار ومثبت في الأرضيات بصفائح فولاذية مخفية تضمن ثباتاً إنشائياً مطلقاً يمنع أي ميلان. وثُبتت الألواح الزجاجية بمرابط ألمنيوم جانبية مبطنة بربلات مرنة ممتصة للصدمات تمنع أي اهتزاز أو أصوات احتكاك أثناء الاستخدام، يعلوها مقبض يد مستطيل انسيابي يوفر قبضة يد مريحة وآمنة لجميع أفراد الأسرة أثناء الصعود والنزول.\n\nيتميز الدرابزين بمقاومة تامة للصدأ والخدوش والمنظفات المنزلية، مع مطابقته لأعلى معايير الأمان والسلامة الأوروبية لحماية الأطفال والكبار، ليكون الخيار المثالي للفلل الفاخرة والمنازل العصرية.",
+    "arabicDescription": "يتميز هذا الدرابزين بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الدرابزين من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
     "technicalSpecs": {
       "ar": {
         "قطاع الأعمدة": "أعمدة ألمنيوم مسحوبة عالية السماكة خمسون مليمتراً في خمسين مليمتراً",
@@ -1391,15 +1397,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "شێوازی بەستن": "بەستنی پۆڵایینی شاراوە لە ناو زەوی",
         "سەلامەتی": "بڕوانامەی فەرمی ئەوروپی المعايير الأوروبية لسلامة الزجاج بۆ سەلامەتی پلیەکان"
       }
-    }
+    },
+    "kurdishName": "دەستەوانی ئەلەمنیۆمی ئەندازیاری بە ڕەنگی ڕەشی مات",
+    "kurdishDescription": "ئەم دەستەوانەیە بە دیزاینێکی تەلارسازی پتەو لەسەر بنەمای هێڵە ئەندازیارییەکانی ئەلەمنیۆم بە ڕەنگی ڕەشی مات جیا دەکرێتەوە، تا دیمەنێکی بەهێز و سەردەمیانە بە شوێنە ناوخۆییەکان ببەخشێت. چارەسەرێکی زۆر گونجاوە بۆ پلیکانە و ڕێڕەوە کراوەکان لە بینای نیشتەجێبوون و بازرگانیدا، بە جۆرێک کە جوانی ڕێکخراو و پارێزگاری کاریگەر پێکەوە کۆدەکاتەوە بێ ئەوەی ڕێگری لە هەوا و ڕووناکی بکات.\n\nپەیکەری دەستەوانەکە بە تەواوی لە ئەلەمنیۆمی بەهێز بە بۆیەی حەراری دروستکراوە کە دژی ژەنگ، خوراندن و ڕووشانە، لەگەڵ ستوونی سەرەکی پتەو کە جێگیرییەکی هەمیشەیی دەستەبەر دەکەن. هەروەها دوورییە ئەندازیارییە دیاریکراوەکانی نێوان هێڵەکان بەرزترین ئاستی پارێزگاری لە کەوتنەخوارەوە دابین دەکەن، کە بۆ شوێنە قەرەباڵغەکان و ئەو خێزانانەی منداڵیان هەیە زۆر پەسەندە.\n\nئەم دەستەوانەیە لە کرداریدا یەکێکە لە باشترین هەڵبژاردنەکان و پێویستی بە ماندووبوونی خاوێنکردنەوە نییە، تەنها بە سڕینێکی ئاسایی شێوازی جوان و ڕێکی خۆی بۆ چەندین ساڵ دەپارێزێت. تیمی دەرگای ماڵ پێوانەکردن بەوپەڕی وردبینی و جێگیرکردنی زۆر قایم بۆ مسۆگەرکردنی سەلامەتی بەردەوام ئەنجام دەدەن."
   },
   {
     "id": "stair-grand-spiral-spigot",
-    "name": "Frameless Tempered Glass Balustrade for Grand Marble Curved Staircases",
-    "arabicName": "درابزين زجاجي بانورامي مقوس للسلالم الرخامية الحلزونية الملكية",
+    "name": "Panoramic Glass Railing for Grand Curved Stairs",
+    "arabicName": "درابزين زجاجي بانورامي للسلالم المنحنية والواسعة",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "Curved & Spiral Grand Staircases",
+    "subCategory": "درابزين زجاجي بانورامي للسلالم المنحنية",
     "modelNumber": "DH-STR-SPR-08",
     "material": "12+12 mm Custom Curved SentryGlas Structural Glass with Mirror Polished Spigots",
     "brand": "Doorhome Architectural",
@@ -1434,12 +1442,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Height": "1100 mm Uniform Rake Height",
       "Testing": "Static Line Load Tested to 3.0 kN/m"
     },
-    "description": "Crown the primary architectural feature of your palace or luxury villa foyer with this curved frameless glass balustrade. Custom-engineered specifically for grand sweeping helical and curved marble staircases, this system utilizes precision curved or faceted monolithic panels of 17.52 mm low-iron laminated safety glass that trace the fluid trajectory of the staircase with breathtaking geometric grace.\n\nSupported by heavy-duty cylindrical solid Marine Grade 316 stainless steel spigot clamps anchored directly into the structural marble stringers, the glass panels hover cleanly without bulky vertical posts, keeping the polished stone riser faces and intricate marble vein patterns completely visible. Each spigot clamp incorporates internal spherical leveling washers and elastomer dampening pads that eliminate glass stress concentrations.\n\nFinished with diamond-polished CNC edges and capped by an optional continuous curved stainless or matte black micro-rail, this balustrade complies with stringent international structural codes (BS 6180 / EN 12600), delivering monumental royal prestige and total fall barrier security.",
+    "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي بانورامي مقوس للسلالم الرخامية الحلزونية الملكية",
-        "subCategory": "دربزينات السلالم الحلزونية والمنحنية",
-        "description": "توج المعلم المعماري الأبرز في بهو قصرك مع هذا الدرابزين الزجاجي المقوس بدون إطار المصمم للسلالم الحلزونية والمنحنية الفاخرة. صُمم هذا النظام الهندسي خصيصاً ليتبع انسيابية السلالم الرخامية الدائرية الضخمة بمنتهى الدقة والنعومة، حيث تمنح ألواح الزجاج المقسى والمصفح فائق النقاء إحساساً بالانسيابية الملكية والخفة البصرية المطلقة، مما يبرز فخامة بهو القصر وتفاصيل الرخام الفاخر دون أي حواجز بصرية مشوهة.\n\nيرتكز الزجاج على قواعد أسطوانية صلبة من الستانلس ستيل البحري المصقول والمثبتة مباشرة في جسر الدرج الرخامي الإنشائي، مما يحافظ على ألواح الزجاج معلقة بأناقة بدون أي أعمدة رأسية ضخمة ويترك عروق الرخام الطبيعي واضحة للعيان بالكامل. وتحتوي القواعد على وسائد كروية مرنة لتوزيع الأحمال وتفادي أي تركيز للإجهاد على الزجاج، مما يمنع حدوث أي شروخ للأبد.\n\nتتميز الحواف بصقل ماسي دقيق وملمس حريري آمن يعلوه مقبض علوي نحيف من الستانلس ستيل أو الألمنيوم الأسود، ليوفر أعلى معايير الحماية والأمان الأوروبية مع لمسة ملكية ساحرة تليق بأفخم الفلل والقصور.",
+        "name": "درابزين زجاجي بانورامي للسلالم المنحنية والواسعة",
+        "subCategory": "درابزين زجاجي بانورامي للسلالم المنحنية",
+        "description": "صُمم هذا الدرابزين الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
         "features": [
           "تصنيع مقوس هندسي مخصص يتبع انحناءات السلالم الدائرية والحلزونية بمنتهى الانسيابية والدقة",
           "قواعد أسطوانية صلبة من الستانلس ستيل البحري المقاوم للصدأ مثبتة بإحكام في جسر الدرج الرخامي",
@@ -1449,9 +1457,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "محاجەرەی شووشەی کەوانەیی بێ چوارچێوە بۆ پلیەی خڕی مەڕمەڕی شاهانە",
-        "subCategory": "دەربزینی شووشەی کەوانەیی قادرمە",
-        "description": "شاکاری سەرەکی پێشوازی قەسر یان ڤێلاکەت بڕازێنەرەوە بەم محاجەرە شووشەییە کەوانەییە کە بە تایبەتی بۆ پلیکانی لوولپێچ و خڕی مەڕمەڕ دیزاین کراوە بەوپەڕی وردی و جوانییەوە.\n\nلە شووشەی لامینەیتی سێکۆریتی 17.52 ملمی ڕۆشن بە شێوازی کەوانەیی دروستکراوە کە بە بنکەی لوولەیی ستانلێس ستیلی 316ی دەریاوانی لەسەر مەڕمەڕەکە دەبەسترێت بەبێ ئەوەی هیچ کۆڵەکەیەکی ستوونی دیار بێت و ڕووی مەڕمەڕەکە دەشارێتەوە.\n\nقەراغی پۆڵیشکراوی ئەڵماسی هەیە و بە تەواوی بەپێی ستانداردە ئەوروپییەکان دروستکراوە بۆ دابینکردنی بەرزترین ئاستی جوانی شاهانە و سەلامەتی تەواو.",
+        "name": "دەستەوانی شووشەیی پانۆراما بۆ پلیکانەی کەوانەیی و فراوان",
+        "subCategory": "دەستەوانی شووشەیی بۆ پلیکانەی کەوانەیی",
+        "description": "ئەم دەستەوانە شووشەییە شلگیرە دیزاین کراوە بۆ ئەوەی لەگەڵ فەخامەتی پلیکانە کەوانەییەکان و هۆڵە ناوەندییە گەورەکاندا بگونجێت، بە جۆرێک شووشە شەفافەکە بە نەرمی دەسوڕێتەوە تا جوانی ئەندازیاری پلیکانە و مەڕمەڕی بەنرخ دەربخات. ئەم سیستمە هەستێکی ڕاستەوخۆ بە فراوانی و ڕووناکی بەخشین دەبەخشێت کە هۆڵی سەرەکی زۆر گەشاوەتر و شیکتر نیشان دەدات.\n\nپێکهاتەی ئەم بەربەستە لە تەختە شووشەی بەهێزکراوی تایبەت بە کەوانەییەکان پێکهاتووە، کە بە کەڵامپی زەوی ڕەشی زۆر قایم پاڵپشتی کراوە تا بەرزترین ئاستی پارێزگاری لە کاتی سەرکەوتن و دابەزیندا دابین بکات. هەروەها دەسکە دارینە نەرمەکە ئاسوودەیی تەواو بە دەست دەبەخشێت و هەستی فەخامەت و هاوسەنگی لە کاتی ڕۆیشتندا دروست دەکات.\n\nئەم سیستمە چارەسەرێکی تەلارسازی بەردەوامە کە هێزی باڵا و ئاسانی لە خاوێنکردنەوەی ڕۆژانەدا کۆدەکاتەوە، تا ساڵ لە دوای ساڵ بە جوانی بمێنێتەوە. تیمی شارەزای دەرگای ماڵ پێوانەکردنی سێ دووری و دامەزراندنی ورد ئەنجام دەدەن تا هاوتەریبی شووشەکە لەگەڵ کەوانەیی پلیکانەکە بە شێوەیەکی سەدا سەد مسۆگەر بێت.",
         "features": [
           "دیزاینی کەوانەیی تایبەت کە بە تەواوی لەگەڵ لاری و خڕی پلیکانەکەدا دەگونجێت",
           "بنکەی لوولەیی ستانلێس ستیلی 316ی پتەو جێگیرکراو لە ناو مەڕمەڕی پلیکانە",
@@ -1461,12 +1469,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Frameless Tempered Glass Balustrade for Grand Marble Curved Staircases",
-        "subCategory": "Curved & Spiral Grand Staircases",
-        "description": "Crown the primary architectural feature of your palace or luxury villa foyer with this curved frameless glass balustrade. Custom-engineered specifically for grand sweeping helical and curved marble staircases, this system utilizes precision curved or faceted monolithic panels of 17.52 mm low-iron laminated safety glass that trace the fluid trajectory of the staircase with breathtaking geometric grace.\n\nSupported by heavy-duty cylindrical solid Marine Grade 316 stainless steel spigot clamps anchored directly into the structural marble stringers, the glass panels hover cleanly without bulky vertical posts, keeping the polished stone riser faces and intricate marble vein patterns completely visible. Each spigot clamp incorporates internal spherical leveling washers and elastomer dampening pads that eliminate glass stress concentrations.\n\nFinished with diamond-polished CNC edges and capped by an optional continuous curved stainless or matte black micro-rail, this balustrade complies with stringent international structural codes (BS 6180 / EN 12600), delivering monumental royal prestige and total fall barrier security."
+        "name": "Panoramic Glass Railing for Grand Curved Stairs",
+        "subCategory": "Panoramic Curved Glass Railings",
+        "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve."
       }
     },
-    "arabicDescription": "توج المعلم المعماري الأبرز في بهو قصرك مع هذا الدرابزين الزجاجي المقوس بدون إطار المصمم للسلالم الحلزونية والمنحنية الفاخرة. صُمم هذا النظام الهندسي خصيصاً ليتبع انسيابية السلالم الرخامية الدائرية الضخمة بمنتهى الدقة والنعومة، حيث تمنح ألواح الزجاج المقسى والمصفح فائق النقاء إحساساً بالانسيابية الملكية والخفة البصرية المطلقة، مما يبرز فخامة بهو القصر وتفاصيل الرخام الفاخر دون أي حواجز بصرية مشوهة.\n\nيرتكز الزجاج على قواعد أسطوانية صلبة من الستانلس ستيل البحري المصقول والمثبتة مباشرة في جسر الدرج الرخامي الإنشائي، مما يحافظ على ألواح الزجاج معلقة بأناقة بدون أي أعمدة رأسية ضخمة ويترك عروق الرخام الطبيعي واضحة للعيان بالكامل. وتحتوي القواعد على وسائد كروية مرنة لتوزيع الأحمال وتفادي أي تركيز للإجهاد على الزجاج، مما يمنع حدوث أي شروخ للأبد.\n\nتتميز الحواف بصقل ماسي دقيق وملمس حريري آمن يعلوه مقبض علوي نحيف من الستانلس ستيل أو الألمنيوم الأسود، ليوفر أعلى معايير الحماية والأمان الأوروبية مع لمسة ملكية ساحرة تليق بأفخم الفلل والقصور.",
+    "arabicDescription": "صُمم هذا الدرابزين الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة تقارب ثمانية عشر مليمتراً",
@@ -1492,7 +1500,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "بەرگری کێش": "بڕوانامەی ئەوروپی المعايير البريطانية للسلامة الإنشائية بۆ سەلامەتی باڵەخانە",
         "قەراغەکان": "پۆڵیشکراو بە ئەڵماس بەبێ هیچ خواربوونێکی بینین"
       }
-    }
+    },
+    "kurdishName": "دەستەوانی شووشەیی پانۆراما بۆ پلیکانەی کەوانەیی و فراوان",
+    "kurdishDescription": "ئەم دەستەوانە شووشەییە شلگیرە دیزاین کراوە بۆ ئەوەی لەگەڵ فەخامەتی پلیکانە کەوانەییەکان و هۆڵە ناوەندییە گەورەکاندا بگونجێت، بە جۆرێک شووشە شەفافەکە بە نەرمی دەسوڕێتەوە تا جوانی ئەندازیاری پلیکانە و مەڕمەڕی بەنرخ دەربخات. ئەم سیستمە هەستێکی ڕاستەوخۆ بە فراوانی و ڕووناکی بەخشین دەبەخشێت کە هۆڵی سەرەکی زۆر گەشاوەتر و شیکتر نیشان دەدات.\n\nپێکهاتەی ئەم بەربەستە لە تەختە شووشەی بەهێزکراوی تایبەت بە کەوانەییەکان پێکهاتووە، کە بە کەڵامپی زەوی ڕەشی زۆر قایم پاڵپشتی کراوە تا بەرزترین ئاستی پارێزگاری لە کاتی سەرکەوتن و دابەزیندا دابین بکات. هەروەها دەسکە دارینە نەرمەکە ئاسوودەیی تەواو بە دەست دەبەخشێت و هەستی فەخامەت و هاوسەنگی لە کاتی ڕۆیشتندا دروست دەکات.\n\nئەم سیستمە چارەسەرێکی تەلارسازی بەردەوامە کە هێزی باڵا و ئاسانی لە خاوێنکردنەوەی ڕۆژانەدا کۆدەکاتەوە، تا ساڵ لە دوای ساڵ بە جوانی بمێنێتەوە. تیمی شارەزای دەرگای ماڵ پێوانەکردنی سێ دووری و دامەزراندنی ورد ئەنجام دەدەن تا هاوتەریبی شووشەکە لەگەڵ کەوانەیی پلیکانەکە بە شێوەیەکی سەدا سەد مسۆگەر بێت."
   },
   {
     "id": "win-guillotine-panoramic",
