@@ -443,7 +443,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
       { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
       { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies' },
-      { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
+      { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
       { key: 'accessories', label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware' },
     ];
   }, [currentLanguage.code]);
@@ -454,7 +454,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     if (key === 'shorfa' || key === 'balconies' || key.includes('1793119430295')) return currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies');
     if (key === 'doors') return currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : (currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances');
     if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : (currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems');
-    if (key === 'stairs' || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');
+    if (key === 'stairs' || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');
     if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : (currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware');
 
     const foundOpt = allCategoryOptions.find((opt) => opt.key === key || opt.key.toLowerCase() === key);

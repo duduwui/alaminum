@@ -155,8 +155,8 @@ export const AlumilFooter: React.FC<AlumilFooterProps> = ({ onNavigate }) => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-red-400 shrink-0" />
-                <a href={`mailto:${DOORHOME_CONTACT.email || 'info@doorhome.co'}`} className="hover:text-red-400 transition-colors">
-                  {DOORHOME_CONTACT.email || 'info@doorhome.co'}
+                <a href={`mailto:${DOORHOME_CONTACT.email || 'doorhome.baghdad@gmail.com'}`} className="hover:text-red-400 transition-colors">
+                  {DOORHOME_CONTACT.email || 'doorhome.baghdad@gmail.com'}
                 </a>
               </div>
 

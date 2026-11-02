@@ -63,7 +63,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
       },
       {
         id: 'stairs',
-        label: currentLanguage.code === 'ar' ? 'حواجز السلالم والدربزينات' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings'
+        label: currentLanguage.code === 'ar' ? 'حواجز السلالم' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings'
       },
       {
         id: 'accessories',

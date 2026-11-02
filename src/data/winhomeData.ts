@@ -82,7 +82,7 @@ export const DOORHOME_CONTACT = {
   phone: "+964 750 738 8748",
   phoneSecondary: "+964 770 808 0402",
   phoneSecondaryRaw: "+9647708080402",
-  email: "info@doorhome.company",
+  email: "doorhome.baghdad@gmail.com",
   website: "https://doorhome.company",
   branches: {
     sales: {
@@ -98,7 +98,7 @@ export const DOORHOME_CONTACT = {
       description: "بالتحكم الرقمي فائق الدقة profile processing, double glazing assembly & logistics dispatch"
     }
   },
-  emails: ["info@doorhome.company", "info@doorhome.co", "doorhome-iq@hotmail.com"],
+  emails: ["doorhome.baghdad@gmail.com"],
   address: "Baghdad, Iraq",
   coordinates: {
     lat: 33.3118611,
