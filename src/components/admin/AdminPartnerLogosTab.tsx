@@ -92,7 +92,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
 
   const handleAddBrand = () => {
     if (!newLogo.name.trim() || !newLogo.src.trim()) {
-      alert('Please provide brand name and image URL/file.');
+      alert(currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'يرجى إدخال اسم العلامة وصورة الشعار.' : 'Please provide brand name and image URL/file.');
       return;
     }
     const logo: PartnerBrand = {
@@ -165,24 +165,24 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div>
-            <label className="block text-[11px] font-black text-slate-700 mb-1">Brand Name *</label>
+            <label className="block text-[11px] font-black text-slate-700 mb-1">{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'اسم العلامة التجارية *' : 'Brand Name *'}</label>
             <input
               type="text"
               value={newLogo.name}
               onChange={(e) => setNewLogo({ ...newLogo, name: e.target.value })}
-              placeholder="e.g. Alumil, Winkhaus, Saint-Gobain"
+              placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'مثال: ألوميل، وينكهاوس، سان غوبان' : 'e.g. Alumil, Winkhaus, Saint-Gobain'}
               className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-red-500 font-bold"
             />
           </div>
 
           <div>
-            <label className="block text-[11px] font-black text-slate-700 mb-1">Logo Image *</label>
+            <label className="block text-[11px] font-black text-slate-700 mb-1">{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'صورة الشعار *' : 'Logo Image *'}</label>
             <div className="flex items-center gap-1.5">
               <input
                 type="text"
                 value={newLogo.src}
                 onChange={(e) => setNewLogo({ ...newLogo, src: e.target.value })}
-                placeholder="Image URL or upload"
+                placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'رابط الصورة أو رفع' : 'Image URL or upload'}
                 className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-red-500 font-mono"
               />
               <button
@@ -191,30 +191,30 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                 className="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-bold text-slate-700 shrink-0 cursor-pointer flex items-center gap-1"
               >
                 <Upload className="w-3.5 h-3.5" />
-                <span>{isUploadingLogo ? '...' : 'Upload'}</span>
+                <span>{isUploadingLogo ? '...' : currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'رفع' : 'Upload'}</span>
               </button>
             </div>
           </div>
 
           <div>
-            <label className="block text-[11px] font-black text-slate-700 mb-1">Country (Optional)</label>
+            <label className="block text-[11px] font-black text-slate-700 mb-1">{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'الدولة (اختياري)' : 'Country (Optional)'}</label>
             <input
               type="text"
               value={newLogo.country || ''}
               onChange={(e) => setNewLogo({ ...newLogo, country: e.target.value })}
-              placeholder="e.g. Greece, Germany, Italy"
+              placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'مثال: اليونان، ألمانيا، إيطاليا' : 'e.g. Greece, Germany, Italy'}
               className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-red-500 font-bold"
             />
           </div>
 
           <div>
-            <label className="block text-[11px] font-black text-slate-700 mb-1">Country Flag (Optional)</label>
+            <label className="block text-[11px] font-black text-slate-700 mb-1">{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'علم الدولة (اختياري)' : 'Country Flag (Optional)'}</label>
             <div className="flex items-center gap-1.5">
               <input
                 type="text"
                 value={newLogo.flag || ''}
                 onChange={(e) => setNewLogo({ ...newLogo, flag: e.target.value })}
-                placeholder="Emoji or Image URL"
+                placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'إيموجي أو رابط صورة' : 'Emoji or Image URL'}
                 className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-red-500 font-bold"
               />
               <button
@@ -223,7 +223,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                 className="px-3 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl text-xs font-bold text-slate-700 shrink-0 cursor-pointer flex items-center gap-1"
               >
                 <Upload className="w-3.5 h-3.5" />
-                <span>{isUploadingFlag ? '...' : 'Upload'}</span>
+                <span>{isUploadingFlag ? '...' : currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'رفع' : 'Upload'}</span>
               </button>
             </div>
           </div>
@@ -236,7 +236,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
             className="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-1.5"
           >
             <Plus className="w-4 h-4 stroke-[3]" />
-            <span>Add Brand to List</span>
+            <span>{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'إضافة العلامة إلى القائمة' : 'Add Brand to List'}</span>
           </button>
         </div>
       </div>
@@ -289,7 +289,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                   <input
                     type="text"
                     value={logo.country || ''}
-                    placeholder="Country (e.g. Italy)"
+                    placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'الدولة (مثال: إيطاليا)' : 'Country (e.g. Italy)'}
                     onChange={(e) => {
                       const updated = [...partnerLogos];
                       updated[idx] = { ...updated[idx], country: e.target.value };
@@ -301,7 +301,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                     <input
                       type="text"
                       value={logo.flag || ''}
-                      placeholder="Flag (emoji or URL)"
+                      placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'العلم (إيموجي أو رابط)' : 'Flag (emoji or URL)'}
                       onChange={(e) => {
                         const updated = [...partnerLogos];
                         updated[idx] = { ...updated[idx], flag: e.target.value };
@@ -316,10 +316,10 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                         cardFlagFileInputRef.current?.click();
                       }}
                       className="shrink-0 px-2 py-1 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 rounded-lg text-[10px] font-bold transition-colors cursor-pointer flex items-center gap-1"
-                      title="Upload Flag Image for this brand"
+                      title={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'رفع صورة العلم لهذه العلامة' : 'Upload Flag Image for this brand'}
                     >
                       <Upload className="w-3 h-3 text-red-600" />
-                      <span>Upload</span>
+                      <span>{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'رفع' : 'Upload'}</span>
                     </button>
                   </div>
                 </div>
@@ -339,7 +339,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                       setPartnerLogos(updated);
                     }}
                     className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
-                    title="Move Left"
+                    title={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'تحريك لليسار' : 'Move Left'}
                   >
                     <ChevronLeft className="w-4 h-4" />
                   </button>
@@ -355,7 +355,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                       setPartnerLogos(updated);
                     }}
                     className="p-1.5 rounded-lg text-slate-400 hover:text-slate-800 hover:bg-slate-100 disabled:opacity-30 cursor-pointer transition-colors"
-                    title="Move Right"
+                    title={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'تحريك لليمين' : 'Move Right'}
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
@@ -373,7 +373,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                     void saveSharedCmsSection('partnerLogos', updated).catch(() => {});
                   }}
                   className="p-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 transition-colors cursor-pointer"
-                  title="Remove Logo"
+                  title={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'حذف الشعار' : 'Remove Logo'}
                 >
                   <Trash2 className="w-4 h-4" />
                 </button>
@@ -392,7 +392,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
           className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
         >
           <Save className="w-4 h-4" />
-          <span>{logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website'}</span>
+          <span>{currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? (logosSaving ? 'جارٍ الحفظ في الموقع...' : 'حفظ شعارات الشركاء في الموقع') : (logosSaving ? 'Saving to Website...' : 'Save Partner Logos to Website')}</span>
         </button>
       </div>
     </main>
