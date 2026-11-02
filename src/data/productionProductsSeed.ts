@@ -992,7 +992,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
     "id": "stair-floating-wood-glass",
     "name": "Modern Glass Railing for Interior Stairs",
-    "arabicName": "درابزين زجاجي عصري للسلالم الداخلية",
+    "arabicName": "حاجز زجاجي عصري للسلالم الداخلية",
     "category": "stairs",
     "division": "stairs",
     "subCategory": "حواجز السلالم الزجاجية",
@@ -1007,7 +1007,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "قواعد تثبيت نقطية صلبة من الستانلس ستيل البحري المقاوم للصدأ ومجهزة للموازنة الدقيقة",
         "زجاج أمان مقسى ومصفح عالي السماكة بطبقات بوليمرية مقاومة للصدمات والكسر",
         "حواف زجاجية مصقولة بالماس فائقة النعومة وتوفر ملمساً حريرياً آمناً لجميع أفراد الأسرة",
-        "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز ودرابزينات السلالم السكنية"
+        "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز وحاجزات السلالم السكنية"
       ],
       "en": [
         "Frameless Monolithic Low-Iron Tempered Glass Creating a Weightless Floating Spatial Aesthetic",
@@ -1033,15 +1033,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي عصري للسلالم الداخلية",
+        "name": "حاجز زجاجي عصري للسلالم الداخلية",
         "subCategory": "حواجز السلالم الزجاجية",
-        "description": "يمنح هذا النظام من الدربزينات الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للدرابزين دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الدرابزين بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
+        "description": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
         "features": [
           "ألواح زجاجية نقية خالية من الإطارات تمنح إحساساً بالاتساع وتبرز جمال السلالم المعلقة",
           "قواعد تثبيت نقطية صلبة من الستانلس ستيل البحري المقاوم للصدأ ومجهزة للموازنة الدقيقة",
           "زجاج أمان مقسى ومصفح عالي السماكة بطبقات بوليمرية مقاومة للصدمات والكسر",
           "حواف زجاجية مصقولة بالماس فائقة النعومة وتوفر ملمساً حريرياً آمناً لجميع أفراد الأسرة",
-          "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز ودرابزينات السلالم السكنية"
+          "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز وحاجزات السلالم السكنية"
         ]
       },
       "ckb": {
@@ -1062,7 +1062,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish."
       }
     },
-    "arabicDescription": "يمنح هذا النظام من الدربزينات الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للدرابزين دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الدرابزين بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
+    "arabicDescription": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة من سبعة عشر إلى واحد وعشرين مليمتراً",
@@ -1198,10 +1198,10 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
     "id": "stair-marble-tinted-spigot",
     "name": "Elegant Glass Railing with Wood Handrail and Floor Spigots",
-    "arabicName": "درابزين زجاجي أنيق بمقبض خشبي وقواعد أرضية",
+    "arabicName": "حاجز زجاجي أنيق بمقبض خشبي وقواعد أرضية",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "درابزين زجاجي بمقبض خشبي",
+    "subCategory": "حاجز زجاجي بمقبض خشبي",
     "modelNumber": "DH-STR-MRB-60",
     "material": "12 mm Crystal Clear Toughened Glass with Walnut Timber Handrail & 316 Spigots",
     "brand": "Doorhome Architectural",
@@ -1239,9 +1239,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "description": "Harmonizing ultra-clear glass panels with the organic warmth of a sculpted wood top rail, this model creates a timeless architectural balance that enhances stone, marble, and hardwood staircases. Its open-view structure maximizes natural illumination and accentuates flooring craftsmanship, making it a distinguished centerpiece for main reception foyers and stairwells.\n\nThe tempered safety glass panels are anchored with heavy-duty black floor spigots engineered for outstanding rigidity and long-term durability. The tactile wooden handrail offers a comfortable, warm feel to the touch, providing steady, dependable physical support for family members and visitors of all generations.\n\nBuilt for endurance, the materials require minimal upkeep and resist surface wear, preserving their pristine appearance throughout years of continuous use. The Doorhome technical team delivers custom surveying and meticulous installation to follow the exact contours and pitch of your staircase with complete precision.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي أنيق بمقبض خشبي وقواعد أرضية",
-        "subCategory": "درابزين زجاجي بمقبض خشبي",
-        "description": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الدرابزين بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الدرابزين مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
+        "name": "حاجز زجاجي أنيق بمقبض خشبي وقواعد أرضية",
+        "subCategory": "حاجز زجاجي بمقبض خشبي",
+        "description": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الحاجز بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الحاجز مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
         "features": [
           "قواعد أسطوانية صلبة من الستانلس ستيل البحري عالي المتانة المقاوم للصدأ والرطوبة",
           "تقنية التثبيت بالضغط بدون ثقوب تحمي الزجاج من الشروخ الإجهادية وتضمن متانة دائمة",
@@ -1268,7 +1268,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "Harmonizing ultra-clear glass panels with the organic warmth of a sculpted wood top rail, this model creates a timeless architectural balance that enhances stone, marble, and hardwood staircases. Its open-view structure maximizes natural illumination and accentuates flooring craftsmanship, making it a distinguished centerpiece for main reception foyers and stairwells.\n\nThe tempered safety glass panels are anchored with heavy-duty black floor spigots engineered for outstanding rigidity and long-term durability. The tactile wooden handrail offers a comfortable, warm feel to the touch, providing steady, dependable physical support for family members and visitors of all generations.\n\nBuilt for endurance, the materials require minimal upkeep and resist surface wear, preserving their pristine appearance throughout years of continuous use. The Doorhome technical team delivers custom surveying and meticulous installation to follow the exact contours and pitch of your staircase with complete precision."
       }
     },
-    "arabicDescription": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الدرابزين بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الدرابزين مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
+    "arabicDescription": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الحاجز بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الحاجز مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح نقي أو مدخن بسماكة من ستة عشر إلى عشرين مليمتراً",
@@ -1301,10 +1301,10 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
     "id": "stair-black-aluminum-post",
     "name": "Geometric Matte Black Aluminum Stair Railing",
-    "arabicName": "درابزين ألمنيوم هندسي باللون الأسود المطفي",
+    "arabicName": "حاجز ألمنيوم هندسي باللون الأسود المطفي",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "درابزين ألمنيوم هندسي",
+    "subCategory": "حاجز ألمنيوم هندسي",
     "modelNumber": "DH-STR-GRD-69",
     "material": "Heavy Structural Aluminum Extrusion with Welded Geometric Grid & Fine Texture Powder Coat",
     "brand": "Doorhome Architectural",
@@ -1342,9 +1342,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "description": "Featuring bold architectural geometry and a sleek matte black profile, this aluminum post-and-rail balustrade delivers an assertive, contemporary look for interior stairwells and corridors. It offers a practical yet refined safety solution for both residential and commercial spaces, providing dependable barrier protection while allowing air and natural ambient light to flow uninterrupted.\n\nCrafted entirely from heavy-duty structural aluminum with a resilient thermal powder coating, the assembly is impervious to rust, peeling, and surface wear. Solid anchor posts and evenly spaced vertical/horizontal safety bars deliver exceptional structural rigidity, offering superior fall prevention that is particularly reassuring in busy households and multi-story spaces.\n\nThis railing is exceptionally low-maintenance, requiring only a simple wipe-down to preserve its pristine satin appearance over decades of everyday use. The Doorhome installation crew handles custom fabrication, precise site measurements, and rigid anchorage to guarantee lifelong structural integrity.",
     "translations": {
       "ar": {
-        "name": "درابزين ألمنيوم هندسي باللون الأسود المطفي",
-        "subCategory": "درابزين ألمنيوم هندسي",
-        "description": "يتميز هذا الدرابزين بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الدرابزين من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
+        "name": "حاجز ألمنيوم هندسي باللون الأسود المطفي",
+        "subCategory": "حاجز ألمنيوم هندسي",
+        "description": "يتميز هذا الحاجز بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الحاجز من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
         "features": [
           "أعمدة ألمنيوم رأسية عالية الصلابة بقواعد تثبيت أرضية مخفية بالكامل تمنح ثباتاً مطلقاً",
           "ألواح زجاج أمان مقسى عالي المتانة ومقاوم للصدمات بحواف ناعمة ومصقولة بالكامل",
@@ -1371,7 +1371,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "Featuring bold architectural geometry and a sleek matte black profile, this aluminum post-and-rail balustrade delivers an assertive, contemporary look for interior stairwells and corridors. It offers a practical yet refined safety solution for both residential and commercial spaces, providing dependable barrier protection while allowing air and natural ambient light to flow uninterrupted.\n\nCrafted entirely from heavy-duty structural aluminum with a resilient thermal powder coating, the assembly is impervious to rust, peeling, and surface wear. Solid anchor posts and evenly spaced vertical/horizontal safety bars deliver exceptional structural rigidity, offering superior fall prevention that is particularly reassuring in busy households and multi-story spaces.\n\nThis railing is exceptionally low-maintenance, requiring only a simple wipe-down to preserve its pristine satin appearance over decades of everyday use. The Doorhome installation crew handles custom fabrication, precise site measurements, and rigid anchorage to guarantee lifelong structural integrity."
       }
     },
-    "arabicDescription": "يتميز هذا الدرابزين بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الدرابزين من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
+    "arabicDescription": "يتميز هذا الحاجز بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الحاجز من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
     "technicalSpecs": {
       "ar": {
         "قطاع الأعمدة": "أعمدة ألمنيوم مسحوبة عالية السماكة خمسون مليمتراً في خمسين مليمتراً",
@@ -1404,10 +1404,10 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
     "id": "stair-grand-spiral-spigot",
     "name": "Panoramic Glass Railing for Grand Curved Stairs",
-    "arabicName": "درابزين زجاجي بانورامي للسلالم المنحنية والواسعة",
+    "arabicName": "حاجز زجاجي بانورامي للسلالم المنحنية والواسعة",
     "category": "stairs",
     "division": "stairs",
-    "subCategory": "درابزين زجاجي بانورامي للسلالم المنحنية",
+    "subCategory": "حاجز زجاجي بانورامي للسلالم المنحنية",
     "modelNumber": "DH-STR-SPR-08",
     "material": "12+12 mm Custom Curved SentryGlas Structural Glass with Mirror Polished Spigots",
     "brand": "Doorhome Architectural",
@@ -1445,9 +1445,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve.",
     "translations": {
       "ar": {
-        "name": "درابزين زجاجي بانورامي للسلالم المنحنية والواسعة",
-        "subCategory": "درابزين زجاجي بانورامي للسلالم المنحنية",
-        "description": "صُمم هذا الدرابزين الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
+        "name": "حاجز زجاجي بانورامي للسلالم المنحنية والواسعة",
+        "subCategory": "حاجز زجاجي بانورامي للسلالم المنحنية",
+        "description": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
         "features": [
           "تصنيع مقوس هندسي مخصص يتبع انحناءات السلالم الدائرية والحلزونية بمنتهى الانسيابية والدقة",
           "قواعد أسطوانية صلبة من الستانلس ستيل البحري المقاوم للصدأ مثبتة بإحكام في جسر الدرج الرخامي",
@@ -1474,7 +1474,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve."
       }
     },
-    "arabicDescription": "صُمم هذا الدرابزين الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
+    "arabicDescription": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة تقارب ثمانية عشر مليمتراً",
