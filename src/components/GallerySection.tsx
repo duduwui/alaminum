@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, fetchGalleryItemsFromCms } from '../services/galleryContentService';
 import FlexCarousel, { FlexCarouselItem } from './FlexCarousel';
 import AnimatedContent from './AnimatedContent';
+import { getAdminCategories, subscribeToAdminCategories, AdminCategoryItem } from '../services/adminCategoryService';
 
 interface GallerySectionProps {
   fullPage?: boolean;
@@ -45,19 +46,46 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
 
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [adminCats, setAdminCats] = useState<AdminCategoryItem[]>(() => getAdminCategories());
 
-  const categories = useMemo(() => [
-    { key: 'all', label: currentLanguage.code === 'ar' ? 'جميع المشاريع' : currentLanguage.code === 'ckb' ? 'هەموو پڕۆژەکان' : 'All Projects' },
-    { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
-    { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
-    { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Balconies & Railings' },
-    { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
-  ], [currentLanguage.code]);
+  useEffect(() => {
+    return subscribeToAdminCategories((updated) => setAdminCats(updated));
+  }, []);
+
+  const categories = useMemo(() => {
+    const allLabel =
+      currentLanguage.code === 'ar'
+        ? 'جميع المشاريع'
+        : currentLanguage.code === 'ckb'
+        ? 'هەموو پڕۆژەکان'
+        : 'All Projects';
+
+    return [
+      { key: 'all', label: allLabel },
+      ...adminCats.map((cat) => ({
+        key: cat.key,
+        label:
+          currentLanguage.code === 'ar'
+            ? cat.nameAr
+            : currentLanguage.code === 'ckb'
+            ? cat.nameCkb
+            : cat.nameEn
+      }))
+    ];
+  }, [adminCats, currentLanguage.code]);
 
   const filteredVisibleItems = useMemo(() => {
     let result = visibleItems;
     if (selectedCategory !== 'all') {
-      result = result.filter((item) => (item.category || '').toLowerCase() === selectedCategory.toLowerCase());
+      const selCat = selectedCategory.toLowerCase();
+      result = result.filter((item) => {
+        const itemCat = (item.category || '').toLowerCase();
+        if (selCat === 'doors') return itemCat === 'doors' || itemCat === 'door';
+        if (selCat === 'windows') return itemCat === 'windows' || itemCat === 'window';
+        if (selCat === 'shorfa') return itemCat === 'shorfa' || itemCat === 'balconies' || itemCat.includes('1793119430295');
+        if (selCat === 'stairs') return itemCat === 'stairs' || itemCat === 'stair' || itemCat.includes('1793119387374');
+        return itemCat === selCat;
+      });
     }
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
@@ -302,14 +330,11 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                           {item.description}
                         </p>
                       </div>
-                      {item.system && (
-                        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-medium text-slate-500">
-                          <span className="truncate max-w-[200px]">{item.system}</span>
-                          <span className="text-red-600 font-bold group-hover:underline">
-                            {currentLanguage.code === 'ar' ? 'عرض التفاصيل ←' : currentLanguage.code === 'ckb' ? 'بینینی وردەکاری ←' : 'Inspect →'}
-                          </span>
-                        </div>
-                      )}
+                      <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-end text-[11px] font-bold text-red-600 group-hover:underline">
+                        <span>
+                          {currentLanguage.code === 'ar' ? 'عرض التفاصيل ←' : currentLanguage.code === 'ckb' ? 'بینینی وردەکاری ←' : 'Inspect →'}
+                        </span>
+                      </div>
                     </div>
                   </button>
                 </AnimatedContent>

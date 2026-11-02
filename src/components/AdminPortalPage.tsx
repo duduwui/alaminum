@@ -100,7 +100,7 @@ import { AdminDynamicSectionTab } from './AdminDynamicSectionTab';
 import { AdminSidebar } from './admin/AdminSidebar';
 import { AdminProductsTab } from './admin/AdminProductsTab';
 import { AdminProductModal } from './admin/AdminProductModal';
-import { AdminCategoriesModal, AdminCategoryItem, DEFAULT_ADMIN_CATEGORIES } from './admin/AdminCategoriesModal';
+import { AdminCategoryItem, DEFAULT_ADMIN_CATEGORIES, getAdminCategories, saveAdminCategories } from '../services/adminCategoryService';
 import { AdminCmsTab } from './admin/AdminCmsTab';
 import { AdminPartnerLogosTab } from './admin/AdminPartnerLogosTab';
 import { AdvancedTextarea } from './admin/AdvancedTextarea';
@@ -453,10 +453,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
 
   const handleSaveCategories = (updated: AdminCategoryItem[]) => {
     setAdminCategories(updated);
-    try {
-      localStorage.setItem('dh_admin_categories', JSON.stringify(updated));
-    } catch {}
-    void saveSharedCmsSection('divisions', updated).catch(() => {});
+    saveAdminCategories(updated);
   };
 
   // Unified Section / Category Options
@@ -882,8 +879,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     const safeName = fullTranslations?.en?.name || data.name;
     const safeDesc = fullTranslations?.en?.description || data.description;
 
+    const isVideo = /\.(mp4|webm|mov)(\?|#|$)/i.test(data.image || '');
+
     if (data.id) {
       const existing = productList.find((p) => p.id === data.id);
+      const videoUrl = isVideo ? data.image : (existing?.videoUrl || undefined);
       const updatedProduct: ProductItem = {
         ...(existing || ({} as any)),
         id: data.id,
@@ -891,7 +891,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         category: data.category as any,
         division: data.category as any,
         image: data.image || existing?.image || '',
-        fallbackImage: data.image || existing?.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
+        videoUrl: videoUrl,
+        fallbackImage: isVideo
+          ? data.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')
+          : (data.image || existing?.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg'),
         description: safeDesc,
         arabicName: arName,
         arabicDescription: arDesc,
@@ -908,7 +911,10 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         category: data.category as any,
         division: data.category as any,
         image: data.image,
-        fallbackImage: data.image || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
+        videoUrl: isVideo ? data.image : undefined,
+        fallbackImage: isVideo
+          ? data.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')
+          : (data.image || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg'),
         description: safeDesc,
         basePrice: 0,
         currency: 'USD',
@@ -1485,10 +1491,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           <AdminProductsTab
             productList={productList}
             allCategoryOptions={allCategoryOptions}
+            categories={adminCategories}
+            onSaveCategories={handleSaveCategories}
             getProductCategoryLabel={getProductCategoryLabel}
             onOpenAddProduct={handleOpenAddProduct}
             onOpenEditProduct={handleOpenEditProduct}
-            onOpenManageCategories={() => setIsCategoriesModalOpen(true)}
             onDeleteProduct={handleDeleteProduct}
             onClearCatalog={() => {
               if (confirm('Are you sure you want to clear all products from the catalog?')) {
@@ -1554,16 +1561,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         t={t}
       />
 
-      {/* MANAGE PRODUCT CATEGORIES MODAL */}
-      <AdminCategoriesModal
-        isOpen={isCategoriesModalOpen}
-        onClose={() => setIsCategoriesModalOpen(false)}
-        categories={adminCategories}
-        onSaveCategories={handleSaveCategories}
-        productList={productList}
-        currentLanguage={currentLanguage}
-        t={t}
-      />
+
 
       {/* REQUEST & CONTACT MESSAGE INSPECTION MODAL */}
       {selectedRequest && (

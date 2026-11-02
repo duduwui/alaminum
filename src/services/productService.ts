@@ -1,5 +1,6 @@
 import { ProductItem } from '../data/winhomeData';
 import { PRODUCTION_PRODUCTS_SEED } from '../data/productionProductsSeed';
+import { saveSharedCmsSection } from './cmsService';
 import {
   db,
   collection,
@@ -170,6 +171,7 @@ export async function saveProductToCloud(product: ProductItem): Promise<void> {
     const current = loadLocalProducts();
     const updated = [product, ...current.filter((p) => p.id !== product.id)];
     saveLocalProducts(updated);
+    void saveSharedCmsSection('products', updated).catch(() => {});
   } catch (e) {
     // ignore
   }
@@ -187,6 +189,7 @@ export async function deleteProductFromCloud(productId: string): Promise<void> {
     const current = loadLocalProducts();
     const filtered = current.filter((p) => p.id !== productId);
     saveLocalProducts(filtered);
+    void saveSharedCmsSection('products', filtered).catch(() => {});
   } catch (e) {
     // ignore
   }
