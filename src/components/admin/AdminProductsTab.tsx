@@ -50,6 +50,61 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
   const [editNameEn, setEditNameEn] = useState('');
   const [editNameCkb, setEditNameCkb] = useState('');
 
+  // Normalized category classifier to guarantee exact counts across legacy or variant data
+  const classifyProductCategory = (p: ProductItem): string => {
+    const cat = (p.category || '').toLowerCase();
+    const div = (p.division || '').toLowerCase();
+    const id = (p.id || '').toLowerCase();
+    const name = (p.name || '').toLowerCase();
+    const arName = (p.arabicName || '').toLowerCase();
+
+    // 1. Windows Systems
+    if (
+      cat === 'windows' || cat === 'window' ||
+      div === 'windows' || div === 'window' ||
+      id.startsWith('win-') ||
+      id === 'prod-black-zip-screen-shutter' ||
+      arName.includes('نافذ') || arName.includes('شباك') || arName.includes('شبابيك') ||
+      name.includes('window')
+    ) {
+      return 'windows';
+    }
+
+    // 2. Shorfa & Balconies
+    if (
+      cat === 'shorfa' || cat === 'balconies' || cat.includes('1793119430295') ||
+      div === 'shorfa' || div === 'balconies' ||
+      arName.includes('شرف') || arName.includes('تراس') || arName.includes('بلكون') ||
+      id.includes('balcony') || id.includes('shorfa')
+    ) {
+      return 'shorfa';
+    }
+
+    // 3. Stairs & Railings
+    if (
+      cat === 'stairs' || cat === 'stair' || cat.includes('1793119387374') ||
+      div === 'stairs' || div === 'stair' ||
+      arName.includes('سلم') || arName.includes('سلالم') || arName.includes('درج') ||
+      id.includes('stair')
+    ) {
+      return 'stairs';
+    }
+
+    // 4. Accessories & Hardware
+    if (
+      cat === 'accessories' || cat === 'accessory' ||
+      div === 'accessories' || div === 'accessory' ||
+      id.startsWith('acc-') ||
+      arName.includes('إكسسوار') || arName.includes('ملحق') || arName.includes('مفصل') || arName.includes('مقبض') ||
+      name.includes('accessory') || name.includes('handle') || name.includes('lock')
+    ) {
+      return 'accessories';
+    }
+
+    // 5. Default to Doors & Entrances
+    return 'doors';
+  };
+
   // Compute total counts per category
   const categoryCounts = React.useMemo(() => {
     const counts: Record<string, number> = { all: productList.length };
@@ -57,16 +112,16 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
       counts[opt.key] = 0;
     }
     for (const p of productList) {
-      const key = (p.division || p.category || '').toLowerCase();
-      if (key === 'balconies' || key.includes('1793119430295')) {
-        counts['shorfa'] = (counts['shorfa'] || 0) + 1;
-      } else if (key === 'stair' || key.includes('1793119387374')) {
-        counts['stairs'] = (counts['stairs'] || 0) + 1;
-      } else if (counts[key] !== undefined) {
-        counts[key] += 1;
+      const cls = classifyProductCategory(p);
+      if (counts[cls] !== undefined) {
+        counts[cls] += 1;
       } else {
-        const matched = allCategoryOptions.find((o) => o.key === key);
-        if (matched) counts[matched.key] = (counts[matched.key] || 0) + 1;
+        const rawKey = (p.division || p.category || '').toLowerCase();
+        if (counts[rawKey] !== undefined) {
+          counts[rawKey] += 1;
+        } else {
+          counts['doors'] = (counts['doors'] || 0) + 1;
+        }
       }
     }
     return counts;
@@ -82,8 +137,10 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
       (prod.name && prod.name.toLowerCase().includes(q)) ||
       (prod.description && prod.description.toLowerCase().includes(q));
 
+    const prodCls = classifyProductCategory(prod);
     const matchesCategory =
       productCategoryFilter === 'all' ||
+      prodCls === productCategoryFilter ||
       prod.division === productCategoryFilter ||
       prod.category === productCategoryFilter;
 

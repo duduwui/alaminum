@@ -90,15 +90,21 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
           const pSub = (product.subCategory || '').toLowerCase();
 
           if (sCat === 'doors') {
-            if (pCat !== 'doors' && pDiv !== 'doors') return false;
+            if (pCat !== 'doors' && pDiv !== 'doors' && !pCat.includes('door') && !pDiv.includes('door')) return false;
           } else if (sCat === 'shorfa') {
             if (pCat !== 'shorfa' && pCat !== 'balconies' && pDiv !== 'shorfa' && pDiv !== 'balconies') return false;
           } else if (sCat === 'windows') {
-            if (pCat !== 'windows' && pDiv !== 'windows') return false;
+            const isWin =
+              pCat === 'windows' || pCat === 'window' ||
+              pDiv === 'windows' || pDiv === 'window' ||
+              (product.id && product.id.startsWith('win-')) ||
+              (product.id === 'prod-black-zip-screen-shutter') ||
+              pCat.includes('win') || pDiv.includes('win');
+            if (!isWin) return false;
           } else if (sCat === 'stairs') {
-            if (pCat !== 'stairs' && pDiv !== 'stairs') return false;
+            if (pCat !== 'stairs' && pCat !== 'stair' && pDiv !== 'stairs' && pDiv !== 'stair') return false;
           } else if (sCat === 'accessories') {
-            if (pCat !== 'accessories' && pDiv !== 'accessories') return false;
+            if (pCat !== 'accessories' && pDiv !== 'accessories' && !pCat.includes('access') && !pDiv.includes('access')) return false;
           } else {
             const matches = pCat === sCat || pDiv === sCat;
             if (!matches) return false;
