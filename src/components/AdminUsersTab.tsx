@@ -13,10 +13,7 @@ import {
   Trash2,
   X,
   CheckCircle2,
-  Phone,
   KeyRound,
-  UserCheck,
-  UserX,
   Lock,
   Eye,
   EyeOff,
@@ -58,7 +55,6 @@ export const AdminUsersTab: React.FC = () => {
   // Form State
   const [formName, setFormName] = useState('');
   const [formPassword, setFormPassword] = useState('');
-  const [formPhone, setFormPhone] = useState('');
 
   const loadUsers = async () => {
     setLoading(true);
@@ -87,7 +83,6 @@ export const AdminUsersTab: React.FC = () => {
     setEditingUser(null);
     setFormName('');
     setFormPassword('');
-    setFormPhone('');
     setModalNotification('');
     setCreatedAdminResult(null);
     setShowModalPassword(true); // Default to visible so they can see what they type
@@ -98,7 +93,6 @@ export const AdminUsersTab: React.FC = () => {
     setEditingUser(user);
     setFormName(user.name || user.username || '');
     setFormPassword(revealedPasswords[user.id] || '');
-    setFormPhone(user.phone || '');
     setModalNotification('');
     setCreatedAdminResult(null);
     setShowModalPassword(true);
@@ -145,9 +139,7 @@ export const AdminUsersTab: React.FC = () => {
     try {
       if (editingUser) {
         const updateData: any = {
-          username: trimmedName,
-          phone: formPhone.trim(),
-          status: editingUser.status
+          username: trimmedName
         };
         if (formPassword.trim()) {
           updateData.password = formPassword.trim();
@@ -172,7 +164,6 @@ export const AdminUsersTab: React.FC = () => {
         const newUser = await createUser({
           username: trimmedName,
           password: enteredPass,
-          phone: formPhone.trim(),
           role: 'admin'
         });
         setRevealedPasswords((prev) => ({ ...prev, [newUser.id]: enteredPass }));
@@ -339,20 +330,18 @@ export const AdminUsersTab: React.FC = () => {
       <div className="bg-white rounded-2xl border border-slate-200/90 shadow-2xs overflow-hidden">
         {/* Desktop & Tablet Table View */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs min-w-[560px]">
+          <table className="w-full text-left text-xs min-w-[380px]">
             <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 font-black uppercase text-[10px] tracking-wider">
               <tr>
                 <th className="p-4">Admin Name</th>
                 <th className="p-4">Password</th>
-                <th className="p-4">Phone Number</th>
-                <th className="p-4">Status</th>
                 <th className="p-4 text-right">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 font-medium text-slate-700">
               {loading ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">
+                  <td colSpan={3} className="p-8 text-center text-slate-400">
                     <div className="flex items-center justify-center gap-2">
                       <RefreshCw className="w-4 h-4 animate-spin text-red-600" />
                       <span>Loading administrators...</span>
@@ -361,7 +350,7 @@ export const AdminUsersTab: React.FC = () => {
                 </tr>
               ) : admins.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-slate-400">
+                  <td colSpan={3} className="p-8 text-center text-slate-400">
                     No administrators found. Click &quot;Create Admin&quot; to add one.
                   </td>
                 </tr>
@@ -447,45 +436,6 @@ export const AdminUsersTab: React.FC = () => {
                             </button>
                           )}
                         </div>
-                      </td>
-
-                      {/* Phone Number (Optional) */}
-                      <td className="p-4">
-                        {u.phone ? (
-                          <div className="flex items-center gap-1.5 font-bold text-slate-900" dir="ltr">
-                            <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                            <span>{u.phone}</span>
-                          </div>
-                        ) : (
-                          <span className="text-slate-400 italic text-[11px]">— Optional</span>
-                        )}
-                      </td>
-
-                      {/* Status */}
-                      <td className="p-4">
-                        <button
-                          type="button"
-                          onClick={() => handleToggleStatus(u)}
-                          disabled={u.id === 'usr-admin-1'}
-                          className={`inline-flex items-center gap-1 text-[10px] font-extrabold px-2.5 py-1 rounded-full transition-all cursor-pointer ${
-                            u.status === 'active'
-                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100'
-                              : 'bg-rose-50 text-rose-700 border border-rose-200 hover:bg-rose-100'
-                          }`}
-                          title={u.id === 'usr-admin-1' ? 'Super admin cannot be disabled' : 'Click to toggle status'}
-                        >
-                          {u.status === 'active' ? (
-                            <>
-                              <UserCheck className="w-3 h-3" />
-                              <span>Active</span>
-                            </>
-                          ) : (
-                            <>
-                              <UserX className="w-3 h-3" />
-                              <span>Disabled</span>
-                            </>
-                          )}
-                        </button>
                       </td>
 
                       {/* Actions */}
@@ -648,22 +598,6 @@ export const AdminUsersTab: React.FC = () => {
                     >
                       {showModalPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
-                  </div>
-                </div>
-
-                {/* Phone (Optional) */}
-                <div className="space-y-1.5">
-                  <label className="font-bold text-slate-700 block">Phone Number (Optional)</label>
-                  <div className="relative">
-                    <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                    <input
-                      type="tel"
-                      dir="ltr"
-                      value={formPhone}
-                      onChange={(e) => setFormPhone(e.target.value)}
-                      placeholder="e.g. +964 750 000 0000"
-                      className="w-full pl-9 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium text-slate-900 focus:outline-none focus:border-red-500"
-                    />
                   </div>
                 </div>
 
