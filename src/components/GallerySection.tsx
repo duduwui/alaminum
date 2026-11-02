@@ -5,7 +5,6 @@ import { useLanguage } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, fetchGalleryItemsFromCms } from '../services/galleryContentService';
 import FlexCarousel, { FlexCarouselItem } from './FlexCarousel';
 import AnimatedContent from './AnimatedContent';
-import { getAdminCategories, subscribeToAdminCategories, AdminCategoryItem } from '../services/adminCategoryService';
 
 interface GallerySectionProps {
   fullPage?: boolean;
@@ -45,48 +44,9 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
   const visibleItems = items.map(localize);
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [adminCats, setAdminCats] = useState<AdminCategoryItem[]>(() => getAdminCategories());
-
-  useEffect(() => {
-    return subscribeToAdminCategories((updated) => setAdminCats(updated));
-  }, []);
-
-  const categories = useMemo(() => {
-    const allLabel =
-      currentLanguage.code === 'ar'
-        ? 'جميع المشاريع'
-        : currentLanguage.code === 'ckb'
-        ? 'هەموو پڕۆژەکان'
-        : 'All Projects';
-
-    return [
-      { key: 'all', label: allLabel },
-      ...adminCats.map((cat) => ({
-        key: cat.key,
-        label:
-          currentLanguage.code === 'ar'
-            ? cat.nameAr
-            : currentLanguage.code === 'ckb'
-            ? cat.nameCkb
-            : cat.nameEn
-      }))
-    ];
-  }, [adminCats, currentLanguage.code]);
 
   const filteredVisibleItems = useMemo(() => {
     let result = visibleItems;
-    if (selectedCategory !== 'all') {
-      const selCat = selectedCategory.toLowerCase();
-      result = result.filter((item) => {
-        const itemCat = (item.category || '').toLowerCase();
-        if (selCat === 'doors') return itemCat === 'doors' || itemCat === 'door';
-        if (selCat === 'windows') return itemCat === 'windows' || itemCat === 'window';
-        if (selCat === 'shorfa') return itemCat === 'shorfa' || itemCat === 'balconies' || itemCat.includes('1793119430295');
-        if (selCat === 'stairs') return itemCat === 'stairs' || itemCat === 'stair' || itemCat.includes('1793119387374');
-        return itemCat === selCat;
-      });
-    }
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       result = result.filter((item) => {
@@ -99,7 +59,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
       });
     }
     return result;
-  }, [visibleItems, selectedCategory, searchQuery]);
+  }, [visibleItems, searchQuery]);
 
   // Curated 12 items for the 3D Carousel in direct 1:1 order with Admin CMS slots
   const featuredCarouselItems: FlexCarouselItem[] = useMemo(() => {
@@ -236,27 +196,6 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                   <span className="text-red-600 font-extrabold text-sm">{filteredVisibleItems.length}</span>{' '}
                   {currentLanguage.code === 'ar' ? 'مشروع معروض' : currentLanguage.code === 'ckb' ? 'پڕۆژە' : 'projects'}
                 </div>
-              </div>
-
-              {/* Category Filter Pills */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
-                {categories.map((cat) => {
-                  const isSelected = selectedCategory === cat.key;
-                  return (
-                    <button
-                      key={cat.key}
-                      type="button"
-                      onClick={() => setSelectedCategory(cat.key)}
-                      className={`px-4 py-2 rounded-xl text-xs font-black transition-all shrink-0 cursor-pointer ${
-                        isSelected
-                          ? 'bg-red-600 text-white shadow-sm'
-                          : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs'
-                      }`}
-                    >
-                      {cat.label}
-                    </button>
-                  );
-                })}
               </div>
             </div>
 

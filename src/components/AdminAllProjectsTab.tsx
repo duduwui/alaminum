@@ -9,54 +9,27 @@ import {
   Sparkles,
   X,
   AlertTriangle,
-  CheckSquare,
-  Square
+  Image as ImageIcon
 } from 'lucide-react';
 import { GalleryMediaItem } from '../services/galleryContentService';
-import { getAdminCategories, subscribeToAdminCategories, AdminCategoryItem } from '../services/adminCategoryService';
 
 interface AdminAllProjectsTabProps {
   galleryImages: GalleryMediaItem[];
   onUpdateGallery: (updated: GalleryMediaItem[]) => Promise<void>;
   onUploadMedia: (file: File) => Promise<string>;
   onSaveFeedback: (msg: string) => void;
-  AdvancedTextarea: React.ComponentType<{
-    value: string;
-    onChange: (value: string) => void;
-    label?: string;
-    placeholder?: string;
-    rows?: number;
-    minHeight?: string;
-    onBlur?: () => void;
-  }>;
+  AdvancedTextarea?: any;
 }
 
 export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
   galleryImages,
   onUpdateGallery,
   onUploadMedia,
-  onSaveFeedback,
-  AdvancedTextarea
+  onSaveFeedback
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [adminCats, setAdminCats] = useState<AdminCategoryItem[]>(() => getAdminCategories());
 
-  React.useEffect(() => {
-    return subscribeToAdminCategories((updated) => setAdminCats(updated));
-  }, []);
-
-  const categoriesList = useMemo(() => {
-    return [
-      { key: 'all', label: 'All Projects (جميع المشاريع)' },
-      ...adminCats.map((c) => ({
-        key: c.key,
-        label: `${c.nameAr} (${c.nameEn})`
-      }))
-    ];
-  }, [adminCats]);
-
-  // Multi-select state (stores global indices in galleryImages)
+  // Multi-select state
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
 
   // Delete confirmation popup modal state
@@ -66,8 +39,6 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
   // New Project Form State
   const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [newTitle, setNewTitle] = useState('');
-  const [newCategory, setNewCategory] = useState('doors');
-  const [newSystem, setNewSystem] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState('');
@@ -77,25 +48,11 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
   const [replacingIdx, setReplacingIdx] = useState<number | null>(null);
   const replaceFileInputRef = useRef<HTMLInputElement>(null);
 
+  // Filter entries purely by search query (no categories)
   const filteredEntries = useMemo(() => {
     return galleryImages
       .map((item, globalIdx) => ({ item, globalIdx }))
       .filter(({ item }) => {
-        if (selectedCategory !== 'all') {
-          const itemCat = (item.category || '').toLowerCase();
-          const selCat = selectedCategory.toLowerCase();
-          if (selCat === 'doors' && (itemCat === 'doors' || itemCat === 'door')) {
-            // match
-          } else if (selCat === 'windows' && (itemCat === 'windows' || itemCat === 'window')) {
-            // match
-          } else if (selCat === 'shorfa' && (itemCat === 'shorfa' || itemCat === 'balconies' || itemCat.includes('1793119430295'))) {
-            // match
-          } else if (selCat === 'stairs' && (itemCat === 'stairs' || itemCat === 'stair' || itemCat.includes('1793119387374'))) {
-            // match
-          } else if (itemCat !== selCat) {
-            return false;
-          }
-        }
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase();
           const matchesTitle = (item.title || '').toLowerCase().includes(q);
@@ -105,7 +62,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
         }
         return true;
       });
-  }, [galleryImages, selectedCategory, searchQuery]);
+  }, [galleryImages, searchQuery]);
 
   const filteredGlobalIndices = useMemo(
     () => filteredEntries.map((entry) => entry.globalIdx),
@@ -153,9 +110,9 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
           description: newDescription.trim(),
           src: url,
           mediaType: isVideo ? 'video' : 'image',
-          category: newCategory,
+          category: 'doors',
           location: '',
-          system: newSystem.trim() || 'Doorhome Certified European Systems'
+          system: 'Doorhome Certified European Systems'
         });
       }
 
@@ -164,7 +121,6 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
       setSelectedIndices([]);
       setNewTitle('');
       setNewDescription('');
-      setNewSystem('');
       setIsAddFormOpen(false);
       onSaveFeedback(`✓ Added ${newEntries.length} new project file(s) to portfolio!`);
     } catch (err: any) {
@@ -196,7 +152,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
       };
 
       await onUpdateGallery(updated);
-      onSaveFeedback(`✓ Replaced media for "${updated[replacingIdx].title}"!`);
+      onSaveFeedback(`✓ Media updated successfully!`);
     } catch (err: any) {
       alert(err.message || 'Upload failed');
     } finally {
@@ -205,18 +161,15 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
     }
   };
 
-  // Open delete popup for a single item
   const requestSingleDelete = (globalIdx: number) => {
     setDeleteModalTargets([globalIdx]);
   };
 
-  // Open delete popup for all selected items
   const requestBulkDelete = () => {
     if (selectedIndices.length === 0) return;
     setDeleteModalTargets([...selectedIndices]);
   };
 
-  // Confirm delete from popup modal
   const confirmDeleteTargets = async () => {
     if (!deleteModalTargets || deleteModalTargets.length === 0) return;
     try {
@@ -229,26 +182,32 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
       setDeleteModalTargets(null);
       onSaveFeedback(
         deletedCount === 1
-          ? '✓ Deleted project from archive.'
-          : `✓ Deleted ${deletedCount} projects from archive.`
+          ? '✓ Project removed from portfolio.'
+          : `✓ Successfully removed ${deletedCount} projects from portfolio.`
       );
+    } catch (err: any) {
+      alert('Delete failed: ' + (err.message || 'Server error'));
     } finally {
       setIsDeleting(false);
     }
   };
 
-  const handleCardFieldChange = (globalIdx: number, field: keyof GalleryMediaItem, value: string) => {
+  const handleCardFieldChange = (
+    globalIdx: number,
+    field: 'title' | 'description',
+    value: string
+  ) => {
     const updated = [...galleryImages];
     updated[globalIdx] = {
       ...updated[globalIdx],
       [field]: value
     };
-    void onUpdateGallery(updated);
+    onUpdateGallery(updated);
   };
 
   return (
-    <div className="space-y-6 relative pb-16">
-      {/* Hidden file input for single item replace */}
+    <div className="space-y-5">
+      {/* Hidden input for media replacement */}
       <input
         ref={replaceFileInputRef}
         type="file"
@@ -257,106 +216,71 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
         onChange={handleReplaceFileChange}
       />
 
-      {/* Top Header Card */}
-      <div className="bg-white p-6 rounded-3xl border border-slate-200/90 shadow-2xs space-y-5">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+      {/* Top Header & Search Bar */}
+      <div className="bg-white p-4 sm:p-5 rounded-3xl border border-slate-200/90 shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-              <h3 className="text-lg font-black text-slate-900">
-                All Projects Archive ({galleryImages.length})
+            <div className="flex items-center gap-2.5">
+              <h3 className="text-base sm:text-lg font-black text-slate-900">
+                أرشيف كل المشاريع (All Projects Portfolio)
               </h3>
+              <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-xs font-black">
+                {galleryImages.length}
+              </span>
             </div>
-            <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
-              Complete engineering photo & video portfolio. Select individual or multiple projects to delete in bulk, or manage project titles and descriptions.
+            <p className="text-xs text-slate-500 font-medium mt-0.5">
+              إدارة جميع صور وفيديوهات المشاريع المنفذة • أول 12 مشروع تظهر تلقائياً في السلايدر 3D بالرئيسية
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 shrink-0">
-            {selectedIndices.length > 0 && (
-              <button
-                type="button"
-                onClick={requestBulkDelete}
-                className="px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-extrabold text-xs rounded-xl flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
-              >
-                <Trash2 className="w-4 h-4" />
-                <span>Delete Selected ({selectedIndices.length})</span>
-              </button>
-            )}
-
+          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => setIsAddFormOpen(!isAddFormOpen)}
-              className="px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs rounded-xl flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+              className="px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white font-black text-xs rounded-xl shadow-xs transition-all flex items-center gap-2 cursor-pointer"
             >
               <Plus className="w-4 h-4 stroke-[3]" />
-              <span>{isAddFormOpen ? 'Close Form' : 'Upload New Project'}</span>
+              <span>{isAddFormOpen ? 'إلغاء (Cancel)' : 'إضافة مشاريع جديدة'}</span>
             </button>
           </div>
         </div>
 
-        {/* New Project Upload Drawer */}
+        {/* Upload Form Box */}
         {isAddFormOpen && (
-          <div className="p-5 rounded-2xl border-2 border-red-200 bg-red-50/30 space-y-4 animate-in fade-in duration-200">
-            <div className="flex items-center justify-between">
-              <h4 className="text-sm font-black text-slate-900 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-red-600" />
-                Upload New Project Media (Multiple Files Supported)
+          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-4 animate-in fade-in duration-150">
+            <div className="flex items-center gap-2 pb-1 border-b border-slate-200">
+              <Sparkles className="w-4 h-4 text-red-600" />
+              <h4 className="text-xs font-black uppercase text-slate-800">
+                رفع صور أو فيديوهات للمشاريع (Upload Projects)
               </h4>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="block text-[11px] font-bold text-slate-700 mb-1">
-                  Project Title <span className="text-slate-400 font-normal">(Optional)</span>
+                  عنوان المشروع (Project Title - اختياري)
                 </label>
                 <input
                   type="text"
                   value={newTitle}
                   onChange={(e) => setNewTitle(e.target.value)}
-                  placeholder="Optional — leave blank for image only"
-                  className="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 bg-white outline-none focus:border-red-500"
+                  placeholder="مثال: فيلا خاصة في بغداد..."
+                  className="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 bg-white outline-none focus:border-red-500 font-bold"
                 />
               </div>
 
               <div>
                 <label className="block text-[11px] font-bold text-slate-700 mb-1">
-                  Product Category (قسم المنتج)
+                  تفاصيل المشروع (Description - اختياري)
                 </label>
-                <select
-                  value={newCategory}
-                  onChange={(e) => setNewCategory(e.target.value)}
-                  className="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 bg-white outline-none focus:border-red-500 font-bold"
-                >
-                  {adminCats.map((cat) => (
-                    <option key={cat.key} value={cat.key}>
-                      {cat.nameAr} ({cat.nameEn})
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-slate-700 mb-1">System / Brand</label>
                 <input
                   type="text"
-                  value={newSystem}
-                  onChange={(e) => setNewSystem(e.target.value)}
-                  placeholder="e.g. WIEK Hidden Hinge / Lorenzoline 70LS"
-                  className="w-full border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 bg-white outline-none focus:border-red-500"
+                  value={newDescription}
+                  onChange={(e) => setNewDescription(e.target.value)}
+                  placeholder="مواصفات الزجاج والأنظمة..."
+                  className="w-full border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 bg-white outline-none focus:border-red-500"
                 />
               </div>
-            </div>
-
-            <div>
-              <AdvancedTextarea
-                value={newDescription}
-                onChange={setNewDescription}
-                label="Project Description (Optional — leave blank for image only)"
-                placeholder="Optional — leave blank if no description needed..."
-                rows={4}
-                minHeight="100px"
-              />
             </div>
 
             {uploadError && (
@@ -370,10 +294,10 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                 type="button"
                 disabled={isUploading}
                 onClick={() => addFileInputRef.current?.click()}
-                className="px-5 py-2.5 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs rounded-xl shadow-sm transition-all cursor-pointer flex items-center gap-2"
+                className="px-5 py-2.5 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-black text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center gap-2"
               >
                 <Upload className="w-4 h-4" />
-                <span>{isUploading ? 'Uploading files…' : 'Select Files (Images or MP4 Videos)'}</span>
+                <span>{isUploading ? 'جاري الرفع…' : 'اختيار الملفات (صور أو فيديوهات MP4)'}</span>
               </button>
               <input
                 ref={addFileInputRef}
@@ -383,80 +307,51 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                 className="hidden"
                 onChange={handleCreateProjects}
               />
-              <span className="text-xs text-slate-500 font-medium">You can select multiple files at once.</span>
+              <span className="text-xs text-slate-500 font-medium">يمكنك تحديد عدة صور أو فيديوهات دفعة واحدة.</span>
             </div>
           </div>
         )}
 
-        {/* Filters, Bulk Select Controls, and Search Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pt-1">
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
-            {categoriesList.map((cat) => (
-              <button
-                key={cat.key}
-                type="button"
-                onClick={() => setSelectedCategory(cat.key)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                  selectedCategory === cat.key
-                    ? 'bg-slate-900 text-white shadow-xs'
-                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+        {/* Search Bar & Select All Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-1">
+          <div className="relative flex-1 w-full sm:max-w-md">
+            <Search className="w-4 h-4 text-slate-400 absolute start-3.5 top-3 pointer-events-none" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="البحث في عنوان أو تفاصيل المشروع..."
+              className="w-full border border-slate-200 rounded-xl ps-10 pe-3 py-2 text-xs text-slate-900 outline-none focus:border-red-500 bg-slate-50/70 font-medium shadow-2xs"
+            />
           </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            {/* Select All / Deselect All Button */}
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <button
               type="button"
               onClick={toggleSelectAllFiltered}
-              className={`px-3.5 py-2 rounded-xl text-xs font-extrabold flex items-center gap-1.5 border transition-all cursor-pointer ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 border transition-all cursor-pointer ${
                 allFilteredSelected
                   ? 'bg-red-50 border-red-300 text-red-700'
                   : 'bg-slate-100 hover:bg-slate-200 border-slate-200 text-slate-700'
               }`}
             >
-              {allFilteredSelected ? (
-                <CheckSquare className="w-3.5 h-3.5 text-red-600" />
-              ) : (
-                <Square className="w-3.5 h-3.5 text-slate-500" />
-              )}
-              <span>
-                {allFilteredSelected
-                  ? `Deselect All (${filteredEntries.length})`
-                  : `Select All (${filteredEntries.length})`}
-              </span>
+              <span>{allFilteredSelected ? 'إلغاء تحديد الكل' : 'تحديد الكل'}</span>
             </button>
 
             {selectedIndices.length > 0 && (
               <button
                 type="button"
                 onClick={clearSelection}
-                className="px-3 py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors cursor-pointer"
+                className="px-3 py-2 text-xs font-bold text-slate-500 hover:text-slate-800 cursor-pointer"
               >
-                Clear ({selectedIndices.length})
+                إلغاء ({selectedIndices.length})
               </button>
             )}
-
-            {/* Search Input */}
-            <div className="relative min-w-[220px] flex-1 sm:flex-initial">
-              <Search className="w-3.5 h-3.5 text-slate-400 absolute start-3 top-2.5 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search projects by title or system…"
-                className="w-full border border-slate-200 rounded-xl ps-9 pe-3 py-2 text-xs text-slate-800 outline-none focus:border-red-400 bg-slate-50"
-              />
-            </div>
           </div>
         </div>
 
-        {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-2">
+        {/* Sleek Project Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-1">
           {filteredEntries.map(({ item, globalIdx }) => {
             const isVideo = item.mediaType === 'video' || /\.(mp4|webm|mov)(\?|#|$)/i.test(item.src);
             const isIn3DCarousel = globalIdx >= 0 && globalIdx < 12;
@@ -465,136 +360,120 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
             return (
               <div
                 key={`${item.id}-${globalIdx}`}
-                className={`bg-white rounded-2xl border-2 p-3.5 shadow-xs flex flex-col justify-between gap-3 transition-all ${
+                className={`group relative bg-white rounded-2xl border transition-all duration-200 flex flex-col justify-between overflow-hidden shadow-2xs hover:shadow-md ${
                   isSelected
-                    ? 'border-red-600 ring-2 ring-red-500/20 bg-red-50/10'
-                    : isIn3DCarousel
-                    ? 'border-red-300 ring-1 ring-red-200/50'
+                    ? 'border-red-600 ring-2 ring-red-500/30 bg-red-50/10'
                     : 'border-slate-200 hover:border-slate-300'
                 }`}
               >
-                {/* Card Header: Checkbox & Status */}
-                <div className="flex items-center justify-between gap-2">
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => toggleSelectOne(globalIdx)}
-                      className={`w-5 h-5 rounded-md flex items-center justify-center border transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-red-600 border-red-600 text-white shadow-2xs'
-                          : 'bg-white border-slate-300 hover:border-red-400 text-transparent'
-                      }`}
-                      title={isSelected ? 'Deselect project' : 'Select project for bulk delete'}
-                    >
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </button>
-
-                    {isIn3DCarousel ? (
-                      <span className="px-2 py-0.5 rounded-md bg-red-600 text-white font-mono font-black text-[10px] shadow-2xs">
-                        3D SLOT #{String(globalIdx + 1).padStart(2, '0')}
-                      </span>
-                    ) : (
-                      <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-mono font-bold text-[10px]">
-                        #{String(globalIdx + 1).padStart(2, '0')}
-                      </span>
-                    )}
-                    <span
-                      className={`text-[10px] font-bold px-1.5 py-0.2 rounded ${
-                        isVideo ? 'bg-purple-50 text-purple-700' : 'bg-emerald-50 text-emerald-700'
-                      }`}
-                    >
-                      {isVideo ? 'VIDEO' : 'PHOTO'}
-                    </span>
-                  </div>
-
-                  <select
-                    value={item.category || 'doors'}
-                    onChange={(e) => handleCardFieldChange(globalIdx, 'category', e.target.value)}
-                    className="px-2 py-0.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200 text-[11px] font-bold text-slate-700 cursor-pointer outline-none focus:ring-1 focus:ring-red-400"
-                    title="Assign Product Category"
-                  >
-                    {adminCats.map((cat) => (
-                      <option key={cat.key} value={cat.key}>
-                        {cat.nameAr} ({cat.nameEn})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Media Preview */}
-                <div
-                  onClick={() => toggleSelectOne(globalIdx)}
-                  className="relative aspect-video rounded-xl overflow-hidden bg-slate-900 border border-slate-100 flex items-center justify-center cursor-pointer group"
-                >
+                {/* Media Hero Thumbnail */}
+                <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden cursor-pointer">
                   {isVideo ? (
-                    <video
-                      src={item.src}
-                      muted
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-full object-cover"
-                    />
+                    <>
+                      <video
+                        src={item.src}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
+                      />
+                      <div className="absolute inset-0 bg-black/25 flex items-center justify-center pointer-events-none">
+                        <div className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md text-white flex items-center justify-center shadow-lg group-hover:bg-red-600 group-hover:scale-110 transition-all">
+                          <Film className="w-4 h-4" />
+                        </div>
+                      </div>
+                    </>
                   ) : (
                     <img
                       src={item.src}
-                      alt={item.title}
-                      className="w-full h-full object-cover"
+                      alt={item.title || 'Project'}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg';
                       }}
                     />
                   )}
-                  {isVideo && (
-                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
-                      <Film className="w-5 h-5 text-white drop-shadow-md" />
+
+                  {/* Top Overlay Badges */}
+                  <div className="absolute top-2.5 inset-x-2.5 flex items-center justify-between pointer-events-none">
+                    <div className="flex items-center gap-1.5 pointer-events-auto">
+                      <button
+                        type="button"
+                        onClick={() => toggleSelectOne(globalIdx)}
+                        className={`w-6 h-6 rounded-lg flex items-center justify-center border transition-all cursor-pointer backdrop-blur-md ${
+                          isSelected
+                            ? 'bg-red-600 border-red-600 text-white shadow-sm'
+                            : 'bg-black/50 border-white/20 text-transparent hover:border-white'
+                        }`}
+                        title={isSelected ? 'Deselect' : 'Select'}
+                      >
+                        <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      </button>
+
+                      {isIn3DCarousel ? (
+                        <span className="px-2 py-0.5 rounded-md bg-red-600 text-white font-mono font-bold text-[10px] shadow-sm">
+                          3D #{String(globalIdx + 1).padStart(2, '0')}
+                        </span>
+                      ) : (
+                        <span className="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-md text-slate-200 font-mono text-[10px]">
+                          #{String(globalIdx + 1).padStart(2, '0')}
+                        </span>
+                      )}
                     </div>
-                  )}
-                  {isSelected && (
-                    <div className="absolute top-2 end-2 px-2 py-0.5 rounded-md bg-red-600 text-white text-[10px] font-black shadow-sm">
-                      Selected
-                    </div>
-                  )}
+
+                    <span
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded-md backdrop-blur-md ${
+                        isVideo
+                          ? 'bg-purple-600/90 text-white shadow-xs'
+                          : 'bg-black/60 text-slate-200'
+                      }`}
+                    >
+                      {isVideo ? 'VIDEO' : 'PHOTO'}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Form Fields */}
-                <div className="space-y-2">
-                  <input
-                    type="text"
-                    value={item.title}
-                    onChange={(e) => handleCardFieldChange(globalIdx, 'title', e.target.value)}
-                    placeholder="Project Title"
-                    className="w-full border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold text-slate-900 outline-none focus:border-red-400 bg-slate-50/50"
-                  />
+                {/* Card Body: Title & Clean 2-Line Description */}
+                <div className="p-3.5 space-y-2 flex-1 flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <input
+                      type="text"
+                      value={item.title || ''}
+                      onChange={(e) => handleCardFieldChange(globalIdx, 'title', e.target.value)}
+                      placeholder="عنوان المشروع (Project Title)..."
+                      className="w-full text-xs font-black text-slate-900 placeholder:text-slate-400 bg-transparent hover:bg-slate-50 focus:bg-white border border-transparent hover:border-slate-200 focus:border-red-400 rounded-lg px-2 py-1 outline-none transition-all"
+                    />
 
-                  <AdvancedTextarea
-                    value={item.description}
-                    onChange={(val) => handleCardFieldChange(globalIdx, 'description', val)}
-                    placeholder="Project details..."
-                    rows={4}
-                    minHeight="110px"
-                  />
-                </div>
+                    <textarea
+                      value={item.description || ''}
+                      onChange={(e) => handleCardFieldChange(globalIdx, 'description', e.target.value)}
+                      placeholder="وصف وتفاصيل المشروع..."
+                      rows={2}
+                      className="w-full text-[11px] text-slate-600 placeholder:text-slate-400 bg-slate-50/70 hover:bg-slate-50 focus:bg-white border border-slate-200/70 focus:border-red-400 rounded-xl p-2 outline-none transition-all resize-none leading-relaxed"
+                    />
+                  </div>
 
-                {/* Project Action Controls */}
-                <div className="pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-                  <button
-                    type="button"
-                    onClick={() => handleTriggerReplace(globalIdx)}
-                    className="flex-1 py-1.5 px-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-                  >
-                    <Upload className="w-3.5 h-3.5" />
-                    <span>Replace Image</span>
-                  </button>
+                  {/* Sleek Action Footer */}
+                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => handleTriggerReplace(globalIdx)}
+                      className="text-[11px] font-bold text-slate-500 hover:text-slate-900 flex items-center gap-1.5 px-2 py-1 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer"
+                    >
+                      <Upload className="w-3.5 h-3.5" />
+                      <span>استبدال الملف</span>
+                    </button>
 
-                  <button
-                    type="button"
-                    onClick={() => requestSingleDelete(globalIdx)}
-                    className="py-1.5 px-3 rounded-xl bg-rose-50 hover:bg-rose-600 text-rose-700 hover:text-white border border-rose-200 hover:border-rose-600 font-extrabold text-[11px] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
-                    title="Delete Project"
-                  >
-                    <Trash2 className="w-3.5 h-3.5" />
-                    <span>Delete</span>
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => requestSingleDelete(globalIdx)}
+                      className="text-[11px] font-bold text-slate-400 hover:text-rose-600 flex items-center gap-1 p-1 rounded-lg hover:bg-rose-50 transition-colors cursor-pointer"
+                      title="حذف المشروع"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             );
@@ -602,7 +481,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
         </div>
       </div>
 
-      {/* Floating Bulk Action Bar when items are selected */}
+      {/* Floating Bulk Action Bar */}
       {selectedIndices.length > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-200">
           <div className="flex items-center gap-2">
@@ -610,7 +489,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
               {selectedIndices.length}
             </span>
             <span className="text-xs font-bold">
-              {selectedIndices.length === 1 ? '1 project selected' : `${selectedIndices.length} projects selected`}
+              {selectedIndices.length === 1 ? 'مشروع واحد محدد' : `${selectedIndices.length} مشاريع محددة`}
             </span>
           </div>
 
@@ -621,7 +500,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
             onClick={clearSelection}
             className="text-xs font-bold text-slate-300 hover:text-white transition-colors cursor-pointer"
           >
-            Deselect All
+            إلغاء التحديد
           </button>
 
           <button
@@ -630,7 +509,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
             className="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
           >
             <Trash2 className="w-3.5 h-3.5" />
-            <span>Delete ({selectedIndices.length})</span>
+            <span>حذف المحدد ({selectedIndices.length})</span>
           </button>
         </div>
       )}
@@ -648,68 +527,40 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                   <div>
                     <h4 className="text-base font-black text-slate-900">
                       {deleteModalTargets.length === 1
-                        ? 'Delete Project?'
-                        : `Delete ${deleteModalTargets.length} Selected Projects?`}
+                        ? 'هل أنت متأكد من حذف هذا المشروع؟'
+                        : `هل أنت متأكد من حذف ${deleteModalTargets.length} مشاريع؟`}
                     </h4>
                     <p className="text-xs text-slate-500 mt-0.5">
-                      This action will permanently remove the selected item(s) from the portfolio.
+                      سيتم إزالة العناصر المحددة نهائياً من معرض المشاريع.
                     </p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => setDeleteModalTargets(null)}
-                  className="p-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-500 transition-colors cursor-pointer"
+                  className="text-slate-400 hover:text-slate-600 cursor-pointer"
                 >
-                  <X className="w-4 h-4" />
+                  <X className="w-5 h-5" />
                 </button>
               </div>
-
-              {deleteModalTargets.length === 1 ? (
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-bold text-slate-800 truncate">
-                  {galleryImages[deleteModalTargets[0]]?.title || `Project #${deleteModalTargets[0] + 1}`}
-                </div>
-              ) : (
-                <div className="p-3 rounded-2xl bg-slate-50 border border-slate-200 max-h-36 overflow-y-auto space-y-1.5">
-                  {deleteModalTargets.slice(0, 8).map((idx) => (
-                    <div key={idx} className="text-xs font-semibold text-slate-700 truncate flex items-center gap-2">
-                      <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-200 text-slate-700">
-                        #{String(idx + 1).padStart(2, '0')}
-                      </span>
-                      <span className="truncate">{galleryImages[idx]?.title || `Project #${idx + 1}`}</span>
-                    </div>
-                  ))}
-                  {deleteModalTargets.length > 8 && (
-                    <div className="text-[11px] font-bold text-slate-400 pt-1">
-                      + {deleteModalTargets.length - 8} more project(s)
-                    </div>
-                  )}
-                </div>
-              )}
 
               <div className="flex items-center justify-end gap-2.5 pt-2">
                 <button
                   type="button"
                   disabled={isDeleting}
                   onClick={() => setDeleteModalTargets(null)}
-                  className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs transition-colors cursor-pointer"
+                  className="px-4 py-2 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 font-bold text-xs transition-colors cursor-pointer"
                 >
-                  Cancel
+                  إلغاء
                 </button>
                 <button
                   type="button"
                   disabled={isDeleting}
                   onClick={confirmDeleteTargets}
-                  className="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+                  className="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-xs shadow-sm transition-all cursor-pointer flex items-center gap-1.5"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
-                  <span>
-                    {isDeleting
-                      ? 'Deleting…'
-                      : deleteModalTargets.length === 1
-                      ? 'Delete'
-                      : `Delete (${deleteModalTargets.length})`}
-                  </span>
+                  <span>{isDeleting ? 'جاري الحذف…' : 'تأكيد الحذف'}</span>
                 </button>
               </div>
             </div>

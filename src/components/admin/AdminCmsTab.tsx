@@ -6,7 +6,6 @@ import { autoTranslateFullProduct } from '../../services/translateService';
 import { ProductItem } from '../../data/winhomeData';
 import { Admin3DCarouselTab } from '../Admin3DCarouselTab';
 import { AdminAllProjectsTab } from '../AdminAllProjectsTab';
-import { AdminArchCardsTab } from '../AdminArchCardsTab';
 import { AdminDynamicSectionTab } from '../AdminDynamicSectionTab';
 import { AdvancedTextarea } from './AdvancedTextarea';
 
@@ -166,26 +165,6 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
           </span>
         </button>
 
-        {/* 3. Architecture Catalogues & Systems Showcase */}
-        <button
-          type="button"
-          onClick={() => setCmsSubTab('arch-cards')}
-          className={`px-4 py-2.5 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-2 shrink-0 ${
-            cmsSubTab === 'arch-cards'
-              ? 'bg-red-600 text-white shadow-sm'
-              : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-          }`}
-        >
-          <span>
-            {currentLanguage.code === 'ar'
-              ? 'الكتالوجات والأنظمة المعمارية'
-              : currentLanguage.code === 'ckb'
-              ? 'کەتەلۆگ و سیستەمە تەلارسازییەکان'
-              : currentLanguage.code === 'tr'
-              ? 'Mimari Kataloglar ve Sistemler'
-              : 'Architecture Catalogues & Systems'}
-          </span>
-        </button>
 
         {/* Dynamic Homepage Sections */}
         {homepageSections.map((sec) => {
@@ -384,18 +363,6 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
         />
       )}
 
-      {/* TAB 3: ARCHITECTURE CARDS & CATALOGUES */}
-      {cmsSubTab === 'arch-cards' && (
-        <AdminArchCardsTab
-          archCards={archCards}
-          onUpdateArchCards={setArchCards}
-          onUploadMedia={onUploadMedia}
-          onSaveFeedback={(msg) => {
-            setCmsSaveFeedback(msg);
-            setTimeout(() => setCmsSaveFeedback(''), 4000);
-          }}
-        />
-      )}
 
       {/* TAB 4+: DYNAMIC HOMEPAGE PRODUCT SECTIONS */}
       {cmsSubTab.startsWith('sec:') && (() => {
