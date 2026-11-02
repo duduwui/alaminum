@@ -278,70 +278,6 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
             </div>
 
             <div className="space-y-4">
-              {/* Section Purpose & Type Selector */}
-              <div>
-                <label className="text-[11px] font-black text-slate-700 block mb-2">
-                  {currentLanguage.code === 'ar' ? 'نوع القسم والغرض منه *' : 'Section Purpose & Type *'}
-                </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <button
-                    type="button"
-                    onClick={() => setNewSectionIsProduct(true)}
-                    className={`p-3 rounded-2xl border text-right transition-all cursor-pointer flex flex-col gap-1 ${
-                      newSectionIsProduct
-                        ? 'border-emerald-500 bg-emerald-50/70 ring-2 ring-emerald-500/20'
-                        : 'border-slate-200 hover:border-slate-300 bg-white'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-black text-slate-900">
-                        {currentLanguage.code === 'ar' ? 'قسم منتجات وكتالوج' : 'Product Category'}
-                      </span>
-                      <span
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] font-black ${
-                          newSectionIsProduct ? 'border-emerald-600 bg-emerald-600 text-white' : 'border-slate-300'
-                        }`}
-                      >
-                        {newSectionIsProduct && '✓'}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-slate-500 leading-relaxed">
-                      {currentLanguage.code === 'ar'
-                        ? 'يظهر كتصنيف مستقل عند إضافة المنتجات في الكتالوج وفلاتر الموقع'
-                        : 'Creates a product category in catalog & Add Product dropdown'}
-                    </p>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setNewSectionIsProduct(false)}
-                    className={`p-3 rounded-2xl border text-right transition-all cursor-pointer flex flex-col gap-1 ${
-                      !newSectionIsProduct
-                        ? 'border-indigo-500 bg-indigo-50/70 ring-2 ring-indigo-500/20'
-                        : 'border-slate-200 hover:border-slate-300 bg-white'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-black text-slate-900">
-                        {currentLanguage.code === 'ar' ? 'قسم استعراض ووسائط عام' : 'Showcase / Media Only'}
-                      </span>
-                      <span
-                        className={`w-4 h-4 rounded-full border flex items-center justify-center text-[10px] font-black ${
-                          !newSectionIsProduct ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300'
-                        }`}
-                      >
-                        {!newSectionIsProduct && '✓'}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-slate-500 leading-relaxed">
-                      {currentLanguage.code === 'ar'
-                        ? 'للعرض بالصفحة الرئيسية فقط دون إضافته لقوائم وتصنيفات المنتجات'
-                        : 'Homepage showcase only; does not pollute product category lists'}
-                    </p>
-                  </button>
-                </div>
-              </div>
-
               <div>
                 <label className="text-[11px] font-black text-slate-700 block mb-1.5">
                   {currentLanguage.code === 'ar' ? 'اسم / عنوان القسم *' : 'Section Title *'}
@@ -352,8 +288,8 @@ export const AdminCmsTab: React.FC<AdminCmsTabProps> = ({
                   onChange={(e) => setNewSectionTitle(e.target.value)}
                   placeholder={
                     currentLanguage.code === 'ar'
-                      ? 'مثال: الواجهات الزجاجية والستائر الحائطية'
-                      : 'e.g. Glass Facades & Curtain Walls'
+                      ? 'مثال: الواجهات المعمارية والستائر الجدارية'
+                      : 'e.g. Architectural Facades & Glass Walls'
                   }
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-xs font-bold focus:outline-none focus:border-red-500"
                 />

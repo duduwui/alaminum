@@ -157,11 +157,14 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
         ) : (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {visibleProducts.map((product) => {
-              const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(product.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(product.fallbackImage || '');
-              const posterUrl = product.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(product.image)
+              const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(product.videoUrl || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(product.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(product.fallbackImage || '');
+              const videoSrc = (isVid && product.videoUrl) ? product.videoUrl : (product.image || product.fallbackImage);
+              const posterUrl = isVid
                 ? (product.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(product.fallbackImage)
                     ? product.fallbackImage
-                    : product.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+                    : (product.image && !/\.(mp4|webm|mov)(\?|#|$)/i.test(product.image)
+                        ? product.image
+                        : videoSrc?.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')))
                 : (product.image || product.fallbackImage);
 
               return (
@@ -169,7 +172,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
                   <div className="h-52 overflow-hidden bg-slate-900 relative">
                     {isVid ? (
                       <video
-                        src={product.image || product.fallbackImage}
+                        src={videoSrc}
                         poster={posterUrl}
                         muted
                         playsInline

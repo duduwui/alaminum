@@ -100,6 +100,7 @@ import { AdminDynamicSectionTab } from './AdminDynamicSectionTab';
 import { AdminSidebar } from './admin/AdminSidebar';
 import { AdminProductsTab } from './admin/AdminProductsTab';
 import { AdminProductModal } from './admin/AdminProductModal';
+import { AdminCategoriesModal, AdminCategoryItem, DEFAULT_ADMIN_CATEGORIES } from './admin/AdminCategoriesModal';
 import { AdminCmsTab } from './admin/AdminCmsTab';
 import { AdminPartnerLogosTab } from './admin/AdminPartnerLogosTab';
 import { AdvancedTextarea } from './admin/AdvancedTextarea';
@@ -437,25 +438,54 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [productSearchQuery, setProductSearchQuery] = useState<string>('');
   const [productCategoryFilter, setProductCategoryFilter] = useState<string>('all');
 
-  // Unified Section / Category Options (Strictly categorized as per user folders)
+  // Dynamic Product Categories (Fully manageable from Products tab)
+  const [isCategoriesModalOpen, setIsCategoriesModalOpen] = useState<boolean>(false);
+  const [adminCategories, setAdminCategories] = useState<AdminCategoryItem[]>(() => {
+    try {
+      const saved = localStorage.getItem('dh_admin_categories');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      }
+    } catch {}
+    return DEFAULT_ADMIN_CATEGORIES;
+  });
+
+  const handleSaveCategories = (updated: AdminCategoryItem[]) => {
+    setAdminCategories(updated);
+    try {
+      localStorage.setItem('dh_admin_categories', JSON.stringify(updated));
+    } catch {}
+    void saveSharedCmsSection('divisions', updated).catch(() => {});
+  };
+
+  // Unified Section / Category Options
   const allCategoryOptions = useMemo(() => {
-    return [
-      { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
-      { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
-      { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies' },
-      { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
-      { key: 'accessories', label: currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware' },
-    ];
-  }, [currentLanguage.code]);
+    return adminCategories.map((c) => ({
+      key: c.key,
+      label: currentLanguage.code === 'ar' ? c.nameAr : currentLanguage.code === 'ckb' ? c.nameCkb : c.nameEn,
+    }));
+  }, [adminCategories, currentLanguage.code]);
 
   const getProductCategoryLabel = (prod: ProductItem) => {
     const key = (prod.category || prod.division || '').toLowerCase();
     
-    if (key === 'shorfa' || key === 'balconies' || key.includes('1793119430295')) return currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies');
-    if (key === 'doors') return currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : (currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances');
-    if (key === 'windows') return currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : (currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems');
-    if (key === 'stairs' || key === 'sec-1793119387374') return currentLanguage.code === 'ar' ? 'حواجز السلالم' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');
-    if (key === 'accessories') return currentLanguage.code === 'ar' ? 'الملحقات والإكسسوارات' : (currentLanguage.code === 'ckb' ? 'اکسسوارات و پێداویستییەکان' : 'Accessories & Hardware');
+    // Check dynamic categories first
+    const match = adminCategories.find((c) => c.key.toLowerCase() === key);
+    if (match) {
+      return currentLanguage.code === 'ar' ? match.nameAr : currentLanguage.code === 'ckb' ? match.nameCkb : match.nameEn;
+    }
+    
+    if (key === 'shorfa' || key === 'balconies' || key.includes('1793119430295')) {
+      const sh = adminCategories.find((c) => c.key === 'shorfa');
+      if (sh) return currentLanguage.code === 'ar' ? sh.nameAr : currentLanguage.code === 'ckb' ? sh.nameCkb : sh.nameEn;
+      return currentLanguage.code === 'ar' ? 'حواجز الشرفات والبلكونات والتراسات' : (currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Glass Balustrades & Balconies');
+    }
+    if (key === 'stairs' || key === 'sec-1793119387374') {
+      const st = adminCategories.find((c) => c.key === 'stairs');
+      if (st) return currentLanguage.code === 'ar' ? st.nameAr : currentLanguage.code === 'ckb' ? st.nameCkb : st.nameEn;
+      return currentLanguage.code === 'ar' ? 'حواجز السلالم' : (currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings');
+    }
 
     const foundOpt = allCategoryOptions.find((opt) => opt.key === key || opt.key.toLowerCase() === key);
     if (foundOpt) return foundOpt.label;
@@ -1458,6 +1488,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
             getProductCategoryLabel={getProductCategoryLabel}
             onOpenAddProduct={handleOpenAddProduct}
             onOpenEditProduct={handleOpenEditProduct}
+            onOpenManageCategories={() => setIsCategoriesModalOpen(true)}
             onDeleteProduct={handleDeleteProduct}
             onClearCatalog={() => {
               if (confirm('Are you sure you want to clear all products from the catalog?')) {
@@ -1519,6 +1550,17 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         allCategoryOptions={allCategoryOptions}
         onSave={handleSaveProductFromModal}
         onUploadMedia={uploadCmsMediaFile}
+        currentLanguage={currentLanguage}
+        t={t}
+      />
+
+      {/* MANAGE PRODUCT CATEGORIES MODAL */}
+      <AdminCategoriesModal
+        isOpen={isCategoriesModalOpen}
+        onClose={() => setIsCategoriesModalOpen(false)}
+        categories={adminCategories}
+        onSaveCategories={handleSaveCategories}
+        productList={productList}
         currentLanguage={currentLanguage}
         t={t}
       />

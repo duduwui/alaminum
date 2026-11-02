@@ -14,13 +14,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
   const { currentLanguage } = useLanguage();
   if (!product || !isOpen) return null;
   const localizedProduct = getLocalizedProduct(product, currentLanguage.code);
-  const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.fallbackImage || '');
-  const mediaSrc = localizedProduct.image || localizedProduct.fallbackImage;
-  const posterUrl = localizedProduct.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image)
+  const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.videoUrl || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.fallbackImage || '');
+  const mediaSrc = (isVid && localizedProduct.videoUrl) ? localizedProduct.videoUrl : (localizedProduct.image || localizedProduct.fallbackImage);
+  const posterUrl = isVid
     ? (localizedProduct.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.fallbackImage)
         ? localizedProduct.fallbackImage
-        : localizedProduct.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
-    : (localizedProduct.image || localizedProduct.fallbackImage);
+        : (localizedProduct.image && !/\.(mp4|webm|mov)(\?|#|$)/i.test(localizedProduct.image)
+            ? localizedProduct.image
+            : mediaSrc?.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')))
+    : mediaSrc;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 p-4" onClick={onClose}>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Trash2, Edit, Play } from 'lucide-react';
+import { Search, Plus, Trash2, Edit, Play, Layers } from 'lucide-react';
 import { ProductItem } from '../../data/winhomeData';
 import { getLocalizedProduct } from '../../utils/localizedContent';
 
@@ -9,6 +9,7 @@ interface AdminProductsTabProps {
   getProductCategoryLabel: (prod: ProductItem) => string;
   onOpenAddProduct: () => void;
   onOpenEditProduct: (prod: ProductItem) => void;
+  onOpenManageCategories?: () => void;
   onDeleteProduct: (id: string) => void;
   onClearCatalog: () => void;
   currentLanguage: { code: string; name: string };
@@ -21,6 +22,7 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
   getProductCategoryLabel,
   onOpenAddProduct,
   onOpenEditProduct,
+  onOpenManageCategories,
   onDeleteProduct,
   onClearCatalog,
   currentLanguage,
@@ -160,6 +162,17 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
         </div>
 
         <div className="flex items-center gap-2 w-full sm:w-auto">
+          {onOpenManageCategories && (
+            <button
+              type="button"
+              onClick={onOpenManageCategories}
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            >
+              <Layers className="w-4 h-4" />
+              <span>{currentLanguage.code === 'ar' ? 'إدارة الأقسام' : currentLanguage.code === 'ckb' ? 'بەڕێوەبردنی بەشەکان' : 'Manage Categories'}</span>
+            </button>
+          )}
+
           {productList.length > 0 && (
             <button
               type="button"
@@ -197,11 +210,14 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
               {filteredProducts.map((prod) => {
                 const localized = getLocalizedProduct(prod, currentLanguage.code);
                 const category = getProductCategoryLabel(prod);
-                const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.fallbackImage || '');
-                const posterUrl = prod.image && /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image)
+                const isVid = /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.videoUrl || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image || '') || /\.(mp4|webm|mov)(\?|#|$)/i.test(prod.fallbackImage || '');
+                const videoSrc = (isVid && prod.videoUrl) ? prod.videoUrl : (prod.image || prod.fallbackImage);
+                const posterUrl = isVid
                   ? (prod.fallbackImage && !/\.(mp4|webm|mov)(\?|#|$)/i.test(prod.fallbackImage)
                       ? prod.fallbackImage
-                      : prod.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1'))
+                      : (prod.image && !/\.(mp4|webm|mov)(\?|#|$)/i.test(prod.image)
+                          ? prod.image
+                          : videoSrc?.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')))
                   : (prod.image || prod.fallbackImage);
 
                 return (
@@ -228,7 +244,7 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
                                 }}
                               />
                               <video
-                                src={prod.image}
+                                src={videoSrc}
                                 muted
                                 playsInline
                                 preload="metadata"
