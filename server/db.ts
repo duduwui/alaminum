@@ -370,7 +370,28 @@ export async function updateUser(id: string, updates: any): Promise<any> {
         }
       }
 
-      await dbQuery(`UPDATE users SET ${sets.join(', ')} WHERE id = $1`, vals);
+      const res = await dbQuery(`UPDATE users SET ${sets.join(', ')} WHERE id = $1 RETURNING *`, vals);
+      if (res.rows && res.rows[0]) {
+        if (!updatedRecord) {
+          updatedRecord = {
+            id: res.rows[0].id,
+            name: res.rows[0].name,
+            username: res.rows[0].name,
+            email: res.rows[0].email,
+            password: res.rows[0].password,
+            role: res.rows[0].role,
+            phone: res.rows[0].phone,
+            company: res.rows[0].company,
+            city: res.rows[0].city,
+            status: res.rows[0].status,
+            requestsCount: res.rows[0].requests_count,
+            lastLogin: res.rows[0].last_login,
+            createdAt: res.rows[0].created_at
+          };
+          jsonCurrent.push(updatedRecord);
+          writeJsonFile(USERS_FILE, jsonCurrent);
+        }
+      }
     } catch (e: any) {
       console.warn('[PostgreSQL updateUser error]:', e.message);
     }

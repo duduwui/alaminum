@@ -154,7 +154,15 @@ async function startServer() {
   const getAdminCmsSessionToken = (req: express.Request) => {
     const candidates = [req.headers.authorization?.replace(/^Bearer\s+/i, ''), req.headers['x-admin-token'] as string,
       ...(req.headers.cookie?.split(';').map((part) => part.trim()).filter((part) => part.startsWith('dh_admin_session=')).map((part) => part.slice('dh_admin_session='.length)) || [])];
-    return candidates.find((token) => token && (adminUploadSessions.get(token)?.expires || 0) > Date.now());
+    const token = candidates.find((t) => t && (adminUploadSessions.get(t)?.expires || 0) > Date.now());
+    if (token) {
+      const session = adminUploadSessions.get(token);
+      if (session && session.expires - Date.now() < 15 * 24 * 60 * 60 * 1000) {
+        session.expires = Date.now() + 30 * 24 * 60 * 60 * 1000;
+        void saveAdminSessions();
+      }
+    }
+    return token;
   };
 
   const sessionUserId = (req: express.Request) => {
@@ -488,7 +496,10 @@ async function startServer() {
       const users = await getUsers();
       const sanitized = users.map((u: any) => {
         const { password, ...rest } = u;
-        return rest;
+        return {
+          ...rest,
+          username: rest.username || rest.name
+        };
       });
       res.json(sanitized);
     } catch (err: any) {
@@ -500,19 +511,28 @@ async function startServer() {
     try {
       if (!hasAdminCmsSession(req)) return res.status(401).json({ error: 'Administrator access required.' });
       const { username, password, phone } = req.body;
-      if (!/^[a-zA-Z0-9._-]{3,32}$/.test(username || '') || typeof password !== 'string' || password.length < 8) {
-        return res.status(400).json({ error: 'Use a 3–32 character username and a password of at least 8 characters.' });
+      const cleanName = typeof username === 'string' ? username.trim() : '';
+      if (!/^[\p{L}\p{N}._ -]{2,60}$/u.test(cleanName) || typeof password !== 'string' || password.length < 8) {
+        return res.status(400).json({ error: 'Use a 2–60 character name/username and a password of at least 8 characters.' });
       }
-      const email = `${username.toLowerCase()}@admins.doorhome.local`;
+
+      // Generate a valid, unique internal email identifier
+      const transliterated = cleanName.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const safePrefix = transliterated.length >= 2 ? transliterated.slice(0, 24) : `admin_${Date.now().toString().slice(-6)}`;
+      let email = `${safePrefix}@admins.doorhome.local`;
+
       const users = await getUsers();
-      if (users.some((u: any) => u.email.toLowerCase() === email)) {
-        return res.status(409).json({ error: 'This username already exists.' });
+      if (users.some((u: any) => (u.name || '').trim().toLowerCase() === cleanName.toLowerCase())) {
+        return res.status(409).json({ error: 'An administrator with this name already exists.' });
+      }
+      if (users.some((u: any) => (u.email || '').toLowerCase() === email)) {
+        email = `${safePrefix}_${Date.now().toString().slice(-4)}@admins.doorhome.local`;
       }
 
       const newUser = {
         id: `usr-${Date.now()}`,
-        name: username,
-        username,
+        name: cleanName,
+        username: cleanName,
         email,
         password: hashPassword(password),
         role: 'admin',
@@ -540,9 +560,15 @@ async function startServer() {
       if (typeof req.body.status === 'string' && ['active', 'disabled'].includes(req.body.status)) updates.status = req.body.status;
       if (typeof req.body.password === 'string' && req.body.password.length >= 8) updates.password = hashPassword(req.body.password);
       if (typeof req.body.phone === 'string') updates.phone = req.body.phone.trim();
-      if (typeof req.body.username === 'string' && /^[a-zA-Z0-9._-]{3,32}$/.test(req.body.username)) {
-        updates.name = req.body.username;
-        updates.email = `${req.body.username.toLowerCase()}@admins.doorhome.local`;
+      if (typeof req.body.username === 'string') {
+        const cleanName = req.body.username.trim();
+        if (/^[\p{L}\p{N}._ -]{2,60}$/u.test(cleanName)) {
+          updates.name = cleanName;
+          updates.username = cleanName;
+          const transliterated = cleanName.toLowerCase().replace(/[^a-z0-9]/g, '');
+          const safePrefix = transliterated.length >= 2 ? transliterated.slice(0, 24) : `admin_${Date.now().toString().slice(-6)}`;
+          updates.email = `${safePrefix}@admins.doorhome.local`;
+        }
       }
 
       const updated = await updateUser(id, updates);
@@ -660,9 +686,10 @@ async function startServer() {
       // Issue session token (same as normal login)
       const sessionToken = randomUUID();
       if (user.role === 'admin' || user.role === 'super_admin') {
-        adminUploadSessions.set(sessionToken, { expires: Date.now() + 12 * 60 * 60 * 1000, userId: user.id });
+        const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
+        adminUploadSessions.set(sessionToken, { expires: Date.now() + thirtyDaysMs, userId: user.id });
         await saveAdminSessions();
-        res.cookie('dh_admin_session', sessionToken, { httpOnly: true, sameSite: 'lax', secure: true, path: '/', maxAge: 12 * 60 * 60 * 1000 });
+        res.cookie('dh_admin_session', sessionToken, { httpOnly: true, sameSite: 'lax', secure: true, path: '/', maxAge: thirtyDaysMs });
       }
 
       const { password: _, ...userWithoutPass } = user;
@@ -691,12 +718,19 @@ async function startServer() {
       }
 
       const loginId = String(email).trim().toLowerCase();
-      const user = users.find((u: any) =>
-        (u.email.toLowerCase() === loginId ||
-          (u.role === 'admin' && u.email.toLowerCase() === `${loginId}@admins.doorhome.local`) ||
+      const user = users.find((u: any) => {
+        const uEmail = (u.email || '').toLowerCase().trim();
+        const uName = (u.name || '').toLowerCase().trim();
+        const uUsername = (u.username || '').toLowerCase().trim();
+        const isMatch =
+          uEmail === loginId ||
+          uName === loginId ||
+          uUsername === loginId ||
+          (u.role === 'admin' && uEmail === `${loginId}@admins.doorhome.local`) ||
           (u.id === 'usr-admin-1' && (loginId === 'admin' || loginId.startsWith('admin@doorhome.'))) ||
-          (u.role === 'admin' && loginId === 'admin')) &&
-        passwordMatches(password, u.password));
+          (u.role === 'admin' && loginId === 'admin');
+        return isMatch && passwordMatches(password, u.password);
+      });
 
       if (!user) {
         return res.status(401).json({ error: 'Invalid email or password' });
@@ -711,9 +745,10 @@ async function startServer() {
       let sessionToken: string | undefined;
       if (user.role === 'admin' || user.role === 'super_admin' || user.id === 'usr-admin-1') {
         sessionToken = randomUUID();
-        adminUploadSessions.set(sessionToken, { expires: Date.now() + 12 * 60 * 60 * 1000, userId: user.id });
+        const thirtyDaysMs = 30 * 24 * 60 * 60 * 1000;
+        adminUploadSessions.set(sessionToken, { expires: Date.now() + thirtyDaysMs, userId: user.id });
         await saveAdminSessions();
-        res.cookie('dh_admin_session', sessionToken, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/', maxAge: 12 * 60 * 60 * 1000 });
+        res.cookie('dh_admin_session', sessionToken, { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/', maxAge: thirtyDaysMs });
       }
 
       const { password: _, ...userWithoutPass } = user;

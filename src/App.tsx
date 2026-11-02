@@ -114,14 +114,29 @@ export default function App() {
 
   useEffect(() => {
     if (activeTab !== 'admin') return;
-    if (!isAdminAuthenticated) {
-      setAdminSessionStatus('missing');
-      return;
-    }
+    let cancelled = false;
 
-    setAdminSessionStatus('valid');
-    void hasAdminCmsSession().catch(() => {});
-  }, [activeTab, isAdminAuthenticated]);
+    hasAdminCmsSession()
+      .then((isValid) => {
+        if (cancelled) return;
+        if (!isValid) {
+          setIsAdminAuthenticated(false);
+          setAdminSessionStatus('missing');
+        } else {
+          setIsAdminAuthenticated(true);
+          setAdminSessionStatus('valid');
+        }
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setIsAdminAuthenticated(false);
+        setAdminSessionStatus('missing');
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeTab]);
 
   // E-Commerce Architectural Request Cart State
   const [cartItems, setCartItems] = useState<RequestItem[]>(() => loadActiveCart());
