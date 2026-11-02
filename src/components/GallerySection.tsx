@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { ArrowLeft, X, Play, MessageSquare, LayoutGrid } from 'lucide-react';
+import { ArrowLeft, X, Play, MessageSquare, LayoutGrid, Search } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, fetchGalleryItemsFromCms } from '../services/galleryContentService';
 import FlexCarousel, { FlexCarouselItem } from './FlexCarousel';
@@ -42,6 +42,36 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
   };
 
   const visibleItems = items.map(localize);
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+
+  const categories = useMemo(() => [
+    { key: 'all', label: currentLanguage.code === 'ar' ? 'جميع المشاريع' : currentLanguage.code === 'ckb' ? 'هەموو پڕۆژەکان' : 'All Projects' },
+    { key: 'doors', label: currentLanguage.code === 'ar' ? 'الأبواب والمداخل' : currentLanguage.code === 'ckb' ? 'دەرگاکان' : 'Doors & Entrances' },
+    { key: 'windows', label: currentLanguage.code === 'ar' ? 'أنظمة النوافذ والشبابيك' : currentLanguage.code === 'ckb' ? 'پەنجەرەکان' : 'Windows Systems' },
+    { key: 'shorfa', label: currentLanguage.code === 'ar' ? 'حواجز الشرفات والتراسات' : currentLanguage.code === 'ckb' ? 'شرفە و باڵکۆنەکان' : 'Balconies & Railings' },
+    { key: 'stairs', label: currentLanguage.code === 'ar' ? 'حواجز السلالم' : currentLanguage.code === 'ckb' ? 'قادرمە و دەربزینەکان' : 'Stairs & Railings' },
+  ], [currentLanguage.code]);
+
+  const filteredVisibleItems = useMemo(() => {
+    let result = visibleItems;
+    if (selectedCategory !== 'all') {
+      result = result.filter((item) => (item.category || '').toLowerCase() === selectedCategory.toLowerCase());
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      result = result.filter((item) => {
+        return (
+          (item.title && item.title.toLowerCase().includes(q)) ||
+          (item.description && item.description.toLowerCase().includes(q)) ||
+          (item.system && item.system.toLowerCase().includes(q)) ||
+          (item.location && item.location.toLowerCase().includes(q))
+        );
+      });
+    }
+    return result;
+  }, [visibleItems, selectedCategory, searchQuery]);
 
   // Curated 12 items for the 3D Carousel in direct 1:1 order with Admin CMS slots
   const featuredCarouselItems: FlexCarouselItem[] = useMemo(() => {
@@ -141,9 +171,78 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
             {t('gallery_empty')}
           </p>
         ) : fullPage ? (
-          /* Full Page: 3-Column Responsive Grid View */
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleItems.map((item, idx) => {
+          /* Full Page: Search & Category Filter + 3-Column Grid View */
+          <div className="space-y-8">
+            {/* Search Bar & Category Filter Pills */}
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                {/* Search Bar */}
+                <div className="relative flex-1 max-w-md">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder={
+                      currentLanguage.code === 'ar'
+                        ? 'ابحث في المشاريع والأنظمة المنفذة...'
+                        : currentLanguage.code === 'ckb'
+                        ? 'گەڕان لە پڕۆژە و سیستەمە جێبەجێکراوەکان...'
+                        : 'Search projects, facades, systems...'
+                    }
+                    className="w-full pl-10 pr-9 py-2.5 text-xs font-semibold rounded-2xl border border-slate-200 bg-white shadow-2xs focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-red-500 text-slate-900"
+                  />
+                  {searchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setSearchQuery('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Counter */}
+                <div className="text-xs font-black text-slate-500 text-right sm:text-left">
+                  <span className="text-red-600 font-extrabold text-sm">{filteredVisibleItems.length}</span>{' '}
+                  {currentLanguage.code === 'ar' ? 'مشروع معروض' : currentLanguage.code === 'ckb' ? 'پڕۆژە' : 'projects'}
+                </div>
+              </div>
+
+              {/* Category Filter Pills */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+                {categories.map((cat) => {
+                  const isSelected = selectedCategory === cat.key;
+                  return (
+                    <button
+                      key={cat.key}
+                      type="button"
+                      onClick={() => setSelectedCategory(cat.key)}
+                      className={`px-4 py-2 rounded-xl text-xs font-black transition-all shrink-0 cursor-pointer ${
+                        isSelected
+                          ? 'bg-red-600 text-white shadow-sm'
+                          : 'bg-white border border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs'
+                      }`}
+                    >
+                      {cat.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {filteredVisibleItems.length === 0 ? (
+              <div className="rounded-2xl border border-slate-200 bg-white p-12 text-center text-slate-500 text-sm font-bold shadow-2xs">
+                {currentLanguage.code === 'ar'
+                  ? 'لا توجد مشاريع مطابقة للبحث أو القسم المحدد'
+                  : currentLanguage.code === 'ckb'
+                  ? 'هیچ پڕۆژەیەک نەدۆزرایەوە کە لەگەڵ گەڕانەکەتدا بگونجێت'
+                  : 'No projects match your filter or search query.'}
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {filteredVisibleItems.map((item, idx) => {
               let cleanSrc = item.src;
               if (cleanSrc.startsWith('./')) {
                 cleanSrc = cleanSrc.replace('./', '/');
@@ -216,6 +315,8 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
                 </AnimatedContent>
               );
             })}
+              </div>
+            )}
           </div>
         ) : (
           /* Homepage: 3D Liquid Lens FlexCarousel with Instant Click Detail & Video Pop-up */

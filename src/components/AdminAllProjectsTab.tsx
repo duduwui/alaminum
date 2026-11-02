@@ -31,13 +31,12 @@ interface AdminAllProjectsTabProps {
 }
 
 const CATEGORIES = [
-  { key: 'all', label: 'All Projects' },
-  { key: 'villa', label: 'Villas & Residences' },
-  { key: 'commercial', label: 'Commercial & Towers' },
-  { key: 'doors', label: 'Doors & Sliders' },
-  { key: 'windows', label: 'Windows & Facades' },
-  { key: 'facade', label: 'Curtain Walls & Facades' },
-  { key: 'railings', label: 'Railings & Balustrades' }
+  { key: 'all', label: 'All Projects (جميع المشاريع)' },
+  { key: 'doors', label: 'Doors & Entrances (الأبواب والمداخل)' },
+  { key: 'windows', label: 'Windows & Facades (أنظمة النوافذ والشبابيك)' },
+  { key: 'shorfa', label: 'Balconies & Railings (حواجز الشرفات والتراسات)' },
+  { key: 'stairs', label: 'Stairs & Railings (حواجز السلالم)' },
+  { key: 'accessories', label: 'Hardware & Accessories (الملحقات والإكسسوارات)' }
 ];
 
 export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
@@ -60,7 +59,7 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
   // New Project Form State
   const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [newTitle, setNewTitle] = useState('');
-  const [newCategory, setNewCategory] = useState('villa');
+  const [newCategory, setNewCategory] = useState('doors');
   const [newSystem, setNewSystem] = useState('');
   const [newDescription, setNewDescription] = useState('');
   const [isUploading, setIsUploading] = useState(false);

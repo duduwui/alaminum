@@ -4,7 +4,8 @@ import {
   MapPin,
   ExternalLink,
   Clock,
-  Phone
+  Phone,
+  Mail
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -77,6 +78,25 @@ export const ContactSection: React.FC<ContactSectionProps> = () => {
                         </span>
                       </a>
                     </div>
+                  </div>
+                </div>
+
+                {/* Email Contact Box */}
+                <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                  <div className="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5 text-red-600" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1">
+                      {currentLanguage.code === 'ar' ? 'البريد الإلكتروني' : currentLanguage.code === 'ckb' ? 'ئیمەیڵ' : 'Official Email'}
+                    </span>
+                    <a
+                      href={`mailto:${DOORHOME_CONTACT.email || 'doorhome.baghdad@gmail.com'}`}
+                      dir="ltr"
+                      className="text-xs sm:text-sm font-black text-slate-900 hover:text-red-600 transition-colors inline-block"
+                    >
+                      {DOORHOME_CONTACT.email || 'doorhome.baghdad@gmail.com'}
+                    </a>
                   </div>
                 </div>
 
