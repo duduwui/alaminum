@@ -499,7 +499,7 @@ async function startServer() {
   app.post('/api/users', async (req, res) => {
     try {
       if (!hasAdminCmsSession(req)) return res.status(401).json({ error: 'Administrator access required.' });
-      const { username, password } = req.body;
+      const { username, password, phone } = req.body;
       if (!/^[a-zA-Z0-9._-]{3,32}$/.test(username || '') || typeof password !== 'string' || password.length < 8) {
         return res.status(400).json({ error: 'Use a 3–32 character username and a password of at least 8 characters.' });
       }
@@ -516,7 +516,8 @@ async function startServer() {
         email,
         password: hashPassword(password),
         role: 'admin',
-        phone: '', company: '', city: '', status: 'active',
+        phone: typeof phone === 'string' ? phone.trim() : '',
+        company: '', city: '', status: 'active',
         createdAt: new Date().toISOString(),
         requestsCount: 0
       };
@@ -538,6 +539,7 @@ async function startServer() {
       const updates: Record<string, unknown> = {};
       if (typeof req.body.status === 'string' && ['active', 'disabled'].includes(req.body.status)) updates.status = req.body.status;
       if (typeof req.body.password === 'string' && req.body.password.length >= 8) updates.password = hashPassword(req.body.password);
+      if (typeof req.body.phone === 'string') updates.phone = req.body.phone.trim();
       if (typeof req.body.username === 'string' && /^[a-zA-Z0-9._-]{3,32}$/.test(req.body.username)) {
         updates.name = req.body.username;
         updates.email = `${req.body.username.toLowerCase()}@admins.doorhome.local`;

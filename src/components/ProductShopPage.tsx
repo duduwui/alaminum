@@ -134,7 +134,21 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
             {searchQuery && <button type="button" onClick={() => setSearchQuery('')} aria-label={t('ui_clear_search')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"><X className="h-4 w-4" /></button>}
           </div>
           <select value={selectedCategory} onChange={(event) => setSelectedCategory(event.target.value)} aria-label={t('all_categories')} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm font-bold text-slate-800">
-            {categories.map((category) => <option key={category.id} value={category.id}>{category.label}</option>)}
+            {categories.map((category) => {
+              const count = category.id === 'all'
+                ? products.length
+                : products.filter((p) => {
+                    const c = (p.category || p.division || '').toLowerCase();
+                    if (category.id === 'shorfa') return c === 'shorfa' || c === 'balconies' || c.includes('1793119430295');
+                    if (category.id === 'stairs') return c === 'stairs' || c === 'stair' || c.includes('1793119387374');
+                    return c === category.id;
+                  }).length;
+              return (
+                <option key={category.id} value={category.id}>
+                  {category.label} ({count})
+                </option>
+              );
+            })}
           </select>
         </div>
 

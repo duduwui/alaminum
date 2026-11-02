@@ -1363,11 +1363,11 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
       <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden bg-white">
         
         {/* Top Header Bar */}
-        <header className="bg-white border-b border-slate-200 py-3 px-6 flex items-center justify-between shrink-0 z-20">
-          <div className="flex items-center gap-3">
-            <h2 className="text-base sm:text-lg font-black text-slate-900">
+        <header className="bg-white border-b border-slate-200 py-2.5 px-3 sm:px-6 flex items-center justify-between shrink-0 z-20 gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <h2 className="text-sm sm:text-base md:text-lg font-black text-slate-900 truncate">
               {activeSection === 'products' && (currentLanguage.code === 'ar' ? 'إدارة المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'بەڕێوەبردنی بەرهەمەکان' : 'Products & Catalog')}
-              {activeSection === 'users' && (t('admin_tab_users') || 'Team & Users')}
+              {activeSection === 'users' && (t('admin_tab_users') || 'Administrator Accounts')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
               {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
             </h2>

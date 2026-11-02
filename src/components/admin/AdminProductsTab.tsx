@@ -29,6 +29,28 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
   const [productSearchQuery, setProductSearchQuery] = useState<string>('');
   const [productCategoryFilter, setProductCategoryFilter] = useState<string>('all');
 
+  // Compute total counts per category
+  const categoryCounts = React.useMemo(() => {
+    const counts: Record<string, number> = { all: productList.length };
+    for (const opt of allCategoryOptions) {
+      counts[opt.key] = 0;
+    }
+    for (const p of productList) {
+      const key = (p.division || p.category || '').toLowerCase();
+      if (key === 'balconies' || key.includes('1793119430295')) {
+        counts['shorfa'] = (counts['shorfa'] || 0) + 1;
+      } else if (key === 'stair' || key.includes('1793119387374')) {
+        counts['stairs'] = (counts['stairs'] || 0) + 1;
+      } else if (counts[key] !== undefined) {
+        counts[key] += 1;
+      } else {
+        const matched = allCategoryOptions.find((o) => o.key === key);
+        if (matched) counts[matched.key] = (counts[matched.key] || 0) + 1;
+      }
+    }
+    return counts;
+  }, [productList, allCategoryOptions]);
+
   const filteredProducts = productList.filter((prod) => {
     const q = productSearchQuery.trim().toLowerCase();
     const loc = getLocalizedProduct(prod, currentLanguage.code);
@@ -48,7 +70,61 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
   });
 
   return (
-    <main className="p-6 space-y-6 flex-1 overflow-y-auto">
+    <main className="p-3 sm:p-6 space-y-4 sm:space-y-6 flex-1 overflow-y-auto">
+      {/* Category Totals Summary Cards */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5">
+        <button
+          type="button"
+          onClick={() => setProductCategoryFilter('all')}
+          className={`p-3 rounded-2xl border text-start transition-all cursor-pointer ${
+            productCategoryFilter === 'all'
+              ? 'bg-red-50/80 border-red-300 ring-2 ring-red-500/20 shadow-xs'
+              : 'bg-white border-slate-200 hover:border-slate-300 shadow-2xs'
+          }`}
+        >
+          <span className="text-[11px] font-bold text-slate-500 block truncate">
+            {currentLanguage.code === 'ar' ? 'جميع المنتجات' : currentLanguage.code === 'ckb' ? 'هەموو بەرهەمەکان' : 'All Products'}
+          </span>
+          <div className="flex items-baseline gap-1.5 mt-1">
+            <span className="text-xl font-black text-slate-900 block">
+              {productList.length}
+            </span>
+            <span className="text-[10px] font-bold text-slate-400">
+              {currentLanguage.code === 'ar' ? 'إجمالي' : currentLanguage.code === 'ckb' ? 'کۆی گشتی' : 'total'}
+            </span>
+          </div>
+        </button>
+
+        {allCategoryOptions.map((opt) => {
+          const count = categoryCounts[opt.key] || 0;
+          const isSelected = productCategoryFilter === opt.key;
+          return (
+            <button
+              key={opt.key}
+              type="button"
+              onClick={() => setProductCategoryFilter(opt.key)}
+              className={`p-3 rounded-2xl border text-start transition-all cursor-pointer ${
+                isSelected
+                  ? 'bg-red-50/80 border-red-300 ring-2 ring-red-500/20 shadow-xs'
+                  : 'bg-white border-slate-200 hover:border-slate-300 shadow-2xs'
+              }`}
+            >
+              <span className="text-[11px] font-bold text-slate-500 block truncate" title={opt.label}>
+                {opt.label}
+              </span>
+              <div className="flex items-baseline gap-1.5 mt-1">
+                <span className={`text-xl font-black ${isSelected ? 'text-red-600' : 'text-slate-900'}`}>
+                  {count}
+                </span>
+                <span className="text-[10px] font-bold text-slate-400">
+                  {currentLanguage.code === 'ar' ? 'منتج' : currentLanguage.code === 'ckb' ? 'بەرهەم' : 'items'}
+                </span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
       {/* Action Bar & Filters */}
       <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 shadow-2xs flex flex-col sm:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-2.5 w-full sm:w-auto">
@@ -73,11 +149,11 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
                 ? 'جميع أقسام الموقع'
                 : currentLanguage.code === 'ckb'
                 ? 'هەموو بەشەکانی ماڵپەڕ'
-                : 'All Website Sections'}
+                : 'All Website Sections'} ({productList.length})
             </option>
             {allCategoryOptions.map((opt) => (
               <option key={opt.key} value={opt.key}>
-                {opt.label}
+                {opt.label} ({categoryCounts[opt.key] || 0})
               </option>
             ))}
           </select>
