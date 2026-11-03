@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const PARTNERS_TITLE_BY_LANG: Record<string, string> = {
-  "en": "Authorized Architectural Partners & Brands",
-  "ar": "الشركاء المعتمدون والعلامات المعمارية العالمية",
-  "ckb": "هاوبەشە فەرمییەکان و براندە باوەڕپێکراوەکان",
-  "kmr": "Hevkarên Fermî û Marqeyên Mîmarî",
-  "tr": "Yetkili Mimari Ortaklar ve Markalar",
+  "en": "Authorized European Partners & Architectural Brands",
+  "ar": "الشركاء الأوروبيون المعتمدون والعلامات المعمارية العالمية",
+  "ckb": "هاوبەشە فەرمییە ئەوروپییەکان و براندە باوەڕپێکراوەکان",
+  "kmr": "Hevkarên Fermî yên Ewropî û Marqeyên Mîmarî",
+  "tr": "Yetkili Avrupalı Ortaklar ve Mimari Markalar",
 };
 
 export interface PartnerBrand {
@@ -31,22 +31,23 @@ export const isImageFlag = (val?: string): boolean => {
 };
 
 const DEFAULT_PARTNER_LOGOS: PartnerBrand[] = [
-  { id: 'alumass', name: 'ALUMASS', src: '/assets/doorhome/4-1.png', alt: 'ALUMASS Architectural Systems' },
-  { id: 'diaco', name: 'diaco', src: '/assets/doorhome/5-2.png', alt: 'diaco Systems' },
-  { id: 'master', name: 'MASTER', src: '/assets/doorhome/6-2.png', alt: 'Master Hardware Systems' },
-  { id: 'comunello', name: 'COMUNELLO', src: '/assets/doorhome/7-1.png', alt: 'Comunello Frame Automation' },
-  { id: 'deceuninck', name: 'deceuninck', src: '/assets/doorhome/8-1.png', alt: 'Deceuninck Systems' },
-  { id: 'siegenia', name: 'SIEGENIA', src: '/assets/doorhome/9-1.png', alt: 'Siegenia Architectural Tech' },
-  { id: 'salamander', name: 'SALAMANDER', src: '/assets/doorhome/10.png', alt: 'Salamander Profile Systems' },
-  { id: 'stac', name: 'STAC', src: '/assets/doorhome/1-2.png', alt: 'STAC Architectural Hardware' },
-  { id: 'lorenzoline', name: 'LORENZOLINE', src: '/assets/doorhome/2-1.png', alt: 'Lorenzoline Systems' },
-  { id: 'maestro', name: 'MAESTRO', src: '/assets/doorhome/3-1.png', alt: 'Maestro Systems' },
+  { id: 'alumass', name: 'ALUMASS', src: '/assets/doorhome/4-1.png', alt: 'ALUMASS Aluminum Systems', country: 'Italy', flag: '🇮🇹' },
+  { id: 'diaco', name: 'diaco', src: '/assets/doorhome/5-2.png', alt: 'diaco Systems', country: 'Turkey', flag: '🇹🇷' },
+  { id: 'master', name: 'MASTER', src: '/assets/doorhome/6-2.png', alt: 'Master Italy Hardware', country: 'Italy', flag: '🇮🇹' },
+  { id: 'comunello', name: 'COMUNELLO', src: '/assets/doorhome/7-1.png', alt: 'Comunello Frame Automation', country: 'Italy', flag: '🇮🇹' },
+  { id: 'deceuninck', name: 'deceuninck', src: '/assets/doorhome/8-1.png', alt: 'Deceuninck Belgium', country: 'Belgium', flag: '🇧🇪' },
+  { id: 'siegenia', name: 'SIEGENIA', src: '/assets/doorhome/9-1.png', alt: 'Siegenia German Tech', country: 'Germany', flag: '🇩🇪' },
+  { id: 'salamander', name: 'SALAMANDER', src: '/assets/doorhome/10.png', alt: 'Salamander Profile Systems', country: 'Germany', flag: '🇩🇪' },
+  { id: 'stac', name: 'STAC', src: '/assets/doorhome/1-2.png', alt: 'STAC Spain Hardware', country: 'Spain', flag: '🇪🇸' },
+  { id: 'lorenzoline', name: 'LORENZOLINE', src: '/assets/doorhome/2-1.png', alt: 'Lorenzoline Architectural', country: 'Italy', flag: '🇮🇹' },
+  { id: 'maestro', name: 'MAESTRO', src: '/assets/doorhome/3-1.png', alt: 'Maestro Systems', country: 'Greece', flag: '🇬🇷' },
 ];
 
-const STORAGE_KEY_PARTNER_LOGOS = 'winhome_cms_partner_logos_v3';
+const STORAGE_KEY_PARTNER_LOGOS = 'winhome_cms_partner_logos_restored_v4';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_cms_partner_logos_v3');
     localStorage.removeItem('winhome_cms_partner_logos_v2');
     localStorage.removeItem('winhome_cms_partner_logos');
   }
@@ -292,6 +293,31 @@ export const PartnerLogos: React.FC = () => {
                   }}
                 />
               </div>
+              {/* Country flag below logo */}
+              {partner.flag && (
+                <div
+                  className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/20 text-white shadow-xs mt-1"
+                  title={partner.country || ''}
+                >
+                  {isImageFlag(partner.flag) ? (
+                    <img
+                      src={partner.flag}
+                      alt={partner.country || 'Flag'}
+                      className="w-5 h-3.5 object-cover rounded-xs border border-white/40 shadow-xs inline-block"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  ) : (
+                    <span className="text-sm leading-none">{partner.flag}</span>
+                  )}
+                  {partner.country && (
+                    <span className="text-[10px] font-extrabold tracking-wider uppercase opacity-95">
+                      {partner.country}
+                    </span>
+                  )}
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -247,17 +247,7 @@ if (archShowcase[0]) {
 
 fs.writeFileSync(archShowcaseFile, JSON.stringify(archShowcase, null, 2));
 
-// 5. CLEAN PARTNER LOGOS
-console.log('5. Cleaning partner logos...');
-const partnerFile = path.resolve('cms_partner_logos_db.json');
-let partners = JSON.parse(fs.readFileSync(partnerFile, 'utf8'));
-partners = partners.map((p) => {
-  const cleaned = cleanObjectDeep(p);
-  delete cleaned.flag;
-  delete cleaned.country;
-  return cleaned;
-});
-fs.writeFileSync(partnerFile, JSON.stringify(partners, null, 2));
+// 5. DO NOT TOUCH PARTNER LOGOS (User specifically requested partner logos preserved as-is)
 
 // 6. UPDATE SEED FILES
 console.log('6. Updating seed files...');
