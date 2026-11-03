@@ -13,6 +13,7 @@ async function syncAll() {
   const slides = JSON.parse(fs.readFileSync('/var/www/doorhome/cms_homepage_section_slides_db.json', 'utf8'));
   const arch = JSON.parse(fs.readFileSync('/var/www/doorhome/cms_arch_showcase_db.json', 'utf8'));
   const divisions = JSON.parse(fs.readFileSync('/var/www/doorhome/cms_divisions_db.json', 'utf8'));
+  const partnerLogos = JSON.parse(fs.readFileSync('/var/www/doorhome/cms_partner_logos_db.json', 'utf8'));
 
   // 1. Sync cms_content: products
   await pool.query(`
@@ -58,6 +59,15 @@ async function syncAll() {
     SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
   `, [JSON.stringify(divisions)]);
   console.log(`✓ Synced ${divisions.length} divisions to cms_content.`);
+
+  // 6. Sync cms_content: partnerLogos
+  await pool.query(`
+    INSERT INTO cms_content (section_key, data, updated_at)
+    VALUES ('partnerLogos', $1, CURRENT_TIMESTAMP)
+    ON CONFLICT (section_key) DO UPDATE
+    SET data = EXCLUDED.data, updated_at = CURRENT_TIMESTAMP;
+  `, [JSON.stringify(partnerLogos)]);
+  console.log(`✓ Synced ${partnerLogos.length} partnerLogos to cms_content.`);
 
   // 6. Sync products table
   await pool.query('DELETE FROM products;');

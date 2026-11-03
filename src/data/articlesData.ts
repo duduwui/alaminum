@@ -253,7 +253,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'Airtight and Dustproof Compression Locking',
-          body: 'When locked down, the massive sash descends firmly onto multi-layer EPDM gaskets, creating a hermetic seal that repels heavy Iraqi dust storms and driving rain.'
+          body: 'When locked down, the massive sash descends firmly onto multi-layer weatherproof sealing gaskets, creating a hermetic seal that repels heavy Iraqi dust storms and driving rain.'
         }
       ]
     }
@@ -333,7 +333,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     keySpecs: [
       { label: 'Glass Specification', value: '8+8mm or 10+10mm Tempered Laminated' },
       { label: 'Aluminum Base Shoe', value: 'High Tensile 6060 T6' },
-      { label: 'Spigot Material', value: 'AISI 316 Marine Grade Stainless Steel' }
+      { label: 'Spigot Material', value: 'Marine Grade Stainless Steel' }
     ],
     sections: {
       ar: [
@@ -487,19 +487,19 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'Acoustic Soundproofing: Eliminating Street & Traffic Noise with High-Rw Glazing'
     },
     summary: {
-      ar: 'الفيزياء وراء كتم أصوات أبواق السيارات والشوارع المزدحمة عبر تباين سماكات الزجاج والغاز الخامل وحشوات EPDM المتواصلة.',
-      ckb: 'زانستی بێدەنگکردنی دەنگەدەنگی شەقام بە جامی ئەستووری جیاواز و لاستیکی EPDM.',
+      ar: 'الفيزياء وراء كتم أصوات أبواق السيارات والشوارع المزدحمة عبر تباين سماكات الزجاج والغاز الخامل وحشوات weatherproof sealing المتواصلة.',
+      ckb: 'زانستی بێدەنگکردنی دەنگەدەنگی شەقام بە جامی ئەستووری جیاواز و لاستیکی weatherproof sealing.',
       en: 'How asymmetric glass thickness, acoustic PVB films, and multi-chamber seals eliminate urban traffic noise up to 45 dB.'
     },
     readingTime: '6 min read',
     date: '2026-09-16',
     author: 'باب المنزل Acoustic Lab',
     image: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg',
-    tags: ['عزل صوت', 'هدوء', 'دبل كلاس', 'ضوضاء', 'EPDM'],
+    tags: ['عزل صوت', 'هدوء', 'دبل كلاس', 'ضوضاء', 'weatherproof sealing'],
     keySpecs: [
       { label: 'Acoustic Sound Reduction', value: 'Up to 45 dB (Rw)' },
       { label: 'Glass Configuration', value: '6mm + 16mm الغاز الخامل العازل + 8.76mm Acoustic PVB' },
-      { label: 'Gasket System', value: 'Triple Perimeter EPDM Vulcanized' }
+      { label: 'Gasket System', value: 'Triple Perimeter weatherproof sealing Vulcanized' }
     ],
     sections: {
       ar: [
@@ -628,38 +628,38 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 14. EPDM Weatherseals
+  // 14. weatherproof sealing Weatherseals
   {
     id: 'art-14',
     slug: 'epdm-continuous-weatherseals-sandstorm-rain-defense',
     category: 'hardware',
     categoryLabel: { ar: 'عزل الغبار', ckb: 'عەزلی تۆزوخۆڵ', en: 'Weatherseals' },
     title: {
-      ar: 'مطاط EPDM البركاني المتواصل: الدرع الأول ضد العواصف الترابية ومياه الأمطار',
-      ckb: 'لاستیکی EPDM: بەربەستی سەرەکی دژی تۆزوخۆڵ و زریانی بەهێز',
-      en: 'Continuous EPDM Gaskets: Iraq’s Uncompromising Defense Against Sandstorms'
+      ar: 'مطاط weatherproof sealing البركاني المتواصل: الدرع الأول ضد العواصف الترابية ومياه الأمطار',
+      ckb: 'لاستیکی weatherproof sealing: بەربەستی سەرەکی دژی تۆزوخۆڵ و زریانی بەهێز',
+      en: 'Continuous weatherproof sealing Gaskets: Iraq’s Uncompromising Defense Against Sandstorms'
     },
     summary: {
-      ar: 'لماذا يتشقق البلاستيك العادي في شمس العراق بينما يحتفظ مطاط EPDM بمرونته لأكثر من 30 سنة لمنع تسرب ذرات الغبار الناعمة.',
-      ckb: 'بۆچی لاستیکی ئاسایی دەسوتێت لە بەر خۆردا بەڵام EPDM بەهێز دەمێنێتەوە.',
-      en: 'The thermal science behind vulcanized EPDM rubber gaskets that resist 60°C ultraviolet radiation and desert dust storms.'
+      ar: 'لماذا يتشقق البلاستيك العادي في شمس العراق بينما يحتفظ مطاط weatherproof sealing بمرونته لأكثر من 30 سنة لمنع تسرب ذرات الغبار الناعمة.',
+      ckb: 'بۆچی لاستیکی ئاسایی دەسوتێت لە بەر خۆردا بەڵام weatherproof sealing بەهێز دەمێنێتەوە.',
+      en: 'The thermal science behind vulcanized weatherproof sealing rubber gaskets that resist 60°C ultraviolet radiation and desert dust storms.'
     },
     readingTime: '4 min read',
     date: '2026-09-12',
     author: 'باب المنزل Material Specialists',
     image: './assets/doorhome/2-1.png',
-    tags: ['EPDM', 'عواصف ترابية', 'عزل غبار', 'حشوات مطاطية', 'مقاومة الشمس'],
+    tags: ['weatherproof sealing', 'عواصف ترابية', 'عزل غبار', 'حشوات مطاطية', 'مقاومة الشمس'],
     sections: {
       ar: [
         {
           heading: 'تحدي الغبار الناعم في مدن العراق',
-          body: 'عواصف الغبار الصيفية في بغداد والأنبار والنجف تتسلل عبر أدنى فجوة ميكروية. حشوات EPDM المتواصلة في زوايا قطاعات شركة باب المنزل تضغط بإحكام محكم يمنع دخول أصغر جزيئات التراب.'
+          body: 'عواصف الغبار الصيفية في بغداد والأنبار والنجف تتسلل عبر أدنى فجوة ميكروية. حشوات weatherproof sealing المتواصلة في زوايا قطاعات شركة باب المنزل تضغط بإحكام محكم يمنع دخول أصغر جزيئات التراب.'
         }
       ],
       en: [
         {
           heading: 'Middle Eastern Dust Storm Infiltration',
-          body: 'Fine suspended dust penetrates conventional seals. باب المنزل utilizes vulcanized continuous EPDM compression gaskets that adapt dynamically without shrinking.'
+          body: 'Fine suspended dust penetrates conventional seals. باب المنزل utilizes vulcanized continuous weatherproof sealing compression gaskets that adapt dynamically without shrinking.'
         }
       ]
     }
@@ -878,7 +878,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-06',
     author: 'باب المنزل يو بي في سي عالي العزل Department',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
-    tags: ['ديكونينك', 'Multi-Chamber Acoustic', 'يو بي في سي عالي العزل', 'عزل حراري', 'المانيا'],
+    tags: ['ديكونينك', 'Multi-Chamber Acoustic', 'يو بي في سي عالي العزل', 'عزل حراري', 'عزل حراري متطور'],
     sections: {
       ar: [
         {
@@ -920,7 +920,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'خطر النوافذ غير المطابقة للمواصفات',
-          body: 'البروفايلات الرخيصة المصممة لأوروبا المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات يو بي في سي عالي العزل في شركة باب المنزل حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
+          body: 'البروفايلات الرخيصة المصممة للمناخات المعتدلة (Class M) تصفر وتتشقق بعد صيفين في العراق. جميع قطاعات يو بي في سي عالي العزل في شركة باب المنزل حاصلة على شهادة Class S المعززة بثاني أكسيد التيتانيوم ومثبتات الكالسيوم-زنك الصديقة للبيئة.'
         }
       ],
       en: [

@@ -83,7 +83,7 @@ import { autoTranslateFullProduct } from '../services/translateService';
 import { loadProductDivisions, saveProductDivisions, subscribeToDivisions, resetProductDivisionsToDefault, updateModelInDivision, deleteModelFromDivision } from '../services/productNavigationService';
 import { loadSharedCmsSection, saveSharedCmsSection } from '../services/cmsService';
 import { useLanguage, SUPPORTED_LANGUAGES } from '../context/LanguageContext';
-import { GalleryMediaItem, loadGalleryItems, normalizeGalleryItems, saveGalleryItems } from '../services/galleryContentService';
+import { GalleryMediaItem, loadGalleryItems, normalizeGalleryItems, saveGalleryItems, fetchGalleryItemsFromCms } from '../services/galleryContentService';
 import { ProductCategoryDivision } from '../data/productNavigationData';
 import { ITEM_LOCALES, SHOWCASE_TEXT_BY_LANG } from './SignatureShowcase';
 import { getPartnerLogos, PartnerBrand, isImageFlag } from './PartnerLogos';
@@ -520,6 +520,20 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
   const [newGalleryDescription, setNewGalleryDescription] = useState('');
   const [galleryUploadError, setGalleryUploadError] = useState('');
   const [isUploadingGalleryMedia, setIsUploadingGalleryMedia] = useState(false);
+
+  // Sync fresh gallery items from server CMS on mount
+  useEffect(() => {
+    void (async () => {
+      try {
+        const liveItems = await fetchGalleryItemsFromCms();
+        if (Array.isArray(liveItems) && liveItems.length > 0) {
+          setGalleryImages(liveItems);
+        }
+      } catch (err) {
+        console.warn('Could not refresh gallery from CMS:', err);
+      }
+    })();
+  }, []);
 
   // Sync products with localStorage and broadcast live update
   useEffect(() => {

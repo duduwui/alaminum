@@ -1,18 +1,18 @@
 [
   {
-    "id": "wiek-limiting-hinge-w2المقاوم للصدأ5",
+    "id": "wiek-limiting-hinge-w25",
     "image": "/assets/catalogs/wiek_page_50_limiting_hinge.png",
     "fallbackImage": "/assets/catalogs/wiek_page_50_limiting_hinge.png",
-    "title": "WIEK LIMITING HINGE SERIES (W2المقاوم للصدأ5)",
-    "titleAr": "سلسلة مفصلات تحديد الفتح المعتمدة عالية الدقة المعتمدة",
-    "titleKu": "سیستەمی نەرمەلۆی سنوردارکردنی کردنەوەی المعتمدة عالية الدقة المعتمدة",
-    "description": "Extensible/Adjustable limiting hinge set for projected windows. Suitable for Standard Architectural Groove profiles or 40–20 Groove profiles (Series 4000/6000), manufactured in الفولاذ المقاوم للصدأ عالي التحمل Stainless Steel. Allows window opening in 5 defined positions with adjustable sash positioning.",
-    "descriptionAr": "طقم مفصلات تحديد الفتح القابلة للتمديد والضبط للنوافذ القلابة والمعمارية البارزة للخارج. متوافقة مع قطاعات المجرى القياسي القياسي المعياري وسلسلة 4000/6000، مصنعة من الفولاذ المقاوم للصدأ المقاوم للصدأ وتتيح فتح النافذة بـ 5 وضعيات محددة مع إمكانية ضبط زاوية الفتح بدقة.",
-    "descriptionKu": "کۆمەڵە نەرمەلۆی سنوردارکردنی درێژکراوە و ڕێکخراو بۆ پەنجەرەی دەرپەڕیو البارزة للخارج. گونجاوە بۆ پرۆفایلی یۆرۆ گرووڤ و زنجیرەی 4000/6000، لە ستیلی الفولاذ المقاوم للصدأ المقاوم للصدأ دروستکراوە بە ٥ دۆخی کردنەوە.",
+    "title": "WIEK LIMITING HINGE SERIES (W25)",
+    "titleAr": "سلسلة مفصلات تحديد الفتح الهندسية المعتمدة",
+    "titleKu": "سیستەمی نەرمەلۆی سنوردارکردنی کردنەوەی المعتمدة عالية الدقة",
+    "description": "Extensible and adjustable limiting hinge set for projected architectural windows with precision sash positioning.",
+    "descriptionAr": "طقم مفصلات تحديد الفتح القابلة للتمديد والضبط للنوافذ القلابة والمعمارية البارزة للخارج، متوافقة مع قطاعات المجرى المعماري القياسي، مصنعة من الفولاذ المقاوم للصدأ عالي التحمل وتتيح ضبط زاوية الفتح بدقة.",
+    "descriptionKu": "کۆمەڵە نەرمەلۆی سنوردارکردنی درێژکراوە و ڕێکخراو بۆ پەنجەرەی دەرپەڕیو البارزة للخارج. گونجاوە بۆ پرۆفایلی یۆرۆ گرووڤ و زنجیرەی 4000/6000، لە ستیلی الفولاذ المقاوم للصدأ دروستکراوە بە ٥ دۆخی کردنەوە.",
     "pdfUrl": "/catalogs/wiek-general-catalog-2026.pdf",
     "fileName": "WİEK general-catalog-2026.pdf",
     "buttonText": "Open Technical Sheet (PDF)",
-    "buttonTextAr": "معاينة المخطط الفني بالكتالوج المخطط الهندسي",
+    "buttonTextAr": "معاينة المخطط الفني بالكتالوج",
     "buttonTextKu": "کردنەوەی نەخشەی تەکنیکی المخطط الهندسي",
     "brand": "WIEK SYSTEM",
     "category": "Limiting Hinge Series"
@@ -72,7 +72,7 @@
     "category": "Concealed Window Hardware"
   },
   {
-    "id": "المعتمدة-minimalist-handle-delta",
+    "id": "minimalist-handle-delta",
     "image": "/assets/catalogs/المعتمدة_page_51_minimalist_handles.png",
     "fallbackImage": "/assets/catalogs/المعتمدة_page_51_minimalist_handles.png",
     "title": "المعتمدة MINIMALIST HANDLE & CREMONE SERIES (DELTA & GAMMA)",

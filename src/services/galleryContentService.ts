@@ -13,10 +13,11 @@ export interface GalleryMediaItem {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = 'winhome_admin_gallery_images_v8';
+const STORAGE_KEY = 'winhome_admin_gallery_images_v9';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_gallery_images_v8');
     localStorage.removeItem('winhome_admin_gallery_images_v7');
     localStorage.removeItem('winhome_admin_gallery_images_v6');
   }
@@ -56,7 +57,7 @@ export function normalizeGalleryItems(value: unknown): GalleryMediaItem[] {
       mediaType,
       category: ['villa', 'commercial', 'doors', 'facade'].includes(item.category) ? item.category : 'villa',
       location: typeof item.location === 'string' ? item.location : '',
-      system: typeof item.system === 'string' ? item.system : 'Doorhome Certified European Systems',
+      system: typeof item.system === 'string' ? item.system : 'Doorhome Certified Architectural Systems',
       year: typeof item.year === 'string' ? item.year : undefined,
       glassArea: typeof item.glassArea === 'string' ? item.glassArea : undefined,
       poster: typeof (item as any).poster === 'string' && (item as any).poster.trim()

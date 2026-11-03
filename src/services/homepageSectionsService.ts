@@ -7,10 +7,11 @@ export interface HomepageSectionConfig {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = "winhome_homepage_sections_v3";
+const STORAGE_KEY = "winhome_homepage_sections_v4";
 
 try {
   if (typeof window !== "undefined") {
+    localStorage.removeItem("winhome_homepage_sections_v3");
     localStorage.removeItem("winhome_homepage_sections_v2");
     localStorage.removeItem("winhome_homepage_sections_v1");
   }
@@ -327,6 +328,8 @@ export function subscribeToHomepageSections(
   };
 }
 
+import { scrubProhibitedText } from '../utils/localizedContent';
+
 export function getLocalizedSectionHeader(
   section: HomepageSectionConfig,
   langCode: string
@@ -346,5 +349,8 @@ export function getLocalizedSectionHeader(
     base?.description ||
     section.description ||
     "";
-  return { title, description };
+  return {
+    title: scrubProhibitedText(title),
+    description: scrubProhibitedText(description)
+  };
 }

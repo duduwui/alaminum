@@ -2,444 +2,601 @@ import { GalleryMediaItem } from '../services/galleryContentService';
 
 export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
-    "id": "gallery-proj-polycarb-transparent-shutter",
-    "title": "Luxury Villa Garden Pavilion Transparent Polycarbonate Shutter Installation",
-    "description": "Custom installation by Doorhome architectural team featuring transparent polycarbonate rolling shutters for an outdoor villa pavilion and veranda. Provides all-weather shelter against wind and dust while preserving full panoramic landscape views.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/uploads/transparent_polycarbonate_rolling_shutter.png",
-    "translations": {
-      "ar": {
-        "title": "مشروع تركيب شتر رول بولي كربونات شفاف لتراس وكابينة حديقة فيلا",
-        "description": "تنفيذ احترافي متكامل من فريق خبراء شركة باب المنزل لتركيب شتر رول بولي كربونات شفاف لكابينة وتراس خارجي في أربيل. تم تصميم الشتر ليحمي الجلسة الخارجية من الرياح والأتربة والتقلبات الجوية دون حجب الإطلالة الخضراء الساحرة للحديقة، مع تشغيل كهربائي ذكي وسلس يعكس خبرة ومهارة كادرنا الهندسي المتخصص.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص، بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بالتصنيع الفائق، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية."
-      },
-      "ckb": {
-        "title": "پڕۆژەی دەڕابی شەفافی پۆلیکاربۆنات بۆ تەراسی ڤێلای تایبەت",
-        "description": "جێبەجێکردنی پرۆفیشناڵ لە لایەن دەستەی ئەندازیارانی شارەزای کۆمپانیای دەرگای ماڵ بۆ دامەزراندنی دەڕابی شەفافی پۆلیکاربۆنات لەسەر تەراسی ڤێلایەکی تایبەت. پارێزگاری تەواو لە تۆز و با و سەرما دەکات بەبێ ئەوەی دیمەنی سەوزایی حەوشەکە بشارێتەوە."
-      }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Erbil, Kurdistan Region",
-    "system": "Transparent Polycarbonate Rolling Shutter",
-    "year": "2024",
-    "glassArea": "45 m²"
-  },
-  {
-    "id": "gallery-proj-black-zip-screen-shutter",
-    "title": "Architectural Motorized Black Zip Screen Facade Shutter Installation Project",
-    "description": "Turnkey exterior facade drop zip-screen project executed with precision by Doorhome installation engineers. Features automated flame-retardant black mesh providing solar control, insect barrier, cold air protection, and dust resistance.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/uploads/exterior_black_zip_screen_shutter.png",
-    "translations": {
-      "ar": {
-        "title": "مشروع حماية وتظليل واجهة معمارية وسكاي لايت بشتر زيب سكرين عازل للحرائق والحشرات",
-        "description": "إنجاز هندسي متقن من فريق عمل شركة باب المنزل لتركيب شتر زيب سكرين خارجي أسود مقاوم للحريق والظروف الجوية القاسية للواجهات والسكاي لايت. يوفر المشروع عازلية تامة لواجهة المبنى ضد البرودة والحشرات والأتربة مع تشغيل آلي هادئ ومقاومة فائقة للحرائق.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص، مع ضمان أقصى درجات الإحكام الميكانيكي ومقاومة الرياح والعواصف الترابية بكفاءة مطلقة."
-      },
-      "ckb": {
-        "title": "پڕۆژەی دانانی دەڕابی زیپ سکرینی دژە ئاگر و مێروو بۆ ڕووکاری دەرەوە و سکای لایت",
-        "description": "پڕۆژەیەکی دەستکردی سەرکەوتووی دەستەی ئەندازیارانی دەرگای ماڵ بۆ دانانی دەڕابی زیپ سکرینی دەرەکی کە بەرگری تەواوی هەیە لە ئاگر، سەرما، تۆز و مێروو، بە کارکردنی نەرم و کوالیتی بێهاوتا."
-      }
-    },
-    "mediaType": "image",
+    "id": "proj-skylight-baghdad-combined",
+    "title": "مشروع تنفيذ والمعتمدب سقف سكاي لايت زجاجي ثلاثي الطبقات في بغداد (قبل وبعد)",
+    "description": "توثيق كامل لمراحل تصنيع والمعتمدب سقف سكاي لايت هرمي معزول لأحد المنازل الراقية في العاصمة بغداد، باستخدام زجاج مصفح سيكوريت ثلاثي الطبقات معالجة حرارية وفواصل عزل المطاطية المعتمدة لضمان إضاءة طبيعية نقية مع منع الحرارة وتسريب المياه بنسبة 100%.",
+    "src": "/uploads/skylight_baghdad_laminated_3layers.mp4",
+    "poster": "/uploads/skylight_baghdad_laminated_3layers.poster.jpg",
+    "mediaType": "video",
     "category": "windows",
-    "location": "Erbil, Kurdistan Region",
-    "system": "Exterior Motorized Zip Screen Shutter",
-    "year": "2024",
-    "glassArea": "60 m²"
-  },
-  {
-    "id": "proj-photo-1",
-    "title": "Precision On-Site Installation by Certified Doorhome Technicians",
-    "description": "Every window and door is installed with millimeter precision by our trained in-house crew. We ensure perfect leveling, seamless operation, and airtight insulation for complete peace of mind.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/uploads/dbca27fe-933e-4dc9-b374-b77ea4e214c1.jpg",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "تركيب هندسي دقيق بأيدي فريق باب المنزل المتخصص",
-        "description": "يقوم فريقنا الفني المدرب بتركيب الأبواب والشبابيك بأعلى درجات الدقة المليمترية، مع ضمان التوازن المثالي والعزل التام ضد الهواء والأتربة والضوضاء لراحة بال تدوم طويلاً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "مشروع تنفيذ والمعتمدب سقف سكاي لايت زجاجي ثلاثي الطبقات في بغداد (قبل وبعد)",
+        "description": "توثيق كامل لمراحل تصنيع والمعتمدب سقف سكاي لايت هرمي معزول لأحد المنازل الراقية في العاصمة بغداد، باستخدام زجاج مصفح سيكوريت ثلاثي الطبقات معالجة حرارية وفواصل عزل المطاطية المعتمدة لضمان إضاءة طبيعية نقية مع منع الحرارة وتسريب المياه بنسبة 100%."
+      },
+      "en": {
+        "title": "Baghdad Villa 3-Layer Laminated Glass Skylight Project (Before & After)",
+        "description": "Full before-and-after documentation of a monumental structural skylight installed in Baghdad using certified 3-layer laminated safety glass and precision weatherproofing."
       },
       "ckb": {
-        "title": "دابەستنی ئەندازیاری ورد لەلایەن تیمی پسپۆڕی دەرگای ماڵ",
-        "description": "هەموو پەنجەرە و دەرگایەک بە وردبینی تەواو لەلایەن تیمی ڕاهێنراوی دەرگای ماڵ دادەبەسترێت. دڵنیایی تەواو لە هاوسەنگی، عەزلی تۆز و هەوا و کارکردنی نەرم و پارێزراو."
+        "title": "پڕۆژەی سەقفی شووشەیی سکای لایت بە شووشەی سێ چینی پارێزراو لە بەغدا (پێش و پاش)",
+        "description": "دۆکیۆمێنتی تەواوی قۆناغەکانی پێش و پاشی دانانی سەقفی شووشەیی سکای لایت لە بەغدا بە شووشەی سێ چینی پتەو و عەزلی گەرمی و باران."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Baghdad & Erbil",
-    "system": "Architectural Precision Installation",
-    "year": "2024",
-    "glassArea": "180 m²"
+    }
   },
   {
     "id": "proj-photo-2",
-    "title": "Walkable Structural Glass Roofs & Architectural Skylights",
-    "description": "Engineered multi-layer tempered laminated glass designed to bear heavy structural loads while flooding your home with crystal-clear natural daylight and zero leak risk.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "أسقف زجاجية وسكاي لايت إنشائية قابلة للمشي للفلل والمباني الحديثة",
+    "description": "تصميم وتنفيذ أسقف وسكاي لايت زجاجية تتحمل الأوزان والمشي المباشر، مصنعة من زجاج سيكوريت مصفح متعدد الطبقات مع عزل حراري تام وإضاءة طبيعية ساحرة.",
     "src": "/uploads/746f7fc1-3995-4a56-bbcb-1ba48e689f1d.mp4",
+    "poster": "/uploads/poster_slot2.jpg",
+    "mediaType": "video",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أسقف زجاجية إنشائية قابلة للمشي وسكاي لايت متطور",
-        "description": "زجاج سيكوريت مصفح متعدد الطبقات يتحمل الأوزان العالية مع عزل حراري فائق ومقاومة تامة للتسرب، ليمنح مساحتك إضاءة طبيعية ساحرة بأعلى معايير الأمان الإنشائي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "أسقف زجاجية وسكاي لايت إنشائية قابلة للمشي للفلل والمباني الحديثة",
+        "description": "تصميم وتنفيذ أسقف وسكاي لايت زجاجية تتحمل الأوزان والمشي المباشر، مصنعة من زجاج سيكوريت مصفح متعدد الطبقات مع عزل حراري تام وإضاءة طبيعية ساحرة."
+      },
+      "en": {
+        "title": "Walkable Structural Glass Roofs & Architectural Skylights",
+        "description": "Heavy-duty multi-layer tempered laminated glass ceilings engineered to support walking loads while flooding interiors with natural daylight."
       },
       "ckb": {
-        "title": "سەقفی جامی ئەندازیاری پتەو و سکای‌لایتی مۆدێرن",
-        "description": "شووشەی سێکۆریتی فرەچین کە توانای هەڵگرتنی کێشی بەرزی هەیە و ڕووناکی سروشتی دەهێنێتە نێو ماڵەکەت بە عەزلی تەواوی باران و گەرما و سەلامەتی بەرز.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "سەقفی شووشەیی ئەندازیاری بەهێز بۆ ڕۆیشتن و سکای لایت",
+        "description": "سەقفی شووشەیی فرە چینی زۆر بەهێز کە بەرگەی کێش دەگرێت و ڕۆشنایی سروشتی جوان دەبەخشێت بە ژوورەوە."
       }
-    },
-    "mediaType": "video",
-    "category": "facade",
-    "location": "Erbil & Baghdad",
-    "system": "Heavy-Duty Walkable Securit Glass",
-    "year": "2024",
-    "glassArea": "225 m²",
-    "poster": "/uploads/poster_slot2.jpg"
+    }
   },
   {
     "id": "proj-photo-3",
-    "title": "Rigorous Weatherproof Sealing & Field Testing",
-    "description": "Every custom roof and skylight undergoes intensive on-site sealing checks and quality audits to guarantee maximum resistance against Iraqi summer heat, dust storms, and heavy rain.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "اختبارات العزل المائي والحراري الميدانية لأسقف السكاي لايت والواجهات",
+    "description": "فحص هندسي شامل لجميع الفواصل والمفاصل والسكاي لايت تحت ضغط المياه المباشر، لضمان عدم حدوث أي تسريب طوال فصول السنة تحت أقصى الظروف المناخية في العراق.",
     "src": "/uploads/e61a2f89-73ee-43b4-9ae3-b58edc8b57e9.jpg",
-    "translations": {
-      "ar": {
-        "title": "اختبارات عزل المياه والطقس في موقع العمل",
-        "description": "تخضع جميع تركيباتنا الخارجية لفحوصات دقيقة ومستمرة لضمان عزل مائي وحراري كامل 100%، وتوفير أقصى درجات الحماية من حرارة الصيف وعواصف الغبار وأمطار الشتاء.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
-      },
-      "ckb": {
-        "title": "پشکنینی دژە ئاو و تاقیکردنەوەی کوالێتی لە شوێنی کار",
-        "description": "هەموو کارەکانمان بە وریاییەوە تاقی دەکرێنەوە بۆ دڵنیابوون لە عەزلی سەدی سەدی ئاو و گەرما، بۆ پاراستنی ماڵەکەت لە گەرمای توندی هاوین و ڕەشەبا و باران.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
-      }
-    },
     "mediaType": "image",
-    "category": "facade",
-    "location": "Kurdistan & Baghdad",
-    "system": "Engineered Waterproofing & Quality Audit",
-    "year": "2024",
-    "glassArea": "270 m²"
-  },
-  {
-    "id": "proj-photo-4",
-    "title": "Doorhome Premium Engineering: Built for Iraqi Climate Extremes",
-    "description": "Combining high-performance Architectural thermal profiles with sound-dampening acoustic double glazing, crafted to keep your interior comfortable, quiet, and energy-efficient all year.",
-    "src": "/uploads/12c6d25c-c1d7-48f4-8fca-4eff4a88f9d5.mp4",
-    "translations": {
-      "ar": {
-        "title": "هندسة باب المنزل المتميزة: مصممة لتحديات المناخ العراقي",
-        "description": "نجمع بين قطاعات الألمنيوم والـ يو بي في سي عالي العزل المعمارية المعتمدة العازلة للحرارة والزجاج المزدوج العازل للصوت، لنضمن لك بيئة هادئة وباردة صيفاً ودافئة شتاءً مع توفير الطاقة."
-      },
-      "ckb": {
-        "title": "ئەندازیاری پێشکەوتووی دەرگای ماڵ: بەرگەگری کەشوهەوای عێراق و کوردستان",
-        "description": "کۆکردنەوەی سیستەمی ئەلەمنیۆم و یو پی ڤی سی ئەوروپی لەگەڵ شوشەی دووقات بۆ عەزلی تەواوی دەنگ و گەرما، بۆ ژینگەیەکی ئارام و فێنک لە هەموو وەرزەکاندا."
-      }
-    },
-    "mediaType": "video",
     "category": "windows",
-    "location": "Doorhome Design Studio",
-    "system": "Thermal Break Aluminum & uPVC",
-    "year": "2024",
-    "glassArea": "315 m²",
-    "poster": "/uploads/poster_slot4.jpg"
-  },
-  {
-    "id": "proj-photo-5",
-    "title": "Care & Protection: Doorhome Specialized Logistics Team",
-    "description": "Your investment is safe with us! Our dedicated delivery crew meticulously wraps every frame and glass panel with heavy-duty protective film and impact-resistant corner cushions, ensuring pristine, scratch-free arrival at your villa or project.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/uploads/09f485a2-bcda-434e-ba3b-026a84be68bf.jpg",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "عناية وحماية فائقة: فريق النقل واللوجستيك الخاص بباب المنزل",
-        "description": "منتجاتكم في أيدٍ أمينة! يقوم فريق باب المنزل المتخصص بتغليف جميع القطاعات والزجاج بطبقات حماية سميكة ومصدات زوايا ماصة للصدمات، لضمان وصولها إلى موقعكم بحالة مثالية تماماً وبدون أي خدش."
+        "title": "اختبارات العزل المائي والحراري الميدانية لأسقف السكاي لايت والواجهات",
+        "description": "فحص هندسي شامل لجميع الفواصل والمفاصل والسكاي لايت تحت ضغط المياه المباشر، لضمان عدم حدوث أي تسريب طوال فصول السنة تحت أقصى الظروف المناخية في العراق."
+      },
+      "en": {
+        "title": "Rigorous Weatherproof Sealing & Water Pressure Testing on Skylights",
+        "description": "Intensive on-site testing ensuring zero water leakage and complete thermal air-tightness under the harshest weather extremes."
       },
       "ckb": {
-        "title": "پاراستن و چاودێری ورد: تیمی گواستنەوەی تایبەتی دەرگای ماڵ",
-        "description": "بەرهەمەکانتان لە دەستێکی ئەمیندایە! تیمی دەرگای ماڵ هەموو چوارچێوە و جامەکان بە نایلۆن و پارێزەری دژە زەبر دەپێچنەوە بۆ ئەوەی بەبێ هیچ خەوش و زیانێک بە تەواوی سەلامەت بگەنە پرۆژەکەتان."
+        "title": "پشکنینی عەزلی ئاو و کەشوهەوای مەیدانی بۆ ڕووکار و سەقفەکان",
+        "description": "پشکنینی ورد لە ژێر پەستانی ئاودا بۆ دڵنیابوون لەوەی هیچ دزەکردنێک لە درێژایی ساڵدا ڕوونادات لە خراپترین کەشوهەوادا."
       }
-    },
-    "mediaType": "image",
-    "category": "delivery",
-    "location": "Erbil, Baghdad & All Cities",
-    "system": "Doorhome Safe Transport & Quality Care",
-    "year": "2024",
-    "glassArea": "360 m²"
+    }
   },
   {
     "id": "proj-photo-6",
-    "title": "Architectural Pyramid Glass Skylights & Custom Atriums",
-    "description": "Transform your ceilings into dramatic light wells. Engineered with structural thermal break aluminum and high-performance Low-E solar control glass to reduce heat gain while maximizing daylight.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "سكاي لايت وأهرامات زجاجية معمارية لإضاءة طبيعية ساحرة للقصور والفلل",
+    "description": "تصاميم هرمية ودائرية مخصصة للأسقف الزجاجية، تحول الفراغات الداخلية إلى مساحات مضيئة ومفعمة بالحيوية مع عزل حراري ثلاثي يمنع دخول الحرارة المفرطة.",
     "src": "/uploads/00580030-6081-4004-8980-24a3e47f5e24.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "سكاي لايت هرمي هندسي وقباب زجاجية متميزة",
-        "description": "حوّل سقف منزلك إلى واحة من الضوء الطبيعي مع قباب السكاي لايت الهرمية المصنوعة من قطاعات الألمنيوم المعزولة وزجاج منخفض الانبعاثية الحرارية العاكس للحرارة والموفر للطاقة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "سكاي لايت وأهرامات زجاجية معمارية لإضاءة طبيعية ساحرة للقصور والفلل",
+        "description": "تصاميم هرمية ودائرية مخصصة للأسقف الزجاجية، تحول الفراغات الداخلية إلى مساحات مضيئة ومفعمة بالحيوية مع عزل حراري ثلاثي يمنع دخول الحرارة المفرطة."
+      },
+      "en": {
+        "title": "Pyramid Glass Skylights & Architectural Roof Canopies",
+        "description": "Custom geometric skylights bringing natural light to grand living halls with advanced solar rejection Low-E glass coatings."
       },
       "ckb": {
-        "title": "سکای‌لایتی هەڕەمی و قوبەی جامی تەلارسازی",
-        "description": "سەقفی ماڵەکەت بکە بە سەرچاوەی ڕووناکی سروشتی بە قوبەی جامی هەڕەمی ئەلەمنیۆمی عازل لەگەڵ جامی منخفض الانبعاثية الحرارية کە گەرما دەگێڕێتەوە و ڕووناکی جوان دەبەخشێت.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "سکای لایت و سەقفی شووشەیی هەڕەمی بۆ ڤێلا و کۆشکەکان",
+        "description": "دیزاینی هەڕەمی و بازنەیی بۆ سەقفی شووشە کە ژوورەکان پڕ دەکات لە ڕۆشنایی سروشتی بەبێ دزەکردنی گەرمی."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Luxury Villas, Iraq",
-    "system": "Custom Aluminum Pyramid Skylight",
-    "year": "2024",
-    "glassArea": "405 m²"
+    }
   },
   {
-    "id": "proj-photo-7",
-    "title": "Signature Modern Villa Facades & Custom Panoramic Windows",
-    "description": "Complete turnkey architectural solutions for modern villas. Large-format thermal sliding systems and floor-to-ceiling glass designed to complement contemporary Iraqi architecture.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/uploads/40499425-a7f0-47b5-b6e5-a6f07d5e182f.jpg",
+    "id": "proj-photo-4",
+    "title": "فيديو تعريفي لأنظمة وحلول النوافذ والواجهات المعمارية المتكاملة",
+    "description": "استعراض شامل لأحدث حلول وأنظمة النوافذ والواجهات الزجاجية المعمارية العازلة، التي تجمع بين دقة الهندسة وحرية التصميم لتناسب الفلل والمشاريع السكنية والتجارية.",
+    "src": "/uploads/12c6d25c-c1d7-48f4-8fca-4eff4a88f9d5.mp4",
+    "poster": "/uploads/poster_slot4.jpg",
+    "mediaType": "video",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات فلل عصرية فخمة وشبابيك بانورامية متكاملة",
-        "description": "حلول معمارية شاملة للفلل العصرية تجمع بين الواجهات الزجاجية الشاهقة والأبواب السحاب البانورامية العازلة، لتمنح منزلك فخامة لا تُضاهى وتناغماً معمارياً ساحراً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "فيديو تعريفي لأنظمة وحلول النوافذ والواجهات المعمارية المتكاملة",
+        "description": "استعراض شامل لأحدث حلول وأنظمة النوافذ والواجهات الزجاجية المعمارية العازلة، التي تجمع بين دقة الهندسة وحرية التصميم لتناسب الفلل والمشاريع السكنية والتجارية."
+      },
+      "en": {
+        "title": "Architectural Window & Facade Systems Overview Video",
+        "description": "Comprehensive overview showcasing modern insulated window and facade systems."
       },
       "ckb": {
-        "title": "ڕوکاری ڤێلای مۆدێرن و پەنجەرەی پانۆرامای تایبەت",
-        "description": "چارەسەری تەلارسازی تەواو بۆ ڤێلا هاوچەرخەکان، بە جامی پانۆراما و دەرگای سلایدینگی گەورەی عەزلی گەرمی کە شکۆ و جوانی بە ماڵەکەت دەبەخشێت.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڤیدیۆی ناساندنی سیستەمەکانی پەنجەرە و ڕووکاری نژیاروانی",
+        "description": "پیشاندانی بەرفراوانی باشترین چارەسەرەکانی پەنجەرە و ڕووکاری شووشەیی بۆ بینا و ڤێلا مۆدێرنەکان."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "Minimalist Panoramic Facade & Windows",
-    "year": "2024",
-    "glassArea": "450 m²"
+    }
   },
   {
-    "id": "proj-photo-8",
-    "title": "Frameless Tempered Glass Stair Balustrades & Railings",
-    "description": "Create an open, airy feeling inside your home. Our structural tempered laminated glass railings provide maximum strength, safety, and crystal clarity with clean hidden fixtures.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/products-assets/photo_8_2026-09-26_07-36-01.jpg",
+    "id": "proj-photo-1",
+    "title": "المعتمدب هندسي دقيق لأنظمة أبواب ومداخل الألمنيوم بأيدي مهندسي الشركة",
+    "description": "تنفيذ ميداني متقن لكافة فتحات الألمنيوم والواجهات الزجاجية بدقة مليمترية، مع ضبط التوازن وتطبيق عوازل المعتمدة لضمان إحكام تام ضد الهواء والمياه وعزل درجات الحرارة العالية.",
+    "src": "/uploads/dbca27fe-933e-4dc9-b374-b77ea4e214c1.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين وسلالم زجاجية سيكوريت عصرية بدون إطار",
-        "description": "امنح منزلك اتساعاً وأناقة لا حدود لها مع درابزينات السلالم المصنوعة من زجاج السيكوريت المصفح فائق الشفافية والمثبت بنظام مخفي يضمن أقصى معايير الأمان.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "المعتمدب هندسي دقيق لأنظمة أبواب ومداخل الألمنيوم بأيدي مهندسي الشركة",
+        "description": "تنفيذ ميداني متقن لكافة فتحات الألمنيوم والواجهات الزجاجية بدقة مليمترية، مع ضبط التوازن وتطبيق عوازل المعتمدة لضمان إحكام تام ضد الهواء والمياه وعزل درجات الحرارة العالية."
+      },
+      "en": {
+        "title": "Precision Architectural Installation by Certified Doorhome Engineers",
+        "description": "Meticulous on-site installation of high-span aluminum and glass systems with laser leveling, complete weatherproofing, and Architectural Standard hardware."
       },
       "ckb": {
-        "title": "محاجەرەی شووشەی سێکۆریت و پلیکانی مۆدێرنی بێ چوارچێوە",
-        "description": "جوانی و فراوانی بە نێو ماڵەکەت ببەخشە بە محاجەرەی شووشەی ئەستووری تەمپەرد و لامینەیت کە سەلامەتی بەرز و بینینێکی ڕوون و بێ چوارچێوە دابین دەکات.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دابەستنی ئەندازیاری وردی سیستەمەکانی ئەلەمنیۆم لەلایەن تیمی دەرگای ماڵ",
+        "description": "کارکردنی مەیدانیی ورد لەسەر جێگیرکردنی پەنجەرە و دەرگا گەورەکان بە بەرزترین تەکنەلۆجیای عەزلی هەوا و ئاو."
       }
-    },
-    "mediaType": "image",
-    "category": "stairs",
-    "location": "Erbil & Sulaymaniyah",
-    "system": "10+10mm Tempered Laminated Glass",
-    "year": "2024",
-    "glassArea": "495 m²"
-  },
-  {
-    "id": "proj-photo-9",
-    "title": "Motorized Retractable Pergolas & Glass Patio Enclosures",
-    "description": "Enjoy your outdoor terrace all year long. Featuring motorized insulated aluminum louvers, integrated atmospheric LED lighting, and smooth sliding glass windbreaks.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/products-assets/photo_9_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "برجولات متحركة معزولة وإغلاقات زجاجية للحدائق والتراسات",
-        "description": "استمتع بحديقتك وتراسك طوال فصول السنة مع أنظمة البرجولات الأوتوماتيكية ذات الشفرات المعزولة، مع إضاءات الإضاءة الحديثة الموفرة للطاقة مدمجة وزجاج سحاب متحرك يحميك من الرياح والأتربة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
-      },
-      "ckb": {
-        "title": "پەرگۆلای ئەلەمنیۆمی جوڵاو و شووشەی باخچە و تراس",
-        "description": "لە هەموو وەرزەکاندا چێژ لە حەوشە و تراسەکەت وەربگرە بە سیستەمی پەرگۆلای کارەبایی و ڕووناکی الموفرة للطاقة مۆدێرن و شووشەی جوڵاو بۆ پاراستن لە با و باران.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
-      }
-    },
-    "mediaType": "image",
-    "category": "pergolas",
-    "location": "Cafes & Luxury Villas, Erbil",
-    "system": "Bioclimatic Retractable Pergola System",
-    "year": "2024",
-    "glassArea": "540 m²"
+    }
   },
   {
     "id": "proj-photo-10",
-    "title": "Modern Architectural Aluminum Slat Privacy Gates",
-    "description": "Elevate your property security and curb appeal with heavy-duty vertical aluminum slat gates. Custom-fabricated with weather-resistant electrostatic powder coating for lifetime durability.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة فيلا خارجية رئيسية بألواح ألمنيوم مودرن وتطعيمات خشبية معمارية",
+    "description": "بوابة خارجية فاخرة مصنعة من الألمنيوم الإنشائي المقاوم للصدأ بتصميم شرائح أفقية معاصرة وقفل إلكتروني ذكي، تمنح الفيلا خصوصية تامة وحماية قصوى.",
     "src": "/products-assets/photo_10_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "بوابات ألمنيوم خارجية عصري بتصميم شرائح عمودية للخصوصية",
-        "description": "أضف لمسة فخامة وأمان لمحيط فيلتك مع بوابات الألمنيوم العصرية المقاومة للصدأ وعوامل الجو، مطلية بطلاء حراري كهرستاتيكي فائق الجودة يضمن ثبات اللون مدى الحياة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
-      },
-      "ckb": {
-        "title": "دەروازەی ئەلەمنیۆمی مۆدێرن بە دیزاینی پەردەیی بۆ پاراستنی تایبەتمەندی",
-        "description": "ئاسایش و جوانی باڵا بۆ دەوروبەری ڤێلاکەت بە دەروازەی ئەلەمنیۆمی قورس و دژە ژەنگ بە بۆیەی تایبەت کە ڕەنگەکەی هەرگیز تێکناچێت لەبەر گەرما و باران.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
-    "location": "Luxury Residences, Erbil",
-    "system": "Architectural Aluminum Slat Gate",
-    "year": "2024",
-    "glassArea": "585 m²"
-  },
-  {
-    "id": "proj-vid-1",
-    "title": "Live Showroom Demo: High-Performance Sliding Systems",
-    "description": "Feel the effortless featherlight glide! Our thermal sliding window systems feature multi-point Precision security locks, reinforced anti-lift tracks, and airtight perimeter seals.",
-    "src": "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "تجربة عملية من المعرض: سلاسة حركة أنظمة السلايدينغ",
-        "description": "شاهد خفة وسلاسة حركة أنظمة السلايدينغ العازلة؛ مصممة بعجلات انزلاق معمارية معتمدة مانعة للاحتكاك، وأقفال أمان متعددة النقاط، مع عزل كامل لمنع دخول أصغر ذرات الغبار."
+        "title": "بوابة فيلا خارجية رئيسية بألواح ألمنيوم مودرن وتطعيمات خشبية معمارية",
+        "description": "بوابة خارجية فاخرة مصنعة من الألمنيوم الإنشائي المقاوم للصدأ بتصميم شرائح أفقية معاصرة وقفل إلكتروني ذكي، تمنح الفيلا خصوصية تامة وحماية قصوى."
+      },
+      "en": {
+        "title": "Architectural Modern Villa Exterior Gate with Thermal Slat Accents",
+        "description": "Custom fabricated heavy aluminum boundary gate designed for privacy, structural endurance, and smart lock automation."
       },
       "ckb": {
-        "title": "نمایشی ڕاستەوخۆ لە پیشانگامان: سیستەمی سلایدینگی نەرم و پێشکەوتوو",
-        "description": "ببینە چەندە بە نەرمی و بە پەنجەیەک دەرگا و پەنجەرەی سلایدینگ دەجوڵێت؛ بە سیستەمی ویلی ئەوروپی، قفڵی ئەمنی چەند خاڵی و عەزلی تۆکمە دژە تۆز و دەنگ."
+        "title": "دەروازەی سەرەکی ڤێلا لە ئەلەمنیۆمی مۆدێرن بە تایبەتمەندی بەرز",
+        "description": "دەروازەی دەرەکی کەشخە لە ئەلەمنیۆمی دژە ژەنگ بە شێوازی مۆدێرن بۆ پاراستنی تایبەتمەندی و ئاسایشی ڤێلا."
       }
-    },
-    "mediaType": "video",
-    "category": "windows",
-    "location": "Doorhome Experience Showroom",
-    "system": "Premium Sliding Window System",
-    "year": "2024",
-    "glassArea": "300 m²",
-    "poster": "/uploads/poster_slot11.jpg"
+    }
   },
   {
     "id": "proj-photo-13",
-    "title": "Heavy-Duty Louvered Driveway & Entrance Gate Systems",
-    "description": "Designed for luxury homes demanding the highest grade of security and privacy. Precision fabricated with reinforced internal steel cores and smooth automatic sliding mechanisms.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "مشروع فيلا سكنية فاخرة بنوافذ وواجهات معمارية راقية",
+    "description": "تنفيذ متكامل للنوافذ والواجهات المعمارية لفيلا سكنية بتصميم هندسي يجمع بين الفخامة والعزل الحراري والصوتي المتقن.",
     "src": "/products-assets/photo_13_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "بوابات مداخل وسيارات ثقيلة بتصميم لوفر عصري",
-        "description": "مصممة للفلل والمشاريع الراقية التي تبحث عن أقصى درجات الأمان والخصوصية، مدعمة بهيكل داخلي قوي ومتوافقة تماماً مع محركات الفتح الإلكترونية الذكية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "مشروع فيلا سكنية فاخرة بنوافذ وواجهات معمارية راقية",
+        "description": "تنفيذ متكامل للنوافذ والواجهات المعمارية لفيلا سكنية بتصميم هندسي يجمع بين الفخامة والعزل الحراري والصوتي المتقن."
+      },
+      "en": {
+        "title": "Luxury Residential Villa Windows & Facades Project",
+        "description": "Complete turnkey installation of architectural windows and insulated facades for a luxury private villa."
       },
       "ckb": {
-        "title": "دەروازەی قورسی سەیارە و پیادە بە دیزاینی لۆڤەری مۆدێرن",
-        "description": "دیزاین کراوە بۆ ڤێلا و پڕۆژە ناوازەکان کە بەدوای سەلامەتی و تایبەتمەندی بەرزدا دەگەڕێن، بە بەهێزکردنی ناوەکی و ئامادەکراو بۆ مۆتۆری زیرەکی کارەبایی.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "پڕۆژەی پەنجەرە و ڕووکاری نژیاروانی بۆ ڤێلای مۆدێرن",
+        "description": "جێبەجێکردنی تەواوی پەنجەرە و ڕووکاری شووشەیی بۆ ڤێلای مۆدێرن بە عەزلی گەرمی و دەنگ."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Modern Villas, Baghdad & Erbil",
-    "system": "Louvered Heavy Aluminum Entrance Gate",
-    "year": "2024",
-    "glassArea": "720 m²"
+    }
   },
   {
-    "id": "proj-villa-garden-zip-video",
-    "title": "Automated Vertical Drop Zip-Screen Patio System in Operation",
-    "location": "Erbil - English Village",
-    "system": "Doorhome Motorized Exterior Drop Zip-Screen Systems",
-    "category": "villa",
+    "id": "proj-photo-11",
+    "title": "حاجز زجاجي بانورامي للتراسات",
+    "description": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والمعتمدب من البداية حتى النهاية.",
+    "src": "/products-assets/photo_11_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "حاجز زجاجي بانورامي للتراسات",
+        "description": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والمعتمدب من البداية حتى النهاية."
+      },
+      "en": {
+        "title": "Panoramic Glass Railing for Terraces",
+        "description": "Open your terrace to the view with a panoramic glass railing that keeps the horizon in sight. Slim black posts frame the glass neatly, creating a bright, airy outdoor space.\n\nThe strong tempered glass gives protection against wind while keeping the lines of the building clean. It is well suited to terraces, roofs and any open area where the view matters.\n\nWeather-resistant and simple to maintain, it stays attractive season after season. Doorhome takes care of measurement, supply and installation from start to finish."
+      },
+      "ckb": {
+        "title": "بەربەستی شووشەیی پانۆرامای تەراس",
+        "description": "تەراسەکەتان بەرەو دیمەنەکە بکەنەوە بە بەربەستێکی شووشەیی پانۆراما کە ئاسۆ لە بەرچاو دەهێڵێتەوە. ستوونە ڕەشە باریکەکان بە شیکی شووشەکە دەورە دەدەن و شوێنێکی دەرەوەی ڕووناک و فێنک دروست دەکەن.\n\nشووشە سێکۆریتییە بەهێزەکە لە با دەپارێزێت و هێڵەکانی بینا پاک دەهێڵێتەوە. بۆ تەراس، بانەکان و هەر شوێنێکی کراوە گونجاوە کە دیمەنەکەی گرنگە.\n\nبەرگەی کەشوهەوا دەگرێت و چاککردنەوەی ئاسانە، وەرزێک دوای وەرزێک سەرنجڕاکێش دەمێنێتەوە. دەرگای ماڵ پێوانە، دابینکردن و دامەزراندن لە سەرەتاوە تا کۆتایی لەئەستۆ دەگرێت."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-partition-office",
+    "title": "نظام قواطع وأبواب زجاجية للمكاتب والشركات",
+    "description": "صُمم هذا النظام المعماري من القواطع والأبواب الزجاجية الداخلية خصيصاً للمكاتب التنفيذية والشركات وقاعات الاجتماعات والمراكز التجارية الحديثة. يتوفر بزجاج سيكوريت مقسى عالي المتانة سماكة 10 ملم أو بنظام الزجاج المزدوج العازل، مما يوفر هدوءاً وخصوصية صوتية ممتازة مع تدفق كامل للضوء الطبيعي.\n\nيتميز النظام بإكسسوارات ومفصلات هيدروليكية فائقة الدقة مدمجة بالأرضية، تتيح فتح الباب بسلاسة في الاتجاهين مع خاصية التثبيت والإغلاق الهادئ والمحكوم. تمنح الشرائط الأفقية المصنفرة خصوصية بصرية ذكية وأنيقة للمكاتب دون التأثير على رحابة المكان.\n\nتمنح الإطارات المعدنية النحيفة تصميماً راقياً يناسب بيئات العمل الاحترافية والمستشفيات والعيادات والتقسيمات الداخلية للمنازل المعاصرة. يجمع بين الفخامة المعمارية والعزل المريح والاعتمادية الطويلة بأقل قدر من الصيانة.",
+    "src": "/uploads/38e5c8dc-3834-4830-beb8-4928718d9f30.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "نظام قواطع وأبواب زجاجية للمكاتب والشركات",
+        "description": "صُمم هذا النظام المعماري من القواطع والأبواب الزجاجية الداخلية خصيصاً للمكاتب التنفيذية والشركات وقاعات الاجتماعات والمراكز التجارية الحديثة. يتوفر بزجاج سيكوريت مقسى عالي المتانة سماكة 10 ملم أو بنظام الزجاج المزدوج العازل، مما يوفر هدوءاً وخصوصية صوتية ممتازة مع تدفق كامل للضوء الطبيعي.\n\nيتميز النظام بإكسسوارات ومفصلات هيدروليكية فائقة الدقة مدمجة بالأرضية، تتيح فتح الباب بسلاسة في الاتجاهين مع خاصية التثبيت والإغلاق الهادئ والمحكوم. تمنح الشرائط الأفقية المصنفرة خصوصية بصرية ذكية وأنيقة للمكاتب دون التأثير على رحابة المكان.\n\nتمنح الإطارات المعدنية النحيفة تصميماً راقياً يناسب بيئات العمل الاحترافية والمستشفيات والعيادات والتقسيمات الداخلية للمنازل المعاصرة. يجمع بين الفخامة المعمارية والعزل المريح والاعتمادية الطويلة بأقل قدر من الصيانة."
+      },
+      "en": {
+        "title": "Glass Partition System for Offices and Companies",
+        "description": "This modern interior glass partition system is purposefully designed for corporate offices, executive suites, conference rooms, and commercial centers. Engineered with 10mm heavy-duty tempered safety glass or an insulated double-glazed configuration, it provides acoustic privacy while allowing daylight to flow freely between spaces.\n\nEquipped with premium certified hardware and concealed hydraulic floor pivot hinges, the door swings smoothly in both directions with controlled soft-close and 90-degree hold-open positioning. Elegant horizontal frosted privacy bands provide visual discretion at eye level while preserving an open, prestigious corporate environment.\n\nThe minimal aluminum framing delivers lasting durability and seamless integration into modern workspaces, clinics, and residential zoning areas. It represents the perfect combination of contemporary styling, acoustic comfort, and effortless daily performance."
+      },
+      "ckb": {
+        "title": "سیستەمی دیواری جیاکەرەوە و دەرگای شووشەیی بۆ ئۆفیس و کۆمپانیاکان",
+        "description": "ئەم سیستمە مۆدێرنەی دیواری جیاکەرەوە و دەرگای شووشەیی ناوخۆیی بە تایبەتی بۆ ئۆفیسی کۆمپانیاکان، ژووری بەڕێوەبەران، هۆڵی کۆبوونەوە و سەنتەرە بازرگانییەکان دیزاین کراوە. بە شوشەی سیکیوریتی بەهێزی ١٠ ملم یان شوشەی دووجۆڕی عازل بەردەستە، کە ئارامی و تایبەتمەندی دەنگی دابین دەکات لەگەڵ بڵاوبوونەوەی ڕووناکی سروشتی.\n\nبە ئەکسسوارات و مەکینەی هایدرۆلیکی پێشکەوتوو لەسەر زەوی کار دەکات، کە دەرگاکە بە نەرمی بە هەردوو لادا دەکرێتەوە و بە هێمنی دادەخرێتەوە. شریتە تەڵخە شیکەکان تایبەتمەندی و پارێزگاری لە بینین دابین دەکەن بەبێ تێکدانی کراوەیی و ڕووناکیی ژینگەی کار.\n\nچوارچێوەی ئەلەمنیۆمی تەنک دیمەنێکی سەرنجڕاکێش بە ئۆفیسەکان، کلینیکەکان و بەشە ناوخۆییەکانی ماڵ دەبەخشێت. تێکەڵەیەکی نموونەییە لە جوانی هاوچەرخ، ئارامی دەنگی، و کارکردنی متمانەپێکراو بۆ ساڵانی درێژ."
+      }
+    }
+  },
+  {
+    "id": "proj-video-guillotine",
+    "title": "نظام النوافذ والواجهات الزجاجية البانورامية المتحركة (المقصلة الأوتوماتيكية)",
+    "description": "فيديو توثيقي لتشغيل نظام النوافذ والواجهات الزجاجية الأوتوماتيكية الرأسية، يتحرك بسلاسة وهدوء بلمسة زر عبر محركات المعتمدة صامتة لتوفير حماية تامة وإطلالة بانورامية.",
+    "src": "/products-assets/unclears/WhatsApp Video 2026-10-25 at 5.10.04 PM (1).mp4",
+    "mediaType": "video",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "نظام النوافذ والواجهات الزجاجية البانورامية المتحركة (المقصلة الأوتوماتيكية)",
+        "description": "فيديو توثيقي لتشغيل نظام النوافذ والواجهات الزجاجية الأوتوماتيكية الرأسية، يتحرك بسلاسة وهدوء بلمسة زر عبر محركات المعتمدة صامتة لتوفير حماية تامة وإطلالة بانورامية."
+      },
+      "en": {
+        "title": "Automated Guillotine Panoramic Vertical Glass System in Motion",
+        "description": "Showcasing vertical guillotine motorized sliding glass facade operating smoothly with whisper-quiet Architectural Standard drive motors."
+      },
+      "ckb": {
+        "title": "سیستەمی پەنجەرە و ڕووکاری پانۆرامای گیۆتینی ئۆتۆماتیکی",
+        "description": "ڤیدیۆی کارکردنی سیستەمی شووشەی جووڵاوی ستوونی بە بێدەنگی و ئۆتۆماتیکی بۆ بینینی کراوە."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-showroom-sliding",
+    "title": "نافذة سحب عازلة بتصميم إطار نحيف",
+    "description": "تجمع هذه النافذة السحب العازلة بين أداء حراري متميز وإطار نحيف بشكل لافت، مما يسمح بأكبر مساحة زجاجية ممكنة وإطلالات خالية من العوائق. تعمل آلية السحب السلسة بسهولة تامة للفتح والإغلاق، وتوفر تهوية ممتازة مع الحفاظ على مظهر عصري نظيف يتناسب مع أي طراز معماري.\n\nصُممت لتحافظ على برودة المساحات الداخلية صيفاً ودفئها شتاءً، حيث تُقلّل بشكل ملحوظ من استهلاك الطاقة وتُوفّر بيئة داخلية أكثر هدوءاً من خلال عزل الضوضاء الخارجية. إنها خيار ممتاز لغرف النوم وغرف المعيشة والمكاتب والمساحات التجارية حيث تكون الراحة والكفاءة في المقام الأول.\n\nتضمن المتانة في التصنيع سنوات من الأداء الموثوق مع حد أدنى من الصيانة. تتوفر بمجموعة من التشطيبات التي تتناغم بشكل طبيعي مع واجهات المنازل والمباني المكتبية والمتاجر التجارية على حد سواء، لتُقدم الجمال والعملية في حلٍّ أنيق واحد.",
+    "src": "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
+    "mediaType": "video",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "نافذة سحب عازلة بتصميم إطار نحيف",
+        "description": "تجمع هذه النافذة السحب العازلة بين أداء حراري متميز وإطار نحيف بشكل لافت، مما يسمح بأكبر مساحة زجاجية ممكنة وإطلالات خالية من العوائق. تعمل آلية السحب السلسة بسهولة تامة للفتح والإغلاق، وتوفر تهوية ممتازة مع الحفاظ على مظهر عصري نظيف يتناسب مع أي طراز معماري.\n\nصُممت لتحافظ على برودة المساحات الداخلية صيفاً ودفئها شتاءً، حيث تُقلّل بشكل ملحوظ من استهلاك الطاقة وتُوفّر بيئة داخلية أكثر هدوءاً من خلال عزل الضوضاء الخارجية. إنها خيار ممتاز لغرف النوم وغرف المعيشة والمكاتب والمساحات التجارية حيث تكون الراحة والكفاءة في المقام الأول.\n\nتضمن المتانة في التصنيع سنوات من الأداء الموثوق مع حد أدنى من الصيانة. تتوفر بمجموعة من التشطيبات التي تتناغم بشكل طبيعي مع واجهات المنازل والمباني المكتبية والمتاجر التجارية على حد سواء، لتُقدم الجمال والعملية في حلٍّ أنيق واحد."
+      },
+      "en": {
+        "title": "Insulated Sliding Window with Slim Profile Design",
+        "description": "This insulated sliding window combines outstanding thermal performance with a remarkably slim frame, allowing maximum glass area and unobstructed views. The smooth sliding mechanism makes it effortless to open and close, providing excellent ventilation while maintaining a clean, modern aesthetic suitable for any architectural style.\n\nDesigned to keep interiors cool in summer and warm in winter, this window significantly reduces energy consumption and creates a quieter indoor environment by blocking outside noise. It is an excellent choice for bedrooms, living rooms, offices, and commercial spaces where comfort and efficiency matter most.\n\nThe durable construction ensures years of reliable performance with minimal maintenance. Available in a range of finishes, it blends naturally with residential facades, office buildings, and commercial storefronts alike, delivering both beauty and practicality in a single elegant solution."
+      },
+      "ckb": {
+        "title": "پەنجەرەی سلایدی ئینسولاتەد بە دیزاینی چوارچێوەی تەنک",
+        "description": "ئەم پەنجەرەیە سلایدیە ئینسولاتەدە کاریگەری گەرمیی بەرزی نایاب لەگەڵ چوارچێوەیەکی تەنکی سەرنجڕاکێش تێکەڵ دەکات، کە ڕێگەدانی زۆرترین ڕووبەری شووشە و دیمەنی بێ کۆسپ دەکات. میکانیزمی سلایدی نەرم بە ئاسانی تەواو بۆ کردنەوە و داخستن دەکات، هەوادانی نایاب دابین دەکات لەگەڵ پاراستنی ڕوالەتێکی مۆدێرن و پاک کە بۆ هەر شێوازێکی تەلارسازی گونجاوە.\n\nدیزاین کراوە بۆ ساردکردنی ناوەوە لە هاویندا و گەرمکردنی لە زستاندا، ئەم پەنجەرەیە بە بەرچاوی تێچووی وزە کەم دەکاتەوە و ژینگەیەکی ناوخۆیی ئارامتر دروست دەکات بە ڕێگریکردن لە دەنگی دەرەوە. هەڵبژاردنێکی نایابە بۆ ژووری نووستن و ژووری نیشتەجێبوون و ئۆفیس و شوێنە بازرگانییەکان کە ئاسایش و کاریگەری لەوێ گرنگترینن.\n\nدروستکردنی بەردەوام ساڵانی زۆر لە کارکردنی متمانەپێکراو لەگەڵ کەمترین چاککردنەوە دابین دەکات. بە ڕیزبەندێک لە تەواوکارییەکانەوە بەردەستە کە بە سروشتی لەگەڵ ڕووکاری ماڵ و بینای ئۆفیس و دوکانە بازرگانییەکاندا دەگونجێت، جوانی و کاریگەری لە چارەسەرێکی شیکدا دابین دەکات."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-8",
+    "title": "واجهات فلل عصرية فاخرة وشبابيك بانورامية عازلة بإطلالات مفتوحة",
+    "description": "تنفيذ متكامل لواجهات الفلل الحديثة بأنظمة الألمنيوم والزجاج العازل للحرارة والصوت، يعزز الإضاءة الطبيعية ويمنح المنزل إطلالة معمارية مبهرة.",
+    "src": "/uploads/40499425-a7f0-47b5-b6e5-a6f07d5e182f.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "واجهات فلل عصرية فاخرة وشبابيك بانورامية عازلة بإطلالات مفتوحة",
+        "description": "تنفيذ متكامل لواجهات الفلل الحديثة بأنظمة الألمنيوم والزجاج العازل للحرارة والصوت، يعزز الإضاءة الطبيعية ويمنح المنزل إطلالة معمارية مبهرة."
+      },
+      "en": {
+        "title": "Modern Villa Panoramic Thermal Windows & Glazed Facade Installation",
+        "description": "Turnkey architectural window and facade execution delivering thermal comfort, acoustic attenuation, and unobstructed views."
+      },
+      "ckb": {
+        "title": "ڕووکاری ڤێلای مۆدێرن و پەنجەرەی پانۆراما بە عەزلی بەرز",
+        "description": "جێبەجێکردنی تەواوی ڕووکاری دەرەوە بە ئەلەمنیۆم و شووشەی عازل بۆ گەرمی و دەنگ بە دیمەنێکی سەرنجڕاکێش."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-curtain-wall-tower",
+    "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للأبراج والمباني التجارية",
+    "description": "توثيق لمشروع برج سكني وتجاري فاخر يبرز الواجهات الزجاجية الهيكلية المستمرة المقاومة لأعتى ضغوط الرياح وعواصف الغبار الصيفية.",
+    "src": "/products-assets/unclears/WhatsApp Video 2026-10-30 at 6.19.54 PM.mp4",
+    "mediaType": "video",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للأبراج والمباني التجارية",
+        "description": "توثيق لمشروع برج سكني وتجاري فاخر يبرز الواجهات الزجاجية الهيكلية المستمرة المقاومة لأعتى ضغوط الرياح وعواصف الغبار الصيفية."
+      },
+      "en": {
+        "title": "Curtain Wall 50F High-Span Structural Glazing for Commercial Towers",
+        "description": "Engineered mullion-transom structural glazing designed for high-rise commercial structures and prestigious villa living rooms."
+      },
+      "ckb": {
+        "title": "ڕووکاری شووشەیی کێرتن وۆڵ 50F بۆ باڵەخانە و تاوەرەکان",
+        "description": "پڕۆژەی ڕووکاری شووشەیی پەیکەری ئەلەمنیۆم بە بەرگری بەرز بەرامبەر پەستانی با و کەشوهەوای توند."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-pool-railing",
+    "title": "بوابة أمان بشرائح أفقية مع لوح زجاجي مضيء",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتينة مع الفاصل الزجاجي المعماري الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "src": "/products-assets/photo_15_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة أمان بشرائح أفقية مع لوح زجاجي مضيء",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتينة مع الفاصل الزجاجي المعماري الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Horizontal Slat Security Gate with Translucent Accent Panel",
+        "description": "This premium architectural gate features robust horizontal slats featuring a contemporary translucent glass reveal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ئەمنیی بە شریتی ئاسۆیی و لەوحەی شووشەیی ڕووناک",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی بەهێز بە شووشەی تەلارسازیی مۆدێرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-stair-glass",
+    "title": "حاجز زجاجي بانورامي للسلالم المنحنية والواسعة",
+    "description": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد والمعتمدب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
+    "src": "/products-assets/photo_8_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "حاجز زجاجي بانورامي للسلالم المنحنية والواسعة",
+        "description": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد والمعتمدب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة."
+      },
+      "en": {
+        "title": "Panoramic Glass Railing for Grand Curved Stairs",
+        "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve."
+      },
+      "ckb": {
+        "title": "دەستەوانی شووشەیی پانۆراما بۆ پلیکانەی کەوانەیی و فراوان",
+        "description": "ئەم دەستەوانە شووشەییە شلگیرە دیزاین کراوە بۆ ئەوەی لەگەڵ فەخامەتی پلیکانە کەوانەییەکان و هۆڵە ناوەندییە گەورەکاندا بگونجێت، بە جۆرێک شووشە شەفافەکە بە نەرمی دەسوڕێتەوە تا جوانی ئەندازیاری پلیکانە و مەڕمەڕی بەنرخ دەربخات. ئەم سیستمە هەستێکی ڕاستەوخۆ بە فراوانی و ڕووناکی بەخشین دەبەخشێت کە هۆڵی سەرەکی زۆر گەشاوەتر و شیکتر نیشان دەدات.\n\nپێکهاتەی ئەم بەربەستە لە تەختە شووشەی بەهێزکراوی تایبەت بە کەوانەییەکان پێکهاتووە، کە بە کەڵامپی زەوی ڕەشی زۆر قایم پاڵپشتی کراوە تا بەرزترین ئاستی پارێزگاری لە کاتی سەرکەوتن و دابەزیندا دابین بکات. هەروەها دەسکە دارینە نەرمەکە ئاسوودەیی تەواو بە دەست دەبەخشێت و هەستی فەخامەت و هاوسەنگی لە کاتی ڕۆیشتندا دروست دەکات.\n\nئەم سیستمە چارەسەرێکی تەلارسازی بەردەوامە کە هێزی باڵا و ئاسانی لە خاوێنکردنەوەی ڕۆژانەدا کۆدەکاتەوە، تا ساڵ لە دوای ساڵ بە جوانی بمێنێتەوە. تیمی شارەزای دەرگای ماڵ پێوانەکردنی سێ دووری و دامەزراندنی ورد ئەنجام دەدەن تا هاوتەریبی شووشەکە لەگەڵ کەوانەیی پلیکانەکە بە شێوەیەکی سەدا سەد مسۆگەر بێت."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-mezzanine-glass",
+    "title": "حاجز شرفة وميزانين داخلي بزجاج معماري مقوى وقاعدة ألمنيوم غاطسة",
+    "description": "تصميم راقٍ للشرفات والميزانين في الفلل ذات الطوابق المفتوحة، يوفر عزلاً صوتياً بين الطوابق مع الحفاظ على الاتصال البصري والانفتاح المعماري.",
+    "src": "/uploads/84ea0ada-2c4f-4df2-a360-c2123edaa703.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "حاجز شرفة وميزانين داخلي بزجاج معماري مقوى وقاعدة ألمنيوم غاطسة",
+        "description": "تصميم راقٍ للشرفات والميزانين في الفلل ذات الطوابق المفتوحة، يوفر عزلاً صوتياً بين الطوابق مع الحفاظ على الاتصال البصري والانفتاح المعماري."
+      },
+      "en": {
+        "title": "Recessed Base Glass Mezzanine Railing for Double-Height Living Halls",
+        "description": "Continuous base shoe channel glass railing providing acoustic buffer and structural safety for upper levels."
+      },
+      "ckb": {
+        "title": "حاجزی شووشەیی بۆ باڵکۆنی ناوەوە و قاتی دووەم بە ئەلەمنیۆمی شاراوە",
+        "description": "دیزاینێکی شیک بۆ نهۆمی سەرەوە بە شووشەی بەهێز و بنکەی ئەلەمنیۆمی ژێرخاک بۆ سەلامەتی و جوانی."
+      }
+    }
+  },
+  {
+    "id": "gallery-proj-black-zip-screen-shutter",
+    "title": "ستارة خارجية آلية للواجهات والمساحات المفتوحة",
+    "description": "توفر هذه الستارة الخارجية الآلية حلاً أنيقاً وعملياً للتحكم بأشعة الشمس والحرارة والخصوصية على فتحات الواجهات الواسعة. سواء تم المعتمدبها على التراسات أو الأفنية المغطاة أو فتحات النوافذ الكبيرة، فإنها تنزلق بسلاسة لتوفر بيئة مظللة مريحة مع الحفاظ على إطلالة مفتوحة بالكامل عند طيّها.\n\nصُممت لتتحمل الظروف المناخية القاسية، حيث توفر حماية ممتازة من أشعة الشمس الحارقة والغبار والحشرات، مما يجعلها خياراً مثالياً للمنازل والمطاعم والفنادق والمباني التجارية. يتناسق مظهرها العصري النظيف بانسجام تام مع الهندسة المعمارية الحديثة، مضيفةً وظيفة عملية وجمالاً بصرياً لأي واجهة خارجية.\n\nصُنعت للعمل بهدوء وسهولة تامة، ويمكن التحكم بها عن بُعد أو دمجها مع أنظمة المنزل الذكي للتشغيل التلقائي المُجدول. إنها إضافة متينة وقليلة الصيانة تعزز الراحة الخارجية وكفاءة الطاقة على مدار العام.",
+    "src": "/uploads/exterior_black_zip_screen_shutter.png",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "ستارة خارجية آلية للواجهات والمساحات المفتوحة",
+        "description": "توفر هذه الستارة الخارجية الآلية حلاً أنيقاً وعملياً للتحكم بأشعة الشمس والحرارة والخصوصية على فتحات الواجهات الواسعة. سواء تم المعتمدبها على التراسات أو الأفنية المغطاة أو فتحات النوافذ الكبيرة، فإنها تنزلق بسلاسة لتوفر بيئة مظللة مريحة مع الحفاظ على إطلالة مفتوحة بالكامل عند طيّها.\n\nصُممت لتتحمل الظروف المناخية القاسية، حيث توفر حماية ممتازة من أشعة الشمس الحارقة والغبار والحشرات، مما يجعلها خياراً مثالياً للمنازل والمطاعم والفنادق والمباني التجارية. يتناسق مظهرها العصري النظيف بانسجام تام مع الهندسة المعمارية الحديثة، مضيفةً وظيفة عملية وجمالاً بصرياً لأي واجهة خارجية.\n\nصُنعت للعمل بهدوء وسهولة تامة، ويمكن التحكم بها عن بُعد أو دمجها مع أنظمة المنزل الذكي للتشغيل التلقائي المُجدول. إنها إضافة متينة وقليلة الصيانة تعزز الراحة الخارجية وكفاءة الطاقة على مدار العام."
+      },
+      "en": {
+        "title": "Motorized Exterior Screen for Facades and Open Spaces",
+        "description": "This motorized exterior screen provides a sleek and practical solution for controlling sunlight, heat, and privacy across wide facade openings. Whether installed on terraces, covered patios, or large window bays, it rolls down smoothly to create a comfortable shaded environment while maintaining an unobstructed view when fully retracted.\n\nDesigned to withstand harsh weather conditions, the screen offers excellent protection against intense sun, dust, and insects, making it ideal for homes, restaurants, hotels, and commercial buildings. Its clean, modern appearance integrates seamlessly with contemporary architecture, adding both function and visual appeal to any exterior.\n\nBuilt for quiet, effortless operation, the screen can be controlled with a remote or integrated into smart home systems for automated scheduling. It is a long-lasting, low-maintenance addition that enhances outdoor comfort and energy efficiency throughout the year."
+      },
+      "ckb": {
+        "title": "پەردەی دەرەوەی ئۆتۆماتیکی بۆ ڕووکارەکان و شوێنە کراوەکان",
+        "description": "ئەم پەردەیە دەرەوەیە ئۆتۆماتیکیە چارەسەرێکی شیک و کاریگەر دابین دەکات بۆ کۆنتڕۆڵکردنی تیشکی خۆر و گەرمی و تایبەتمەندی لەسەر کراوەییە فراوانەکانی ڕووکار. جا لەسەر تەڕاس یان حەوشەی سەرپۆشکراو یان کراوەییە گەورەکانی پەنجەرە دابنرێت، بە نەرمی دادەچێت بۆ دروستکردنی ژینگەیەکی سێبەری ئارام لەگەڵ پاراستنی دیمەنی کراوە بە تەواوی کاتێک هەڵدەپەچرێتەوە.\n\nدیزاین کراوە بۆ بەرگەگرتنی بارودۆخی کەشوهەوای سەخت، پاراستنی نایاب دەبەخشێت لە تیشکی خۆری توند و تۆز و مێروو، کە دەیکاتە هەڵبژاردەیەکی گونجاو بۆ ماڵەکان و چێشتخانەکان و هوتێلەکان و بیناکانی بازرگانی. ڕووکاری هاوچەرخی پاک بە یەکگرتوویی تەواو لەگەڵ تەلارسازیی مۆدێرن دەگونجێت و کارایی و جوانی بینایی بە هەر ڕووکارێکی دەرەوە زیاد دەکات.\n\nدروست کراوە بۆ کارکردنی بێدەنگ و ئاسان، دەکرێت بە دووری یان بە هاوکاری سیستەمە زیرەکەکانی ماڵ کۆنتڕۆڵ بکرێت بۆ کارپێکردنی ئۆتۆماتیکی بەرنامە ڕێژکراو. زیادکردنێکی بەردەوام و کەم چاککردنەوەیە کە ئاسایشی دەرەوە و کاریگەری وزە بەهێز دەکات بە درێژایی ساڵ."
+      }
+    }
+  },
+  {
+    "id": "gallery-proj-polycarb-transparent-shutter",
+    "title": "شتر رول بولي كربونات شفاف للمعارض والمتاجر",
+    "description": "يوفر هذا الشتر الأمني الشفاف المصنوع من البولي كربونات أعلى مستويات الحماية مع الحفاظ على وضوح الرؤية للمنتجات على مدار الساعة. صُنع من شرائح بولي كربونات بلورية فائقة القوة ومقاومة للصدمات، مما يمنحه مظهراً زجاجياً راقياً يسمح للزبائن بمشاهدة واجهات العرض حتى أثناء أوقات الإغلاق.\n\nيُعد خياراً مثالياً للمتاجر الفاخرة والمعارض التجارية والمقرات المصرفية والمداخل المؤسسية، حيث يجمع بين القوة الإنشائية العالية والجمال المعماري الحديث. يشكل حاجزاً فعالاً ضد الغبار والضوضاء ومحاولات الاقتحام دون حجب الضوء أو الإخلال بأمان المكان.\n\nيعمل بنظام تشغيل آلي سلس عبر محركات متطورة أو أجهزة التحكم عن بُعد، ويُطوى بانسيابية داخل صندوق علوي مدمج وأنيق. يتميز بقلة الصيانة والمتانة العالية، ليكون استثماراً ذكياً للمساحات التجارية التي تبحث عن الأمان والجاذبية.",
+    "src": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "شتر رول بولي كربونات شفاف للمعارض والمتاجر",
+        "description": "يوفر هذا الشتر الأمني الشفاف المصنوع من البولي كربونات أعلى مستويات الحماية مع الحفاظ على وضوح الرؤية للمنتجات على مدار الساعة. صُنع من شرائح بولي كربونات بلورية فائقة القوة ومقاومة للصدمات، مما يمنحه مظهراً زجاجياً راقياً يسمح للزبائن بمشاهدة واجهات العرض حتى أثناء أوقات الإغلاق.\n\nيُعد خياراً مثالياً للمتاجر الفاخرة والمعارض التجارية والمقرات المصرفية والمداخل المؤسسية، حيث يجمع بين القوة الإنشائية العالية والجمال المعماري الحديث. يشكل حاجزاً فعالاً ضد الغبار والضوضاء ومحاولات الاقتحام دون حجب الضوء أو الإخلال بأمان المكان.\n\nيعمل بنظام تشغيل آلي سلس عبر محركات متطورة أو أجهزة التحكم عن بُعد، ويُطوى بانسيابية داخل صندوق علوي مدمج وأنيق. يتميز بقلة الصيانة والمتانة العالية، ليكون استثماراً ذكياً للمساحات التجارية التي تبحث عن الأمان والجاذبية."
+      },
+      "en": {
+        "title": "Transparent Polycarbonate Security Shutter for Showrooms and Stores",
+        "description": "This transparent polycarbonate security shutter provides maximum protection while maintaining full product visibility around the clock. Crafted from impact-resistant crystal polycarbonate slats, it creates an elegant glass-like appearance that allows customers to browse display windows even when the premises are closed.\n\nIdeal for retail stores, high-end commercial showrooms, banking facilities, and corporate lobbies, this system combines high tensile strength with modern aesthetics. It provides a reliable barrier against dust, noise, and unauthorized access without blocking incoming light or compromising security.\n\nOperated smoothly via motorized control or smart remote systems, the shutter rolls up compactly into an unobtrusive overhead housing. It delivers low maintenance and long-term durability, making it an essential investment for commercial spaces seeking prestige and security."
+      },
+      "ckb": {
+        "title": "دەڕابی ڕوونی پۆلیکاربۆنات بۆ پێشانگا و دوکانەکان",
+        "description": "ئەم دەڕابە ئەمنییە ڕوونە لە پۆلیکاربۆناتی بەهێز دروستکراوە کە بەرزترین ئاستی پاراستن دابین دەکات لەگەڵ پاراستنی بینینی تەواوی کەلوپەلەکان بە درێژایی شەو و ڕۆژ. لە پارچەی پۆلیکاربۆناتی شوشەیی دژە-شکان دروستکراوە، دیمەنێکی شیکی شوشەیی دەبەخشێت کە ڕێگە بە کڕیاران دەدات سەیری کاڵاکان بکەن تەنانەت لە کاتی داخرانیشدا.\n\nهەڵبژاردنێکی نایابە بۆ دوکانە گەورەکان، پێشانگا بازرگانییەکان، بانکەکان و دەروازەی کۆمپانیاکان، بەجۆرێک کە بەهێزی و جوانیی تەلارسازیی مۆدێرن کۆدەکاتەوە. بەربەستێکی بەهێزە لە دژی تۆز و دەنگەدەنگ و دزیکردن بێ ئەوەی ڕێگری لە ڕووناکی بکات.\n\nبە مەکینەی کارەبایی نەرم و کۆنتڕۆڵی دووری کار دەکات و بە ڕێکی لەناو سندوقی سەرەوەدا کۆدەبێتەوە. پێویستی بە کەمترین چاککردنەوەیە و تەمەنێکی درێژی هەیە، کە دەبێتە وەبەرهێنانێکی پڕبایەخ بۆ شوێنە بازرگانییەکان."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-pergola-garden",
+    "title": "برجولات ألمنيوم متحركة معزولة وإغلاقات زجاجية للحدائق والتراسات",
+    "description": "استمتع بحديقتك وتراسك طوال فصول السنة مع نظام البرجولات الأوتوماتيكية المعزولة بشفرات ألمنيوم متحركة للتحكم بدرجة الإضاءة والتهوية والعزل التام ضد الأمطار.",
+    "src": "/products-assets/photo_9_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "برجولات ألمنيوم متحركة معزولة وإغلاقات زجاجية للحدائق والتراسات",
+        "description": "استمتع بحديقتك وتراسك طوال فصول السنة مع نظام البرجولات الأوتوماتيكية المعزولة بشفرات ألمنيوم متحركة للتحكم بدرجة الإضاءة والتهوية والعزل التام ضد الأمطار."
+      },
+      "en": {
+        "title": "Bioclimatic Motorized Louvered Aluminum Pergola & Terrace Enclosure",
+        "description": "Adjustable motorized roof louvers providing all-season outdoor weather protection and smart climate control."
+      },
+      "ckb": {
+        "title": "پێرگۆلای ئەلەمنیۆمی جووڵاو و شووشەبەندی باخچە و تەراس",
+        "description": "سوودمەندبوون لە باخچە لە هەموو وەرزەکاندا بە سیستەمی پێرگۆلای زیرەک بۆ کۆنتڕۆڵی ڕووناکی و باران."
+      }
+    }
+  },
+  {
+    "id": "proj-photo-zip-video",
+    "title": "تشغيل آلي صامت لنظام ستائر الحماية الخارجية للتراسات والحدائق",
+    "description": "فيديو توضيحي لتشغيل نظام الستائر الخارجية الأوتوماتيكي بلمسة زر، يوضح قوة الشد ومقاومة الرياح العاتية وحجب الشمس المباشرة.",
     "src": "/products-assets/unclears/video_2026-09-26_07-36-00 (8).mp4",
     "mediaType": "video",
-    "poster": "/uploads/poster_slot11.jpg",
-    "description": "Live operational video of a Doorhome automated zip-screen installation on a private villa terrace. Demonstrating whisper-silent motorized descent, high wind-resistance guide tracks, and complete glare-free outdoor shading.",
-    "year": "2024",
-    "glassArea": "110 m²",
+    "category": "doors",
+    "location": "",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
         "title": "تشغيل آلي صامت لنظام ستائر الحماية الخارجية للتراسات والحدائق",
-        "description": "فيديو توضيحي لتشغيل نظام الستائر الخارجية المتحركة في تراس فيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة النزول الهادئة وثبات القماش المشدود داخل مجاري التوجيه لمقاومة الرياح والغبار.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "فيديو توضيحي لتشغيل نظام الستائر الخارجية الأوتوماتيكي بلمسة زر، يوضح قوة الشد ومقاومة الرياح العاتية وحجب الشمس المباشرة."
+      },
+      "en": {
+        "title": "Zip Screen Automated Wind & Solar Defense Video Demonstration",
+        "description": "Demonstrating silent motorized descent and tensioned side-track wind stability under active conditions."
       },
       "ckb": {
-        "title": "کارکردنی نەرمی سیستەمی پەردەی دەرەوەی باخچە بە مۆتۆری خۆکار",
-        "description": "ڤیدیۆی کارکردنی ڕاستەوخۆی پەردەی دەرەوەی زیپ سکرین لەسەر تێراسی ڤێلا بە جووڵەی تەواو بێدەنگ و پاراستن لە گەرمای تیشکی خۆر لەلایەن دەرگای ماڵ."
+        "title": "ڤیدیۆی کارکردنی ئۆتۆماتیکی بێدەنگی پەردەی زیپ سکرین بۆ باخچە",
+        "description": "ڕوونکردنەوەی ڤیدیۆیی جووڵەی نەرمی پەردەی دەرەوە بۆ پاراستنی تەراس لە با و تیشکی خۆر."
       }
     }
   },
   {
-    "id": "proj-commercial-tower-balconies-video",
-    "title": "Luxury Multi-Story Residential Tower Glass Balconies & Facade Louvers",
-    "location": "Erbil - Gulan Street",
-    "system": "Doorhome Architectural Glass Balustrades & Exterior Aluminum Louver Systems",
-    "category": "commercial",
-    "src": "/products-assets/unclears/WhatsApp Video 2026-10-30 at 6.19.54 PM.mp4",
-    "mediaType": "video",
-    "poster": "/uploads/poster_slot2.jpg",
-    "description": "Architectural multi-story residential project featuring certified frameless glass balcony balustrades, integrated acoustic sliding patio doors, and exterior aluminum privacy sun louvers manufactured and installed by Doorhome.",
-    "year": "2024",
-    "glassArea": "1,450 m²",
+    "id": "proj-photo-5",
+    "title": "عناية وحماية فائقة: فريق النقل واللوجستيات المعتمد من دور هوم",
+    "description": "أسطول سيارات مجهز بحوامل زجاجية مخصصة وعمالة مدربة لضمان وصول الألواح الزجاجية الضخمة وقطاعات الألمنيوم إلى موقع العمل بحالة مثالية دون أي خدوش.",
+    "src": "/uploads/09f485a2-bcda-434e-ba3b-026a84be68bf.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Erbil, Baghdad & All Cities",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبراج سكنية فاخرة بشرفات زجاجية معمارية وكواسر شمس من تنفيذ باب المنزل",
-        "description": "مشروع برج سكني فاخر يبرز الشرفات الزجاجية الإنشائية الآمنة وأنظمة أبواب السحب العازلة للحرارة وكواسر الشمس المصنعة والمثبتة بأعلى المعايير الهندسية من قبل شركة باب المنزل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "عناية وحماية فائقة: فريق النقل واللوجستيات المعتمد من دور هوم",
+        "description": "أسطول سيارات مجهز بحوامل زجاجية مخصصة وعمالة مدربة لضمان وصول الألواح الزجاجية الضخمة وقطاعات الألمنيوم إلى موقع العمل بحالة مثالية دون أي خدوش."
+      },
+      "en": {
+        "title": "Specialized Transport & Logistics for Architectural Glass",
+        "description": "Dedicated vehicle fleet with specialized glass racks and trained handlers ensuring zero damage delivery to installation sites."
       },
       "ckb": {
-        "title": "باڵەخانەی نیشتەجێبوونی شاهانە بە باڵکۆنی شووشەیی و شریتی خۆرپارێز",
-        "description": "پڕۆژەیەکی باڵەخانەی نیشتەجێبوون بە باڵکۆنی شووشەیی پارێزراو و پەنجەرەی سحابی عازلی دەنگ و کواسر شەمسی ئەلەمنیۆم لە جێبەجێکردنی دەرگای ماڵ."
-      }
-    }
-  },
-  {
-    "id": "proj-villa-operable-patio-video",
-    "title": "Operable Transparent Motorized Patio Glass Enclosure in Motion",
-    "location": "Baghdad - Jadiriya",
-    "system": "Doorhome Motorized Transparent Patio Louver & Glass Enclosure Systems",
-    "category": "villa",
-    "src": "/products-assets/unclears/WhatsApp Video 2026-10-25 at 5.10.04 PM (1).mp4",
-    "mediaType": "video",
-    "poster": "/uploads/poster_slot4.jpg",
-    "description": "Video documentation of a completed luxury villa garden patio enclosure executed by Doorhome. Showcasing automated horizontal slats with crystal-clear vision panels gliding smoothly to enclose an outdoor pergola into an air-conditioned sunroom.",
-    "year": "2024",
-    "glassArea": "160 m²",
-    "translations": {
-      "ar": {
-        "title": "نظام إغلاق الشرفات والتراسات الزجاجية الشفافة المتحركة آلياً",
-        "description": "فيديو توثيقي لجلسة خارجية وتراس لفيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة الإغلاق الآلي السلسة للشرائح الشفافة لتحويل الجلسة الخارجية إلى مساحة مغلقة ومكيفة بكفاءة عالية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
-      },
-      "ckb": {
-        "title": "سیستەمی داخستنی تێراسی شووشەیی جووڵاوی کارەبایی لە کاتی کارکردندا",
-        "description": "ڤیدیۆی بەڵگەنامەیی پڕۆژەیەکی تێراسی باخچەی ڤێلا لەلایەن دەرگای ماڵ کە پیشانی دەدات چۆن بە مۆتۆری خۆکار پەردە شووشەییەکان بە نەرمی دادەخرێن بۆ ژوورێکی فێنک."
+        "title": "گواستنەوەی پارێزراوی تیمی دەرگای ماڵ بۆ شووشە و ئەلەمنیۆم",
+        "description": "ئۆتۆمبێلی تایبەت بە هەڵگرتنی شووشەی گەورە و کارمەندی ڕاهێنراو بۆ گەیاندنی کەرەستەکان بەبێ هیچ خەوشێک."
       }
     }
   },
   {
     "id": "proj-villa-terrace-retractable-awning",
-    "title": "Sky Lounge & Terrace Retractable Motorized Pergola Awning by Doorhome",
-    "location": "Sulaymaniyah - American Village",
-    "system": "Doorhome Motorized Architectural Awning & Retractable Roof Systems",
-    "category": "villa",
+    "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+    "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى.",
     "src": "/products-assets/unclears/photo_78_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "High-performance motorized retractable fabric pergola and awning system engineered and installed by Doorhome for an elevated estate sky lounge, overlooking sprawling manicured gardens and providing on-demand solar shading.",
-    "year": "2024",
-    "glassArea": "85 m²",
+    "category": "shorfa",
+    "location": "Sulaymaniyah - American Village",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "مظلة سقفية متحركة آلياً لتراس وروف علوي لفيلا مطلة على الحديقة",
-        "description": "نظام مظلات سقفية متحركة أوتوماتيكياً نفذته شركة باب المنزل لروف وتراس علوي في فيلا خاصة، يوفر حماية ديناميكية ذكية من أشعة الشمس المباشرة مع إمكانية الفتح والإغلاق بلمسة زر واحدة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+        "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى."
+      },
+      "en": {
+        "title": "Corporate Commercial Panoramic Facade & Sliding System",
+        "description": "Minimalist slim-profile glass facades engineered for commercial headquarters and luxury storefronts."
       },
       "ckb": {
-        "title": "سەقفی جووڵاوی کارەبایی بۆ تێراسی سەرەوەی ڤێلا بە دیمەنی باخچە",
-        "description": "سیستەمی سێبەری کارەبایی جووڵاو لەسەر تێراسی سەرەوەی ڤێلا بۆ پاراستن لە تیشکی خۆر بە کۆنتڕۆڵی زیرەک لە جێبەجێکردنی دەرگای ماڵ."
+        "title": "ڕووکاری شووشەیی پانۆراما بۆ پێشانگا و کۆمپانیاکان",
+        "description": "ڕووکاری مۆدێرن بە چوارچێوەی باریک و شووشەی پارێزراو بۆ پێشانگا و ئۆفیسی کۆمپانیاکان."
       }
     }
   },
   {
     "id": "proj-villa-patio-zip-screens",
-    "title": "Villa Garden Living Pavilion with Motorized Architectural Zip-Screen Enclosure",
-    "location": "Erbil - Certified Village",
-    "system": "Doorhome Automated Exterior Zip-Screen Drop Shades & Weather Barriers",
-    "category": "villa",
+    "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+    "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى.",
     "src": "/products-assets/unclears/photo_70_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "Finished luxury private villa outdoor living pavilion completed by Doorhome. Features continuous automated windproof vertical zip screens that lower seamlessly to shield family outdoor dining areas from harsh direct sun, high desert temperatures, and airborne dust.",
-    "year": "2024",
-    "glassArea": "145 m²",
+    "category": "windows",
+    "location": "Erbil - Architectural Village",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "جلسة حديقة خارجية لفيلا خاصة بستائر زيب سكرين المعمارية الأوتوماتيكية",
-        "description": "مشروع جلسة وتراس خارجي فاخر لفيلا سكنية نفذته شركة باب المنزل، مزود بستائر خارجية متحركة آلياً ومقاومة للرياح توفر حماية متكاملة للجلسات العائلية من حرارة الشمس الحارقة والغبار وتمنح خصوصية تامة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+        "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى."
+      },
+      "en": {
+        "title": "Corporate Commercial Panoramic Facade & Sliding System",
+        "description": "Minimalist slim-profile glass facades engineered for commercial headquarters and luxury storefronts."
       },
       "ckb": {
-        "title": "دانیشتنی باخچەی ڤێلا بە سیستەمی پەردەی کارەبایی زیپ سکرین",
-        "description": "شوێنی دانیشتنی دەرەوەی باخچەی ڤێلا بە سیستەمی پەردەی دەرەوەی کارەبایی دژە با و خۆر لە جێبەجێکردنی دەرگای ماڵ بۆ دابینکردنی تایبەتمەندی و فێنکی."
+        "title": "ڕووکاری شووشەیی پانۆراما بۆ پێشانگا و کۆمپانیاکان",
+        "description": "ڕووکاری مۆدێرن بە چوارچێوەی باریک و شووشەی پارێزراو بۆ پێشانگا و ئۆفیسی کۆمپانیاکان."
       }
     }
   },
   {
     "id": "proj-villa-timber-cladding-site",
-    "title": "Contemporary Dual-Level Villa Residence with Timber Accents by Doorhome",
-    "location": "Basra - Al-Jazaer",
-    "system": "Doorhome Contemporary Window Framing & Modern Architectural Facade Systems",
-    "category": "villa",
+    "title": "فيلا سكنية حديثة بتطعيمات خشبية معمارية قيد الإنجاز بشركة باب المنزل",
+    "description": "مشروع بناء وتجهيز فيلا سكنية خاصة تنفذها شركة باب المنزل، يجمع تصميمها الخارجي بين دفء الكسوات الخشبية العصرية والألواح الحجرية الرمادية مع فتحات زجاجية واسعة مجهزة لالمعتمدب أحدث أنظمة النوافذ العازلة للحرارة. تم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير المعتمدة، وانتهاءً بالمعتمدب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية.",
     "src": "/products-assets/unclears/WhatsApp Image 2026-10-25 at 5.09.48 PM.jpeg",
     "mediaType": "image",
-    "description": "Under-construction luxury private home project managed and fabricated by Doorhome. Featuring a striking blend of warm exterior wood composite siding, monolithic grey facade panels, and structural floor-to-ceiling window openings ready for certified high-efficiency thermal break glass installations.",
-    "year": "2024",
-    "glassArea": "290 m²",
+    "category": "doors",
+    "location": "Basra - Al-Jazaer",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
         "title": "فيلا سكنية حديثة بتطعيمات خشبية معمارية قيد الإنجاز بشركة باب المنزل",
-        "description": "مشروع بناء وتجهيز فيلا سكنية خاصة تنفذها شركة باب المنزل، يجمع تصميمها الخارجي بين دفء الكسوات الخشبية العصرية والألواح الحجرية الرمادية مع فتحات زجاجية واسعة مجهزة لتركيب أحدث أنظمة النوافذ العازلة للحرارة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع بناء وتجهيز فيلا سكنية خاصة تنفذها شركة باب المنزل، يجمع تصميمها الخارجي بين دفء الكسوات الخشبية العصرية والألواح الحجرية الرمادية مع فتحات زجاجية واسعة مجهزة لالمعتمدب أحدث أنظمة النوافذ العازلة للحرارة. تم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير المعتمدة، وانتهاءً بالمعتمدب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+      },
+      "en": {
+        "title": "Contemporary Dual-Level Villa Residence with Timber Accents by Doorhome",
+        "description": "Under-construction luxury private home project managed and fabricated by Doorhome. Featuring a striking blend of warm exterior wood composite siding, monolithic grey facade panels, and structural floor-to-ceiling window openings ready for certified high-efficiency thermal break glass installations."
       },
       "ckb": {
         "title": "ڤێلای هاوچەرخی نیشتەجێبوون بە نەخشی دار لە جێبەجێکردنی دەرگای ماڵ",
@@ -449,85 +606,93 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-villa-arched-masonry-framing",
-    "title": "Custom Architectural Villa Facade & Arched Fenestration Project",
-    "location": "Najaf - Al-Adala",
-    "system": "Doorhome Custom Arched Window Framing & Heavy-Duty Structural Subframes",
-    "category": "villa",
+    "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+    "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي.",
     "src": "/products-assets/unclears/photo_59_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "Structural on-site progress for an upscale private residence executed by Doorhome. Featuring precision-crafted stone masonry arches, structural scaffolding alignment, and specialized thermal break subframes engineered to house custom arched double-glazed panoramic windows.",
-    "year": "2024",
-    "glassArea": "410 m²",
+    "category": "windows",
+    "location": "Najaf - Al-Adala",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "مشروع تنفيذ الواجهات المعمارية والنوافذ المقوسة لفيلا سكنية مستقلة",
-        "description": "مراحل التنفيذ الإنشائي والمعماري لفيلا سكنية فاخرة بإشراف شركة باب المنزل، حيث تم إعداد وتركيب الإطارات الهيكلية العازلة لتثبيت النوافذ المقوسة المزدوجة العازلة للحرارة وسط تكسيات الحجر الطبيعي الفاخر.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+        "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي."
+      },
+      "en": {
+        "title": "Suspended Tempered Glass Interior Staircase Railing",
+        "description": "Minimalist floating stair balustrade crafted from certified tempered impact-resistant safety glass."
       },
       "ckb": {
-        "title": "پڕۆژەی جێبەجێکردنی ڕووبەری ئەندازیاری و پەنجەرەی کەوانەیی بۆ ڤێلا",
-        "description": "قۆناغەکانی کارکردن لەسەر ڤێلایەکی تایبەت لەلایەن دەرگای ماڵ بۆ ئامادەکردن و بەستنی چوارچێوەی ئەلەمنیۆمی پەنجەرە کەوانەییەکان لە ناو بەردی سروشتیدا."
+        "title": "دەربزینی شووشەیی بۆ قادرمەی ناوەوە بە ڕوونی تەواو",
+        "description": "حاجزی شووشەیی مۆدێرن بۆ قادرمە بە زۆرترین شەفافیەت و پارێزگاری لە کەوتنەخوارەوە."
       }
     }
   },
   {
     "id": "proj-villa-under-construction-banner",
-    "title": "Modern Multi-Story Villa Residence Under Execution by Doorhome",
-    "location": "Karbala - Al-Ghadeer",
-    "system": "Doorhome Certified High-Performance Architectural Facade & Window Systems",
-    "category": "villa",
+    "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+    "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق.",
     "src": "/products-assets/unclears/photo_79_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "Exclusive on-site documentation of a luxury modern villa project currently under active execution by Doorhome certified engineering installation teams. Showcasing precision masonry integration, arched entrance aperture framing, and full architectural envelope fenestration with official on-site Doorhome execution signage.",
-    "year": "2024",
-    "glassArea": "380 m²",
+    "category": "doors",
+    "location": "Karbala - Al-Ghadeer",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "مشروع فيلا سكنية حديثة قيد التنفيذ والإنجاز بإشراف شركة باب المنزل",
-        "description": "توثيق ميداني لمشروع فيلا سكنية راقية قيد التنفيذ المباشر من قبل الفرق الهندسية المتخصصة لشركة باب المنزل، يبرز دقة تثبيت أطر النوافذ المعمارية المقوسة وواجهات الألمنيوم العازلة مع لافتة الإنجاز الرسمية للشركة في موقع العمل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+        "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق."
+      },
+      "en": {
+        "title": "Frameless Glass Balustrade for Pool Decks & Gardens",
+        "description": "Engineered structural glass railing anchored with marine-grade stainless steel spigots."
       },
       "ckb": {
-        "title": "پڕۆژەی ڤێلای نیشتەجێبوونی مۆدێرن لە جێبەجێکردنی کۆمپانیای دەرگای ماڵ",
-        "description": "بەبەڵگەکردنی ڕاستەوخۆی پڕۆژەیەکی ڤێلای مۆدێرن لە کاتی کارکردنی ئەندازیارانی دەرگای ماڵ بۆ دانانی چوارچێوەی پەنجەرە و دەروازەی کەوانەیی بە بەرزترین ئاستی وردی."
+        "title": "دەربزینی شووشەیی بێ چوارچێوە بۆ دەوری مەلەوانگە و باخچە",
+        "description": "حاجزی شووشەیی ئەندازیاری بۆ دەوری مەلەوانگە بە ستیلی دژە ژەنگ بە دیمەنی ڕوون."
       }
     }
   },
   {
     "id": "proj-villa-modern-panoramic-facade",
-    "title": "Contemporary Minimalist Villa with Panoramic Double-Height Glass Facades",
-    "location": "Erbil - Dream City",
-    "system": "Doorhome Thermal Break Minimalist Sliding Systems & Monumental Entrance Door",
-    "category": "villa",
+    "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+    "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي.",
     "src": "/products-assets/unclears/photo_75_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "Signature private villa project executed by Doorhome featuring monolithic porcelain facade cladding, expansive floor-to-ceiling panoramic sliding glass systems, and a custom double-height architectural entrance door with vertical natural wood cladding.",
-    "year": "2024",
-    "glassArea": "520 m²",
+    "category": "windows",
+    "location": "Erbil - Dream City",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "فيلا سكنية عصرية فاخرة بواجهات زجاجية بانورامية وباب مدخل ضخم",
-        "description": "مشروع فيلا سكنية حديثة نفذته شركة باب المنزل، يتميز بتكسيات حجرية معاصرة وواجهات زجاجية سحابة بانورامية بكامل الارتفاع مع باب مدخل رئيسي ضخم بارتفاع مزدوج مكسو بالخشب الطبيعي المعالج.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+        "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي."
+      },
+      "en": {
+        "title": "Suspended Tempered Glass Interior Staircase Railing",
+        "description": "Minimalist floating stair balustrade crafted from certified tempered impact-resistant safety glass."
       },
       "ckb": {
-        "title": "ڤێلای مۆدێرنی نیشتەجێبوون بە ڕووبەری شووشەی پانۆراما و دەرگای سەرەکی گەورە",
-        "description": "پڕۆژەیەکی تایبەتی ڤێلا لە جێبەجێکردنی دەرگای ماڵ بە ڕووبەری شووشەی پانۆرامای سحاب لە زەوییەوە تا سەقف لەگەڵ دەرگای سەرەکی گەورە بە ڕووپۆشی دار."
+        "title": "دەربزینی شووشەیی بۆ قادرمەی ناوەوە بە ڕوونی تەواو",
+        "description": "حاجزی شووشەیی مۆدێرن بۆ قادرمە بە زۆرترین شەفافیەت و پارێزگاری لە کەوتنەخوارەوە."
       }
     }
   },
   {
     "id": "proj-villa-neoclassical-palace",
-    "title": "Grand Neoclassical Private Palace & Luxury Villa Facade",
-    "location": "Baghdad - Al-Mansour",
-    "system": "Doorhome Classical Arched Architectural Windows & Curtain Wall Systems",
-    "category": "villa",
+    "title": "قصر سكني فاخر بتصميم كلاسيكي ملكي مع واجهات ونوافذ مقوسة",
+    "description": "مشروع متكامل نفذته شركة باب المنزل لقصر سكني فخم، يشمل تصنيع والمعتمدب النوافذ المعمارية المقوسة العازلة للحرارة، والواجهة الزجاجية البانورامية بالمدخل الرئيسي بكامل الارتفاع، مع أنظمة عزل متطورة تجمع بين الفخامة الملكية والأمان العالي. تم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير المعتمدة، وانتهاءً بالمعتمدب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية.",
     "src": "/products-assets/unclears/photo_12_2026-09-26_07-36-01.jpg",
     "mediaType": "image",
-    "description": "Complete architectural fenestration and facade execution for a monumental classical private estate. Featuring arched panoramic insulated double-glazed windows, grand double-height entrance portal, and custom stone balustrade fenestration engineered by Doorhome to withstand extreme desert heat while providing timeless royal elegance.",
-    "year": "2024",
-    "glassArea": "850 m²",
+    "category": "windows",
+    "location": "Baghdad - Al-Mansour",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
         "title": "قصر سكني فاخر بتصميم كلاسيكي ملكي مع واجهات ونوافذ مقوسة",
-        "description": "مشروع متكامل نفذته شركة باب المنزل لقصر سكني فخم، يشمل تصنيع وتركيب النوافذ المعمارية المقوسة العازلة للحرارة، والواجهة الزجاجية البانورامية بالمدخل الرئيسي بكامل الارتفاع، مع أنظمة عزل متطورة تجمع بين الفخامة الملكية والأمان العالي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع متكامل نفذته شركة باب المنزل لقصر سكني فخم، يشمل تصنيع والمعتمدب النوافذ المعمارية المقوسة العازلة للحرارة، والواجهة الزجاجية البانورامية بالمدخل الرئيسي بكامل الارتفاع، مع أنظمة عزل متطورة تجمع بين الفخامة الملكية والأمان العالي. تم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير المعتمدة، وانتهاءً بالمعتمدب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+      },
+      "en": {
+        "title": "Grand Neoclassical Private Palace & Luxury Villa Facade",
+        "description": "Complete architectural fenestration and facade execution for a monumental classical private estate. Featuring arched panoramic insulated double-glazed windows, grand double-height entrance portal, and custom stone balustrade fenestration engineered by Doorhome to withstand extreme desert heat while providing timeless royal elegance."
       },
       "ckb": {
         "title": "قەسری شاهانەی نیشتەجێبوون بە شێوازی کلاسیکی و پەنجەرەی کەوانەیی",
@@ -537,1522 +702,1634 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-14",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #14",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Gulan Street, Erbil.",
+    "title": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_14_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #14",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في شارع كولان، أربيل."
-      },
-      "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #14",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە شەقامی گوڵان، هەولێر."
-      }
-    },
     "mediaType": "image",
-    "category": "commercial",
+    "category": "doors",
     "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "765 m²"
-  },
-  {
-    "id": "proj-photo-15",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #15",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
-    "src": "/products-assets/photo_15_2026-09-26_07-36-01.jpg",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #15",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Charcoal Aluminum Sliding Gate with Wood Finish Inlays",
+        "description": "This premium architectural gate features deep charcoal louvers integrated with rich architectural wood accents, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #15",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی ڕەنگی خەڵوزی بە نەخشی تەختە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی ڕەنگی خەڵوزی لەگەڵ نەخشی داری شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "810 m²"
+    }
   },
   {
     "id": "proj-photo-16",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #16",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي عصري للسلالم الداخلية",
+    "description": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل والمعتمدب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
     "src": "/products-assets/photo_16_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #16",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي عصري للسلالم الداخلية",
+        "description": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل والمعتمدب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً."
+      },
+      "en": {
+        "title": "Modern Glass Railing for Interior Stairs",
+        "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #16",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەستەوانی شووشەیی مۆدێرن بۆ پلیکانەی ناوەوە",
+        "description": "ئەم سیستمە لە دەستەوانی شووشەیی دیمەنێکی مۆدێرن و سەرنجڕاکێش بە شوێنەکە دەبەخشێت، بەجۆرێک کە سادەیی لە دیزاین و کراوەیی لە بینیندا کۆدەکاتەوە. هەڵبژاردنێکی زۆر گونجاوە بۆ شوێنە ناوخۆییە جیاوازەکان وەک ماڵە هاوچەرخەکان، پێشانگاکان و هۆڵە گەورەکان، چونکە ڕێگە دەدات ڕووناکی سروشتی بە تەواوی بڵاوببێتەوە و هەستی فراوانی و ئارامی لە تەواوی فەزاکەدا دروست بکات.\n\nتەختە شووشەکان لە شووشەی سێکۆریتی زۆر بەهێز و دژە زەبر دروستکراون بۆ دەستەبەرکردنی بەرزترین ئاستی پارێزگاری و سەلامەتی ڕۆژانە بۆ خێزان و میوانان. هەروەها سیستمەکە بە جێگیرکەری تەنیشتی پۆڵایینی دژە ژەنگ بەستراوەتەوە کە ڕاگرتنی تەواو و بێ لەرزین بۆ دەستەوانەکە دابین دەکات، هاوکات هێڵە ئەندازیارییە جوان و پاکەکان دەپارێزێت کە لەگەڵ جۆرە جیاوازەکانی دیکۆر دەگونجێت.\n\nئەم جۆرە دەستەوانەیە بە ئاسانی پاک دەبێتەوە و لە بەرامبەر ڕووشاندا خۆڕاگرە، کە ئەمەش دەیکاتە هەڵبژاردنێکی کرداری و بەردەوام بۆ ساڵانێکی زۆر بێ ئەوەی جوانییەکەی لەدەست بدات. تیمی پسپۆڕی دەرگای ماڵ بە وردبینییەکی ئەندازیاری بەرز پێوانەکردن و دامەزراندنی بۆ ئەنجام دەدەن تا بە تەواوی لەگەڵ پلیکانەکەتاندا بگونجێت و دیمەنێکی تەواو و سەردەمیانە بە شوێنەکەتان ببەخشێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "180 m²"
+    }
   },
   {
     "id": "proj-photo-17",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #17",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "بوابة مدخل ألمنيوم باللون الأسود المطفي مع تفاصيل خشبية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألمنيوم الأسود المطفي الفاخر مع الألواح الخشبية العمودية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_17_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #17",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في سرجنار، السليمانية."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #17",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە سەرچنار، سلێمانی."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "225 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة مدخل ألمنيوم باللون الأسود المطفي مع تفاصيل خشبية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألمنيوم الأسود المطفي الفاخر مع الألواح الخشبية العمودية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Matte Black Aluminum Entrance Gate with Vertical Wood Accents",
+        "description": "This premium architectural gate features matte black structural aluminum contrasted by warm vertical wood siding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی مدخەلی ئەلەمنیۆمی ڕەشی ماتی بە تەختەی ستوونی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەشی ماتی لەگەڵ تەختەی ستوونی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-18",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #18",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+    "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة.",
     "src": "/products-assets/photo_18_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #18",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+        "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة."
+      },
+      "en": {
+        "title": "Curtain Wall 50F High-Span Structural Facade System",
+        "description": "Engineered mullion-transom stick curtain wall for open-concept modern villa facades and offices."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #18",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڕووکاری شووشەیی پەیکەری کێرتن وۆڵ 50F",
+        "description": "ڕووکاری ئەندازیاری شووشەیی بۆ بەرگەگرتنی پەستانی با و ڕێگری لە گەرمای هاوین."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "270 m²"
+    }
   },
   {
     "id": "proj-photo-19",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #19",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة مدخل هندسية مجسمة مع مسارات إضاءة مدمجة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم الهندسي الزاوي المجسم مع قنوات الإضاءة المخفية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_19_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #19",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة مدخل هندسية مجسمة مع مسارات إضاءة مدمجة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم الهندسي الزاوي المجسم مع قنوات الإضاءة المخفية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Sculptural Geometric Grid Entrance Gate with Integrated Lighting",
+        "description": "This premium architectural gate features dynamic angular grid framing with recessed architectural ambient lighting, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #19",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی ئەندازەیی سەرنجڕاکێش بە ڕووناکیی لیدی ناوەکی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی ئەندازەیی سەرنجڕاکێش بە کەناڵی ڕووناکیی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "315 m²"
+    }
   },
   {
     "id": "proj-photo-20",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #20",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي مظلل بأعمدة بلون الخشب الدافئ",
+    "description": "تجتمع الأعمدة بلون الخشب الدافئ مع الزجاج المظلل في هذا الحاجز لتمنح مظهراً متوازناً ومرحباً. يضيف طابعاً خاصاً للبلكونات والتراسات مع إبقاء الإطلالة مفتوحة.\n\nالألواح من زجاج سيكوريت متين محكمة الثبات بين أعمدة قوية لإحساس بالصلابة والاستقرار. ويخفف التظليل الناعم من الوهج ويمنح شعوراً لطيفاً بالخصوصية.\n\nسهل العناية ومصمم للاستخدام اليومي. ويركّب فريق باب المنزل كل جزء بعناية ليستقر الحاجز في مساحتك بشكل مثالي.",
     "src": "/products-assets/photo_20_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #20",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي مظلل بأعمدة بلون الخشب الدافئ",
+        "description": "تجتمع الأعمدة بلون الخشب الدافئ مع الزجاج المظلل في هذا الحاجز لتمنح مظهراً متوازناً ومرحباً. يضيف طابعاً خاصاً للبلكونات والتراسات مع إبقاء الإطلالة مفتوحة.\n\nالألواح من زجاج سيكوريت متين محكمة الثبات بين أعمدة قوية لإحساس بالصلابة والاستقرار. ويخفف التظليل الناعم من الوهج ويمنح شعوراً لطيفاً بالخصوصية.\n\nسهل العناية ومصمم للاستخدام اليومي. ويركّب فريق باب المنزل كل جزء بعناية ليستقر الحاجز في مساحتك بشكل مثالي."
+      },
+      "en": {
+        "title": "Tinted Glass Railing with Warm Wood-Tone Posts",
+        "description": "Warm wood-tone posts and tinted glass come together in this railing for a balanced, welcoming look. It adds character to balconies and terraces while keeping the view open.\n\nThe glass panels are strong tempered safety glass, held securely between sturdy posts for a firm and steady feel. The soft tint reduces glare and adds a pleasant sense of privacy.\n\nIt is easy to look after and designed for everyday use. The Doorhome team fits every section carefully so the railing sits perfectly in your space."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #20",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی شووشەیی تۆخ بە ستوونی ڕەنگی داری گەرم",
+        "description": "ستوونی ڕەنگی داری گەرم و شووشەی تۆخ لەم بەربەستەدا پێکەوە دێن بۆ دیمەنێکی هاوسەنگ و میوانپەسەند. کەسایەتییەکی تایبەت بە باڵکۆن و تەراسەکان دەبەخشێت و دیمەنەکە کراوە دەهێڵێتەوە.\n\nتەختە شووشەکان لە شووشەی سێکۆریتی بەهێزن و لە نێوان ستوونی پتەودا بە قایمی جێگیر دەکرێن. تۆخی نەرمی شووشەکە تیشک کەم دەکاتەوە و هەستێکی خۆش بە تایبەتمەندی دەبەخشێت.\n\nچاودێریکردنی ئاسانە و بۆ بەکارهێنانی ڕۆژانە دیزاین کراوە. تیمی دەرگای ماڵ هەر بەشێک بە وردی دادەمەزرێنێت بۆ ئەوەی بەربەستەکە بە تەواوی لە شوێنەکەتان بگونجێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "360 m²"
+    }
   },
   {
     "id": "proj-photo-21",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #21",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "بوابة فيلا سوداء عصرية بخطوط الستانلس ستيل المصقول",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح السوداء المطفية الفاخرة المطرزة بخطوط الستانلس ستيل اللامعة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_21_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #21",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #21",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە دهۆک."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "405 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة فيلا سوداء عصرية بخطوط الستانلس ستيل المصقول",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح السوداء المطفية الفاخرة المطرزة بخطوط الستانلس ستيل اللامعة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Modern Matte Black Villa Gate with Polished Stainless Steel Inlays",
+        "description": "This premium architectural gate features monolithic matte black panels accented by horizontal polished stainless steel, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ڤێلای ڕەشی مۆدێرن بە هێڵی ستیلی بریقەدار",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەشی مات بە هێڵە بریقەدارەکانی ستیلی دژە-ژەنگ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-22",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #22",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Empire World, Erbil.",
+    "title": "بوابة سحابة للسيارات بشرائح أفقية مع باب مشاة متناسق",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ بوابة المركبات السحابة العريضة المرفقة بباب جانبي مستقل ومتناسق للمشاة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_22_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #22",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في إمباير وورلد، أربيل."
+        "title": "بوابة سحابة للسيارات بشرائح أفقية مع باب مشاة متناسق",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ بوابة المركبات السحابة العريضة المرفقة بباب جانبي مستقل ومتناسق للمشاة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Sliding Driveway Gate with Horizontal Louvers and Matching Pedestrian Door",
+        "description": "This premium architectural gate features wide driveway sliding gate coordinated with a dedicated pedestrian entry door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #22",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر."
+        "title": "دەروازەی سلایدینگی ئۆتۆمبێل بە شریتی ئاسۆیی و دەرگای پیادە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەروازەی پان و گەورەی سلایدینگ لەگەڵ دەرگایەکی تەنیشتی تایبەت بە پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "450 m²"
+    }
   },
   {
     "id": "proj-photo-23",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #23",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سوداء عصرية بنوافذ رؤية أفقية مصنفرة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء الناعمة المزودة بثلاث نوافذ أفقية مصنفرة لرؤية راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_23_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Al-Mansour, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #23",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سوداء عصرية بنوافذ رؤية أفقية مصنفرة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء الناعمة المزودة بثلاث نوافذ أفقية مصنفرة لرؤية راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Contemporary Matte Black Gate with Horizontal Viewport Windows",
+        "description": "This premium architectural gate features clean minimalist black louvers punctuated by three horizontal viewports, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #23",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە مەنسوور، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی هاوچەرخی ڕەش بە پەنجەرەی بینینی ئاسۆیی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی مۆدێرن بە سێ پەنجەرەی ئاسۆیی تەڵخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Mansour, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "495 m²"
+    }
   },
   {
     "id": "proj-photo-24",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #24",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+    "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة.",
     "src": "/products-assets/photo_24_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Dream City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #24",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+        "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة."
+      },
+      "en": {
+        "title": "أنظمة السحب والرفع المعمارية Thermal-Break Minimalist Sliding Patio Door",
+        "description": "Architectural sliding door system engineered for oversized openings with thermal barriers and airtight weatherproofing."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #24",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە دریم سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای سلایدینگی لۆرێنزۆ 70LS بە عەزلی گەرمی و دەنگ",
+        "description": "سیستەمی ئیتاڵی پێشکەوتوو بۆ دەرگای گەورە بە جووڵەی نەرم و عەزلی تۆز و باران."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Dream City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "540 m²"
+    }
   },
   {
     "id": "proj-photo-25",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #25",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "title": "بوابة ألمنيوم معمارية متناسقة للمركبات والأفراد",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التناغم بين شرائح المركبات العريضة وباب الأفراد العمودي الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_25_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #25",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في الجادرية، بغداد."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #25",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە جادریە، بەغدا."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "585 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة ألمنيوم معمارية متناسقة للمركبات والأفراد",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التناغم بين شرائح المركبات العريضة وباب الأفراد العمودي الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Architectural Dual-Panel Slat Gate for Vehicle and Pedestrian Access",
+        "description": "This premium architectural gate features balanced composition of horizontal driveway slats and vertical pedestrian slats, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ئەلەمنیۆمی تەلارسازی بۆ ئۆتۆمبێل و پیادە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە هاوسەنگی نێوان شریتی ئاسۆیی ئۆتۆمبێل و شریتی ستوونی پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-26",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #26",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+    "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة.",
     "src": "/products-assets/photo_26_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Gulan Street, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #26",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+        "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة."
+      },
+      "en": {
+        "title": "Curtain Wall 50F High-Span Structural Facade System",
+        "description": "Engineered mullion-transom stick curtain wall for open-concept modern villa facades and offices."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #26",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە شەقامی گوڵان، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڕووکاری شووشەیی پەیکەری کێرتن وۆڵ 50F",
+        "description": "ڕووکاری ئەندازیاری شووشەیی بۆ بەرگەگرتنی پەستانی با و ڕێگری لە گەرمای هاوین."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "630 m²"
+    }
   },
   {
     "id": "proj-photo-27",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #27",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة مزدوجة بدرفتين مع خطوط ستانلس ومقابض طولية فاخرة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم المزدوج بدرفتين متناظرتين تزدانان بخطوط الستانلس والمقابض الطولية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_27_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Architectural Village II, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #27",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة مزدوجة بدرفتين مع خطوط ستانلس ومقابض طولية فاخرة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم المزدوج بدرفتين متناظرتين تزدانان بخطوط الستانلس والمقابض الطولية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Double Swing Modern Gate with Stainless Steel Inlays and Long Pulls",
+        "description": "This premium architectural gate features wide dual-swing configuration with inlaid metallic accents and heavy pulls, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #27",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی جووت باڵی مۆدێرن بە نەخشی ستیل و دەسکی درێژ",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی جووت باڵی بەهێز بە نەخشی مێتاڵیک و دەسکی ستوونی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "675 m²"
+    }
   },
   {
     "id": "proj-photo-28",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #28",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+    "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة.",
     "src": "/products-assets/photo_28_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #28",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+        "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة."
+      },
+      "en": {
+        "title": "أنظمة يو بي في سي عازلة الأنظمة سداسية الحجرات العازلة Multi-Chamber Acoustic uPVC Windows",
+        "description": "High-performance 6-chamber uPVC profiles delivering 45 dB noise insulation and certified thermal savings."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #28",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "پەنجەرەی یو پی ڤی سی لێجەند 80 بە عەزلی دەنگ و گەرمی",
+        "description": "سیستەمی پێشکەوتووی ٦ خانەیی بە عەزلی ٤٥ دێسیبڵ بۆ دەنگ و پاراستنی گەرمای ژوورەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "720 m²"
+    }
   },
   {
     "id": "proj-photo-29",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #29",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "بوابة خارجية بدرجتين لونيتين مع كسوة خشبية وسطية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ إطار الألمنيوم الرمادي الداكن المحيط بكسوة الخشب الطبيعي الوسطية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_29_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #29",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في سرجنار، السليمانية."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #29",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە سەرچنار، سلێمانی."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "765 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة خارجية بدرجتين لونيتين مع كسوة خشبية وسطية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ إطار الألمنيوم الرمادي الداكن المحيط بكسوة الخشب الطبيعي الوسطية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Two-Tone Architectural Driveway Gate with Warm Center Wood Siding",
+        "description": "This premium architectural gate features graphite grey aluminum framing flanking warm vertical wood center cladding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی دوو-ڕەنگی دەرەوە بە تەختەی گەرمی ناوەڕاست",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەساسی تۆخ لەگەڵ تەختەی سروشتیی گەرم لە ناوەڕاستدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-30",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #30",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Royal City, Erbil.",
+    "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+    "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى.",
     "src": "/products-assets/photo_30_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #30",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في رويال سيتي، أربيل."
+        "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+        "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى."
+      },
+      "en": {
+        "title": "Corporate Commercial Panoramic Facade & Sliding System",
+        "description": "Minimalist slim-profile glass facades engineered for commercial headquarters and luxury storefronts."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #30",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر."
+        "title": "ڕووکاری شووشەیی پانۆراما بۆ پێشانگا و کۆمپانیاکان",
+        "description": "ڕووکاری مۆدێرن بە چوارچێوەی باریک و شووشەی پارێزراو بۆ پێشانگا و ئۆفیسی کۆمپانیاکان."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "810 m²"
+    }
   },
   {
     "id": "proj-photo-31",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #31",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز بلكونة زجاجي مظلل للواجهات الحجرية",
+    "description": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب بدقة لتناسب بلكونتك تماماً.",
     "src": "/products-assets/photo_31_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #31",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز بلكونة زجاجي مظلل للواجهات الحجرية",
+        "description": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب بدقة لتناسب بلكونتك تماماً."
+      },
+      "en": {
+        "title": "Tinted Glass Balcony Railing for Stone Facades",
+        "description": "This tinted glass balcony railing brings a calm, elegant finish to building facades, blending naturally with stone, marble and warm architectural lighting. The smooth glass surface keeps the view open while adding a refined sense of privacy.\n\nMade from strong tempered safety glass and fixed firmly to the balcony edge, it gives dependable protection for family members and guests without adding visual weight to the front of the building.\n\nIt is easy to clean, resists daily weather and keeps its look for years. The Doorhome team measures, fabricates and installs every panel to fit your balcony exactly."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #31",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی شووشەیی تۆخی باڵکۆن بۆ ڕووکاری بەردین",
+        "description": "ئەم بەربەستە شووشەییە تۆخە دیمەنێکی ئارام و شیک بە ڕووکاری بینا دەبەخشێت و لەگەڵ بەرد، مەڕمەڕ و ڕووناکی گەرمی تەلارسازیدا دەگونجێت. ڕووی نەرمی شووشەکە دیمەنەکە کراوە دەهێڵێتەوە و هەستێکی جوان بە تایبەتمەندی زیاد دەکات.\n\nلە شووشەی سێکۆریتی بەهێز دروستکراوە و بە پتەوی لەسەر لێوارەی باڵکۆنەکە جێگیر دەکرێت، بۆ ئەوەی پارێزگارییەکی متمانەپێکراو بۆ ئەندامانی خێزان و میوانان دابین بکات بێ ئەوەی قورسایی بینراو بخاتە سەر ڕووکارەکە.\n\nبە ئاسانی پاک دەکرێتەوە، بەرگەی کەشوهەوای ڕۆژانە دەگرێت و بۆ ساڵانێکی زۆر جوانییەکەی دەپارێزێت. تیمی دەرگای ماڵ پێوانە، دروستکردن و دامەزراندنی هەر پارچەیەک ئەنجام دەدات بۆ ئەوەی بە تەواوی لەگەڵ باڵکۆنەکەتان بگونجێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "180 m²"
+    }
   },
   {
     "id": "proj-photo-32",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #32",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سحابة بتصميم بسيط وألواح ألمنيوم انسيابية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الأفقية الانسيابية التي توفر الخصوصية التامة بمظهر بسيط وأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_32_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #32",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة بتصميم بسيط وألواح ألمنيوم انسيابية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الأفقية الانسيابية التي توفر الخصوصية التامة بمظهر بسيط وأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Sleek Minimalist Sliding Gate with Horizontal Panel Accents",
+        "description": "This premium architectural gate features seamless horizontal paneling delivering ultimate privacy and refined minimalism, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #32",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی سادە بە تەختەی ئەلەمنیۆمی نەرم",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ئاسۆیی نەرم کە تایبەتمەندی تەواو بە شێوازێکی سادە دابین دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "225 m²"
+    }
   },
   {
     "id": "proj-photo-33",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #33",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "بوابة قصر سوداء فخمة مع باب مدخل جانبي للأفراد",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ هيكل الألمنيوم الأسود الثقيل المصمم للمداخل الفاخرة والقصور الراقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_33_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #33",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #33",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە دهۆک."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "270 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة قصر سوداء فخمة مع باب مدخل جانبي للأفراد",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ هيكل الألمنيوم الأسود الثقيل المصمم للمداخل الفاخرة والقصور الراقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Luxury Estate Black Aluminum Gate with Side Pedestrian Access",
+        "description": "This premium architectural gate features heavy-duty architectural black aluminum built for monumental residential portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی کۆشکی ڕەشی شیک بە دەرگای تەنیشتی پیادە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە پەیکەری ئەلەمنیۆمی قورسی ڕەش کە بۆ دەروازە گەورەکانی نیشتەجێبوون دروستکراوە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-34",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #34",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة فيلا مزدوجة بخطوط فاصلة فضية أنيقة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرفتان المزدوجتان المزخرفتان بفواصل فضية هندسية تضفي عمقاً بصرياً، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_34_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #34",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة فيلا مزدوجة بخطوط فاصلة فضية أنيقة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرفتان المزدوجتان المزخرفتان بفواصل فضية هندسية تضفي عمقاً بصرياً، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Double Swing Modern Villa Gate with Metallic Accent Reveal Lines",
+        "description": "This premium architectural gate features contemporary double-leaf swing gate accented by subtle silver geometric reveals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #34",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی جووت باڵی ڤێلا بە هێڵی کانزایی جیاکەرەوە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دوو باڵی هاوچەرخ کە بە هێڵی زیوی جوان نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "315 m²"
+    }
   },
   {
     "id": "proj-photo-35",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #35",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي شفاف للممرات والصالات المفتوحة",
+    "description": "تصنع الألواح الزجاجية الصافية حاجزاً خفيفاً ومتصلاً على امتداد الممرات والمعارض والطوابق المفتوحة. يحمي الحافة دون أن يقطع تدفق الضوء أو الإحساس بالاتساع.\n\nتثبّت نقاط التثبيت السوداء الأنيقة والأعمدة النحيفة الزجاج المقوى بإحكام، لتمنح إحساساً بالأمان والثبات بمظهر عصري نظيف يناسب الفراغات المضيئة.\n\nيسهل مسح الزجاج وتنظيفه وهو مصنوع ليدوم. ويقيس فريق باب المنزل الحاجز ويركبه ليتبع تصميم مساحتك بنتائج دقيقة ومرتبة.",
     "src": "/products-assets/photo_35_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Mansour, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #35",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي شفاف للممرات والصالات المفتوحة",
+        "description": "تصنع الألواح الزجاجية الصافية حاجزاً خفيفاً ومتصلاً على امتداد الممرات والمعارض والطوابق المفتوحة. يحمي الحافة دون أن يقطع تدفق الضوء أو الإحساس بالاتساع.\n\nتثبّت نقاط التثبيت السوداء الأنيقة والأعمدة النحيفة الزجاج المقوى بإحكام، لتمنح إحساساً بالأمان والثبات بمظهر عصري نظيف يناسب الفراغات المضيئة.\n\nيسهل مسح الزجاج وتنظيفه وهو مصنوع ليدوم. ويقيس فريق باب المنزل الحاجز ويركبه ليتبع تصميم مساحتك بنتائج دقيقة ومرتبة."
+      },
+      "en": {
+        "title": "Clear Glass Railing for Corridors and Open Halls",
+        "description": "Crystal-clear glass panels create a light, continuous barrier along corridors, galleries and open floors. The railing protects the edge without interrupting the flow of light or the feeling of space.\n\nNeat black fixings and slim posts hold the tempered glass firmly in place, offering a secure and stable feel with a clean, contemporary appearance that matches bright interiors.\n\nThe glass is simple to wipe clean and built to last. Doorhome measures and installs the railing to follow your layout with precise, tidy results."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #35",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە مەنسوور، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی شووشەیی ڕوون بۆ ڕێڕەو و هۆڵە کراوەکان",
+        "description": "تەختە شووشە زۆر ڕوونەکان بەربەستێکی سووک و بەردەوام لە درێژایی ڕێڕەو، پێشانگا و نهۆمە کراوەکان دروست دەکەن. لێوارەکە دەپارێزێت بێ ئەوەی ڕێگری لە ڕووناکی یان هەستی فراوانی بکات.\n\nخاڵە ڕەشە ڕێکەکانی بەستن و ستوونە باریکەکان شووشە سێکۆریتییەکە بە قایمی جێگیر دەکەن و هەستێکی سەلامەتی و جێگیری دەبەخشن بە دیمەنێکی هاوچەرخ و پاک کە لەگەڵ شوێنە ڕووناکەکان دەگونجێت.\n\nشووشەکە بە ئاسانی پاک دەکرێتەوە و بۆ ماوەیەکی زۆر دروستکراوە. دەرگای ماڵ پێوانە و دامەزراندن ئەنجام دەدات تا بەربەستەکە لەگەڵ نەخشەی شوێنەکەتان بگونجێت و ئەنجامی وردی ڕێک بدات."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Mansour, Baghdad",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "360 m²"
+    }
   },
   {
     "id": "proj-photo-36",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #36",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+    "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة.",
     "src": "/products-assets/photo_36_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Dream City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #36",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+        "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة."
+      },
+      "en": {
+        "title": "أنظمة يو بي في سي عازلة الأنظمة سداسية الحجرات العازلة Multi-Chamber Acoustic uPVC Windows",
+        "description": "High-performance 6-chamber uPVC profiles delivering 45 dB noise insulation and certified thermal savings."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #36",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە دریم سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "پەنجەرەی یو پی ڤی سی لێجەند 80 بە عەزلی دەنگ و گەرمی",
+        "description": "سیستەمی پێشکەوتووی ٦ خانەیی بە عەزلی ٤٥ دێسیبڵ بۆ دەنگ و پاراستنی گەرمای ژوورەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Dream City, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "405 m²"
+    }
   },
   {
     "id": "proj-photo-37",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #37",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "title": "أبواب سحاب ثقيلة بنظام الرفع والسحب للمساحات الكبيرة والمفتوحة",
+    "description": "أبواب سحاب تتحمل دلفات زجاجية ضخمة حتى وزن الأوزان الثقيلة، تفتح وتغلق بكل سلاسة وهدوء، وتوفر عزلاً محكماً ضد العواصف الرملية ومياه الأمطار.",
     "src": "/products-assets/photo_37_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #37",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في الجادرية، بغداد."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #37",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە جادریە، بەغدا."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "450 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "أبواب سحاب ثقيلة بنظام الرفع والسحب للمساحات الكبيرة والمفتوحة",
+        "description": "أبواب سحاب تتحمل دلفات زجاجية ضخمة حتى وزن الأوزان الثقيلة، تفتح وتغلق بكل سلاسة وهدوء، وتوفر عزلاً محكماً ضد العواصف الرملية ومياه الأمطار."
+      },
+      "en": {
+        "title": "Heavy-Duty Lift & Slide Patio Door for Expansive Living Areas",
+        "description": "Capable of supporting oversized 400kg sashes with fingertip ease and airtight multi-lock security."
+      },
+      "ckb": {
+        "title": "دەرگای گەورەی سلایدینگ بۆ هۆڵ و باڵکۆنی گەورە",
+        "description": "دەرگای ئەلەمنیۆمی قورس بە تایبەتمەندی جووڵەی نەرم بۆ دابینکردنی گەورەترین دیمەن."
+      }
+    }
   },
   {
     "id": "proj-photo-38",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #38",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Gulan Street, Erbil.",
+    "title": "بوابة شرائح أفقية مدمجة بأناقة مع واجهات الحجر الطبيعي",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتناسقة المصممة لتتكامل بسلاسة مع بوابات الحجر الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_38_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Gulan Street, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #38",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في شارع كولان، أربيل."
+        "title": "بوابة شرائح أفقية مدمجة بأناقة مع واجهات الحجر الطبيعي",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتناسقة المصممة لتتكامل بسلاسة مع بوابات الحجر الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Minimalist Horizontal Slat Gate Integrated with Natural Stone Portals",
+        "description": "This premium architectural gate features flush horizontal louvers tailored to mount within natural stone masonry portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #38",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە شەقامی گوڵان، هەولێر."
+        "title": "دەروازەی شریتی ئاسۆیی کە بە جوانی لەگەڵ بەردی سروشتی دەگونجێت",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە ئاسۆییەکان کە بە تەواوی لەگەڵ دەروازەی بەردی سروشتی یەکدەگرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "495 m²"
+    }
   },
   {
     "id": "proj-photo-39",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #39",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+    "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق.",
     "src": "/products-assets/photo_39_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Architectural Village II, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #39",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+        "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق."
+      },
+      "en": {
+        "title": "Frameless Glass Balustrade for Pool Decks & Gardens",
+        "description": "Engineered structural glass railing anchored with marine-grade stainless steel spigots."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #39",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەربزینی شووشەیی بێ چوارچێوە بۆ دەوری مەلەوانگە و باخچە",
+        "description": "حاجزی شووشەیی ئەندازیاری بۆ دەوری مەلەوانگە بە ستیلی دژە ژەنگ بە دیمەنی ڕوون."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "540 m²"
+    }
   },
   {
     "id": "proj-photo-40",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #40",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سحابة فحمية بشرائط ستانلس ونافذة زجاجية جانبية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب بلون الفحم المطعمة بخطوط الستانلس اللامعة والزجاج الجانبي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_40_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #40",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة فحمية بشرائط ستانلس ونافذة زجاجية جانبية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب بلون الفحم المطعمة بخطوط الستانلس اللامعة والزجاج الجانبي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Charcoal Sliding Gate with Stainless Accent Strips and Glass Sidelight",
+        "description": "This premium architectural gate features deep charcoal sliding panels detailed with polished stainless lines and glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #40",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی خەڵوزی بە شریتی ستیل و شووشەی تەنیشت",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی ڕەنگی خەڵوزی بە هێڵی ستیل و شووشەی جوان تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "585 m²"
+    }
   },
   {
     "id": "proj-photo-41",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #41",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "حاجز زجاجي مظلل للشرفات والسلالم المفتوحة",
+    "description": "يجمع هذا النظام بين فخامة الزجاج المظلل ودفء الإطار العلوي، مما يمنح الشرفات الداخلية والسلالم إطلالة راقية توفر توازناً مثالياً بين الخصوصية والانفتاح المعماري. يُعتبر هذا التصميم إضافة رائعة للمباني المتعددة الطوابق والصالات ذات الأسقف المرتفعة، حيث يحد من وهج الإضاءة ويضفي طابعاً هادئاً ومميزاً على المساحة المحيطة.\n\nتم تزويد الحاجز بألواح زجاجية معالجة حرارياً لمقاومة الصدمات والأوزان، مثبتة بقواعد أرضية سوداء أنيقة تمنح الهيكل ثباتاً فائقاً وتحملاً استثنائياً. كما يتيح المقبض العلوي راحة تامة أثناء الاستناد والاستخدام اليومي، مما يجعله آمناً تماماً للأطفال وكبار السن في المناطق المرتفعة وممرات العبور.\n\nيتميز الزجاج المظلل بقدرته على الحفاظ على رونقه ونظافته لفترات طويلة دون أن يتأثر بالاستخدام المستمر، مع توفير سهولة تامة في التنظيف والعناية. ويتكفل فريق باب المنزل بكافة مراحل القياس والتنفيذ لضمان التثبيت الدقيق والمحكم الذي يلبي أعلى متطلبات الأمان والجمال.",
     "src": "/products-assets/photo_41_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Sarchinar, Sulaymaniyah",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #41",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في سرجنار، السليمانية."
+        "title": "حاجز زجاجي مظلل للشرفات والسلالم المفتوحة",
+        "description": "يجمع هذا النظام بين فخامة الزجاج المظلل ودفء الإطار العلوي، مما يمنح الشرفات الداخلية والسلالم إطلالة راقية توفر توازناً مثالياً بين الخصوصية والانفتاح المعماري. يُعتبر هذا التصميم إضافة رائعة للمباني المتعددة الطوابق والصالات ذات الأسقف المرتفعة، حيث يحد من وهج الإضاءة ويضفي طابعاً هادئاً ومميزاً على المساحة المحيطة.\n\nتم تزويد الحاجز بألواح زجاجية معالجة حرارياً لمقاومة الصدمات والأوزان، مثبتة بقواعد أرضية سوداء أنيقة تمنح الهيكل ثباتاً فائقاً وتحملاً استثنائياً. كما يتيح المقبض العلوي راحة تامة أثناء الاستناد والاستخدام اليومي، مما يجعله آمناً تماماً للأطفال وكبار السن في المناطق المرتفعة وممرات العبور.\n\nيتميز الزجاج المظلل بقدرته على الحفاظ على رونقه ونظافته لفترات طويلة دون أن يتأثر بالاستخدام المستمر، مع توفير سهولة تامة في التنظيف والعناية. ويتكفل فريق باب المنزل بكافة مراحل القياس والتنفيذ لضمان التثبيت الدقيق والمحكم الذي يلبي أعلى متطلبات الأمان والجمال."
+      },
+      "en": {
+        "title": "Tinted Glass Railing for Open Landings and Stairs",
+        "description": "Combining the richness of tinted architectural glass with the comfort of a smooth top handrail, this railing system creates a refined balance between subtle privacy and visual openness for elevated walkways, landings, and staircases. It adds a sophisticated layer to multi-level interiors and double-height spaces, gently softening glare while enriching the surrounding architectural aesthetic.\n\nEngineered with toughened safety glass panels secured by robust floor-mounted clamps, the assembly delivers unwavering structural rigidity and superior load resistance. The contoured top rail offers a natural, reassuring grip, making it a dependable, child-safe safeguard for elevated interior balconies, mezzanines, and stair treads.\n\nThe tinted finish is designed to retain its pristine allure with minimal maintenance, resisting surface smudges while wiping clean with ease. The Doorhome technical team provides end-to-end site survey and tailored installation to guarantee exact alignment, safety compliance, and flawless execution."
       },
       "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #41",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە سەرچنار، سلێمانی."
+        "title": "بەربەستی شووشەیی تۆخ بۆ باڵکۆن و پلیکانەی کراوە",
+        "description": "ئەم سیستمە فەخامەتی شووشەی تۆخ و گەرموگوڕی دەسکی سەرەوە لەخۆدەگرێت، کە دیمەنێکی سەرنجڕاکێش بە باڵکۆنە ناوخۆییەکان و پلیکانەکان دەبەخشێت و هاوسەنگییەکی تەواو لە نێوان تایبەتمەندی و کراوەیی تەلارسازیدا دروست دەکات. ئەم دیزاینە تایبەتمەندییەکی شایستەیە بۆ نهۆمە بەرزەکان و هۆڵە گەورەکان، چونکە تیشکی زیادە کەم دەکاتەوە و کەشێکی ئارام و ناوازە دەبەخشێت.\n\nبەربەستەکە بە تەختە شووشەی سێکۆریتی بەهێز بۆ بەرگەگرتنی زەبر و قورسایی دروستکراوە، کە بە بنکەی زەوی ڕەشی قایم جێگیر کراوە بۆ ئەوەی هێز و جێگیرییەکی باڵا دابین بکات. هەروەها دەسکی سەرەوە ئاسوودەیی تەواو لە کاتی گرتن و بەکارهێنانی ڕۆژانەدا دەبەخشێت، کە سەلامەتی تەواو بۆ منداڵان و گەورەکان لە شوێنە بەرزەکاندا مسۆگەر دەکات.\n\nشووشەی تۆخ تایبەتمەندی ئەوەی هەیە کە جوانی و پاکیی خۆی بۆ ماوەیەکی زۆر دەپارێزێت بێ ئەوەی بە بەکارهێنانی بەردەوام تێکبچێت، لەگەڵ ئاسانی تەواو لە خاوێنکردنەوەدا. تیمی شارەزای دەرگای ماڵ سەرجەم هەنگاوەکانی پێوانە و جێبەجێکردن لەئەستۆ دەگرن بۆ دڵنیابوون لە دامەزراندنێکی تۆکمە کە بەرزترین پێوەرەکانی سەلامەتی و جوانی بەدی بهێنێت."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Sarchinar, Sulaymaniyah",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "630 m²"
+    }
   },
   {
     "id": "proj-photo-42",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #42",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة الخصوصية بتصميم موجي انسيابي وشرائح متتالية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المنحنية بانسيابية موجية توفر الخصوصية المطلقة بلمسة فنية مميزة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_42_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #42",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة الخصوصية بتصميم موجي انسيابي وشرائح متتالية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المنحنية بانسيابية موجية توفر الخصوصية المطلقة بلمسة فنية مميزة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Contoured Wave Privacy Gate with Dynamic Louver Geometry",
+        "description": "This premium architectural gate features dynamic wave-contoured louvers that provide complete privacy with artistic flair, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #42",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی تایبەتمەندی بە دیزاینی شەپۆلی نەرم",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە کەوانەییە شەپۆلییەکان کە پاراستنی بینین بە شێوازێکی هونەری دەبەخشن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "675 m²"
+    }
   },
   {
     "id": "proj-photo-43",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #43",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+    "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي.",
     "src": "/products-assets/photo_43_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #43",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+        "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي."
+      },
+      "en": {
+        "title": "Suspended Tempered Glass Interior Staircase Railing",
+        "description": "Minimalist floating stair balustrade crafted from certified tempered impact-resistant safety glass."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #43",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەربزینی شووشەیی بۆ قادرمەی ناوەوە بە ڕوونی تەواو",
+        "description": "حاجزی شووشەیی مۆدێرن بۆ قادرمە بە زۆرترین شەفافیەت و پارێزگاری لە کەوتنەخوارەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "720 m²"
+    }
   },
   {
     "id": "proj-photo-44",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #44",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة مزدوجة بشرائح خشبية طبيعية وهيكل أسود متين",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الخشب الصلب الطبيعي المعالج المحاطة بهيكل ألمنيوم أسود مطفي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_44_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #44",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة مزدوجة بشرائح خشبية طبيعية وهيكل أسود متين",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الخشب الصلب الطبيعي المعالج المحاطة بهيكل ألمنيوم أسود مطفي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Double Swing Gate with Natural Vertical Hardwood Slats and Black Frame",
+        "description": "This premium architectural gate features warm vertical hardwood slats bordered by a robust matte black aluminum frame, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #44",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی جووت باڵ بە داری سروشتی ستوونی و چوارچێوەی ڕەش",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەقی سروشتیی ستوونی بە چوارچێوەیەکی بەهێزی ڕەشی مات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "765 m²"
+    }
   },
   {
     "id": "proj-photo-45",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #45",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "أبواب سحاب ثقيلة بنظام الرفع والسحب للمساحات الكبيرة والمفتوحة",
+    "description": "أبواب سحاب تتحمل دلفات زجاجية ضخمة حتى وزن الأوزان الثقيلة، تفتح وتغلق بكل سلاسة وهدوء، وتوفر عزلاً محكماً ضد العواصف الرملية ومياه الأمطار.",
     "src": "/products-assets/photo_45_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #45",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #45",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە دهۆک."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "810 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "أبواب سحاب ثقيلة بنظام الرفع والسحب للمساحات الكبيرة والمفتوحة",
+        "description": "أبواب سحاب تتحمل دلفات زجاجية ضخمة حتى وزن الأوزان الثقيلة، تفتح وتغلق بكل سلاسة وهدوء، وتوفر عزلاً محكماً ضد العواصف الرملية ومياه الأمطار."
+      },
+      "en": {
+        "title": "Heavy-Duty Lift & Slide Patio Door for Expansive Living Areas",
+        "description": "Capable of supporting oversized 400kg sashes with fingertip ease and airtight multi-lock security."
+      },
+      "ckb": {
+        "title": "دەرگای گەورەی سلایدینگ بۆ هۆڵ و باڵکۆنی گەورە",
+        "description": "دەرگای ئەلەمنیۆمی قورس بە تایبەتمەندی جووڵەی نەرم بۆ دابینکردنی گەورەترین دیمەن."
+      }
+    }
   },
   {
     "id": "proj-photo-46",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #46",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Empire World, Erbil.",
+    "title": "بوابة سحاب عصرية بألواح ألمنيوم عريضة ومصمتة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح الألمنيوم المعمارية العريضة المصممة لحركة سحب ناعمة وقوة استثنائية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_46_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #46",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في إمباير وورلد، أربيل."
+        "title": "بوابة سحاب عصرية بألواح ألمنيوم عريضة ومصمتة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح الألمنيوم المعمارية العريضة المصممة لحركة سحب ناعمة وقوة استثنائية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Modern Sliding Driveway Gate with Wide Aluminum Panels",
+        "description": "This premium architectural gate features broad architectural aluminum panels engineered for heavy-duty smooth sliding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #46",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر."
+        "title": "دەروازەی سلایدینگی مۆدێرن بە لەوحەی پان و ئەستوور",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەلەمنیۆمییە پانەکان کە بۆ جوڵەیەکی نەرم و بەهێزی بێوێنە دروستکراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "180 m²"
+    }
   },
   {
     "id": "proj-photo-47",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #47",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "باب مدخل محوري فاخر من الخشب المعالج والألمنيوم",
+    "description": "يشكل هذا الباب المحوري المعماري الفاخر بصمة استثنائية عند المدخل الرئيسي للمنازل ومقرات الشركات والمباني المتميزة. صُمم بمحور دوران رأسي مخفي فائق التحمل، مما يتيح للدرفة الكبيرة الدوران بانسيابية وخفة متناهية رغم وزنها ومتانتها الهيكلية.\n\nيجمع التصميم بين جمال ألواح الخشب الطبيعي المعالج المقاوم للعوامل الجوية وهيكل الألمنيوم المتين، ليوفر عزلاً حرارياً وصوتياً متقدماً وحماية كاملة ضد الشمس والحرارة والغبار. يكتمل المظهر بمقبض رأسي أنيق ممتد وقفل أمني متعدد النقاط.\n\nصُنعت كافة مكونات الباب لضمان المتانة الدائمة والجمال المعماري الخالد. يمنح المدخل حضوراً مهيباً وأماناً موثوقاً يعكس الفخامة والجودة العالية للمكان.",
     "src": "/products-assets/photo_47_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Al-Mansour, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #47",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "باب مدخل محوري فاخر من الخشب المعالج والألمنيوم",
+        "description": "يشكل هذا الباب المحوري المعماري الفاخر بصمة استثنائية عند المدخل الرئيسي للمنازل ومقرات الشركات والمباني المتميزة. صُمم بمحور دوران رأسي مخفي فائق التحمل، مما يتيح للدرفة الكبيرة الدوران بانسيابية وخفة متناهية رغم وزنها ومتانتها الهيكلية.\n\nيجمع التصميم بين جمال ألواح الخشب الطبيعي المعالج المقاوم للعوامل الجوية وهيكل الألمنيوم المتين، ليوفر عزلاً حرارياً وصوتياً متقدماً وحماية كاملة ضد الشمس والحرارة والغبار. يكتمل المظهر بمقبض رأسي أنيق ممتد وقفل أمني متعدد النقاط.\n\nصُنعت كافة مكونات الباب لضمان المتانة الدائمة والجمال المعماري الخالد. يمنح المدخل حضوراً مهيباً وأماناً موثوقاً يعكس الفخامة والجودة العالية للمكان."
+      },
+      "en": {
+        "title": "Architectural Pivot Entrance Door in Treated Wood and Aluminum",
+        "description": "This grand architectural pivot door makes an extraordinary statement at the main entrance of private residences, corporate headquarters, and luxury venues. Engineered with a heavy-duty concealed vertical pivot axis, the door rotates with effortless grace despite its monumental scale and solid construction.\n\nCombining natural treated weather-resistant teak wood paneling with a heavy-duty structural aluminum core, it offers exceptional thermal insulation and complete protection against harsh desert sunlight, dust, and wind. The design is complemented by a full-height brushed metallic pull handle and multi-point perimeter locking.\n\nEvery detail is crafted for long-term stability and timeless prestige. It transforms the entrance into an architectural focal point, offering superior acoustic comfort, certified security, and an unforgettable sense of arrival."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #47",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە مەنسوور، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای سەرەکی تەوەرەیی شاهانە لە دار و ئەلەمنیۆم",
+        "description": "ئەم دەرگا تەوەرەییە سەرنجڕاکێشە دیمەنێکی ناوازە و شکۆدار بە دەروازەی سەرەکی ماڵەکان، بارەگای کۆمپانیاکان و بینا تایبەتەکان دەبەخشێت. بە مەکینەی تەوەرەیی ستوونی قورس دروستکراوە کە وا دەکات دەرگایەکی گەورە و بەهێز بە نەرمی و بە پەنجەیەک بخولێتەوە.\n\nتێکەڵکردنی تەختەی سروشتیی چارەسەرکراو لەگەڵ پەیکەری ئەلەمنیۆمی ئەستوور، عەزلێکی تەواو لە گەرمی، دەنگ، تۆز و تیشکی خۆر دابین دەکات. دیزاینەکەی بە دەسکێکی بەرزی ستوونی شیک و قوفڵی فرە-خاڵ تەواو کراوە.\n\nهەموو وردەکارییەکی بۆ بەردەوامی و مانەوەی درێژخایەن ئەندازیاری کراوە. دەروازەی چوونەژوورەوە دەکاتە شوێنێکی سەرنجڕاکێش کە ئاسایش، متمانە و فەخامەت بەیەکەوە کۆدەکاتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Mansour, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "225 m²"
+    }
   },
   {
     "id": "proj-photo-48",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #48",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسيت",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة بزاوية هندسية تحجب الرؤية تماماً مع السماح بمرور الهواء، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_48_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Dream City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #48",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسيت",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة بزاوية هندسية تحجب الرؤية تماماً مع السماح بمرور الهواء، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Full Privacy Louvered Sliding Driveway Gate in Anthracite Grey",
+        "description": "This premium architectural gate features angled privacy louvers blocking sightlines while permitting natural airflow, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #48",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە دریم سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی شریتی پارێزراوی تەواو بە ڕەنگی ئەنتراسیت",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە لارە ئەندازیارییەکان کە بینین دادەخەن بەڵام ڕێگە بە هەوا دەدەن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Dream City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "270 m²"
+    }
   },
   {
     "id": "proj-photo-49",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #49",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "title": "حاجز زجاجي مدخن بأعمدة سوداء أنيقة",
+    "description": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة والمعتمدباً آمناً لراحة بال تدوم.",
     "src": "/products-assets/photo_49_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Jadriya, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #49",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في الجادرية، بغداد."
+        "title": "حاجز زجاجي مدخن بأعمدة سوداء أنيقة",
+        "description": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة والمعتمدباً آمناً لراحة بال تدوم."
+      },
+      "en": {
+        "title": "Smoked Glass Railing with Bold Black Posts",
+        "description": "Strong black posts and smoked glass give this railing a confident, modern presence. It suits balconies and terraces that need both a striking look and dependable protection.\n\nThe sturdy posts add real stability, while the tempered smoked glass offers comfortable privacy and softens the sun. Together they create a solid, well-proportioned barrier.\n\nThe finish resists scratches and weather, and cleaning is quick. The Doorhome team delivers exact measurements and secure installation for lasting peace of mind."
       },
       "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #49",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە جادریە، بەغدا."
+        "title": "بەربەستی شووشەیی دووکەڵی بە ستوونی ڕەشی بەهێز",
+        "description": "ستوونە ڕەشە بەهێزەکان و شووشەی دووکەڵی دیمەنێکی متمانەپێکراو و هاوچەرخ بەم بەربەستە دەبەخشن. بۆ باڵکۆن و تەراسەکان گونجاوە کە هەم دیمەنێکی سەرنجڕاکێش و هەم پارێزگارییەکی متمانەپێکراویان دەوێت.\n\nستوونە پتەوەکان جێگیرییەکی ڕاستەقینە زیاد دەکەن، لە کاتێکدا شووشەی دووکەڵیی سێکۆریتی تایبەتمەندییەکی ئاسوودە دەبەخشێت و تیشکی خۆر نەرم دەکات. پێکەوە بەربەستێکی پتەو و هاوڕێک دروست دەکەن.\n\nکۆتایی پەیکەرەکە بەرگەی ڕووشان و کەشوهەوا دەگرێت و خاوێنکردنەوەی خێرایە. تیمی دەرگای ماڵ پێوانەی ورد و دامەزراندنی سەلامەت پێشکەش دەکات بۆ ئاسوودەییەکی بەردەوام."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Al-Jadriya, Baghdad",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "315 m²"
+    }
   },
   {
     "id": "proj-photo-50",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #50",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة خصوصية بشرائح مائلة وباب مشاة مدمج متناسق",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة المتناسقة التي تمتد عبر بوابة المركبات وباب المشاة المدمج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_50_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Gulan Street, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #50",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة خصوصية بشرائح مائلة وباب مشاة مدمج متناسق",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة المتناسقة التي تمتد عبر بوابة المركبات وباب المشاة المدمج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Modern Privacy Gate with Angled Louvers and Integrated Pedestrian Door",
+        "description": "This premium architectural gate features coordinated angled louvers spanning both main vehicle gate and pedestrian entry, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #50",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە شەقامی گوڵان، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی مۆدێرن بە شریتی پارێزراو و دەرگای پیادەی یەکگرتوو",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە پارێزراوە یەکگرتووەکان بەسەر دەروازەی ئۆتۆمبێل و دەرگای پیادەدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "360 m²"
+    }
   },
   {
     "id": "proj-photo-51",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #51",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "باب مدخل عصري بشرائح خشبية رأسية وإطار ألمنيوم",
+    "description": "يجمع هذا الباب العصري بين دفء الخشب الطبيعي بشرائحه الرأسية الأنيقة وإطار الألمنيوم المعماري الداكن والمتين. صُمم ليلائم مداخل المنازل الحديثة والمكاتب التنفيذية وصالات الاستقبال، ليمنح المكان انطباعاً أولياً راقياً ومريحاً.\n\nمُزوّد بطبقات عزل حراري وصوتي عالية الكثافة ومفصلات المعتمدة قوية، مما يضمن إغلاقاً محكماً يحجب الحرارة الخارجية والضوضاء والغبار. ينسجم تصميمه المتناسق بخطوطه الرأسية بنعومة مع مختلف الواجهات الحجرية والخرسانية الحديثة.\n\nيحتوي الباب على نظام أقفال أمان متعددة النقاط ومقبض طولي مريح، ليضمن استخداماً يومياً سلساً وأماناً تاماً يدوم لسنوات طويلة بأقل قدر من الصيانة.",
     "src": "/products-assets/photo_51_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Architectural Village II, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #51",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "باب مدخل عصري بشرائح خشبية رأسية وإطار ألمنيوم",
+        "description": "يجمع هذا الباب العصري بين دفء الخشب الطبيعي بشرائحه الرأسية الأنيقة وإطار الألمنيوم المعماري الداكن والمتين. صُمم ليلائم مداخل المنازل الحديثة والمكاتب التنفيذية وصالات الاستقبال، ليمنح المكان انطباعاً أولياً راقياً ومريحاً.\n\nمُزوّد بطبقات عزل حراري وصوتي عالية الكثافة ومفصلات المعتمدة قوية، مما يضمن إغلاقاً محكماً يحجب الحرارة الخارجية والضوضاء والغبار. ينسجم تصميمه المتناسق بخطوطه الرأسية بنعومة مع مختلف الواجهات الحجرية والخرسانية الحديثة.\n\nيحتوي الباب على نظام أقفال أمان متعددة النقاط ومقبض طولي مريح، ليضمن استخداماً يومياً سلساً وأماناً تاماً يدوم لسنوات طويلة بأقل قدر من الصيانة."
+      },
+      "en": {
+        "title": "Modern Entrance Door with Vertical Wood Paneling",
+        "description": "This contemporary main entrance door combines the organic warmth of vertical timber paneling with a precision-engineered dark architectural aluminum frame. Designed to suit upscale residences, executive offices, and reception lounges, it delivers an inviting yet refined first impression.\n\nBuilt with high-density thermal break insulation and heavy-duty Architectural Standard hinges, the door effectively seals interiors against temperature extremes, road noise, and dust. The flush-mounted finish and sleek vertical lines create a balanced, architectural aesthetic that complements modern facade materials.\n\nEquipped with secure multi-point deadbolt mechanisms and an integrated ergonomic pull bar, this door guarantees smooth daily operation and lasting peace of mind with minimal upkeep."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #51",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای مدخەلی مۆدێرن بە تەختەی ستوونی و چوارچێوەی ئەلەمنیۆم",
+        "description": "ئەم دەرگایە سەرەکییە هاوچەرخە گەرمیی تەختەی سروشتی و پتەویی چوارچێوەی ئەلەمنیۆمی داپۆشراوی مۆدێرن کۆدەکاتەوە. گونجاوە بۆ دەروازەی ماڵە مۆدێرنەکان، ئۆفیسەکان و هۆڵەکانی پێشوازی، دیمەنێکی سەرنجڕاکێش و بەفەخامەت دروست دەکات.\n\nبە عازلی گەرمی و دەنگی کوالیتی بەرز و نەرمەی بەهێزی ستانداردی نێودەوڵەتی دروستکراوە کە ڕێگری لە گەرمای هاوین، سەرمای زستان، تۆز و دەنگی دەرەوە دەکات. هێڵە ستوونییە ڕێکەکانی بە تەواوی لەگەڵ تەلارسازیی سەردەمدا دەگونجێن.\n\nبە سیستەمی قوفڵی ئەمنی فرە-خاڵ و دەسکی درێژی شیک دابین کراوە، بۆ بەخشینی کارکردنێکی ئاسان و متمانەپێکراو بۆ چەندین ساڵ."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "405 m²"
+    }
   },
   {
     "id": "proj-photo-52",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #52",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة أمان عالية التحمل بنوافذ زجاجية مضيئة وشبكة هندسية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الإنشائية فائقة الأمان المطعمة بشبكة نوافذ زجاجية مصنفرة راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_52_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #52",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة أمان عالية التحمل بنوافذ زجاجية مضيئة وشبكة هندسية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الإنشائية فائقة الأمان المطعمة بشبكة نوافذ زجاجية مصنفرة راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Heavy-Duty Security Gate with Modern Translucent Window Grid",
+        "description": "This premium architectural gate features high-security structural panels detailed with a grid of frosted safety glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #52",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی ئەمنی بەهێز بە تۆڕی پەنجەرەی ڕووناک",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەمنییە قورسەکان کە بە پەنجەرەی شووشەی سیکیوریتی نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "450 m²"
+    }
   },
   {
     "id": "proj-photo-53",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #53",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "بوابة فيلا بشرائح أفقية عريضة وفاصل زجاجي مصنفر",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية العريضة المزينة بفاصل زجاجي مصنفر يمرر الضوء بأناقة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_53_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #53",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في سرجنار، السليمانية."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #53",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە سەرچنار، سلێمانی."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "495 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة فيلا بشرائح أفقية عريضة وفاصل زجاجي مصنفر",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية العريضة المزينة بفاصل زجاجي مصنفر يمرر الضوء بأناقة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Wide Horizontal Slat Villa Gate with Frosted Architectural Glass Reveal",
+        "description": "This premium architectural gate features bold wide horizontal slats complemented by an illuminated frosted glass insert, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ڤێلا بە شریتی ئاسۆیی پان و شووشەی تەڵخی تەلارسازی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی پان و بەهێز بە شووشەی تەڵخی تێپەڕێنەری ڕووناکی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-54",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #54",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Royal City, Erbil.",
+    "title": "بوابة سوداء فاخرة بتباين معماري جذاب مع الأعمدة الرخامية",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء المطفية التي تشكل تبايناً معمارياً مبهراً مع الأعمدة الحجرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_54_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #54",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في رويال سيتي، أربيل."
+        "title": "بوابة سوداء فاخرة بتباين معماري جذاب مع الأعمدة الرخامية",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء المطفية التي تشكل تبايناً معمارياً مبهراً مع الأعمدة الحجرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "High-Contrast Matte Black Gate Framed by Natural Marble Columns",
+        "description": "This premium architectural gate features deep matte black horizontal slats designed to contrast against light stone pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #54",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر."
+        "title": "دەروازەی ڕەشی فەخامەت بە شێوازی جوان لەگەڵ ستوونی مەڕمەڕ",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی ماتی کە دیمەنێکی سەرنجڕاکێش لەگەڵ ستوونی بەردی مەڕمەڕ دروست دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "540 m²"
+    }
   },
   {
     "id": "proj-photo-55",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #55",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز تراس زاوية بزجاج الخصوصية",
+    "description": "يعتمد هذا الحاجز الزاوي على زجاج داكن التظليل ليمنح تراسك خصوصية مريحة دون أن يغلقه. وتنسجم خطوطه النظيفة مع الحجر والواجهات العصرية.\n\nيُثبت الزجاج المقوى على قاعدة مرتبة فيمنح حافة ناعمة وآمنة تناسب الزوايا والانعطافات. يحمي المكان مع الحفاظ على تصميم بسيط وراقٍ.\n\nسهل التنظيف ومصنوع للحياة اليومية، ويحافظ على جودته مع الوقت. ويقيس فريق باب المنزل الحاجز ويصنعه ويركبه بدقة وفق شكل تراسك.",
     "src": "/products-assets/photo_55_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #55",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز تراس زاوية بزجاج الخصوصية",
+        "description": "يعتمد هذا الحاجز الزاوي على زجاج داكن التظليل ليمنح تراسك خصوصية مريحة دون أن يغلقه. وتنسجم خطوطه النظيفة مع الحجر والواجهات العصرية.\n\nيُثبت الزجاج المقوى على قاعدة مرتبة فيمنح حافة ناعمة وآمنة تناسب الزوايا والانعطافات. يحمي المكان مع الحفاظ على تصميم بسيط وراقٍ.\n\nسهل التنظيف ومصنوع للحياة اليومية، ويحافظ على جودته مع الوقت. ويقيس فريق باب المنزل الحاجز ويصنعه ويركبه بدقة وفق شكل تراسك."
+      },
+      "en": {
+        "title": "Corner Terrace Railing with Privacy Glass",
+        "description": "This corner railing uses deep-tinted glass to give your terrace comfortable privacy without closing it in. The clean lines blend nicely with stone and modern facades.\n\nThe tempered safety glass is fixed along a tidy base, giving a smooth, secure edge that works well at corners and turns. It protects the space while keeping the design simple and refined.\n\nEasy to clean and made for everyday life, it keeps its quality over time. Doorhome measures, produces and installs it precisely to the shape of your terrace."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #55",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی گۆشەی تەراس بە شووشەی تایبەتمەندی",
+        "description": "ئەم بەربەستی گۆشەیە شووشەی زۆر تۆخ بەکاردەهێنێت بۆ ئەوەی تایبەتمەندییەکی ئاسوودە بە تەراسەکەتان ببەخشێت بێ ئەوەی دایبخات. هێڵە پاکەکانی لەگەڵ بەرد و ڕووکاری هاوچەرخدا دەگونجێن.\n\nشووشە سێکۆریتییەکە لەسەر بنکەیەکی ڕێک جێگیر دەکرێت و لێوارێکی نەرم و سەلامەت دەدات کە لە گۆشە و لارەکاندا باش کار دەکات. شوێنەکە دەپارێزێت و دیزاینەکە ساکار و شیک دەهێڵێتەوە.\n\nبە ئاسانی پاک دەکرێتەوە و بۆ ژیانی ڕۆژانە دروستکراوە، کوالیتییەکەی لەگەڵ کاتدا دەپارێزێت. دەرگای ماڵ بە وردی بەگوێرەی شێوەی تەراسەکەتان پێوانە، دروست و دایدەمەزرێنێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "585 m²"
+    }
   },
   {
     "id": "proj-photo-56",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #56",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+    "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة.",
     "src": "/products-assets/photo_56_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #56",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+        "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة."
+      },
+      "en": {
+        "title": "أنظمة السحب والرفع المعمارية Thermal-Break Minimalist Sliding Patio Door",
+        "description": "Architectural sliding door system engineered for oversized openings with thermal barriers and airtight weatherproofing."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #56",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای سلایدینگی لۆرێنزۆ 70LS بە عەزلی گەرمی و دەنگ",
+        "description": "سیستەمی ئیتاڵی پێشکەوتوو بۆ دەرگای گەورە بە جووڵەی نەرم و عەزلی تۆز و باران."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "630 m²"
+    }
   },
   {
     "id": "proj-photo-57",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #57",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "قطاع ألمنيوم معماري متعدد الحجرات بتقنية العزل الحراري المزدوج",
+    "description": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية المعمارية المعتمدة التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة.",
     "src": "/products-assets/photo_57_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "accessories",
+    "location": "Duhok Hills, Duhok",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #57",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
+        "title": "قطاع ألمنيوم معماري متعدد الحجرات بتقنية العزل الحراري المزدوج",
+        "description": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية المعمارية المعتمدة التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة."
+      },
+      "en": {
+        "title": "Multi-Chamber Thermal Break Polyamide-Insulated Aluminum Architectural Profile",
+        "description": "Forming the high-performance backbone of Doorhome's premier window and door systems, this multi-chamber structural aluminum profile section delivers elite structural rigidity and uncompromising thermal insulation. Engineered from certified architectural 6063-T6 aluminum alloy, the profile integrates heavy-duty 24 mm to 34 mm glass-fiber reinforced polyamide thermal insulating bars that permanently sever conductive heat flow between exterior and interior building envelopes.\n\nThe internal cross-section features multi-stage tubular chambers engineered to distribute wind loads, resist structural bending over large spans, and incorporate dedicated internal drainage weep channels that quickly evacuate any incidental water penetration. Precision Euro-groove geometry accommodates Architectural Standard multi-point locks, heavy-duty concealed hinges, and dual-layer المطاط المعماري المقاوم للعوامل الجوية acoustic weather seals.\n\nFinished in Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the profile withstands persistent high UV radiation, extreme 50°C summer surface temperatures, and harsh airborne sandstorm abrasion without fading, chalking, or cracking."
       },
       "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #57",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە دهۆک."
+        "title": "پڕۆفایلی ئەلەمنیۆمی نژیاروانی فرە ژوور بە عازلی ثێرمال برێکی پۆلیاماید",
+        "description": "ئەم پڕۆفایلە ئەندازیارییە ئەستوورە بنەمای سەرەکی هەموو سیستەمەکانی پەنجەرە و دەرگای دەرگای ماڵ پێکدەهێنێت کە بەرزترین ئاستی پتەوی و عەزلی گەرما دابین دەکات. لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابةی بەهێز دروستکراوە و بە کەمەربەندی عازلی پۆلیامایدی ئەستووری تا 34 ملم جیاکراوەتەوە کە ڕێگری لە گەرمای بیابان دەکات لە پەڕینەوە بۆ ژوورەوە.\n\nلە ناوەوە چەندین ژووری جیاوازی هەیە بۆ دابەشکردنی زەبری بای بەهێز و کەناڵی تایبەت بە دەرکردنی ئاوی باران بەبێ دزەکردن بۆ ناوەوە. ڕێڕەوی ستانداردی نێودەوڵەتی تێدایە بۆ بەستنی کواڵۆنی فرە خاڵ و نێری شاراوەی پێشکەوتوو.\n\nبە بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە ڕووی ماتی جوان بۆیاخ کراوە بۆ ئەوەی بەرگەی گەرمای 50 پلە و تیشکی خۆری توند و ڕووشانی لم بگرێت بەبێ کەمبوونەوەی ڕەنگەکەی."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Duhok Hills, Duhok",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "675 m²"
+    }
   },
   {
     "id": "proj-photo-58",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #58",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+    "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة.",
     "src": "/products-assets/photo_58_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #58",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+        "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة."
+      },
+      "en": {
+        "title": "Curtain Wall 50F High-Span Structural Facade System",
+        "description": "Engineered mullion-transom stick curtain wall for open-concept modern villa facades and offices."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #58",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڕووکاری شووشەیی پەیکەری کێرتن وۆڵ 50F",
+        "description": "ڕووکاری ئەندازیاری شووشەیی بۆ بەرگەگرتنی پەستانی با و ڕێگری لە گەرمای هاوین."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "720 m²"
+    }
   },
   {
     "id": "proj-photo-59",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #59",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+    "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي.",
     "src": "/products-assets/photo_59_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Al-Mansour, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #59",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+        "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي."
+      },
+      "en": {
+        "title": "Suspended Tempered Glass Interior Staircase Railing",
+        "description": "Minimalist floating stair balustrade crafted from certified tempered impact-resistant safety glass."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #59",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە مەنسوور، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەربزینی شووشەیی بۆ قادرمەی ناوەوە بە ڕوونی تەواو",
+        "description": "حاجزی شووشەیی مۆدێرن بۆ قادرمە بە زۆرترین شەفافیەت و پارێزگاری لە کەوتنەخوارەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Mansour, Baghdad",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "765 m²"
+    }
   },
   {
     "id": "proj-photo-60",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #60",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي أنيق بمقبض خشبي وقواعد أرضية",
+    "description": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الحاجز بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الحاجز مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية.",
     "src": "/products-assets/photo_60_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Dream City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #60",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي أنيق بمقبض خشبي وقواعد أرضية",
+        "description": "يجمع هذا الموديل بين صفاء الزجاج الشفاف ودفء الخشب الطبيعي، ليعكس تناغماً كلاسيكياً عصرياً يناسب مختلف أنواع السلالم الحجرية والرخامية. يتيح هذا التصميم رؤية بصرية واسعة تعزز الإضاءة الطبيعية للمكان وتبرز فخامة الأرضيات والدرج، مما يجعله ملائماً للمداخل الرئيسية والممرات الواسعة.\n\nتم تثبيت الألواح الزجاجية المقواة بواسطة مشابك أرضية سوداء عالية الصلابة تثبت الحاجز بإحكام ومتانة استثنائية. ويمنح المقبض الخشبي المريح إحساساً طبيعياً دافئاً أثناء الاستخدام، مع توفير دعم قوي وآمن لجميع أفراد الأسرة وضيوف المكان في مختلف الأوقات.\n\nيتميز هذا النظام بمقاومته الفائقة للعوامل اليومية وسهولة صيانة دورية ليبقى متألقاً على الدوام. ويحرص مهندسو وفنيو باب المنزل على تقديم استشارات فنية متكاملة وتنفيذ دقيق يضمن تلاؤم الحاجز مع زوايا درجكم وانحناءاته بكل سلاسة واحترافية."
+      },
+      "en": {
+        "title": "Elegant Glass Railing with Wood Handrail and Floor Spigots",
+        "description": "Harmonizing ultra-clear glass panels with the organic warmth of a sculpted wood top rail, this model creates a timeless architectural balance that enhances stone, marble, and hardwood staircases. Its open-view structure maximizes natural illumination and accentuates flooring craftsmanship, making it a distinguished centerpiece for main reception foyers and stairwells.\n\nThe tempered safety glass panels are anchored with heavy-duty black floor spigots engineered for outstanding rigidity and long-term durability. The tactile wooden handrail offers a comfortable, warm feel to the touch, providing steady, dependable physical support for family members and visitors of all generations.\n\nBuilt for endurance, the materials require minimal upkeep and resist surface wear, preserving their pristine appearance throughout years of continuous use. The Doorhome technical team delivers custom surveying and meticulous installation to follow the exact contours and pitch of your staircase with complete precision."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #60",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە دریم سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەستەوانی شووشەیی شیک بە دەسکی دارین و بنکەی زەوی",
+        "description": "ئەم مۆدێلە ڕوونی شووشەی بێگەرد و گەرمی داری سروشتی یەکدەخات، تا هاوئاهەنگییەکی هاوچەرخ پیشان بدات کە لەگەڵ جۆرە جیاوازەکانی پلیکانەی مەڕمەڕ و بەردین دەگونجێت. ئەم دیزاینە ڕوانینێکی فراوان دەڕەخسێنێت کە ڕووناکی سروشتی زیاد دەکات و جوانی پلیکانەکە دەردەخات، بۆیە زۆر گونجاوە بۆ دەروازە سەرەکییەکان و هۆڵە گەورەکان.\n\nتەختە شووشە بەهێزکراوەکان بە کەڵامپی زەوی ڕەشی زۆر پتەو جێگیر کراون کە ڕاگرتنێکی بەهێز و تایبەت بۆ دەستەوانەکە دەستەبەر دەکەن. هەروەها دەسکە دارینە ئاسوودەبەخشەکە هەستێکی سروشتی و گەرم لە کاتی بەکارهێناندا دەبەخشێت و پاڵپشتییەکی دڵنیابەخش و پارێزراو بۆ هەموو ئەندامانی خێزان و میوانان فەراهەم دەکات.\n\nئەم سیستمە بە بەرگەگرتنی بەرزی لە بەرامبەر بەکارهێنانی ڕۆژانە و ئاسانی لە خاوێنکردنەوەدا ناسراوە تا هەمیشە بە درەوشاوەیی بمێنێتەوە. ئەندازیاران و شارەزایانی دەرگای ماڵ ڕاوێژی تەکنیکی تەواو و جێبەجێکردنێکی ورد پێشکەش دەکەن تا دەستەوانەکە بە تەواوی لەگەڵ گۆشە و لاربوونەوەی پلیکانەکەتاندا بگونجێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Dream City, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "810 m²"
+    }
   },
   {
     "id": "proj-photo-61",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #61",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "title": "بوابة خصوصية بشرائح أفقية داكنة وتطعيم خشبي لباب المشاة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الداكنة المتناسقة مع باب الأفراد المكسو بالخشب الطبيعي الدافئ، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_61_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #61",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في الجادرية، بغداد."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #61",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە جادریە، بەغدا."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "180 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة خصوصية بشرائح أفقية داكنة وتطعيم خشبي لباب المشاة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الداكنة المتناسقة مع باب الأفراد المكسو بالخشب الطبيعي الدافئ، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Horizontal Privacy Gate with Warm Natural Wood Pedestrian Inlay",
+        "description": "This premium architectural gate features sleek dark aluminum slats paired with a warm treated wood pedestrian portal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی شریتی ئاسۆیی تاریک بە دەرگای پیادەی تەختەی سروشتی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی تاریک لەگەڵ دەرگای پیادەی تەختەی سروشتیی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-62",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #62",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Gulan Street, Erbil.",
+    "title": "بوابة قصر مزدوجة بتصميم فسيفسائي يجمع بين الخشب والمعدن",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح المتبادلة بين الخشب الطبيعي المعالج والألمنيوم المؤكسد فائق الفخامة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_62_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Gulan Street, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #62",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في شارع كولان، أربيل."
+        "title": "بوابة قصر مزدوجة بتصميم فسيفسائي يجمع بين الخشب والمعدن",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح المتبادلة بين الخشب الطبيعي المعالج والألمنيوم المؤكسد فائق الفخامة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Double Swing Estate Gate with Mosaic Natural Wood and Metal Tiles",
+        "description": "This premium architectural gate features alternating tiles of treated natural timber and precision-anodized metal panels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #62",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە شەقامی گوڵان، هەولێر."
+        "title": "دەروازەی کۆشکی جووت باڵ بە مۆزاییکی تەختەی سروشتی و کانزا",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی مۆزاییکی تەختەی سروشتیی چارەسەرکراو و ئەلەمنیۆمی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "225 m²"
+    }
   },
   {
     "id": "proj-photo-63",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #63",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "مقبض معماري فاخر باللون الأسود المطفي للأبواب والنوافذ العصرية",
+    "description": "انعم بلمسة معمارية حريرية مفعمة بالفخامة والراحة في كل مرة تفتح فيها أبواب ونوافذ منزلك مع هذا المقبض المعماري الفاخر. صُمم هذا المقبض بخطوط هندسية مستقيمة فائقة البساطة وزوايا مشطوفة بنعومة بالغة ليتناسب خصيصاً مع قطاعات الألمنيوم المعمارية الحديثة، ليجمع بين راحة الاستخدام اليومي والمظهر الهندسي الأنيق الذي يبرز فخامة التصاميم الداخلية للفلل الراقية.\n\nتم تصنيع المقبض من سبائك الألمنيوم المصبوبة عالية الكثافة مع تزويده بيايات داخلية مزدوجة من الستانلس ستيل فائق المرونة تحافظ على استقامة المقبض أفقياً بدقة تامة وتمنع أي ارتخاء أو ميلان حتى بعد سنوات طويلة من الاستخدام المكثف. وتتميز قاعدة المقبض بغطاء غاطس محكم يغطي كافة براغي التثبيت بالكامل ليظهر المقبض كقطعة فنية نقية متصلة بالباب.\n\nطُلي المقبض بطبقة سيراميكية مخملية ناعمة باللون الأسود المطفي الفاخر معالجة بتقنية النانو لمقاومة بصمات الأصابع والزيوت والخدوش، مع اجتيازه لأعلى اختبارات مقاومة التآكل والملوحة، ليحتفظ بملمسه الحريري وبريقه الراقي على مدار أجيال.",
     "src": "/products-assets/photo_63_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "accessories",
+    "location": "Architectural Village II, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #63",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "مقبض معماري فاخر باللون الأسود المطفي للأبواب والنوافذ العصرية",
+        "description": "انعم بلمسة معمارية حريرية مفعمة بالفخامة والراحة في كل مرة تفتح فيها أبواب ونوافذ منزلك مع هذا المقبض المعماري الفاخر. صُمم هذا المقبض بخطوط هندسية مستقيمة فائقة البساطة وزوايا مشطوفة بنعومة بالغة ليتناسب خصيصاً مع قطاعات الألمنيوم المعمارية الحديثة، ليجمع بين راحة الاستخدام اليومي والمظهر الهندسي الأنيق الذي يبرز فخامة التصاميم الداخلية للفلل الراقية.\n\nتم تصنيع المقبض من سبائك الألمنيوم المصبوبة عالية الكثافة مع تزويده بيايات داخلية مزدوجة من الستانلس ستيل فائق المرونة تحافظ على استقامة المقبض أفقياً بدقة تامة وتمنع أي ارتخاء أو ميلان حتى بعد سنوات طويلة من الاستخدام المكثف. وتتميز قاعدة المقبض بغطاء غاطس محكم يغطي كافة براغي التثبيت بالكامل ليظهر المقبض كقطعة فنية نقية متصلة بالباب.\n\nطُلي المقبض بطبقة سيراميكية مخملية ناعمة باللون الأسود المطفي الفاخر معالجة بتقنية النانو لمقاومة بصمات الأصابع والزيوت والخدوش، مع اجتيازه لأعلى اختبارات مقاومة التآكل والملوحة، ليحتفظ بملمسه الحريري وبريقه الراقي على مدار أجيال."
+      },
+      "en": {
+        "title": "Ergonomic Matte Black Architectural Handle for Modern Minimalist Doors & Windows",
+        "description": "Impart an immediate sense of tactile luxury and minimalist modern refinement every time you touch your doors or windows with this architectural handle. Sculpted with a pure, rectilinear profile and softened radius edges, this handle was developed specifically to complement minimal-frame aluminum fenestration, combining comfortable ergonomic grip geometry with an assertive, low-profile architectural silhouette.\n\nForged from high-density die-cast structural aluminum and anti-friction engineered internal spindle bushings, the mechanism incorporates heavy-duty internal dual return springs that keep the lever perfectly level horizontally over decades of high-frequency use, completely eliminating unsightly lever sag. The concealed rose escutcheon plate snaps firmly into place, concealing all mounting screws.\n\nFinished with an advanced PVD-ceramic velvet-touch matte black electrostatic coating, this handle repels unsightly skin oils and fingerprint marks, resists fingernail scratching, and provides certified corrosion resistance (Grade 5 DIN EN 1670), ensuring enduring luxury appeal for modern master villas."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #63",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەسکی نژیاروانی فەخمی ڕەشی مات بۆ دەرگا و پەنجەرەی مۆدێرن",
+        "description": "هەست بە فەخامەت و نەرمیەکی تایبەت بکە لە کاتی گرتنی دەرگا و پەنجەرەکانی ڤێلاکەت بەم دەسکە نژیاروانییە مۆدێرنە. بە دیزاینێکی ڕێکی ئەندازیاری زۆر سادە و جوان دیزاین کراوە کە بە تەواوی لەگەڵ دەرگا و پەنجەرەی ئەلەمنیۆمی مۆدێرندا دەگونجێت.\n\nلە ئەلەمنیۆمی چڕی بەهێز بە دوو کانیەکی ستانلێس ستیل لە ناوەوە دروستکراوە کە ناهێڵێت هەرگیز دەسکەکە دابەزێت یان خوار بێت بە درێژایی دەیان ساڵ بەکارهێنان. بنکەکەی هەموو بزمارەکان دەشارێتەوە بۆ ئەوەی دیمەنێکی تەواو خاوێن و بێگەرد پیشان بدات.\n\nبە چینی سیرامیکی نانۆی ڕەشی ماتی مەخمەڵی داپۆشراوە کە پەنجەمۆر و چەوری ناگرێت و بەرگەی شووشت دەگرێت، بۆ بەخشینی بەرزترین ئاستی جوانی بە دەرگا و پەنجەرەی ماڵەکەت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "270 m²"
+    }
   },
   {
     "id": "proj-photo-64",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #64",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+    "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة.",
     "src": "/products-assets/photo_64_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #64",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "أبواب سحاب بانورامية عازلة للحرارة والصوت بنظام الألمنيوم العازل",
+        "description": "نظام السحب والرفع المعتمدة الرائد للمساحات الكبيرة، يتيح فتح الألواح الزجاجية الضخمة بلمسة يد خفيفة، مع إحكام كامل ضد مياه الأمطار والرياح والغبار بفضل آليات القفل الهوائي المتطورة."
+      },
+      "en": {
+        "title": "أنظمة السحب والرفع المعمارية Thermal-Break Minimalist Sliding Patio Door",
+        "description": "Architectural sliding door system engineered for oversized openings with thermal barriers and airtight weatherproofing."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #64",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای سلایدینگی لۆرێنزۆ 70LS بە عەزلی گەرمی و دەنگ",
+        "description": "سیستەمی ئیتاڵی پێشکەوتوو بۆ دەرگای گەورە بە جووڵەی نەرم و عەزلی تۆز و باران."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "315 m²"
+    }
   },
   {
     "id": "proj-photo-65",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #65",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب دخول متكامل",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المتراصة بدقة لتوفير أعلى درجات الحماية والخصوصية البصرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_65_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #65",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في سرجنار، السليمانية."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #65",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە سەرچنار، سلێمانی."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "360 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب دخول متكامل",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المتراصة بدقة لتوفير أعلى درجات الحماية والخصوصية البصرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "High-Security Vertical Slat Aluminum Gate with Integrated Access",
+        "description": "This premium architectural gate features closely spaced vertical aluminum slats providing maximum privacy and strength, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ئەلەمنیۆمی ئەمنی بە شریتی ستوونی و دەرگای چوونەژوورەوە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی بەهێز و نزیک لەیەک بۆ بەرزترین ئاستی پاراستن و تایبەتمەندی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-66",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #66",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سحابة داكنة مع مدخل مشاة زجاجي معماري متناسق",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب الداكنة العريضة المجاورة لباب مشاة زجاجي بكامل الارتفاع، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_66_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #66",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة داكنة مع مدخل مشاة زجاجي معماري متناسق",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب الداكنة العريضة المجاورة لباب مشاة زجاجي بكامل الارتفاع، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Modern Dark Sliding Gate with Integrated Sidelight Pedestrian Portal",
+        "description": "This premium architectural gate features wide dark sliding panels with an adjacent full-height architectural glass pedestrian door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #66",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی تاریک لەگەڵ دەرگای پیادەی شووشەیی شیک",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی پان لەگەڵ دەرگایەکی تەنیشتی شووشەیی درێژ بۆ پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "405 m²"
+    }
   },
   {
     "id": "proj-photo-67",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #67",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي داخلي للميزانين والأفنية",
+    "description": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة.",
     "src": "/products-assets/photo_67_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #67",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي داخلي للميزانين والأفنية",
+        "description": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة."
+      },
+      "en": {
+        "title": "Interior Glass Balustrade for Mezzanines and Courtyards",
+        "description": "Designed for interior balconies, mezzanine floors and open courtyards, this glass balustrade lets light travel freely between levels. It keeps the space bright, connected and welcoming while staying visually light.\n\nClear tempered glass panels sit on a neat dark base that frames the edge cleanly. The result is a safe, steady barrier with a modern look that suits living halls, galleries and reception areas alike.\n\nMaintenance is simple and the finish stays fresh over time. Doorhome handles measuring, production and installation, so the railing follows your layout with a clean, professional result."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #67",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی شووشەیی ناوەوە بۆ نهۆمی ناوەند و حەوشە",
+        "description": "ئەم بەربەستە شووشەییە بۆ باڵکۆنی ناوەوە، نهۆمی ناوەند و حەوشە کراوەکان دیزاین کراوە و ڕێگە دەدات ڕووناکی بە ئازادی لە نێوان نهۆمەکاندا بگوازرێتەوە. شوێنەکە ڕووناک، پێکەوەبەستراو و میوانپەسەند دەهێڵێتەوە و بە ڕواڵەت سووک دەمێنێتەوە.\n\nتەختە شووشە ڕوونە سێکۆریتییەکان لەسەر بنکەیەکی تۆخی ڕێک دادەنرێن کە لێوارەکە بە پاکی دیاری دەکات. ئەنجامەکەی بەربەستێکی سەلامەت و جێگیرە بە دیمەنێکی هاوچەرخ کە لەگەڵ هۆڵ، پێشانگا و شوێنی پێشوازیکردندا دەگونجێت.\n\nچاککردنەوە و خاوێنکردنەوەی ئاسانە و جوانییەکەی بە درێژایی کات دەمێنێتەوە. دەرگای ماڵ پێوانە، دروستکردن و دامەزراندن ئەنجام دەدات تا بەربەستەکە لەگەڵ نەخشەی شوێنەکەتان بگونجێت و ئەنجامێکی پاک و پیشەگەری بدات."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "450 m²"
+    }
   },
   {
     "id": "proj-photo-68",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #68",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "حاجز زجاجي داكن للبلكونات البارزة",
+    "description": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالمعتمدب بتشطيب محترف وعناية فائقة.",
     "src": "/products-assets/photo_68_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #68",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "حاجز زجاجي داكن للبلكونات البارزة",
+        "description": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالمعتمدب بتشطيب محترف وعناية فائقة."
+      },
+      "en": {
+        "title": "Dark Glass Railing for Projecting Balconies",
+        "description": "A sleek dark glass railing made for modern projecting balconies. It gives clean horizontal lines to the facade and offers comfortable privacy while still allowing an open outlook.\n\nThe tempered glass is fixed along a discreet base, keeping the balcony edge neat and uncluttered. It is built to stay stable and secure in everyday use and in changing weather.\n\nIts smooth surface wipes clean easily and keeps a stylish look over the years. The Doorhome team prepares the exact measurements and installs it with careful, professional finishing."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #68",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "بەربەستی شووشەیی تاریک بۆ باڵکۆنی دەرچوو",
+        "description": "بەربەستێکی شووشەیی تاریکی شیکە کە بۆ باڵکۆنە دەرچووە هاوچەرخەکان دروستکراوە. هێڵی ئاسۆیی پاک بە ڕووکارەکە دەبەخشێت و تایبەتمەندییەکی ئاسوودە دابین دەکات لەگەڵ ئەوەی دیمەنەکە کراوە دەهێڵێتەوە.\n\nشووشە سێکۆریتییەکە لەسەر بنکەیەکی شاراوە جێگیر دەکرێت و لێوارەی باڵکۆنەکە ڕێک و بێ ورده کاری زیادە دەهێڵێتەوە. بۆ ئەوە دروستکراوە کە لە بەکارهێنانی ڕۆژانە و گۆڕانی کەشوهەوادا جێگیر و سەلامەت بمێنێتەوە.\n\nڕووی نەرمی بە ئاسانی پاک دەکرێتەوە و بۆ ساڵان دیمەنی شیکی خۆی دەپارێزێت. تیمی دەرگای ماڵ پێوانەی ورد ئامادە دەکات و بە تەواوکاری پیشەگەرانە و وردبینییەوە دایدەمەزرێنێت."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "495 m²"
+    }
   },
   {
     "id": "proj-photo-69",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #69",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "حاجز ألمنيوم هندسي باللون الأسود المطفي",
+    "description": "يتميز هذا الحاجز بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الحاجز من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة.",
     "src": "/products-assets/photo_69_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Duhok Hills, Duhok",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #69",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
+        "title": "حاجز ألمنيوم هندسي باللون الأسود المطفي",
+        "description": "يتميز هذا الحاجز بتصميم معماري متين يعتمد على قواطع الألمنيوم الهندسي باللون الأسود المطفي، ليمنح المساحات الداخلية حضوراً قوياً وطابعاً حديثاً جذاباً. يُعد حلاً مثالياً للسلالم والممرات المفتوحة في المباني السكنية والتجارية، حيث يجمع بين الشكل الجمالي المنظم والحماية الفعالة دون حجب تدفق الهواء والإضاءة.\n\nتم تصنيع الهيكل بالكامل من الألمنيوم عالي الكثافة والمعالج بطبقات طلاء حراري مقاومة للصدأ والتآكل والخدش، مع أعمدة رئيسية قوية توفر استقراراً ثابتاً لا يتزعزع. وتوفر المسافات الهندسية المحسوبة بين القضبان أعلى معايير الحماية والأمان لمنع السقوط، مما يجعله مناسباً جداً للأماكن المزدحمة والأسر التي لديها أطفال.\n\nيُعتبر هذا الحاجز من أكثر الخيارات العملية والسهلة في الصيانة، إذ لا يحتاج إلى تلميع متكرر ويكفي مسحه بقطعة قماش للحفاظ على مظهره الأنيق على مر السنين. ويضمن فريق باب المنزل تنفيذ المقاسات بدقة متناهية وتثبيت الهيكل بقوة تامة لضمان الأمان الدائم لسنوات طويلة."
+      },
+      "en": {
+        "title": "Geometric Matte Black Aluminum Stair Railing",
+        "description": "Featuring bold architectural geometry and a sleek matte black profile, this aluminum post-and-rail balustrade delivers an assertive, contemporary look for interior stairwells and corridors. It offers a practical yet refined safety solution for both residential and commercial spaces, providing dependable barrier protection while allowing air and natural ambient light to flow uninterrupted.\n\nCrafted entirely from heavy-duty structural aluminum with a resilient thermal powder coating, the assembly is impervious to rust, peeling, and surface wear. Solid anchor posts and evenly spaced vertical/horizontal safety bars deliver exceptional structural rigidity, offering superior fall prevention that is particularly reassuring in busy households and multi-story spaces.\n\nThis railing is exceptionally low-maintenance, requiring only a simple wipe-down to preserve its pristine satin appearance over decades of everyday use. The Doorhome installation crew handles custom fabrication, precise site measurements, and rigid anchorage to guarantee lifelong structural integrity."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #69",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە دهۆک."
+        "title": "دەستەوانی ئەلەمنیۆمی ئەندازیاری بە ڕەنگی ڕەشی مات",
+        "description": "ئەم دەستەوانەیە بە دیزاینێکی تەلارسازی پتەو لەسەر بنەمای هێڵە ئەندازیارییەکانی ئەلەمنیۆم بە ڕەنگی ڕەشی مات جیا دەکرێتەوە، تا دیمەنێکی بەهێز و سەردەمیانە بە شوێنە ناوخۆییەکان ببەخشێت. چارەسەرێکی زۆر گونجاوە بۆ پلیکانە و ڕێڕەوە کراوەکان لە بینای نیشتەجێبوون و بازرگانیدا، بە جۆرێک کە جوانی ڕێکخراو و پارێزگاری کاریگەر پێکەوە کۆدەکاتەوە بێ ئەوەی ڕێگری لە هەوا و ڕووناکی بکات.\n\nپەیکەری دەستەوانەکە بە تەواوی لە ئەلەمنیۆمی بەهێز بە بۆیەی حەراری دروستکراوە کە دژی ژەنگ، خوراندن و ڕووشانە، لەگەڵ ستوونی سەرەکی پتەو کە جێگیرییەکی هەمیشەیی دەستەبەر دەکەن. هەروەها دوورییە ئەندازیارییە دیاریکراوەکانی نێوان هێڵەکان بەرزترین ئاستی پارێزگاری لە کەوتنەخوارەوە دابین دەکەن، کە بۆ شوێنە قەرەباڵغەکان و ئەو خێزانانەی منداڵیان هەیە زۆر پەسەندە.\n\nئەم دەستەوانەیە لە کرداریدا یەکێکە لە باشترین هەڵبژاردنەکان و پێویستی بە ماندووبوونی خاوێنکردنەوە نییە، تەنها بە سڕینێکی ئاسایی شێوازی جوان و ڕێکی خۆی بۆ چەندین ساڵ دەپارێزێت. تیمی دەرگای ماڵ پێوانەکردن بەوپەڕی وردبینی و جێگیرکردنی زۆر قایم بۆ مسۆگەرکردنی سەلامەتی بەردەوام ئەنجام دەدەن."
       }
-    },
-    "mediaType": "image",
-    "category": "doors",
-    "location": "Duhok Hills, Duhok",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "540 m²"
+    }
   },
   {
     "id": "proj-photo-70",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #70",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Empire World, Erbil.",
+    "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+    "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى.",
     "src": "/products-assets/photo_70_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #70",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في إمباير وورلد، أربيل."
+        "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+        "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى."
+      },
+      "en": {
+        "title": "Corporate Commercial Panoramic Facade & Sliding System",
+        "description": "Minimalist slim-profile glass facades engineered for commercial headquarters and luxury storefronts."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #70",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر."
+        "title": "ڕووکاری شووشەیی پانۆراما بۆ پێشانگا و کۆمپانیاکان",
+        "description": "ڕووکاری مۆدێرن بە چوارچێوەی باریک و شووشەی پارێزراو بۆ پێشانگا و ئۆفیسی کۆمپانیاکان."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "585 m²"
+    }
   },
   {
     "id": "proj-photo-71",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #71",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة معمارية بتناغم الخشب الطبيعي والألمنيوم الرمادي",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ المزيج المعماري المتناسق بين ألواح الخشب الدافئة ومعدن الألمنيوم الرمادي الرصين، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_71_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Al-Mansour, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #71",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة معمارية بتناغم الخشب الطبيعي والألمنيوم الرمادي",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ المزيج المعماري المتناسق بين ألواح الخشب الدافئة ومعدن الألمنيوم الرمادي الرصين، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Two-Tone Architectural Gate with Natural Timber and Slate Aluminum",
+        "description": "This premium architectural gate features harmonious split composition blending warm timber paneling with slate aluminum, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #71",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە مەنسوور، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی تەلارسازی بە تێکەڵەی تەختەی سروشتی و ئەلەمنیۆمی ڕەساسی",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تێکەڵەیەکی تەلارسازیی جوان لەنێوان داری سروشتی و ئەلەمنیۆمی ڕەساسی تۆخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Mansour, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "630 m²"
+    }
   },
   {
     "id": "proj-photo-72",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #72",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع",
+    "description": "يتميز هذا النظام المتكامل لباب المدخل بوجود نافذة زجاجية جانبية بكامل الارتفاع تغمر بهو المدخل بالضوء الطبيعي مع الحفاظ على أعلى درجات الأمان والعزل. يُعد خياراً مثالياً للمنازل الحديثة ومكاتب الشركات والمشاريع السكنية الراقية.\n\nتجمع درفة الباب بين العزل الحراري المتقدم والخطوط الأفقية المعمارية الأنيقة ومقبض سحب رأسي فاخر. تم تزويد الواجهة الزجاجية الجانبية بزجاج أمان مزدوج عازل يمنح شعوراً بالاتساع والرحابة دون المساس بكفاءة الطاقة أو الخصوصية.\n\nصُمم النظام ليقاوم أقسى الظروف الجوية بفضل الجوانات المطاطية المحكمة وأنظمة الأقفال المتعددة النقاط، مما يوفر أداءً هادئاً وسلساً وأماناً مستمراً على مدار السنين.",
     "src": "/products-assets/photo_72_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Dream City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #72",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع",
+        "description": "يتميز هذا النظام المتكامل لباب المدخل بوجود نافذة زجاجية جانبية بكامل الارتفاع تغمر بهو المدخل بالضوء الطبيعي مع الحفاظ على أعلى درجات الأمان والعزل. يُعد خياراً مثالياً للمنازل الحديثة ومكاتب الشركات والمشاريع السكنية الراقية.\n\nتجمع درفة الباب بين العزل الحراري المتقدم والخطوط الأفقية المعمارية الأنيقة ومقبض سحب رأسي فاخر. تم تزويد الواجهة الزجاجية الجانبية بزجاج أمان مزدوج عازل يمنح شعوراً بالاتساع والرحابة دون المساس بكفاءة الطاقة أو الخصوصية.\n\nصُمم النظام ليقاوم أقسى الظروف الجوية بفضل الجوانات المطاطية المحكمة وأنظمة الأقفال المتعددة النقاط، مما يوفر أداءً هادئاً وسلساً وأماناً مستمراً على مدار السنين."
+      },
+      "en": {
+        "title": "Contemporary Villa Entrance Door with Full-Height Sidelight",
+        "description": "This striking entrance door system features a full-height architectural glass sidelight that bathes interior foyers in natural daylight while maintaining secure, insulated protection. It is a favored choice for modern villas, company offices, and luxury residential projects.\n\nThe door leaf combines a reinforced thermal core with horizontal decorative reveals and a full-length architectural pull handle. The matching glass sidelight is engineered with heavy-duty safety glass, providing an open, spacious welcome without sacrificing energy efficiency or privacy.\n\nEngineered for exceptional durability against weather extremes, the system incorporates magnetic perimeter seals and multi-point perimeter locks, ensuring quiet operation, superior insulation, and dependable everyday security."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #72",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە دریم سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەرگای مدخەلی ڤێلا بە شوشەی درێژی تەنیشت و دیزاینی مۆدێرن",
+        "description": "ئەم سیستمە دەرگایە تایبەتمەندە بە بوونی پەنجەرەیەکی شووشەیی درێژ لە تەنیشتیەوە کە بە درێژایی ڕۆژ ڕووناکی سروشتی دەهێنێتە ناو هۆڵی پێشوازی بەبێ کەمکردنەوەی ئاستی ئاسایش و عەزل. هەڵبژاردنێکی زۆر گونجاوە بۆ ڤێلا هاوچەرخەکان و بارەگای کۆمپانیاکان.\n\nدەرگاکە لە پەیکەری ئەلەمنیۆمی بەهێزی عازل و هێڵە ئەندازەییەکان پێکهاتووە لەگەڵ دەسکی درێژی ستیلی شیک. شووشەی تەنیشتی بە شووشەی پارێزراوی دووجۆڕ دروستکراوە کە هەستی فراوانی و دڵڕفێنی بە شوێنەکە دەبەخشێت.\n\nبەرگەی هەموو کەشوهەوایەک دەگرێت بەهۆی بەربەستی لاستیکی موگناتیسی و قوفڵی فرە-خاڵ، ئاسایشی تەواو و کارکردنی نەرم و بێدەنگ بۆ ماڵەکەت دابین دەکات."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Dream City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "675 m²"
+    }
   },
   {
     "id": "proj-photo-73",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #73",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "title": "بوابة سوداء مصمتة فاخرة بإطار الأعمدة الحجرية المصقولة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرف المصمتة باللون الأسود المطفي المصممة لتتوسط الأعمدة الحجرية الفخمة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_73_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #73",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في الجادرية، بغداد."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #73",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە جادریە، بەغدا."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "720 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة سوداء مصمتة فاخرة بإطار الأعمدة الحجرية المصقولة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرف المصمتة باللون الأسود المطفي المصممة لتتوسط الأعمدة الحجرية الفخمة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Monolithic Matte Black Driveway Gate Framed by Stone Portals",
+        "description": "This premium architectural gate features solid monolithic matte black leaves designed to sit flush between polished pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی ڕەشی بێ هێڵ بە چوارچێوەی بەردی پۆڵیشکراو",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەرگای تەواو داپۆشراوی ڕەشی ماتی کە لەنێوان ستوونی بەردی شیکدا دادەنرێت تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-74",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #74",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة معمارية بنقوش ليزر هندسية وإطار خشبي طبيعي",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ النقوش الهندسية المفرغة بقص الليزر عالي الدقة والمحاطة بإطار من الخشب الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_74_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Gulan Street, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #74",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة معمارية بنقوش ليزر هندسية وإطار خشبي طبيعي",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ النقوش الهندسية المفرغة بقص الليزر عالي الدقة والمحاطة بإطار من الخشب الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Architectural Gate with Laser-Cut Geometric Screens and Timber Framing",
+        "description": "This premium architectural gate features precision CNC laser-cut aluminum latticework framed by treated natural hardwood, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #74",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە شەقامی گوڵان، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی تەلارسازی بە نەخشی لێزەری ئەندازەیی و چوارچێوەی تەختە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی ئەندازەیی بڕینی لەیزەری لەگەڵ چوارچێوەی تەختەی سروشتیی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Gulan Street, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "765 m²"
+    }
   },
   {
     "id": "proj-photo-75",
-    "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #75",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+    "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي.",
     "src": "/products-assets/photo_75_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "stairs",
+    "location": "Architectural Village II, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #75",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درج وسلالم زجاجية معلقة وحواجز سيكوريت فائقة الشفافية والأمان",
+        "description": "درابزين زجاجي داخلي للسلالم المودرن بدون قواطع مرئية، مصنع من زجاج سيكوريت معالج حرارياً ضد الصدمات، ليعطي شعوراً بالاتساع والضوء الطبيعي."
+      },
+      "en": {
+        "title": "Suspended Tempered Glass Interior Staircase Railing",
+        "description": "Minimalist floating stair balustrade crafted from certified tempered impact-resistant safety glass."
       },
       "ckb": {
-        "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #75",
-        "description": "پلیکانی جامی مۆدێرن بە قایمکردنی تەواو و محاجەرەی بێ چوارچێوەی شووشە. جێبەجێکراوە لە گوندی ئیتاڵی ٢، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەربزینی شووشەیی بۆ قادرمەی ناوەوە بە ڕوونی تەواو",
+        "description": "حاجزی شووشەیی مۆدێرن بۆ قادرمە بە زۆرترین شەفافیەت و پارێزگاری لە کەوتنەخوارەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Certified Village II, Erbil",
-    "system": "10+10+10mm Laminated Securit Glass",
-    "year": "2024",
-    "glassArea": "810 m²"
+    }
   },
   {
     "id": "proj-photo-76",
-    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #76",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+    "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة.",
     "src": "/products-assets/photo_76_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "English Village, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #76",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "شبابيك بي في سي عازلة للصوت والحرارة بست حجرات هوائية",
+        "description": "نظام شبابيك بي في سي المعتمدة متطور يمنح عزلاً حرارياً وصوتياً فائقاً، لمنع الضوضاء الخارجية والحرارة الصيفية وتوفير أجواء داخلية هادئة."
+      },
+      "en": {
+        "title": "أنظمة يو بي في سي عازلة الأنظمة سداسية الحجرات العازلة Multi-Chamber Acoustic uPVC Windows",
+        "description": "High-performance 6-chamber uPVC profiles delivering 45 dB noise insulation and certified thermal savings."
       },
       "ckb": {
-        "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #76",
-        "description": "پەنجەرەی ٦-خانەیی بە جامی دبل ئارگۆن بۆ عەزلی دەنگ و گەرمای هاوین. جێبەجێکراوە لە گوندی ئینگلیزی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "پەنجەرەی یو پی ڤی سی لێجەند 80 بە عەزلی دەنگ و گەرمی",
+        "description": "سیستەمی پێشکەوتووی ٦ خانەیی بە عەزلی ٤٥ دێسیبڵ بۆ دەنگ و پاراستنی گەرمای ژوورەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "English Village, Erbil",
-    "system": "Multi-Chamber Acoustic uPVC",
-    "year": "2023",
-    "glassArea": "180 m²"
+    }
   },
   {
     "id": "proj-photo-77",
-    "title": "Heavy-Duty Lift & Slide Thermal Aluminum Patio Doors #77",
-    "description": "Smooth gliding multi-track patio doors engineered for large structural openings and sandstorm protection. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "title": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المعمارية المزودة بقنوات إضاءة ليد دافئة مخفية ومقاومة للعوامل الجوية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/photo_77_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "أبواب سحاب ثقيلة & للمساحات الواسعة #77",
-        "description": "حركة انزلاق سلسة مع عزل محكم ضد العواصف الرملية ومياه الأمطار والحرارة الشديدة. تم التنفيذ والتركيب في سرجنار، السليمانية."
-      },
-      "ckb": {
-        "title": "دەرگای سلایدینگی قورس السحاب والرفع المعماري بۆ شوێنی فراوان #77",
-        "description": "جوڵەی نەرم و عەزلی تەواو دژە ڕەشەبا و تۆز و گەرمای توند. جێبەجێکراوە لە سەرچنار، سلێمانی."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Panoramic System Lift & Slide",
-    "year": "2024",
-    "glassArea": "225 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المعمارية المزودة بقنوات إضاءة ليد دافئة مخفية ومقاومة للعوامل الجوية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Vertical Louver Gate with Integrated Warm Ambient LED Light Channels",
+        "description": "This premium architectural gate features vertical architectural louvers illuminated by concealed weatherproof warm LED channels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
+      },
+      "ckb": {
+        "title": "دەروازەی شریتی ستوونی بە ڕووناکیی لیدی زەردی دڵڕفێن",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی سەرنجڕاکێش بە کەناڵی ڕووناکیی لیدی زەردی دژە-کەشوهەوا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
+      }
+    }
   },
   {
     "id": "proj-photo-78",
-    "title": "Corporate Showroom Panoramic Glass Entrances & Facade #78",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+    "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى.",
     "src": "/products-assets/photo_78_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Royal City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #78",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات وأبواب زجاجية بانورامية لمعارض ومقرات الشركات والمكاتب الحديثة",
+        "description": "واجهات زجاجية عصرية تعتمد نظام الإطارات النحيفة وزجاج سيكوريت عازل، صممت خصيصاً للمعارض ومقرات الشركات لتوفير رؤية متصلة وفخامة معمارية لا تضاهى."
+      },
+      "en": {
+        "title": "Corporate Commercial Panoramic Facade & Sliding System",
+        "description": "Minimalist slim-profile glass facades engineered for commercial headquarters and luxury storefronts."
       },
       "ckb": {
-        "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #78",
-        "description": "جێبەجێکردنی ڕوکاری جامی باڵا بۆ کۆمپانیا و پێشانگاکان بە دەرگای زیرەک. جێبەجێکراوە لە ڕۆیاڵ سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڕووکاری شووشەیی پانۆراما بۆ پێشانگا و کۆمپانیاکان",
+        "description": "ڕووکاری مۆدێرن بە چوارچێوەی باریک و شووشەی پارێزراو بۆ پێشانگا و ئۆفیسی کۆمپانیاکان."
       }
-    },
-    "mediaType": "image",
-    "category": "commercial",
-    "location": "Royal City, Erbil",
-    "system": "Curtain Wall & Automatic Doors",
-    "year": "2023",
-    "glassArea": "270 m²"
+    }
   },
   {
     "id": "proj-photo-79",
-    "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #79",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+    "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق.",
     "src": "/products-assets/photo_79_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "shorfa",
+    "location": "Al-Yarmouk, Baghdad",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #79",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "درابزين وحواجز زجاجية فاخرة بدون إطار للمسابح والتراسات الخارجية",
+        "description": "نظام حواجز زجاجية إنشائية للمسابح والحدائق الخارجية مثبت بقواعد استانلس ستيل المقاوم للمياه والأملاح المقاومة للكلور والمياه، يمنح أماناً فائقاً مع رؤية مائية صافية دون عوائق."
+      },
+      "en": {
+        "title": "Frameless Glass Balustrade for Pool Decks & Gardens",
+        "description": "Engineered structural glass railing anchored with marine-grade stainless steel spigots."
       },
       "ckb": {
-        "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #79",
-        "description": "شووشەی سێکۆریتی شەفاف بە بنکەی ستانلێس ستێڵی دژە ژەنگ بۆ ڤێلاکانی کوردستان. جێبەجێکراوە لە یەرمووک، بەغدا.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەربزینی شووشەیی بێ چوارچێوە بۆ دەوری مەلەوانگە و باخچە",
+        "description": "حاجزی شووشەیی ئەندازیاری بۆ دەوری مەلەوانگە بە ستیلی دژە ژەنگ بە دیمەنی ڕوون."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Al-Yarmouk, Baghdad",
-    "system": "Frameless Glass Spigot System",
-    "year": "2024",
-    "glassArea": "315 m²"
+    }
   },
   {
     "id": "proj-photo-80",
-    "title": "Luxury Villa Panoramic System Lift & Slide Doors #80",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
+    "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
     "src": "/products-assets/doors/photo_14_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "doors",
+    "location": "Vank City, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #80",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين."
+      },
+      "en": {
+        "title": "Charcoal Aluminum Sliding Gate with Wood Finish Inlays",
+        "description": "This premium architectural gate features deep charcoal louvers integrated with rich architectural wood accents, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year."
       },
       "ckb": {
-        "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #80",
-        "description": "دەرگای سلایدی پێشکەوتوو بە دیزاینی پانۆراما و عەتەبەی تەخت بۆ ڕێگری لە تۆز و گەرمی. جێبەجێکراوە لە ڤانک سیتی، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "دەروازەی سلایدینگی ڕەنگی خەڵوزی بە نەخشی تەختە",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی ڕەنگی خەڵوزی لەگەڵ نەخشی داری شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
       }
-    },
-    "mediaType": "image",
-    "category": "villa",
-    "location": "Vank City, Erbil",
-    "system": "Panoramic System Thermal Aluminum",
-    "year": "2023",
-    "glassArea": "360 m²"
+    }
   },
   {
     "id": "proj-photo-81",
-    "title": "Architectural Minimalist Pivot Villa Entrance Door #81",
-    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "title": "باب فيلا رئيسي محوري فاخر بتصميم ألمنيوم مودرن وعوازل حرارية مدمجة",
+    "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة، تمنح الفيلا هيبة معمارية وتوفر أماناً استثنائياً يدوم لعقود.",
     "src": "/products-assets/photo_81_2026-09-26_07-36-01.jpg",
-    "translations": {
-      "ar": {
-        "title": "باب فيلا رئيسي محوري بتصميم ألمنيوم فاخر #81",
-        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة. تم التنفيذ والتركيب في تلال دهوك، دهوك."
-      },
-      "ckb": {
-        "title": "دەرگای سەرەکی پیڤۆت بە دیزاینی ئەلەمنیۆمی مۆدێرن #81",
-        "description": "دەرگای سەرەکی گەورە بە قفڵی زیرەک و عەزلی گەرمی و ئاوی تەواو. جێبەجێکراوە لە دهۆک."
-      }
-    },
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Custom Aluminum Pivot System",
-    "year": "2024",
-    "glassArea": "405 m²"
+    "system": "نظام معماري معتمد",
+    "translations": {
+      "ar": {
+        "title": "باب فيلا رئيسي محوري فاخر بتصميم ألمنيوم مودرن وعوازل حرارية مدمجة",
+        "description": "أبواب مداخل رئيسية ضخمة مع أقفال إلكترونية ذكية وعوازل حرارية ومائية مدمجة، تمنح الفيلا هيبة معمارية وتوفر أماناً استثنائياً يدوم لعقود."
+      },
+      "en": {
+        "title": "Luxury Architectural Pivot Entrance Door for Modern Villas",
+        "description": "Grand monumental pivot entrance door with smart biometric locking and concealed Precision pivot hardware."
+      },
+      "ckb": {
+        "title": "دەرگای سەرەکی ڤێلا لە ئەلەمنیۆمی مۆدێرن بە عەزلی گەرمی",
+        "description": "دەرگای دەروازەی شاهانەی ڤێلا بە قوفڵی زیرەک و ڕاگرتنی گەرمی و پاراستنی بەرز."
+      }
+    }
   },
   {
     "id": "proj-photo-82",
-    "title": "High-Span Curtain Wall 50F Structural Glass Facade #82",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+    "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة.",
     "src": "/products-assets/photo_82_2026-09-26_07-36-01.jpg",
+    "mediaType": "image",
+    "category": "windows",
+    "location": "Empire World, Erbil",
+    "system": "نظام معماري معتمد",
     "translations": {
       "ar": {
-        "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #82",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "title": "واجهات زجاجية هيكلية متصلة (الواجهات الهيكلية ) للفلل والمباني الحديثة",
+        "description": "واجهات زجاجية معمارية مستمرة تعتمد قطاعات ألمنيوم متينة مصممة لتحمل ضغط الرياح العاتية في الطوابق المرتفعة، مع زجاج مزدوج عاكس للحرارة."
+      },
+      "en": {
+        "title": "Curtain Wall 50F High-Span Structural Facade System",
+        "description": "Engineered mullion-transom stick curtain wall for open-concept modern villa facades and offices."
       },
       "ckb": {
-        "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #82",
-        "description": "ڕوکاری جامی پێشکەوتوو دژە با و گەرمای بەرز بە سیستەمی ئاوەڕۆی ناوەکی. جێبەجێکراوە لە ئیمپایەر وۆڕڵد، هەولێر.\n\nئەم پڕۆژە تەلارسازییە بە تەواوی لەلایەن تیمی ئەندازیاری و تەکنیکی شارەزا و پرۆفێشناڵی کۆمپانیای دەرگای ماڵ ئەنجامدراوە. ئەندازیاران و ستافی پسپۆڕمان سەرپەرشتی تەواوی قۆناغەکانی پێوانەکردنی ورد، دروستکردنی پیشەسازی بە پێوەرە ئەوروپییەکان و دانانی سەر شوێنەکەیان بەوپەڕی ڕێکی و وردبینییەوە کردووە بۆ دەستەبەرکردنی عەزل و جوانییەکی درێژخایەن."
+        "title": "ڕووکاری شووشەیی پەیکەری کێرتن وۆڵ 50F",
+        "description": "ڕووکاری ئەندازیاری شووشەیی بۆ بەرگەگرتنی پەستانی با و ڕێگری لە گەرمای هاوین."
       }
-    },
-    "mediaType": "image",
-    "category": "facade",
-    "location": "Empire World, Erbil",
-    "system": "Curtain Wall Facade 50F",
-    "year": "2023",
-    "glassArea": "450 m²"
+    }
   }
 ];
-
-export const GALLERY_ITEMS = MASTER_GALLERY_ITEMS;

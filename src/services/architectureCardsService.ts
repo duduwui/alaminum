@@ -31,14 +31,16 @@ export interface ArchitectureShowcaseItem {
   category?: string;
 }
 
-export const ARCH_CARDS_STORAGE_KEY = 'winhome_cms_arch_cards';
+export const ARCH_CARDS_STORAGE_KEY = 'winhome_cms_arch_cards_v2';
 export const ARCH_CARDS_UPDATED_EVENT = 'cms_arch_cards_updated';
 
-export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase_v3';
+export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase_v4';
 export const ARCH_SHOWCASE_UPDATED_EVENT = 'cms_arch_showcase_updated';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_cms_arch_cards');
+    localStorage.removeItem('winhome_cms_arch_showcase_v3');
     localStorage.removeItem('winhome_cms_arch_showcase_v2');
     localStorage.removeItem('winhome_cms_arch_showcase');
   }
@@ -97,14 +99,14 @@ export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
 
 export const DEFAULT_ARCHITECTURE_SHOWCASE_ITEMS: ArchitectureShowcaseItem[] = [
   {
-    id: 'wiek-limiting-hinge-w23045',
+    id: 'wiek-limiting-hinge-w25',
     image: '/assets/catalogs/wiek_page_50_limiting_hinge.png',
     fallbackImage: '/assets/catalogs/wiek_page_50_limiting_hinge.png',
     title: 'Architectural Limiting Hinge Series',
     titleAr: 'سلسلة مفصلات تحديد الفتح الهندسية المعتمدة',
     titleKu: 'سیستەمی نەرمەلۆی سنوردارکردنی کردنەوەی ئەندازیاری',
     description: 'Extensible/Adjustable limiting hinge set for projected windows. Suitable for Standard Architectural Groove profiles, manufactured in Marine Grade Stainless Steel. Allows window opening in 5 defined positions with adjustable sash positioning.',
-    descriptionAr: 'طقم مفصلات تحديد الفتح القابلة للتمديد والضبط للنوافذ القلابة والمعمارية البارزة للخارج. متوافقة مع قطاعات المجرى القياسي وسلسلة القطاعات المعمارية، مصنعة من الفولاذ المقاوم للصدأ عالي التحمل وتتيح فتح النافذة بـ 5 وضعيات محددة مع إمكانية ضبط زاوية الفتح بدقة.',
+    descriptionAr: 'طقم مفصلات تحديد الفتح القابلة للتمديد والضبط للنوافذ القلابة والمعمارية البارزة للخارج، متوافقة مع قطاعات المجرى المعماري القياسي، مصنعة من الفولاذ المقاوم للصدأ عالي التحمل وتتيح ضبط زاوية الفتح بدقة.',
     descriptionKu: 'کۆمەڵە نەرمەلۆی سنوردارکردنی درێژکراوە و ڕێکخراو بۆ پەنجەرەی دەرپەڕیو البارزة للخارج. گونجاوە بۆ پرۆفایلی ستاندارد، لە ستیلی دژە ژەنگ دروستکراوە بە ٥ دۆخی کردنەوە.',
     pdfUrl: '/catalogs/wiek-general-catalog-2026.pdf',
     fileName: 'WİEK general-catalog-2026.pdf',

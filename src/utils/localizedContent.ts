@@ -272,7 +272,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       subCategory: 'عەزلی گەرمی باڵا',
       features: [
         'دیزاینی ٦-خانەیی بۆ کەمترین بەفیڕۆدانی وزە بە ستانداردی پاسیڤ هاوس',
-        'لاستیکی سێقاتی EPDM بۆ بەرگری تەواو لە دەنگ و تۆز',
+        'لاستیکی ئەندازیاری سێقات بۆ بەرگری تەواو لە دەنگ و تۆز',
         'پشتگیری شوشەی سێقاتی ئەستوور هەتا ٥٢ ملم دەکات',
         'نەرمەی بەهێزی ئەوروپی بۆ پەنجەرەی قورس و بەرز',
         'بەرگری لە تیشکی بەهێزی خۆر و زریانی تۆزوخۆڵ'
@@ -306,7 +306,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       subCategory: 'نیشتەجێبوونی کلاسیک',
       features: [
         'پێکهاتەی ٤-خانەیی بۆ عەزلی هاوسەنگی گەرمی',
-        'لاستیکی TPE یان EPDM بۆ ڕێگری لە دزەکردنی هەوا و تۆز',
+        'لاستیکی ئەندازیاری عازل بۆ ڕێگری لە دزەکردنی هەوا و تۆز',
         'ستیلی بەهێزکراوی ناوەکی بۆ ڕاگرتنی پەنجەرەکە',
         'پشتگیری شوشەی تاک ٤ ملم هەتا دەبڵ ٣٢ ملم'
       ]
@@ -409,7 +409,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       features: [
         'چەرخی ستیلی قورس لە سەرەوە و خوارەوە بۆ جوڵەی ئاسان',
         'شێوازی نەرم و ڕێکخراو لە ٢ تا ١٠ باڵ',
-        'لاستیکی دەبڵی EPDM بۆ عەزلی تەواوی با و باران'
+        'لاستیکی ئەندازیاری دەبڵ بۆ عەزلی تەواوی با و باران'
       ]
     },
     'acc-window-line': {
@@ -460,7 +460,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       subCategory: 'عزل حراري فائق',
       features: [
         'تصميم هندسي بـ 6 حجرات لتوفير أقصى كفاءة طاقة بستاندارد باسيڤ هاوس',
-        'مطاط EPDM ثلاثي لإحكام عزل الهواء والضوضاء والغبار',
+        'مطاط هندسي ثلاثي لإحكام عزل الهواء والضوضاء والغبار',
         'يدعم زجاجاً ثلاثياً معزولاً بسماكة تصل إلى 52 ملم',
         'مفصلات المعمارية المعتمدةة شديدة التحمل للأوزان والارتفاعات العالية',
         'مقاوم لأشعة الشمس فوق البنفسجية والعواصف الرملية'
@@ -494,7 +494,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       subCategory: 'سكني كلاسيكي',
       features: [
         'هندسة 4 حجرات لتحقيق توازن مثالي في كفاءة العزل',
-        'مطاط TPE أو EPDM مانع لتسرب الهواء والغبار',
+        'مطاط هندسي عازل مانع لتسرب الهواء والغبار',
         'دعامات فولاذية مجلفنة لصلابة هيكلية ممتازة',
         'إمكانية تركيب زجاج من 4 ملم مفرد حتى 32 ملم مزدوج معزول'
       ]
@@ -597,7 +597,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       features: [
         'عربات سفلية وعلوية ستانلس ستيل فائقة التحمل',
         'مرونة عالية في التشكيل من 2 إلى 10 ضلف',
-        'مطاط EPDM مزدوج مستمر لمنع دخول الهواء والماء'
+        'مطاط هندسي مزدوج مستمر لمنع دخول الهواء والماء'
       ]
     },
     'acc-window-line': {
@@ -643,15 +643,71 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
   }
 };
 
+const RUNTIME_PROHIBITED_SCRUBBERS: [RegExp, string][] = [
+  [/بغاز الآرغون|بغاز الارغون|بغاز الأرجون|بغاز الارجون/gi, 'بتقنية العزل الحراري المزدوج'],
+  [/ومملوء بغاز الآرغون|ومملوء بغاز الارغون|مملوء بغاز الآرغون|مملوء بغاز الارغون/gi, 'بتقنية العزل المفرغ المزدوج'],
+  [/غاز الآرغون|غاز الارغون|غاز الأرجون|غاز الارجون/gi, 'العزل الحراري المفرغ'],
+  [/الآرغون|الارغون|الأرجون|الارجون/gi, 'العزل المعماري'],
+  [/Argon/gi, 'Thermal-Break Insulation'],
+  [/ألمانية الصنع|المانية الصنع|ألماني الصنع|الماني الصنع/gi, 'معتمدة الجودة والمواصفات'],
+  [/إيطالية الصنع|ايطالية الصنع|إيطالي الصنع|ايطالي الصنع/gi, 'معمارية عالية التحمل'],
+  [/إسبانية الصنع|اسبانية الصنع|إسباني الصنع|اسباني الصنع/gi, 'فائقة الدقة والاعتمادية'],
+  [/ألمانية|الالمانية|ألماني|الالماني|ألمانيا|المانيا/gi, 'المعتمدة'],
+  [/إيطالية|الايطالية|إيطالي|الايطالي|إيطاليا|ايطاليا/gi, 'المعمارية'],
+  [/إسبانية|الاسبانية|إسباني|الاسباني|إسبانيا|اسبانيا/gi, 'المتطورة'],
+  [/بلجيكية|البلجيكية|بلجيكي|البلجيكي|بلجيكا/gi, 'المعتمدة'],
+  [/تركية|التركية|تركي|التركي|تركيا/gi, 'المعمارية'],
+  [/أوروبية|الاوروبية|أوروبي|الاوروبي|أوروبا|اوروبا/gi, 'الهندسية'],
+  [/German(y)?/gi, 'Architectural'],
+  [/Italian(y)?/gi, 'Architectural'],
+  [/Spanish|Spain/gi, 'Architectural'],
+  [/Belgium|Belgian/gi, 'Architectural'],
+  [/Turkish|Turkey/gi, 'Architectural'],
+  [/European|Europe/gi, 'Architectural'],
+  [/Lorenzo 70LS|Lorenzo/gi, 'نظام السحب المعماري'],
+  [/Deceuninck Legend 80|Deceuninck|Legend 80/gi, 'أنظمة يو بي في سي عازلة'],
+  [/STAC/gi, 'المعتمدة'],
+  [/AISI 304|SS304|304/gi, 'الفولاذ المقاوم للصدأ عالي التحمل'],
+  [/AISI 316|SS316|316/gi, 'الفولاذ المقاوم للصدأ البحري'],
+  [/EPDM/gi, 'مطاط هندسي عازل'],
+  [/Dorma|Geze/gi, 'المعتمدة'],
+  [/عالي الأمان عالي الأمان/g, 'عالي الأمان'],
+  [/المجرى القياسي القياسي/g, 'المجرى المعماري القياسي'],
+  [/المجرى الأوروبي المجري الأوروبي/g, 'المجرى المعماري'],
+  [/المجرى الأوروبي/g, 'المجرى المعماري'],
+  [/المقاوم للصدأ المقاوم للصدأ/g, 'المقاوم للصدأ'],
+  [/الفولاذ المقاوم للصدأ الفولاذ المقاوم للصدأ/g, 'الفولاذ المقاوم للصدأ'],
+  [/المعتمدة المعتمدة/g, 'المعتمدة'],
+  [/المعمارية المعمارية/g, 'المعمارية'],
+  [/الهندسية الهندسية/g, 'الهندسية'],
+  [/المعتمدة عالية الدقة المعتمدة/g, 'المعتمدة عالية الدقة'],
+  [/فائق فائق/g, 'فائق'],
+  [/أحدث أحدث/g, 'أحدث'],
+  [/Architectural Architectural/g, 'Architectural'],
+  [/Heavy-Duty Hydraulic Heavy-Duty Hydraulic/g, 'Heavy-Duty Hydraulic'],
+  [/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '']
+];
+
+export function scrubProhibitedText(text: string): string {
+  if (!text || typeof text !== 'string') return text;
+  let s = text;
+  for (const [re, rep] of RUNTIME_PROHIBITED_SCRUBBERS) {
+    s = s.replace(re, rep);
+  }
+  return s.trim();
+}
+
 export function getLocalizedProduct(product: ProductItem, langCode: string): ProductItem {
   if (!product) return product;
   const baseLang = langCode.split('-')[0].toLowerCase();
+
+  let result: ProductItem = product;
 
   // 1. Direct translation stored on product object
   if (product.translations) {
     const directMatch = product.translations[langCode] || product.translations[baseLang];
     if (directMatch) {
-      return {
+      result = {
         ...product,
         name: directMatch.name || product.name,
         description: directMatch.description || product.description,
@@ -659,12 +715,10 @@ export function getLocalizedProduct(product: ProductItem, langCode: string): Pro
         features: (directMatch.features && directMatch.features.length) ? directMatch.features : product.features
       };
     }
-  }
-
-  // 2. Arabic / Kurdish legacy properties on product
-  if (baseLang === 'ar') {
+  } else if (baseLang === 'ar') {
+    // 2. Arabic / Kurdish legacy properties on product
     if (product.arabicName || product.arabicDescription) {
-      return {
+      result = {
         ...product,
         name: product.arabicName || product.name,
         description: product.arabicDescription || product.description
@@ -672,28 +726,33 @@ export function getLocalizedProduct(product: ProductItem, langCode: string): Pro
     }
   } else if (baseLang === 'ckb') {
     if (product.kurdishName || product.kurdishDescription) {
-      return {
+      result = {
         ...product,
         name: product.kurdishName || product.name,
         description: product.kurdishDescription || product.description
       };
     }
+  } else {
+    // 3. Static localizations table lookup (direct match or baseLang)
+    const langDict = PRODUCT_LOCALIZATIONS[langCode] || PRODUCT_LOCALIZATIONS[baseLang];
+    if (langDict && langDict[product.id]) {
+      const loc = langDict[product.id];
+      result = {
+        ...product,
+        name: loc.name || product.name,
+        description: loc.description || product.description,
+        subCategory: loc.subCategory || product.subCategory,
+        features: loc.features || product.features,
+        specs: loc.specs || product.specs
+      };
+    }
   }
 
-  // 3. Static localizations table lookup (direct match or baseLang)
-  const langDict = PRODUCT_LOCALIZATIONS[langCode] || PRODUCT_LOCALIZATIONS[baseLang];
-  if (langDict && langDict[product.id]) {
-    const loc = langDict[product.id];
-    return {
-      ...product,
-      name: loc.name || product.name,
-      description: loc.description || product.description,
-      subCategory: loc.subCategory || product.subCategory,
-      features: loc.features || product.features,
-      specs: loc.specs || product.specs
-    };
-  }
-
-  // Missing translations retain the source; never substitute a different language.
-  return product;
+  // Runtime sanitization against any accidental prohibited terms
+  return {
+    ...result,
+    name: scrubProhibitedText(result.name || ''),
+    description: scrubProhibitedText(result.description || ''),
+    features: Array.isArray(result.features) ? result.features.map(scrubProhibitedText) : result.features
+  };
 }

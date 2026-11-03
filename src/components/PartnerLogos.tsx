@@ -43,10 +43,11 @@ const DEFAULT_PARTNER_LOGOS: PartnerBrand[] = [
   { id: 'maestro', name: 'MAESTRO', src: '/assets/doorhome/3-1.png', alt: 'Maestro Systems' },
 ];
 
-const STORAGE_KEY_PARTNER_LOGOS = 'winhome_cms_partner_logos_v2';
+const STORAGE_KEY_PARTNER_LOGOS = 'winhome_cms_partner_logos_v3';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_cms_partner_logos_v2');
     localStorage.removeItem('winhome_cms_partner_logos');
   }
 } catch {}
@@ -291,31 +292,6 @@ export const PartnerLogos: React.FC = () => {
                   }}
                 />
               </div>
-              {/* Country flag below logo */}
-              {partner.flag && (
-                <div
-                  className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/45 border border-white/20 text-white shadow-xs mt-1"
-                  title={partner.country || ''}
-                >
-                  {isImageFlag(partner.flag) ? (
-                    <img
-                      src={partner.flag}
-                      alt={partner.country || 'Flag'}
-                      className="w-5 h-3.5 object-cover rounded-xs border border-white/40 shadow-xs inline-block"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).style.display = 'none';
-                      }}
-                    />
-                  ) : (
-                    <span className="text-sm leading-none">{partner.flag}</span>
-                  )}
-                  {partner.country && (
-                    <span className="text-[10px] font-extrabold tracking-wider uppercase opacity-95">
-                      {partner.country}
-                    </span>
-                  )}
-                </div>
-              )}
             </div>
           ))}
         </div>

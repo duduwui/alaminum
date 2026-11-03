@@ -36,7 +36,7 @@ const SLIDES: SlideItem[] = [
     category: 'SUSTAINABILITY & PASSIVHAUS',
     title: 'Multi-Chamber Acoustic: Achieving Thermal & Acoustic Comfort',
     description:
-      'Class-leading 80mm profile depth with 6 insulation chambers and triple continuous EPDM gaskets. Eliminates ambient city noise by up to 45 dB.',
+      'Class-leading 80mm profile depth with 6 insulation chambers and triple continuous weather-resistant gaskets. Eliminates ambient city noise by up to 45 dB.',
     btnText: 'Discover uPVC Series',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
     fallbackImage: './assets/doorhome/4-2.jpg',

@@ -39,7 +39,7 @@ export const AlumilServiceCards: React.FC<AlumilServiceCardsProps> = ({
       id: 'installation',
       title: 'Certified Installation & Warranty',
       description:
-        'Factory-trained master installers ensure airtight EPDM sealing, acoustic dampening, and 15-year guaranteed profile performance.',
+        'Factory-trained master installers ensure airtight weatherproof sealing, acoustic dampening, and 15-year guaranteed profile performance.',
       actionText: 'Discover Warranty Coverage',
       action: () => onNavigate('about'),
       icon: ShieldCheck,

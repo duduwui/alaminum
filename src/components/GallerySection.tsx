@@ -5,6 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { GalleryMediaItem, loadGalleryItems, fetchGalleryItemsFromCms } from '../services/galleryContentService';
 import FlexCarousel, { FlexCarouselItem } from './FlexCarousel';
 import AnimatedContent from './AnimatedContent';
+import { scrubProhibitedText } from '../utils/localizedContent';
 
 interface GallerySectionProps {
   fullPage?: boolean;
@@ -38,7 +39,14 @@ export const GallerySection: React.FC<GallerySectionProps> = ({ fullPage = false
   const localize = (item?: GalleryMediaItem | null): GalleryMediaItem => {
     if (!item) return { id: '', title: '', description: '', src: '', mediaType: 'image' } as GalleryMediaItem;
     const text = item.translations?.[currentLanguage.code] || item.translations?.[currentLanguage.code.split('-')[0]];
-    return text ? { ...item, title: text.title || text.name || item.title, description: text.description || item.description } : item;
+    const rawTitle = text?.title || text?.name || item.title || '';
+    const rawDesc = text?.description || item.description || '';
+    return {
+      ...item,
+      title: scrubProhibitedText(rawTitle),
+      description: scrubProhibitedText(rawDesc),
+      system: scrubProhibitedText(item.system || '')
+    };
   };
 
   const visibleItems = items.map(localize);

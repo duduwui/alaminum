@@ -9,6 +9,7 @@ import {
   Eraser
 } from 'lucide-react';
 import { GalleryMediaItem } from '../services/galleryContentService';
+import { scrubProhibitedText } from '../utils/localizedContent';
 
 interface Admin3DCarouselTabProps {
   galleryImages: GalleryMediaItem[];
@@ -316,7 +317,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                     </div>
                     <input
                       type="text"
-                      value={slot.translations?.ar?.title || slot.title || ''}
+                      value={scrubProhibitedText(slot.translations?.ar?.title || slot.title || '')}
                       onChange={(e) => handleSlotFieldChange(idx, 'title', e.target.value)}
                       placeholder="Optional — leave blank for image only"
                       className="w-full border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-900 outline-none focus:border-red-500 bg-slate-50/60 focus:bg-white transition-all"
@@ -328,7 +329,7 @@ export const Admin3DCarouselTab: React.FC<Admin3DCarouselTabProps> = ({
                       Description <span className="text-slate-400 font-semibold normal-case">(Optional)</span>
                     </label>
                     <textarea
-                      value={slot.translations?.ar?.description || slot.description || ''}
+                      value={scrubProhibitedText(slot.translations?.ar?.description || slot.description || '')}
                       onChange={(e) => handleSlotFieldChange(idx, 'description', e.target.value)}
                       placeholder="Optional — leave blank for image only"
                       rows={3}

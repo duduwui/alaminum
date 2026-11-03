@@ -11,10 +11,11 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v16';
+const STORAGE_KEY = 'winhome_admin_products_v17';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_products_v16');
     localStorage.removeItem('winhome_admin_products_v15');
     localStorage.removeItem('winhome_admin_products_v14');
   }

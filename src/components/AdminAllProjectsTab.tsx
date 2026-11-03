@@ -12,6 +12,7 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 import { GalleryMediaItem } from '../services/galleryContentService';
+import { scrubProhibitedText } from '../utils/localizedContent';
 
 interface AdminAllProjectsTabProps {
   galleryImages: GalleryMediaItem[];
@@ -449,14 +450,14 @@ export const AdminAllProjectsTab: React.FC<AdminAllProjectsTabProps> = ({
                   <div className="space-y-1.5">
                     <input
                       type="text"
-                      value={item.translations?.ar?.title || item.title || ''}
+                      value={scrubProhibitedText(item.translations?.ar?.title || item.title || '')}
                       onChange={(e) => handleCardFieldChange(globalIdx, 'title', e.target.value)}
                       placeholder="عنوان المشروع (Project Title)..."
                       className="w-full text-xs font-black text-slate-900 placeholder:text-slate-400 bg-transparent hover:bg-slate-50 focus:bg-white border border-transparent hover:border-slate-200 focus:border-red-400 rounded-lg px-2 py-1 outline-none transition-all"
                     />
 
                     <textarea
-                      value={item.translations?.ar?.description || item.description || ''}
+                      value={scrubProhibitedText(item.translations?.ar?.description || item.description || '')}
                       onChange={(e) => handleCardFieldChange(globalIdx, 'description', e.target.value)}
                       placeholder="وصف وتفاصيل المشروع..."
                       rows={2}

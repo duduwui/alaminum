@@ -25,6 +25,7 @@ import {
   saveArchitectureCards
 } from '../services/architectureCardsService';
 import { saveSharedCmsSection, loadSharedCmsSection } from '../services/cmsService';
+import { scrubProhibitedText } from '../utils/localizedContent';
 
 interface AdminArchCardsTabProps {
   onUploadMedia: (file: File) => Promise<string>;
@@ -501,8 +502,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
         {/* Clean Red & White Cards List */}
         <div className="space-y-4">
           {cards.map((card, idx) => {
-            const cardTitleAr = card.translations?.ar?.title || card.title || '';
-            const cardDescAr = card.translations?.ar?.desc || card.desc || '';
+            const cardTitleAr = scrubProhibitedText(card.translations?.ar?.title || card.title || '');
+            const cardDescAr = scrubProhibitedText(card.translations?.ar?.desc || card.desc || '');
             const cardBtnAr = card.translations?.ar?.buttonText || card.buttonText || 'فتح الكتالوج (PDF)';
 
             return (
@@ -677,8 +678,8 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
         {/* Clean Red & White Showcase List */}
         <div className="space-y-4">
           {showcaseItems.map((item, idx) => {
-            const itemTitleAr = item.titleAr || item.title || '';
-            const itemDescAr = item.descriptionAr || item.description || '';
+            const itemTitleAr = scrubProhibitedText(item.titleAr || item.title || '');
+            const itemDescAr = scrubProhibitedText(item.descriptionAr || item.description || '');
             const itemBtnAr = item.buttonTextAr || item.buttonText || 'فتح الكتالوج المعتمد (PDF)';
 
             return (

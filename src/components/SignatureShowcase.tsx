@@ -83,8 +83,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-minimal-handles": {
-      "title": "STAC Minimalist Ergonomic Handles",
-      "brand": "STAC Hardware",
+      "title": "Minimalist Ergonomic Handles",
+      "brand": "Architectural Hardware",
       "category": "Monolithic 6063-T5 Series",
       "badge": "Aerospace Grade",
       "description": "Aerospace-grade aluminum monolithic forming with 0 mm redundant protrusion and CNC precision milling, seamlessly integrating with thermal window profiles.",
@@ -107,8 +107,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "STAC DELTA Minimalist Lift & Slide System",
-      "brand": "STAC Hardware",
+      "title": "Minimalist Lift STAC DELTA Minimalist Lift & Slide System Slide System",
+      "brand": "Architectural Hardware",
       "category": "Architectural Lift & Slide Series",
       "badge": "UNE-EN 1670 Grade 4",
       "description": "Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.",
@@ -134,7 +134,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-minimal-handles": {
       "title": "المقابض المعمارية المينيماليست المدمجة",
-      "brand": "STAC Architectural",
+      "brand": "Architectural",
       "category": "سلسلة ألمنيوم 6063-T5 الموحدة",
       "badge": "ألمنيوم طيران مدمج",
       "description": "مقابض معمارية مصنوعة بكتلة ألمنيوم موحدة بدون أي بروز زائد (0 مم) بمكائن CNC دقيقة لتنسجم تماماً مع قطاعات النوافذ الحرارية العصرية.",
@@ -158,7 +158,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "نظام الأبواب البانورامية المتقدم (Lift & Slide)",
-      "brand": "STAC Architectural",
+      "brand": "Architectural",
       "category": "سلسلة الرفع والسحب المعمارية",
       "badge": "معتمد UNE-EN 1670",
       "description": "خطوط معمارية مينيماليست مدمجة مع مقبض سحب خارجي غاطس بعمق 9.5 مم فقط، مصممة لتحريك الضلف البانورامية الثقيلة بسلاسة فائقة مع حماية قصوى ضد التآكل والسطو.",
@@ -184,7 +184,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-minimal-handles": {
       "title": "دەسکە مۆدێرنە تەلارسازییەکان",
-      "brand": "STACی نژیاروانی",
+      "brand": "نژیاروانی",
       "category": "ئەلۆمنیۆمی فڕۆکەوانی",
       "badge": "سفر میلیمەتر بەرزایی",
       "description": "دەسکی تەلارسازی بێ بەرزایی زیادە (0 مم) بە ئەلۆمنیۆمی فڕۆکەوانی 6063-T5 و بڕینی وردی CNC بۆ گونجان لەگەڵ پرۆفایلە مۆدێرنەکان.",
@@ -208,7 +208,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "سیستەمی دەسکی DELTAی ئیسپانی (Lift & Slide)",
-      "brand": "STACی نژیاروانی",
+      "brand": "نژیاروانی",
       "category": "سلایدینگی پانۆراما بۆ شوشەی گەورە",
       "badge": "ستانداردی UNE-EN 1670",
       "description": "دیزاینی مۆدێرنی کەمینە لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم بۆ خلیسکاندنی ئاسانی دەرگای گەورە بە پاراستنی تەواو لە ژەنگ و دزی.",
@@ -234,7 +234,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-minimal-handles": {
       "title": "Destikên Mînîmalîst ên Mîmarî",
-      "brand": "STAC Hardware",
+      "brand": "Architectural Hardware",
       "category": "Rêzeya Alumînyûma 6063-T5",
       "badge": "Asta Fezayî",
       "description": "Destikên mîmarî yên bêyî zêdebûna derketinê (0 mm) bi hevrêziya teknolojiya CNC ya herî pêşketî.",
@@ -258,14 +258,14 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "Mekanîzmaya Lift & Slide ya Mîmarî",
-      "brand": "STAC Hardware",
+      "brand": "Architectural Hardware",
       "category": "Sûrme yên Panoramîk",
       "badge": "Heta 400 kg",
       "description": "Gearboxên bilindkirin û xişandinê yên giran ji bo paceyên dêw ên heta 400 kg.",
       "specs": [
         { "label": "Giraniya Herî Zêde", "val": "400 kg" },
         { "label": "Îzolasyon", "val": "Polyamide Break" },
-        { "label": "Gasket", "val": "Sêqat EPDM" }
+        { "label": "Gasket", "val": "Sêqat عازل" }
       ]
     }
   },
@@ -284,7 +284,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-minimal-handles": {
       "title": "Minimalist Ergonomik Mimari Kollar",
-      "brand": "STAC Hardware",
+      "brand": "Architectural Hardware",
       "category": "6063-T5 Alüminyum Serisi",
       "badge": "Havacılık Standardı",
       "description": "0 mm çıkıntısız monoblok gövde ve CNC hassas işleme ile profille kusursuz bütünleşen Mimari tasarım pencere kolları.",
@@ -308,14 +308,14 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "Ağır Hizmet Hebeschiebe Mimari Mekanizması",
-      "brand": "STAC Hardware",
+      "brand": "Architectural Hardware",
       "category": "Anıtsal Sürme Sistemleri",
       "badge": "400 kg'a Kadar",
       "description": "Zeminden tavana kadar anıtsal cam açıklıkları için 400 kg kanat kapasiteli, polyamid termal bariyerli kaldırmalı sürme dişli seti.",
       "specs": [
         { "label": "Maks. Ağırlık", "val": "400 kg / Kanat" },
         { "label": "Isı Bariyeri", "val": "Polyamid" },
-        { "label": "Fitil", "val": "Üçlü EPDM" }
+        { "label": "Fitil", "val": "Üçlü عازل" }
       ]
     }
   }
@@ -341,8 +341,8 @@ const SHOWCASE_PRODUCTS = [
   },
   {
     id: "stac-minimal-handles",
-    title: "STAC Minimalist Window Handles & Cremones",
-    brand: "STAC Hardware",
+    title: "Minimalist Window Handles STAC Minimalist Window Handles & Cremones Cremones",
+    brand: "Architectural Hardware",
     origin: "Architectural Grade",
     category: "Monolithic 6063-T5 Series",
     image: "/assets/showcase/stac_window_handles-044.png",
@@ -375,8 +375,8 @@ const SHOWCASE_PRODUCTS = [
   },
   {
     id: "stac-lift-slide",
-    title: "STAC DELTA Minimalist Lift & Slide System",
-    brand: "STAC Hardware",
+    title: "Minimalist Lift STAC DELTA Minimalist Lift & Slide System Slide System",
+    brand: "Architectural Hardware",
     origin: "Architectural Grade",
     category: "Architectural Lift & Slide Series",
     image: "/assets/showcase/stac_lift_slide-108.png",
