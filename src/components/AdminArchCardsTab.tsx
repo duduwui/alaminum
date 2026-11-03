@@ -345,7 +345,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       fileName: newShowcasePdfName || undefined,
       buttonText: finalButton,
       buttonTextAr: finalButton,
-      brand: 'نظام أوروبي معتمد'
+      brand: 'نظام معماري معتمد'
     };
 
     const updated = [...showcaseItems, newItem];
