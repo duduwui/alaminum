@@ -1,139 +1,125 @@
-import { ProductItem } from './winhomeData';
+import { ProductItem } from "./winhomeData";
 
 export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   {
-    "id": "prod-polycarb-transparent-shutter",
-    "name": "Architectural Transparent Polycarbonate Security Rolling Shutter System",
-    "arabicName": "شتر رول بولي كربونات شفاف كريستالي للمحلات والواجهات وتراسات الفلل (دراب شفاف)",
-    "description": "High-security crystal clear transparent rolling shutter engineered with impact-resistant polycarbonate slats and extruded architectural aluminum guides. Delivers 95% daylight visibility with heavy-duty burglary and storm protection for luxury storefronts and villa terraces.\n\nEquipped with an ultra-quiet motorized drive, remote control automation, smart home integration, and precision weather stripping to seal against dust and wind.\n\nCombines the visual elegance of architectural glass with the impenetrable strength of steel, UV stabilized to ensure long-lasting clarity.",
-    "arabicDescription": "شتر رول شفاف عالي الحماية مصنع من شرائح بولي كربونات فائقة النقاء وغير قابلة للكسر، يمنح رؤية بانورامية كريستالية بنسبة 95% مع توفير أعلى درجات الأمان وحماية المحلات التجارية وتراسات الفلل والحدائق الشتوية من العواصف والغبار مع مقاومة للأشعة فوق البنفسجية.\n\nيعمل بمحرك كهربائي صامت مع إمكانية التحكم عن بعد والربط مع أنظمة المنزل الذكي، ومزود بمجاري جانبية من الألمنيوم الإنشائي المعالج حرارياً وقفل أمان ميكانيكي متين.\n\nتصميم أنيق وعصري يجمع بين جمالية الزجاج وصلابة الفولاذ، مع عزل حراري وصوتي ممتاز وعمر افتراضي طويل دون بهتان أو اصفرار.",
-    "translations": {
-      "ckb": {
-        "name": "دەڕابی شەفافی پۆلیکاربۆنات بۆ ڕووکار و پێشانگا و تەراس",
-        "description": "سیستەمی دەڕابی شەفافی بێ وێنە بە شەڕایحی پۆلیکاربۆناتی دژە شکاندن و ڕووناکی تەواو، دیزاین کراوە بۆ پاراستنی بەرزی پێشانگاکان و تەراسی ڤێلاکان بە دیمەنێکی مۆدێرن و ڕوون.\n\nبە ماتۆڕی کارەبایی بێدەنگ و کۆنتڕۆڵی دوورەوە کار دەکات، خاوەن پرۆفایلی بەهێزی ئەلەمنیۆم و عازلی تۆز و با و ڕێگر لە تیشکی بەتینی خۆر.\n\nتێکەڵەیەکە لە جوانی شووشە و پتەوی و سەلامەتی پۆڵا، کە شێوازی بینا بەرز دەکاتەوە و پارێزگاری لە پاکوخاوێنی و تەناهی دەکات."
-      }
-    },
-    "category": "doors",
-    "division": "doors",
-    "subCategory": "Polycarbonate Rolling Shutters",
-    "modelNumber": "DH-POLY-CRYSTAL-01",
-    "material": "Unbreakable Polycarbonate & Architectural Aluminum",
-    "brand": "Doorhome Architectural",
-    "image": "/uploads/transparent_polycarbonate_rolling_shutter.png",
-    "fallbackImage": "/uploads/transparent_polycarbonate_rolling_shutter.png",
-    "features": {
-      "ar": [
-        "شرائح بولي كربونات فائقة النقاء وغير قابلة للكسر مع حماية من الأشعة فوق البنفسجية",
-        "رؤية بانورامية كريستالية تسمح بعرض المعروضات وحماية التراسات دون حجب الإضاءة",
-        "محرك كهربائي صامت مع إمكانية التحكم الذكي عن بعد والربط بالمنزل الذكي",
-        "مجاري جانبية من الألمنيوم المعالج حرارياً مع جوانات مطاطية مانعة للأتربة والرياح",
-        "قفل أمان مركزي عالي المتانة يوفر حماية قصوى ضد السطو والكسر"
-      ],
-      "en": [
-        "Impact-Resistant Crystal Clear Polycarbonate Slats with Anti-UV Stabilization",
-        "Panoramic 95% Natural Light Visibility with Heavy-Duty Storm & Burglary Protection",
-        "Ultra-Quiet Automated Motorized Tubular Drive with Smart Remote Controls",
-        "Structural Aluminum Extruded Guide Channels with Multi-Stage Perimeter Weather Sealing",
-        "High-Security Mechanical Locking System for Luxury Villas and Storefronts"
-      ]
-    },
-    "basePrice": 0,
-    "unitPrice": 0,
-    "pricePerSqm": 0,
-    "currency": "USD"
-  },
-  {
     "id": "prod-black-zip-screen-shutter",
-    "name": "Architectural Motorized Exterior Zip Screen Shutter for Facades & Skylights",
-    "arabicName": "شتر زيب سكرين الخارجي العازل للحرارة والبرد والحشرات والغبار والحرائق (دراب أسود للواجهات والسكاي لايت)",
-    "description": "Engineered heavy-duty exterior motorized zip screen shutter system crafted for architectural glazed facades, roof skylights, and patio enclosures. Features precision zip-guided side channels that create an airtight barrier to lock out cold drafts, severe heat, windblown dust, worms, and insects.\n\nFabricated with fire-retardant high-tensile fiberglass composite mesh offering superior UV deflection, flame resistance, and wind-load stability up to gale-force conditions.\n\nOperates via automated tubular motor drives compatible with smart climatic sensors, protecting interior comfort and thermal performance throughout every season.",
-    "arabicDescription": "شتر زيب سكرين خارجي عالي الكفاءة مصمم خصيصاً للواجهات المعمارية والقباب السماوية (السكاي لايت) وتراسات المنازل. يوفر عزلاً استثنائياً يمنع تسرب البرودة والحرارة الشديدة، ويشكل حاجزاً منيعاً ومحكماً يمنع دخول الغبار والأتربة والديدان والحشرات الطائرة والزاحفة بفضل نظام القفل الجانبي بالسحاب (الزيپ).\n\nيتميز بنسيج فايبرجلاس هندسي عالي المتانة ومقاوم للحرائق والاشتعال، ومصمم ليتحمل أعتى الرياح والعواصف دون تمزق. يمنح حماية متكاملة للواجهات الزجاجية مع الحفاظ على الخصوصية والرؤية المريحة من الداخل.\n\nمزود بمحرك كهربائي فائق الهدوء وأنظمة تحكم ذكية، يركب على واجهات الفلل والمنازل والسكاي لايت ليضمن بيئة داخلية نقية ومحمية على مدار فصول السنة.",
-    "translations": {
-      "ckb": {
-        "name": "دەڕابی زیپ سکرینی دەرەوە بۆ ڕووکار و سەقف (عازلی گەرما و سەرما و تۆز و مێروو و دژە ئاگر)",
-        "description": "دەڕابی زیپ سکرینی پێشکەوتووی دەرەکی بۆ ڕووکاری باڵەخانە و سەربانی شووشەیی (سکای لایت) و تەراسی ماڵان. بە سیستەمی قوفڵی تەنیشت بە شێوازی زیپ، بە تەواوی ڕێگری دەکات لە چوونەژوورەوەی سەرما، گەرما، تۆزوخۆڵ، کرم و مێرووە زیانبەخشەکان.\n\nدروستکراوە لە قوماشی ئەندازیاری تایبەت کە دژە ئاگرە و توانای بەرگەگرتنی بەهێزترین ڕەشەبا و گەردەلوولی هەیە بەبێ دڕان، لە هەمان کاتدا پارێزگاری لە نهێنی و جوانی بینا دەکات.\n\nبە ماتۆڕی کارەبایی زیرەک کار دەکات و بۆ هەموو وەرزەکان کەشێکی پاکژ و پارێزراو بۆ ماڵەکەت دەستەبەر دەکات."
-      }
-    },
+    "name": "Motorized Exterior Screen for Facades and Open Spaces",
+    "arabicName": "ستارة خارجية آلية للواجهات والمساحات المفتوحة",
+    "ckbName": "دەڕابی زیپ سکرینی دەرەوە بۆ ڕووکار و سەقف (عازلی گەرما و سەرما و تۆز و مێروو و دژە ئاگر)",
+    "description": "This motorized exterior screen provides a sleek and practical solution for controlling sunlight, heat, and privacy across wide facade openings. Whether installed on terraces, covered patios, or large window bays, it rolls down smoothly to create a comfortable shaded environment while maintaining an unobstructed view when fully retracted.\n\nDesigned to withstand harsh weather conditions, the screen offers excellent protection against intense sun, dust, and insects, making it ideal for homes, restaurants, hotels, and commercial buildings. Its clean, modern appearance integrates seamlessly with contemporary architecture, adding both function and visual appeal to any exterior.\n\nBuilt for quiet, effortless operation, the screen can be controlled with a remote or integrated into smart home systems for automated scheduling. It is a long-lasting, low-maintenance addition that enhances outdoor comfort and energy efficiency throughout the year.",
+    "arabicDescription": "توفر هذه الستارة الخارجية الآلية حلاً أنيقاً وعملياً للتحكم بأشعة الشمس والحرارة والخصوصية على فتحات الواجهات الواسعة. سواء تم المعتمدبها على التراسات أو الأفنية المغطاة أو فتحات النوافذ الكبيرة، فإنها تنزلق بسلاسة لتوفر بيئة مظللة مريحة مع الحفاظ على إطلالة مفتوحة بالكامل عند طيّها.\n\nصُممت لتتحمل الظروف المناخية القاسية، حيث توفر حماية ممتازة من أشعة الشمس الحارقة والغبار والحشرات، مما يجعلها خياراً مثالياً للمنازل والمطاعم والفنادق والمباني التجارية. يتناسق مظهرها العصري النظيف بانسجام تام مع الهندسة المعمارية الحديثة، مضيفةً وظيفة عملية وجمالاً بصرياً لأي واجهة خارجية.\n\nصُنعت للعمل بهدوء وسهولة تامة، ويمكن التحكم بها عن بُعد أو دمجها مع أنظمة المنزل الذكي للتشغيل التلقائي المُجدول. إنها إضافة متينة وقليلة الصيانة تعزز الراحة الخارجية وكفاءة الطاقة على مدار العام.",
+    "ckbDescription": "دەڕابی زیپ سکرینی پێشکەوتووی دەرەکی بۆ ڕووکاری باڵەخانە و سەربانی شووشەیی (سکای لایت) و تەراسی ماڵان. بە سیستەمی قوفڵی تەنیشت بە شێوازی زیپ، بە تەواوی ڕێگری دەکات لە چوونەژوورەوەی سەرما، گەرما، تۆزوخۆڵ، کرم و مێرووە زیانبەخشەکان.\n\nدروستکراوە لە قوماشی ئەندازیاری تایبەت کە دژە ئاگرە و توانای بەرگەگرتنی بەهێزترین ڕەشەبا و گەردەلوولی هەیە بەبێ دڕان، لە هەمان کاتدا پارێزگاری لە نهێنی و جوانی بینا دەکات.\n\nبە ماتۆڕی کارەبایی زیرەک کار دەکات و بۆ هەموو وەرزەکان کەشێکی پاکژ و پارێزراو بۆ ماڵەکەت دەستەبەر دەکات.",
     "category": "windows",
     "division": "windows",
-    "subCategory": "Exterior Motorized Zip Screens",
-    "modelNumber": "DH-ZIP-BLACK-FIREPROOF",
-    "material": "Fire-Retardant Fiberglass Composite & Structural Aluminum",
-    "brand": "Doorhome Architectural",
     "image": "/uploads/exterior_black_zip_screen_shutter.png",
     "fallbackImage": "/uploads/exterior_black_zip_screen_shutter.png",
-    "features": {
-      "ar": [
-        "نسيج فايبرجلاس هندسي عالي الكثافة مقاوم للاشتعال والحرائق ومعتمد معمارياً",
-        "نظام زيپ جانبي محكم يغلق تماماً ضد البرودة الشديدة والرياح والعواصف الرملية",
-        "حاجز منيع ومثالي يمنع دخول الغبار والديدان والحشرات والآفات الزاحفة والطائرة",
-        "مناسب للواجهات الزجاجية البانورامية والقباب السماوية (السكاي لايت) وتراسات الفلل",
-        "محرك كهربائي ذكي متصل بحساسات الطقس والرياح للتشغيل التلقائي المريح"
-      ],
-      "en": [
-        "Certified Flame-Retardant High-Tensile Fiberglass Composite Shading Fabric",
-        "Precision Zip-Guided Side Retainers Locking Out Severe Cold, Storms, and Wind Drafts",
-        "Impermeable Environmental Barrier Stopping Insects, Worms, Pests, and Sandstorms",
-        "Engineered for Large Facades, Atrium Skylights, and Open Pergola Enclosures",
-        "Smart Tubular Motor Compatible with Wind and Solar Automated Climatic Sensors"
-      ]
-    },
     "basePrice": 0,
     "unitPrice": 0,
     "pricePerSqm": 0,
-    "currency": "USD"
+    "currency": "USD",
+    "features": [],
+    "kurdishName": "پەردەی دەرەوەی ئۆتۆماتیکی بۆ ڕووکارەکان و شوێنە کراوەکان",
+    "kurdishDescription": "ئەم پەردەیە دەرەوەیە ئۆتۆماتیکیە چارەسەرێکی شیک و کاریگەر دابین دەکات بۆ کۆنتڕۆڵکردنی تیشکی خۆر و گەرمی و تایبەتمەندی لەسەر کراوەییە فراوانەکانی ڕووکار. جا لەسەر تەڕاس یان حەوشەی سەرپۆشکراو یان کراوەییە گەورەکانی پەنجەرە دابنرێت، بە نەرمی دادەچێت بۆ دروستکردنی ژینگەیەکی سێبەری ئارام لەگەڵ پاراستنی دیمەنی کراوە بە تەواوی کاتێک هەڵدەپەچرێتەوە.\n\nدیزاین کراوە بۆ بەرگەگرتنی بارودۆخی کەشوهەوای سەخت، پاراستنی نایاب دەبەخشێت لە تیشکی خۆری توند و تۆز و مێروو، کە دەیکاتە هەڵبژاردەیەکی گونجاو بۆ ماڵەکان و چێشتخانەکان و هوتێلەکان و بیناکانی بازرگانی. ڕووکاری هاوچەرخی پاک بە یەکگرتوویی تەواو لەگەڵ تەلارسازیی مۆدێرن دەگونجێت و کارایی و جوانی بینایی بە هەر ڕووکارێکی دەرەوە زیاد دەکات.\n\nدروست کراوە بۆ کارکردنی بێدەنگ و ئاسان، دەکرێت بە دووری یان بە هاوکاری سیستەمە زیرەکەکانی ماڵ کۆنتڕۆڵ بکرێت بۆ کارپێکردنی ئۆتۆماتیکی بەرنامە ڕێژکراو. زیادکردنێکی بەردەوام و کەم چاککردنەوەیە کە ئاسایشی دەرەوە و کاریگەری وزە بەهێز دەکات بە درێژایی ساڵ.",
+    "translations": {
+      "en": {
+        "name": "Motorized Exterior Screen for Facades and Open Spaces",
+        "description": "This motorized exterior screen provides a sleek and practical solution for controlling sunlight, heat, and privacy across wide facade openings. Whether installed on terraces, covered patios, or large window bays, it rolls down smoothly to create a comfortable shaded environment while maintaining an unobstructed view when fully retracted.\n\nDesigned to withstand harsh weather conditions, the screen offers excellent protection against intense sun, dust, and insects, making it ideal for homes, restaurants, hotels, and commercial buildings. Its clean, modern appearance integrates seamlessly with contemporary architecture, adding both function and visual appeal to any exterior.\n\nBuilt for quiet, effortless operation, the screen can be controlled with a remote or integrated into smart home systems for automated scheduling. It is a long-lasting, low-maintenance addition that enhances outdoor comfort and energy efficiency throughout the year."
+      },
+      "ar": {
+        "name": "ستارة خارجية آلية للواجهات والمساحات المفتوحة",
+        "description": "توفر هذه الستارة الخارجية الآلية حلاً أنيقاً وعملياً للتحكم بأشعة الشمس والحرارة والخصوصية على فتحات الواجهات الواسعة. سواء تم المعتمدبها على التراسات أو الأفنية المغطاة أو فتحات النوافذ الكبيرة، فإنها تنزلق بسلاسة لتوفر بيئة مظللة مريحة مع الحفاظ على إطلالة مفتوحة بالكامل عند طيّها.\n\nصُممت لتتحمل الظروف المناخية القاسية، حيث توفر حماية ممتازة من أشعة الشمس الحارقة والغبار والحشرات، مما يجعلها خياراً مثالياً للمنازل والمطاعم والفنادق والمباني التجارية. يتناسق مظهرها العصري النظيف بانسجام تام مع الهندسة المعمارية الحديثة، مضيفةً وظيفة عملية وجمالاً بصرياً لأي واجهة خارجية.\n\nصُنعت للعمل بهدوء وسهولة تامة، ويمكن التحكم بها عن بُعد أو دمجها مع أنظمة المنزل الذكي للتشغيل التلقائي المُجدول. إنها إضافة متينة وقليلة الصيانة تعزز الراحة الخارجية وكفاءة الطاقة على مدار العام."
+      },
+      "ckb": {
+        "name": "پەردەی دەرەوەی ئۆتۆماتیکی بۆ ڕووکارەکان و شوێنە کراوەکان",
+        "description": "ئەم پەردەیە دەرەوەیە ئۆتۆماتیکیە چارەسەرێکی شیک و کاریگەر دابین دەکات بۆ کۆنتڕۆڵکردنی تیشکی خۆر و گەرمی و تایبەتمەندی لەسەر کراوەییە فراوانەکانی ڕووکار. جا لەسەر تەڕاس یان حەوشەی سەرپۆشکراو یان کراوەییە گەورەکانی پەنجەرە دابنرێت، بە نەرمی دادەچێت بۆ دروستکردنی ژینگەیەکی سێبەری ئارام لەگەڵ پاراستنی دیمەنی کراوە بە تەواوی کاتێک هەڵدەپەچرێتەوە.\n\nدیزاین کراوە بۆ بەرگەگرتنی بارودۆخی کەشوهەوای سەخت، پاراستنی نایاب دەبەخشێت لە تیشکی خۆری توند و تۆز و مێروو، کە دەیکاتە هەڵبژاردەیەکی گونجاو بۆ ماڵەکان و چێشتخانەکان و هوتێلەکان و بیناکانی بازرگانی. ڕووکاری هاوچەرخی پاک بە یەکگرتوویی تەواو لەگەڵ تەلارسازیی مۆدێرن دەگونجێت و کارایی و جوانی بینایی بە هەر ڕووکارێکی دەرەوە زیاد دەکات.\n\nدروست کراوە بۆ کارکردنی بێدەنگ و ئاسان، دەکرێت بە دووری یان بە هاوکاری سیستەمە زیرەکەکانی ماڵ کۆنتڕۆڵ بکرێت بۆ کارپێکردنی ئۆتۆماتیکی بەرنامە ڕێژکراو. زیادکردنێکی بەردەوام و کەم چاککردنەوەیە کە ئاسایشی دەرەوە و کاریگەری وزە بەهێز دەکات بە درێژایی ساڵ."
+      }
+    }
   },
   {
-    "id": "acc-stac-multipoint-lock",
+    "id": "prod-polycarb-transparent-shutter",
+    "name": "Transparent Polycarbonate Security Shutter for Showrooms and Stores",
+    "arabicName": "شتر رول بولي كربونات شفاف للمعارض والمتاجر",
+    "ckbName": "دەڕابی شەفافی پۆلیکاربۆنات بۆ ڕووکار و پێشانگا و تەراس",
+    "description": "This transparent polycarbonate security shutter provides maximum protection while maintaining full product visibility around the clock. Crafted from impact-resistant crystal polycarbonate slats, it creates an elegant glass-like appearance that allows customers to browse display windows even when the premises are closed.\n\nIdeal for retail stores, high-end commercial showrooms, banking facilities, and corporate lobbies, this system combines high tensile strength with modern aesthetics. It provides a reliable barrier against dust, noise, and unauthorized access without blocking incoming light or compromising security.\n\nOperated smoothly via motorized control or smart remote systems, the shutter rolls up compactly into an unobtrusive overhead housing. It delivers low maintenance and long-term durability, making it an essential investment for commercial spaces seeking prestige and security.",
+    "arabicDescription": "يوفر هذا الشتر الأمني الشفاف المصنوع من البولي كربونات أعلى مستويات الحماية مع الحفاظ على وضوح الرؤية للمنتجات على مدار الساعة. صُنع من شرائح بولي كربونات بلورية فائقة القوة ومقاومة للصدمات، مما يمنحه مظهراً زجاجياً راقياً يسمح للزبائن بمشاهدة واجهات العرض حتى أثناء أوقات الإغلاق.\n\nيُعد خياراً مثالياً للمتاجر الفاخرة والمعارض التجارية والمقرات المصرفية والمداخل المؤسسية، حيث يجمع بين القوة الإنشائية العالية والجمال المعماري الحديث. يشكل حاجزاً فعالاً ضد الغبار والضوضاء ومحاولات الاقتحام دون حجب الضوء أو الإخلال بأمان المكان.\n\nيعمل بنظام تشغيل آلي سلس عبر محركات متطورة أو أجهزة التحكم عن بُعد، ويُطوى بانسيابية داخل صندوق علوي مدمج وأنيق. يتميز بقلة الصيانة والمتانة العالية، ليكون استثماراً ذكياً للمساحات التجارية التي تبحث عن الأمان والجاذبية.",
+    "ckbDescription": "سیستەمی دەڕابی شەفافی بێ وێنە بە شەڕایحی پۆلیکاربۆناتی دژە شکاندن و ڕووناکی تەواو، دیزاین کراوە بۆ پاراستنی بەرزی پێشانگاکان و تەراسی ڤێلاکان بە دیمەنێکی مۆدێرن و ڕوون.\n\nبە ماتۆڕی کارەبایی بێدەنگ و کۆنتڕۆڵی دوورەوە کار دەکات، خاوەن پرۆفایلی بەهێزی ئەلەمنیۆم و عازلی تۆز و با و ڕێگر لە تیشکی بەتینی خۆر.\n\nتێکەڵەیەکە لە جوانی شووشە و پتەوی و سەلامەتی پۆڵا، کە شێوازی بینا بەرز دەکاتەوە و پارێزگاری لە پاکوخاوێنی و تەناهی دەکات.",
+    "category": "doors",
+    "division": "doors",
+    "image": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "fallbackImage": "/uploads/transparent_polycarbonate_rolling_shutter.png",
+    "basePrice": 0,
+    "unitPrice": 0,
+    "pricePerSqm": 0,
+    "currency": "USD",
+    "features": [],
+    "kurdishName": "دەڕابی ڕوونی پۆلیکاربۆنات بۆ پێشانگا و دوکانەکان",
+    "kurdishDescription": "ئەم دەڕابە ئەمنییە ڕوونە لە پۆلیکاربۆناتی بەهێز دروستکراوە کە بەرزترین ئاستی پاراستن دابین دەکات لەگەڵ پاراستنی بینینی تەواوی کەلوپەلەکان بە درێژایی شەو و ڕۆژ. لە پارچەی پۆلیکاربۆناتی شوشەیی دژە-شکان دروستکراوە، دیمەنێکی شیکی شوشەیی دەبەخشێت کە ڕێگە بە کڕیاران دەدات سەیری کاڵاکان بکەن تەنانەت لە کاتی داخرانیشدا.\n\nهەڵبژاردنێکی نایابە بۆ دوکانە گەورەکان، پێشانگا بازرگانییەکان، بانکەکان و دەروازەی کۆمپانیاکان، بەجۆرێک کە بەهێزی و جوانیی تەلارسازیی مۆدێرن کۆدەکاتەوە. بەربەستێکی بەهێزە لە دژی تۆز و دەنگەدەنگ و دزیکردن بێ ئەوەی ڕێگری لە ڕووناکی بکات.\n\nبە مەکینەی کارەبایی نەرم و کۆنتڕۆڵی دووری کار دەکات و بە ڕێکی لەناو سندوقی سەرەوەدا کۆدەبێتەوە. پێویستی بە کەمترین چاککردنەوەیە و تەمەنێکی درێژی هەیە، کە دەبێتە وەبەرهێنانێکی پڕبایەخ بۆ شوێنە بازرگانییەکان.",
+    "translations": {
+      "en": {
+        "name": "Transparent Polycarbonate Security Shutter for Showrooms and Stores",
+        "description": "This transparent polycarbonate security shutter provides maximum protection while maintaining full product visibility around the clock. Crafted from impact-resistant crystal polycarbonate slats, it creates an elegant glass-like appearance that allows customers to browse display windows even when the premises are closed.\n\nIdeal for retail stores, high-end commercial showrooms, banking facilities, and corporate lobbies, this system combines high tensile strength with modern aesthetics. It provides a reliable barrier against dust, noise, and unauthorized access without blocking incoming light or compromising security.\n\nOperated smoothly via motorized control or smart remote systems, the shutter rolls up compactly into an unobtrusive overhead housing. It delivers low maintenance and long-term durability, making it an essential investment for commercial spaces seeking prestige and security."
+      },
+      "ar": {
+        "name": "شتر رول بولي كربونات شفاف للمعارض والمتاجر",
+        "description": "يوفر هذا الشتر الأمني الشفاف المصنوع من البولي كربونات أعلى مستويات الحماية مع الحفاظ على وضوح الرؤية للمنتجات على مدار الساعة. صُنع من شرائح بولي كربونات بلورية فائقة القوة ومقاومة للصدمات، مما يمنحه مظهراً زجاجياً راقياً يسمح للزبائن بمشاهدة واجهات العرض حتى أثناء أوقات الإغلاق.\n\nيُعد خياراً مثالياً للمتاجر الفاخرة والمعارض التجارية والمقرات المصرفية والمداخل المؤسسية، حيث يجمع بين القوة الإنشائية العالية والجمال المعماري الحديث. يشكل حاجزاً فعالاً ضد الغبار والضوضاء ومحاولات الاقتحام دون حجب الضوء أو الإخلال بأمان المكان.\n\nيعمل بنظام تشغيل آلي سلس عبر محركات متطورة أو أجهزة التحكم عن بُعد، ويُطوى بانسيابية داخل صندوق علوي مدمج وأنيق. يتميز بقلة الصيانة والمتانة العالية، ليكون استثماراً ذكياً للمساحات التجارية التي تبحث عن الأمان والجاذبية."
+      },
+      "ckb": {
+        "name": "دەڕابی ڕوونی پۆلیکاربۆنات بۆ پێشانگا و دوکانەکان",
+        "description": "ئەم دەڕابە ئەمنییە ڕوونە لە پۆلیکاربۆناتی بەهێز دروستکراوە کە بەرزترین ئاستی پاراستن دابین دەکات لەگەڵ پاراستنی بینینی تەواوی کەلوپەلەکان بە درێژایی شەو و ڕۆژ. لە پارچەی پۆلیکاربۆناتی شوشەیی دژە-شکان دروستکراوە، دیمەنێکی شیکی شوشەیی دەبەخشێت کە ڕێگە بە کڕیاران دەدات سەیری کاڵاکان بکەن تەنانەت لە کاتی داخرانیشدا.\n\nهەڵبژاردنێکی نایابە بۆ دوکانە گەورەکان، پێشانگا بازرگانییەکان، بانکەکان و دەروازەی کۆمپانیاکان، بەجۆرێک کە بەهێزی و جوانیی تەلارسازیی مۆدێرن کۆدەکاتەوە. بەربەستێکی بەهێزە لە دژی تۆز و دەنگەدەنگ و دزیکردن بێ ئەوەی ڕێگری لە ڕووناکی بکات.\n\nبە مەکینەی کارەبایی نەرم و کۆنتڕۆڵی دووری کار دەکات و بە ڕێکی لەناو سندوقی سەرەوەدا کۆدەبێتەوە. پێویستی بە کەمترین چاککردنەوەیە و تەمەنێکی درێژی هەیە، کە دەبێتە وەبەرهێنانێکی پڕبایەخ بۆ شوێنە بازرگانییەکان."
+      }
+    }
+  },
+  {
+    "id": "acc-المعتمدة-multipoint-lock",
     "name": "High-Security Multi-Point Mortise Locking Mechanism for Architectural Doors & Windows",
-    "arabicName": "آلية القفل المحكم متعدد النقاط للأبواب والنوافذ المعمارية الإسبانية الصنع",
+    "arabicName": "آلية القفل المحكم متعدد النقاط للأبواب والنوافذ المعمارية العالية الجودة المعتمدة",
     "category": "accessories",
     "division": "accessories",
     "subCategory": "Architectural Locking Systems",
-    "modelNumber": "DH-ACC-STAC-5P",
-    "material": "Grade 304 Stainless Steel & Anti-Corrosion Zamak Alloy",
-    "brand": "STAC Architectural Systems",
+    "modelNumber": "DH-ACC-المعتمدة-5P",
+    "material": "Grade المقاوم للصدأ Stainless Steel & Anti-Corrosion Zamak Alloy",
+    "brand": "المعتمدة Architectural Systems",
     "image": "/products-assets/accessories/photo_4_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/accessories/photo_4_2026-09-26_07-36-01.jpg",
     "features": {
       "ar": [
         "نظام إقفال محكم متعدد النقاط بألسنة فولاذية مقواة تضغط الدرفة بقوة لمنع التسريب والخلع",
         "شريط أمامي صلب من الستانلس ستيل المقاوم للصدأ والتآكل واحتكاك ذرات الرمال الصحراوية",
-        "معتمد ومطابق لأعلى تصنيفات مقاومة السطو والاقتحام الأوروبية لتوفير أقصى درجات الأمان",
+        "معتمد ومطابق لأعلى تصنيفات مقاومة السطو والاقتحام المعمارية المعتمدة لتوفير أقصى درجات الأمان",
         "لسان إقفال مزدوج وقابل للعكس ليتناسب بسلاسة مع الأبواب والنوافذ التي تفتح يميناً أو يساراً",
         "يعزز كفاءة العزل الصوتي والحراري بفضل الضغط المتوازي على كافة الجوانات المطاطية المحيطية"
       ],
       "en": [
         "Full-Perimeter Multi-Point Hardened Steel Deadbolt Locking Clamping Sashes Tight Against Weather",
-        "Grade 304 Austenitic Stainless Steel Faceplate Delivering Lifetime Salt-Spray Corrosion Resistance",
-        "Certified European Anti-Burglary Resistance Class RC2 & RC3 for Maximum Perimeter Defense",
+        "Grade المقاوم للصدأ Austenitic Stainless Steel Faceplate Delivering Lifetime Salt-Spray Corrosion Resistance",
+        "Certified Architectural Standard Anti-Burglary Resistance Class RC2 & RC3 for Maximum Perimeter Defense",
         "Dual Reversible Latch and Euro-Groove Compatibility for Smooth Left or Right Handing",
         "Significantly Enhances Sound Isolation & Weatherproofing by Compressing Perimeter Gaskets"
       ],
       "ckb": [
         "سیستەمی قفڵی فرە خاڵی پۆڵایین بۆ توندکردنی تەواوی دەرگا و ڕێگری لە دزی و کەشوهەوا",
-        "ڕووی ستانلێس ستیلی 304 کە هەرگیز ژەنگ ناکات لە بەرامبەر شێ و تۆزدا",
-        "بڕوانامەی ئەوروپی المستوى الثاني لمقاومة السطو و المستوى الثالث لمقاومة السطو بۆ بەرزترین ئاستی بەرگری لە دزی و شکاندن",
+        "ڕووی ستانلێس ستیلی المقاوم للصدأ کە هەرگیز ژەنگ ناکات لە بەرامبەر شێ و تۆزدا",
+        "بڕوانامەی ستانداردی نێودەوڵەتی المستوى الثاني لمقاومة السطو و المستوى الثالث لمقاومة السطو بۆ بەرزترین ئاستی بەرگری لە دزی و شکاندن",
         "زمانی جووت بۆ گونجان لەگەڵ دەرگای لای ڕاست و چەپ بە شێوەیەکی زۆر نەرم",
         "عەزلی دەنگ و کەشوهەوا بەرز دەکاتەوە لە ڕێگەی پەستانی یەکسان لەسەر لاستیکەکان"
       ]
     },
     "specs": {
-      "Cylinder Type": "European Profile Euro-Groove",
+      "Cylinder Type": "Architectural Standard Profile Euro-Groove",
       "Backset": "35 mm / 45 mm Optional",
       "Faceplate Width": "16 mm / 24 mm Stainless Steel",
       "Cycle Testing": "200,000 Continuous Operation Cycles"
     },
-    "description": "Fortify your architectural doors and windows against intrusion, forced entry, and harsh desert wind pressures with this European high-security multi-point mortise locking mechanism. Engineered in Spain with precision gearing, this mechanism drives multiple hardened steel deadbolts and mushroom-cam pins into heavy-duty reinforced perimeter frame keeps with a single smooth turn of the key, clamping the sash tightly across its entire vertical span.\n\nManufactured from high-grade 304 austenitic stainless steel and anti-friction Zamak alloys, the lock components undergo severe salt-spray corrosion testing (Grade 5 DIN EN 1670), ensuring lifetime immunity against desert sand abrasions, saline humidity, and oxidation. The multi-point compression pulls the sash firmly against perimeter EPDM gaskets, significantly improving acoustic dampening and air/water barrier performance.\n\nEngineered to fit standard European Euro-groove aluminum and uPVC profiles, the lock features a dual reversible latch for left or right handing, anti-saw hardened steel bolt pins, and certified European burglary resistance (RC2 / RC3), delivering ultimate peace of mind for luxury homes.",
+    "description": "Fortify your architectural doors and windows against intrusion, forced entry, and harsh desert wind pressures with this Architectural Standard high-security multi-point mortise locking mechanism. Engineered in Factory Direct with precision gearing, this mechanism drives multiple hardened steel deadbolts and mushroom-cam pins into heavy-duty reinforced perimeter frame keeps with a single smooth turn of the key, clamping the sash tightly across its entire vertical span.\n\nManufactured from high-grade المقاوم للصدأ austenitic stainless steel and anti-friction Zamak alloys, the lock components undergo severe salt-spray corrosion testing (Grade 5 DIN EN 1670), ensuring lifetime immunity against desert sand abrasions, saline humidity, and oxidation. The multi-point compression pulls the sash firmly against perimeter المطاط المعماري المقاوم للعوامل الجوية gaskets, significantly improving acoustic dampening and air/water barrier performance.\n\nEngineered to fit standard Architectural Standard Euro-groove aluminum and uPVC profiles, the lock features a dual reversible latch for left or right handing, anti-saw hardened steel bolt pins, and certified Architectural Standard burglary resistance (RC2 / RC3), delivering ultimate peace of mind for luxury homes.",
     "translations": {
       "ar": {
-        "name": "آلية القفل المحكم متعدد النقاط للأبواب والنوافذ المعمارية الإسبانية الصنع",
+        "name": "آلية القفل المحكم متعدد النقاط للأبواب والنوافذ المعمارية العالية الجودة المعتمدة",
         "subCategory": "أنظمة الأقفال المعمارية",
-        "description": "عزز حماية أبواب ونوافذ فيلتك المعمارية ضد محاولات الاقتحام والسرقة وضغط الرياح العاتية مع آلية القفل المحكم متعددة النقاط إسبانية الصنع. تتميز هذه الآلية بدقة تصنيع متناهية، حيث تحرك عدة ألسنة فولاذية صلبة ومسامير إقفال دائرية متطورة لتنغلق في عدة نقاط متتالية على طول إطار الباب أو النافذة بحركة مفتاح واحدة ناعمة، مما يحكم إغلاق الدرفة بإحكام تام على كامل امتدادها الرأسي.\n\nتم تصنيع شريط الواجهة والأجزاء الميكانيكية من الستانلس ستيل المقاوم للصدأ وسبائك الزاماك فائقة الصلابة الخالية من الاحتكاك، حيث خضعت لاختبارات رش الملوحة القاسية لتضمن مقاومة دائمة ضد التآكل والصدأ ورطوبة الأجواء الحارة. وتعمل آلية الضغط متعددة النقاط على سحب الدرفة بقوة نحو الجوانات المطاطية المحيطية، مما يرفع من كفاءة العزل الصوتي ويمنع تسرب الهواء والغبار ومياه الأمطار نهائياً.\n\nصُممت الآلية لتتوافق مع قطاعات الألمنيوم الأوروبية المعيارية، وتحتوي على لسان قابل للعكس للفتح يميناً أو يساراً، وقلب مفتاح أمان أوروبي مقاوم للثقب والنسخ غير المصرح به، ومطابقة لأعلى تصنيفات مقاومة السطو الأوروبية لتمنحك أماناً دائماً وراحة بال مطلقة.",
+        "description": "عزز حماية أبواب ونوافذ فيلتك المعمارية ضد محاولات الاقتحام والسرقة وضغط الرياح العاتية مع آلية القفل المحكم متعددة النقاط عالية الجودة المعتمدة. تتميز هذه الآلية بدقة تصنيع متناهية، حيث تحرك عدة ألسنة فولاذية صلبة ومسامير إقفال دائرية متطورة لتنغلق في عدة نقاط متتالية على طول إطار الباب أو النافذة بحركة مفتاح واحدة ناعمة، مما يحكم إغلاق الدرفة بإحكام تام على كامل امتدادها الرأسي.\n\nتم تصنيع شريط الواجهة والأجزاء الميكانيكية من الستانلس ستيل المقاوم للصدأ وسبائك الزاماك فائقة الصلابة الخالية من الاحتكاك، حيث خضعت لاختبارات رش الملوحة القاسية لتضمن مقاومة دائمة ضد التآكل والصدأ ورطوبة الأجواء الحارة. وتعمل آلية الضغط متعددة النقاط على سحب الدرفة بقوة نحو الجوانات المطاطية المحيطية، مما يرفع من كفاءة العزل الصوتي ويمنع تسرب الهواء والغبار ومياه الأمطار نهائياً.\n\nصُممت الآلية لتتوافق مع قطاعات الألمنيوم المعمارية المعتمدة المعيارية، وتحتوي على لسان قابل للعكس للفتح يميناً أو يساراً، وقلب مفتاح أمان المعتمد مقاوم للثقب والنسخ غير المصرح به، ومطابقة لأعلى تصنيفات مقاومة السطو المعمارية المعتمدة لتمنحك أماناً دائماً وراحة بال مطلقة.",
         "features": [
           "نظام إقفال محكم متعدد النقاط بألسنة فولاذية مقواة تضغط الدرفة بقوة لمنع التسريب والخلع",
           "شريط أمامي صلب من الستانلس ستيل المقاوم للصدأ والتآكل واحتكاك ذرات الرمال الصحراوية",
-          "معتمد ومطابق لأعلى تصنيفات مقاومة السطو والاقتحام الأوروبية لتوفير أقصى درجات الأمان",
+          "معتمد ومطابق لأعلى تصنيفات مقاومة السطو والاقتحام المعمارية المعتمدة لتوفير أقصى درجات الأمان",
           "لسان إقفال مزدوج وقابل للعكس ليتناسب بسلاسة مع الأبواب والنوافذ التي تفتح يميناً أو يساراً",
           "يعزز كفاءة العزل الصوتي والحراري بفضل الضغط المتوازي على كافة الجوانات المطاطية المحيطية"
         ]
@@ -141,11 +127,11 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "ckb": {
         "name": "سیستەمی کواڵۆنی فرە خاڵی بەهێز بۆ دەرگا و پەنجەرەی نژیاروانی",
         "subCategory": "سیستەمەکانی قفڵی نژیاروانی",
-        "description": "دەرگا و پەنجەرەی ڤێلاکەت بپارێزە بە سیستەمی کواڵۆنی فرە خاڵی ئەوروپی کە بە یەک سووڕاندنی کلیل چەندین زمانی پۆڵایینی بەهێز لە چەندین شوێنی جیاواز دەخاتە ناو چوارچێوەکە، بۆ ئەوەی دەرگاکە بە تەواوی بنووسێت بە چوارچێوەکەوە بەبێ ئەوەی بە هیچ شتێک بکرێتەوە.\n\nلە ستانلێس ستیلی 304ی دژە ژەنگ و کانزای زاماکی بەهێز دروستکراوە کە بەرگەی ڕووشانی تۆز و شێی بەرز دەگرێت. سیستەمی فرە خاڵ وادەکات دەرگاکە بە توندی لەسەر لاستیکەکانی دەوروبەر دابخرێت، ئەمەش عەزلی دەنگ و گەرما زۆر بەرز دەکاتەوە.\n\nبۆ هەموو جۆرە دەرگا و پەنجەرەیەکی ئەلەمنیۆمی ئەوروپی دەبێت بۆ لای ڕاست و چەپ، بە بڕوانامەی ئەوروپی دژە دزی بۆ دابینکردنی بەرزترین ئاستی ئارامی بۆ ماڵەکەت.",
+        "description": "دەرگا و پەنجەرەی ڤێلاکەت بپارێزە بە سیستەمی کواڵۆنی فرە خاڵی ستانداردی نێودەوڵەتی کە بە یەک سووڕاندنی کلیل چەندین زمانی پۆڵایینی بەهێز لە چەندین شوێنی جیاواز دەخاتە ناو چوارچێوەکە، بۆ ئەوەی دەرگاکە بە تەواوی بنووسێت بە چوارچێوەکەوە بەبێ ئەوەی بە هیچ شتێک بکرێتەوە.\n\nلە ستانلێس ستیلی المقاوم للصدأی دژە ژەنگ و کانزای زاماکی بەهێز دروستکراوە کە بەرگەی ڕووشانی تۆز و شێی بەرز دەگرێت. سیستەمی فرە خاڵ وادەکات دەرگاکە بە توندی لەسەر لاستیکەکانی دەوروبەر دابخرێت، ئەمەش عەزلی دەنگ و گەرما زۆر بەرز دەکاتەوە.\n\nبۆ هەموو جۆرە دەرگا و پەنجەرەیەکی ئەلەمنیۆمی ستانداردی نێودەوڵەتی دەبێت بۆ لای ڕاست و چەپ، بە بڕوانامەی ستانداردی نێودەوڵەتی دژە دزی بۆ دابینکردنی بەرزترین ئاستی ئارامی بۆ ماڵەکەت.",
         "features": [
           "سیستەمی قفڵی فرە خاڵی پۆڵایین بۆ توندکردنی تەواوی دەرگا و ڕێگری لە دزی و کەشوهەوا",
-          "ڕووی ستانلێس ستیلی 304 کە هەرگیز ژەنگ ناکات لە بەرامبەر شێ و تۆزدا",
-          "بڕوانامەی ئەوروپی المستوى الثاني لمقاومة السطو و المستوى الثالث لمقاومة السطو بۆ بەرزترین ئاستی بەرگری لە دزی و شکاندن",
+          "ڕووی ستانلێس ستیلی المقاوم للصدأ کە هەرگیز ژەنگ ناکات لە بەرامبەر شێ و تۆزدا",
+          "بڕوانامەی ستانداردی نێودەوڵەتی المستوى الثاني لمقاومة السطو و المستوى الثالث لمقاومة السطو بۆ بەرزترین ئاستی بەرگری لە دزی و شکاندن",
           "زمانی جووت بۆ گونجان لەگەڵ دەرگای لای ڕاست و چەپ بە شێوەیەکی زۆر نەرم",
           "عەزلی دەنگ و کەشوهەوا بەرز دەکاتەوە لە ڕێگەی پەستانی یەکسان لەسەر لاستیکەکان"
         ]
@@ -153,33 +139,33 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "en": {
         "name": "High-Security Multi-Point Mortise Locking Mechanism for Architectural Doors & Windows",
         "subCategory": "Architectural Locking Systems",
-        "description": "Fortify your architectural doors and windows against intrusion, forced entry, and harsh desert wind pressures with this European high-security multi-point mortise locking mechanism. Engineered in Spain with precision gearing, this mechanism drives multiple hardened steel deadbolts and mushroom-cam pins into heavy-duty reinforced perimeter frame keeps with a single smooth turn of the key, clamping the sash tightly across its entire vertical span.\n\nManufactured from high-grade 304 austenitic stainless steel and anti-friction Zamak alloys, the lock components undergo severe salt-spray corrosion testing (Grade 5 DIN EN 1670), ensuring lifetime immunity against desert sand abrasions, saline humidity, and oxidation. The multi-point compression pulls the sash firmly against perimeter EPDM gaskets, significantly improving acoustic dampening and air/water barrier performance.\n\nEngineered to fit standard European Euro-groove aluminum and uPVC profiles, the lock features a dual reversible latch for left or right handing, anti-saw hardened steel bolt pins, and certified European burglary resistance (RC2 / RC3), delivering ultimate peace of mind for luxury homes."
+        "description": "Fortify your architectural doors and windows against intrusion, forced entry, and harsh desert wind pressures with this Architectural Standard high-security multi-point mortise locking mechanism. Engineered in Factory Direct with precision gearing, this mechanism drives multiple hardened steel deadbolts and mushroom-cam pins into heavy-duty reinforced perimeter frame keeps with a single smooth turn of the key, clamping the sash tightly across its entire vertical span.\n\nManufactured from high-grade المقاوم للصدأ austenitic stainless steel and anti-friction Zamak alloys, the lock components undergo severe salt-spray corrosion testing (Grade 5 DIN EN 1670), ensuring lifetime immunity against desert sand abrasions, saline humidity, and oxidation. The multi-point compression pulls the sash firmly against perimeter المطاط المعماري المقاوم للعوامل الجوية gaskets, significantly improving acoustic dampening and air/water barrier performance.\n\nEngineered to fit standard Architectural Standard Euro-groove aluminum and uPVC profiles, the lock features a dual reversible latch for left or right handing, anti-saw hardened steel bolt pins, and certified Architectural Standard burglary resistance (RC2 / RC3), delivering ultimate peace of mind for luxury homes."
       }
     },
-    "arabicDescription": "عزز حماية أبواب ونوافذ فيلتك المعمارية ضد محاولات الاقتحام والسرقة وضغط الرياح العاتية مع آلية القفل المحكم متعددة النقاط إسبانية الصنع. تتميز هذه الآلية بدقة تصنيع متناهية، حيث تحرك عدة ألسنة فولاذية صلبة ومسامير إقفال دائرية متطورة لتنغلق في عدة نقاط متتالية على طول إطار الباب أو النافذة بحركة مفتاح واحدة ناعمة، مما يحكم إغلاق الدرفة بإحكام تام على كامل امتدادها الرأسي.\n\nتم تصنيع شريط الواجهة والأجزاء الميكانيكية من الستانلس ستيل المقاوم للصدأ وسبائك الزاماك فائقة الصلابة الخالية من الاحتكاك، حيث خضعت لاختبارات رش الملوحة القاسية لتضمن مقاومة دائمة ضد التآكل والصدأ ورطوبة الأجواء الحارة. وتعمل آلية الضغط متعددة النقاط على سحب الدرفة بقوة نحو الجوانات المطاطية المحيطية، مما يرفع من كفاءة العزل الصوتي ويمنع تسرب الهواء والغبار ومياه الأمطار نهائياً.\n\nصُممت الآلية لتتوافق مع قطاعات الألمنيوم الأوروبية المعيارية، وتحتوي على لسان قابل للعكس للفتح يميناً أو يساراً، وقلب مفتاح أمان أوروبي مقاوم للثقب والنسخ غير المصرح به، ومطابقة لأعلى تصنيفات مقاومة السطو الأوروبية لتمنحك أماناً دائماً وراحة بال مطلقة.",
+    "arabicDescription": "عزز حماية أبواب ونوافذ فيلتك المعمارية ضد محاولات الاقتحام والسرقة وضغط الرياح العاتية مع آلية القفل المحكم متعددة النقاط عالية الجودة المعتمدة. تتميز هذه الآلية بدقة تصنيع متناهية، حيث تحرك عدة ألسنة فولاذية صلبة ومسامير إقفال دائرية متطورة لتنغلق في عدة نقاط متتالية على طول إطار الباب أو النافذة بحركة مفتاح واحدة ناعمة، مما يحكم إغلاق الدرفة بإحكام تام على كامل امتدادها الرأسي.\n\nتم تصنيع شريط الواجهة والأجزاء الميكانيكية من الستانلس ستيل المقاوم للصدأ وسبائك الزاماك فائقة الصلابة الخالية من الاحتكاك، حيث خضعت لاختبارات رش الملوحة القاسية لتضمن مقاومة دائمة ضد التآكل والصدأ ورطوبة الأجواء الحارة. وتعمل آلية الضغط متعددة النقاط على سحب الدرفة بقوة نحو الجوانات المطاطية المحيطية، مما يرفع من كفاءة العزل الصوتي ويمنع تسرب الهواء والغبار ومياه الأمطار نهائياً.\n\nصُممت الآلية لتتوافق مع قطاعات الألمنيوم المعمارية المعتمدة المعيارية، وتحتوي على لسان قابل للعكس للفتح يميناً أو يساراً، وقلب مفتاح أمان المعتمد مقاوم للثقب والنسخ غير المصرح به، ومطابقة لأعلى تصنيفات مقاومة السطو المعمارية المعتمدة لتمنحك أماناً دائماً وراحة بال مطلقة.",
     "technicalSpecs": {
       "ar": {
         "مادة الشريط الأمامي": "ستانلس ستيل صلب عالي المقاومة للصدأ والتآكل بعرض ستة عشر أو أربعة وعشرين مليمتراً",
         "نقاط الإقفال": "ألسنة فولاذية مقواة متعددة ومسامير إقفال دائرية قابلة للتعديل والموازنة",
-        "معيار أسطوانة القفل": "أسطوانة يورو الأوروبية المعيارية مع قلب أمان مقاوم للثقب والنسخ",
-        "مقاومة الصدأ": "أعلى تصنيف أوروبي معتمد لمقاومة رذاذ الملوحة والرطوبة الشديدة",
-        "تصنيف الأمان والسطو": "مطابق للمواصفات القياسية الأوروبية لمقاومة محاولات السطو والاقتحام",
+        "معيار أسطوانة القفل": "أسطوانة يورو المعمارية المعتمدة المعيارية مع قلب أمان مقاوم للثقب والنسخ",
+        "مقاومة الصدأ": "أعلى تصنيف المعتمد معتمد لمقاومة رذاذ الملوحة والرطوبة الشديدة",
+        "تصنيف الأمان والسطو": "مطابق للمواصفات القياسية المعمارية المعتمدة لمقاومة محاولات السطو والاقتحام",
         "اختبارات التحمل الدورية": "خاضع لاختبارات التحمل لأكثر من مائتي ألف دورة فتح وإغلاق متواصلة"
       },
       "en": {
-        "Faceplate Material": "Grade 304 Austenitic Stainless Steel (16 mm or 24 mm Width)",
+        "Faceplate Material": "Grade المقاوم للصدأ Austenitic Stainless Steel (16 mm or 24 mm Width)",
         "Locking Points": "Up to 5 Hardened Steel Deadbolts & Adjustable Mushroom Cam Pins",
-        "Cylinder Standard": "European Euro-Profile Key Cylinder Housing with Anti-Drill Core",
+        "Cylinder Standard": "Architectural Standard Euro-Profile Key Cylinder Housing with Anti-Drill Core",
         "Corrosion Resistance": "Grade 5 (480 Hours Salt-Spray Certified to DIN EN 1670)",
         "Security Rating": "EN 12209 / EN 1627 Burglary Resistance Class RC2 / RC3",
         "Cycle Durability": "Tested and Certified for Over 200,000 Heavy Operation Cycles"
       },
       "ckb": {
-        "ماددەی ڕووی قفڵ": "ستانلێس ستیلی 304ی دژە ژەنگ بە پانی 16 یان 24 ملم",
+        "ماددەی ڕووی قفڵ": "ستانلێس ستیلی المقاوم للصدأی دژە ژەنگ بە پانی 16 یان 24 ملم",
         "خاڵەکانی قفڵ": "تا 5 زمانی پۆڵایینی ئەستوور و بەستەری ڕێکخراو",
-        "جۆری کلیل": "سلندەری ئەوروپی بە دڵنیایی دژە کونکردن و کۆپیکردن",
-        "بەرگری ژەنگ": "پۆلی 5ی ئەوروپی بۆ تاقیکردنەوەی شێ و ملوحیەت",
-        "پلەی ئەمنی": "بڕوانامەی فەرمی ئەوروپی المعايير الأوروبية للأمان ومقاومة السطو دژە دزی",
+        "جۆری کلیل": "سلندەری ستانداردی نێودەوڵەتی بە دڵنیایی دژە کونکردن و کۆپیکردن",
+        "بەرگری ژەنگ": "پۆلی 5ی ستانداردی نێودەوڵەتی بۆ تاقیکردنەوەی شێ و ملوحیەت",
+        "پلەی ئەمنی": "بڕوانامەی فەرمی ستانداردی نێودەوڵەتی المعايير المعمارية المعتمدة للأمان ومقاومة السطو دژە دزی",
         "تاقیکردنەوە": "زیاتر لە 200,000 جار کرانەوە و داخران بەبێ تێکچوون"
       }
     }
@@ -201,21 +187,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "قطاع ألمنيوم إنشائي متعدد الحجرات مسحوب من سبائك عالية النقاء ومعالجة حرارياً لأقصى صلابة",
         "جسور عزل حراري عريضة من مادة البولي أميد المقواة بالألياف الزجاجية تمنع انتقال الحرارة تماماً",
         "قنوات تصريف مياه داخلية متدرجة تضمن تصريف مياه الأمطار بكفاءة مطلقة وبدون أي تسرب للداخل",
-        "مجاري معيارية أوروبية دقيقة متوافقة مع أحدث أقفال الأمان متعددة النقاط والمفصلات المخفية",
+        "مجاري معيارية المعتمدة دقيقة متوافقة مع أحدث أقفال الأمان متعددة النقاط والمفصلات المخفية",
         "طلاء بودرة إلكتروستاتيكي كلاس 2 معتمد دولياً فائق المقاومة للأشعة فوق البنفسجية والحرارة العالية"
       ],
       "en": [
         "Multi-Chamber Architectural Aluminum Profile Extruded from Certified 6063-T6 Alloy",
         "Wide 24 mm to 34 mm Glass-Fiber Reinforced Polyamide Thermal Break Bars Severing Heat Transfer",
         "Internal Cascade Drainage Chambers Evacuating Rainwater Safely Without Infiltration",
-        "Universal Euro-Groove Channels Accommodating European High-Security Hardware & Concealed Hinges",
+        "Universal Euro-Groove Channels Accommodating Architectural Standard High-Security Hardware & Concealed Hinges",
         "Qualicoat Class 2 Fine-Texture Electrostatic Powder Coating Resisting Extreme UV Degradation"
       ],
       "ckb": [
         "پڕۆفایلی ئەلەمنیۆمی فرە ژووری ئەندازیاری لە جۆری المعمارية المعالجة حرارياً عالية الصلابة بۆ بەرزترین ئاستی پتەوی",
         "کەمەربەندی پۆلیامایدی عازلی ئەستووری 24 تا 34 ملم بۆ ڕێگری تەواو لە گەرما",
         "کەناڵی تایبەتی ناوەکی بۆ دەرکردنی ئاوی باران بەبێ هیچ مەترسییەکی دزەکردن",
-        "ڕێڕەوی ئەوروپی یەکگرتوو بۆ هەموو جۆرە کواڵۆنێکی فرە خاڵ و نێری شاراوە",
+        "ڕێڕەوی ستانداردی نێودەوڵەتی یەکگرتوو بۆ هەموو جۆرە کواڵۆنێکی فرە خاڵ و نێری شاراوە",
         "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 دژە تیشکی خۆر و ڕووشانی لم"
       ]
     },
@@ -225,45 +211,45 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Wall Thickness": "2.0 mm Heavy-Duty Structural Extrusion",
       "Acoustic Reduction": "Sound Insulation up to 48 dB with Acoustic Glazing"
     },
-    "description": "Forming the high-performance backbone of Doorhome's premier window and door systems, this multi-chamber structural aluminum profile section delivers elite structural rigidity and uncompromising thermal insulation. Engineered from certified architectural 6063-T6 aluminum alloy, the profile integrates heavy-duty 24 mm to 34 mm glass-fiber reinforced polyamide thermal insulating bars that permanently sever conductive heat flow between exterior and interior building envelopes.\n\nThe internal cross-section features multi-stage tubular chambers engineered to distribute wind loads, resist structural bending over large spans, and incorporate dedicated internal drainage weep channels that quickly evacuate any incidental water penetration. Precision Euro-groove geometry accommodates European multi-point locks, heavy-duty concealed hinges, and dual-layer EPDM acoustic weather seals.\n\nFinished in Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the profile withstands persistent high UV radiation, extreme 50°C summer surface temperatures, and harsh airborne sandstorm abrasion without fading, chalking, or cracking.",
+    "description": "Forming the high-performance backbone of Doorhome's premier window and door systems, this multi-chamber structural aluminum profile section delivers elite structural rigidity and uncompromising thermal insulation. Engineered from certified architectural 6063-T6 aluminum alloy, the profile integrates heavy-duty 24 mm to 34 mm glass-fiber reinforced polyamide thermal insulating bars that permanently sever conductive heat flow between exterior and interior building envelopes.\n\nThe internal cross-section features multi-stage tubular chambers engineered to distribute wind loads, resist structural bending over large spans, and incorporate dedicated internal drainage weep channels that quickly evacuate any incidental water penetration. Precision Euro-groove geometry accommodates Architectural Standard multi-point locks, heavy-duty concealed hinges, and dual-layer المطاط المعماري المقاوم للعوامل الجوية acoustic weather seals.\n\nFinished in Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the profile withstands persistent high UV radiation, extreme 50°C summer surface temperatures, and harsh airborne sandstorm abrasion without fading, chalking, or cracking.",
     "translations": {
       "ar": {
         "name": "قطاع ألمنيوم معماري متعدد الحجرات بتقنية العزل الحراري المزدوج",
         "subCategory": "قطاعات وبروفايلات الألمنيوم العازل",
-        "description": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية الأوروبية التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة.",
+        "description": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية المعمارية المعتمدة التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة.",
         "features": [
           "قطاع ألمنيوم إنشائي متعدد الحجرات مسحوب من سبائك عالية النقاء ومعالجة حرارياً لأقصى صلابة",
           "جسور عزل حراري عريضة من مادة البولي أميد المقواة بالألياف الزجاجية تمنع انتقال الحرارة تماماً",
           "قنوات تصريف مياه داخلية متدرجة تضمن تصريف مياه الأمطار بكفاءة مطلقة وبدون أي تسرب للداخل",
-          "مجاري معيارية أوروبية دقيقة متوافقة مع أحدث أقفال الأمان متعددة النقاط والمفصلات المخفية",
+          "مجاري معيارية المعتمدة دقيقة متوافقة مع أحدث أقفال الأمان متعددة النقاط والمفصلات المخفية",
           "طلاء بودرة إلكتروستاتيكي كلاس 2 معتمد دولياً فائق المقاومة للأشعة فوق البنفسجية والحرارة العالية"
         ]
       },
       "ckb": {
         "name": "پڕۆفایلی ئەلەمنیۆمی نژیاروانی فرە ژوور بە عازلی ثێرمال برێکی پۆلیاماید",
         "subCategory": "پڕۆفایلەکانی ئەلەمنیۆمی عەزلکراو",
-        "description": "ئەم پڕۆفایلە ئەندازیارییە ئەستوورە بنەمای سەرەکی هەموو سیستەمەکانی پەنجەرە و دەرگای دەرگای ماڵ پێکدەهێنێت کە بەرزترین ئاستی پتەوی و عەزلی گەرما دابین دەکات. لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابةی بەهێز دروستکراوە و بە کەمەربەندی عازلی پۆلیامایدی ئەستووری تا 34 ملم جیاکراوەتەوە کە ڕێگری لە گەرمای بیابان دەکات لە پەڕینەوە بۆ ژوورەوە.\n\nلە ناوەوە چەندین ژووری جیاوازی هەیە بۆ دابەشکردنی زەبری بای بەهێز و کەناڵی تایبەت بە دەرکردنی ئاوی باران بەبێ دزەکردن بۆ ناوەوە. ڕێڕەوی ئەوروپی تێدایە بۆ بەستنی کواڵۆنی فرە خاڵ و نێری شاراوەی پێشکەوتوو.\n\nبە بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە ڕووی ماتی جوان بۆیاخ کراوە بۆ ئەوەی بەرگەی گەرمای 50 پلە و تیشکی خۆری توند و ڕووشانی لم بگرێت بەبێ کەمبوونەوەی ڕەنگەکەی.",
+        "description": "ئەم پڕۆفایلە ئەندازیارییە ئەستوورە بنەمای سەرەکی هەموو سیستەمەکانی پەنجەرە و دەرگای دەرگای ماڵ پێکدەهێنێت کە بەرزترین ئاستی پتەوی و عەزلی گەرما دابین دەکات. لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابةی بەهێز دروستکراوە و بە کەمەربەندی عازلی پۆلیامایدی ئەستووری تا 34 ملم جیاکراوەتەوە کە ڕێگری لە گەرمای بیابان دەکات لە پەڕینەوە بۆ ژوورەوە.\n\nلە ناوەوە چەندین ژووری جیاوازی هەیە بۆ دابەشکردنی زەبری بای بەهێز و کەناڵی تایبەت بە دەرکردنی ئاوی باران بەبێ دزەکردن بۆ ناوەوە. ڕێڕەوی ستانداردی نێودەوڵەتی تێدایە بۆ بەستنی کواڵۆنی فرە خاڵ و نێری شاراوەی پێشکەوتوو.\n\nبە بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە ڕووی ماتی جوان بۆیاخ کراوە بۆ ئەوەی بەرگەی گەرمای 50 پلە و تیشکی خۆری توند و ڕووشانی لم بگرێت بەبێ کەمبوونەوەی ڕەنگەکەی.",
         "features": [
           "پڕۆفایلی ئەلەمنیۆمی فرە ژووری ئەندازیاری لە جۆری المعمارية المعالجة حرارياً عالية الصلابة بۆ بەرزترین ئاستی پتەوی",
           "کەمەربەندی پۆلیامایدی عازلی ئەستووری 24 تا 34 ملم بۆ ڕێگری تەواو لە گەرما",
           "کەناڵی تایبەتی ناوەکی بۆ دەرکردنی ئاوی باران بەبێ هیچ مەترسییەکی دزەکردن",
-          "ڕێڕەوی ئەوروپی یەکگرتوو بۆ هەموو جۆرە کواڵۆنێکی فرە خاڵ و نێری شاراوە",
+          "ڕێڕەوی ستانداردی نێودەوڵەتی یەکگرتوو بۆ هەموو جۆرە کواڵۆنێکی فرە خاڵ و نێری شاراوە",
           "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 دژە تیشکی خۆر و ڕووشانی لم"
         ]
       },
       "en": {
         "name": "Multi-Chamber Thermal Break Polyamide-Insulated Aluminum Architectural Profile",
         "subCategory": "Architectural Extrusions & Thermal Profiles",
-        "description": "Forming the high-performance backbone of Doorhome's premier window and door systems, this multi-chamber structural aluminum profile section delivers elite structural rigidity and uncompromising thermal insulation. Engineered from certified architectural 6063-T6 aluminum alloy, the profile integrates heavy-duty 24 mm to 34 mm glass-fiber reinforced polyamide thermal insulating bars that permanently sever conductive heat flow between exterior and interior building envelopes.\n\nThe internal cross-section features multi-stage tubular chambers engineered to distribute wind loads, resist structural bending over large spans, and incorporate dedicated internal drainage weep channels that quickly evacuate any incidental water penetration. Precision Euro-groove geometry accommodates European multi-point locks, heavy-duty concealed hinges, and dual-layer EPDM acoustic weather seals.\n\nFinished in Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the profile withstands persistent high UV radiation, extreme 50°C summer surface temperatures, and harsh airborne sandstorm abrasion without fading, chalking, or cracking."
+        "description": "Forming the high-performance backbone of Doorhome's premier window and door systems, this multi-chamber structural aluminum profile section delivers elite structural rigidity and uncompromising thermal insulation. Engineered from certified architectural 6063-T6 aluminum alloy, the profile integrates heavy-duty 24 mm to 34 mm glass-fiber reinforced polyamide thermal insulating bars that permanently sever conductive heat flow between exterior and interior building envelopes.\n\nThe internal cross-section features multi-stage tubular chambers engineered to distribute wind loads, resist structural bending over large spans, and incorporate dedicated internal drainage weep channels that quickly evacuate any incidental water penetration. Precision Euro-groove geometry accommodates Architectural Standard multi-point locks, heavy-duty concealed hinges, and dual-layer المطاط المعماري المقاوم للعوامل الجوية acoustic weather seals.\n\nFinished in Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the profile withstands persistent high UV radiation, extreme 50°C summer surface temperatures, and harsh airborne sandstorm abrasion without fading, chalking, or cracking."
       }
     },
-    "arabicDescription": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية الأوروبية التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة.",
+    "arabicDescription": "يمثل هذا القطاع الألمنيوم الإنشائي متعدد الحجرات العمود الفقري لأرقى أنظمة النوافذ والأبواب المعمارية في شركة باب المنزل، حيث يجمع بين الصلابة الهيكلية الفائقة والعزل الحراري الاستثنائي. صُنع القطاع من سبائك الألمنيوم المعماري المعالجة حرارياً عالية النقاء، ودُعم بجسور عزل حراري عريضة مصنعة من مادة البولي أميد المقواة بالألياف الزجاجية بسماكة تصل إلى أربعة وثلاثين مليمتراً، لتفصل تماماً تدفق درجات الحرارة بين البيئة الخارجية والداخلية للمبنى.\n\nيحتوي المقطع الداخلي على حجرات أنبوبية متعددة مصممة هندسياً لتوزيع ضغط الرياح العاتية ومقاومة الانحناء على المساحات الزجاجية الضخمة، مع قنوات تصريف داخلية متدرجة تضمن انسياب مياه الأمطار والرطوبة بأمان تام دون أي تسرب للداخل. كما يتوافق التصميم مع المجاري المعيارية المعمارية المعتمدة التي تستقبل أقفال الأمان متعددة النقاط والمفصلات المخفية وطبقات المطاط المرنة العازلة للصوت.\n\nطُلي القطاع بطبقة بودرة إلكتروستاتيكية حرارية مطفية معتمدة وفق أعلى المعايير الدولية، مما يمنحه مناعة كاملة ضد أشعة الشمس الحارقة ودرجات الحرارة المرتفعة التي تتجاوز خمسين درجة مئوية وخدوش الرمال المتطايرة، ليبقى محتفظاً بلونه وقوته الإنشائية لعقود طويلة.",
     "technicalSpecs": {
       "ar": {
         "سبيكة الألمنيوم": "ألمنيوم معماري مسحوب عالي الصلابة وقوة الشد الهيكلي المعتمدة",
         "مادة جسور العزل الحراري": "بولي أميد هندسي مقوى بنسبة خمسة وعشرين بالمئة من الألياف الزجاجية",
         "عرض جسر العزل": "من أربعة وعشرين إلى أربعة وثلاثين مليمتراً حسب السلسلة المعمارية المعتمدة",
-        "كفاءة العزل الحراري": "عزل حراري متميز مطابق لأعلى المواصفات والمعايير الهندسية الأوروبية",
+        "كفاءة العزل الحراري": "عزل حراري متميز مطابق لأعلى المواصفات والمعايير الهندسية المعمارية المعتمدة",
         "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي حراري مطفي ناعم بسماكة خمسة وعشرين ميكرون",
         "صلابة السطح": "صلابة سطحية عالية تمنح القطاع مقاومة فائقة ضد الخدوش والاحتكاك"
       },
@@ -294,14 +280,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "subCategory": "Architectural Handles & Cremone Hardware",
     "modelNumber": "DH-ACC-MST-BLK",
     "material": "Solid Die-Cast Aluminum with Deep Anodized Velvet Matte Finish",
-    "brand": "Master Italy Hardware",
+    "brand": "Master Factory Direct Hardware",
     "image": "/products-assets/accessories/photo_63_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/accessories/photo_63_2026-09-26_07-36-01.jpg",
     "features": {
       "ar": [
         "تصميم هندسي مينيمالي راقٍ صُمم خصيصاً ليتناغم مع أرقى الأبواب والنوافذ المعمارية الحديثة",
         "هيكل ألمنيوم مصبوب عالي الكثافة مزود بيايات داخلية مزدوجة تمنع أي ارتخاء أو هبوط للمقبض",
-        "قاعدة تثبيت مخفية تخفي كافة مسامير التركيب بالكامل لمنح مظهر نقي وأنيق",
+        "قاعدة تثبيت مخفية تخفي كافة مسامير المعتمدب بالكامل لمنح مظهر نقي وأنيق",
         "طلاء سيراميكي مخملي أسود مطفي فائق الفخامة مقاوم لآثار بصمات الأصابع والخدوش اليومية",
         "خاضع لاختبارات التحمل المعتمدة لأكثر من مائتي ألف دورة استخدام متواصلة"
       ],
@@ -317,7 +303,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "جەستەی ئەلەمنیۆمی بەهێز بە دوو کانیەی پۆڵایین بۆ ڕێگری تەواو لە دابەزینی دەسکەکە",
         "قەپاغی شاراوەی بزمارەکان بۆ بەخشینی دیمەنێکی زۆر خاوێن بە دەرگاکە",
         "ڕووی مەخمەڵی ماتی ڕەش کە پەنجەمۆر ناگرێت و دژە شووشت و ڕووشانە",
-        "تاقیکراوەتەوە بۆ زیاتر لە 200,000 جار بەکارهێنان بەپێی ستانداردى ئەوروپی 1906"
+        "تاقیکراوەتەوە بۆ زیاتر لە 200,000 جار بەکارهێنان بەپێی ستانداردى ستانداردی نێودەوڵەتی 1906"
       ]
     },
     "specs": {
@@ -335,7 +321,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "features": [
           "تصميم هندسي مينيمالي راقٍ صُمم خصيصاً ليتناغم مع أرقى الأبواب والنوافذ المعمارية الحديثة",
           "هيكل ألمنيوم مصبوب عالي الكثافة مزود بيايات داخلية مزدوجة تمنع أي ارتخاء أو هبوط للمقبض",
-          "قاعدة تثبيت مخفية تخفي كافة مسامير التركيب بالكامل لمنح مظهر نقي وأنيق",
+          "قاعدة تثبيت مخفية تخفي كافة مسامير المعتمدب بالكامل لمنح مظهر نقي وأنيق",
           "طلاء سيراميكي مخملي أسود مطفي فائق الفخامة مقاوم لآثار بصمات الأصابع والخدوش اليومية",
           "خاضع لاختبارات التحمل المعتمدة لأكثر من مائتي ألف دورة استخدام متواصلة"
         ]
@@ -349,7 +335,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "جەستەی ئەلەمنیۆمی بەهێز بە دوو کانیەی پۆڵایین بۆ ڕێگری تەواو لە دابەزینی دەسکەکە",
           "قەپاغی شاراوەی بزمارەکان بۆ بەخشینی دیمەنێکی زۆر خاوێن بە دەرگاکە",
           "ڕووی مەخمەڵی ماتی ڕەش کە پەنجەمۆر ناگرێت و دژە شووشت و ڕووشانە",
-          "تاقیکراوەتەوە بۆ زیاتر لە 200,000 جار بەکارهێنان بەپێی ستانداردى ئەوروپی 1906"
+          "تاقیکراوەتەوە بۆ زیاتر لە 200,000 جار بەکارهێنان بەپێی ستانداردى ستانداردی نێودەوڵەتی 1906"
         ]
       },
       "en": {
@@ -364,9 +350,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "مادة التصنيع": "سبائك ألمنيوم مصبوبة إنشائية عالية الكثافة والصلابة",
         "نظام اليايات الداخلي": "يايات مزدوجة من الستانلس ستيل تضمن استقامة أفقية تامة ودائمة",
         "نوع الطلاء الخارجي": "طلاء سيراميكي نانوي مخملي مطفي بلون أسود فاحم مقاوم للبصمات",
-        "مقاومة الصدأ والتآكل": "أعلى تصنيف أوروبي معتمد لمقاومة رذاذ الملوحة والرطوبة الشديدة",
-        "محور الدوران": "محور فولاذي مقوى مربع معتمد لجميع الأقفال الأوروبية المعيارية",
-        "معايير المتانة": "مصنف للاستخدام المكثف في المشاريع السكنية والتجارية الفاخرة وفق المعيار الأوروبي"
+        "مقاومة الصدأ والتآكل": "أعلى تصنيف المعتمد معتمد لمقاومة رذاذ الملوحة والرطوبة الشديدة",
+        "محور الدوران": "محور فولاذي مقوى مربع معتمد لجميع الأقفال المعمارية المعتمدة المعيارية",
+        "معايير المتانة": "مصنف للاستخدام المكثف في المشاريع السكنية والتجارية الفاخرة وفق المعيار القياسي المعياري"
       },
       "en": {
         "Material": "High-Density Die-Cast Structural Aluminum Alloy",
@@ -380,9 +366,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "ماددەی دروستکردن": "ئەلەمنیۆمی ئەندازیاری چڕی بەهێز",
         "سیستەمی کانیە": "کانیەی دووانەی ستانلێس ستیلی دژە دابەزین",
         "بۆیاخی ڕووکار": "پۆودەری سیرامیکی نانۆ ڕەشی ماتی مەخمەڵی دژە پەنجەمۆر",
-        "بەرگری ژەنگ": "پۆلی 5ی ئەوروپی بۆ تاقیکردنەوەی شێ و ملوحیەت",
-        "میلی سووڕانەوە": "میلی پۆڵایینی 8 ملم بۆ هەموو قفڵێکی ئەوروپی",
-        "ستانداردی بەکارهێنان": "پۆلی 4ی ئەوروپی بۆ بەکارهێنانی قورسی نیشتەجێبوون"
+        "بەرگری ژەنگ": "پۆلی 5ی ستانداردی نێودەوڵەتی بۆ تاقیکردنەوەی شێ و ملوحیەت",
+        "میلی سووڕانەوە": "میلی پۆڵایینی 8 ملم بۆ هەموو قفڵێکی ستانداردی نێودەوڵەتی",
+        "ستانداردی بەکارهێنان": "پۆلی 4ی ستانداردی نێودەوڵەتی بۆ بەکارهێنانی قورسی نیشتەجێبوون"
       }
     }
   },
@@ -417,7 +403,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز بلكونة زجاجي مظلل للواجهات الحجرية",
-        "description": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والتركيب بدقة لتناسب بلكونتك تماماً.",
+        "description": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب بدقة لتناسب بلكونتك تماماً.",
         "features": [
           "ألواح زجاجية إنشائية نقية بدون إطارات تتناغم بانسيابية مع واجهات فلل الحجر والترافرتين",
           "تثبيت هيكلي سفلي مخفي ومثبت داخل الصبة الخرسانية للبروزات المعمارية",
@@ -449,7 +435,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       }
     },
-    "arabicDescription": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والتركيب بدقة لتناسب بلكونتك تماماً.",
+    "arabicDescription": "يمنح هذا الحاجز الزجاجي المظلل واجهة المبنى لمسة هادئة وأنيقة تنسجم مع الحجر والرخام والإضاءة المعمارية الدافئة. يحافظ سطح الزجاج الناعم على اتساع الإطلالة، ويضيف في الوقت نفسه شعوراً راقياً بالخصوصية.\n\nصُنع من زجاج سيكوريت متين ومثبت بإحكام على حافة البلكونة، ليوفر حماية موثوقة لأفراد العائلة والضيوف دون أن يضيف ثقلاً بصرياً على واجهة المبنى.\n\nيتميز بسهولة التنظيف ومقاومته للأجواء اليومية وحفاظه على مظهره لسنوات طويلة. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب بدقة لتناسب بلكونتك تماماً.",
     "kurdishName": "بەربەستی شووشەیی تۆخی باڵکۆن بۆ ڕووکاری بەردین",
     "kurdishDescription": "ئەم بەربەستە شووشەییە تۆخە دیمەنێکی ئارام و شیک بە ڕووکاری بینا دەبەخشێت و لەگەڵ بەرد، مەڕمەڕ و ڕووناکی گەرمی تەلارسازیدا دەگونجێت. ڕووی نەرمی شووشەکە دیمەنەکە کراوە دەهێڵێتەوە و هەستێکی جوان بە تایبەتمەندی زیاد دەکات.\n\nلە شووشەی سێکۆریتی بەهێز دروستکراوە و بە پتەوی لەسەر لێوارەی باڵکۆنەکە جێگیر دەکرێت، بۆ ئەوەی پارێزگارییەکی متمانەپێکراو بۆ ئەندامانی خێزان و میوانان دابین بکات بێ ئەوەی قورسایی بینراو بخاتە سەر ڕووکارەکە.\n\nبە ئاسانی پاک دەکرێتەوە، بەرگەی کەشوهەوای ڕۆژانە دەگرێت و بۆ ساڵانێکی زۆر جوانییەکەی دەپارێزێت. تیمی دەرگای ماڵ پێوانە، دروستکردن و دامەزراندنی هەر پارچەیەک ئەنجام دەدات بۆ ئەوەی بە تەواوی لەگەڵ باڵکۆنەکەتان بگونجێت."
   },
@@ -469,14 +455,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
       "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
       "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
-      "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+      "Dry-Glazed Structural المطاط المعماري المقاوم للعوامل الجوية Gasket System for Silent Zero-Creak Operation",
       "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
     ],
     "specs": {
       "Glass Material": "16 mm / 20.76 mm Extra-Clear Optiwhite Laminated Safety Glass",
       "Top Rail": "Minimalist 20 x 20 mm U-Channel Handrail in Satin Black Anodized",
       "Mounting Shoe": "Recessed Heavy-Duty Floor Channel Alloy 6063-T6",
-      "Gasket Type": "Continuous Anti-Aging EPDM Clamping Gaskets",
+      "Gasket Type": "Continuous Anti-Aging المطاط المعماري المقاوم للعوامل الجوية Clamping Gaskets",
       "Impact Performance": "Certified 1.5 kN/m Heavy Interior Void Protection",
       "Light Transmission": "91% (Highest Optical Purity)"
     },
@@ -484,7 +470,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز زجاجي داخلي للميزانين والأفنية",
-        "description": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والتركيب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة.",
+        "description": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة.",
         "features": [
           "ألواح زجاجية شفافة متصلة تمتد عبر الطابقين لتمنح البهو الداخلي إضاءة وانفتاحاً رحباً",
           "مقبض علوي نحيف من الألمنيوم المؤكسد بطلاء أسود مطفي أو شامبين أنيق",
@@ -511,12 +497,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Continuous Clear Glass Spans Across Dual Storey Open Well & Mezzanine",
           "Slim Anodized Micro Top Rail in Satin Black or Champagne Finish",
           "Concealed Bottom Profile Fully Recessed in Finished Marble Screed",
-          "Dry-Glazed Structural EPDM Gasket System for Silent Zero-Creak Operation",
+          "Dry-Glazed Structural المطاط المعماري المقاوم للعوامل الجوية Gasket System for Silent Zero-Creak Operation",
           "Optiwhite Crystal-Clear Glass Maximizing Downward Natural Light Infiltration"
         ]
       }
     },
-    "arabicDescription": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والتركيب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة.",
+    "arabicDescription": "صُمم هذا الحاجز الزجاجي للشرفات الداخلية وطوابق الميزانين والأفنية المفتوحة، فيسمح للضوء بالانتقال بحرية بين الطوابق. يبقى المكان مشرقاً ومترابطاً ومرحباً مع حضور بصري خفيف.\n\nتستقر الألواح الزجاجية الشفافة المقواة على قاعدة داكنة أنيقة ترسم الحافة بوضوح، فتمنح حاجزاً آمناً وثابتاً بمظهر عصري يلائم الصالات والمعارض ومناطق الاستقبال.\n\nصيانته بسيطة ويحافظ على نضارته مع الوقت. ويتولى فريق باب المنزل القياس والتصنيع والمعتمدب ليتبع الحاجز تصميم مساحتك بنتيجة نظيفة ومحترفة.",
     "kurdishName": "بەربەستی شووشەیی ناوەوە بۆ نهۆمی ناوەند و حەوشە",
     "kurdishDescription": "ئەم بەربەستە شووشەییە بۆ باڵکۆنی ناوەوە، نهۆمی ناوەند و حەوشە کراوەکان دیزاین کراوە و ڕێگە دەدات ڕووناکی بە ئازادی لە نێوان نهۆمەکاندا بگوازرێتەوە. شوێنەکە ڕووناک، پێکەوەبەستراو و میوانپەسەند دەهێڵێتەوە و بە ڕواڵەت سووک دەمێنێتەوە.\n\nتەختە شووشە ڕوونە سێکۆریتییەکان لەسەر بنکەیەکی تۆخی ڕێک دادەنرێن کە لێوارەکە بە پاکی دیاری دەکات. ئەنجامەکەی بەربەستێکی سەلامەت و جێگیرە بە دیمەنێکی هاوچەرخ کە لەگەڵ هۆڵ، پێشانگا و شوێنی پێشوازیکردندا دەگونجێت.\n\nچاککردنەوە و خاوێنکردنەوەی ئاسانە و جوانییەکەی بە درێژایی کات دەمێنێتەوە. دەرگای ماڵ پێوانە، دروستکردن و دامەزراندن ئەنجام دەدات تا بەربەستەکە لەگەڵ نەخشەی شوێنەکەتان بگونجێت و ئەنجامێکی پاک و پیشەگەری بدات."
   },
@@ -551,7 +537,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز زجاجي داكن للبلكونات البارزة",
-        "description": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالتركيب بتشطيب محترف وعناية فائقة.",
+        "description": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالمعتمدب بتشطيب محترف وعناية فائقة.",
         "features": [
           "هندسة كابولية بارزة تتطابق تماماً مع أحدث تصاميم الفلل المكعبة الحديثة",
           "زجاج مصفح عاكس داكن يوفر خصوصية مطلقة ويمنع الرؤية من الشارع",
@@ -583,7 +569,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       }
     },
-    "arabicDescription": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالتركيب بتشطيب محترف وعناية فائقة.",
+    "arabicDescription": "حاجز زجاجي داكن أنيق صُمم للبلكونات البارزة العصرية. يمنح الواجهة خطوطاً أفقية نظيفة، ويوفر خصوصية مريحة مع إبقاء الإطلالة مفتوحة.\n\nيُثبت الزجاج المقوى على قاعدة غير ظاهرة تحافظ على حافة البلكونة مرتبة وخالية من التفاصيل الزائدة، وهو مصنوع ليبقى ثابتاً وآمناً في الاستخدام اليومي وتقلبات الطقس.\n\nيُنظف سطحه الناعم بسهولة ويحتفظ بمظهره العصري لسنوات. ويعد فريق باب المنزل القياسات الدقيقة ويقوم بالمعتمدب بتشطيب محترف وعناية فائقة.",
     "kurdishName": "بەربەستی شووشەیی تاریک بۆ باڵکۆنی دەرچوو",
     "kurdishDescription": "بەربەستێکی شووشەیی تاریکی شیکە کە بۆ باڵکۆنە دەرچووە هاوچەرخەکان دروستکراوە. هێڵی ئاسۆیی پاک بە ڕووکارەکە دەبەخشێت و تایبەتمەندییەکی ئاسوودە دابین دەکات لەگەڵ ئەوەی دیمەنەکە کراوە دەهێڵێتەوە.\n\nشووشە سێکۆریتییەکە لەسەر بنکەیەکی شاراوە جێگیر دەکرێت و لێوارەی باڵکۆنەکە ڕێک و بێ ورده کاری زیادە دەهێڵێتەوە. بۆ ئەوە دروستکراوە کە لە بەکارهێنانی ڕۆژانە و گۆڕانی کەشوهەوادا جێگیر و سەلامەت بمێنێتەوە.\n\nڕووی نەرمی بە ئاسانی پاک دەکرێتەوە و بۆ ساڵان دیمەنی شیکی خۆی دەپارێزێت. تیمی دەرگای ماڵ پێوانەی ورد ئامادە دەکات و بە تەواوکاری پیشەگەرانە و وردبینییەوە دایدەمەزرێنێت."
   },
@@ -618,7 +604,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز زجاجي بانورامي للتراسات",
-        "description": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والتركيب من البداية حتى النهاية.",
+        "description": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والمعتمدب من البداية حتى النهاية.",
         "features": [
           "ألواح زجاجية عريضة تمنحك إطلالة بانورامية غير منقطعة على الحديقة والأفق",
           "أعمدة ألمنيوم إنشائية عالية الصلابة مطلية بطلاء إلكتروستاتيكي أسود مطفي فاخر",
@@ -650,7 +636,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       }
     },
-    "arabicDescription": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والتركيب من البداية حتى النهاية.",
+    "arabicDescription": "افتح تراسك على المنظر بحاجز زجاجي بانورامي يبقي الأفق في مرمى البصر. تؤطر الأعمدة السوداء النحيفة الزجاج بأناقة لتصنع مساحة خارجية مشرقة ومنعشة.\n\nيوفر الزجاج المقوى المتين حماية من الرياح مع الحفاظ على نظافة خطوط المبنى، وهو مناسب للتراسات والأسطح وكل مساحة مفتوحة تهمك فيها الإطلالة.\n\nمقاوم للعوامل الجوية وسهل الصيانة، ويبقى جذاباً موسماً بعد موسم. ويتكفل فريق باب المنزل بالقياس والتوريد والمعتمدب من البداية حتى النهاية.",
     "kurdishName": "بەربەستی شووشەیی پانۆرامای تەراس",
     "kurdishDescription": "تەراسەکەتان بەرەو دیمەنەکە بکەنەوە بە بەربەستێکی شووشەیی پانۆراما کە ئاسۆ لە بەرچاو دەهێڵێتەوە. ستوونە ڕەشە باریکەکان بە شیکی شووشەکە دەورە دەدەن و شوێنێکی دەرەوەی ڕووناک و فێنک دروست دەکەن.\n\nشووشە سێکۆریتییە بەهێزەکە لە با دەپارێزێت و هێڵەکانی بینا پاک دەهێڵێتەوە. بۆ تەراس، بانەکان و هەر شوێنێکی کراوە گونجاوە کە دیمەنەکەی گرنگە.\n\nبەرگەی کەشوهەوا دەگرێت و چاککردنەوەی ئاسانە، وەرزێک دوای وەرزێک سەرنجڕاکێش دەمێنێتەوە. دەرگای ماڵ پێوانە، دابینکردن و دامەزراندن لە سەرەتاوە تا کۆتایی لەئەستۆ دەگرێت."
   },
@@ -677,7 +663,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Glass Composition": "10+10 mm Smoked Toughened Laminated (21.52 mm overall)",
       "Lighting Specification": "24V DC IP67 Silicone Extruded Linear LED (3000K Warm White)",
       "Mounting System": "Side-Fascia Parapet Structural Anchor Channel",
-      "Fasteners": "Grade 316 Marine Stainless Steel Chemical Expansion Studs",
+      "Fasteners": "High-Grade Marine Stainless Steel Marine Stainless Steel Chemical Expansion Studs",
       "Horizontal Load Capacity": "2.2 kN/m Point & Line Load Certified",
       "Finish": "Deep Architectural Graphite Anodized / Custom Facade Powder Coat"
     },
@@ -801,7 +787,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/shorfa/photo_49_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/shorfa/photo_49_2026-09-26_07-36-01.jpg",
     "features": [
-      "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+      "Fluted Column Aluminum Posts Inspired by Architectural Standard Classical Proportions",
       "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
       "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
       "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
@@ -819,9 +805,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز زجاجي مدخن بأعمدة سوداء أنيقة",
-        "description": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة وتركيباً آمناً لراحة بال تدوم.",
+        "description": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة والمعتمدباً آمناً لراحة بال تدوم.",
         "features": [
-          "أعمدة ألمنيوم مضلعة كلاسيكية مستوحاة من أعرق المدارس المعمارية الأوروبية",
+          "أعمدة ألمنيوم مضلعة كلاسيكية مستوحاة من أعرق المدارس المعمارية المعمارية المعتمدة",
           "زجاج مصفح مظلل باللون الرمادي الدخاني يوفر حماية من وهج الشمس بنسبة خمسة وستين بالمئة",
           "مقبض ألمنيوم علوي انسيابي ومريح متصل بفواصل تمدد حرارية متطورة",
           "طلاء بودرة إلكتروستاتيكي معماري من أكزونوبل حاصل على شهادة كواليكوت الفئة الثانية",
@@ -832,7 +818,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "name": "بەربەستی شووشەیی دووکەڵی بە ستوونی ڕەشی بەهێز",
         "description": "ستوونە ڕەشە بەهێزەکان و شووشەی دووکەڵی دیمەنێکی متمانەپێکراو و هاوچەرخ بەم بەربەستە دەبەخشن. بۆ باڵکۆن و تەراسەکان گونجاوە کە هەم دیمەنێکی سەرنجڕاکێش و هەم پارێزگارییەکی متمانەپێکراویان دەوێت.\n\nستوونە پتەوەکان جێگیرییەکی ڕاستەقینە زیاد دەکەن، لە کاتێکدا شووشەی دووکەڵیی سێکۆریتی تایبەتمەندییەکی ئاسوودە دەبەخشێت و تیشکی خۆر نەرم دەکات. پێکەوە بەربەستێکی پتەو و هاوڕێک دروست دەکەن.\n\nکۆتایی پەیکەرەکە بەرگەی ڕووشان و کەشوهەوا دەگرێت و خاوێنکردنەوەی خێرایە. تیمی دەرگای ماڵ پێوانەی ورد و دامەزراندنی سەلامەت پێشکەش دەکات بۆ ئاسوودەییەکی بەردەوام.",
         "features": [
-          "ستوونی ئەلەمنیۆمی هێڵدار و کلاسیک بە ئیلهام وەرگرتن لە مۆدێلە ئەوروپییەکان",
+          "ستوونی ئەلەمنیۆمی هێڵدار و کلاسیک بە ئیلهام وەرگرتن لە مۆدێلە ستانداردی نێودەوڵەتییەکان",
           "شووشەی دووکەڵاوی لامینەیت کە ڕێگری لە تیشکی بەهێزی خۆر بە بڕی 65% دەکات",
           "دەسکی سەرەوەی ئەلەمنیۆمی ئاسوودە بە پەیوەستکاری پەرەسەندنی گەرمی",
           "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە بەرگری تەواو لە بەرامبەر گەرمای توند",
@@ -843,7 +829,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "name": "Smoked Glass Railing with Bold Black Posts",
         "description": "Strong black posts and smoked glass give this railing a confident, modern presence. It suits balconies and terraces that need both a striking look and dependable protection.\n\nThe sturdy posts add real stability, while the tempered smoked glass offers comfortable privacy and softens the sun. Together they create a solid, well-proportioned barrier.\n\nThe finish resists scratches and weather, and cleaning is quick. The Doorhome team delivers exact measurements and secure installation for lasting peace of mind.",
         "features": [
-          "Fluted Column Aluminum Posts Inspired by European Classical Proportions",
+          "Fluted Column Aluminum Posts Inspired by Architectural Standard Classical Proportions",
           "Dark Euro-Smoke Laminated Glass Providing 65% Glare Reduction & Privacy",
           "Ergonomic Continuous Molded Aluminum Top Handrail with Expansion Joints",
           "AkzoNobel Qualicoat Class 2 Architectural Electrostatic Powder Coating",
@@ -851,7 +837,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       }
     },
-    "arabicDescription": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة وتركيباً آمناً لراحة بال تدوم.",
+    "arabicDescription": "تمنح الأعمدة السوداء القوية والزجاج المدخن هذا الحاجز حضوراً واثقاً وعصرياً. وهو مناسب للبلكونات والتراسات التي تحتاج إلى مظهر لافت وحماية موثوقة معاً.\n\nتضيف الأعمدة المتينة ثباتاً حقيقياً، بينما يوفر الزجاج المدخن المقوى خصوصية مريحة ويخفف من حدة الشمس. وتصنع معاً حاجزاً صلباً متناسق الأبعاد.\n\nيقاوم التشطيب الخدوش والعوامل الجوية ويسهل تنظيفه بسرعة. ويقدم فريق باب المنزل قياسات دقيقة والمعتمدباً آمناً لراحة بال تدوم.",
     "kurdishName": "بەربەستی شووشەیی دووکەڵی بە ستوونی ڕەشی بەهێز",
     "kurdishDescription": "ستوونە ڕەشە بەهێزەکان و شووشەی دووکەڵی دیمەنێکی متمانەپێکراو و هاوچەرخ بەم بەربەستە دەبەخشن. بۆ باڵکۆن و تەراسەکان گونجاوە کە هەم دیمەنێکی سەرنجڕاکێش و هەم پارێزگارییەکی متمانەپێکراویان دەوێت.\n\nستوونە پتەوەکان جێگیرییەکی ڕاستەقینە زیاد دەکەن، لە کاتێکدا شووشەی دووکەڵیی سێکۆریتی تایبەتمەندییەکی ئاسوودە دەبەخشێت و تیشکی خۆر نەرم دەکات. پێکەوە بەربەستێکی پتەو و هاوڕێک دروست دەکەن.\n\nکۆتایی پەیکەرەکە بەرگەی ڕووشان و کەشوهەوا دەگرێت و خاوێنکردنەوەی خێرایە. تیمی دەرگای ماڵ پێوانەی ورد و دامەزراندنی سەلامەت پێشکەش دەکات بۆ ئاسوودەییەکی بەردەوام."
   },
@@ -944,7 +930,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Glass Type": "10+10 mm Smoked Toughened Laminated Acoustic Securit (20.76 mm)",
       "Acoustic Rating": "Rw = 39 dB (High Sound Reverberation Suppression)",
-      "Spigot Construction": "Solid Billet CNC Machined Grade 304/316 Stainless Steel",
+      "Spigot Construction": "Solid Billet CNC Machined Grade المقاوم للصدأ/316 Stainless Steel",
       "Spigot Finish": "Velvet Matte Black PVD Titanium Ceramic Hardcoat",
       "Anchorage": "M12 High-Yield Threaded Studs with Fischer Injection Mortar",
       "Application": "Double-Height Atriums, Mezzanines, Open Living Bridges"
@@ -953,7 +939,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "translations": {
       "ar": {
         "name": "حاجز زجاجي مدخن للفتحات الداخلية والصالات",
-        "description": "يحمي الزجاج المدخن الآمن الفتحات الداخلية والممرات العلوية والصالات مزدوجة الارتفاع، ويسمح للضوء بالتحرك عبر المكان. ويضيف طابعاً هادئاً وراقياً بجوار الرخام والأرضيات المصقولة.\n\nتثبّت نقاط التثبيت السوداء النحيفة الزجاج بإحكام وبحضور بصري محدود، لتمنح حاجزاً آمناً وثابتاً يبقى أنيقاً من كل زاوية.\n\nسهل الصيانة ومصمم ليدوم. ويوفر فريق باب المنزل قياساً دقيقاً وتركيباً احترافياً لنتيجة نظيفة ومتقنة التشطيب.",
+        "description": "يحمي الزجاج المدخن الآمن الفتحات الداخلية والممرات العلوية والصالات مزدوجة الارتفاع، ويسمح للضوء بالتحرك عبر المكان. ويضيف طابعاً هادئاً وراقياً بجوار الرخام والأرضيات المصقولة.\n\nتثبّت نقاط التثبيت السوداء النحيفة الزجاج بإحكام وبحضور بصري محدود، لتمنح حاجزاً آمناً وثابتاً يبقى أنيقاً من كل زاوية.\n\nسهل الصيانة ومصمم ليدوم. ويوفر فريق باب المنزل قياساً دقيقاً والمعتمدباً احترافياً لنتيجة نظيفة ومتقنة التشطيب.",
         "features": [
           "زجاج صوتي مدخن يضفي تبايناً معمارياً غنياً وفخماً مع أرضيات الرخام الأبيض",
           "قواعد سبیگوت صلبة ومثبتة بطلاء بي في دي أسود مطفي فائق الفخامة",
@@ -985,7 +971,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       }
     },
-    "arabicDescription": "يحمي الزجاج المدخن الآمن الفتحات الداخلية والممرات العلوية والصالات مزدوجة الارتفاع، ويسمح للضوء بالتحرك عبر المكان. ويضيف طابعاً هادئاً وراقياً بجوار الرخام والأرضيات المصقولة.\n\nتثبّت نقاط التثبيت السوداء النحيفة الزجاج بإحكام وبحضور بصري محدود، لتمنح حاجزاً آمناً وثابتاً يبقى أنيقاً من كل زاوية.\n\nسهل الصيانة ومصمم ليدوم. ويوفر فريق باب المنزل قياساً دقيقاً وتركيباً احترافياً لنتيجة نظيفة ومتقنة التشطيب.",
+    "arabicDescription": "يحمي الزجاج المدخن الآمن الفتحات الداخلية والممرات العلوية والصالات مزدوجة الارتفاع، ويسمح للضوء بالتحرك عبر المكان. ويضيف طابعاً هادئاً وراقياً بجوار الرخام والأرضيات المصقولة.\n\nتثبّت نقاط التثبيت السوداء النحيفة الزجاج بإحكام وبحضور بصري محدود، لتمنح حاجزاً آمناً وثابتاً يبقى أنيقاً من كل زاوية.\n\nسهل الصيانة ومصمم ليدوم. ويوفر فريق باب المنزل قياساً دقيقاً والمعتمدباً احترافياً لنتيجة نظيفة ومتقنة التشطيب.",
     "kurdishName": "بەربەستی شووشەیی دووکەڵی بۆ کونە ناوەوەکان و هۆڵەکان",
     "kurdishDescription": "شووشەی دووکەڵیی سەلامەت کونە ناوەوەکان، پاڵەکان و هۆڵە دووبەرزەکان دەپارێزێت و ڕێگە دەدات ڕووناکی بە شوێنەکەدا بڕوات. تۆنێکی ئارام و بەرزی دەبەخشێت لە تەنیشت مەڕمەڕ و ئەرزە جەلاکراوەکان.\n\nخاڵە ڕەشە باریکەکانی بەستن شووشەکە بە قایمی و بە بوونێکی بینراوی کەمەوە جێگیر دەکەن و بەربەستێکی سەلامەت و جێگیر دەدەن کە لە هەموو لایەکەوە شیک دەمێنێتەوە.\n\nچاککردنەوەی ئاسانە و بۆ ماوەیەکی درێژ دیزاین کراوە. دەرگای ماڵ پێوانەی ورد و دامەزراندنی پیشەگەرانە دابین دەکات بۆ ئەنجامێکی پاک و باش تەواوکراو."
   },
@@ -997,7 +983,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "division": "stairs",
     "subCategory": "حواجز السلالم الزجاجية",
     "modelNumber": "DH-STR-FLT-16",
-    "material": "12+12 mm SentryGlas Structural Glass with Solid European White Oak Treads",
+    "material": "12+12 mm SentryGlas Structural Glass with Solid Architectural Standard White Oak Treads",
     "brand": "Doorhome Architectural",
     "image": "/products-assets/stairs/photo_16_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/stairs/photo_16_2026-09-26_07-36-01.jpg",
@@ -1007,25 +993,25 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "قواعد تثبيت نقطية صلبة من الستانلس ستيل البحري المقاوم للصدأ ومجهزة للموازنة الدقيقة",
         "زجاج أمان مقسى ومصفح عالي السماكة بطبقات بوليمرية مقاومة للصدمات والكسر",
         "حواف زجاجية مصقولة بالماس فائقة النعومة وتوفر ملمساً حريرياً آمناً لجميع أفراد الأسرة",
-        "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز وحاجزات السلالم السكنية"
+        "مطابق للمواصفات الهندسية المعمارية المعتمدة لحواجز وحاجزات السلالم السكنية"
       ],
       "en": [
         "Frameless Monolithic Low-Iron Tempered Glass Creating a Weightless Floating Spatial Aesthetic",
-        "Heavy-Duty Grade 316 Stainless Steel Standoff Anchors Anchored Rigidly into Stair Stringers",
+        "Heavy-Duty High-Grade Marine Stainless Steel Stainless Steel Standoff Anchors Anchored Rigidly into Stair Stringers",
         "17.52 mm to 21.52 mm Laminated Safety Glass with High-Tensile Structural PVB Interlayers",
         "Precision CNC Diamond-Polished Flat Beveled Edges Ensuring Child-Safe Tactile Smoothness",
-        "Certified Barrier Compliance with Heavy Residential European Safety Codes (BS 6180)"
+        "Certified Barrier Compliance with Heavy Residential Architectural Standard Safety Codes (BS 6180)"
       ],
       "ckb": [
         "شووشەی ڕۆشنی بێ چوارچێوە بۆ بەخشینی دیمەنێکی مۆدێرن و فراوانکردنی ژوورەوە",
         "کڵامپی ستانلێس ستیلی دەریایی 316 بۆ جێگیرکردنی زۆر بەهێز لەسەر پلیکانە",
         "شووشەی لامینەیتی سێکۆریتی ئەستوور بۆ بەرزترین ئاستی پاراستن لە شکان",
         "قەراغی پۆڵیشکراوی نەرم بۆ پاراستنی تەواوی دەست و سەلامەتی منداڵ",
-        "بڕوانامەی فەرمی سەلامەتی ئەوروپی بۆ پارێزگاری لە بینای نیشتەجێبوون"
+        "بڕوانامەی فەرمی سەلامەتی ستانداردی نێودەوڵەتی بۆ پارێزگاری لە بینای نیشتەجێبوون"
       ]
     },
     "specs": {
-      "Tread Thickness": "80 mm Solid European White Oak with Matte Polyurethane Seal",
+      "Tread Thickness": "80 mm Solid Architectural Standard White Oak with Matte Polyurethane Seal",
       "Glass Specification": "12 mm Low-Iron Tempered + 1.52 mm SentryGlas + 12 mm Low-Iron Tempered",
       "Fixing Detail": "Heavy Concealed Structural Steel Spine Embedded in Concrete Load-Bearing Wall",
       "Handrail": "Integrated Grooved Solid Oak Cap 45 x 45 mm"
@@ -1035,13 +1021,13 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "ar": {
         "name": "حاجز زجاجي عصري للسلالم الداخلية",
         "subCategory": "حواجز السلالم الزجاجية",
-        "description": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
+        "description": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل والمعتمدب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
         "features": [
           "ألواح زجاجية نقية خالية من الإطارات تمنح إحساساً بالاتساع وتبرز جمال السلالم المعلقة",
           "قواعد تثبيت نقطية صلبة من الستانلس ستيل البحري المقاوم للصدأ ومجهزة للموازنة الدقيقة",
           "زجاج أمان مقسى ومصفح عالي السماكة بطبقات بوليمرية مقاومة للصدمات والكسر",
           "حواف زجاجية مصقولة بالماس فائقة النعومة وتوفر ملمساً حريرياً آمناً لجميع أفراد الأسرة",
-          "مطابق للمواصفات الهندسية الأوروبية المعتمدة لحواجز وحاجزات السلالم السكنية"
+          "مطابق للمواصفات الهندسية المعمارية المعتمدة لحواجز وحاجزات السلالم السكنية"
         ]
       },
       "ckb": {
@@ -1053,7 +1039,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "کڵامپی ستانلێس ستیلی دەریایی 316 بۆ جێگیرکردنی زۆر بەهێز لەسەر پلیکانە",
           "شووشەی لامینەیتی سێکۆریتی ئەستوور بۆ بەرزترین ئاستی پاراستن لە شکان",
           "قەراغی پۆڵیشکراوی نەرم بۆ پاراستنی تەواوی دەست و سەلامەتی منداڵ",
-          "بڕوانامەی فەرمی سەلامەتی ئەوروپی بۆ پارێزگاری لە بینای نیشتەجێبوون"
+          "بڕوانامەی فەرمی سەلامەتی ستانداردی نێودەوڵەتی بۆ پارێزگاری لە بینای نیشتەجێبوون"
         ]
       },
       "en": {
@@ -1062,20 +1048,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "This modern glass railing system brings a refined contemporary touch to any space, combining minimalist elegance with an expansive open feel. It is an ideal choice for diverse interior settings—from contemporary homes to open exhibition halls and spacious reception lounges—allowing natural light to flow freely to foster an airy, bright, and welcoming atmosphere.\n\nCrafted from high-durability, impact-resistant tempered safety glass, each panel guarantees dependable daily safety and peace of mind for both families and guests. Robust, rust-resistant side fixtures secure the structure firmly in place with zero deflection, maintaining sleek, uninterrupted architectural lines that blend seamlessly with any interior decor.\n\nHighly scratch-resistant and effortless to wipe clean, this balustrade is a practical long-term investment that maintains its pristine clarity over time. The specialized team at Doorhome provides precision custom measurement and professional installation to suit your staircase dimensions perfectly, achieving a cohesive, premium finish."
       }
     },
-    "arabicDescription": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل وتركيب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
+    "arabicDescription": "يمنح هذا النظام من الحواجز الزجاجية لمسة عصرية راقية للمكان، حيث يجمع بين بساطة التصميم وجمال المظهر المفتوح. يُعد خياراً مثالياً لمختلف المساحات الداخلية، سواء في المنازل الحديثة أو المعارض وصالات الاستقبال الواسعة، إذ يسمح للضوء الطبيعي بالمرور بحرية تامة ليضفي شعوراً بالاتساع والراحة ويزيد من جاذبية المكان.\n\nتم تصنيع الألواح من زجاج سيكوريت عالي المتانة ومقاوم للصدمات لضمان أقصى درجات الأمان والسلامة اليومية لكافة أفراد العائلة والزوار. كما تم تزويد النظام بنقاط تثبيت جانبية متينة ومقاومة للصدأ تضمن ثباتاً مطلقاً للحاجز دون أي اهتزاز، مع الحفاظ على خطوط هندسية نظيفة وأنيقة تتناغم بسلاسة مع مختلف أنماط الديكور والتشطيبات.\n\nيتميز هذا الحاجز بسهولة العناية والتنظيف ومقاومته العالية للخدوش، مما يجعله استثماراً عملياً يدوم لسنوات طويلة دون أن يفقد بريقه. ويقوم فريق باب المنزل المتخصص بتفصيل والمعتمدب النظام بدقة هندسية عالية ليتناسب تماماً مع مقاسات درجكم ويمنح مساحتكم مظهراً معمارياً متكاملاً وفخماً.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة من سبعة عشر إلى واحد وعشرين مليمتراً",
         "الطبقة البينية": "طبقة بوليمرية هيكلية مصفحة عالية المتانة والالتصاق",
         "قواعد التثبيت النقطية": "قواعد ستانلس ستيل بحري مصقول بقطر خمسين مليمتراً مع معايرة دقيقة",
         "المقبض العلوي": "مقبض نحيف اختياري من الستانلس ستيل أو الألمنيوم الأسود المطفي",
-        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات الأوروبية لمقاومة الصدمات والأمان",
+        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات المعمارية المعتمدة لمقاومة الصدمات والأمان",
         "معالجة الحواف": "حواف مشطوفة ومصقولة بالماس بتقنية التحكم الرقمي بالكمبيوتر"
       },
       "en": {
         "Glass Specification": "17.52 mm to 21.52 mm Low-Iron Tempered Laminated Safety Glass",
         "Interlayer": "1.52 mm High-Rigidity Structural Polymer Interlayer",
-        "Standoff Hardware": "50 mm Solid Marine Grade AISI 316 Stainless Steel with Micro-Leveling",
+        "Standoff Hardware": "50 mm Solid Marine Grade High-Grade Marine Stainless Steel Stainless Steel with Micro-Leveling",
         "Handrail Option": "Continuous Slimline 20 mm Stainless Steel or Matte Black Micro-Channel",
         "Impact Safety": "EN 12600 Class 1B1 / BS 6180 Heavy Residential Certified",
         "Edge Treatment": "CNC Polished Flat Edges with Precision Micro-Bevels"
@@ -1085,7 +1071,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "چینی ناوەکی": "تەبەقەی پۆلیمەری ئەندازیاری دژە شکان",
         "کڵامپی بەستن": "ستانلێس ستیلی دەریایی 316ی 50 ملم بە ڕێکخستنی ورد",
         "دەسکی سەرەوە": "شریتی باریکی ستانلێس ستیل یان ئەلەمنیۆمی ماتی ڕەش",
-        "سەلامەتی": "بڕوانامەی ئەوروپی المعايير الأوروبية لسلامة الزجاج الفئة الأولى المعتمدةB1",
+        "سەلامەتی": "بڕوانامەی ستانداردی نێودەوڵەتی المعايير المعمارية المعتمدة لسلامة الزجاج الفئة الأولى المعتمدةB1",
         "قەراغەکان": "پۆڵیشکراو بە ئەڵماس بە ئامێری بالتحكم الرقمي فائق الدقة"
       }
     },
@@ -1123,14 +1109,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "شووشەی لامینەیتی ڕەنگداری ڕەساسی یان برۆنزی بۆ جوانی و پاراستنی نهێنی",
         "کەناڵی ئەلەمنیۆمی زەوی بەبێ دەرکەوتنی هیچ بزمارێک بۆ هێڵی خاوێنی زەوی",
         "کلیل و کڵامپی ناوەکی بۆ ڕێکخستنی تەواوی ستوونی شووشە بەبێ لەرینەوە",
-        "شووشەی سێکۆریتی ئەستوور بۆ بەرگری لە زەبری بەهێز بەپێی ستانداردى ئەوروپی",
+        "شووشەی سێکۆریتی ئەستوور بۆ بەرگری لە زەبری بەهێز بەپێی ستانداردى ستانداردی نێودەوڵەتی",
         "قەراغی پۆڵیشکراوی نەرم بۆ پاراستنی دەست و دڵنیابوون لە سەلامەتی"
       ]
     },
     "specs": {
       "Total Height": "1050 mm Above Finished Floor Level",
       "Glass Thickness": "21.52 mm Structural Laminate",
-      "Spigot Material": "Grade 316 Stainless Steel with PVD Titanium Black Finish",
+      "Spigot Material": "High-Grade Marine Stainless Steel Stainless Steel with PVD Titanium Black Finish",
       "Wind & Load Class": "Class 2 Heavy Domestic & Commercial Void Protection"
     },
     "description": "Combining the richness of tinted architectural glass with the comfort of a smooth top handrail, this railing system creates a refined balance between subtle privacy and visual openness for elevated walkways, landings, and staircases. It adds a sophisticated layer to multi-level interiors and double-height spaces, gently softening glare while enriching the surrounding architectural aesthetic.\n\nEngineered with toughened safety glass panels secured by robust floor-mounted clamps, the assembly delivers unwavering structural rigidity and superior load resistance. The contoured top rail offers a natural, reassuring grip, making it a dependable, child-safe safeguard for elevated interior balconies, mezzanines, and stair treads.\n\nThe tinted finish is designed to retain its pristine allure with minimal maintenance, resisting surface smudges while wiping clean with ease. The Doorhome technical team provides end-to-end site survey and tailored installation to guarantee exact alignment, safety compliance, and flawless execution.",
@@ -1155,7 +1141,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "شووشەی لامینەیتی ڕەنگداری ڕەساسی یان برۆنزی بۆ جوانی و پاراستنی نهێنی",
           "کەناڵی ئەلەمنیۆمی زەوی بەبێ دەرکەوتنی هیچ بزمارێک بۆ هێڵی خاوێنی زەوی",
           "کلیل و کڵامپی ناوەکی بۆ ڕێکخستنی تەواوی ستوونی شووشە بەبێ لەرینەوە",
-          "شووشەی سێکۆریتی ئەستوور بۆ بەرگری لە زەبری بەهێز بەپێی ستانداردى ئەوروپی",
+          "شووشەی سێکۆریتی ئەستوور بۆ بەرگری لە زەبری بەهێز بەپێی ستانداردى ستانداردی نێودەوڵەتی",
           "قەراغی پۆڵیشکراوی نەرم بۆ پاراستنی دەست و دڵنیابوون لە سەلامەتی"
         ]
       },
@@ -1169,10 +1155,10 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح ملون بسماكة تقارب ثمانية عشر مليمتراً",
-        "خيارات ألوان الزجاج": "رمادي أوروبي مدخن أو برونزي معماري فاخر",
+        "خيارات ألوان الزجاج": "رمادي المعتمد مدخن أو برونزي معماري فاخر",
         "مجرى التثبيت الأرضي": "قطاع ألمنيوم إنشائي متواصل مسحوب عالي الصلابة",
         "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي حراري مطفي أسود فاحم",
-        "معايير السلامة": "معتمد ومطابق للمواصفات القياسية الأوروبية لمقاومة الصدمات",
+        "معايير السلامة": "معتمد ومطابق للمواصفات القياسية المعمارية المعتمدة لمقاومة الصدمات",
         "طريقة التثبيت": "تثبيت أرضي علوي أو غاطس داخل الأرضيات مع أغطية تكسية أنيقة"
       },
       "en": {
@@ -1185,10 +1171,10 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       },
       "ckb": {
         "شووشە": "17.52 ملم شووشەی لامینەیتی سێکۆریتی ڕەنگدار",
-        "ڕەنگەکان": "ڕەساسی ئەوروپی (دووکەڵی) یان برۆنزی نژیاروانی",
+        "ڕەنگەکان": "ڕەساسی ستانداردی نێودەوڵەتی (دووکەڵی) یان برۆنزی نژیاروانی",
         "کەناڵی زەوی": "ئەلەمنیۆمی ئەندازیاری المعمارية المعالجة حرارياً عالية الصلابة بۆ بنکەی زەوی",
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ڕەشی مات",
-        "سەلامەتی": "بڕوانامەی ئەوروپی المعايير الأوروبية لسلامة الزجاج الفئة الأولى المعتمدةB1",
+        "سەلامەتی": "بڕوانامەی ستانداردی نێودەوڵەتی المعايير المعمارية المعتمدة لسلامة الزجاج الفئة الأولى المعتمدةB1",
         "جۆری بەستن": "بەستنی سەر زەوی یان شاراوە لە ناو مەڕمەڕ بە داپۆشەری جوان"
       }
     },
@@ -1216,7 +1202,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "جوانات داخلية مرنة تمتص الاهتزازات وتوفر ثباتاً صلباً وهادئاً عند الصعود والنزول"
       ],
       "en": [
-        "Heavy-Duty Solid CNC-Machined Marine Grade 316 Stainless Steel Cylindrical Spigot Clamps",
+        "Heavy-Duty Solid CNC-Machined Marine High-Grade Marine Stainless Steel Stainless Steel Cylindrical Spigot Clamps",
         "Zero-Hole Friction Clamping Technology Preventing Stress Cracking & Eliminating Glass Drilling",
         "Maximizes Marble Surface Visibility by Leaving Tread Edges & Stone Grain Completely Unobstructed",
         "16 mm to 20 mm Tempered Laminated Safety Glass Resisting High Impact and Lateral Deflection",
@@ -1276,11 +1262,11 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "خيارات لون القواعد": "ستانلس ستيل مصقول كالمرآة، ساتان ناعم، أو أسود مطفي فاخر",
         "طريقة التثبيت": "تثبيت بالضغط الميكانيكي مع وسائد حماية بوليمرية داخلية",
         "قدرة تحمل الدفع": "معتمد لتحمل قوى الدفع الجانبي حتى واحد ونصف كيلو نيوتن لكل متر",
-        "معايير السلامة": "مطابق لأعلى المعايير الأوروبية المعتمدة لحواجز السلالم السكنية"
+        "معايير السلامة": "مطابق لأعلى المعايير المعمارية المعتمدة لحواجز السلالم السكنية"
       },
       "en": {
         "Glass Specification": "16 mm to 20.76 mm Tempered Laminated Safety Glass",
-        "Spigot Clamp Material": "Solid Duplex 2205 or Marine Grade AISI 316 Stainless Steel",
+        "Spigot Clamp Material": "Solid Duplex 2205 or Marine Grade High-Grade Marine Stainless Steel Stainless Steel",
         "Finish Options": "Mirror Polished, Satin Brushed, or PVD Matte Black",
         "Clamping Method": "Non-Drilling Friction Clamp with Internal Polymer Cushions",
         "Load Rating": "Certified to Withstand Horizontal Barrier Loads up to 1.5 kN/m",
@@ -1292,7 +1278,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "ڕەنگی بنکە": "بریقەدار، ماتی ڕەساسی، یان ڕەشی فەخم",
         "شێوازی بەستن": "کڵامپی پەستان بە لاستیکی پارێزەر لە ناوەوە",
         "بەرگەی کێش": "بەرگەی پاڵنانی تا 1.5 کیلۆنیوتن/مەتر دەگرێت",
-        "سەلامەتی": "ستانداردی ئەوروپی المعايير الأوروبية لسلامة الزجاج بۆ سەلامەتی باڵەخانە"
+        "سەلامەتی": "ستانداردی ستانداردی نێودەوڵەتی المعايير المعمارية المعتمدة لسلامة الزجاج بۆ سەلامەتی باڵەخانە"
       }
     },
     "kurdishName": "دەستەوانی شووشەیی شیک بە دەسکی دارین و بنکەی زەوی",
@@ -1379,7 +1365,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "مقبض اليد العلوي": "مقبض ألمنيوم مستطيل انسيابي ستون مليمتراً في ثلاثين مليمتراً",
         "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي حراري مطفي أسود فاحم كلاس 2",
         "طريقة التثبيت": "قواعد فولاذية داخلية مخفية مثبتة بالبراغي الإنشائية داخل الأرضيات",
-        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات الأوروبية المعتمدة لحواجز السلالم"
+        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات المعمارية المعتمدة لحواجز السلالم"
       },
       "en": {
         "Post Profile": "50 mm x 50 mm Heavy-Wall Extruded 6063-T6 Aluminum Post",
@@ -1395,7 +1381,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "دەسکی سەرەوە": "60 ملم × 30 ملم پڕۆفایلی لاکێشەیی ئەلەمنیۆم",
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ڕەشی مات",
         "شێوازی بەستن": "بەستنی پۆڵایینی شاراوە لە ناو زەوی",
-        "سەلامەتی": "بڕوانامەی فەرمی ئەوروپی المعايير الأوروبية لسلامة الزجاج بۆ سەلامەتی پلیەکان"
+        "سەلامەتی": "بڕوانامەی فەرمی ستانداردی نێودەوڵەتی المعايير المعمارية المعتمدة لسلامة الزجاج بۆ سەلامەتی پلیەکان"
       }
     },
     "kurdishName": "دەستەوانی ئەلەمنیۆمی ئەندازیاری بە ڕەنگی ڕەشی مات",
@@ -1423,8 +1409,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       ],
       "en": [
         "Bespoke Helical & Curved Glass Engineering Custom-Milled to Trace Complex Stair Geometries",
-        "Heavy-Duty Solid Marine Grade 316 Stainless Steel Spigots Anchored Securely into Marble Stringers",
-        "Zero Post Obstruction Keeping Fine Italian Marble Grain and Curved Riser Lines 100% Visible",
+        "Heavy-Duty Solid Marine High-Grade Marine Stainless Steel Stainless Steel Spigots Anchored Securely into Marble Stringers",
+        "Zero Post Obstruction Keeping Fine Architectural Marble Grain and Curved Riser Lines 100% Visible",
         "17.52 mm Low-Iron Laminated Safety Glass Resisting Heavy Lateral Barrier Push Loads",
         "Diamond-Polished CNC Arris Edges Delivering Safe, Sensuous Hand-Feel for Family and Guests"
       ],
@@ -1447,7 +1433,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "ar": {
         "name": "حاجز زجاجي بانورامي للسلالم المنحنية والواسعة",
         "subCategory": "حاجز زجاجي بانورامي للسلالم المنحنية",
-        "description": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
+        "description": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد والمعتمدب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
         "features": [
           "تصنيع مقوس هندسي مخصص يتبع انحناءات السلالم الدائرية والحلزونية بمنتهى الانسيابية والدقة",
           "قواعد أسطوانية صلبة من الستانلس ستيل البحري المقاوم للصدأ مثبتة بإحكام في جسر الدرج الرخامي",
@@ -1474,20 +1460,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "description": "Engineered to complement the sweeping grandeur of curved staircases and central reception halls, this panoramic glass railing curves gracefully to celebrate the architectural beauty of stonework and open stair design. The seamless glass panels provide unobstructed sightlines that amplify interior volume and illuminate the entire foyer with natural brilliance.\n\nPrecision-curved and straight tempered safety glass panels are rigidly supported by heavy-duty matte black floor spigots, ensuring rock-solid balance and optimal safety on every tread. A contoured solid wood top handrail runs continuously along the upper edge, providing an ergonomic, reassuring grip that completes the staircase with understated luxury.\n\nDesigned for lasting durability and effortless cleaning, this railing system maintains its crystal-clear brilliance with minimal care. The experienced installation team at Doorhome utilizes precise dimensional mapping and custom craftsmanship to guarantee a flawless alignment with your staircase's unique curve."
       }
     },
-    "arabicDescription": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد وتركيب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
+    "arabicDescription": "صُمم هذا الحاجز الزجاجي الانسيابي ليواكب فخامة السلالم المنحنية والصالات المركزية الواسعة، حيث يلتف الزجاج الشفاف بنعومة ليبرز جمال الدرج الهندسي والرخام الفاخر. يضفي هذا النظام شعوراً فورياً بالرحابة والانفتاح، مما يجعل البهو الرئيسي يبدو أكثر إشراقاً وأناقة ويمنح الزائرين تجربة استقبال استثنائية.\n\nتتكون المنظومة من ألواح زجاجية مقواة ومخصصة للمنحنيات بدقة عالية، مدعومة بمشابك أرضية سوداء صلبة تضمن أعلى درجات التماسك والأمان عند الصعود والنزول. ويكتمل التصميم بمقبض علوي من الخشب المصقول يوفر راحة تامة لليد وإحساساً بالفخامة والاتزان طوال الحركة على الدرج.\n\nيقدم هذا النظام حلاً معمارياً مستداماً يجمع بين المتانة العالية وسهولة التنظيف اليومي، ليبقى في أبهى صورة عاماً بعد عام. ويتولى فريق باب المنزل المتمرس أخذ القياسات ثلاثية الأبعاد والمعتمدب الألواح بكل حرفية لضمان تطابق المسار الزجاجي مع انحناءات الدرج بنسبة مئة بالمئة.",
     "technicalSpecs": {
       "ar": {
         "مواصفات الزجاج": "زجاج أمان مقسى ومصفح فائق النقاء بسماكة تقارب ثمانية عشر مليمتراً",
         "تقنية التقويس": "تقويس حراري دقيق أو قطاعات هندسية متطابقة تماماً مع نصف قطر انحناء الدرج",
         "قواعد التثبيت": "ستانلس ستيل بحري صلب عيار ثلاثمائة وستة عشر بقطر خمسين مليمتراً",
         "المقبض العلوي": "مقبض مقوس اختياري من الستانلس ستيل المصقول أو الألمنيوم الأسود المطفي",
-        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات الأوروبية المعتمدة لحواجز السلالم الفاخرة",
+        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات المعمارية المعتمدة لحواجز السلالم الفاخرة",
         "معالجة الحواف": "حواف مشطوفة ومصقولة بالماس بتقنية التحكم الرقمي لضمان أعلى درجات النقاء"
       },
       "en": {
         "Glass Specification": "17.52 mm (8 mm Low-Iron Toughened + 1.52 mm Structural PVB + 8 mm Toughened)",
         "Curved Fabrication": "Precision Thermal Bending / CNC Faceted Geometry Matching Stair Radius",
-        "Spigot Hardware": "50 mm Solid Marine Grade AISI 316 Stainless Steel with Spherical Adjusters",
+        "Spigot Hardware": "50 mm Solid Marine Grade High-Grade Marine Stainless Steel Stainless Steel with Spherical Adjusters",
         "Handrail Option": "Continuous Custom-Bent Stainless Steel 316 or Matte Black Micro-Channel",
         "Barrier Rating": "Certified to Withstand Heavy Residential Horizontal Loads (BS 6180)",
         "Edge Treatment": "CNC Diamond-Polished Flat Arris Edges with Zero Optical Distortion"
@@ -1497,7 +1483,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "شێوازی کەوانەیی": "چەمانەوەی گەرم یان کەرتکردنی ئەندازیاری بەپێی پلیکانە",
         "بنکەکان": "ستانلێس ستیلی 316ی دەریایی 50 ملم بە ڕێکخستنی ورد",
         "دەسکی سەرەوە": "شریتی ستانلێس ستیلی کەوانەیی یان ئەلەمنیۆمی ماتی ڕەش",
-        "بەرگری کێش": "بڕوانامەی ئەوروپی المعايير البريطانية للسلامة الإنشائية بۆ سەلامەتی باڵەخانە",
+        "بەرگری کێش": "بڕوانامەی ستانداردی نێودەوڵەتی المعايير البريطانية للسلامة الإنشائية بۆ سەلامەتی باڵەخانە",
         "قەراغەکان": "پۆڵیشکراو بە ئەڵماس بەبێ هیچ خواربوونێکی بینین"
       }
     },
@@ -1506,8 +1492,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
   },
   {
     "id": "win-guillotine-panoramic",
-    "name": "Automated Guillotine Glass Window & Panoramic Terrace System",
-    "arabicName": "نظام نوافذ الجلوتين البانورامية الأوتوماتيكية للشرفات والتراسات الفاخرة",
+    "name": "Full-Height Panoramic Glass Wall for Terraces and Lounges",
+    "arabicName": "جدار زجاجي بانورامي بالكامل للتراسات والصالات",
     "category": "windows",
     "division": "windows",
     "subCategory": "Motorized Guillotine Panoramic Windows",
@@ -1519,21 +1505,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "features": {
       "ar": [
         "ألواح زجاجية متحركة رأسياً تتحول بمرونة تامة من واجهة كاملة إلى حاجز شرفة أنيق",
-        "محركات كهربائية أوروبية فائقة القوة تضمن حركة صامتة وسلسة خالية من الاهتزاز",
+        "محركات كهربائية المعتمدة فائقة القوة تضمن حركة صامتة وسلسة خالية من الاهتزاز",
         "زجاج مزدوج مقسى عازل للحرارة والصوت بسماكة أربعة وعشرين مليمتراً لحماية قصوى",
         "توافق ذكي مع أجهزة التحكم اللاسلكي وحساسات الطقس والمطر للإغلاق التلقائي",
         "عوازل محيطية مرنة تمنع تماماً تسرب الهواء والغبار الناعم في الأجواء الصحراوية"
       ],
       "en": [
         "Motorized Vertical Sliding Sashes Transforming Panoramic Windows into Protective Balustrades",
-        "High-Torque European Electric Drive System with Heavy-Duty Reinforced Timing Belts",
+        "High-Torque Architectural Standard Electric Drive System with Heavy-Duty Reinforced Timing Belts",
         "24 mm Low-Emissivity Double Glazed Tempered Safety Glass for Maximum Heat & Sound Insulation",
         "Smart Automation Integration with Handheld Remote Controls & Automatic Rain Sensors",
         "Dual Perimeter Weather Gaskets Providing Total Protection Against Desert Dust & Storms"
       ],
       "ckb": [
         "جووڵەی ستوونی ئۆتۆماتیکی بە پەنجەرەی شووشەیی کە دەبێتە محاجەرەی پارێزراو",
-        "مۆتۆری کارەبایی ئەوروپی بەهێز بۆ جووڵەی نەرم و بێدەنگ",
+        "مۆتۆری کارەبایی ستانداردی نێودەوڵەتی بەهێز بۆ جووڵەی نەرم و بێدەنگ",
         "شووشەی دوو قاتی عازلی 24 ملم بۆ پاراستن لە گەرما و دەنگ",
         "بەستنەوە بە کۆنتڕۆڵی بێتەل و هەستەوەری بارانی خۆکار",
         "لاستیکی دەوروبەر بۆ ڕێگری لە تۆز و ئاوی باران"
@@ -1546,39 +1532,39 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Wind Resistance": "Class 4 (EN 12210)",
       "Automation": "Somfy RTS / IO Motor with Multi-Channel Remote & Smartphone App"
     },
-    "description": "Redefine outdoor-indoor living with this state-of-the-art motorized guillotine panoramic glass window system. Engineered specifically for luxury residential terraces, enclosed sky lounges, and upscale restaurant pergolas, the system features vertically sliding glass panels that glide down at the touch of a button, transforming full-height glass walls into open-air balustrades while preserving uninterrupted panoramic garden and horizon views.\n\nConstructed from high-tensile 6063-T6 architectural aluminum profiles with internal structural reinforcement, the window incorporates high-torque European motorized drive assemblies powered by reinforced heavy-duty timing belts and precision counterweight balancing. The glazing consists of 24 mm low-emissivity double-glazed tempered safety glass that blocks scorching solar heat and suppresses exterior street noise while maintaining pristine optical clarity.\n\nEquipped with multi-point perimeter brush seals and heavy-duty rubber weather barriers, the system seals tightly against violent windstorms, driving rain, and fine desert dust ingress. Fully compatible with smart home automation, wireless handheld remotes, and automatic wind and rain safety sensors that close the sashes automatically during sudden storms.",
+    "description": "This full-height panoramic glass wall system transforms any terrace or lounge into a seamless indoor-outdoor living space. The large glass panels slide vertically and المعتمدةk neatly, opening up the entire wall to fresh air and natural scenery while maintaining an elegant, frameless appearance when closed.\n\nPerfect for restaurants, cafes, hotel lobbies, and luxury residences, this system creates a bright, airy atmosphere that attracts attention and enhances guest experience. It provides excellent protection from wind and weather when closed, yet opens fully to merge interior spaces with gardens, pool areas, or city views.\n\nThe smooth, quiet mechanism ensures reliable daily operation with minimal maintenance. Its modern, minimalist design suits a wide range of architectural styles, from contemporary commercial venues to upscale private homes, making it a versatile and impressive investment for any premium space.",
     "translations": {
       "ar": {
-        "name": "نظام نوافذ الجلوتين البانورامية الأوتوماتيكية للشرفات والتراسات الفاخرة",
+        "name": "جدار زجاجي بانورامي بالكامل للتراسات والصالات",
         "subCategory": "أنظمة الجلوتين البانورامية المتحركة",
-        "description": "ارتقِ بمفهوم الإطلالة العصرية والانفتاح المعماري مع نظام نوافذ الجلوتين الزجاجية البانورامية المتحركة آلياً. صُمم هذا النظام الهندسي المتطور خصيصاً لتراسات الفلل الراقية، صالات الروف العلوية، والحدائق الشتوية، حيث تنزلق الألواح الزجاجية الضخمة عمودياً بضغطة زر واحدة لتتحول من واجهة زجاجية مغلقة بالكامل إلى حاجز زجاجي سفلي أنيق، مما يمنحك متعة الهواء الطلق وإطلالة بانورامية لا تنقطع على الحديقة الخارجية دون أي عوائق بصرية.\n\nتم تصنيع قطاعات الهيكل من سبائك الألمنيوم المعماري المعالجة حرارياً عالية الصلابة، مع تزويد النظام بمحركات كهربائية أوروبية فائقة القوة والعزم تعمل بسيور مسننة معززة بنواقل حركة متوازنة ومضادة للاهتزاز. وتتألف الواجهة من زجاج أمان مزدوج عازل للحرارة بسماكة أربعة وعشرين مليمتراً ومقسى حرارياً ليعكس حرارة الشمس اللاهبة ويخمد الضوضاء الخارجية مع الحفاظ على صفاء الرؤية التام.\n\nيتميز النظام بربلات إحكام محيطية متطورة تمنع تماماً دخول ذرات الغبار الصحراوي ومياه الأمطار الشديدة حتى أثناء هبوب العواصف الترابية، مع توافق كامل مع أجهزة التحكم عن بعد اللاسلكية وتطبيقات الهواتف الذكية وحساسات الرياح والأمطار التلقائية.",
+        "description": "يُحوّل هذا النظام الزجاجي البانورامي بالارتفاع الكامل أي تراس أو صالة إلى مساحة معيشة متصلة بين الداخل والخارج دون حدود. تنزلق الألواح الزجاجية الكبيرة عمودياً وتُطوى بترتيب، لتفتح الجدار بأكمله أمام الهواء النقي والمناظر الطبيعية مع الحفاظ على مظهر أنيق بدون إطارات عند الإغلاق.\n\nمثالي للمطاعم والمقاهي وبهو الفنادق والمساكن الفاخرة، يخلق هذا النظام أجواءً مشرقة ومنعشة تجذب الانتباه وتُعزّز تجربة الضيوف. يوفر حماية ممتازة من الرياح والطقس عند الإغلاق، ومع ذلك ينفتح بالكامل ليدمج المساحات الداخلية مع الحدائق ومناطق المسابح أو إطلالات المدينة.\n\nتضمن آلية التشغيل السلسة والهادئة أداءً يومياً موثوقاً مع حد أدنى من الصيانة. يتناسب تصميمه العصري البسيط مع مجموعة واسعة من الأنماط المعمارية، من الأماكن التجارية الحديثة إلى المنازل الخاصة الراقية، مما يجعله استثماراً متعدد الاستخدامات ومُبهراً لأي مساحة مميزة.",
         "features": [
           "ألواح زجاجية متحركة رأسياً تتحول بمرونة تامة من واجهة كاملة إلى حاجز شرفة أنيق",
-          "محركات كهربائية أوروبية فائقة القوة تضمن حركة صامتة وسلسة خالية من الاهتزاز",
+          "محركات كهربائية المعتمدة فائقة القوة تضمن حركة صامتة وسلسة خالية من الاهتزاز",
           "زجاج مزدوج مقسى عازل للحرارة والصوت بسماكة أربعة وعشرين مليمتراً لحماية قصوى",
           "توافق ذكي مع أجهزة التحكم اللاسلكي وحساسات الطقس والمطر للإغلاق التلقائي",
           "عوازل محيطية مرنة تمنع تماماً تسرب الهواء والغبار الناعم في الأجواء الصحراوية"
         ]
       },
       "ckb": {
-        "name": "سیستەمی پەنجەرەی گیۆتینی پانۆرامای ئۆتۆماتیکی بۆ شۆرفە و باخچە",
+        "name": "دیواری شووشەیی پانۆرامی بەرزی تەواو بۆ تەڕاس و هۆڵەکان",
         "subCategory": "پەنجەرە و شووشەی پانۆرامای ئۆتۆماتیک",
-        "description": "سیستەمێکی نایابی پەنجەرەی شووشەیی پانۆراما بە جووڵەی ستوونی ئۆتۆماتیکی کە بە پەنجەنان بە دوگمەیەک دەکرێتەوە و دادەخرێت بۆ گۆڕینی شۆرفەی ڤێلاکەت بۆ شوێنێکی کراوە بە هەوای فێنک بەبێ لەدەستدانی دیمەنی سروشتی.\n\nلە ئەلەمنیۆمی پتەوی ئەندازیاری بە مۆتۆری ئەوروپی زۆر بەهێز دروستکراوە کە بە بێدەنگی و نەرمی کار دەکات. شووشەی دوو قاتی پارێزراوی 24 ملمی تێدایە بۆ عەزلی تەواوی گەرما و دەنگی دەرەوە.\n\nلاستیکی تایبەتی دەوروبەری هەیە بۆ ڕێگری تەواو لە تۆز و باران، و بە کۆنتڕۆڵ و مۆبایل و هەستەوەری باران کار دەکات.",
+        "description": "ئەم سیستمە دیواری شووشەیی پانۆرامی بەرزی تەواو هەر تەڕاسێک یان هۆڵێک دەگۆڕێت بۆ شوێنی ژیانی کراوەی ناوەوە-دەرەوە بێ سنوور. تاختە شووشەییە گەورەکان بە ستوونی هەڵدەچن و بە ڕێکوپێکی دادەپەچرێنەوە، هەموو دیوارەکە دەکەنەوە بۆ هەوای پاک و دیمەنی سروشتی لەگەڵ پاراستنی ڕوالەتێکی شیک و بێ چوارچێوە کاتێک داخراوە.\n\nگونجاوە بۆ چێشتخانەکان و کافێکان و لۆبی هوتێلەکان و نیشتەجێگاکانی لوکس، ئەم سیستمە ئاوهەوایەکی ڕووناک و هەوادار دروست دەکات کە سەرنج ڕادەکێشێت و ئەزموونی میوانان باشتر دەکات. پاراستنی نایاب لە با و کەشوهەوا دابین دەکات کاتێک داخراوە، بەڵام بە تەواوی دەکرێتەوە بۆ تێکەڵکردنی شوێنی ناوەوە لەگەڵ باخچەکان و ناوچەکانی مەلەوانگە یان دیمەنی شار.\n\nمیکانیزمی نەرم و بێدەنگ کارکردنی ڕۆژانەی متمانەپێکراو لەگەڵ کەمترین چاککردنەوە دابین دەکات. دیزاینی مۆدێرن و سادەی لەگەڵ ڕیزبەندێکی فراوان لە شێوازی تەلارسازیدا دەگونجێت، لە شوێنە بازرگانییە هاوچەرخەکانەوە بۆ ماڵە تایبەتە شانازییەکان، کە دەیکاتە وەبەرهێنانێکی فراوان و سەرنجڕاکێش بۆ هەر شوێنێکی تایبەت.",
         "features": [
           "جووڵەی ستوونی ئۆتۆماتیکی بە پەنجەرەی شووشەیی کە دەبێتە محاجەرەی پارێزراو",
-          "مۆتۆری کارەبایی ئەوروپی بەهێز بۆ جووڵەی نەرم و بێدەنگ",
+          "مۆتۆری کارەبایی ستانداردی نێودەوڵەتی بەهێز بۆ جووڵەی نەرم و بێدەنگ",
           "شووشەی دوو قاتی عازلی 24 ملم بۆ پاراستن لە گەرما و دەنگ",
           "بەستنەوە بە کۆنتڕۆڵی بێتەل و هەستەوەری بارانی خۆکار",
           "لاستیکی دەوروبەر بۆ ڕێگری لە تۆز و ئاوی باران"
         ]
       },
       "en": {
-        "name": "Automated Guillotine Glass Window & Panoramic Terrace System",
+        "name": "Full-Height Panoramic Glass Wall for Terraces and Lounges",
         "subCategory": "Motorized Guillotine Panoramic Windows",
-        "description": "Redefine outdoor-indoor living with this state-of-the-art motorized guillotine panoramic glass window system. Engineered specifically for luxury residential terraces, enclosed sky lounges, and upscale restaurant pergolas, the system features vertically sliding glass panels that glide down at the touch of a button, transforming full-height glass walls into open-air balustrades while preserving uninterrupted panoramic garden and horizon views.\n\nConstructed from high-tensile 6063-T6 architectural aluminum profiles with internal structural reinforcement, the window incorporates high-torque European motorized drive assemblies powered by reinforced heavy-duty timing belts and precision counterweight balancing. The glazing consists of 24 mm low-emissivity double-glazed tempered safety glass that blocks scorching solar heat and suppresses exterior street noise while maintaining pristine optical clarity.\n\nEquipped with multi-point perimeter brush seals and heavy-duty rubber weather barriers, the system seals tightly against violent windstorms, driving rain, and fine desert dust ingress. Fully compatible with smart home automation, wireless handheld remotes, and automatic wind and rain safety sensors that close the sashes automatically during sudden storms."
+        "description": "This full-height panoramic glass wall system transforms any terrace or lounge into a seamless indoor-outdoor living space. The large glass panels slide vertically and المعتمدةk neatly, opening up the entire wall to fresh air and natural scenery while maintaining an elegant, frameless appearance when closed.\n\nPerfect for restaurants, cafes, hotel lobbies, and luxury residences, this system creates a bright, airy atmosphere that attracts attention and enhances guest experience. It provides excellent protection from wind and weather when closed, yet opens fully to merge interior spaces with gardens, pool areas, or city views.\n\nThe smooth, quiet mechanism ensures reliable daily operation with minimal maintenance. Its modern, minimalist design suits a wide range of architectural styles, from contemporary commercial venues to upscale private homes, making it a versatile and impressive investment for any premium space."
       }
     },
-    "arabicDescription": "ارتقِ بمفهوم الإطلالة العصرية والانفتاح المعماري مع نظام نوافذ الجلوتين الزجاجية البانورامية المتحركة آلياً. صُمم هذا النظام الهندسي المتطور خصيصاً لتراسات الفلل الراقية، صالات الروف العلوية، والحدائق الشتوية، حيث تنزلق الألواح الزجاجية الضخمة عمودياً بضغطة زر واحدة لتتحول من واجهة زجاجية مغلقة بالكامل إلى حاجز زجاجي سفلي أنيق، مما يمنحك متعة الهواء الطلق وإطلالة بانورامية لا تنقطع على الحديقة الخارجية دون أي عوائق بصرية.\n\nتم تصنيع قطاعات الهيكل من سبائك الألمنيوم المعماري المعالجة حرارياً عالية الصلابة، مع تزويد النظام بمحركات كهربائية أوروبية فائقة القوة والعزم تعمل بسيور مسننة معززة بنواقل حركة متوازنة ومضادة للاهتزاز. وتتألف الواجهة من زجاج أمان مزدوج عازل للحرارة بسماكة أربعة وعشرين مليمتراً ومقسى حرارياً ليعكس حرارة الشمس اللاهبة ويخمد الضوضاء الخارجية مع الحفاظ على صفاء الرؤية التام.\n\nيتميز النظام بربلات إحكام محيطية متطورة تمنع تماماً دخول ذرات الغبار الصحراوي ومياه الأمطار الشديدة حتى أثناء هبوب العواصف الترابية، مع توافق كامل مع أجهزة التحكم عن بعد اللاسلكية وتطبيقات الهواتف الذكية وحساسات الرياح والأمطار التلقائية.",
+    "arabicDescription": "يُحوّل هذا النظام الزجاجي البانورامي بالارتفاع الكامل أي تراس أو صالة إلى مساحة معيشة متصلة بين الداخل والخارج دون حدود. تنزلق الألواح الزجاجية الكبيرة عمودياً وتُطوى بترتيب، لتفتح الجدار بأكمله أمام الهواء النقي والمناظر الطبيعية مع الحفاظ على مظهر أنيق بدون إطارات عند الإغلاق.\n\nمثالي للمطاعم والمقاهي وبهو الفنادق والمساكن الفاخرة، يخلق هذا النظام أجواءً مشرقة ومنعشة تجذب الانتباه وتُعزّز تجربة الضيوف. يوفر حماية ممتازة من الرياح والطقس عند الإغلاق، ومع ذلك ينفتح بالكامل ليدمج المساحات الداخلية مع الحدائق ومناطق المسابح أو إطلالات المدينة.\n\nتضمن آلية التشغيل السلسة والهادئة أداءً يومياً موثوقاً مع حد أدنى من الصيانة. يتناسب تصميمه العصري البسيط مع مجموعة واسعة من الأنماط المعمارية، من الأماكن التجارية الحديثة إلى المنازل الخاصة الراقية، مما يجعله استثماراً متعدد الاستخدامات ومُبهراً لأي مساحة مميزة.",
     "technicalSpecs": {
       "ar": {
         "نوع النظام": "نظام جلوتين عمودي متحرك كهربائياً بنظام لوحين أو ثلاثة ألواح",
@@ -1591,7 +1577,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "en": {
         "System Type": "Motorized 3-Panel or 2-Panel Vertical Retractable Guillotine",
         "Profile Material": "Architectural 6063-T6 Extruded Aluminum Alloy",
-        "Glazing": "24 mm (6 mm Toughened Low-E + 12 mm Argon + 6 mm Toughened)",
+        "Glazing": "24 mm (6 mm Toughened Low-E + 12 mm Dry Insulated Air + 6 mm Toughened)",
         "Motorization": "Heavy-Duty Tubular Motor with Wireless Remote & Smart App Control",
         "Surface Coating": "Qualicoat Class 2 Architectural Electrostatic Matte Finish",
         "Wind Load Rating": "Class C4 Certified High-Exposure Wind Resistance"
@@ -1604,19 +1590,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی مات",
         "بەرگری با": "پۆلی C4 بەرگری لە بای بەهێز"
       }
-    }
+    },
+    "kurdishName": "دیواری شووشەیی پانۆرامی بەرزی تەواو بۆ تەڕاس و هۆڵەکان",
+    "kurdishDescription": "ئەم سیستمە دیواری شووشەیی پانۆرامی بەرزی تەواو هەر تەڕاسێک یان هۆڵێک دەگۆڕێت بۆ شوێنی ژیانی کراوەی ناوەوە-دەرەوە بێ سنوور. تاختە شووشەییە گەورەکان بە ستوونی هەڵدەچن و بە ڕێکوپێکی دادەپەچرێنەوە، هەموو دیوارەکە دەکەنەوە بۆ هەوای پاک و دیمەنی سروشتی لەگەڵ پاراستنی ڕوالەتێکی شیک و بێ چوارچێوە کاتێک داخراوە.\n\nگونجاوە بۆ چێشتخانەکان و کافێکان و لۆبی هوتێلەکان و نیشتەجێگاکانی لوکس، ئەم سیستمە ئاوهەوایەکی ڕووناک و هەوادار دروست دەکات کە سەرنج ڕادەکێشێت و ئەزموونی میوانان باشتر دەکات. پاراستنی نایاب لە با و کەشوهەوا دابین دەکات کاتێک داخراوە، بەڵام بە تەواوی دەکرێتەوە بۆ تێکەڵکردنی شوێنی ناوەوە لەگەڵ باخچەکان و ناوچەکانی مەلەوانگە یان دیمەنی شار.\n\nمیکانیزمی نەرم و بێدەنگ کارکردنی ڕۆژانەی متمانەپێکراو لەگەڵ کەمترین چاککردنەوە دابین دەکات. دیزاینی مۆدێرن و سادەی لەگەڵ ڕیزبەندێکی فراوان لە شێوازی تەلارسازیدا دەگونجێت، لە شوێنە بازرگانییە هاوچەرخەکانەوە بۆ ماڵە تایبەتە شانازییەکان، کە دەیکاتە وەبەرهێنانێکی فراوان و سەرنجڕاکێش بۆ هەر شوێنێکی تایبەت."
   },
   {
     "id": "win-sliding-thermal-break",
-    "name": "Architectural Thermal Break Sliding Window System with Minimalist Sashes",
-    "arabicName": "نظام نوافذ السحب المعمارية العازلة للحرارة بإطارات نحيفة فائقة العزل",
+    "name": "Insulated Sliding Window with Slim Profile Design",
+    "arabicName": "نافذة سحب عازلة بتصميم إطار نحيف",
     "category": "windows",
     "division": "windows",
     "subCategory": "Thermal Sliding Windows",
     "modelNumber": "DH-WIN-SLD-10",
     "material": "Extruded 6063-T6 Aluminum with 24 mm Polyamide Thermal Break & Double Sealed Brush Gaskets",
     "brand": "Doorhome Systems",
-    "image": "/products-assets/windows/win_sliding_thermal.jpg",
+    "image": "/products-assets/windows/video_2026-09-26_07-36-00 (10).mp4",
     "fallbackImage": "/products-assets/windows/win_sliding_thermal.jpg",
     "videoUrl": "/products-assets/windows/video_2026-09-26_07-36-00 (10).mp4",
     "features": {
@@ -1631,8 +1619,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "Ultra-Slimline 25 mm Vertical Interlock Profile Maximizing Natural Light & Garden Sightlines",
         "High-Performance 24 mm Polyamide Thermal Break Bars Preventing Exterior Heat Conduction",
         "Tandem Stainless Steel Bearing Rollers Ensuring Effortless, Whisper-Quiet Sash Gliding",
-        "28 mm Argon-Filled Low-Emissivity Double Glazing Delivering Elite Energy Efficiency",
-        "Multi-Stage EPDM Compression Seals Providing 100% Wind, Water & Desert Dust Sealing"
+        "28 mm Dry Insulated Air-Filled Low-Emissivity Double Glazing Delivering Elite Energy Efficiency",
+        "Multi-Stage المطاط المعماري المقاوم للعوامل الجوية Compression Seals Providing 100% Wind, Water & Desert Dust Sealing"
       ],
       "ckb": [
         "هێڵی ستوونی زۆر باریکی 25 ملم بۆ دیمەنێکی کراوە و ڕووناکی تەواو",
@@ -1649,12 +1637,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Glazing Thickness": "Accommodates 20 mm to 32 mm Double/Triple Glazing",
       "Air Permeability": "Class 4 (EN 12207)"
     },
-    "description": "Achieve seamless architectural transparency and world-class thermal insulation with this minimal-profile sliding window system. Engineered with ultra-slim vertical interlock stiles measuring just 25 mm in visible sightline, this system maximizes daylight entry while creating an uninterrupted visual connection between your luxury interior spaces and exterior garden scenery.\n\nThe core engineering utilizes multi-chamber structural aluminum profiles separated by continuous 24 mm glass-fiber reinforced polyamide thermal barrier strips. This thermal break effectively severs conductive heat bridging, keeping indoor living environments comfortable and energy-efficient even during extreme 50°C summer heatwaves. The sliding panels glide effortlessly on concealed stainless steel tandem carriage rollers over an embedded flush track.\n\nGlazed with 28 mm low-emissivity argon-filled double safety glass and sealed with high-density EPDM compression gaskets, this window eliminates draft whistling, blocks dust ingress, and dampens outside street noise by up to 40 dB, delivering quiet, refined luxury for modern private residences.",
+    "description": "This insulated sliding window combines outstanding thermal performance with a remarkably slim frame, allowing maximum glass area and unobstructed views. The smooth sliding mechanism makes it effortless to open and close, providing excellent ventilation while maintaining a clean, modern aesthetic suitable for any architectural style.\n\nDesigned to keep interiors cool in summer and warm in winter, this window significantly reduces energy consumption and creates a quieter indoor environment by blocking outside noise. It is an excellent choice for bedrooms, living rooms, offices, and commercial spaces where comfort and efficiency matter most.\n\nThe durable construction ensures years of reliable performance with minimal maintenance. Available in a range of finishes, it blends naturally with residential facades, office buildings, and commercial storefronts alike, delivering both beauty and practicality in a single elegant solution.",
     "translations": {
       "ar": {
-        "name": "نظام نوافذ السحب المعمارية العازلة للحرارة بإطارات نحيفة فائقة العزل",
+        "name": "نافذة سحب عازلة بتصميم إطار نحيف",
         "subCategory": "النوافذ السحابة الحرارية",
-        "description": "استمتع بأعلى درجات الشفافية المعمارية والعزل الحراري المتقدم مع نظام نوافذ السحب العازلة للحرارة ذات الإطارات فائقة النحافة. يتميز النظام بقواطع رأسية بالغة النحافة بعرض مرئي لا يتجاوز خمسة وعشرين مليمتراً، مما يمنح الغرف تدفقاً وفيراً لضوء النهار الطبيعي ويخلق اتصالاً بصرياً ساحراً ومستمراً مع حديقة الفيلا والمناظر الطبيعية الخارجية دون أي تشويش بصري.\n\nيرتكز الهيكل على قطاعات ألمنيوم إنشائية متعددة الحجرات معزولة بجسور حرارية عريضة مصنعة من ألياف البولي أميد المقواة. تفصل هذه التقنية العازلة درجات الحرارة الخارجية اللاهبة عن الداخل تماماً، لتحافظ على اعتدال برودة المنزل وتوفر استهلاك الطاقة الكهربائية حتى في ذروة الصيف الحار التي تتجاوز خمسين درجة مئوية. وتنزلق الدرف بسلاسة فائقة بفضل عجلات مزدوجة من الستانلس ستيل تسير على مسار سفلي غاطس ناعم.\n\nزُوّدت النوافذ بزجاج مزدوج مقسى عازل للحرارة ومعبأ بالغاز الخامل لتقليل الانبعاث الحراري، مع طبقات متكاملة من الجوانات المطاطية الهندسية التي تخمد أصوات الشارع الخارجية وتمنع تسرب ذرات الغبار ومياه الأمطار نهائياً لتمنحك هدوءاً وراحة مطلقة.",
+        "description": "تجمع هذه النافذة السحب العازلة بين أداء حراري متميز وإطار نحيف بشكل لافت، مما يسمح بأكبر مساحة زجاجية ممكنة وإطلالات خالية من العوائق. تعمل آلية السحب السلسة بسهولة تامة للفتح والإغلاق، وتوفر تهوية ممتازة مع الحفاظ على مظهر عصري نظيف يتناسب مع أي طراز معماري.\n\nصُممت لتحافظ على برودة المساحات الداخلية صيفاً ودفئها شتاءً، حيث تُقلّل بشكل ملحوظ من استهلاك الطاقة وتُوفّر بيئة داخلية أكثر هدوءاً من خلال عزل الضوضاء الخارجية. إنها خيار ممتاز لغرف النوم وغرف المعيشة والمكاتب والمساحات التجارية حيث تكون الراحة والكفاءة في المقام الأول.\n\nتضمن المتانة في التصنيع سنوات من الأداء الموثوق مع حد أدنى من الصيانة. تتوفر بمجموعة من التشطيبات التي تتناغم بشكل طبيعي مع واجهات المنازل والمباني المكتبية والمتاجر التجارية على حد سواء، لتُقدم الجمال والعملية في حلٍّ أنيق واحد.",
         "features": [
           "قواطع رأسية فائقة النحافة بعرض خمسة وعشرين مليمتراً تتيح أقصى نفاذ لضوء النهار الطبيعي",
           "جسور عزل حراري متطورة تمنع انتقال الحرارة الخارجية وتحافظ على برودة المنزل بكفاءة عالية",
@@ -1664,9 +1652,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "سیستەمی پەنجەرەی سحابی ثێرمال برێکی عازلی گەرما بە چوارچێوەی زۆر باریک",
+        "name": "پەنجەرەی سلایدی ئینسولاتەد بە دیزاینی چوارچێوەی تەنک",
         "subCategory": "پەنجەرەی سلایدینگی عەزلکراو",
-        "description": "پەنجەرەیەکی سحابی زۆر شیک و پێشکەوتوو بە ئەلەمنیۆمی ثێرمال برێکی عازل کە هێڵە ستوونییەکانی تەنها 25 ملمن، بۆ هێنانی زۆرترین ڕووناکی سروشتی بۆ ژوورەوە و دابینکردنی دیمەنێکی فراوانی باخچە.\n\nبە بەستەری پۆلیامایدی ئەوروپی لە ناوەوە جیاکراوەتەوە کە بە تەواوی ڕێگری لە گەرمای 50 پلەی هاوین دەکات لە پەڕینەوە بۆ ژوورەوە. لەسەر تایەی جووتە ستانلێس ستیل زۆر بە نەرمی دەجووڵێت بەبێ هیچ هێزێک.\n\nشووشەی دوو قاتی عازلی گازی ئارگۆنی هەیە بۆ نەهێشتنی دەنگ و بەفیڕۆچوونی ساردی، لەگەڵ لاستیکی ئەستوور بۆ ڕێگری لە تۆزی بیابان.",
+        "description": "ئەم پەنجەرەیە سلایدیە ئینسولاتەدە کاریگەری گەرمیی بەرزی نایاب لەگەڵ چوارچێوەیەکی تەنکی سەرنجڕاکێش تێکەڵ دەکات، کە ڕێگەدانی زۆرترین ڕووبەری شووشە و دیمەنی بێ کۆسپ دەکات. میکانیزمی سلایدی نەرم بە ئاسانی تەواو بۆ کردنەوە و داخستن دەکات، هەوادانی نایاب دابین دەکات لەگەڵ پاراستنی ڕوالەتێکی مۆدێرن و پاک کە بۆ هەر شێوازێکی تەلارسازی گونجاوە.\n\nدیزاین کراوە بۆ ساردکردنی ناوەوە لە هاویندا و گەرمکردنی لە زستاندا، ئەم پەنجەرەیە بە بەرچاوی تێچووی وزە کەم دەکاتەوە و ژینگەیەکی ناوخۆیی ئارامتر دروست دەکات بە ڕێگریکردن لە دەنگی دەرەوە. هەڵبژاردنێکی نایابە بۆ ژووری نووستن و ژووری نیشتەجێبوون و ئۆفیس و شوێنە بازرگانییەکان کە ئاسایش و کاریگەری لەوێ گرنگترینن.\n\nدروستکردنی بەردەوام ساڵانی زۆر لە کارکردنی متمانەپێکراو لەگەڵ کەمترین چاککردنەوە دابین دەکات. بە ڕیزبەندێک لە تەواوکارییەکانەوە بەردەستە کە بە سروشتی لەگەڵ ڕووکاری ماڵ و بینای ئۆفیس و دوکانە بازرگانییەکاندا دەگونجێت، جوانی و کاریگەری لە چارەسەرێکی شیکدا دابین دەکات.",
         "features": [
           "هێڵی ستوونی زۆر باریکی 25 ملم بۆ دیمەنێکی کراوە و ڕووناکی تەواو",
           "عازلی گەرمای ثێرمال برێک بۆ پاراستنی فێنکی ژوورەوە لە گەرمای بەرز",
@@ -1676,17 +1664,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Architectural Thermal Break Sliding Window System with Minimalist Sashes",
+        "name": "Insulated Sliding Window with Slim Profile Design",
         "subCategory": "Thermal Sliding Windows",
-        "description": "Achieve seamless architectural transparency and world-class thermal insulation with this minimal-profile sliding window system. Engineered with ultra-slim vertical interlock stiles measuring just 25 mm in visible sightline, this system maximizes daylight entry while creating an uninterrupted visual connection between your luxury interior spaces and exterior garden scenery.\n\nThe core engineering utilizes multi-chamber structural aluminum profiles separated by continuous 24 mm glass-fiber reinforced polyamide thermal barrier strips. This thermal break effectively severs conductive heat bridging, keeping indoor living environments comfortable and energy-efficient even during extreme 50°C summer heatwaves. The sliding panels glide effortlessly on concealed stainless steel tandem carriage rollers over an embedded flush track.\n\nGlazed with 28 mm low-emissivity argon-filled double safety glass and sealed with high-density EPDM compression gaskets, this window eliminates draft whistling, blocks dust ingress, and dampens outside street noise by up to 40 dB, delivering quiet, refined luxury for modern private residences."
+        "description": "This insulated sliding window combines outstanding thermal performance with a remarkably slim frame, allowing maximum glass area and unobstructed views. The smooth sliding mechanism makes it effortless to open and close, providing excellent ventilation while maintaining a clean, modern aesthetic suitable for any architectural style.\n\nDesigned to keep interiors cool in summer and warm in winter, this window significantly reduces energy consumption and creates a quieter indoor environment by blocking outside noise. It is an excellent choice for bedrooms, living rooms, offices, and commercial spaces where comfort and efficiency matter most.\n\nThe durable construction ensures years of reliable performance with minimal maintenance. Available in a range of finishes, it blends naturally with residential facades, office buildings, and commercial storefronts alike, delivering both beauty and practicality in a single elegant solution."
       }
     },
-    "arabicDescription": "استمتع بأعلى درجات الشفافية المعمارية والعزل الحراري المتقدم مع نظام نوافذ السحب العازلة للحرارة ذات الإطارات فائقة النحافة. يتميز النظام بقواطع رأسية بالغة النحافة بعرض مرئي لا يتجاوز خمسة وعشرين مليمتراً، مما يمنح الغرف تدفقاً وفيراً لضوء النهار الطبيعي ويخلق اتصالاً بصرياً ساحراً ومستمراً مع حديقة الفيلا والمناظر الطبيعية الخارجية دون أي تشويش بصري.\n\nيرتكز الهيكل على قطاعات ألمنيوم إنشائية متعددة الحجرات معزولة بجسور حرارية عريضة مصنعة من ألياف البولي أميد المقواة. تفصل هذه التقنية العازلة درجات الحرارة الخارجية اللاهبة عن الداخل تماماً، لتحافظ على اعتدال برودة المنزل وتوفر استهلاك الطاقة الكهربائية حتى في ذروة الصيف الحار التي تتجاوز خمسين درجة مئوية. وتنزلق الدرف بسلاسة فائقة بفضل عجلات مزدوجة من الستانلس ستيل تسير على مسار سفلي غاطس ناعم.\n\nزُوّدت النوافذ بزجاج مزدوج مقسى عازل للحرارة ومعبأ بالغاز الخامل لتقليل الانبعاث الحراري، مع طبقات متكاملة من الجوانات المطاطية الهندسية التي تخمد أصوات الشارع الخارجية وتمنع تسرب ذرات الغبار ومياه الأمطار نهائياً لتمنحك هدوءاً وراحة مطلقة.",
+    "arabicDescription": "تجمع هذه النافذة السحب العازلة بين أداء حراري متميز وإطار نحيف بشكل لافت، مما يسمح بأكبر مساحة زجاجية ممكنة وإطلالات خالية من العوائق. تعمل آلية السحب السلسة بسهولة تامة للفتح والإغلاق، وتوفر تهوية ممتازة مع الحفاظ على مظهر عصري نظيف يتناسب مع أي طراز معماري.\n\nصُممت لتحافظ على برودة المساحات الداخلية صيفاً ودفئها شتاءً، حيث تُقلّل بشكل ملحوظ من استهلاك الطاقة وتُوفّر بيئة داخلية أكثر هدوءاً من خلال عزل الضوضاء الخارجية. إنها خيار ممتاز لغرف النوم وغرف المعيشة والمكاتب والمساحات التجارية حيث تكون الراحة والكفاءة في المقام الأول.\n\nتضمن المتانة في التصنيع سنوات من الأداء الموثوق مع حد أدنى من الصيانة. تتوفر بمجموعة من التشطيبات التي تتناغم بشكل طبيعي مع واجهات المنازل والمباني المكتبية والمتاجر التجارية على حد سواء، لتُقدم الجمال والعملية في حلٍّ أنيق واحد.",
     "technicalSpecs": {
       "ar": {
         "عمق الإطار الأساسي": "مائة وعشرون مليمتراً بنظام متعدد الحجرات العازلة للحرارة",
         "عرض القاطع الرأسي": "قاطع نحيف فائق الأناقة بعرض خمسة وعشرين مليمتراً",
-        "كفاءة العزل الحراري": "عزل حراري متميز متوافق مع أعلى المواصفات والمعايير الأوروبية",
+        "كفاءة العزل الحراري": "عزل حراري متميز متوافق مع أعلى المواصفات والمعايير المعمارية المعتمدة",
         "مستوى عزل الصوت": "تخفيض الضوضاء الخارجية الصادرة من حركة المرور بمقدار أربعين ديسيبل",
         "نظام الانزلاق والحركة": "عجلات ستانلس ستيل مزدوجة بمحامل كروية محكمة فائقة التحمل",
         "جودة الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي حراري مطفي ناعم فائق المقاومة للخدش"
@@ -1694,7 +1682,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "en": {
         "Frame Depth": "120 mm Multi-Chamber Thermal Break Aluminum System",
         "Interlock Sightline": "Ultra-Slim 25 mm Visible Vertical Profile",
-        "Thermal Insulation": "Uw = 1.25 W/m²K (European EN ISO 10077-1 Compliance)",
+        "Thermal Insulation": "Uw = 1.25 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
         "Acoustic Rating": "Rw 40 dB Road Traffic Sound Attenuation",
         "Roller System": "Dual Heavy-Duty Stainless Steel Precision Bearing Carriage Rollers",
         "Surface Coating": "Qualicoat Class 2 Fine-Textured Electrostatic Architectural Finish"
@@ -1702,24 +1690,26 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "ckb": {
         "قووڵایی چوارچێوە": "120 ملم ئەلەمنیۆمی فرە ژووری عازلکراو",
         "پانی هێڵی ستوونی": "25 ملم پڕۆفایلی زۆر باریک",
-        "عازلی گەرما": "بەپێی ستانداردى ئەوروپی 10077-1",
+        "عازلی گەرما": "بەپێی ستانداردى ستانداردی نێودەوڵەتی 10077-1",
         "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 40 دیبل",
         "تایەی سحاب": "تایەی ستانلێس ستیلی جووت بە ڕۆلەری پارێزراو",
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ماتی دژە شووشت"
       }
-    }
+    },
+    "kurdishName": "پەنجەرەی سلایدی ئینسولاتەد بە دیزاینی چوارچێوەی تەنک",
+    "kurdishDescription": "ئەم پەنجەرەیە سلایدیە ئینسولاتەدە کاریگەری گەرمیی بەرزی نایاب لەگەڵ چوارچێوەیەکی تەنکی سەرنجڕاکێش تێکەڵ دەکات، کە ڕێگەدانی زۆرترین ڕووبەری شووشە و دیمەنی بێ کۆسپ دەکات. میکانیزمی سلایدی نەرم بە ئاسانی تەواو بۆ کردنەوە و داخستن دەکات، هەوادانی نایاب دابین دەکات لەگەڵ پاراستنی ڕوالەتێکی مۆدێرن و پاک کە بۆ هەر شێوازێکی تەلارسازی گونجاوە.\n\nدیزاین کراوە بۆ ساردکردنی ناوەوە لە هاویندا و گەرمکردنی لە زستاندا، ئەم پەنجەرەیە بە بەرچاوی تێچووی وزە کەم دەکاتەوە و ژینگەیەکی ناوخۆیی ئارامتر دروست دەکات بە ڕێگریکردن لە دەنگی دەرەوە. هەڵبژاردنێکی نایابە بۆ ژووری نووستن و ژووری نیشتەجێبوون و ئۆفیس و شوێنە بازرگانییەکان کە ئاسایش و کاریگەری لەوێ گرنگترینن.\n\nدروستکردنی بەردەوام ساڵانی زۆر لە کارکردنی متمانەپێکراو لەگەڵ کەمترین چاککردنەوە دابین دەکات. بە ڕیزبەندێک لە تەواوکارییەکانەوە بەردەستە کە بە سروشتی لەگەڵ ڕووکاری ماڵ و بینای ئۆفیس و دوکانە بازرگانییەکاندا دەگونجێت، جوانی و کاریگەری لە چارەسەرێکی شیکدا دابین دەکات."
   },
   {
     "id": "win-magnetic-blinds-double-glass",
-    "name": "Insulated Double Glazed Window with Integrated Internal Magnetic Blinds",
-    "arabicName": "نافذة زجاجية مزدوجة معزولة مع ستائر داخلية مغناطيسية مدمجة",
+    "name": "Double Glass Window with Built-in Adjustable Blinds",
+    "arabicName": "نافذة زجاج مزدوج مع ستائر مدمجة قابلة للتعديل",
     "category": "windows",
     "division": "windows",
     "subCategory": "Integrated Blind Window Systems",
     "modelNumber": "DH-WIN-MGB-03",
     "material": "Hermetically Sealed 16mm/22mm Double Glazing with Internal Micro-Aluminum Louvers & Neodymium Magnetic Slider",
     "brand": "Doorhome Architectural",
-    "image": "/products-assets/windows/win_magnetic_blinds.jpg",
+    "image": "/products-assets/windows/video_2026-09-26_07-36-00 (3).mp4",
     "fallbackImage": "/products-assets/windows/win_magnetic_blinds.jpg",
     "videoUrl": "/products-assets/windows/video_2026-09-26_07-36-00 (3).mp4",
     "features": {
@@ -1735,7 +1725,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "Frictionless Magnetic Slider or Motorized Control for Precision Daylight & Privacy Adjustment",
         "Zero Maintenance & Cordless Child-Safe Operation with Zero Cleaning or Washing Required",
         "Heavy-Duty Thermal Break Aluminum Frame Preventing Heat Transfer & Reducing Energy Bills",
-        "Double Tempered Safety Glass Filled with Dry Argon Gas for Maximum Sound Isolation"
+        "Double Tempered Safety Glass Filled with Dry Dry Insulated Air for Maximum Sound Isolation"
       ],
       "ckb": [
         "پەردەی ئەلەمنیۆمی ناوەکی پارێزراو لە ناو شووشە بەبێ هیچ تۆز و پیسیەک بۆ هەمیشە",
@@ -1751,12 +1741,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Control": "Dual-Function Magnetic Slider (Tilt Louvers & Lift/Drop)",
       "Longevity": "Tested to 100,000 Continuous Operating Cycles"
     },
-    "description": "Experience the ultimate combination of hygienic maintenance-free privacy and high thermal efficiency with this integrated magnetic blind window system. Hermetically sealed inside an insulated 28 mm double-glazing glass unit, the architectural aluminum louvers are completely protected from household dust, exterior grit, and moisture, eliminating the need for tedious cleaning, cord tangling, or slat damage forever.\n\nThe blinds are operated via an external sleek magnetic slider or motorized touch actuator that controls smooth tilting for precise daylight modulation as well as full raising and lowering. The perimeter framework is fabricated from multi-chamber thermal break aluminum with wide polyamide insulating barriers, providing superior thermal barrier performance that keeps solar heat outside.\n\nGlazed with high-performance tempered safety glass on both interior and exterior panes, the sealed hermetic unit is filled with dry Argon gas and desiccated spacers that prevent internal condensation and fogging, delivering clean minimalist luxury and supreme acoustic insulation for villas.",
+    "description": "This innovative double glass window features integrated adjustable blinds sealed between two layers of glass, offering effortless light and privacy control without the dust and maintenance hassles of traditional curtains. A simple magnetic mechanism allows instant adjustment from fully open to completely private, making it a hygienic and modern alternative.\n\nIdeal for hospitals, clinics, offices, kitchens, and bathrooms, the sealed design keeps the blinds protected from moisture, grease, and allergens, ensuring a consistently clean appearance. In residential settings, it provides bedrooms and living spaces with elegant light control that requires zero cleaning.\n\nThe double glass construction delivers excellent thermal and sound insulation, keeping rooms quieter and more energy-efficient. Its sleek, contemporary profile complements any interior design, from minimalist modern homes to professional office environments, adding both style and lasting value.",
     "translations": {
       "ar": {
-        "name": "نافذة زجاجية مزدوجة معزولة مع ستائر داخلية مغناطيسية مدمجة",
+        "name": "نافذة زجاج مزدوج مع ستائر مدمجة قابلة للتعديل",
         "subCategory": "نوافذ الستائر المغناطيسية المدمجة",
-        "description": "استمتع بالخصوصية التامة والنظافة المطلقة مع نظام النوافذ الزجاجية المزدوجة المزودة بستائر مدمجة محكمة الإغلاق. تتميز هذه النوافذ بشرائح ألمنيوم معمارية عازلة مدمجة داخل لوحي الزجاج المزدوج ومفرغة تماماً من الهواء ومغلقة بإحكام صناعي، مما يحمي الستائر نهائياً من تراكم ذرات الغبار أو الأوساخ أو الرطوبة، ويلغي الحاجة للتنظيف أو الغسيل أو القلق من تلف الحبال للأبد.\n\nيتم التحكم في حركة الستائر بسلاسة متناهية عبر مقبض مغناطيسي خارجي فائق الأناقة أو عبر محركات لمسية ذكية تتيح ضبط زاوية ميلان الشرائح لتحديد كمية الضوء الطبيعي الداخل للغرفة، بالإضافة إلى إمكانية رفع وخفض الستائر بالكامل. وقد تم بناء الهيكل الأساسي من قطاعات ألمنيوم عازلة للحرارة مزودة بجسور بولي أميد متطورة تمنع انتقال الحرارة الخارجية إلى الداخل وتحافظ على برودة الغرف.\n\nتتكون الواجهة من زجاج أمان مقسى ومزدوج معبأ بالغاز الخامل ومزود بمواد مجففة تمنع تشكل أي رطوبة أو ضباب داخلي بين الألواح، لتمنح غرف النوم والمجالس والمطابخ لمسة معمارية راقية تجمع بين الأمان الكامل للأطفال والعزل الصوتي المتفوق.",
+        "description": "تتميز هذه النافذة المبتكرة بزجاج مزدوج مع ستائر قابلة للتعديل مدمجة ومحكمة الإغلاق بين طبقتين من الزجاج، مما يوفر تحكماً سهلاً بالضوء والخصوصية دون عناء الغبار وصيانة الستائر التقليدية. تتيح آلية مغناطيسية بسيطة التعديل الفوري من الفتح الكامل إلى الخصوصية التامة، مما يجعلها بديلاً صحياً وعصرياً.\n\nمثالية للمستشفيات والعيادات والمكاتب والمطابخ والحمامات، حيث يحافظ التصميم المحكم على الستائر محمية من الرطوبة والدهون والمواد المسببة للحساسية، مما يضمن مظهراً نظيفاً باستمرار. في الاستخدام المنزلي، توفر لغرف النوم وغرف المعيشة تحكماً أنيقاً بالإضاءة لا يحتاج إلى أي تنظيف.\n\nيوفر الزجاج المزدوج عزلاً حرارياً وصوتياً ممتازاً، مما يجعل الغرف أكثر هدوءاً وكفاءة في استهلاك الطاقة. يتناغم تصميمها الأنيق والعصري مع أي ديكور داخلي، من المنازل الحديثة البسيطة إلى بيئات المكاتب المهنية، مضيفةً أسلوباً مميزاً وقيمة دائمة.",
         "features": [
           "ستائر ألمنيوم معمارية مدمجة ومعزولة بالكامل داخل الزجاج ومحمية من الغبار للأبد",
           "تحكم مغناطيسي انسيابي بدون أسلاك لضبط زاوية الشرائح والتحكم الدقيق في الضوء والخصوصية",
@@ -1766,9 +1756,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "پەنجەرەی دوو قاتی عازل بە پەردەی موگناتیسی شاردراوە لە ناو شووشەدا",
+        "name": "پەنجەرەی شووشەی دووجۆڕ بە پەردەی ناوەکی ڕێکخراو",
         "subCategory": "پەنجەرە بە پەردەی ناوەکی موگناتیسی",
-        "description": "پەنجەرەیەکی زۆر ناوازە کە پەردەی ئەلەمنیۆمی لە ناو دوو قاتی شووشەکەدا بە شێوەیەکی هەوایی داخراو جێگیرکراوە، بۆیە هەرگیز تۆز و پیسی ناگرێت و پێویستی بە هیچ پاککردنەوە و شوشتنێک نییە بۆ هەمیشە.\n\nبە بەکارهێنانی کلیلێکی موگناتیسی دەرەکی زۆر بە نەرمی شریتەکان دەسووڕێنرێن بۆ ڕێکخستنی ڕۆشنایی و داپۆشینی ژوور بەبێ بەکارهێنانی گوریس یان پەت. چوارچێوەی ئەلەمنیۆمی ثێرمال برێکی عازلی هەیە کە گەرمای بەرز دەبڕێت.\n\nشووشەی سێکۆریتی دوو قاتی پڕکراو لە گازی عازلی ئارگۆن کە لە ناوەوە هەرگیز هەڵم ناکات و عەزلی دەنگ و گەرمای تەواو دابین دەکات بۆ ڤێلاکەت.",
+        "description": "ئەم پەنجەرەیە نوێکارە شووشەی دووجۆڕی تایبەتمەند هەیە بە پەردەی ڕێکخراوی تێکەڵکراوی پەسندکراو لەنێوان دوو چینی شووشەدا، کە کۆنتڕۆڵکردنی ئاسانی ڕووناکی و تایبەتمەندی دابین دەکات بێ کێشەی تۆز و چاککردنەوەی پەردەی کلاسیکی. میکانیزمێکی مەقناتیسی ساکار ڕێکخستنی دەستبەجێ لە کردنەوەی تەواوەوە بۆ تایبەتمەندی تەواو دابین دەکات، کە دەیکاتە بەدیلێکی تەندروستانە و مۆدێرن.\n\nگونجاوە بۆ نەخۆشخانەکان و کلینیکەکان و ئۆفیسەکان و چێشتخانەکان و حەمامەکان، دیزاینی پەسندکراو پەردەکان لە شێداری و بۆن و مادە هەستیارەکان دەپارێزێت، کە بەردەوام ڕوالەتێکی پاک دابین دەکات. لە بەکارهێنانی ماڵەوە، بۆ ژووری نووستن و شوێنی نیشتەجێبوون کۆنتڕۆڵی شیکی ڕووناکی دابین دەکات کە هیچ پاککردنەوەیەک پێویست ناکات.\n\nدروستکردنی شووشەی دووجۆڕ ئینسولاسیۆنی گەرمی و دەنگی نایاب دابین دەکات، ژوورەکان ئارامتر و کاریگەرتر دەکات لە بەکارهێنانی وزەدا. پرۆفایلی شیک و هاوچەرخی لەگەڵ هەر دیزاینێکی ناوخۆیی دەگونجێت، لە ماڵە مۆدێرنە سادەکانەوە بۆ ژینگەی ئۆفیسی پیشەیی، شێواز و بەهای بەردەوام زیاد دەکات.",
         "features": [
           "پەردەی ئەلەمنیۆمی ناوەکی پارێزراو لە ناو شووشە بەبێ هیچ تۆز و پیسیەک بۆ هەمیشە",
           "کۆنتڕۆڵی موگناتیسی بێ وایەر بۆ لاری شریتەکان و ڕێکخستنی ڕۆشنایی ژوور",
@@ -1778,12 +1768,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Insulated Double Glazed Window with Integrated Internal Magnetic Blinds",
+        "name": "Double Glass Window with Built-in Adjustable Blinds",
         "subCategory": "Integrated Blind Window Systems",
-        "description": "Experience the ultimate combination of hygienic maintenance-free privacy and high thermal efficiency with this integrated magnetic blind window system. Hermetically sealed inside an insulated 28 mm double-glazing glass unit, the architectural aluminum louvers are completely protected from household dust, exterior grit, and moisture, eliminating the need for tedious cleaning, cord tangling, or slat damage forever.\n\nThe blinds are operated via an external sleek magnetic slider or motorized touch actuator that controls smooth tilting for precise daylight modulation as well as full raising and lowering. The perimeter framework is fabricated from multi-chamber thermal break aluminum with wide polyamide insulating barriers, providing superior thermal barrier performance that keeps solar heat outside.\n\nGlazed with high-performance tempered safety glass on both interior and exterior panes, the sealed hermetic unit is filled with dry Argon gas and desiccated spacers that prevent internal condensation and fogging, delivering clean minimalist luxury and supreme acoustic insulation for villas."
+        "description": "This innovative double glass window features integrated adjustable blinds sealed between two layers of glass, offering effortless light and privacy control without the dust and maintenance hassles of traditional curtains. A simple magnetic mechanism allows instant adjustment from fully open to completely private, making it a hygienic and modern alternative.\n\nIdeal for hospitals, clinics, offices, kitchens, and bathrooms, the sealed design keeps the blinds protected from moisture, grease, and allergens, ensuring a consistently clean appearance. In residential settings, it provides bedrooms and living spaces with elegant light control that requires zero cleaning.\n\nThe double glass construction delivers excellent thermal and sound insulation, keeping rooms quieter and more energy-efficient. Its sleek, contemporary profile complements any interior design, from minimalist modern homes to professional office environments, adding both style and lasting value."
       }
     },
-    "arabicDescription": "استمتع بالخصوصية التامة والنظافة المطلقة مع نظام النوافذ الزجاجية المزدوجة المزودة بستائر مدمجة محكمة الإغلاق. تتميز هذه النوافذ بشرائح ألمنيوم معمارية عازلة مدمجة داخل لوحي الزجاج المزدوج ومفرغة تماماً من الهواء ومغلقة بإحكام صناعي، مما يحمي الستائر نهائياً من تراكم ذرات الغبار أو الأوساخ أو الرطوبة، ويلغي الحاجة للتنظيف أو الغسيل أو القلق من تلف الحبال للأبد.\n\nيتم التحكم في حركة الستائر بسلاسة متناهية عبر مقبض مغناطيسي خارجي فائق الأناقة أو عبر محركات لمسية ذكية تتيح ضبط زاوية ميلان الشرائح لتحديد كمية الضوء الطبيعي الداخل للغرفة، بالإضافة إلى إمكانية رفع وخفض الستائر بالكامل. وقد تم بناء الهيكل الأساسي من قطاعات ألمنيوم عازلة للحرارة مزودة بجسور بولي أميد متطورة تمنع انتقال الحرارة الخارجية إلى الداخل وتحافظ على برودة الغرف.\n\nتتكون الواجهة من زجاج أمان مقسى ومزدوج معبأ بالغاز الخامل ومزود بمواد مجففة تمنع تشكل أي رطوبة أو ضباب داخلي بين الألواح، لتمنح غرف النوم والمجالس والمطابخ لمسة معمارية راقية تجمع بين الأمان الكامل للأطفال والعزل الصوتي المتفوق.",
+    "arabicDescription": "تتميز هذه النافذة المبتكرة بزجاج مزدوج مع ستائر قابلة للتعديل مدمجة ومحكمة الإغلاق بين طبقتين من الزجاج، مما يوفر تحكماً سهلاً بالضوء والخصوصية دون عناء الغبار وصيانة الستائر التقليدية. تتيح آلية مغناطيسية بسيطة التعديل الفوري من الفتح الكامل إلى الخصوصية التامة، مما يجعلها بديلاً صحياً وعصرياً.\n\nمثالية للمستشفيات والعيادات والمكاتب والمطابخ والحمامات، حيث يحافظ التصميم المحكم على الستائر محمية من الرطوبة والدهون والمواد المسببة للحساسية، مما يضمن مظهراً نظيفاً باستمرار. في الاستخدام المنزلي، توفر لغرف النوم وغرف المعيشة تحكماً أنيقاً بالإضاءة لا يحتاج إلى أي تنظيف.\n\nيوفر الزجاج المزدوج عزلاً حرارياً وصوتياً ممتازاً، مما يجعل الغرف أكثر هدوءاً وكفاءة في استهلاك الطاقة. يتناغم تصميمها الأنيق والعصري مع أي ديكور داخلي، من المنازل الحديثة البسيطة إلى بيئات المكاتب المهنية، مضيفةً أسلوباً مميزاً وقيمة دائمة.",
     "technicalSpecs": {
       "ar": {
         "سماكة وحدة الزجاج": "ثمانية وعشرون مليمتراً وحدة زجاجية مزدوجة محكمة الإغلاق صناعياً",
@@ -1809,39 +1799,41 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 38 دیبل",
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 بە ڕووی مات"
       }
-    }
+    },
+    "kurdishName": "پەنجەرەی شووشەی دووجۆڕ بە پەردەی ناوەکی ڕێکخراو",
+    "kurdishDescription": "ئەم پەنجەرەیە نوێکارە شووشەی دووجۆڕی تایبەتمەند هەیە بە پەردەی ڕێکخراوی تێکەڵکراوی پەسندکراو لەنێوان دوو چینی شووشەدا، کە کۆنتڕۆڵکردنی ئاسانی ڕووناکی و تایبەتمەندی دابین دەکات بێ کێشەی تۆز و چاککردنەوەی پەردەی کلاسیکی. میکانیزمێکی مەقناتیسی ساکار ڕێکخستنی دەستبەجێ لە کردنەوەی تەواوەوە بۆ تایبەتمەندی تەواو دابین دەکات، کە دەیکاتە بەدیلێکی تەندروستانە و مۆدێرن.\n\nگونجاوە بۆ نەخۆشخانەکان و کلینیکەکان و ئۆفیسەکان و چێشتخانەکان و حەمامەکان، دیزاینی پەسندکراو پەردەکان لە شێداری و بۆن و مادە هەستیارەکان دەپارێزێت، کە بەردەوام ڕوالەتێکی پاک دابین دەکات. لە بەکارهێنانی ماڵەوە، بۆ ژووری نووستن و شوێنی نیشتەجێبوون کۆنتڕۆڵی شیکی ڕووناکی دابین دەکات کە هیچ پاککردنەوەیەک پێویست ناکات.\n\nدروستکردنی شووشەی دووجۆڕ ئینسولاسیۆنی گەرمی و دەنگی نایاب دابین دەکات، ژوورەکان ئارامتر و کاریگەرتر دەکات لە بەکارهێنانی وزەدا. پرۆفایلی شیک و هاوچەرخی لەگەڵ هەر دیزاینێکی ناوخۆیی دەگونجێت، لە ماڵە مۆدێرنە سادەکانەوە بۆ ژینگەی ئۆفیسی پیشەیی، شێواز و بەهای بەردەوام زیاد دەکات."
   },
   {
     "id": "win-motorized-remote-guillotine",
-    "name": "Motorized Electric Guillotine Window System with Smart Remote Control",
-    "arabicName": "نظام نوافذ الجلوتين الكهربائية الذكية مع جهاز تحكم عن بعد ومستشعرات طقس",
+    "name": "Motorized Window with Remote Control and Built-in Blinds",
+    "arabicName": "نافذة آلية بتحكم عن بُعد وستائر مدمجة",
     "category": "windows",
     "division": "windows",
     "subCategory": "Smart Motorized Window Systems",
     "modelNumber": "DH-WIN-MTR-09",
     "material": "High-Grade Architectural Aluminum Frame with High-Torque Motor & Low-E Laminated Safety Glass",
     "brand": "Doorhome Automation",
-    "image": "/products-assets/windows/win_motorized_remote.jpg",
+    "image": "/products-assets/windows/video_2026-09-26_07-36-00 (9).mp4",
     "fallbackImage": "/products-assets/windows/win_motorized_remote.jpg",
     "videoUrl": "/products-assets/windows/video_2026-09-26_07-36-00 (9).mp4",
     "features": {
       "ar": [
         "تشغيل آلي ذكي عبر أجهزة التحكم عن بُعد وتطبيقات الهاتف وشاشات التحكم الجدارية",
-        "محركات أوروبية صامتة مزودة بأنظمة الفرملة الناعمة ومستشعرات ضبط الموقع الدقيق",
+        "محركات المعتمدة صامتة مزودة بأنظمة الفرملة الناعمة ومستشعرات ضبط الموقع الدقيق",
         "مجاري جانبية من الألمنيوم الإنشائي ببطانات مانعة للاحتكاك ومقاومة للرياح الشديدة",
         "زجاج مزدوج مقسى عازل للحرارة يوفر حماية فائقة ضد حرارة الصيف والضوضاء الخارجية",
         "مستشعرات أمان ذكية للطقس تغلق النوافذ تلقائياً بمجرد هطول الأمطار أو هبوب الرياح"
       ],
       "en": [
         "Intelligent Motorized Operation with Handheld Multi-Channel Remotes & Mobile App Integration",
-        "Whisper-Silent Soft-Start and Soft-Stop European Drive Motors with Optical Position Encoders",
+        "Whisper-Silent Soft-Start and Soft-Stop Architectural Standard Drive Motors with Optical Position Encoders",
         "Heavy-Duty Aluminum Guide Channels with Teflon Glides Suppressing High-Wind Vibration",
         "24 mm Solar-Control Tempered Safety Glass Delivering Outstanding Thermal & Acoustic Defense",
         "Automatic Weather Sensor Integration: Automatically Closes During Sudden Rain & Sandstorms"
       ],
       "ckb": [
         "کارپێکردنی زیرەکی کارەبایی بە کۆنتڕۆڵی دوورەدەست و بەرنامەی مۆبایل",
-        "مۆتۆری ئەوروپی تەواو بێدەنگ بە سیستەمی دەستپێکردن و وەستانی نەرم",
+        "مۆتۆری ستانداردی نێودەوڵەتی تەواو بێدەنگ بە سیستەمی دەستپێکردن و وەستانی نەرم",
         "کەناڵی ئەلەمنیۆمی بەهێز بە ڕووی دژە لێکخشان دژە لەرینەوە لە کاتی با",
         "شووشەی دوو قاتی سێکۆریتی 24 ملم بۆ عەزلی گەرما و بڕینی دەنگ",
         "هەستەوەری کەشوهەوا کە لە کاتی بارانی لەناکاو پەنجەرەکە دادەخات خۆکارانە"
@@ -1851,44 +1843,44 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Motor Specs": "230V High-Torque Tubular Motor with Electronic Limit Switches",
       "Operation Speed": "Smooth 12 cm/second Vertical Travel Speed",
       "Frame Dimension": "140 mm Heavy Structural Header Profile",
-      "Safety Sensor": "Dual Bottom Beam Obstacle Detection"
+      "Safety Sensor": "Dual Bottom Beam Obالمعتمدةle Detection"
     },
-    "description": "Experience the future of dynamic architectural facades with this fully automated remote-controlled guillotine window system. Tailored for high-end residential rooftop lounges, luxury garden pergolas, and outdoor entertainment pavilions, the system utilizes precision-synchronized electric motors to silently raise and lower oversized tempered double-glazed sashes, providing instant adaptability between an enclosed climate-controlled room and an open terrace balcony.\n\nDriven by heavy-duty European tubular motors with integrated optical encoders, each sash operates with smooth soft-start and soft-stop kinetics, preventing mechanical shock and guaranteeing decades of trouble-free daily cycling. Structural aluminum guide channels feature internal Teflon-coated glides and acoustic brush seals that eliminate wind friction and suppress vibration even during high-wind desert conditions.\n\nGlazed with 24 mm solar-control tempered safety glass and finished with super-durable Qualicoat Class 2 architectural powder coats, the window integrates seamlessly with multi-channel handheld remotes, mobile smart home apps, and automatic wind/rain weather sensors.",
+    "description": "This motorized window system combines the convenience of remote-controlled operation with integrated internal blinds, offering complete control over light, ventilation, and privacy at the touch of a button. The window opens and closes electrically, eliminating the need for manual effort and making it perfect for hard-to-reach installations or luxury living spaces.\n\nSuitable for homes, offices, showrooms, and hospitality venues, this window enhances everyday comfort by allowing precise adjustment of airflow and sunlight. The built-in blinds remain sealed and dust-free, providing a clean, polished look that requires no maintenance and suits both modern and classic interiors.\n\nEngineered for long-term reliability, the motorized mechanism operates quietly and efficiently, adding a touch of sophistication to any property. It is an excellent choice for those seeking a smart, elegant upgrade that improves convenience, energy efficiency, and overall living quality.",
     "translations": {
       "ar": {
-        "name": "نظام نوافذ الجلوتين الكهربائية الذكية مع جهاز تحكم عن بعد ومستشعرات طقس",
+        "name": "نافذة آلية بتحكم عن بُعد وستائر مدمجة",
         "subCategory": "نوافذ كهربائية ذكية",
-        "description": "اختبر مستقبل الواجهات المعمارية الذكية مع نظام نوافذ الجلوتين الكهربائية المزودة بتقنيات التحكم الذكي عن بُعد. صُمم هذا النظام المتطور خصيصاً لجلسات الروف العلوية، صالات التراس في الفلل الخاصة، ومساحات الاستقبال الخارجية، حيث تعمل المحركات الكهربائية المزامنة بدقة على رفع وخفض الألواح الزجاجية البانورامية الضخمة بهدوء تام، لتمنحك مرونة فورية للتحول بين صالة داخلية مكيفة بالكامل وشرفة خارجية مفتوحة على نسيم الهواء الطلق.\n\nيعمل النظام بمحركات كهربائية أوروبية فائقة الاعتمادية مزودة بنظام بدء وإيقاف هادئ وناعم يمتص الصدمات الميكانيكية ويضمن عمراً تشغيلياً مديداً دون أي أعطال. وتتضمن مجاري التوجيه الجانبية المصنوعة من الألمنيوم الإنشائي بطانات خاصة مانعة للاحتكاك وجوانات عازلة تمنع أي اهتزازات أو أصوات صفير حتى أثناء هبوب الرياح والعواصف الترابية.\n\nتتكون الواجهة من زجاج أمان مقسى مزدوج عازل للحرارة بسماكة أربعة وعشرين مليمتراً ومطلي بطبقات حماية شمسية متقدمة، مع توافق كامل مع أجهزة التحكم عن بعد اللاسلكية وتطبيقات المنازل الذكية وحساسات الأمطار التي تغلق النوافذ تلقائياً عند تغير الطقس.",
+        "description": "يجمع نظام النافذة الآلية هذا بين سهولة التشغيل بالتحكم عن بُعد والستائر الداخلية المدمجة، مما يوفر تحكماً كاملاً بالإضاءة والتهوية والخصوصية بلمسة زر واحدة. تُفتح النافذة وتُغلق كهربائياً مما يُلغي الحاجة إلى الجهد اليدوي ويجعلها مثالية للالمعتمدبات في الأماكن صعبة الوصول أو مساحات المعيشة الفاخرة.\n\nمناسبة للمنازل والمكاتب وصالات العرض وأماكن الضيافة، تُعزّز هذه النافذة الراحة اليومية من خلال التعديل الدقيق لتدفق الهواء وأشعة الشمس. تبقى الستائر المدمجة محكمة الإغلاق وخالية من الغبار، مما يمنح مظهراً نظيفاً وأنيقاً لا يحتاج إلى أي صيانة ويتناسب مع الديكورات الحديثة والكلاسيكية على حد سواء.\n\nصُممت للاعتمادية على المدى الطويل، حيث تعمل الآلية الكهربائية بهدوء وكفاءة، مضيفةً لمسة من الرقي لأي عقار. إنها خيار ممتاز لمن يبحث عن ترقية ذكية وأنيقة تُحسّن الراحة وكفاءة الطاقة وجودة المعيشة بشكل عام.",
         "features": [
           "تشغيل آلي ذكي عبر أجهزة التحكم عن بُعد وتطبيقات الهاتف وشاشات التحكم الجدارية",
-          "محركات أوروبية صامتة مزودة بأنظمة الفرملة الناعمة ومستشعرات ضبط الموقع الدقيق",
+          "محركات المعتمدة صامتة مزودة بأنظمة الفرملة الناعمة ومستشعرات ضبط الموقع الدقيق",
           "مجاري جانبية من الألمنيوم الإنشائي ببطانات مانعة للاحتكاك ومقاومة للرياح الشديدة",
           "زجاج مزدوج مقسى عازل للحرارة يوفر حماية فائقة ضد حرارة الصيف والضوضاء الخارجية",
           "مستشعرات أمان ذكية للطقس تغلق النوافذ تلقائياً بمجرد هطول الأمطار أو هبوب الرياح"
         ]
       },
       "ckb": {
-        "name": "سیستەمی پەنجەرەی گیۆتینی کارەبایی زیرەک بە کۆنتڕۆڵی بێتەل",
+        "name": "پەنجەرەی ئۆتۆماتیکی بە کۆنتڕۆڵی دووری و پەردەی ناوەکی",
         "subCategory": "پەنجەرەی کارەبایی و مۆتۆڕدار",
-        "description": "سیستەمێکی زۆر پێشکەوتووی پەنجەرەی گیۆتین کە بە مۆتۆری کارەبایی و کۆنتڕۆڵی دوورەدەست کار دەکات بۆ بەرزکردنەوە و نزمکردنەوەی شووشەی گەورەی پانۆراما لەسەر شۆرفە و تێراسی ڤێلاکەت بە شێوەیەکی زۆر بێدەنگ و نەرم.\n\nبە مۆتۆری ئەوروپی زیرەک بە سیستەمی وەستانی نەرم کار دەکات بۆ ڕێگری لە لەرینەوە و مانەوەی بۆ دەیان ساڵ بەبێ تێکچوون. کەناڵە لاوەکییەکانی ئەلەمنیۆم ماددەی دژە لێکخشانیان تێدایە کە ناهێڵن با هیچ دەنگێک دروست بکات.\n\nشووشەی دوو قاتی پارێزراوی 24 ملمی عازلی گەرمای تێدایە و بە بۆیاخی ماتی پلە یەک بۆیاخ کراوە، لەگەڵ هەستەوەری زیرەکی باران و کۆنتڕۆڵی مۆبایل.",
+        "description": "ئەم سیستمە پەنجەرەیە ئۆتۆماتیکیە ئاسانی کارکردن بە کۆنتڕۆڵی دووری لەگەڵ پەردەی ناوەکی تێکەڵکراو کۆدەکاتەوە، کۆنتڕۆڵی تەواو لەسەر ڕووناکی و هەوادان و تایبەتمەندی بە دەستکردنی دوگمەیەک دابین دەکات. پەنجەرەکە بە کارەبا دەکرێتەوە و دادەخرێت، کە پێویستی بە هەوڵی دەستی نامێنێت و گونجاوی دەکات بۆ دامەزراندنی شوێنە سەختەکان یان شوێنی ژیانی لوکس.\n\nگونجاوە بۆ ماڵ و ئۆفیس و نمایشگا و شوێنی پێشوازی، ئەم پەنجەرەیە ئاسایشی ڕۆژانە باشتر دەکات بە ڕێگەدانی ڕێکخستنی وردی هەوا و تیشکی خۆر. پەردەکانی ناوەکی پەسندکراو و بێ تۆز دەمێنن، ڕوالەتێکی پاک و شیک دەبەخشن کە هیچ چاککردنەوەیەک پێویست ناکات و لەگەڵ دیزاینی مۆدێرن و کلاسیکدا دەگونجێت.\n\nئەندازیاری کراوە بۆ متمانەپێکراوی درێژخایەن، میکانیزمی ئۆتۆماتیکی بە ئارامی و کاریگەری کار دەکات و تەمەکێکی سۆفیستیکەیت بە هەر موڵکێک زیاد دەکات. هەڵبژاردنێکی نایابە بۆ ئەوانەی بەدوای نوێکردنەوەیەکی زیرەک و شیکدا دەگەڕێن کە ئاسایش و کاریگەری وزە و کوالیتەی ژیان بە گشتی باشتر دەکات.",
         "features": [
           "کارپێکردنی زیرەکی کارەبایی بە کۆنتڕۆڵی دوورەدەست و بەرنامەی مۆبایل",
-          "مۆتۆری ئەوروپی تەواو بێدەنگ بە سیستەمی دەستپێکردن و وەستانی نەرم",
+          "مۆتۆری ستانداردی نێودەوڵەتی تەواو بێدەنگ بە سیستەمی دەستپێکردن و وەستانی نەرم",
           "کەناڵی ئەلەمنیۆمی بەهێز بە ڕووی دژە لێکخشان دژە لەرینەوە لە کاتی با",
           "شووشەی دوو قاتی سێکۆریتی 24 ملم بۆ عەزلی گەرما و بڕینی دەنگ",
           "هەستەوەری کەشوهەوا کە لە کاتی بارانی لەناکاو پەنجەرەکە دادەخات خۆکارانە"
         ]
       },
       "en": {
-        "name": "Motorized Electric Guillotine Window System with Smart Remote Control",
+        "name": "Motorized Window with Remote Control and Built-in Blinds",
         "subCategory": "Smart Motorized Window Systems",
-        "description": "Experience the future of dynamic architectural facades with this fully automated remote-controlled guillotine window system. Tailored for high-end residential rooftop lounges, luxury garden pergolas, and outdoor entertainment pavilions, the system utilizes precision-synchronized electric motors to silently raise and lower oversized tempered double-glazed sashes, providing instant adaptability between an enclosed climate-controlled room and an open terrace balcony.\n\nDriven by heavy-duty European tubular motors with integrated optical encoders, each sash operates with smooth soft-start and soft-stop kinetics, preventing mechanical shock and guaranteeing decades of trouble-free daily cycling. Structural aluminum guide channels feature internal Teflon-coated glides and acoustic brush seals that eliminate wind friction and suppress vibration even during high-wind desert conditions.\n\nGlazed with 24 mm solar-control tempered safety glass and finished with super-durable Qualicoat Class 2 architectural powder coats, the window integrates seamlessly with multi-channel handheld remotes, mobile smart home apps, and automatic wind/rain weather sensors."
+        "description": "This motorized window system combines the convenience of remote-controlled operation with integrated internal blinds, offering complete control over light, ventilation, and privacy at the touch of a button. The window opens and closes electrically, eliminating the need for manual effort and making it perfect for hard-to-reach installations or luxury living spaces.\n\nSuitable for homes, offices, showrooms, and hospitality venues, this window enhances everyday comfort by allowing precise adjustment of airflow and sunlight. The built-in blinds remain sealed and dust-free, providing a clean, polished look that requires no maintenance and suits both modern and classic interiors.\n\nEngineered for long-term reliability, the motorized mechanism operates quietly and efficiently, adding a touch of sophistication to any property. It is an excellent choice for those seeking a smart, elegant upgrade that improves convenience, energy efficiency, and overall living quality."
       }
     },
-    "arabicDescription": "اختبر مستقبل الواجهات المعمارية الذكية مع نظام نوافذ الجلوتين الكهربائية المزودة بتقنيات التحكم الذكي عن بُعد. صُمم هذا النظام المتطور خصيصاً لجلسات الروف العلوية، صالات التراس في الفلل الخاصة، ومساحات الاستقبال الخارجية، حيث تعمل المحركات الكهربائية المزامنة بدقة على رفع وخفض الألواح الزجاجية البانورامية الضخمة بهدوء تام، لتمنحك مرونة فورية للتحول بين صالة داخلية مكيفة بالكامل وشرفة خارجية مفتوحة على نسيم الهواء الطلق.\n\nيعمل النظام بمحركات كهربائية أوروبية فائقة الاعتمادية مزودة بنظام بدء وإيقاف هادئ وناعم يمتص الصدمات الميكانيكية ويضمن عمراً تشغيلياً مديداً دون أي أعطال. وتتضمن مجاري التوجيه الجانبية المصنوعة من الألمنيوم الإنشائي بطانات خاصة مانعة للاحتكاك وجوانات عازلة تمنع أي اهتزازات أو أصوات صفير حتى أثناء هبوب الرياح والعواصف الترابية.\n\nتتكون الواجهة من زجاج أمان مقسى مزدوج عازل للحرارة بسماكة أربعة وعشرين مليمتراً ومطلي بطبقات حماية شمسية متقدمة، مع توافق كامل مع أجهزة التحكم عن بعد اللاسلكية وتطبيقات المنازل الذكية وحساسات الأمطار التي تغلق النوافذ تلقائياً عند تغير الطقس.",
+    "arabicDescription": "يجمع نظام النافذة الآلية هذا بين سهولة التشغيل بالتحكم عن بُعد والستائر الداخلية المدمجة، مما يوفر تحكماً كاملاً بالإضاءة والتهوية والخصوصية بلمسة زر واحدة. تُفتح النافذة وتُغلق كهربائياً مما يُلغي الحاجة إلى الجهد اليدوي ويجعلها مثالية للالمعتمدبات في الأماكن صعبة الوصول أو مساحات المعيشة الفاخرة.\n\nمناسبة للمنازل والمكاتب وصالات العرض وأماكن الضيافة، تُعزّز هذه النافذة الراحة اليومية من خلال التعديل الدقيق لتدفق الهواء وأشعة الشمس. تبقى الستائر المدمجة محكمة الإغلاق وخالية من الغبار، مما يمنح مظهراً نظيفاً وأنيقاً لا يحتاج إلى أي صيانة ويتناسب مع الديكورات الحديثة والكلاسيكية على حد سواء.\n\nصُممت للاعتمادية على المدى الطويل، حيث تعمل الآلية الكهربائية بهدوء وكفاءة، مضيفةً لمسة من الرقي لأي عقار. إنها خيار ممتاز لمن يبحث عن ترقية ذكية وأنيقة تُحسّن الراحة وكفاءة الطاقة وجودة المعيشة بشكل عام.",
     "technicalSpecs": {
       "ar": {
-        "نظام المحرك": "محرك كهربائي أوروبي عالي العزم مزود بحماية حرارية ذكية وتزامن دقيق",
+        "نظام المحرك": "محرك كهربائي المعتمد عالي العزم مزود بحماية حرارية ذكية وتزامن دقيق",
         "مادة الهيكل": "سبائك ألمنيوم معمارية مسحوبة فائقة المتانة ومعالجة حرارياً",
         "مواصفات الزجاج": "زجاج مزدوج مقسى عازل للحرارة بسماكة أربعة وعشرين مليمتراً",
         "وسائل التحكم": "جهاز تحكم لاسلكي متعدد القنوات ومفتاح جداري وتطبيق ذكي للهاتف",
@@ -1896,55 +1888,57 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "أنظمة الأمان": "حساسات ذكية لإيقاف وعكس الحركة فوراً عند استشعار أي عائق"
       },
       "en": {
-        "Drive System": "Heavy-Duty European Synchronized Tubular Motor with Thermal Cutoff",
+        "Drive System": "Heavy-Duty Architectural Standard Synchronized Tubular Motor with Thermal Cutoff",
         "Profile Material": "6063-T6 High-Tensile Structural Aluminum Alloy",
-        "Glazing Specification": "24 mm (6 mm Solar Low-E + 12 mm Argon Gas + 6 mm Tempered)",
+        "Glazing Specification": "24 mm (6 mm Solar Low-E + 12 mm Dry Insulated Air + 6 mm Tempered)",
         "Control Interfaces": "RF Multi-Channel Remote, Wall Push Button & Mobile App (Wi-Fi/Zigbee)",
         "Surface Coating": "Qualicoat Class 2 Fine-Texture Architectural Finish",
-        "Safety Systems": "Optical Obstacle Detection Auto-Reverse & Safety Interlock"
+        "Safety Systems": "Optical Obالمعتمدةle Detection Auto-Reverse & Safety Interlock"
       },
       "ckb": {
-        "مۆتۆری کارپێکردن": "مۆتۆری ئەوروپی بەهێز بە پاراستنی گەرمی",
+        "مۆتۆری کارپێکردن": "مۆتۆری ستانداردی نێودەوڵەتی بەهێز بە پاراستنی گەرمی",
         "ماددەی پڕۆفایل": "ئەلەمنیۆمی ئەندازیاری المعمارية المعالجة حرارياً عالية الصلابة",
         "شووشە": "24 ملم شووشەی دوو قاتی سێکۆریتی عازلی گەرما",
         "کۆنتڕۆڵ": "کۆنتڕۆڵی بێتەل، دوگمەی دیوار، و ئەپی مۆبایل",
         "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 بە ڕووی مات",
         "سەلامەتی": "هەستەوەری خۆکاری ڕێگری لە پێکدادان"
       }
-    }
+    },
+    "kurdishName": "پەنجەرەی ئۆتۆماتیکی بە کۆنتڕۆڵی دووری و پەردەی ناوەکی",
+    "kurdishDescription": "ئەم سیستمە پەنجەرەیە ئۆتۆماتیکیە ئاسانی کارکردن بە کۆنتڕۆڵی دووری لەگەڵ پەردەی ناوەکی تێکەڵکراو کۆدەکاتەوە، کۆنتڕۆڵی تەواو لەسەر ڕووناکی و هەوادان و تایبەتمەندی بە دەستکردنی دوگمەیەک دابین دەکات. پەنجەرەکە بە کارەبا دەکرێتەوە و دادەخرێت، کە پێویستی بە هەوڵی دەستی نامێنێت و گونجاوی دەکات بۆ دامەزراندنی شوێنە سەختەکان یان شوێنی ژیانی لوکس.\n\nگونجاوە بۆ ماڵ و ئۆفیس و نمایشگا و شوێنی پێشوازی، ئەم پەنجەرەیە ئاسایشی ڕۆژانە باشتر دەکات بە ڕێگەدانی ڕێکخستنی وردی هەوا و تیشکی خۆر. پەردەکانی ناوەکی پەسندکراو و بێ تۆز دەمێنن، ڕوالەتێکی پاک و شیک دەبەخشن کە هیچ چاککردنەوەیەک پێویست ناکات و لەگەڵ دیزاینی مۆدێرن و کلاسیکدا دەگونجێت.\n\nئەندازیاری کراوە بۆ متمانەپێکراوی درێژخایەن، میکانیزمی ئۆتۆماتیکی بە ئارامی و کاریگەری کار دەکات و تەمەکێکی سۆفیستیکەیت بە هەر موڵکێک زیاد دەکات. هەڵبژاردنێکی نایابە بۆ ئەوانەی بەدوای نوێکردنەوەیەکی زیرەک و شیکدا دەگەڕێن کە ئاسایش و کاریگەری وزە و کوالیتەی ژیان بە گشتی باشتر دەکات."
   },
   {
-    "id": "win-tilt-turn-german-thermal",
-    "name": "German Tilt & Turn Thermal Break Architectural Casement Window",
-    "arabicName": "نافذة قلاب ومفصلي ألمانية الصنع بتقنية القطع الحراري المزدوج",
+    "id": "win-tilt-turn-Precision-thermal",
+    "name": "Dual-Mode Tilt and Turn Insulated Casement Window",
+    "arabicName": "نافذة مفصلية عازلة بنظام فتح مزدوج",
     "category": "windows",
     "division": "windows",
     "subCategory": "Tilt & Turn Casement Windows",
     "modelNumber": "DH-WIN-TTN-07",
     "material": "Qualicoat Architectural Aluminum with 34 mm Polyamide Thermal Break & Siegenia Multi-Lock Hardware",
     "brand": "Doorhome Architectural",
-    "image": "/products-assets/windows/win_tilt_turn_german.jpg",
-    "fallbackImage": "/products-assets/windows/win_tilt_turn_german.jpg",
+    "image": "/products-assets/windows/video_2026-09-26_07-36-00 (7).mp4",
+    "fallbackImage": "/products-assets/windows/win_tilt_turn_Precision.jpg",
     "videoUrl": "/products-assets/windows/video_2026-09-26_07-36-00 (7).mp4",
     "features": {
       "ar": [
-        "نظام تشغيل ألماني مزدوج الوظيفة: إمالة علوية للتهوية الآمنة وفتح دوراني كامل للتنظيف السهل",
+        "نظام تشغيل المعتمد مزدوج الوظيفة: إمالة علوية للتهوية الآمنة وفتح دوراني كامل للتنظيف السهل",
         "هيكل ألمنيوم متين سماكة خمسة وسبعين مليمتراً بجسور عزل حراري عريضة توفر أعلى كفاءة طاقة",
         "نقاط إقفال محكمة متعددة تحيط بكافة الجوانب الأربعة للدرفة لتوفير حماية أمنية لا تضاهى",
         "ثلاث طبقات متواصلة من الجوانات المطاطية الهندسية تمنع تسرب الغبار والأمطار والصوت تماماً",
         "زجاج مزدوج مقسى عازل للصوت والحرارة يخمد الضوضاء الخارجية بمقدار ثلاثة وأربعين ديسيبل"
       ],
       "en": [
-        "Dual-Function German Operating Hardware: Inward Tilt for Ventilation & Inward Turn for Cleaning",
+        "Dual-Function Precision Operating Hardware: Inward Tilt for Ventilation & Inward Turn for Cleaning",
         "Heavy-Duty 75 mm Chassis with Wide 34 mm Polyamide Thermal Break Struts (Uw < 1.1 W/m²K)",
-        "Full-Perimeter European Multi-Point Locking Cam Pins Engaging on All Four Sides for Max Security",
-        "Continuous Triple EPDM Compression Gaskets Providing Absolute Acoustic & Sandstorm Sealing",
+        "Full-Perimeter Architectural Standard Multi-Point Locking Cam Pins Engaging on All Four Sides for Max Security",
+        "Continuous Triple المطاط المعماري المقاوم للعوامل الجوية Compression Gaskets Providing Absolute Acoustic & Sandstorm Sealing",
         "32 mm Acoustic Low-Emissivity Double Tempered Safety Glass Delivering 43 dB Noise Reduction"
       ],
       "ckb": [
-        "سیستەمی ئەڵمانی دوو کاره: قەلاب بۆ هەوای فێنک و کرانەوەی تەواو بۆ خاوێنکردنەوە",
+        "سیستەمی کوالیتی بەرز دوو کاره: قەلاب بۆ هەوای فێنک و کرانەوەی تەواو بۆ خاوێنکردنەوە",
         "چوارچێوەی 75 ملم بە کەمەربەندی پۆلیامایدی ئەستووری 34 ملم بۆ بەرزترین عەزلی گەرما",
-        "قفڵی چوار لایەنەی ئەوروپی فرە خاڵ بۆ بەرزترین ئاستی سەلامەتی و توندبوون",
+        "قفڵی چوار لایەنەی ستانداردی نێودەوڵەتی فرە خاڵ بۆ بەرزترین ئاستی سەلامەتی و توندبوون",
         "سێ چینی لاستیکی ئەندازیاری تۆکمە بۆ نەهێشتنی دەنگ و تۆز و باران",
         "شووشەی دوو قاتی سێکۆریتی 32 ملم کە دەنگی دەرەوە بە بڕی 43 دیبل کەمدەکاتەوە"
       ]
@@ -1952,17 +1946,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Frame Depth": "75 mm High-Performance Thermal Extrusion",
       "Hardware": "Siegenia Titan AF Multi-Point Concealed Perimeter Hardware",
-      "Gasket System": "Three Perimeter Continuous EPDM Gaskets (Central Gasket Seal)",
+      "Gasket System": "Three Perimeter Continuous المطاط المعماري المقاوم للعوامل الجوية Gaskets (Central Gasket Seal)",
       "Sound Reduction": "Sound Reduction up to 45 dB (Rw)"
     },
-    "description": "Engineered with world-renowned German hardware and precision thermal break profiles, this tilt-and-turn window system represents the gold standard for European architectural fenestration. A single ergonomic handle allows two distinct operating modes: tilting inward at the top for secure, draft-free ventilation during sleeping hours, or swinging inward completely like a traditional casement for effortless interior glass cleaning and expansive emergency egress.\n\nThe chassis utilizes heavy-duty 75 mm multi-chamber structural aluminum profiles reinforced with 34 mm glass-fiber polyamide thermal break struts, providing an extraordinary thermal barrier (Uw < 1.1 W/m²K) that withstands intense regional desert temperature swings. Precision European perimeter multi-point locking gear pins engage tightly around all four sash edges upon handle closure, compressing triple continuous EPDM rubber gaskets into an impenetrable acoustic and weatherproof seal.\n\nGlazed with 32 mm acoustic low-emissivity double tempered safety glass, this window eliminates desert sand ingress, achieves certified water-tightness under gale-force rainfall, and attenuates outside traffic roar by up to 43 dB.",
+    "description": "This dual-mode casement window offers the versatility of both tilt and turn opening positions, providing maximum flexibility for ventilation and easy cleaning. In tilt mode, it opens at the top for secure, rain-safe airflow, while the full turn mode swings inward for complete access and effortless glass cleaning from inside.\n\nBuilt with advanced thermal insulation, this window creates a comfortable indoor climate year-round by keeping heat out in summer and cold out in winter. Its multi-point locking system ensures superior security, making it a trusted choice for ground-floor apartments, offices, and family homes where safety is a priority.\n\nThe robust construction and precision-engineered hardware guarantee smooth operation for many years with minimal upkeep. Its versatile design, available in multiple colors and finishes, integrates beautifully into residential buildings, office towers, and commercial complexes, delivering performance, safety, and elegance in equal measure.",
     "translations": {
       "ar": {
-        "name": "نافذة قلاب ومفصلي ألمانية الصنع بتقنية القطع الحراري المزدوج",
-        "subCategory": "النوافذ الألمانية القلابة والمفصلية",
-        "description": "تمثل هذه النافذة الألمانية المتطورة بنظام الفتح المزدوج (القلاب والمفصلي) المعيار الذهبي للجودة الهندسية الأوروبية في عالم النوافذ المعمارية. يتيح المقبض الهندسي المريح حركتين مختلفتين للتشغيل بكل سلاسة: حركة الإمالة العلوية للداخل لتوفير تهوية آمنة وهادئة ومستمرة دون فتح النافذة بالكامل، أو الفتح الدوراني الكامل للداخل لتسهيل تنظيف الزجاج من داخل الغرفة وتوفير مخرج طوارئ واسع ومريح.\n\nتم بناء الهيكل من قطاعات ألمنيوم إنشائية عريضة سماكة خمسة وسبعين مليمتراً معززة بجسور عزل حراري ضخمة من مادة البولي أميد المقواة بالألياف الزجاجية، مما يوفر حاجزاً حرارياً فائق الكفاءة يمنع انتقال حرارة الصيف اللاهبة أو برودة الشتاء القارسة. وتحتوي النافذة على تروس إقفال أوروبية محكمة متعددة النقاط تحيط بكافة أطراف الدرفة الأربعة لتضغط على ثلاث طبقات متتالية من الجوانات المطاطية المرنة.\n\nزُوّدت النافذة بزجاج أمان مزدوج عازل للصوت والحرارة بسماكة اثنين وثلاثين مليمتراً معبأ بالغاز الخامل، مما يضمن عزلاً تاماً ضد ذرات الغبار الصحراوي ومياه الأمطار العنيفة، ويخمد أصوات الشارع الخارجية بمقدار ثلاثة وأربعين ديسيبل لتنعم بأقصى درجات السكينة.",
+        "name": "نافذة مفصلية عازلة بنظام فتح مزدوج",
+        "subCategory": "النوافذ المعتمدة عالية الدقة القلابة والمفصلية",
+        "description": "توفر هذه النافذة المفصلية ذات الفتح المزدوج مرونة استثنائية من خلال وضعيتي فتح: وضعية الإمالة من الأعلى للتهوية الآمنة حتى أثناء المطر، ووضعية الفتح الكامل للداخل للوصول السهل وتنظيف الزجاج بكل يسر من الداخل.\n\nمُصنّعة بعزل حراري متقدم، تُوفّر هذه النافذة مناخاً داخلياً مريحاً على مدار العام بحجب الحرارة صيفاً والبرودة شتاءً. يضمن نظام القفل المتعدد النقاط أماناً فائقاً، مما يجعلها خياراً موثوقاً للشقق في الطوابق الأرضية والمكاتب والمنازل العائلية حيث تكون السلامة أولوية.\n\nيضمن البناء المتين والمعدات المصنّعة بدقة تشغيلاً سلساً لسنوات طويلة مع حد أدنى من الصيانة. يتوفر تصميمها المتعدد الاستخدامات بألوان وتشطيبات متنوعة، ويتكامل بجمال مع المباني السكنية وأبراج المكاتب والمجمعات التجارية، ليُقدّم الأداء والسلامة والأناقة بمقدار متساوٍ.",
         "features": [
-          "نظام تشغيل ألماني مزدوج الوظيفة: إمالة علوية للتهوية الآمنة وفتح دوراني كامل للتنظيف السهل",
+          "نظام تشغيل المعتمد مزدوج الوظيفة: إمالة علوية للتهوية الآمنة وفتح دوراني كامل للتنظيف السهل",
           "هيكل ألمنيوم متين سماكة خمسة وسبعين مليمتراً بجسور عزل حراري عريضة توفر أعلى كفاءة طاقة",
           "نقاط إقفال محكمة متعددة تحيط بكافة الجوانب الأربعة للدرفة لتوفير حماية أمنية لا تضاهى",
           "ثلاث طبقات متواصلة من الجوانات المطاطية الهندسية تمنع تسرب الغبار والأمطار والصوت تماماً",
@@ -1970,64 +1964,66 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "پەنجەرەی ئەڵمانی دوو جووڵەیی (قەلاب و سووڕاوە) بە ئەلەمنیۆمی عازلی گەرما",
+        "name": "پەنجەرەی مەفسەلی ئینسولاتەد بە سیستەمی کردنەوەی دووجۆڕ",
         "subCategory": "پەنجەرەی قەلاب و مفصەڵی",
-        "description": "پەنجەرەیەکی نایابی ئەڵمانی کە دوو شێوازی کرانەوە پێشکەش دەکات بە یەک دەسک: بە شێوازی قەلاب لە سەرەوە دەکرێتەوە بۆ هەواگۆڕکێی سەلامەت بەبێ هاتنی باران، یان بە تەواوی وەک دەرگا دەکرێتەوە بۆ ناوەوە بۆ خاوێنکردنەوەی زۆر ئاسانی شووشە لە ناو ژوورەوە.\n\nلە ئەلەمنیۆمی ئەستووری 75 ملم بە کەمەربەندی عازلی گەورەی پۆلیاماید دروستکراوە کە ڕێگری لە گەرمای توند دەکات. قفڵی فرە خاڵی ئەوروپی بە هەر چوار دەوری باڵەکەدا جێگیرکراوە کە کاتێک دەخرێتە سەر قفڵ سێ چینی لاستیکی دەوروبەر بە تەواوی دادەپۆشێت.\n\nشووشەی دوو قاتی 32 ملمی ئەستووری سێکۆریتی دەنگبڕی تێدایە کە ژاوەژاوی دەرەوە بە بڕی 43 دیبل کەم دەکاتەوە و تەواوی تۆزی بیابان دەبڕێت.",
+        "description": "ئەم پەنجەرەیە مەفسەلیە دووجۆڕە فراوانی تایبەت دابین دەکات بە دوو شێوازی کردنەوە: شێوازی لاکردن لە سەرەوە بۆ هەوادانی ئارام حەتا لە کاتی بارانیشدا، و شێوازی کردنەوەی تەواو بۆ ناوەوە بۆ دەستگەیشتنی ئاسان و پاککردنەوەی شووشە بە ئاسانی لە ناوەوە.\n\nدروست کراوە بە ئینسولاسیۆنی گەرمیی پێشکەوتوو، ئەم پەنجەرەیە کەشوهەوایەکی ناوخۆیی ئارام بە درێژایی ساڵ دروست دەکات بە دوورخستنەوەی گەرمی لە هاویندا و سارد لە زستاندا. سیستەمی قوفڵی فرە خاڵ ئەمنیەتی بەرز دابین دەکات، کە دەیکاتە هەڵبژاردنێکی متمانەپێکراو بۆ ئاپارتمانەکانی نهۆمی یەکەم و ئۆفیس و ماڵی خێزانی کە سەلامەتی لەوێ گرنگترینە.\n\nدروستکردنی بەهێز و کەرەستەی ئەندازیاری کراوی بە وردی کارکردنی نەرم بۆ ساڵانی زۆر لەگەڵ کەمترین چاککردنەوە دابین دەکات. دیزاینی فراوانی بە ڕەنگ و تەواوکارییەکانی جۆراوجۆر بەردەستە و بە جوانی لەگەڵ بینای نیشتەجێبوون و بروجی ئۆفیس و کۆمپلێکسی بازرگانیدا دەگونجێت، کارایی و سەلامەتی و شیکی بە یەکسانی دابین دەکات.",
         "features": [
-          "سیستەمی ئەڵمانی دوو کاره: قەلاب بۆ هەوای فێنک و کرانەوەی تەواو بۆ خاوێنکردنەوە",
+          "سیستەمی کوالیتی بەرز دوو کاره: قەلاب بۆ هەوای فێنک و کرانەوەی تەواو بۆ خاوێنکردنەوە",
           "چوارچێوەی 75 ملم بە کەمەربەندی پۆلیامایدی ئەستووری 34 ملم بۆ بەرزترین عەزلی گەرما",
-          "قفڵی چوار لایەنەی ئەوروپی فرە خاڵ بۆ بەرزترین ئاستی سەلامەتی و توندبوون",
+          "قفڵی چوار لایەنەی ستانداردی نێودەوڵەتی فرە خاڵ بۆ بەرزترین ئاستی سەلامەتی و توندبوون",
           "سێ چینی لاستیکی ئەندازیاری تۆکمە بۆ نەهێشتنی دەنگ و تۆز و باران",
           "شووشەی دوو قاتی سێکۆریتی 32 ملم کە دەنگی دەرەوە بە بڕی 43 دیبل کەمدەکاتەوە"
         ]
       },
       "en": {
-        "name": "German Tilt & Turn Thermal Break Architectural Casement Window",
+        "name": "Dual-Mode Tilt and Turn Insulated Casement Window",
         "subCategory": "Tilt & Turn Casement Windows",
-        "description": "Engineered with world-renowned German hardware and precision thermal break profiles, this tilt-and-turn window system represents the gold standard for European architectural fenestration. A single ergonomic handle allows two distinct operating modes: tilting inward at the top for secure, draft-free ventilation during sleeping hours, or swinging inward completely like a traditional casement for effortless interior glass cleaning and expansive emergency egress.\n\nThe chassis utilizes heavy-duty 75 mm multi-chamber structural aluminum profiles reinforced with 34 mm glass-fiber polyamide thermal break struts, providing an extraordinary thermal barrier (Uw < 1.1 W/m²K) that withstands intense regional desert temperature swings. Precision European perimeter multi-point locking gear pins engage tightly around all four sash edges upon handle closure, compressing triple continuous EPDM rubber gaskets into an impenetrable acoustic and weatherproof seal.\n\nGlazed with 32 mm acoustic low-emissivity double tempered safety glass, this window eliminates desert sand ingress, achieves certified water-tightness under gale-force rainfall, and attenuates outside traffic roar by up to 43 dB."
+        "description": "This dual-mode casement window offers the versatility of both tilt and turn opening positions, providing maximum flexibility for ventilation and easy cleaning. In tilt mode, it opens at the top for secure, rain-safe airflow, while the full turn mode swings inward for complete access and effortless glass cleaning from inside.\n\nBuilt with advanced thermal insulation, this window creates a comfortable indoor climate year-round by keeping heat out in summer and cold out in winter. Its multi-point locking system ensures superior security, making it a trusted choice for ground-floor apartments, offices, and family homes where safety is a priority.\n\nThe robust construction and precision-engineered hardware guarantee smooth operation for many years with minimal upkeep. Its versatile design, available in multiple colors and finishes, integrates beautifully into residential buildings, office towers, and commercial complexes, delivering performance, safety, and elegance in equal measure."
       }
     },
-    "arabicDescription": "تمثل هذه النافذة الألمانية المتطورة بنظام الفتح المزدوج (القلاب والمفصلي) المعيار الذهبي للجودة الهندسية الأوروبية في عالم النوافذ المعمارية. يتيح المقبض الهندسي المريح حركتين مختلفتين للتشغيل بكل سلاسة: حركة الإمالة العلوية للداخل لتوفير تهوية آمنة وهادئة ومستمرة دون فتح النافذة بالكامل، أو الفتح الدوراني الكامل للداخل لتسهيل تنظيف الزجاج من داخل الغرفة وتوفير مخرج طوارئ واسع ومريح.\n\nتم بناء الهيكل من قطاعات ألمنيوم إنشائية عريضة سماكة خمسة وسبعين مليمتراً معززة بجسور عزل حراري ضخمة من مادة البولي أميد المقواة بالألياف الزجاجية، مما يوفر حاجزاً حرارياً فائق الكفاءة يمنع انتقال حرارة الصيف اللاهبة أو برودة الشتاء القارسة. وتحتوي النافذة على تروس إقفال أوروبية محكمة متعددة النقاط تحيط بكافة أطراف الدرفة الأربعة لتضغط على ثلاث طبقات متتالية من الجوانات المطاطية المرنة.\n\nزُوّدت النافذة بزجاج أمان مزدوج عازل للصوت والحرارة بسماكة اثنين وثلاثين مليمتراً معبأ بالغاز الخامل، مما يضمن عزلاً تاماً ضد ذرات الغبار الصحراوي ومياه الأمطار العنيفة، ويخمد أصوات الشارع الخارجية بمقدار ثلاثة وأربعين ديسيبل لتنعم بأقصى درجات السكينة.",
+    "arabicDescription": "توفر هذه النافذة المفصلية ذات الفتح المزدوج مرونة استثنائية من خلال وضعيتي فتح: وضعية الإمالة من الأعلى للتهوية الآمنة حتى أثناء المطر، ووضعية الفتح الكامل للداخل للوصول السهل وتنظيف الزجاج بكل يسر من الداخل.\n\nمُصنّعة بعزل حراري متقدم، تُوفّر هذه النافذة مناخاً داخلياً مريحاً على مدار العام بحجب الحرارة صيفاً والبرودة شتاءً. يضمن نظام القفل المتعدد النقاط أماناً فائقاً، مما يجعلها خياراً موثوقاً للشقق في الطوابق الأرضية والمكاتب والمنازل العائلية حيث تكون السلامة أولوية.\n\nيضمن البناء المتين والمعدات المصنّعة بدقة تشغيلاً سلساً لسنوات طويلة مع حد أدنى من الصيانة. يتوفر تصميمها المتعدد الاستخدامات بألوان وتشطيبات متنوعة، ويتكامل بجمال مع المباني السكنية وأبراج المكاتب والمجمعات التجارية، ليُقدّم الأداء والسلامة والأناقة بمقدار متساوٍ.",
     "technicalSpecs": {
       "ar": {
         "عمق الإطار الأساسي": "خمسة وسبعون مليمتراً قطاع ألمنيوم متعدد الحجرات العازلة",
         "جسور العزل الحراري": "جسور بولي أميد مقواة بالألياف الزجاجية بسماكة أربعة وثلاثين مليمتراً",
-        "آلية الحركة والإقفال": "إكسسوارات وتروس إقفال أوروبية متطورة بنظام الفتح المزدوج",
+        "آلية الحركة والإقفال": "إكسسوارات وتروس إقفال المعتمدة متطورة بنظام الفتح المزدوج",
         "مواصفات الزجاج": "زجاج مزدوج مقسى ومصفح عازل للصوت والحرارة بسماكة اثنين وثلاثين مليمتراً",
         "مستوى عزل الصوت": "تخفيض الضوضاء الخارجية بمقدار ثلاثة وأربعين ديسيبل",
-        "مقاومة العوامل الجوية": "أعلى تصنيف أوروبي معتمد لمقاومة نفاذية الهواء وعزل مياه الأمطار"
+        "مقاومة العوامل الجوية": "أعلى تصنيف المعتمد معتمد لمقاومة نفاذية الهواء وعزل مياه الأمطار"
       },
       "en": {
         "Frame Depth": "75 mm Multi-Chamber Structural Aluminum Profile",
         "Thermal Break": "34 mm Glass-Fiber Reinforced Polyamide Insulating Struts",
-        "Hardware System": "German Siegenia / Roto Multi-Point Tilt-and-Turn Mechanism",
-        "Glazing": "32 mm (6 mm Toughened Low-E + 20 mm Argon + 6 mm Acoustic Laminated)",
+        "Hardware System": "Precision Siegenia / Roto Multi-Point Tilt-and-Turn Mechanism",
+        "Glazing": "32 mm (6 mm Toughened Low-E + 20 mm Dry Insulated Air + 6 mm Acoustic Laminated)",
         "Acoustic Rating": "Rw 43 dB High-Performance Sound Isolation",
         "Weather Performance": "Class 4 Air Permeability / Class E1200 Water Tightness (EN 12208)"
       },
       "ckb": {
         "قووڵایی چوارچێوە": "75 ملم ئەلەمنیۆمی ئەندازیاری فرە ژوور",
         "عازلی گەرما": "کەمەربەندی پۆلیامایدی بەهێزکراو بە فایبەرگڵاس 34 ملم",
-        "سیستەمی قفڵ": "کواڵۆنی ئەوروپی فرە خاڵی قەلاب و سووڕاوە",
+        "سیستەمی قفڵ": "کواڵۆنی ستانداردی نێودەوڵەتی فرە خاڵی قەلاب و سووڕاوە",
         "شووشە": "32 ملم شووشەی دوو قاتی لامینەیتی دەنگبڕ",
         "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 43 دیبل",
-        "بەرگری کەشوهەوا": "بەرزترین پلەی ئەوروپی بۆ ڕێگری لە با و ئاو"
+        "بەرگری کەشوهەوا": "بەرزترین پلەی ستانداردی نێودەوڵەتی بۆ ڕێگری لە با و ئاو"
       }
-    }
+    },
+    "kurdishName": "پەنجەرەی مەفسەلی ئینسولاتەد بە سیستەمی کردنەوەی دووجۆڕ",
+    "kurdishDescription": "ئەم پەنجەرەیە مەفسەلیە دووجۆڕە فراوانی تایبەت دابین دەکات بە دوو شێوازی کردنەوە: شێوازی لاکردن لە سەرەوە بۆ هەوادانی ئارام حەتا لە کاتی بارانیشدا، و شێوازی کردنەوەی تەواو بۆ ناوەوە بۆ دەستگەیشتنی ئاسان و پاککردنەوەی شووشە بە ئاسانی لە ناوەوە.\n\nدروست کراوە بە ئینسولاسیۆنی گەرمیی پێشکەوتوو، ئەم پەنجەرەیە کەشوهەوایەکی ناوخۆیی ئارام بە درێژایی ساڵ دروست دەکات بە دوورخستنەوەی گەرمی لە هاویندا و سارد لە زستاندا. سیستەمی قوفڵی فرە خاڵ ئەمنیەتی بەرز دابین دەکات، کە دەیکاتە هەڵبژاردنێکی متمانەپێکراو بۆ ئاپارتمانەکانی نهۆمی یەکەم و ئۆفیس و ماڵی خێزانی کە سەلامەتی لەوێ گرنگترینە.\n\nدروستکردنی بەهێز و کەرەستەی ئەندازیاری کراوی بە وردی کارکردنی نەرم بۆ ساڵانی زۆر لەگەڵ کەمترین چاککردنەوە دابین دەکات. دیزاینی فراوانی بە ڕەنگ و تەواوکارییەکانی جۆراوجۆر بەردەستە و بە جوانی لەگەڵ بینای نیشتەجێبوون و بروجی ئۆفیس و کۆمپلێکسی بازرگانیدا دەگونجێت، کارایی و سەلامەتی و شیکی بە یەکسانی دابین دەکات."
   },
   {
     "id": "win-automated-skylight-roof",
-    "name": "Automated Architectural Roof & Skylight Window System for Luxury Residences",
-    "arabicName": "نظام النوافذ السقفية والسكاي لايت المعمارية الأوتوماتيكية للفلل والقصور",
+    "name": "Automated Roof Window for Natural Light and Ventilation",
+    "arabicName": "نافذة سقفية آلية للإضاءة الطبيعية والتهوية",
     "category": "windows",
     "division": "windows",
     "subCategory": "Roof Skylights & Atrium Windows",
     "modelNumber": "DH-WIN-SKY-11",
     "material": "Reinforced Structural Aluminum Profile with Triple Laminated Solar Reflective Glass & Linear Actuator",
     "brand": "Doorhome Architectural",
-    "image": "/products-assets/windows/win_automated_skylight.jpg",
-    "fallbackImage": "/products-assets/windows/win_automated_skylight.jpg",
-    "videoUrl": "/products-assets/windows/video_2026-09-26_07-36-00 (11).mp4",
+    "image": "/products-assets/windows/baghdad_skylight_before_after.mp4",
+    "fallbackImage": "/products-assets/windows/baghdad_skylight_before_after.poster.jpg",
+    "videoUrl": "/products-assets/windows/baghdad_skylight_before_after.mp4",
     "features": {
       "ar": [
         "نافذة سقفية أوتوماتيكية تفتح للأعلى لتوفير إضاءة نهارية ساحرة وتهوية طبيعية متطورة",
@@ -2053,16 +2049,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     },
     "specs": {
       "Drive System": "24V DC Linear Spindle / Chain Actuator (Push Force up to 600N)",
-      "Glass Make-Up": "8 mm Solar Heat Reflective Toughened + 16 mm Argon + 10 mm Laminated PVB Safety Glass",
-      "Waterproofing": "Double Welded EPDM Flashing Collar for Direct Membrane Integration",
+      "Glass Make-Up": "8 mm Solar Heat Reflective Toughened + 16 mm Dry Insulated Air + 10 mm Laminated PVB Safety Glass",
+      "Waterproofing": "Double Welded المطاط المعماري المقاوم للعوامل الجوية Flashing Collar for Direct Membrane Integration",
       "Control": "Wall Switch, Remote, and Automatic Weather Station Interface"
     },
-    "description": "Flood grand residential stairwells, double-height living atriums, and master suites with celestial daylight through this heavy-duty automated architectural roof skylight system. Engineered to form a fully walkable or elevated architectural glazed opening, the system combines high-strength thermal break aluminum structural rafter frames with motorized electric linear actuators that push the massive insulated glass sash outward for natural thermal chimney ventilation at the touch of a button.\n\nThe glazing incorporates multi-layered 32 mm solar-reflective laminated safety glass: a 6 mm toughened exterior pane with a pyrolytic sun-reflectance coating, a wide Argon gas thermal cavity, and an interior 12 mm impact-resistant laminated safety panel that prevents falling glass debris even under severe hail impact. Heavy-duty internal multi-tier drainage channels safely channel away storm deluge water with zero risk of ceiling leaks.\n\nEquipped with concealed electric 24V linear actuators, wireless remote controls, and built-in automatic rain and wind sensors that close the roof automatically at the first detected drop of rain, this skylight delivers supreme architectural luxury, energy efficiency, and peace of mind.",
+    "description": "This automated roof window brings abundant natural light and fresh air into spaces that traditional windows cannot reach, such as top-floor rooms, stairwells, corridors, and covered atriums. It opens and closes at the touch of a button, providing controlled ventilation that helps regulate indoor temperature and air quality effortlessly.\n\nPerfect for luxury homes, office buildings, hotels, and commercial lobbies, this roof window transforms dark interior areas into bright, inviting spaces. The generous glass area floods rooms with daylight, reducing the need for artificial lighting and creating a healthier, more productive environment for occupants.\n\nEngineered to withstand rain, wind, and extreme temperatures, the sealed design ensures complete weather protection when closed. Its low-profile frame blends discreetly into the roofline, maintaining the building's clean exterior appearance while delivering outstanding functionality and lasting durability with minimal maintenance.",
     "translations": {
       "ar": {
-        "name": "نظام النوافذ السقفية والسكاي لايت المعمارية الأوتوماتيكية للفلل والقصور",
+        "name": "نافذة سقفية آلية للإضاءة الطبيعية والتهوية",
         "subCategory": "نوافذ الأسقف والمناور الزجاجية",
-        "description": "اغمر بهو فيلتك وسلالم القصور الداخلية بأشعة الشمس الطبيعية الساحرة مع نظام النوافذ السقفية (السكاي لايت) الأوتوماتيكية المتطورة. صُمم هذا النظام الهندسي ليوفر فتحات زجاجية سقفية بانورامية قابلة للمشي أو مرتفعة، تجمع بين قطاعات الألمنيوم الهيكلية العازلة للحرارة وأذرع الدفع الكهربائية الهيدروليكية القوية التي تفتح اللوح الزجاجي الضخم للأعلى بضغطة زر واحدة لتفريغ الهواء الساخن وتجديد هواء المنزل تلقائياً.\n\nتتكون الواجهة من زجاج أمان مصفح ومقسى عاكس لأشعة الشمس بسماكة اثنين وثلاثين مليمتراً: لوح خارجي معالج ليعكس الأشعة تحت الحمراء الضارة، وفراغ داخلي عازل معبأ بالغاز الخامل، ولوح داخلي مصفح فائق الصلابة ومقاوم للصدمات يمنع سقوط أي شظايا حتى في أشد حالات الطقس قسوة. كما تم تزويد الهيكل بمجارٍ داخلية متتالية لتصريف مياه الأمطار الغزيرة ومياه التكثف بأمان تام دون أي خطر للتسرب داخل الأسقف.\n\nيعمل النظام بأذرع رفع كهربائية ذكية مدمجة، مع أجهزة تحكم عن بعد ومستشعرات أوتوماتيكية للرياح والأمطار تغلق النافذة السقفية تلقائياً بمجرد ملامسة أول قطرة مطر، لتمنحك فخامة معمارية ساحرة وأماناً مطلقاً وراحة بال على مدار العام.",
+        "description": "تجلب هذه النافذة السقفية الآلية ضوءاً طبيعياً وافراً وهواءً نقياً إلى المساحات التي لا تستطيع النوافذ التقليدية الوصول إليها، مثل غرف الطوابق العلوية وبيوت الدرج والممرات والأفنية المغطاة. تُفتح وتُغلق بلمسة زر، وتوفر تهوية مُتحكّماً بها تساعد في تنظيم درجة الحرارة الداخلية وجودة الهواء دون عناء.\n\nمثالية للمنازل الفاخرة والمباني المكتبية والفنادق والبهو التجاري، تُحوّل هذه النافذة السقفية المناطق الداخلية المظلمة إلى مساحات مشرقة وجذابة. تغمر المساحة الزجاجية الواسعة الغرف بضوء النهار، مما يُقلّل الحاجة إلى الإنارة الاصطناعية ويخلق بيئة أكثر صحة وإنتاجية للمقيمين.\n\nصُممت لتتحمل المطر والرياح ودرجات الحرارة القصوى، حيث يضمن التصميم المحكم حماية كاملة من الطقس عند الإغلاق. يندمج إطارها المنخفض بسلاسة في خط السقف، محافظاً على المظهر الخارجي النظيف للمبنى مع تقديم أداء وظيفي متميز ومتانة طويلة الأمد بأقل صيانة ممكنة.",
         "features": [
           "نافذة سقفية أوتوماتيكية تفتح للأعلى لتوفير إضاءة نهارية ساحرة وتهوية طبيعية متطورة",
           "هيكل ألمنيوم إنشائي فائق الصلابة مصمم لتحمل أحمال الزجاج وأوزان المشي بأمان تام",
@@ -2072,9 +2068,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "ckb": {
-        "name": "سیستەمی پەنجەرەی سەقفی و سکای لایتی ئۆتۆماتیکی بۆ ڤێلا و قەسر",
+        "name": "پەنجەرەی سەقفی ئۆتۆماتیکی بۆ ڕووناکی سروشتی و هەوادان",
         "subCategory": "پەنجەرەی سەربان و سکای لایت",
-        "description": "هۆڵی سەرەکی و پلیەکانی ڤێلاکەت پڕ بکە لە ڕووناکی سروشتی ئاسمان بە سیستەمی سکای لایتی سەقفی ئۆتۆماتیکی پێشکەوتوو. بە شێوازێک دروستکراوە کە لەسەر سەقف بە قۆڵی کارەبایی دەکرێتەوە بۆ دەرکردنی هەوای گەرم و هێنانی هەوای فێنک بە پەنجەنان بە دوگمەیەک.\n\nلە ئەلەمنیۆمی ئەندازیاری زۆر بەهێزی عازل بە شووشەی 32 ملمی سێکۆریتی لامینەیتی دژە شکان دروستکراوە کە ڕێگری لە گەرمای تیشکی خۆر دەکات و تەنانەت بەرگەی تەرزەی بەهێزیش دەگرێت بەبێ هیچ زیانێک. لە ناوەوە کەناڵی تایبەتی هەیە کە هەموو ئاوی باران دوور دەخاتەوە بەبێ هیچ دڵۆپەکردنێک.\n\nبە قۆڵی هیدرۆلیکی کارەبایی و کۆنتڕۆڵی بێتەل کار دەکات، لەگەڵ هەستەوەری باران کە لە یەکەم دڵۆپەی باراندا خۆکارانە سەقفەکە بە توندی دادەخات.",
+        "description": "ئەم پەنجەرەیە سەقفیە ئۆتۆماتیکیە ڕووناکیی سروشتیی فراوان و هەوای پاک بۆ ئەو شوێنانە دەهێنێت کە پەنجەرە ڕەسەنەکان ناتوانن بیگەنە پێیان، وەک ژوورەکانی نهۆمی سەرەوە و پلیکانەخانە و ڕێڕەوەکان و حەوشە سەرپۆشکراوەکان. بە دەستکردنی دوگمەیەک دەکرێتەوە و دادەخرێت، هەوادانی کۆنتڕۆڵکراو دابین دەکات کە یارمەتی ڕێکخستنی پلەی گەرمی ناوەوە و کوالیتەی هەوا بە ئاسانی دەکات.\n\nگونجاوە بۆ ماڵە لوکسەکان و بینای ئۆفیس و هوتێلەکان و لۆبی بازرگانی، ئەم پەنجەرەیە سەقفیە ناوچە ناوخۆییە تاریکەکان دەگۆڕێت بۆ شوێنە ڕووناک و ڕاکێشەکان. ڕووبەری شووشەی فراوان ژوورەکان بە تیشکی ڕۆژ دەخەنکێنێت، پێویستی بە ڕووناکی دەستکرد کەم دەکات و ژینگەیەکی تەندروستتر و بەرهەمدارتر بۆ دانیشتووان دروست دەکات.\n\nئەندازیاری کراوە بۆ بەرگەگرتنی باران و با و پلەی گەرمیی ئەفراتکار، دیزاینی پەسندکراو پاراستنی تەواو لە کەشوهەوا کاتێک داخراوە دابین دەکات. چوارچێوەی نزمی بە شارەوەیی لەگەڵ هێڵی سەقفدا دەگونجێت و ڕوالەتی دەرەوەی پاکی بینا دەپارێزێت لەگەڵ دابینکردنی کارایی و بەردەوامی درێژخایەن بە کەمترین چاککردنەوە.",
         "features": [
           "پەنجەرەی سەقفی کارەبایی کە دەکرێتەوە بۆ هێنانی ڕووناکی و هەواگۆڕکێی سروشتی",
           "چوارچێوەی ئەلەمنیۆمی زۆر بەهێز بە توانای هەڵگرتنی کێشی زۆر بە سەلامەتی",
@@ -2084,12 +2080,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ]
       },
       "en": {
-        "name": "Automated Architectural Roof & Skylight Window System for Luxury Residences",
+        "name": "Automated Roof Window for Natural Light and Ventilation",
         "subCategory": "Roof Skylights & Atrium Windows",
-        "description": "Flood grand residential stairwells, double-height living atriums, and master suites with celestial daylight through this heavy-duty automated architectural roof skylight system. Engineered to form a fully walkable or elevated architectural glazed opening, the system combines high-strength thermal break aluminum structural rafter frames with motorized electric linear actuators that push the massive insulated glass sash outward for natural thermal chimney ventilation at the touch of a button.\n\nThe glazing incorporates multi-layered 32 mm solar-reflective laminated safety glass: a 6 mm toughened exterior pane with a pyrolytic sun-reflectance coating, a wide Argon gas thermal cavity, and an interior 12 mm impact-resistant laminated safety panel that prevents falling glass debris even under severe hail impact. Heavy-duty internal multi-tier drainage channels safely channel away storm deluge water with zero risk of ceiling leaks.\n\nEquipped with concealed electric 24V linear actuators, wireless remote controls, and built-in automatic rain and wind sensors that close the roof automatically at the first detected drop of rain, this skylight delivers supreme architectural luxury, energy efficiency, and peace of mind."
+        "description": "This automated roof window brings abundant natural light and fresh air into spaces that traditional windows cannot reach, such as top-floor rooms, stairwells, corridors, and covered atriums. It opens and closes at the touch of a button, providing controlled ventilation that helps regulate indoor temperature and air quality effortlessly.\n\nPerfect for luxury homes, office buildings, hotels, and commercial lobbies, this roof window transforms dark interior areas into bright, inviting spaces. The generous glass area floods rooms with daylight, reducing the need for artificial lighting and creating a healthier, more productive environment for occupants.\n\nEngineered to withstand rain, wind, and extreme temperatures, the sealed design ensures complete weather protection when closed. Its low-profile frame blends discreetly into the roofline, maintaining the building's clean exterior appearance while delivering outstanding functionality and lasting durability with minimal maintenance."
       }
     },
-    "arabicDescription": "اغمر بهو فيلتك وسلالم القصور الداخلية بأشعة الشمس الطبيعية الساحرة مع نظام النوافذ السقفية (السكاي لايت) الأوتوماتيكية المتطورة. صُمم هذا النظام الهندسي ليوفر فتحات زجاجية سقفية بانورامية قابلة للمشي أو مرتفعة، تجمع بين قطاعات الألمنيوم الهيكلية العازلة للحرارة وأذرع الدفع الكهربائية الهيدروليكية القوية التي تفتح اللوح الزجاجي الضخم للأعلى بضغطة زر واحدة لتفريغ الهواء الساخن وتجديد هواء المنزل تلقائياً.\n\nتتكون الواجهة من زجاج أمان مصفح ومقسى عاكس لأشعة الشمس بسماكة اثنين وثلاثين مليمتراً: لوح خارجي معالج ليعكس الأشعة تحت الحمراء الضارة، وفراغ داخلي عازل معبأ بالغاز الخامل، ولوح داخلي مصفح فائق الصلابة ومقاوم للصدمات يمنع سقوط أي شظايا حتى في أشد حالات الطقس قسوة. كما تم تزويد الهيكل بمجارٍ داخلية متتالية لتصريف مياه الأمطار الغزيرة ومياه التكثف بأمان تام دون أي خطر للتسرب داخل الأسقف.\n\nيعمل النظام بأذرع رفع كهربائية ذكية مدمجة، مع أجهزة تحكم عن بعد ومستشعرات أوتوماتيكية للرياح والأمطار تغلق النافذة السقفية تلقائياً بمجرد ملامسة أول قطرة مطر، لتمنحك فخامة معمارية ساحرة وأماناً مطلقاً وراحة بال على مدار العام.",
+    "arabicDescription": "تجلب هذه النافذة السقفية الآلية ضوءاً طبيعياً وافراً وهواءً نقياً إلى المساحات التي لا تستطيع النوافذ التقليدية الوصول إليها، مثل غرف الطوابق العلوية وبيوت الدرج والممرات والأفنية المغطاة. تُفتح وتُغلق بلمسة زر، وتوفر تهوية مُتحكّماً بها تساعد في تنظيم درجة الحرارة الداخلية وجودة الهواء دون عناء.\n\nمثالية للمنازل الفاخرة والمباني المكتبية والفنادق والبهو التجاري، تُحوّل هذه النافذة السقفية المناطق الداخلية المظلمة إلى مساحات مشرقة وجذابة. تغمر المساحة الزجاجية الواسعة الغرف بضوء النهار، مما يُقلّل الحاجة إلى الإنارة الاصطناعية ويخلق بيئة أكثر صحة وإنتاجية للمقيمين.\n\nصُممت لتتحمل المطر والرياح ودرجات الحرارة القصوى، حيث يضمن التصميم المحكم حماية كاملة من الطقس عند الإغلاق. يندمج إطارها المنخفض بسلاسة في خط السقف، محافظاً على المظهر الخارجي النظيف للمبنى مع تقديم أداء وظيفي متميز ومتانة طويلة الأمد بأقل صيانة ممكنة.",
     "technicalSpecs": {
       "ar": {
         "نظام الفتح الآلي": "أذرع دفع كهربائية خطية مزدوجة بقوة دفع هيدروليكية فائقة",
@@ -2097,12 +2093,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "مواصفات الزجاج": "زجاج مزدوج مقسى ومصفح عاكس لحرارة الشمس بسماكة اثنين وثلاثين مليمتراً",
         "نظام تصريف المياه": "قنوات شلالية داخلية متقدمة لتصريف مياه الأمطار والتكثف بأمان كامل",
         "وسائل التحكم": "جهاز تحكم لاسلكي ومفتاح جداري ومستشعرات تلقائية للرياح والأمطار",
-        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات الأوروبية لمقاومة الصدمات والأمان السقفي"
+        "معايير السلامة": "معتمد ومطابق لأعلى المواصفات المعمارية المعتمدة لمقاومة الصدمات والأمان السقفي"
       },
       "en": {
         "Actuation System": "Dual Concealed 24V Electric Linear Actuators (Thrust Rating 1,500 N per Motor)",
         "Frame Material": "Heavy Structural 6063-T6 Extruded Aluminum with Thermal Break Core",
-        "Glazing Unit": "32 mm (6 mm Toughened Solar-Control + 14 mm Argon + 12 mm Impact Laminated)",
+        "Glazing Unit": "32 mm (6 mm Toughened Solar-Control + 14 mm Dry Insulated Air + 12 mm Impact Laminated)",
         "Drainage Tech": "Multi-Chamber Cascade Internal Condensation & Deluge Water Evacuation",
         "Control System": "Wireless Handheld Remote, Smart Wall Switch & Automatic Rain/Wind Sensors",
         "Impact Safety": "Certified Walkable / Hail Resistance Class 4 (EN 14351-1)"
@@ -2113,14 +2109,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "شووشە": "32 ملم شووشەی دوو قاتی سێکۆریتی لامینەیت",
         "سیستەمی ئاوەڕۆ": "کەناڵی ناوەکی بۆ دەرکردنی ئاوی باران و هەڵم",
         "کۆنتڕۆڵ": "کۆنتڕۆڵی بێتەل لەگەڵ هەستەوەری باران و با",
-        "ستانداردی سەلامەتی": "بڕوانامەی ئەوروپی بۆ سەلامەتی سەقف و بەرگری تەرزە"
+        "ستانداردی سەلامەتی": "بڕوانامەی ستانداردی نێودەوڵەتی بۆ سەلامەتی سەقف و بەرگری تەرزە"
       }
-    }
+    },
+    "kurdishName": "پەنجەرەی سەقفی ئۆتۆماتیکی بۆ ڕووناکی سروشتی و هەوادان",
+    "kurdishDescription": "ئەم پەنجەرەیە سەقفیە ئۆتۆماتیکیە ڕووناکیی سروشتیی فراوان و هەوای پاک بۆ ئەو شوێنانە دەهێنێت کە پەنجەرە ڕەسەنەکان ناتوانن بیگەنە پێیان، وەک ژوورەکانی نهۆمی سەرەوە و پلیکانەخانە و ڕێڕەوەکان و حەوشە سەرپۆشکراوەکان. بە دەستکردنی دوگمەیەک دەکرێتەوە و دادەخرێت، هەوادانی کۆنتڕۆڵکراو دابین دەکات کە یارمەتی ڕێکخستنی پلەی گەرمی ناوەوە و کوالیتەی هەوا بە ئاسانی دەکات.\n\nگونجاوە بۆ ماڵە لوکسەکان و بینای ئۆفیس و هوتێلەکان و لۆبی بازرگانی، ئەم پەنجەرەیە سەقفیە ناوچە ناوخۆییە تاریکەکان دەگۆڕێت بۆ شوێنە ڕووناک و ڕاکێشەکان. ڕووبەری شووشەی فراوان ژوورەکان بە تیشکی ڕۆژ دەخەنکێنێت، پێویستی بە ڕووناکی دەستکرد کەم دەکات و ژینگەیەکی تەندروستتر و بەرهەمدارتر بۆ دانیشتووان دروست دەکات.\n\nئەندازیاری کراوە بۆ بەرگەگرتنی باران و با و پلەی گەرمیی ئەفراتکار، دیزاینی پەسندکراو پاراستنی تەواو لە کەشوهەوا کاتێک داخراوە دابین دەکات. چوارچێوەی نزمی بە شارەوەیی لەگەڵ هێڵی سەقفدا دەگونجێت و ڕوالەتی دەرەوەی پاکی بینا دەپارێزێت لەگەڵ دابینکردنی کارایی و بەردەوامی درێژخایەن بە کەمترین چاککردنەوە."
   },
   {
     "id": "door-dh-gt-02",
-    "name": "Modern Driveway Gate with Horizontal Louvers & Dual Frosted Glass",
-    "arabicName": "بوابة فيلا عصرية بشرائح ألمنيوم أفقية ومداخل زجاجية بلورية مزدوجة",
+    "name": "Modern Horizontal Slat Driveway Gate with Privacy Glass Panels",
+    "arabicName": "بوابة خارجية عصرية بشرائح أفقية ولوحات زجاجية خاصة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2134,28 +2132,28 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Dual Inlaid 10 mm Tempered Laminated Translucent Glass Light Strips with Silicone Cushioning",
       "Structural 100 mm Extruded 6063-T6 Aluminum Chassis with Fully Concealed Fastening",
       "Qualicoat Class 2 Super-Durable Fine-Texture Electrostatic Powder Finish Resisting UV Fade",
-      "Universal Heavy-Duty Automation Bracket Pre-Engineered for Italian BFT & Somfy Sliding Operators"
+      "Universal Heavy-Duty Automation Bracket Pre-Engineered for Architectural BFT & Somfy Sliding Operators"
     ],
     "specs": {
       "Chassis Depth": "100 mm Structural Aluminum Frame",
       "Louver Profile": "80 mm x 20 mm Extruded 6063-T6 Aluminum",
       "Glass Inlay": "10 mm (5+5 mm) Tempered Laminated Frosted Architectural Glass",
       "Surface Coating": "Qualicoat Class 2 Fine-Texture Matte Powder (25 Microns)",
-      "Fasteners & Hardware": "Marine-Grade A4 (AISI 316) Stainless Steel",
+      "Fasteners & Hardware": "Marine-Grade A4 (High-Grade Marine Stainless Steel) Stainless Steel",
       "Motor Compatibility": "Up to 1,500 kg Heavy-Duty Rack-and-Pinion Sliding Operators"
     },
-    "description": "Command the entrance of your luxury estate with this architecturally balanced driveway gate featuring horizontal precision-spaced extruded aluminum louvers complemented by dual vertical reveals of translucent architectural frosted glass. Designed for contemporary modern residences, the subtle luminescence of the frosted panels allows soft ambient light filtration by day and dramatic backlit silhouettes by night, while maintaining complete perimeter privacy for your villa courtyard.\n\nEngineered upon an ultra-stiff 100 mm structural 6063-T6 aluminum chassis, each horizontal louver is mechanically locked using concealed marine-grade A4 stainless steel fasteners to eliminate visible screwheads and surface oxidation. The dual 10 mm tempered laminated safety glass inserts are seated in structural silicone vibration dampeners that absorb vehicular engine vibrations and buffer against high-velocity desert wind buffeting.\n\nFinished in a Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the gate resists persistent UV degradation, micro-scratching, and airborne desert grit. Integrated with internal cable raceways, heavy-duty stainless steel track rollers, and reinforced drive brackets, it pairs effortlessly with leading European automation motors (BFT, Somfy, Nice) for whisper-silent, reliable perimeter security.",
+    "description": "This premium architectural gate features clean horizontal aluminum slats with dual frosted glass accent panels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة فيلا عصرية بشرائح ألمنيوم أفقية ومداخل زجاجية بلورية مزدوجة",
+        "name": "بوابة خارجية عصرية بشرائح أفقية ولوحات زجاجية خاصة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "امنح فيلتك حضوراً معمارياً استثنائياً مع هذه البوابة العصرية الفاخرة التي تجمع بين شرائح الألمنيوم الأفقية المصممة بانسيابية ديناميكية وشريطين عموديين من الزجاج المصنفر فائق الأناقة. يوفر هذا التصميم توازناً ساحراً بين الخصوصية المطلقة التي تحجب الرؤية تماماً عن الداخل، وبين السماح لضوء النهار الطبيعي والإضاءات الليلية بالتغلغل عبر الزجاج ليخلق مشهداً بصرياً جذاباً عند مدخل سيارات الفيلا.\n\nتم بناء البوابة على هيكل ألمنيوم هيكلي مقوى سماكة 100 ملم من سبائك المعمارية المعالجة حرارياً عالية الصلابة المعالجة حرارياً، مع تثبيت الشرائح بنظام التعشيق المخفي الخالي تماماً من المسامير الظاهرة لضمان استقامة مثالية ومقاومة قصوى للصدأ. كما تم تدعيم الألواح الزجاجية المزدوجة المقواة بجوانات سيليكون مرنة تمتص الاهتزازات وحركات الرياح العاتية وتمنع أي اهتزاز أثناء فتح وإغلاق البوابة.\n\nطُليت البوابة ببودرة إلكتروستاتيكية مطفية معتمدة وفق معايير عالي الجودة المعتمد دولياً للمقاومة المناخية العالمية المقاومة لأشعة الشمس الحارقة والحرارة المرتفعة والغبار، مع تجهيزها بمسارات داخلية لتمديد الأسلاك وحوامل تثبيت محركات السحب الأوتوماتيكية الإيطالية المتطورة لتشغيل سلس وصامت على مدار الساعة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الأفقية المصقولة واللوحات الزجاجية المعمارية العازلة للرؤية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح ألمنيوم أفقية عريضة توفر خصوصية بصرية كاملة بنسبة 100% مع تقليل مقاومة الرياح",
           "شريطان رأسيان من الزجاج المقسى والمصفح المصنفر لإضاءة معمارية فاخرة نهاراً وليلاً",
           "هيكل ألمنيوم إنشائي متين سماكة 100 ملم بخلوصات دقيقة ومسامير تثبيت مخفية تماماً",
           "طلاء بودرة إلكتروستاتيكي كلاس 2 فائق التحمل ضد بهتان اللون والأشعة فوق البنفسجية",
-          "جاهزية كاملة لتركيب أنظمة الفتح السحاب الأوتوماتيكية الأوروبية مثل و سومفي الذكية"
+          "جاهزية كاملة لالمعتمدب أنظمة الفتح السحاب الأوتوماتيكية المعمارية المعتمدة مثل و سومفي الذكية"
         ],
         "specs": {
           "عمق الهيكل الإنشائي": "100 ملم ألمنيوم مقوى المعمارية المعالجة حرارياً عالية الصلابة",
@@ -2167,9 +2165,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ڤێلای مۆدێرن بە شریتی ئاسۆیی ئەلەمنیۆم و شووشەی تەڵخی دووانە",
+        "name": "دەروازەی مۆدێرن بە شریتی ئاسۆیی و شووشەی تایبەت",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی ڤێلا کە دیزاینێکی هاوچەرخی هەیە بە شریتی ئاسۆیی ئەلەمنیۆم و دوو هێڵی ستوونی شووشەی تەڵخی دڵڕفێن، کە پارێزگاری و تایبەتمەندی تەواو بە حەوشەی ڤێلاکەت دەبەخشێت بەبێ ئەوەی ڕۆشنایی سروشتی لەدەست بدات.\n\nلەسەر شاسییەکی ئەلەمنیۆمی پتەوی 100 ملم لە جۆری المعمارية المعالجة حرارياً عالية الصلابة بنیات نراوە، بە بێ دەرکەوتنی هیچ بزمارێک لە دەرەوە بۆ پاراستنی جوانییە نژیاروانییەکەی و دڵنیابوون لە بەرگریی بەرزی بەرامبەر با و گۆڕانی کەشوهەوا.\n\nبۆیاخی پلە یەکی ئەوروپی دژە خۆر و تۆزی لەسەرە، و ئامادەکراوە بۆ بەستنی مۆتۆری خۆکاری ئۆتۆماتیکی سحابی بە بێ دەنگی و بەرزترین کوالێتی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە ئەلەمنیۆمە ئاسۆییەکان و لەوحە شووشەییە تەڵخەکان تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "شریتی ئاسۆیی ئەلەمنیۆم بۆ پاراستنی تایبەتمەندی تەواو و بەرگری لە با",
           "دوو هێڵی ستوونی شووشەی پارێزراوی تەڵخ بۆ ڕۆشنایی جوان",
@@ -2187,34 +2185,34 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Modern Driveway Gate with Horizontal Louvers & Dual Frosted Glass",
+        "name": "Modern Horizontal Slat Driveway Gate with Privacy Glass Panels",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Command the entrance of your luxury estate with this architecturally balanced driveway gate featuring horizontal precision-spaced extruded aluminum louvers complemented by dual vertical reveals of translucent architectural frosted glass. Designed for contemporary modern residences, the subtle luminescence of the frosted panels allows soft ambient light filtration by day and dramatic backlit silhouettes by night, while maintaining complete perimeter privacy for your villa courtyard.\n\nEngineered upon an ultra-stiff 100 mm structural 6063-T6 aluminum chassis, each horizontal louver is mechanically locked using concealed marine-grade A4 stainless steel fasteners to eliminate visible screwheads and surface oxidation. The dual 10 mm tempered laminated safety glass inserts are seated in structural silicone vibration dampeners that absorb vehicular engine vibrations and buffer against high-velocity desert wind buffeting.\n\nFinished in a Qualicoat Class 2 architectural electrostatic fine-texture powder coating, the gate resists persistent UV degradation, micro-scratching, and airborne desert grit. Integrated with internal cable raceways, heavy-duty stainless steel track rollers, and reinforced drive brackets, it pairs effortlessly with leading European automation motors (BFT, Somfy, Nice) for whisper-silent, reliable perimeter security.",
+        "description": "This premium architectural gate features clean horizontal aluminum slats with dual frosted glass accent panels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Horizontal 80 mm Aerodynamic Louver Blades Offering 100% Sightline Privacy & Low Wind Drag",
           "Dual Inlaid 10 mm Tempered Laminated Translucent Glass Light Strips with Silicone Cushioning",
           "Structural 100 mm Extruded 6063-T6 Aluminum Chassis with Fully Concealed Fastening",
           "Qualicoat Class 2 Super-Durable Fine-Texture Electrostatic Powder Finish Resisting UV Fade",
-          "Universal Heavy-Duty Automation Bracket Pre-Engineered for Italian BFT & Somfy Sliding Operators"
+          "Universal Heavy-Duty Automation Bracket Pre-Engineered for Architectural BFT & Somfy Sliding Operators"
         ],
         "specs": {
           "Chassis Depth": "100 mm Structural Aluminum Frame",
           "Louver Profile": "80 mm x 20 mm Extruded 6063-T6 Aluminum",
           "Glass Inlay": "10 mm (5+5 mm) Tempered Laminated Frosted Architectural Glass",
           "Surface Coating": "Qualicoat Class 2 Fine-Texture Matte Powder (25 Microns)",
-          "Fasteners & Hardware": "Marine-Grade A4 (AISI 316) Stainless Steel",
+          "Fasteners & Hardware": "Marine-Grade A4 (High-Grade Marine Stainless Steel) Stainless Steel",
           "Motor Compatibility": "Up to 1,500 kg Heavy-Duty Rack-and-Pinion Sliding Operators"
         }
       }
     },
-    "kurdishName": "دەروازەی ڤێلای مۆدێرن بە شریتی ئاسۆیی ئەلەمنیۆم و شووشەی تەڵخی دووانە",
-    "arabicDescription": "امنح فيلتك حضوراً معمارياً استثنائياً مع هذه البوابة العصرية الفاخرة التي تجمع بين شرائح الألمنيوم الأفقية المصممة بانسيابية ديناميكية وشريطين عموديين من الزجاج المصنفر فائق الأناقة. يوفر هذا التصميم توازناً ساحراً بين الخصوصية المطلقة التي تحجب الرؤية تماماً عن الداخل، وبين السماح لضوء النهار الطبيعي والإضاءات الليلية بالتغلغل عبر الزجاج ليخلق مشهداً بصرياً جذاباً عند مدخل سيارات الفيلا.\n\nتم بناء البوابة على هيكل ألمنيوم هيكلي مقوى سماكة 100 ملم من سبائك المعمارية المعالجة حرارياً عالية الصلابة المعالجة حرارياً، مع تثبيت الشرائح بنظام التعشيق المخفي الخالي تماماً من المسامير الظاهرة لضمان استقامة مثالية ومقاومة قصوى للصدأ. كما تم تدعيم الألواح الزجاجية المزدوجة المقواة بجوانات سيليكون مرنة تمتص الاهتزازات وحركات الرياح العاتية وتمنع أي اهتزاز أثناء فتح وإغلاق البوابة.\n\nطُليت البوابة ببودرة إلكتروستاتيكية مطفية معتمدة وفق معايير عالي الجودة المعتمد دولياً للمقاومة المناخية العالمية المقاومة لأشعة الشمس الحارقة والحرارة المرتفعة والغبار، مع تجهيزها بمسارات داخلية لتمديد الأسلاك وحوامل تثبيت محركات السحب الأوتوماتيكية الإيطالية المتطورة لتشغيل سلس وصامت على مدار الساعة.",
-    "kurdishDescription": "دەروازەیەکی نایابی ڤێلا کە دیزاینێکی هاوچەرخی هەیە بە شریتی ئاسۆیی ئەلەمنیۆم و دوو هێڵی ستوونی شووشەی تەڵخی دڵڕفێن، کە پارێزگاری و تایبەتمەندی تەواو بە حەوشەی ڤێلاکەت دەبەخشێت بەبێ ئەوەی ڕۆشنایی سروشتی لەدەست بدات.\n\nلەسەر شاسییەکی ئەلەمنیۆمی پتەوی 100 ملم لە جۆری المعمارية المعالجة حرارياً عالية الصلابة بنیات نراوە، بە بێ دەرکەوتنی هیچ بزمارێک لە دەرەوە بۆ پاراستنی جوانییە نژیاروانییەکەی و دڵنیابوون لە بەرگریی بەرزی بەرامبەر با و گۆڕانی کەشوهەوا.\n\nبۆیاخی پلە یەکی ئەوروپی دژە خۆر و تۆزی لەسەرە، و ئامادەکراوە بۆ بەستنی مۆتۆری خۆکاری ئۆتۆماتیکی سحابی بە بێ دەنگی و بەرزترین کوالێتی."
+    "kurdishName": "دەروازەی مۆدێرن بە شریتی ئاسۆیی و شووشەی تایبەت",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الأفقية المصقولة واللوحات الزجاجية المعمارية العازلة للرؤية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە ئەلەمنیۆمە ئاسۆییەکان و لەوحە شووشەییە تەڵخەکان تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-06",
-    "name": "Contemporary Sliding Driveway Gate with Vertical Warm Teak Handles",
-    "arabicName": "بوابة سحابة فاخرة بمقابض خشب تيك طبيعي عمودية وتصميم ألمنيوم متين",
+    "name": "Sliding Driveway Gate with Natural Warm Timber Accents",
+    "arabicName": "بوابة سحابة خارجية بلمسات الخشب الطبيعي الدافئ",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2238,18 +2236,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Span Capacity": "Up to 6000 mm Width x 2400 mm Height Single Leaf",
       "Wind Rating": "Class C4 High-Velocity Gale Resistance"
     },
-    "description": "Fuse organic natural warmth with clean industrial architectural form in this contemporary motorized sliding driveway gate. Featuring continuous monolithic slate-charcoal aluminum facade panels accented by an oversized, vertically oriented architectural handle crafted from kiln-dried Burmese Teak, this entrance design introduces a rich textural contrast that elevates the facade of ultra-modern private estates.\n\nThe core structure utilizes high-strength boxed 6063-T6 aluminum perimeter girders with reinforced internal cross-bracing that prevents sagging, twisting, or misalignment over massive spans up to 6 meters. The natural teak wood accents undergo high-temperature vacuum treatment and are finished with three coats of marine UV-inhibiting elastomeric oil to ensure lifetime resistance to blistering, sun-bleaching, and warping.\n\nUnderneath, a continuous heavy-duty ground track with precision-machined twin stainless steel V-groove rollers delivers effortless, vibration-free gliding. Pre-drilled mounting plates allow direct integration with industrial rack-and-pinion electric sliding gate openers, complete with photocell safety eyes and keypad access.",
+    "description": "This premium architectural gate features seamless sliding operation accented by vertical warm teakwood inlays, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحابة فاخرة بمقابض خشب تيك طبيعي عمودية وتصميم ألمنيوم متين",
+        "name": "بوابة سحابة خارجية بلمسات الخشب الطبيعي الدافئ",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "مزيج آسر يجمع بين دفء الطبيعة العضوي وفخامة الهندسة المعمارية الصناعية في بوابة سيارات سحابة مصممة للفلل الراقية. تتميز البوابة بألواح ألمنيوم مصمتة عريضة بلون رمادي فحمي مطفي، يتوسطها مقبض عمودي ممتد من خشب التيك البورمي الطبيعي المجفف بالفرن، مما يمنح الواجهة الخارجية تبايناً ملموساً وجمالاً يجمع بين الأصالة والحداثة.\n\nصُنعت الأطر الأساسية من قطاعات ألمنيوم هيكلية مجوفة سماكة 80 ملم ومعززة بأضلاع داخلية لمنع أي هبوط أو تقوس على مدار مسافات الفتح الواسعة التي تصل إلى 6 أمتار. تمت معالجة خشب التيك بزيوت بوليمرية بحرية عازلة للرطوبة وأشعة الشمس الفوق بنفسجية لمنع التفسخ أو تغير اللون في حرارة الصيف الشديدة.\n\nتنزلق البوابة على سكة سفلية مدمجة مصنوعة من الستانلس ستيل المصقول وبكرات مزدوجة مانعة للاهتزاز تعمل بانسيابية مطلقة وهدوء تام، مع تجهيز داخلي كامل لتركيب محركات السحب الأوتوماتيكية الإيطالية وحساسات التوقف الذكية لمنع الاصطدام.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ حركة السحب الانسيابية المطعمة بخشب التيك الطبيعي المعالج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "ألواح ألمنيوم متداخلة مصمتة بلون الفحم توفر خصوصية وحماية مطلقة بنسبة 100%",
           "مقبض وتطعيمات رأسية عريضة من خشب التيك البورمي الطبيعي المعالج بالزيوت البحرية",
           "هيكل إنشائي صندوقي يتحمل بحور فتح واسعة حتى 6 أمتار دون أي ميلان أو هبوط",
           "عجلات انزلاق سفلية من الستانلس ستيل المقاوم للتآكل مع حوامل حماية مانعة للانحراف",
-          "جاهزية كاملة للربط مع محركات السحب الآلي الإيطالية المتطورة وحساسات الأمان"
+          "جاهزية كاملة للربط مع محركات السحب الآلي المعتمدة عالية الأداء المتطورة وحساسات الأمان"
         ],
         "specs": {
           "سماكة الإطار الهيكلي": "80 ملم بروفايل صندوقي مقوى المعمارية المعالجة حرارياً عالية الصلابة",
@@ -2261,9 +2259,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی هاوچەرخ بە دەسک و ڕووپۆشی دار تیکی سروشتی",
+        "name": "دەروازەی سلایدینگی دەرەوە بە دەستکاری تەختەی سروشتی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "تێکەڵەیەکی ناوازە لە نێوان جوانی داری تیکی سروشتی و ئەلەمنیۆمی پتەوی ڕەنگی خەڵوزی لە دەروازەیەکی سحابی مۆدێرندا کە سیمایەکی تایبەت و شاهانە بە ڤێلاکەت دەبەخشێت.\n\nپێکهاتەی ئەلەمنیۆمی بەهێزی 80 ملم دەتوانێت تا پانی 6 مەتر بەبێ هیچ خواربوونێک کار بکات. دار تیکەکە بە ڕۆنی دژە خۆر و ئاو چارەسەر کراوە بۆ ئەوەی بەرگەی گەرمای بەرز بگرێت.\n\nبە بەکارهێنانی تایەی ستانلێس ستیل بە هێمنی و نەرمی دەجووڵێت، و بە تەواوی ئامادەیە بۆ مۆتۆری خۆکاری ئۆتۆماتیکی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە جوڵەی سلایدینگی نەرم بە تەختەی تیکی سروشتی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "ڕووی ئەلەمنیۆمی تۆکمە بۆ پاراستنی تەواوەتی نهێنی ناو حەوشە",
           "دەسکی درێژی ستوونی لە دار تیکی سروشتی پارێزراو بە ڕۆنی دەریایی",
@@ -2281,9 +2279,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Contemporary Sliding Driveway Gate with Vertical Warm Teak Handles",
+        "name": "Sliding Driveway Gate with Natural Warm Timber Accents",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Fuse organic natural warmth with clean industrial architectural form in this contemporary motorized sliding driveway gate. Featuring continuous monolithic slate-charcoal aluminum facade panels accented by an oversized, vertically oriented architectural handle crafted from kiln-dried Burmese Teak, this entrance design introduces a rich textural contrast that elevates the facade of ultra-modern private estates.\n\nThe core structure utilizes high-strength boxed 6063-T6 aluminum perimeter girders with reinforced internal cross-bracing that prevents sagging, twisting, or misalignment over massive spans up to 6 meters. The natural teak wood accents undergo high-temperature vacuum treatment and are finished with three coats of marine UV-inhibiting elastomeric oil to ensure lifetime resistance to blistering, sun-bleaching, and warping.\n\nUnderneath, a continuous heavy-duty ground track with precision-machined twin stainless steel V-groove rollers delivers effortless, vibration-free gliding. Pre-drilled mounting plates allow direct integration with industrial rack-and-pinion electric sliding gate openers, complete with photocell safety eyes and keypad access.",
+        "description": "This premium architectural gate features seamless sliding operation accented by vertical warm teakwood inlays, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Solid Interlocking Charcoal Aluminum Facade with Zero Gaps for Complete Seclusion",
           "Integrated Oversized Natural Kiln-Dried Teak Vertical Pull Accent with Marine Oil Seal",
@@ -2301,14 +2299,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی هاوچەرخ بە دەسک و ڕووپۆشی دار تیکی سروشتی",
-    "arabicDescription": "مزيج آسر يجمع بين دفء الطبيعة العضوي وفخامة الهندسة المعمارية الصناعية في بوابة سيارات سحابة مصممة للفلل الراقية. تتميز البوابة بألواح ألمنيوم مصمتة عريضة بلون رمادي فحمي مطفي، يتوسطها مقبض عمودي ممتد من خشب التيك البورمي الطبيعي المجفف بالفرن، مما يمنح الواجهة الخارجية تبايناً ملموساً وجمالاً يجمع بين الأصالة والحداثة.\n\nصُنعت الأطر الأساسية من قطاعات ألمنيوم هيكلية مجوفة سماكة 80 ملم ومعززة بأضلاع داخلية لمنع أي هبوط أو تقوس على مدار مسافات الفتح الواسعة التي تصل إلى 6 أمتار. تمت معالجة خشب التيك بزيوت بوليمرية بحرية عازلة للرطوبة وأشعة الشمس الفوق بنفسجية لمنع التفسخ أو تغير اللون في حرارة الصيف الشديدة.\n\nتنزلق البوابة على سكة سفلية مدمجة مصنوعة من الستانلس ستيل المصقول وبكرات مزدوجة مانعة للاهتزاز تعمل بانسيابية مطلقة وهدوء تام، مع تجهيز داخلي كامل لتركيب محركات السحب الأوتوماتيكية الإيطالية وحساسات التوقف الذكية لمنع الاصطدام.",
-    "kurdishDescription": "تێکەڵەیەکی ناوازە لە نێوان جوانی داری تیکی سروشتی و ئەلەمنیۆمی پتەوی ڕەنگی خەڵوزی لە دەروازەیەکی سحابی مۆدێرندا کە سیمایەکی تایبەت و شاهانە بە ڤێلاکەت دەبەخشێت.\n\nپێکهاتەی ئەلەمنیۆمی بەهێزی 80 ملم دەتوانێت تا پانی 6 مەتر بەبێ هیچ خواربوونێک کار بکات. دار تیکەکە بە ڕۆنی دژە خۆر و ئاو چارەسەر کراوە بۆ ئەوەی بەرگەی گەرمای بەرز بگرێت.\n\nبە بەکارهێنانی تایەی ستانلێس ستیل بە هێمنی و نەرمی دەجووڵێت، و بە تەواوی ئامادەیە بۆ مۆتۆری خۆکاری ئۆتۆماتیکی."
+    "kurdishName": "دەروازەی سلایدینگی دەرەوە بە دەستکاری تەختەی سروشتی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ حركة السحب الانسيابية المطعمة بخشب التيك الطبيعي المعالج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە جوڵەی سلایدینگی نەرم بە تەختەی تیکی سروشتی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-14",
-    "name": "Architectural Sliding Gate with Charcoal Louvers & Vertical Timber Inlays",
-    "arabicName": "بوابة ألمنيوم فحمية بشرائح أفقية مع لمسات خشبية رأسية وباب مشاة مدمج",
+    "name": "Charcoal Aluminum Sliding Gate with Wood Finish Inlays",
+    "arabicName": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2327,37 +2325,37 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Frame Material": "Extruded Structural 6063-T6 Aluminum Alloy",
       "Louver Configuration": "65 mm Drop-Blade Aerodynamic Louvers with 15 mm Pitch",
-      "Wood Species": "Kiln-Dried European Thermo-Ash or African Iroko",
+      "Wood Species": "Kiln-Dried Architectural Standard Thermo-Ash or African Iroko",
       "Finish": "Qualicoat Class 2 Fine Texture Dark Charcoal (AkzoNobel Interpon D2525)",
       "Guide Mechanism": "Dual Overhead Encapsulated Nylon Guide Rollers on Rigid Stanchion",
-      "Lock Prep": "STAC European Euro-Groove Multi-Point Mortise Housing"
+      "Lock Prep": "المعتمدة Architectural Standard Euro-Groove Multi-Point Mortise Housing"
     },
-    "description": "Introduce sophisticated rhythmic balance to your property boundary with this architectural sliding gate system. Featuring fine horizontal aluminum privacy louvers in a low-sheen deep graphite finish, the gate is punctuated by an off-center vertical band of natural hardwood slats that also demarcates an integrated or adjacent pedestrian wicket gate with perfect architectural continuity.\n\nThe aluminum louvers are precision-extruded with an aerodynamic drop-blade geometry that directs gusting crosswinds upward, reducing structural wind-load pressure on gate posts and drive gears by up to 40% compared to flat panels. The timber element is seated within an isolated expansion channel lined with EPDM thermal expansion buffers that accommodate natural seasonal wood movement without stressing the metal framing.\n\nEquipped with an integrated concealed mortise locking chamber, European euro-cylinder security, and top-guide nylon anti-friction rollers, this gate delivers exceptional durability, silky-smooth sliding operation, and unmatched curbside prestige.",
+    "description": "This premium architectural gate features deep charcoal louvers integrated with rich architectural wood accents, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة ألمنيوم فحمية بشرائح أفقية مع لمسات خشبية رأسية وباب مشاة مدمج",
+        "name": "بوابة سحابة بلون الفحم مع تطعيمات خشبية أنيقة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف توازناً هندسياً رفيعاً لحدود فيلتك الخارجية مع نظام البوابة السحابة المعمارية المتطورة. تتميز هذه البوابة بشرائح ألمنيوم أفقية دقيقة بلون الغرافيت الداكن المطفي، تتداخل مع شريط عمودي أنيق من شرائح الخشب الطبيعي الذي يحدد بذكاء مسار باب المشاة المدمج بسلاسة تامة مع حركة بوابة المركبات دون كسر استمرارية التصميم.\n\nتم تصميم شرائح الألمنيوم بشكل انسيابي أيروديناميكي يشتت ضغط الرياح العاتية بنسبة تصل إلى 40% مقارنة بالألواح المصمتة العادية، مما يحمي أعمدة التثبيت ومحركات السحب من الإجهاد الميكانيكي. كما تم تثبيت الألواح الخشبية داخل قنوات تمدد مبطنة بربلات المطاطية الهندسية ثلاثية الإحكام المرنة لتسمح بتنفس الخشب الطبيعي في حرارة الصيف دون الضغط على الهيكل المعدني.\n\nتأتي البوابة مزودة ببكرات علوية متطورة من النايلون الصناعي فائق الكثافة لمنع الاحتكاك والضوضاء، وقفل مركزي أوروبي متعدد النقاط، لتوفر أعلى درجات الأمان والراحة والوقار المعماري لمدخل منزلك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح أفقية انسيابية تخفف من مقاومة الرياح والعواصف بنسبة تصل إلى 40%",
           "فاصل خشبي رأسي جذاب من الخشب الطبيعي المعالج حرارياً يحدد مدخل المشاة",
           "تناغم معماري موحد بين مدخل السيارات وباب المشاة دون أي فواصل مشوهة",
           "بكرات توجيه علوية من نايلون البوليمر الهندسي المتين عالي الكثافة لحركة صامتة وخالية من الاحتكاك",
-          "جاهزية كاملة لتركيب الإنتركوم الذكي، الكاميرات، والأقفال الكهرومغناطيسية"
+          "جاهزية كاملة لالمعتمدب الإنتركوم الذكي، الكاميرات، والأقفال الكهرومغناطيسية"
         ],
         "specs": {
           "مادة الهيكل": "سبائك ألمنيوم معماري المعمارية المعالجة حرارياً عالية الصلابة مسحوبة بمقاييس عالية المتانة",
           "تصميم الشرائح": "شرائح شفرية انسيابية عرض 65 ملم بخطوة ميل مدروسة",
-          "نوع الخشب": "خشب أش أوروبي معالج حرارياً أو إيروكو إفريقي مجفف بالفرن",
+          "نوع الخشب": "خشب أش المعتمد معالج حرارياً أو إيروكو إفريقي مجفف بالفرن",
           "نوع الطلاء": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي غرافيت (العالمية المعتمدة)",
           "نظام التوجيه العلوي": "بكرات نايلون مزدوجة محكمة ومقاومة للغبار والتآكل",
-          "نظام الإغلاق": "تجهيز مسبق لأقفال الإسبانية المعتمدة الإسبانية متعددة نقاط الإحكام"
+          "نظام الإغلاق": "تجهيز مسبق لأقفال المعتمدة المتطورة المعتمدة المتطورة متعددة نقاط الإحكام"
         }
       },
       "ckb": {
-        "name": "دەروازەی ئەلەمنیۆمی خەڵوزی بە شریتی ئاسۆیی و نەخشی داری ستوونی",
+        "name": "دەروازەی سلایدینگی ڕەنگی خەڵوزی بە نەخشی تەختە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی سحاب بە شریتی ئاسۆیی ڕەنگی خەڵوزی لەگەڵ بەشێکی ستوونی داری سروشتی کە جوانییەکی تایبەت دەبەخشێت و دەرگای پیادەی تێدا بە شێوەیەکی یەکگرتوو دیزاین کراوە.\n\nشریتەکانی ئەلەمنیۆم بە شێوەیەک دیزاین کراون کە بەرگری با بە ڕێژەی 40% کەم دەکەنەوە بۆ پاراستنی مۆتۆر و کۆڵەکەکان. دارەکە لە کەناڵی تایبەتدا دانراوە بۆ بەرگەگرتنی گەرما بەبێ خواربوون.\n\nبە بەکارهێنانی ڕۆلەری نایلۆنی تایبەت بە بێدەنگی و نەرمی دەجووڵێت، و کواڵۆنی ئەوروپی فرە خاڵی لەسەرە بۆ پارێزگاری تەواو.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی ڕەنگی خەڵوزی لەگەڵ نەخشی داری شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "شریتی ئاسۆیی کە بەرگری بەرامبەر بای بەهێز بە ڕێژەی 40% کەم دەکاتەوە",
           "هێڵی ستوونی لە داری سروشتی چارەسەرکراو بۆ دەرگای پیادە",
@@ -2368,16 +2366,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "ماددەی چوارچێوە": "ئەلەمنیۆمی ئەندازیاری المعمارية المعالجة حرارياً عالية الصلابة",
           "پڕۆفایلی شریتەکان": "شریتی 65 ملم بە لێژی ڕێکخراو",
-          "جۆری دار": "داری ئەشی ئەوروپی چارەسەرکراو بە گەرمی",
+          "جۆری دار": "داری ئەشی ستانداردی نێودەوڵەتی چارەسەرکراو بە گەرمی",
           "بۆیاخ": "پۆودەری ئەلکترۆستاتیکی کوالیکۆت کلاسی 2 ڕەنگی گرافیتی تۆخ",
           "سیستەمی ڕێڕەو": "ڕۆلەری نایلۆنی جووت بۆ ڕێگری لە لەرینەوە",
-          "قفڵ": "ئامادەکراو بۆ قفڵی ئەوروپی الإسبانية المعتمدة"
+          "قفڵ": "ئامادەکراو بۆ قفڵی ستانداردی نێودەوڵەتی المعتمدة المتطورة المعتمدة"
         }
       },
       "en": {
-        "name": "Architectural Sliding Gate with Charcoal Louvers & Vertical Timber Inlays",
+        "name": "Charcoal Aluminum Sliding Gate with Wood Finish Inlays",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Introduce sophisticated rhythmic balance to your property boundary with this architectural sliding gate system. Featuring fine horizontal aluminum privacy louvers in a low-sheen deep graphite finish, the gate is punctuated by an off-center vertical band of natural hardwood slats that also demarcates an integrated or adjacent pedestrian wicket gate with perfect architectural continuity.\n\nThe aluminum louvers are precision-extruded with an aerodynamic drop-blade geometry that directs gusting crosswinds upward, reducing structural wind-load pressure on gate posts and drive gears by up to 40% compared to flat panels. The timber element is seated within an isolated expansion channel lined with EPDM thermal expansion buffers that accommodate natural seasonal wood movement without stressing the metal framing.\n\nEquipped with an integrated concealed mortise locking chamber, European euro-cylinder security, and top-guide nylon anti-friction rollers, this gate delivers exceptional durability, silky-smooth sliding operation, and unmatched curbside prestige.",
+        "description": "This premium architectural gate features deep charcoal louvers integrated with rich architectural wood accents, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Aerodynamic Drop-Blade Louvers Reducing High-Wind Lateral Pressure by up to 40%",
           "Accent Vertical Natural Hardwood Band with Concealed Expansion Buffers",
@@ -2388,21 +2386,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "Frame Material": "Extruded Structural 6063-T6 Aluminum Alloy",
           "Louver Configuration": "65 mm Drop-Blade Aerodynamic Louvers with 15 mm Pitch",
-          "Wood Species": "Kiln-Dried European Thermo-Ash or African Iroko",
+          "Wood Species": "Kiln-Dried Architectural Standard Thermo-Ash or African Iroko",
           "Finish": "Qualicoat Class 2 Fine Texture Dark Charcoal (AkzoNobel Interpon D2525)",
           "Guide Mechanism": "Dual Overhead Encapsulated Nylon Guide Rollers on Rigid Stanchion",
-          "Lock Prep": "STAC European Euro-Groove Multi-Point Mortise Housing"
+          "Lock Prep": "المعتمدة Architectural Standard Euro-Groove Multi-Point Mortise Housing"
         }
       }
     },
-    "kurdishName": "دەروازەی ئەلەمنیۆمی خەڵوزی بە شریتی ئاسۆیی و نەخشی داری ستوونی",
-    "arabicDescription": "أضف توازناً هندسياً رفيعاً لحدود فيلتك الخارجية مع نظام البوابة السحابة المعمارية المتطورة. تتميز هذه البوابة بشرائح ألمنيوم أفقية دقيقة بلون الغرافيت الداكن المطفي، تتداخل مع شريط عمودي أنيق من شرائح الخشب الطبيعي الذي يحدد بذكاء مسار باب المشاة المدمج بسلاسة تامة مع حركة بوابة المركبات دون كسر استمرارية التصميم.\n\nتم تصميم شرائح الألمنيوم بشكل انسيابي أيروديناميكي يشتت ضغط الرياح العاتية بنسبة تصل إلى 40% مقارنة بالألواح المصمتة العادية، مما يحمي أعمدة التثبيت ومحركات السحب من الإجهاد الميكانيكي. كما تم تثبيت الألواح الخشبية داخل قنوات تمدد مبطنة بربلات المطاطية الهندسية ثلاثية الإحكام المرنة لتسمح بتنفس الخشب الطبيعي في حرارة الصيف دون الضغط على الهيكل المعدني.\n\nتأتي البوابة مزودة ببكرات علوية متطورة من النايلون الصناعي فائق الكثافة لمنع الاحتكاك والضوضاء، وقفل مركزي أوروبي متعدد النقاط، لتوفر أعلى درجات الأمان والراحة والوقار المعماري لمدخل منزلك.",
-    "kurdishDescription": "دەروازەیەکی نایابی سحاب بە شریتی ئاسۆیی ڕەنگی خەڵوزی لەگەڵ بەشێکی ستوونی داری سروشتی کە جوانییەکی تایبەت دەبەخشێت و دەرگای پیادەی تێدا بە شێوەیەکی یەکگرتوو دیزاین کراوە.\n\nشریتەکانی ئەلەمنیۆم بە شێوەیەک دیزاین کراون کە بەرگری با بە ڕێژەی 40% کەم دەکەنەوە بۆ پاراستنی مۆتۆر و کۆڵەکەکان. دارەکە لە کەناڵی تایبەتدا دانراوە بۆ بەرگەگرتنی گەرما بەبێ خواربوون.\n\nبە بەکارهێنانی ڕۆلەری نایلۆنی تایبەت بە بێدەنگی و نەرمی دەجووڵێت، و کواڵۆنی ئەوروپی فرە خاڵی لەسەرە بۆ پارێزگاری تەواو."
+    "kurdishName": "دەروازەی سلایدینگی ڕەنگی خەڵوزی بە نەخشی تەختە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الفحمية الداكنة المتناسقة مع التطعيمات الخشبية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی ڕەنگی خەڵوزی لەگەڵ نەخشی داری شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-15",
-    "name": "Horizontal Slat Security Gate with Translucent Glass Accent Panel",
-    "arabicName": "بوابة فيلا عصرية بشرائح حماية أفقية ونافذة زجاجية مضيئة أنيقة",
+    "name": "Horizontal Slat Security Gate with Translucent Accent Panel",
+    "arabicName": "بوابة أمان بشرائح أفقية مع لوح زجاجي مضيء",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2426,12 +2424,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Coating Standard": "Qualicoat Class 2 Architectural Powder Coat (Matte Finish)",
       "Weight Capacity": "Engineered for Leaves up to 800 kg per Section"
     },
-    "description": "Fortify your estate with this high-security horizontal slat driveway gate that pairs robust perimeter protection with an exquisite architectural glass accent. A vertical panel of 12 mm milky-frosted laminated safety glass breaks the solid metal span, introducing a refined luminescence that illuminates the driveway landing when external landscape spotlights are active.\n\nBuilt from heavy-gauge structural aluminum box profiles with an integrated anti-lever perimeter flange, this gate prevents forced prying and tampering. The horizontal aluminum slats are spaced with micro-reveal shadow lines that deliver 100% complete visual opacity, shielding family activities, luxury vehicles, and children's play areas from street-level view.\n\nAll structural joints feature precision TIG welding concealed beneath a continuous AkzoNobel architectural textured coating. Heavy-duty internal bottom track channels and dual-bearing stainless steel wheels guarantee 100,000+ continuous smooth opening cycles.",
+    "description": "This premium architectural gate features robust horizontal slats featuring a contemporary translucent glass reveal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة فيلا عصرية بشرائح حماية أفقية ونافذة زجاجية مضيئة أنيقة",
+        "name": "بوابة أمان بشرائح أفقية مع لوح زجاجي مضيء",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "عزز حماية فيلتك الخاصة مع هذه البوابة الأمنية الفاخرة التي تدمج بين صلابة الحماية المحكمة واللمسات المعمارية المضيئة المبتكرة. يقطع امتداد الألمنيوم المصمت شريط رأسي من الزجاج المصفح المصنفر سماكة 12 ملم، مما يضفي لمسة من النقاء المعماري التي تتوهج برقي عند انعكاس إضاءات الحديقة الخارجية عليها ليلاً.\n\nصُمم الهيكل من قطاعات ألمنيوم صندوقية عالية السماكة مزودة بحواف حماية مدمجة مانعة للخلع أو العبث لضمان أعلى مستويات الأمان. كما تم رص الشرائح الأفقية بخطوط ظلية متناسقة تمنح حجب رؤية كامل بنسبة 100% لعزل فناء الفيلا ومواقف السيارات عن المارة في الشارع تماماً.\n\nتم لحام كافة الزوايا الإنشائية بتقنية المتطورة عالية المتانة الدقيقة ثم معالجتها وتغطيتها بطبقة طلاء حراري معتمد من العالمية فائقة المقاومة للعوامل الجوية، مع عجلات سفلية مزدوجة من الستانلس ستيل خضعت لاختبارات تحمل تفوق 100,000 دورة فتح وإغلاق متواصلة دون أي تآكل.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتينة مع الفاصل الزجاجي المعماري الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "هيكل أمني صلب بشرائح متداخلة مزودة بشفة حماية محيطية مانعة للخلع والعبث",
           "شريط زجاجي رأسي سماكة 12 ملم من الزجاج المقسى والمصفح المصنفر المقاوم للكسر",
@@ -2449,9 +2447,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ئەمنی ڤێلا بە شریتی ئاسۆیی و پەنجەرەی شووشەی تەڵخی ڕووناک",
+        "name": "دەروازەی ئەمنیی بە شریتی ئاسۆیی و لەوحەی شووشەیی ڕووناک",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ئەمنی بەهێز بۆ ڤێلا کە پاراستنی بەرز و جوانی مۆدێرن پێکەوە کۆدەکاتەوە. هێڵێکی ستوونی شووشەی لامینەیتی 12 ملم تەڵخ لە ناوەڕاستدا ڕووناکییەکی ناوازە دروست دەکات کاتێک گڵۆپەکانی حەوشە دادەگیرسێن.\n\nلە ئەلەمنیۆمی ئەستوور بە سیستەمی دژە شکاندن و دەستکاری دروستکراوە. شریتە ئاسۆییەکان 100% پارێزگاری لە نهێنی حەوشە و ئۆتۆمبێلەکان دەکەن لە چاوی دەرەوە.\n\nهەموو بەستەرەکان بە لەحیمی پێشکەوتووی جێگیرکراون و بۆیاخی تایبەتی دژە گەرمای لەسەرە، تایەکانی زیاتر لە 100,000 جار تاقیکراونەتەوە بۆ جووڵەی نەرم.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی بەهێز بە شووشەی تەلارسازیی مۆدێرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "ئەلەمنیۆمی ئەمنی بەهێز بە لێواری دژە هەڵتەکاندن بۆ بەرزترین ئاستی پارێزگاری",
           "پەنجەرەی ستوونی شووشەی پارێزراوی 12 ملم تەڵخ کە بە ئاسانی ناشکێت",
@@ -2469,9 +2467,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Horizontal Slat Security Gate with Translucent Glass Accent Panel",
+        "name": "Horizontal Slat Security Gate with Translucent Accent Panel",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Fortify your estate with this high-security horizontal slat driveway gate that pairs robust perimeter protection with an exquisite architectural glass accent. A vertical panel of 12 mm milky-frosted laminated safety glass breaks the solid metal span, introducing a refined luminescence that illuminates the driveway landing when external landscape spotlights are active.\n\nBuilt from heavy-gauge structural aluminum box profiles with an integrated anti-lever perimeter flange, this gate prevents forced prying and tampering. The horizontal aluminum slats are spaced with micro-reveal shadow lines that deliver 100% complete visual opacity, shielding family activities, luxury vehicles, and children's play areas from street-level view.\n\nAll structural joints feature precision TIG welding concealed beneath a continuous AkzoNobel architectural textured coating. Heavy-duty internal bottom track channels and dual-bearing stainless steel wheels guarantee 100,000+ continuous smooth opening cycles.",
+        "description": "This premium architectural gate features robust horizontal slats featuring a contemporary translucent glass reveal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "High-Security Interlocking Aluminum Slat Facade with Integrated Anti-Pry Perimeter Lip",
           "Vertical 12 mm Architectural Laminated Frosted Glass Inset with Anti-Shatter Interlayer",
@@ -2489,14 +2487,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی ئەمنی ڤێلا بە شریتی ئاسۆیی و پەنجەرەی شووشەی تەڵخی ڕووناک",
-    "arabicDescription": "عزز حماية فيلتك الخاصة مع هذه البوابة الأمنية الفاخرة التي تدمج بين صلابة الحماية المحكمة واللمسات المعمارية المضيئة المبتكرة. يقطع امتداد الألمنيوم المصمت شريط رأسي من الزجاج المصفح المصنفر سماكة 12 ملم، مما يضفي لمسة من النقاء المعماري التي تتوهج برقي عند انعكاس إضاءات الحديقة الخارجية عليها ليلاً.\n\nصُمم الهيكل من قطاعات ألمنيوم صندوقية عالية السماكة مزودة بحواف حماية مدمجة مانعة للخلع أو العبث لضمان أعلى مستويات الأمان. كما تم رص الشرائح الأفقية بخطوط ظلية متناسقة تمنح حجب رؤية كامل بنسبة 100% لعزل فناء الفيلا ومواقف السيارات عن المارة في الشارع تماماً.\n\nتم لحام كافة الزوايا الإنشائية بتقنية المتطورة عالية المتانة الدقيقة ثم معالجتها وتغطيتها بطبقة طلاء حراري معتمد من العالمية فائقة المقاومة للعوامل الجوية، مع عجلات سفلية مزدوجة من الستانلس ستيل خضعت لاختبارات تحمل تفوق 100,000 دورة فتح وإغلاق متواصلة دون أي تآكل.",
-    "kurdishDescription": "دەروازەیەکی ئەمنی بەهێز بۆ ڤێلا کە پاراستنی بەرز و جوانی مۆدێرن پێکەوە کۆدەکاتەوە. هێڵێکی ستوونی شووشەی لامینەیتی 12 ملم تەڵخ لە ناوەڕاستدا ڕووناکییەکی ناوازە دروست دەکات کاتێک گڵۆپەکانی حەوشە دادەگیرسێن.\n\nلە ئەلەمنیۆمی ئەستوور بە سیستەمی دژە شکاندن و دەستکاری دروستکراوە. شریتە ئاسۆییەکان 100% پارێزگاری لە نهێنی حەوشە و ئۆتۆمبێلەکان دەکەن لە چاوی دەرەوە.\n\nهەموو بەستەرەکان بە لەحیمی پێشکەوتووی جێگیرکراون و بۆیاخی تایبەتی دژە گەرمای لەسەرە، تایەکانی زیاتر لە 100,000 جار تاقیکراونەتەوە بۆ جووڵەی نەرم."
+    "kurdishName": "دەروازەی ئەمنیی بە شریتی ئاسۆیی و لەوحەی شووشەیی ڕووناک",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتينة مع الفاصل الزجاجي المعماري الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی بەهێز بە شووشەی تەلارسازیی مۆدێرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-17",
-    "name": "Modernist Entrance Gate with Matte Black Aluminum & Vertical Wood Siding",
-    "arabicName": "بوابة مدخل رئيسية تجمع بين الألمنيوم الأسود المطفي وكسوة الخشب الطبيعي",
+    "name": "Matte Black Aluminum Entrance Gate with Vertical Wood Accents",
+    "arabicName": "بوابة مدخل ألمنيوم باللون الأسود المطفي مع تفاصيل خشبية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2510,7 +2508,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Thermally Modified Nordic Pine Cladding Resistant to Desert Rot, Warping & Termites",
       "Precision Flush Rebate Framing with Neoprene Acoustic Dampening Separation Gaskets",
       "Integrated Lock Housing Pre-Drilled for Smart Biometric Handle Integration",
-      "Heavy-Duty Adjustable European Pivot Hinges with Low-Friction Bronze Bushings"
+      "Heavy-Duty Adjustable Architectural Standard Pivot Hinges with Low-Friction Bronze Bushings"
     ],
     "specs": {
       "Frame Construction": "90 mm Heavy Structural 6063-T6 Extruded Aluminum",
@@ -2520,18 +2518,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Hinges / Runners": "Heavy-Duty Bronze Bushing Pivot Assemblies (Load Rating 600 kg)",
       "Warranty": "10-Year Structural Integrity & Anti-Decay Warranty"
     },
-    "description": "Make an unforgettable architectural statement with this Scandinavian-modern inspired entrance gate. Juxtaposing an expansive field of deep jet-black matte aluminum with a dedicated vertical bay of tongue-and-groove exterior timber siding, this gate celebrates organic materials framed by precision structural metalwork.\n\nThe wood panelling consists of certified sustainable Thermo-Treated Nordic Pine, thermally modified at 215°C to permanently alter its cellular structure, rendering it completely impervious to rot, fungal decay, and insect attack in harsh desert climates. It sits flush within an engineered aluminum rebate, separated by acoustic Neoprene isolation strips that dampen road noise and suppress metal expansion chatter.\n\nSupported by heavy-duty adjustable European hinges and precision magnetic guide stops, this gate delivers silky opening ergonomics, weather-resistant longevity, and supreme curbside appeal for high-end modern villas.",
+    "description": "This premium architectural gate features matte black structural aluminum contrasted by warm vertical wood siding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة مدخل رئيسية تجمع بين الألمنيوم الأسود المطفي وكسوة الخشب الطبيعي",
+        "name": "بوابة مدخل ألمنيوم باللون الأسود المطفي مع تفاصيل خشبية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "اصنع بصمة معمارية لا تُنسى لمدخل فيلتك مع هذه البوابة المستوحاة من الطراز المعماري الإسكندنافي الحديث. تجمع البوابة ببراعة فنية بين مساحات الألمنيوم الأسود المطفي الفاحم وجزء مخصص مكسو بشرائح الخشب الطبيعي الرأسي بنظام التعشيق، مما يمنح المدخل تناغماً مثالياً بين المواد الطبيعية الدافئة والإطار المعدني المعماري شديد الدقة.\n\nصُنعت الكسوة الخشبية من خشب الصنوبر الإسكندنافي المعالج حرارياً بدرجة 215 مئوية لتغيير تركيبته الخلوية بالكامل، مما يجعله منيعاً ضد التسوس، حشرات الخشب، والتشقق الناتج عن حرارة وجفاف المناخ الحار. وُضعت الألواح الخشبية داخل مجرى ألمنيوم غاطس مبطن بربلات النيوبرين العازلة للصوت والاهتزاز لمنع أي طقطقة ناتجة عن التمدد الحراري.\n\nترتكز البوابة على مفصلات محورية أوروبية قابلة للتعديل بدقة ومصدات مغناطيسية ناعمة، لتضمن حركة فتح انسيابية مريحة للغاية ومتانة استثنائية تدوم لعقود دون الحاجة لصيانة معقدة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألمنيوم الأسود المطفي الفاخر مع الألواح الخشبية العمودية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تباين بصري رائع يجمع بين الألمنيوم الأسود الفاحم المطفي وكسوة الخشب الطبيعي الدافئ",
           "خشب إسكندنافي معالج حرارياً بالكامل مقاوم للتسوس والنمل الأبيض وتقلبات الطقس",
           "إطار هندسي غاطس بشرائط نيوبرين عازلة تمتص الاهتزاز وتمنع تمدد الأصوات",
           "تجهيز مسبق لقفل إلكتروني ذكي يعمل ببصمة الإصبع ورمز المرور وتطبيقات الهاتف",
-          "مفصلات محورية أوروبية متينة محشوة بجلبات برونزية تتحمل حتى 600 كجم"
+          "مفصلات محورية المعتمدة متينة محشوة بجلبات برونزية تتحمل حتى 600 كجم"
         ],
         "specs": {
           "سماكة قطاع الإطار": "90 ملم ألمنيوم إنشائي مسحوب عالي الصلابة المعمارية المعالجة حرارياً عالية الصلابة",
@@ -2543,15 +2541,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی سەرەکی مۆدێرن بە ئەلەمنیۆمی ڕەشی مات و تەختەی ستوونی سروشتی",
+        "name": "دەروازەی مدخەلی ئەلەمنیۆمی ڕەشی ماتی بە تەختەی ستوونی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایاب بە ستایلی مۆدێرنی ئەوروپی کە تێکەڵەی ئەلەمنیۆمی ڕەشی مات و داری سروشتی ستوونی تێدا بەکارهاتووە بۆ بەخشینی دیمەنێکی شاهانە و گەرم بە دەروازەی ڤێلاکەت.\n\nتەختەکان لە جۆری سنۆبەری ئەوروپین کە بە گەرمای 215 پلە چارەسەر کراون بۆ ئەوەی هەرگیز مێروو لێی نەدات و لەبەر هەتاو تێکنەچێت. بە چینێکی تایبەت لە ئەلەمنیۆمەکە جیاکراوەتەوە بۆ نەهێشتنی دەنگ.\n\nلەسەر نێری گەورەی ئەوروپی سووڕاوە دەوەستێت و جووڵەی زۆر نەرم و ئاسانە، لەگەڵ ئامادەکاری تەواو بۆ بەستنی قفڵی زیرەکی دەستی بە پەنجەمۆر.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەشی ماتی لەگەڵ تەختەی ستوونی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیمەنێکی ناوازەی تێکەڵەی ئەلەمنیۆمی ڕەشی تۆخ و تەختەی ستوونی گەرم",
           "تەختەی سنۆبەری چارەسەرکراو بە گەرما دژە کرم و دژە شێ و خۆر",
           "چوارچێوەی بەهێز لەگەڵ لاستیکی نیۆپرین بۆ ڕێگری لە دەنگ و لەرینەوە",
           "ئامادەکراو بۆ قفڵی زیرەکی پەنجەمۆر و کارتی ئەلیکترۆنی",
-          "نێری ئەوروپی بەهێز بە توانای هەڵگرتنی تا 600 کگم"
+          "نێری ستانداردی نێودەوڵەتی بەهێز بە توانای هەڵگرتنی تا 600 کگم"
         ],
         "specs": {
           "ئەستووری چوارچێوە": "90 ملم ئەلەمنیۆمی پتەوی المعمارية المعالجة حرارياً عالية الصلابة",
@@ -2563,15 +2561,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Modernist Entrance Gate with Matte Black Aluminum & Vertical Wood Siding",
+        "name": "Matte Black Aluminum Entrance Gate with Vertical Wood Accents",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Make an unforgettable architectural statement with this Scandinavian-modern inspired entrance gate. Juxtaposing an expansive field of deep jet-black matte aluminum with a dedicated vertical bay of tongue-and-groove exterior timber siding, this gate celebrates organic materials framed by precision structural metalwork.\n\nThe wood panelling consists of certified sustainable Thermo-Treated Nordic Pine, thermally modified at 215°C to permanently alter its cellular structure, rendering it completely impervious to rot, fungal decay, and insect attack in harsh desert climates. It sits flush within an engineered aluminum rebate, separated by acoustic Neoprene isolation strips that dampen road noise and suppress metal expansion chatter.\n\nSupported by heavy-duty adjustable European hinges and precision magnetic guide stops, this gate delivers silky opening ergonomics, weather-resistant longevity, and supreme curbside appeal for high-end modern villas.",
+        "description": "This premium architectural gate features matte black structural aluminum contrasted by warm vertical wood siding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Striking Contrast Between Jet Black Architectural Aluminum & Warm Vertical Wood Siding",
           "Thermally Modified Nordic Pine Cladding Resistant to Desert Rot, Warping & Termites",
           "Precision Flush Rebate Framing with Neoprene Acoustic Dampening Separation Gaskets",
           "Integrated Lock Housing Pre-Drilled for Smart Biometric Handle Integration",
-          "Heavy-Duty Adjustable European Pivot Hinges with Low-Friction Bronze Bushings"
+          "Heavy-Duty Adjustable Architectural Standard Pivot Hinges with Low-Friction Bronze Bushings"
         ],
         "specs": {
           "Frame Construction": "90 mm Heavy Structural 6063-T6 Extruded Aluminum",
@@ -2583,14 +2581,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی سەرەکی مۆدێرن بە ئەلەمنیۆمی ڕەشی مات و تەختەی ستوونی سروشتی",
-    "arabicDescription": "اصنع بصمة معمارية لا تُنسى لمدخل فيلتك مع هذه البوابة المستوحاة من الطراز المعماري الإسكندنافي الحديث. تجمع البوابة ببراعة فنية بين مساحات الألمنيوم الأسود المطفي الفاحم وجزء مخصص مكسو بشرائح الخشب الطبيعي الرأسي بنظام التعشيق، مما يمنح المدخل تناغماً مثالياً بين المواد الطبيعية الدافئة والإطار المعدني المعماري شديد الدقة.\n\nصُنعت الكسوة الخشبية من خشب الصنوبر الإسكندنافي المعالج حرارياً بدرجة 215 مئوية لتغيير تركيبته الخلوية بالكامل، مما يجعله منيعاً ضد التسوس، حشرات الخشب، والتشقق الناتج عن حرارة وجفاف المناخ الحار. وُضعت الألواح الخشبية داخل مجرى ألمنيوم غاطس مبطن بربلات النيوبرين العازلة للصوت والاهتزاز لمنع أي طقطقة ناتجة عن التمدد الحراري.\n\nترتكز البوابة على مفصلات محورية أوروبية قابلة للتعديل بدقة ومصدات مغناطيسية ناعمة، لتضمن حركة فتح انسيابية مريحة للغاية ومتانة استثنائية تدوم لعقود دون الحاجة لصيانة معقدة.",
-    "kurdishDescription": "دەروازەیەکی نایاب بە ستایلی مۆدێرنی ئەوروپی کە تێکەڵەی ئەلەمنیۆمی ڕەشی مات و داری سروشتی ستوونی تێدا بەکارهاتووە بۆ بەخشینی دیمەنێکی شاهانە و گەرم بە دەروازەی ڤێلاکەت.\n\nتەختەکان لە جۆری سنۆبەری ئەوروپین کە بە گەرمای 215 پلە چارەسەر کراون بۆ ئەوەی هەرگیز مێروو لێی نەدات و لەبەر هەتاو تێکنەچێت. بە چینێکی تایبەت لە ئەلەمنیۆمەکە جیاکراوەتەوە بۆ نەهێشتنی دەنگ.\n\nلەسەر نێری گەورەی ئەوروپی سووڕاوە دەوەستێت و جووڵەی زۆر نەرم و ئاسانە، لەگەڵ ئامادەکاری تەواو بۆ بەستنی قفڵی زیرەکی دەستی بە پەنجەمۆر."
+    "kurdishName": "دەروازەی مدخەلی ئەلەمنیۆمی ڕەشی ماتی بە تەختەی ستوونی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الألمنيوم الأسود المطفي الفاخر مع الألواح الخشبية العمودية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەشی ماتی لەگەڵ تەختەی ستوونی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-19",
-    "name": "Sculptural Angular Architectural Gate with Illuminated Geometric Grid",
-    "arabicName": "بوابة معمارية مجسمة بنمط هندسي زاوِي مع لوحات زجاجية مضيئة ساحرة",
+    "name": "Sculptural Geometric Grid Entrance Gate with Integrated Lighting",
+    "arabicName": "بوابة مدخل هندسية مجسمة مع مسارات إضاءة مدمجة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2614,12 +2612,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Finish Standard": "AkzoNobel Interpon D2525 Ultra-Durable Architectural Powder Coat",
       "Drive System": "Heavy-Duty Overhead or In-Ground Rack-and-Pinion Drive Ready"
     },
-    "description": "Transform the approach to your home into an avant-garde architectural monument. This sculptural driveway gate breaks away from traditional linear motifs, featuring faceted geometric framework bays, bold diagonal structural struts, and an embedded translucent composite grid that captures natural sunlight and creates a dynamic light show at dusk.\n\nEngineered through high-precision 5-axis CNC laser cutting and bevel milling, each diagonal member aligns seamlessly to form a structural triangulated truss that provides immense torsional stiffness across wide vehicular openings. Hidden internal waterproof wiring harnesses power low-voltage warm 3000K LED edge illumination integrated within the geometric frame recesses.\n\nProtected by a multi-stage fluorocarbon powder coating rated for extreme coastal and desert sun exposure, this gate retains its deep saturation and tactile finish without chalking, fading, or edge peel for decades.",
+    "description": "This premium architectural gate features dynamic angular grid framing with recessed architectural ambient lighting, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة معمارية مجسمة بنمط هندسي زاوِي مع لوحات زجاجية مضيئة ساحرة",
+        "name": "بوابة مدخل هندسية مجسمة مع مسارات إضاءة مدمجة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حوّل مدخل فيلتك إلى عمل فني معماري ريادي يخطف الأنظار. تكسر هذه البوابة المجسمة النمط التقليدي للخطوط المستقيمة، حيث تتميز بهيكل هندسي زاوِي متعدد الأوجه وأضلاع إنشائية قطرية جريئة تحتضن شبكة من الألواح المضيئة التي تتفاعل مع ضوء الشمس نهاراً وتتألق بإضاءة ساحرة عند الغسق.\n\nتم تصنيع الهيكل باستخدام أحدث أجهزة الليزر خماسية المحاور وقص بالتحكم الرقمي فائق الدقة بالكمبيوتر فائق الدقة، حيث تتلاقى القطاعات القطرية لتشكل جملوناً هندسياً ثلاثي الأبعاد يمنح البوابة صلابة جبارة تمنع أي التواء في الفتحات العريضة. كما تم تضمين تمديدات كهربائية مخفية ومقاومة للماء بالكامل لتغذية شرائط إضاءة ليد دافئة (3000 كلفن) مدمجة في زوايا الهيكل.\n\nطُليت البوابة ببودرة الفلوروكربون المعمارية فائقة التحمل والمقاومة لأشعة الشمس الحارقة ورطوبة السواحل، مما يضمن ثبات اللون وبريقه الرائع دون أي تقشر أو بهتان على مدار السنين.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم الهندسي الزاوي المجسم مع قنوات الإضاءة المخفية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم هندسي زاوِي مجسم بأسلوب العمارة البارامترية يمنح الواجهة هيبة استثنائية",
           "إضاءة ليد معمارية مخفية مدمجة بحرارة لونية دافئة 3000 كلفن ومقاومة للماء بتصنيف المعزولة تماماً ضد الماء والأتربة",
@@ -2637,9 +2635,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی نژیاروانی هەندەسی بە ڕووناکیی لیدی تایبەت و دیزاینی گۆشەیی",
+        "name": "دەروازەی ئەندازەیی سەرنجڕاکێش بە ڕووناکیی لیدی ناوەکی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی شێوە پەیکەری و مۆدێرن بە دیزاینێکی هەندەسی گۆشەیی جیاواز کە بە تەواوی لە دەروازە ئاساییەکان جیاوازە، بە هێڵی لیدی شاراوەی زەرد کە لە کاتی تاریکیدا دیمەنێکی سەرنجڕاکێش بە دەوروبەری ڤێلاکەت دەبەخشێت.\n\nبە بەکارهێنانی ئامێری پێشکەوتووی بالتحكم الرقمي فائق الدقة و لەیزەر بڕدراوە بۆ ئەوەی هەموو گۆشەکان بە تەواوی پتەو بن و نەهێڵن هیچ لاربوونەوەیەک ڕووبدات لە دەروازە گەورەکاندا. وایەر و لیدەکان بە تەواوی لە ناو ئەلەمنیۆمەکەدا شاردراونەتەوە و دژە ئاون.\n\nبۆیاخی ئەوروپی بەهێزی لەسەرە کە بەرگەی هەتاوی توند و گۆڕانی کەشوهەوا دەگرێت بەبێ کەمبوونەوەی ڕەنگ و بریقەکەی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی ئەندازەیی سەرنجڕاکێش بە کەناڵی ڕووناکیی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی هەندەسی گۆشەیی مۆدێرن کە سیمایەکی ناوازە بە ڤێلاکەت دەبەخشێت",
           "ڕووناکیی لیدی زەردی 3000K شاراوە لە ناو قەراغەکان بە پلەی پاراستنی المعزولة تماماً ضد الماء والأتربة",
@@ -2657,9 +2655,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Sculptural Angular Architectural Gate with Illuminated Geometric Grid",
+        "name": "Sculptural Geometric Grid Entrance Gate with Integrated Lighting",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Transform the approach to your home into an avant-garde architectural monument. This sculptural driveway gate breaks away from traditional linear motifs, featuring faceted geometric framework bays, bold diagonal structural struts, and an embedded translucent composite grid that captures natural sunlight and creates a dynamic light show at dusk.\n\nEngineered through high-precision 5-axis CNC laser cutting and bevel milling, each diagonal member aligns seamlessly to form a structural triangulated truss that provides immense torsional stiffness across wide vehicular openings. Hidden internal waterproof wiring harnesses power low-voltage warm 3000K LED edge illumination integrated within the geometric frame recesses.\n\nProtected by a multi-stage fluorocarbon powder coating rated for extreme coastal and desert sun exposure, this gate retains its deep saturation and tactile finish without chalking, fading, or edge peel for decades.",
+        "description": "This premium architectural gate features dynamic angular grid framing with recessed architectural ambient lighting, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Parametric Angular Faceted Truss Geometry Delivering Monumental Curbside Presence",
           "Integrated Low-Voltage Concealed Warm 3000K Architectural LED Edge Illumination",
@@ -2677,14 +2675,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی نژیاروانی هەندەسی بە ڕووناکیی لیدی تایبەت و دیزاینی گۆشەیی",
-    "arabicDescription": "حوّل مدخل فيلتك إلى عمل فني معماري ريادي يخطف الأنظار. تكسر هذه البوابة المجسمة النمط التقليدي للخطوط المستقيمة، حيث تتميز بهيكل هندسي زاوِي متعدد الأوجه وأضلاع إنشائية قطرية جريئة تحتضن شبكة من الألواح المضيئة التي تتفاعل مع ضوء الشمس نهاراً وتتألق بإضاءة ساحرة عند الغسق.\n\nتم تصنيع الهيكل باستخدام أحدث أجهزة الليزر خماسية المحاور وقص بالتحكم الرقمي فائق الدقة بالكمبيوتر فائق الدقة، حيث تتلاقى القطاعات القطرية لتشكل جملوناً هندسياً ثلاثي الأبعاد يمنح البوابة صلابة جبارة تمنع أي التواء في الفتحات العريضة. كما تم تضمين تمديدات كهربائية مخفية ومقاومة للماء بالكامل لتغذية شرائط إضاءة ليد دافئة (3000 كلفن) مدمجة في زوايا الهيكل.\n\nطُليت البوابة ببودرة الفلوروكربون المعمارية فائقة التحمل والمقاومة لأشعة الشمس الحارقة ورطوبة السواحل، مما يضمن ثبات اللون وبريقه الرائع دون أي تقشر أو بهتان على مدار السنين.",
-    "kurdishDescription": "دەروازەیەکی شێوە پەیکەری و مۆدێرن بە دیزاینێکی هەندەسی گۆشەیی جیاواز کە بە تەواوی لە دەروازە ئاساییەکان جیاوازە، بە هێڵی لیدی شاراوەی زەرد کە لە کاتی تاریکیدا دیمەنێکی سەرنجڕاکێش بە دەوروبەری ڤێلاکەت دەبەخشێت.\n\nبە بەکارهێنانی ئامێری پێشکەوتووی بالتحكم الرقمي فائق الدقة و لەیزەر بڕدراوە بۆ ئەوەی هەموو گۆشەکان بە تەواوی پتەو بن و نەهێڵن هیچ لاربوونەوەیەک ڕووبدات لە دەروازە گەورەکاندا. وایەر و لیدەکان بە تەواوی لە ناو ئەلەمنیۆمەکەدا شاردراونەتەوە و دژە ئاون.\n\nبۆیاخی ئەوروپی بەهێزی لەسەرە کە بەرگەی هەتاوی توند و گۆڕانی کەشوهەوا دەگرێت بەبێ کەمبوونەوەی ڕەنگ و بریقەکەی."
+    "kurdishName": "دەروازەی ئەندازەیی سەرنجڕاکێش بە ڕووناکیی لیدی ناوەکی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم الهندسي الزاوي المجسم مع قنوات الإضاءة المخفية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی ئەندازەیی سەرنجڕاکێش بە کەناڵی ڕووناکیی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-21",
-    "name": "Modern Black Villa Gate with Inlaid Polished Stainless Steel 316 Stripes",
-    "arabicName": "بوابة فيلا سوداء عصرية بشرائط ستانلس ستيل مصقولة وباب مشاة متناسق",
+    "name": "Modern Matte Black Villa Gate with Polished Stainless Steel Inlays",
+    "arabicName": "بوابة فيلا سوداء عصرية بخطوط الستانلس ستيل المصقول",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2694,7 +2692,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "image": "/products-assets/doors/photo_21_2026-09-26_07-36-01.jpg",
     "fallbackImage": "/products-assets/doors/photo_21_2026-09-26_07-36-01.jpg",
     "features": [
-      "Flush-Mounted Marine Grade AISI 316 Mirror-Polished Stainless Steel Inlay Stripes",
+      "Flush-Mounted Marine Grade High-Grade Marine Stainless Steel Mirror-Polished Stainless Steel Inlay Stripes",
       "Galvanic Isolation Channels Preventing Chemical Reaction Between Dissimilar Metals",
       "High-Tensile 100 mm Structural 6063-T6 Aluminum Chassis with Zero Visible Weld Seams",
       "Qualicoat Class 2 Fine-Textured Matte Black Coating Resistant to Surface Abrasions",
@@ -2702,18 +2700,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     ],
     "specs": {
       "Frame Dimensions": "100 mm x 60 mm High-Tensile Structural Aluminum Tubing",
-      "Stainless Inlay": "30 mm Wide Mirror-Polished Marine Grade AISI 316 Inlay Bands",
-      "Anti-Corrosion Tech": "EPDM Dielectric Isolation Gaskets Between Aluminum and Stainless",
+      "Stainless Inlay": "30 mm Wide Mirror-Polished Marine Grade High-Grade Marine Stainless Steel Inlay Bands",
+      "Anti-Corrosion Tech": "المطاط المعماري المقاوم للعوامل الجوية Dielectric Isolation Gaskets Between Aluminum and Stainless",
       "Powder Coating": "Qualicoat Class 2 Ultra-Durable Graphite Black (RAL 9005)",
-      "Lock & Latch Prep": "Integrated European STAC Flush Mortise Lock Case",
+      "Lock & Latch Prep": "Integrated Architectural Standard المعتمدة Flush Mortise Lock Case",
       "Automation Rating": "Engineered for Single/Double Swing or High-Speed Sliding Systems"
     },
-    "description": "Exude an aura of prestige and uncompromising architectural precision with this modern black villa gate. Set against a monolithic backdrop of matte-textured graphite black aluminum, flush-mounted horizontal inlay stripes of mirror-polished Marine Grade 316 stainless steel reflect approaching headlights and ambient grounds lighting, creating a crisp and prestigious luxury aesthetic.\n\nThe stainless steel inlays are mechanically seated in micro-machined aluminum retention channels and isolated with sacrificial anodized barriers to prevent galvanic corrosion between dissimilar metals. The main gate frame is constructed with thick-walled 100 mm structural aluminum tubes, delivering extraordinary dimensional rigidity that resists heavy vehicle wind wake and thermal expansion distortion.\n\nPaired with an identically detailed pedestrian entry gate with matching stainless horizontal reveals and an integrated euro-cylinder strike, this gate package forms a unified, ultra-luxury security boundary for modern estates.",
+    "description": "This premium architectural gate features monolithic matte black panels accented by horizontal polished stainless steel, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة فيلا سوداء عصرية بشرائط ستانلس ستيل مصقولة وباب مشاة متناسق",
+        "name": "بوابة فيلا سوداء عصرية بخطوط الستانلس ستيل المصقول",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "انعم بهيبة معمارية استثنائية وأناقة تخطف الأبصار مع هذه البوابة السوداء المصممة لقصور وفلل النخبة. تتألق البوابة بخلفية أحادية من الألمنيوم الأسود المطفي الفاخر، تتخللها شرائط أفقية غاطسة من الستانلس ستيل البحري المصقول عيار 316 التي تعكس أضواء السيارات وإضاءة الحديقة المحيطة، مما يضفي لمسة فخامة عصرية تبرز جمال الواجهة الخارجية.\n\nتم تثبيت شرائط الستانلس ستيل داخل مجاري ألمنيوم دقيقة ومعزولة بجوانات بوليمرية عازلة تمنع التفاعل الكهروكيميائي والتآكل الجلفاني بين المعادن المختلفة تماماً. تم بناء الهيكل الأساسي من تيوبات ألمنيوم إنشائية سماكة 100 ملم لضمان استقرار وصلابة لا مثيل لها تمنع أي ميلان أو اهتزاز مع مرور السنين.\n\nتتوفر البوابة مع باب مشاة مستقل يحمل نفس تفاصيل الشرائط المصقولة والقفل الأوروبي عالي الأمان، ليشكل المدخل منظومة أمنية ومعمارية متكاملة تليق بأفخم المجمعات السكنية الخاصة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح السوداء المطفية الفاخرة المطرزة بخطوط الستانلس ستيل اللامعة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائط ستانلس ستيل بحري الفولاذ المقاوم للصدأ البحري 316 مصقولة كالمرايا وغاطسة بمحاذاة تامة مع السطح",
           "عوازل بوليمرية تمنع التفاعل الكهروكيميائي بين الألمنيوم والستانلس ستيل تماماً",
@@ -2726,14 +2724,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "مواصفات الستانلس": "شرائط عرض 30 ملم ستانلس ستيل بحري 316 مقاوم للملوحة والرطوبة",
           "نظام الحماية من الصدأ": "عوازل المطاط الهندسي ثلاثي الإحكام تمنع تلامس وتفاعل المعادن المباشر",
           "جودة الطلاء": "بودرة حرارية كلاس 2 معتمدة عالمياً بلون أسود فاحم (الأسود المعماري)",
-          "نظام الإقفال": "تجهيز مسبق لأقفال الإسبانية المعتمدة الإسبانية الغاطسة متعددة النقاط",
+          "نظام الإقفال": "تجهيز مسبق لأقفال المعتمدة المتطورة المعتمدة المتطورة الغاطسة متعددة النقاط",
           "التشغيل الآلي": "متوافقة مع أنظمة الفتح السحاب أو الفتح الدوار بالدرفتين"
         }
       },
       "ckb": {
-        "name": "دەروازەی ڕەشی ڤێلا بە هێڵی ستانلێس ستیلی 316 و دەرگای پیادەی گونجاو",
+        "name": "دەروازەی ڤێلای ڕەشی مۆدێرن بە هێڵی ستیلی بریقەدار",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ڕەشی مات و شاهانە بۆ ڤێلا کە هێڵی ئاسۆیی لە ستانلێس ستیلی دەریاوانی 316ی ئاوێنەیی تێدا بەکارهاتووە کە ڕەنگدانەوەیەکی جوان و مۆدێرن بە دەروازەی سەرەکی دەبەخشێت.\n\nستانلێس ستیلەکە بە شێوەی زانستی جیاکراوەتەوە لە ئەلەمنیۆمەکە تا تووشی هیچ ژەنگ یان کارلێک نەبێت. چوارچێوەی ئەلەمنیۆمی 100 ملم زۆر بەهێزە و بەرگەی هەر کێش و بایەکی توند دەگرێت.\n\nدەرگایەکی کەسی پیادەی لەگەڵدایە بە هەمان دیزاین و قفڵی ئەوروپی بۆ دروستکردنی دیمەنێکی یەکگرتوو و پارێزراو بۆ دەوروبەری ڤێلاکەت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەشی مات بە هێڵە بریقەدارەکانی ستیلی دژە-ژەنگ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "هێڵی ستانلێس ستیلی دەریاوانی 316ی ئاوێنەیی بە تەواوی ڕێک لەگەڵ ڕووی دەرگاکە",
           "جیاکەرەوەی تایبەت بۆ ڕێگری لە کارلێکی نێوان ئەلەمنیۆم و ستانلێس ستیل",
@@ -2746,16 +2744,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "ستانلێس ستیل": "شریتی 30 ملم ستانلێس ستیلی دەریاوانی 316ی بریقەدار",
           "پاراستنی دژە ژەنگ": "جواناتی المطاط الهندسي ثلاثي الإحكام نێوان کانزاکان بۆ ڕێگری لە کارلێک",
           "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەشی ماتی گرافیتی",
-          "ئامادەکاری قفڵ": "شوێنی قفڵی ئەوروپی الإسبانية المعتمدة ئامادەکراوە",
+          "ئامادەکاری قفڵ": "شوێنی قفڵی ستانداردی نێودەوڵەتی المعتمدة المتطورة المعتمدة ئامادەکراوە",
           "ئۆتۆماتیک": "گونجاو بۆ سیستەمی مۆتۆری سحاب یان دوو باڵی سووڕاوە"
         }
       },
       "en": {
-        "name": "Modern Black Villa Gate with Inlaid Polished Stainless Steel 316 Stripes",
+        "name": "Modern Matte Black Villa Gate with Polished Stainless Steel Inlays",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Exude an aura of prestige and uncompromising architectural precision with this modern black villa gate. Set against a monolithic backdrop of matte-textured graphite black aluminum, flush-mounted horizontal inlay stripes of mirror-polished Marine Grade 316 stainless steel reflect approaching headlights and ambient grounds lighting, creating a crisp and prestigious luxury aesthetic.\n\nThe stainless steel inlays are mechanically seated in micro-machined aluminum retention channels and isolated with sacrificial anodized barriers to prevent galvanic corrosion between dissimilar metals. The main gate frame is constructed with thick-walled 100 mm structural aluminum tubes, delivering extraordinary dimensional rigidity that resists heavy vehicle wind wake and thermal expansion distortion.\n\nPaired with an identically detailed pedestrian entry gate with matching stainless horizontal reveals and an integrated euro-cylinder strike, this gate package forms a unified, ultra-luxury security boundary for modern estates.",
+        "description": "This premium architectural gate features monolithic matte black panels accented by horizontal polished stainless steel, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
-          "Flush-Mounted Marine Grade AISI 316 Mirror-Polished Stainless Steel Inlay Stripes",
+          "Flush-Mounted Marine Grade High-Grade Marine Stainless Steel Mirror-Polished Stainless Steel Inlay Stripes",
           "Galvanic Isolation Channels Preventing Chemical Reaction Between Dissimilar Metals",
           "High-Tensile 100 mm Structural 6063-T6 Aluminum Chassis with Zero Visible Weld Seams",
           "Qualicoat Class 2 Fine-Textured Matte Black Coating Resistant to Surface Abrasions",
@@ -2763,22 +2761,22 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ],
         "specs": {
           "Frame Dimensions": "100 mm x 60 mm High-Tensile Structural Aluminum Tubing",
-          "Stainless Inlay": "30 mm Wide Mirror-Polished Marine Grade AISI 316 Inlay Bands",
-          "Anti-Corrosion Tech": "EPDM Dielectric Isolation Gaskets Between Aluminum and Stainless",
+          "Stainless Inlay": "30 mm Wide Mirror-Polished Marine Grade High-Grade Marine Stainless Steel Inlay Bands",
+          "Anti-Corrosion Tech": "المطاط المعماري المقاوم للعوامل الجوية Dielectric Isolation Gaskets Between Aluminum and Stainless",
           "Powder Coating": "Qualicoat Class 2 Ultra-Durable Graphite Black (RAL 9005)",
-          "Lock & Latch Prep": "Integrated European STAC Flush Mortise Lock Case",
+          "Lock & Latch Prep": "Integrated Architectural Standard المعتمدة Flush Mortise Lock Case",
           "Automation Rating": "Engineered for Single/Double Swing or High-Speed Sliding Systems"
         }
       }
     },
-    "kurdishName": "دەروازەی ڕەشی ڤێلا بە هێڵی ستانلێس ستیلی 316 و دەرگای پیادەی گونجاو",
-    "arabicDescription": "انعم بهيبة معمارية استثنائية وأناقة تخطف الأبصار مع هذه البوابة السوداء المصممة لقصور وفلل النخبة. تتألق البوابة بخلفية أحادية من الألمنيوم الأسود المطفي الفاخر، تتخللها شرائط أفقية غاطسة من الستانلس ستيل البحري المصقول عيار 316 التي تعكس أضواء السيارات وإضاءة الحديقة المحيطة، مما يضفي لمسة فخامة عصرية تبرز جمال الواجهة الخارجية.\n\nتم تثبيت شرائط الستانلس ستيل داخل مجاري ألمنيوم دقيقة ومعزولة بجوانات بوليمرية عازلة تمنع التفاعل الكهروكيميائي والتآكل الجلفاني بين المعادن المختلفة تماماً. تم بناء الهيكل الأساسي من تيوبات ألمنيوم إنشائية سماكة 100 ملم لضمان استقرار وصلابة لا مثيل لها تمنع أي ميلان أو اهتزاز مع مرور السنين.\n\nتتوفر البوابة مع باب مشاة مستقل يحمل نفس تفاصيل الشرائط المصقولة والقفل الأوروبي عالي الأمان، ليشكل المدخل منظومة أمنية ومعمارية متكاملة تليق بأفخم المجمعات السكنية الخاصة.",
-    "kurdishDescription": "دەروازەیەکی ڕەشی مات و شاهانە بۆ ڤێلا کە هێڵی ئاسۆیی لە ستانلێس ستیلی دەریاوانی 316ی ئاوێنەیی تێدا بەکارهاتووە کە ڕەنگدانەوەیەکی جوان و مۆدێرن بە دەروازەی سەرەکی دەبەخشێت.\n\nستانلێس ستیلەکە بە شێوەی زانستی جیاکراوەتەوە لە ئەلەمنیۆمەکە تا تووشی هیچ ژەنگ یان کارلێک نەبێت. چوارچێوەی ئەلەمنیۆمی 100 ملم زۆر بەهێزە و بەرگەی هەر کێش و بایەکی توند دەگرێت.\n\nدەرگایەکی کەسی پیادەی لەگەڵدایە بە هەمان دیزاین و قفڵی ئەوروپی بۆ دروستکردنی دیمەنێکی یەکگرتوو و پارێزراو بۆ دەوروبەری ڤێلاکەت."
+    "kurdishName": "دەروازەی ڤێلای ڕەشی مۆدێرن بە هێڵی ستیلی بریقەدار",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح السوداء المطفية الفاخرة المطرزة بخطوط الستانلس ستيل اللامعة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەشی مات بە هێڵە بریقەدارەکانی ستیلی دژە-ژەنگ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-22",
-    "name": "Sliding Driveway Gate with Horizontal Louvers & Vertical Timber Mosaic",
-    "arabicName": "بوابة سحاب عريضة بشرائح رمادية مطفية مع باب مشاة بتطعيمات خشبية دافئة",
+    "name": "Sliding Driveway Gate with Horizontal Louvers and Matching Pedestrian Door",
+    "arabicName": "بوابة سحابة للسيارات بشرائح أفقية مع باب مشاة متناسق",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2802,18 +2800,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Drive Mechanism": "Full Ground Inverted V-Track with Dual Stainless Bearing Wheels",
       "Wind Exposure Class": "Class C3 Severe Wind Exposure Certified"
     },
-    "description": "Harmonize modern geometric clarity with natural organic warmth through this dual-zone sliding driveway gate. The expansive vehicular leaf features aerodynamic horizontal louvers finished in deep titanium grey, which transition elegantly into an integrated pedestrian threshold accented by vertical fluted warm timber slats, creating an intuitive architectural visual zoning between vehicle and foot traffic.\n\nThe horizontal louvers are set at a 45-degree angle within concealed internal retention channels, blocking 100% of horizontal line-of-sight while allowing continuous passive natural ventilation that prevents dangerous thermal heat pockets within enclosed villa motor courts. The timber component uses vacuum-impregnated Teak with anti-fungal oil barriers that repel driving desert rain and intense solar radiation.\n\nEngineered with a high-strength bottom box-beam and encapsulated stainless steel wheels riding on an inverted V-track, this gate delivers effortless motor-driven operation, superior perimeter security, and timeless exterior charm.",
+    "description": "This premium architectural gate features wide driveway sliding gate coordinated with a dedicated pedestrian entry door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحاب عريضة بشرائح رمادية مطفية مع باب مشاة بتطعيمات خشبية دافئة",
+        "name": "بوابة سحابة للسيارات بشرائح أفقية مع باب مشاة متناسق",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "تناغم معماري استثنائي يجمع بين انسيابية الهندسة الحديثة ودفء الخشب الطبيعي في هذه البوابة السحابة ثنائية الوظيفة. تتميز درفة السيارات العريضة بشرائح ألمنيوم أفقية مائلة بلون الرمادي التيتانيوم الأنيق، والتي تلتقي بسلاسة مع باب المشاة المدمج المطعم بشرائح خشبية عمودية دافئة، مما يخلق تمييزاً بصرياً رائعاً بين مسار المركبات ومسار المشاة.\n\nتم تثبيت الشرائح بزاوية ميلان 45 درجة داخل مجارٍ مخفية لمنع الرؤية من الخارج بنسبة 100% مع السماح بمرور تيارات الهواء الطبيعية لتصريف الحرارة المرتفعة داخل كراج الفيلا ومنع تراكم الغبار. أما القطع الخشبية فصُنعت من خشب التيك المعالج والمشبع بزيوت مانعة للتسوس تتحمل الأمطار والحرارة الشديدة دون أي تشوه.\n\nتم تزويد البوابة بجسر سفلي مقوى وعجلات ستانلس ستيل تسير بسلاسة على سكة أرضية مجلفنة، لتضمن تشغيلاً آلياً هادئاً، حماية متكاملة، وإطلالة راقية لواجهة منزلك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ بوابة المركبات السحابة العريضة المرفقة بباب جانبي مستقل ومتناسق للمشاة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم معماري ذكي يميز بصرياً بين مسار دخول السيارات وبوابة المشاة الشخصية",
           "شرائح ألمنيوم مائلة بزاوية 45 درجة تضمن الخصوصية الكاملة وتسمح بتهوية الكراج",
           "تطعيمات رأسية من خشب التيك الطبيعي المشبع بزيوت بحرية عازلة لعوامل التعرية",
           "جسر سفلي صندوقي عالي المتانة يمنع أي تقوس في منتصف البوابة أثناء الحركة",
-          "مسارات أسلاك داخلية مجهزة لتركيب حساسات الأمان الضوئية والإنتركوم ولوحات الأرقام"
+          "مسارات أسلاك داخلية مجهزة لالمعتمدب حساسات الأمان الضوئية والإنتركوم ولوحات الأرقام"
         ],
         "specs": {
           "الهيكل الإنشائي الأساسي": "تيوب ألمنيوم مقوى سماكة 100 ملم سبيكة المعمارية المعالجة حرارياً عالية الصلابة",
@@ -2825,9 +2823,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی پان بە شریتی ڕەساسی مات و دەرگای پیادەی بە تەختەی تیک",
+        "name": "دەروازەی سلایدینگی ئۆتۆمبێل بە شریتی ئاسۆیی و دەرگای پیادە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی سحاب کە شریتی ئاسۆیی ئەلەمنیۆمی ڕەنگی تیتانیۆمی لەگەڵ تەختەی تیکی سروشتی گەرم بۆ دەرگای پیادە پێکەوە بەستووە، بۆ دروستکردنی جیاوازییەکی جوان لە نێوان ڕێڕەوی ئۆتۆمبێل و دەرگای کەسی.\n\nشریتەکان بە گۆشەی 45 پلە دانراون بۆ ئەوەی لە دەرەوە ناوەوە نەبینرێت بەڵام هەوا بە ئاسانی بسووڕێتەوە بۆ کەمکردنەوەی گەرمای حەوشە. تەختە تیکەکە بە ڕۆنی دژە ئاو و هەتاو پارێزراوە بۆ مانەوەی ڕەنگ و کوالێتی.\n\nبە جسرێکی ژێرەوەی بەهێز و تایەی ستانلێس ستیل کار دەکات لەسەر هێڵی زەوی، بە جووڵەی نەرم و بێدەنگ لەگەڵ هەموو جۆرە مۆتۆرێکی خۆکار.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەروازەی پان و گەورەی سلایدینگ لەگەڵ دەرگایەکی تەنیشتی تایبەت بە پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینێکی زیرەک کە بە ڕوونی دەروازەی ئۆتۆمبێل و دەرگای کەسی جیا دەکاتەوە",
           "شریتی ئەلەمنیۆم بە لاری 45 پلە بۆ پاراستنی نهێنی و ڕێگەدان بە هاتوچۆی هەوا",
@@ -2845,9 +2843,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Sliding Driveway Gate with Horizontal Louvers & Vertical Timber Mosaic",
+        "name": "Sliding Driveway Gate with Horizontal Louvers and Matching Pedestrian Door",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Harmonize modern geometric clarity with natural organic warmth through this dual-zone sliding driveway gate. The expansive vehicular leaf features aerodynamic horizontal louvers finished in deep titanium grey, which transition elegantly into an integrated pedestrian threshold accented by vertical fluted warm timber slats, creating an intuitive architectural visual zoning between vehicle and foot traffic.\n\nThe horizontal louvers are set at a 45-degree angle within concealed internal retention channels, blocking 100% of horizontal line-of-sight while allowing continuous passive natural ventilation that prevents dangerous thermal heat pockets within enclosed villa motor courts. The timber component uses vacuum-impregnated Teak with anti-fungal oil barriers that repel driving desert rain and intense solar radiation.\n\nEngineered with a high-strength bottom box-beam and encapsulated stainless steel wheels riding on an inverted V-track, this gate delivers effortless motor-driven operation, superior perimeter security, and timeless exterior charm.",
+        "description": "This premium architectural gate features wide driveway sliding gate coordinated with a dedicated pedestrian entry door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Dual-Zone Architectural Facade Differentiating Vehicle Span from Pedestrian Entryway",
           "45-Degree Fixed Aluminum Louver Blades Providing 100% Privacy with Continuous Airflow",
@@ -2865,14 +2863,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی پان بە شریتی ڕەساسی مات و دەرگای پیادەی بە تەختەی تیک",
-    "arabicDescription": "تناغم معماري استثنائي يجمع بين انسيابية الهندسة الحديثة ودفء الخشب الطبيعي في هذه البوابة السحابة ثنائية الوظيفة. تتميز درفة السيارات العريضة بشرائح ألمنيوم أفقية مائلة بلون الرمادي التيتانيوم الأنيق، والتي تلتقي بسلاسة مع باب المشاة المدمج المطعم بشرائح خشبية عمودية دافئة، مما يخلق تمييزاً بصرياً رائعاً بين مسار المركبات ومسار المشاة.\n\nتم تثبيت الشرائح بزاوية ميلان 45 درجة داخل مجارٍ مخفية لمنع الرؤية من الخارج بنسبة 100% مع السماح بمرور تيارات الهواء الطبيعية لتصريف الحرارة المرتفعة داخل كراج الفيلا ومنع تراكم الغبار. أما القطع الخشبية فصُنعت من خشب التيك المعالج والمشبع بزيوت مانعة للتسوس تتحمل الأمطار والحرارة الشديدة دون أي تشوه.\n\nتم تزويد البوابة بجسر سفلي مقوى وعجلات ستانلس ستيل تسير بسلاسة على سكة أرضية مجلفنة، لتضمن تشغيلاً آلياً هادئاً، حماية متكاملة، وإطلالة راقية لواجهة منزلك.",
-    "kurdishDescription": "دەروازەیەکی نایابی سحاب کە شریتی ئاسۆیی ئەلەمنیۆمی ڕەنگی تیتانیۆمی لەگەڵ تەختەی تیکی سروشتی گەرم بۆ دەرگای پیادە پێکەوە بەستووە، بۆ دروستکردنی جیاوازییەکی جوان لە نێوان ڕێڕەوی ئۆتۆمبێل و دەرگای کەسی.\n\nشریتەکان بە گۆشەی 45 پلە دانراون بۆ ئەوەی لە دەرەوە ناوەوە نەبینرێت بەڵام هەوا بە ئاسانی بسووڕێتەوە بۆ کەمکردنەوەی گەرمای حەوشە. تەختە تیکەکە بە ڕۆنی دژە ئاو و هەتاو پارێزراوە بۆ مانەوەی ڕەنگ و کوالێتی.\n\nبە جسرێکی ژێرەوەی بەهێز و تایەی ستانلێس ستیل کار دەکات لەسەر هێڵی زەوی، بە جووڵەی نەرم و بێدەنگ لەگەڵ هەموو جۆرە مۆتۆرێکی خۆکار."
+    "kurdishName": "دەروازەی سلایدینگی ئۆتۆمبێل بە شریتی ئاسۆیی و دەرگای پیادە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ بوابة المركبات السحابة العريضة المرفقة بباب جانبي مستقل ومتناسق للمشاة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەروازەی پان و گەورەی سلایدینگ لەگەڵ دەرگایەکی تەنیشتی تایبەت بە پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-23",
-    "name": "Contemporary Matte Black Gate with 3 Horizontal Glass Accent Windows",
-    "arabicName": "بوابة سوداء فاخرة بثلاث نوافذ زجاجية أفقية بإطارات بيضاء تباينية",
+    "name": "Contemporary Matte Black Gate with Horizontal Viewport Windows",
+    "arabicName": "بوابة سوداء عصرية بنوافذ رؤية أفقية مصنفرة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2896,12 +2894,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Acoustic Rating": "Rw 28 dB Road Noise Reduction",
       "Automation Readiness": "Internal Reinforced Backing Plates for Linear Actuator Arms"
     },
-    "description": "Achieve a bespoke architectural entrance aesthetic with this contemporary matte black driveway gate. The monolithic matte black gate leaf is accented by three rhythmically stacked horizontal vision ports, framed in crisp contrasting white aluminum surrounds and glazed with 10 mm tempered laminated translucent architectural glass to deliver daylight awareness without compromising internal perimeter privacy.\n\nEach vision port is isolated using dual-lip Santoprene elastomeric gaskets that seal completely against desert wind-driven fine dust and heavy rain. The main gate leaf is formed from precision-folded architectural aluminum cassettes with internal honeycomb structural cores, providing extreme dent resistance and sound dampening against exterior urban road noise.\n\nFinished in a deep super-durable Qualicoat Class 2 matte black powder coating, this gate is fully prepped for automation with internal steel reinforcement plates and concealed wire channels, ensuring effortless, reliable everyday operation.",
+    "description": "This premium architectural gate features clean minimalist black louvers punctuated by three horizontal viewports, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سوداء فاخرة بثلاث نوافذ زجاجية أفقية بإطارات بيضاء تباينية",
+        "name": "بوابة سوداء عصرية بنوافذ رؤية أفقية مصنفرة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "تألق بمدخل فيلا معاصر يجمع بين الهيبة المعمارية واللمسات البصرية المبتكرة مع هذه البوابة السوداء المطفية. تتميز البوابة بسطحها الأسود المتراص الذي تبرز فيه ثلاث نوافذ أفقية هندسية متتالية محاطة بإطارات ألمنيوم بيضاء ناصعة تخلق تبايناً لونياً جذاباً، ومزودة بزجاج مصفح مصنفر سماكة 10 ملم يسمح بمرور ضوء النهار دون كشف ما بداخل الفناء نهائياً.\n\nتم تزويد كل نافذة بجوانات مطاطية مرنة مزدوجة من مادة السانتوبرين التي تحكم إغلاق الحواف وتمنع تماماً تسرب مياه الأمطار أو ذرات الغبار الصحراوي الناعم. تم بناء جسم البوابة بنظام كاسيتات الألمنيوم المعمارية المعززة داخلياً بطبقات هيكلية تمتص الصدمات وتعزل الضوضاء الخارجية الصادرة من الشارع.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معتمدة وفق أعلى معايير كلاس 2 العالمية بلون أسود فاحم مطفي مقاوم للخدش، مع تجهيز داخلي كامل بصفائح حديد مجلفنة مخفية وقنوات أسلاك لتركيب أذرع الفتح الأوتوماتيكي الكهربائية بسهولة تامة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء الناعمة المزودة بثلاث نوافذ أفقية مصنفرة لرؤية راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "واجهة ألمنيوم سوداء فاخرة بثلاث نوافذ أفقية متباينة بإطارات بيضاء لافتة للأنظار",
           "زجاج أمان مصفح مصنفر سماكة 10 ملم يمرر الضوء الطبيعي مع حجب الرؤية تماماً",
@@ -2919,9 +2917,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ڕەشی مۆدێرن بە سێ پەنجەرەی ئاسۆیی و چوارچێوەی سپی",
+        "name": "دەروازەی هاوچەرخی ڕەش بە پەنجەرەی بینینی ئاسۆیی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ڕەشی ماتی زۆر جوان بۆ ڤێلا کە سێ پەنجەرەی ئاسۆیی شووشەی تەڵخی تێدایە بە چوارچێوەی سپی کە دیمەنێکی سەرنجڕاکێش و مۆدێرن دەبەخشێت بەبێ ئەوەی نهێنی حەوشە ئاشکرا بێت.\n\nهەموو پەنجەرەکان بە لاستیکی تایبەتی دژە تۆز و باران بەستراون بۆ ڕێگری تەواو لە هاتنەژوورەوەی تۆزی بیابان. جەستەی دەروازەکە بە سیستەمی کەسیتی ئەلەمنیۆمی ئەستوور دروستکراوە کە دژە زەبر و دەنگە.\n\nبۆیاخی ڕەشی ماتی پلە یەکی لەسەرە کە بەرگەی خۆر و ڕووشان دەگرێت، و لە ناوەوە پەرەی ئاسنی هەیە بۆ بەستنی ئاسانی مۆتۆری کارەبایی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی مۆدێرن بە سێ پەنجەرەی ئاسۆیی تەڵخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "ڕووی ڕەشی ماتی فەخم بە سێ پەنجەرەی ئاسۆیی و چوارچێوەی سپی جوان",
           "شووشەی پارێزراوی لامینەیتی 10 ملم تەڵخ بۆ ڕووناکی سروشتی و شاردنەوەی ناوەوە",
@@ -2939,9 +2937,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Contemporary Matte Black Gate with 3 Horizontal Glass Accent Windows",
+        "name": "Contemporary Matte Black Gate with Horizontal Viewport Windows",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Achieve a bespoke architectural entrance aesthetic with this contemporary matte black driveway gate. The monolithic matte black gate leaf is accented by three rhythmically stacked horizontal vision ports, framed in crisp contrasting white aluminum surrounds and glazed with 10 mm tempered laminated translucent architectural glass to deliver daylight awareness without compromising internal perimeter privacy.\n\nEach vision port is isolated using dual-lip Santoprene elastomeric gaskets that seal completely against desert wind-driven fine dust and heavy rain. The main gate leaf is formed from precision-folded architectural aluminum cassettes with internal honeycomb structural cores, providing extreme dent resistance and sound dampening against exterior urban road noise.\n\nFinished in a deep super-durable Qualicoat Class 2 matte black powder coating, this gate is fully prepped for automation with internal steel reinforcement plates and concealed wire channels, ensuring effortless, reliable everyday operation.",
+        "description": "This premium architectural gate features clean minimalist black louvers punctuated by three horizontal viewports, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Monolithic Matte Black Facade with 3 Contrasting White-Framed Horizontal Vision Ports",
           "10 mm Laminated Translucent Safety Glass Filtering Ambient Daylight with Total Seclusion",
@@ -2959,14 +2957,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی ڕەشی مۆدێرن بە سێ پەنجەرەی ئاسۆیی و چوارچێوەی سپی",
-    "arabicDescription": "تألق بمدخل فيلا معاصر يجمع بين الهيبة المعمارية واللمسات البصرية المبتكرة مع هذه البوابة السوداء المطفية. تتميز البوابة بسطحها الأسود المتراص الذي تبرز فيه ثلاث نوافذ أفقية هندسية متتالية محاطة بإطارات ألمنيوم بيضاء ناصعة تخلق تبايناً لونياً جذاباً، ومزودة بزجاج مصفح مصنفر سماكة 10 ملم يسمح بمرور ضوء النهار دون كشف ما بداخل الفناء نهائياً.\n\nتم تزويد كل نافذة بجوانات مطاطية مرنة مزدوجة من مادة السانتوبرين التي تحكم إغلاق الحواف وتمنع تماماً تسرب مياه الأمطار أو ذرات الغبار الصحراوي الناعم. تم بناء جسم البوابة بنظام كاسيتات الألمنيوم المعمارية المعززة داخلياً بطبقات هيكلية تمتص الصدمات وتعزل الضوضاء الخارجية الصادرة من الشارع.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معتمدة وفق أعلى معايير كلاس 2 العالمية بلون أسود فاحم مطفي مقاوم للخدش، مع تجهيز داخلي كامل بصفائح حديد مجلفنة مخفية وقنوات أسلاك لتركيب أذرع الفتح الأوتوماتيكي الكهربائية بسهولة تامة.",
-    "kurdishDescription": "دەروازەیەکی ڕەشی ماتی زۆر جوان بۆ ڤێلا کە سێ پەنجەرەی ئاسۆیی شووشەی تەڵخی تێدایە بە چوارچێوەی سپی کە دیمەنێکی سەرنجڕاکێش و مۆدێرن دەبەخشێت بەبێ ئەوەی نهێنی حەوشە ئاشکرا بێت.\n\nهەموو پەنجەرەکان بە لاستیکی تایبەتی دژە تۆز و باران بەستراون بۆ ڕێگری تەواو لە هاتنەژوورەوەی تۆزی بیابان. جەستەی دەروازەکە بە سیستەمی کەسیتی ئەلەمنیۆمی ئەستوور دروستکراوە کە دژە زەبر و دەنگە.\n\nبۆیاخی ڕەشی ماتی پلە یەکی لەسەرە کە بەرگەی خۆر و ڕووشان دەگرێت، و لە ناوەوە پەرەی ئاسنی هەیە بۆ بەستنی ئاسانی مۆتۆری کارەبایی."
+    "kurdishName": "دەروازەی هاوچەرخی ڕەش بە پەنجەرەی بینینی ئاسۆیی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء الناعمة المزودة بثلاث نوافذ أفقية مصنفرة لرؤية راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی مۆدێرن بە سێ پەنجەرەی ئاسۆیی تەڵخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-25",
-    "name": "Architectural Slat Gate with Vertical Slat Pedestrian Entry & Horizontal Driveway",
-    "arabicName": "بوابة مركبات بشرائح عريضة مع بوابة مشاة متناغمة بشرائح رأسية أنيقة",
+    "name": "Architectural Dual-Panel Slat Gate for Vehicle and Pedestrian Access",
+    "arabicName": "بوابة ألمنيوم معمارية متناسقة للمركبات والأفراد",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -2978,89 +2976,89 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "features": [
       "Harmonized Entrance Suite: Horizontal Vehicle Sliding Gate Paired with Vertical Pedestrian Door",
       "100% Rust-Proof Structural 6063-T6 Aluminum Construction Offering Lightweight Longevity",
-      "Pedestrian Door Pre-Fitted with European STAC Multi-Point Lock & Electric Release Strike",
+      "Pedestrian Door Pre-Fitted with Architectural Standard المعتمدة Multi-Point Lock & Electric Release Strike",
       "Concealed Pivot Hinges on Pedestrian Door with 180-Degree Opening Capability",
       "Pre-Wired for Smart Video Intercoms, Digital Keypads, and Remote Automated Drive Systems"
     ],
     "specs": {
       "Framework Profile": "90 mm x 50 mm Heavy Aluminum Structural Sections",
       "Slat Profiles": "Vehicle: 80 mm Horizontal / Pedestrian: 40 mm Vertical Slats",
-      "Pedestrian Hardware": "STAC European Euro-Cylinder Multi-Point Lock with Electric Strike",
+      "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Cylinder Multi-Point Lock with Electric Strike",
       "Sliding Hardware": "Precision Steel Inverted V-Track with Shielded Needle Bearings",
       "Coating": "Qualicoat Class 2 Architectural Powder Coat (Anthracite Grey RAL 7016)",
       "Safety Systems": "Pre-Drilled for Safety Photocell Sensors and Flashing LED Beacon"
     },
-    "description": "Experience master-planned perimeter design with this integrated dual-access entrance suite. Contrasting a wide horizontal louvered sliding vehicle gate with a matching hinged pedestrian wicket gate rendered in slender vertical slats, this architectural ensemble establishes clear visual wayfinding while maintaining cohesive materiality across your villa frontage.\n\nFabricated entirely from architectural-grade 6063-T6 aluminum extrusions, the system eliminates the weight penalties and rust vulnerability of steel gates, reducing mechanical wear on gate motors and hinge pivots. The pedestrian gate features a fully recessed European STAC multi-point mortise lock with an anti-panic handle and integrated electric door strike compatible with video door stations.\n\nBoth gates are protected with an ultra-durable Qualicoat Class 2 electrostatically baked powder finish that repels desert sandstorms, intense UV index, and heavy rainfall without chalking or flaking.",
+    "description": "This premium architectural gate features balanced composition of horizontal driveway slats and vertical pedestrian slats, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة مركبات بشرائح عريضة مع بوابة مشاة متناغمة بشرائح رأسية أنيقة",
+        "name": "بوابة ألمنيوم معمارية متناسقة للمركبات والأفراد",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "استمتع بتكامل معماري متقن لمدخل فيلتك مع هذه المنظومة المزدوجة التي تجمع بين بوابة السيارات وباب المشاة بتناغم مذهل. يتميز مدخل السيارات بشرائح ألمنيوم أفقية عريضة تمنح الواجهة هيبة واتساعاً بصرياً، بينما صُمم باب المشاة بشرائح رأسية رشيقة تسهل تمييز مدخل الضيوف والزوار مع الحفاظ على وحدة التصميم والمواد المعمارية المستخدمة في كامل الواجهة.\n\nصُنعت المنظومة بالكامل من سبائك الألمنيوم الإنشائية المعمارية المعالجة حرارياً عالية الصلابة المقاومة تماماً للصدأ والتآكل، مما يقلل من الوزن الإجمالي للبوابة ويحمي المحركات الكهربائية والمفصلات من التآكل الميكانيكي السريع مقارنة بالبوابات الحديدية الثقيلة. يحتوي باب المشاة على قفل إسباني الإسبانية المعتمدة متعدد النقاط غاطس مع كالون كهرومغناطيسي مدمج متوافق مع شاشات الإنتركوم الذكية.\n\nكلا البوابتين مطليتان بطبقة بودرة حرارية كلاس 2 معتمدة عالمياً بلون رمادي أنثراسايت أنيق، مما يوفر مقاومة تامة لعواصف الغبار وأشعة الشمس القوية والأمطار دون أي بهتان أو تقشر للون.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التناغم بين شرائح المركبات العريضة وباب الأفراد العمودي الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "منظومة مدخل متكاملة: بوابة سيارات أفقية متناسقة تماماً مع باب مشاة بشرائح رأسية أنيقة",
           "صناعة كاملة من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة خفيف الوزن ومقاوم للصدأ والرطوبة بنسبة 100%",
-          "باب المشاة مزود مسبقاً بقفل الإسبانية المعتمدة إسباني متعدد النقاط وكالون كهربائي للإنتركوم",
+          "باب المشاة مزود مسبقاً بقفل المعتمدة المتطورة المعتمدة المعتمد متعدد النقاط وكالون كهربائي للإنتركوم",
           "مفصلات محورية مخفية لباب المشاة بزاوية فتح واسعة تصل إلى 180 درجة كاملة",
           "تجهيز متكامل لتوصيل شاشات الإنتركوم المرئية، لوحات الأرقام، والمحركات الآلية"
         ],
         "specs": {
           "قطاع الهيكل الإنشائي": "تيوبات ألمنيوم مقواة 90 ملم × 50 ملم",
           "مقاسات الشرائح": "بوابة السيارات: شرائح أفقية 80 ملم / باب المشاة: شرائح رأسية 40 ملم",
-          "إكسسوارات المشاة": "قفل الإسبانية المعتمدة أوروبي غاطس متعدد النقاط مع كالون كهربائي 12V",
+          "إكسسوارات المشاة": "قفل المعتمدة المتطورة المعتمدة المعتمد غاطس متعدد النقاط مع كالون كهربائي 12V",
           "ميكانيزم السحاب": "سكة سفلية مقلوبة مع عجلات فولاذية بمحامل كروية معزولة",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي أنثراسايت (الرمادي الغرافيتي المعماري)",
-          "أنظمة السلامة": "ثقوب مسبقة لتركيب حساسات الأمان الضوئية ولمبة التحذير الومضية"
+          "أنظمة السلامة": "ثقوب مسبقة لالمعتمدب حساسات الأمان الضوئية ولمبة التحذير الومضية"
         }
       },
       "ckb": {
-        "name": "دەروازەی ئۆتۆمبێل بە شریتی ئاسۆیی لەگەڵ دەرگای کەسی بە شریتی ستوونی",
+        "name": "دەروازەی ئەلەمنیۆمی تەلارسازی بۆ ئۆتۆمبێل و پیادە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "ستێلێکی تەواو یەکگرتوو بۆ دەروازەی ڤێلاکەت کە دەروازەی سحابی ئۆتۆمبێل بە شریتی ئاسۆیی و دەرگای کەسی پیادە بە شریتی ستوونی پێکەوە دەبەستێتەوە بۆ دیمەنێکی مۆدێرن و ڕێڕەوێکی دیارییکراو بۆ میوانەکان.\n\nهەموو بەشەکانی لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة ی دژە ژەنگ دروستکراوە کە زۆر لە ئاسن سووکتر و خۆڕاگرترە، ئەمەش یارمەتی مۆتۆر و نێرەکان دەدات زیاتر بمێننەوە. دەرگای پیادەکە قفڵی فرە خاڵی الإسبانية المعتمدةی ئیسپانی و کواڵۆنی کارەبایی ئینتەرکۆمی لەسەرە.\n\nبە بۆیاخی ئەوروپی کوالیکۆت کلاسی 2 بە ڕەنگی ئەنتراسایتی مات بۆیاخ کراوە بۆ پاراستنی هەمیشەیی بەرامبەر تۆز و خۆری توند.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە هاوسەنگی نێوان شریتی ئاسۆیی ئۆتۆمبێل و شریتی ستوونی پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "سیستەمی تەواوی دەروازە: دەروازەی ئۆتۆمبێل بە شریتی ئاسۆیی لەگەڵ دەرگای پیادەی ستوونی",
           "100% دژە ژەنگ لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة بە کێشێکی گونجاو و تەمەندرێژ",
-          "دەرگای پیادە ئامادەکراوە بە قفڵی فرە خاڵی الإسبانية المعتمدةی ئیسپانی و کواڵۆنی کارەبایی",
+          "دەرگای پیادە ئامادەکراوە بە قفڵی فرە خاڵی المعتمدة المتطورة المعتمدةی مۆدێرنی پێشکەوتوو و کواڵۆنی کارەبایی",
           "نێری شاراوەی دەرگای پیادە بۆ کرانەوە بە گۆشەی 180 پلە",
           "ئامادەکاری تەواو بۆ ئینتەرکۆمی ڤیدیۆیی و مۆتۆری خۆکاری سحاب"
         ],
         "specs": {
           "پڕۆفایلی چوارچێوە": "90 ملم × 50 ملم ئەلەمنیۆمی پتەو",
           "قەبارەی شریتەکان": "ئۆتۆمبێل: شریتی 80 ملم ئاسۆیی / پیادە: شریتی 40 ملم ستوونی",
-          "ئیکسسواراتی پیادە": "قفڵی ئەوروپی فرە خاڵی الإسبانية المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
+          "ئیکسسواراتی پیادە": "قفڵی ستانداردی نێودەوڵەتی فرە خاڵی المعتمدة المتطورة المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
           "میکانیزمی سحاب": "ڕێڕەوی Vی زەوی لەگەڵ تایەی پۆڵایین بە ڕۆلەری پارێزراو",
           "بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ئەنتراسایت (الرمادي الغرافيتي المعماري)",
           "سەلامەتی": "شوێنی تایبەت بۆ هەستەوەری سەلامەتی دژە پێکدادان"
         }
       },
       "en": {
-        "name": "Architectural Slat Gate with Vertical Slat Pedestrian Entry & Horizontal Driveway",
+        "name": "Architectural Dual-Panel Slat Gate for Vehicle and Pedestrian Access",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Experience master-planned perimeter design with this integrated dual-access entrance suite. Contrasting a wide horizontal louvered sliding vehicle gate with a matching hinged pedestrian wicket gate rendered in slender vertical slats, this architectural ensemble establishes clear visual wayfinding while maintaining cohesive materiality across your villa frontage.\n\nFabricated entirely from architectural-grade 6063-T6 aluminum extrusions, the system eliminates the weight penalties and rust vulnerability of steel gates, reducing mechanical wear on gate motors and hinge pivots. The pedestrian gate features a fully recessed European STAC multi-point mortise lock with an anti-panic handle and integrated electric door strike compatible with video door stations.\n\nBoth gates are protected with an ultra-durable Qualicoat Class 2 electrostatically baked powder finish that repels desert sandstorms, intense UV index, and heavy rainfall without chalking or flaking.",
+        "description": "This premium architectural gate features balanced composition of horizontal driveway slats and vertical pedestrian slats, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Harmonized Entrance Suite: Horizontal Vehicle Sliding Gate Paired with Vertical Pedestrian Door",
           "100% Rust-Proof Structural 6063-T6 Aluminum Construction Offering Lightweight Longevity",
-          "Pedestrian Door Pre-Fitted with European STAC Multi-Point Lock & Electric Release Strike",
+          "Pedestrian Door Pre-Fitted with Architectural Standard المعتمدة Multi-Point Lock & Electric Release Strike",
           "Concealed Pivot Hinges on Pedestrian Door with 180-Degree Opening Capability",
           "Pre-Wired for Smart Video Intercoms, Digital Keypads, and Remote Automated Drive Systems"
         ],
         "specs": {
           "Framework Profile": "90 mm x 50 mm Heavy Aluminum Structural Sections",
           "Slat Profiles": "Vehicle: 80 mm Horizontal / Pedestrian: 40 mm Vertical Slats",
-          "Pedestrian Hardware": "STAC European Euro-Cylinder Multi-Point Lock with Electric Strike",
+          "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Cylinder Multi-Point Lock with Electric Strike",
           "Sliding Hardware": "Precision Steel Inverted V-Track with Shielded Needle Bearings",
           "Coating": "Qualicoat Class 2 Architectural Powder Coat (Anthracite Grey RAL 7016)",
           "Safety Systems": "Pre-Drilled for Safety Photocell Sensors and Flashing LED Beacon"
         }
       }
     },
-    "kurdishName": "دەروازەی ئۆتۆمبێل بە شریتی ئاسۆیی لەگەڵ دەرگای کەسی بە شریتی ستوونی",
-    "arabicDescription": "استمتع بتكامل معماري متقن لمدخل فيلتك مع هذه المنظومة المزدوجة التي تجمع بين بوابة السيارات وباب المشاة بتناغم مذهل. يتميز مدخل السيارات بشرائح ألمنيوم أفقية عريضة تمنح الواجهة هيبة واتساعاً بصرياً، بينما صُمم باب المشاة بشرائح رأسية رشيقة تسهل تمييز مدخل الضيوف والزوار مع الحفاظ على وحدة التصميم والمواد المعمارية المستخدمة في كامل الواجهة.\n\nصُنعت المنظومة بالكامل من سبائك الألمنيوم الإنشائية المعمارية المعالجة حرارياً عالية الصلابة المقاومة تماماً للصدأ والتآكل، مما يقلل من الوزن الإجمالي للبوابة ويحمي المحركات الكهربائية والمفصلات من التآكل الميكانيكي السريع مقارنة بالبوابات الحديدية الثقيلة. يحتوي باب المشاة على قفل إسباني الإسبانية المعتمدة متعدد النقاط غاطس مع كالون كهرومغناطيسي مدمج متوافق مع شاشات الإنتركوم الذكية.\n\nكلا البوابتين مطليتان بطبقة بودرة حرارية كلاس 2 معتمدة عالمياً بلون رمادي أنثراسايت أنيق، مما يوفر مقاومة تامة لعواصف الغبار وأشعة الشمس القوية والأمطار دون أي بهتان أو تقشر للون.",
-    "kurdishDescription": "ستێلێکی تەواو یەکگرتوو بۆ دەروازەی ڤێلاکەت کە دەروازەی سحابی ئۆتۆمبێل بە شریتی ئاسۆیی و دەرگای کەسی پیادە بە شریتی ستوونی پێکەوە دەبەستێتەوە بۆ دیمەنێکی مۆدێرن و ڕێڕەوێکی دیارییکراو بۆ میوانەکان.\n\nهەموو بەشەکانی لە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة ی دژە ژەنگ دروستکراوە کە زۆر لە ئاسن سووکتر و خۆڕاگرترە، ئەمەش یارمەتی مۆتۆر و نێرەکان دەدات زیاتر بمێننەوە. دەرگای پیادەکە قفڵی فرە خاڵی الإسبانية المعتمدةی ئیسپانی و کواڵۆنی کارەبایی ئینتەرکۆمی لەسەرە.\n\nبە بۆیاخی ئەوروپی کوالیکۆت کلاسی 2 بە ڕەنگی ئەنتراسایتی مات بۆیاخ کراوە بۆ پاراستنی هەمیشەیی بەرامبەر تۆز و خۆری توند."
+    "kurdishName": "دەروازەی ئەلەمنیۆمی تەلارسازی بۆ ئۆتۆمبێل و پیادە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ التناغم بين شرائح المركبات العريضة وباب الأفراد العمودي الأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە هاوسەنگی نێوان شریتی ئاسۆیی ئۆتۆمبێل و شریتی ستوونی پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-27",
-    "name": "Double Swing Modern Gate with Stainless Steel Linear Inlays & Ergonomic Pulls",
-    "arabicName": "بوابة مزدوجة بدرفتين بمقابض ستانلس طولية وخطوط ستانلس متوازية",
+    "name": "Double Swing Modern Gate with Stainless Steel Inlays and Long Pulls",
+    "arabicName": "بوابة مزدوجة بدرفتين مع خطوط ستانلس ومقابض طولية فاخرة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3080,16 +3078,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Chassis Profile": "100 mm Structural Aluminum Tube Frame with Diagonal Gussets",
       "Swing Clearance": "Engineered for 90-Degree to 120-Degree Inward/Outward Swing",
       "Hinge System": "Precision Needle-Roller Bearing Pivot Hinges with 3-Way Adjustment",
-      "Inlay & Handles": "Grade 316 Austenitic Marine Stainless Steel",
+      "Inlay & Handles": "High-Grade Marine Stainless Steel Austenitic Marine Stainless Steel",
       "Surface Coating": "Qualicoat Class 2 Fine-Textured Slate Black (RAL 9004)",
       "Motor Prep": "Pre-Engineered for Underground Hydraulic or Linear Surface Actuators"
     },
-    "description": "Bestow classic symmetrical grandeur upon your residence with this double-swing modern architectural villa gate. Featuring balanced dual-opening leaves dressed in matte deep slate-black aluminum, the composition is accented by crisp horizontal stainless steel 316 reveal lines and full-height tubular vertical pull handles that emphasize verticality and provide comfortable manual egress when automated drives are paused.\n\nEngineered with heavy-duty multi-axis adjustable hinge pivot bearings, each leaf swings effortlessly with zero bind, accommodating slopes or courtyard irregularities. Concealed internal drop-bolts anchor the stationary leaf securely into a subterranean dust-proof brass socket, providing rigid resistance against violent windstorms.\n\nCompatible with underground concealed swing motors (such as BFT Sub or FAAC S800) or articulated electromechanical linear arms, this gate delivers a grand, ceremonial entrance sequence every time you arrive home.",
+    "description": "This premium architectural gate features wide dual-swing configuration with inlaid metallic accents and heavy pulls, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة مزدوجة بدرفتين بمقابض ستانلس طولية وخطوط ستانلس متوازية",
+        "name": "بوابة مزدوجة بدرفتين مع خطوط ستانلس ومقابض طولية فاخرة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف فخامة كلاسيكية متناغمة إلى مدخل قصرك مع هذه البوابة المزدوجة المتطورة بدرفتين متماثلتين. تتميز البوابة بسطحها الأسود الصخري المطفي المزين بخطوط أفقية براقة من الستانلس ستيل البحري 316، ومقابض أسطوانية طولية كاملة الارتفاع تبرز جمال التصميم وتوفر قبضة مريحة للغاية لفتح وإغلاق البوابة يدوياً بكل سهولة عند الحاجة.\n\nترتكز البوابة على مفصلات محورية ألمانية قابلة للتعديل ثلاثي الأبعاد، مما يضمن حركة دوران ناعمة وخالية تماماً من أي احتكاك، مع إمكانية ضبط مستوى الدرف ليتناسب مع ميول الفناء الداخلي. كما زُودت بترباس أرضي مخفي يغلق تلقائياً داخل جلبة نحاسية مانعة لتجمع الأتربة لثبات فائق ضد العواصف.\n\nصُممت البوابة لتتوافق تماماً مع محركات الأذرع الكهربائية السطحية أو المحركات الهيدروليكية الأرضية المخفية (مثل الإيطالية المعتمدة فائقة التحمل و الإيطالية الأوتوماتيكية فائقة التحمل)، لتمنحك مشهد دخول احتفالي ومهيب في كل مرة تفتح فيها البوابة أمام سيارتك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم المزدوج بدرفتين متناظرتين تزدانان بخطوط الستانلس والمقابض الطولية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم متناظر بدرفتين مزدوجتين يمنح واجهة الفيلا وقاراً وهيبة احتفالية لا تضاهى",
           "خطوط أفقية غاطسة من الستانلس ستيل البحري 316 المصقول مع عوازل مانعة للأكسدة",
@@ -3107,9 +3105,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی دوو باڵی مۆدێرن بە هێڵی ستانلێس ستیل و دەسکی درێژی ستوونی",
+        "name": "دەروازەی جووت باڵی مۆدێرن بە نەخشی ستیل و دەسکی درێژ",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی شاهانەی دوو باڵی سووڕاوە بە ڕەنگی ڕەشی ماتی تێكەڵ بە هێڵی ئاسۆیی لە ستانلێس ستیلی 316، لەگەڵ دەسکی درێژی لوولەیی ستانلێس بۆ دروستکردنی شکۆ و جوانییەکی تایبەت بۆ بەردەم ڤێلاکەت.\n\nلەسەر نێری پێشکەوتووی ئەڵمانی دەسووڕێتەوە کە لە سێ لایەنەوە قابیلی ڕێکخستنە، بەبێ هیچ گیربوونێک تەنانەت ئەگەر زەوی حەوشەکەش لاری هەبێت. لە خوارەوە کێلۆنی شاراوەی هەیە کە دەچێتە ناو بوشێکی برۆنزی دژە تۆز بۆ ڕاگرتنی بەهێز لە کاتی ڕەشەبادا.\n\nبە تەواوی گونجاوە بۆ بەستنی مۆتۆری ژێرزەوی شاراوە یان باڵی مۆتۆری سەر زەوی بۆ کرانەوەیەکی شاهانە کاتێک دەگەیتەوە ماڵەوە.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی جووت باڵی بەهێز بە نەخشی مێتاڵیک و دەسکی ستوونی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی دوو باڵی یەکسان کە سیمایەکی فەرمی و سەرنجڕاکێش بە ڤێلاکەت دەبەخشێت",
           "هێڵی ستانلێس ستیلی دەریاوانی 316ی ئاسۆیی بە ڕوویەکی ئاوێنەیی جوان",
@@ -3127,9 +3125,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Double Swing Modern Gate with Stainless Steel Linear Inlays & Ergonomic Pulls",
+        "name": "Double Swing Modern Gate with Stainless Steel Inlays and Long Pulls",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Bestow classic symmetrical grandeur upon your residence with this double-swing modern architectural villa gate. Featuring balanced dual-opening leaves dressed in matte deep slate-black aluminum, the composition is accented by crisp horizontal stainless steel 316 reveal lines and full-height tubular vertical pull handles that emphasize verticality and provide comfortable manual egress when automated drives are paused.\n\nEngineered with heavy-duty multi-axis adjustable hinge pivot bearings, each leaf swings effortlessly with zero bind, accommodating slopes or courtyard irregularities. Concealed internal drop-bolts anchor the stationary leaf securely into a subterranean dust-proof brass socket, providing rigid resistance against violent windstorms.\n\nCompatible with underground concealed swing motors (such as BFT Sub or FAAC S800) or articulated electromechanical linear arms, this gate delivers a grand, ceremonial entrance sequence every time you arrive home.",
+        "description": "This premium architectural gate features wide dual-swing configuration with inlaid metallic accents and heavy pulls, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Symmetrical Double Swing Leaf Architecture Delivering Grand Ceremonial Curb Appeal",
           "Polished Marine-Grade Stainless Steel 316 Horizontal Inlay Pinstripes with Dielectric Isolation",
@@ -3141,20 +3139,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Chassis Profile": "100 mm Structural Aluminum Tube Frame with Diagonal Gussets",
           "Swing Clearance": "Engineered for 90-Degree to 120-Degree Inward/Outward Swing",
           "Hinge System": "Precision Needle-Roller Bearing Pivot Hinges with 3-Way Adjustment",
-          "Inlay & Handles": "Grade 316 Austenitic Marine Stainless Steel",
+          "Inlay & Handles": "High-Grade Marine Stainless Steel Austenitic Marine Stainless Steel",
           "Surface Coating": "Qualicoat Class 2 Fine-Textured Slate Black (RAL 9004)",
           "Motor Prep": "Pre-Engineered for Underground Hydraulic or Linear Surface Actuators"
         }
       }
     },
-    "kurdishName": "دەروازەی دوو باڵی مۆدێرن بە هێڵی ستانلێس ستیل و دەسکی درێژی ستوونی",
-    "arabicDescription": "أضف فخامة كلاسيكية متناغمة إلى مدخل قصرك مع هذه البوابة المزدوجة المتطورة بدرفتين متماثلتين. تتميز البوابة بسطحها الأسود الصخري المطفي المزين بخطوط أفقية براقة من الستانلس ستيل البحري 316، ومقابض أسطوانية طولية كاملة الارتفاع تبرز جمال التصميم وتوفر قبضة مريحة للغاية لفتح وإغلاق البوابة يدوياً بكل سهولة عند الحاجة.\n\nترتكز البوابة على مفصلات محورية ألمانية قابلة للتعديل ثلاثي الأبعاد، مما يضمن حركة دوران ناعمة وخالية تماماً من أي احتكاك، مع إمكانية ضبط مستوى الدرف ليتناسب مع ميول الفناء الداخلي. كما زُودت بترباس أرضي مخفي يغلق تلقائياً داخل جلبة نحاسية مانعة لتجمع الأتربة لثبات فائق ضد العواصف.\n\nصُممت البوابة لتتوافق تماماً مع محركات الأذرع الكهربائية السطحية أو المحركات الهيدروليكية الأرضية المخفية (مثل الإيطالية المعتمدة فائقة التحمل و الإيطالية الأوتوماتيكية فائقة التحمل)، لتمنحك مشهد دخول احتفالي ومهيب في كل مرة تفتح فيها البوابة أمام سيارتك.",
-    "kurdishDescription": "دەروازەیەکی شاهانەی دوو باڵی سووڕاوە بە ڕەنگی ڕەشی ماتی تێكەڵ بە هێڵی ئاسۆیی لە ستانلێس ستیلی 316، لەگەڵ دەسکی درێژی لوولەیی ستانلێس بۆ دروستکردنی شکۆ و جوانییەکی تایبەت بۆ بەردەم ڤێلاکەت.\n\nلەسەر نێری پێشکەوتووی ئەڵمانی دەسووڕێتەوە کە لە سێ لایەنەوە قابیلی ڕێکخستنە، بەبێ هیچ گیربوونێک تەنانەت ئەگەر زەوی حەوشەکەش لاری هەبێت. لە خوارەوە کێلۆنی شاراوەی هەیە کە دەچێتە ناو بوشێکی برۆنزی دژە تۆز بۆ ڕاگرتنی بەهێز لە کاتی ڕەشەبادا.\n\nبە تەواوی گونجاوە بۆ بەستنی مۆتۆری ژێرزەوی شاراوە یان باڵی مۆتۆری سەر زەوی بۆ کرانەوەیەکی شاهانە کاتێک دەگەیتەوە ماڵەوە."
+    "kurdishName": "دەروازەی جووت باڵی مۆدێرن بە نەخشی ستیل و دەسکی درێژ",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ التصميم المزدوج بدرفتين متناظرتين تزدانان بخطوط الستانلس والمقابض الطولية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دیزاینی جووت باڵی بەهێز بە نەخشی مێتاڵیک و دەسکی ستوونی شیک تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-29",
-    "name": "Dual-Tone Driveway Gate with Central Vertical Warm Timber Siding",
-    "arabicName": "بوابة ثنائية اللون تجمع بين رمادي الغرافيت والخشب الطبيعي بالوسط",
+    "name": "Two-Tone Architectural Driveway Gate with Warm Center Wood Siding",
+    "arabicName": "بوابة خارجية بدرجتين لونيتين مع كسوة خشبية وسطية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3174,16 +3172,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Frame Depth": "95 mm Structural Aluminum Box Profile",
       "Timber Material": "Kiln-Dried Western Red Cedar or Thermo-Treated Ash (Class 1 Durability)",
       "Surface Coating": "Qualicoat Class 2 Electrostatic Matte Charcoal (RAL 7021)",
-      "Hardware Prep": "European Euro-Profile Mortise Cylinder Housing",
+      "Hardware Prep": "Architectural Standard Euro-Profile Mortise Cylinder Housing",
       "Bottom Rail": "Heavy-Duty Inverted V Ground Track with Integrated Anti-Lift Pin",
       "Warranty": "10-Year Anti-Corrosion & Frame Rigidity Guarantee"
     },
-    "description": "Elevate your perimeter boundary with this striking bi-chromatic architectural gate. Showcasing a harmonious interplay of dark charcoal architectural aluminum flanks framing a prominent central bay of warm vertical timber, this gate delivers warmth, prestige, and contemporary modern character to modern villa courtyards.\n\nThe central timber siding is precision-milled from sustainably sourced kiln-dried Western Red Cedar or Thermo-Treated Ash, treated with non-leaching hydrophobic natural oils that prevent warping, cupping, or drying out under punishing sun conditions. The surrounding aluminum chassis is fully TIG-welded and reinforced with concealed structural gusset plates to prevent sag over large opening spans.\n\nIntegrated with concealed top and bottom guide wheels, dual-sided security locksets, and universal motor bracket mounts, this gate ensures whisper-silent automated sliding action, long-lasting weather durability, and uncompromising privacy.",
+    "description": "This premium architectural gate features graphite grey aluminum framing flanking warm vertical wood center cladding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة ثنائية اللون تجمع بين رمادي الغرافيت والخشب الطبيعي بالوسط",
+        "name": "بوابة خارجية بدرجتين لونيتين مع كسوة خشبية وسطية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "ارتقِ بمدخل فيلتك مع هذه البوابة المعمارية ثنائية التدرج اللوني التي توازن بين صلابة المعدن وحيوية الطبيعة. تتميز البوابة بإطار جانبي من الألمنيوم الرمادي الغرافيتي الداكن المطفي الذي يحتضن في وسطه قسماً بارزاً من شرائح الخشب الطبيعي الرأسي الدافئ، مما يمنح المدخل فخامة معمارية استثنائية وطابعاً حيوياً يجذب الأنظار.\n\nتم تصنيع القطع الخشبية المركزية من خشب الأرز الأحمر المجفف بالفرن أو خشب الأش المعالج حرارياً، والمشبع بزيوت نباتية عازلة للماء تمنع التواء الخشب أو انكماشه وتغير لونه تحت تأثير حرارة الشمس اللافحة. كما تم تدعيم هيكل الألمنيوم المحيط بلحام المتطورة عالية المتانة غير مرئي وصفائح تقوية داخلية لمنع أي هبوط على المدى البعيد.\n\nزُوّدت البوابة ببكرات توجيه سفلية وعلوية مانعة للاحتكاك، وأقفال أمان أوروبية مزدوجة، وحوامل محركات سحب كهربائية، لتضمن حركة انزلاق هادئة وسلسة للغاية، مقاومة عالية لعوامل الطقس، وخصوصية تامة داخل حديقة منزلك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ إطار الألمنيوم الرمادي الداكن المحيط بكسوة الخشب الطبيعي الوسطية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم لوني ثنائي جذاب يجمع بين الألمنيوم الغرافيتي الداكن ودفء الخشب الطبيعي في الوسط",
           "شرائح خشب طبيعي مجفف ومعالج بزيوت بحرية عازلة للأشعة فوق البنفسجية والرطوبة",
@@ -3195,15 +3193,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "عمق الإطار الهيكلي": "95 ملم بروفايل ألمنيوم صندوقي مقوى",
           "مواصفات الخشب": "خشب أرز أحمر أو أش معالج حرارياً عالي المتانة والفخامة",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي غرافيتي مطفي (المواصفات المعمارية 7021)",
-          "تجهيزات الإقفال": "قفل أمان أوروبي متعدد النقاط بسلندر يورو مقاوم للنسخ",
+          "تجهيزات الإقفال": "قفل أمان المعتمد متعدد النقاط بسلندر يورو مقاوم للنسخ",
           "السكة السفلية": "سكة مجلفنة مقلوبة على شكل V مع مسمار أمان مانع للرفع",
           "مدة الضمان": "ضمان 10 سنوات على سلامة الهيكل الإنشائي ومقاومة الصدأ"
         }
       },
       "ckb": {
-        "name": "دەروازەی دوو ڕەنگ بە تێکەڵەی ئەلەمنیۆمی گرافیتی و تەختەی سروشتی لە ناوەڕاست",
+        "name": "دەروازەی دوو-ڕەنگی دەرەوە بە تەختەی گەرمی ناوەڕاست",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایاب کە تێکەڵەی جوانی ڕەنگی گرافیتی تۆخی ئەلەمنیۆم و داری سروشتی گەرم لە ناوەڕاستدا پیشان دەدات بۆ بەخشینی دیمەنێکی مۆدێرن و شکۆدار بە حەوشەی ڤێلاکەت.\n\nدارەکەی ناوەڕاست لە دار ئەشی چارەسەرکراو بە گەرما دروستکراوە بە زەیتی دژە ئاو کە ناهێڵێت لەبەر تیشکی خۆری توند قڵیش یان خوار بێت. چوارچێوەی ئەلەمنیۆمەکە بە تەواوی لە ناوەوە لەحیم کراوە بەبێ دەرکەوتن بۆ ڕێگری لە دابەزین لە مەودای پاندا.\n\nبە تایەی جووڵاوی نەرم و قفڵی ئەمنی ئەوروپی کار دەکات، و هەموو ئامادەکارییەکی بۆ کراوە بۆ بەستنی مۆتۆری کارەبایی سحاب بە بێدەنگی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەساسی تۆخ لەگەڵ تەختەی سروشتیی گەرم لە ناوەڕاستدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینێکی دوو ڕەنگی سەرنجڕاکێش لە نێوان ئەلەمنیۆمی گرافیتی و تەختەی گەرمی ناوەڕاست",
           "تەختەی وشککراوی سروشتی پارێزراو بە ڕۆنی دژە تیشکی خۆر و شێ",
@@ -3215,15 +3213,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "قووڵایی چوارچێوە": "95 ملم پڕۆفایلی سندوقی ئەلەمنیۆم",
           "جۆری تەختە": "داری ئەشی چارەسەرکراو بە گەرما (پلەی بەرگری 1)",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 گرافیتی مات (المواصفات المعمارية 7021)",
-          "ئامادەکاری قفڵ": "کواڵۆنی ئەوروپی فرە خاڵی پارێزراو",
+          "ئامادەکاری قفڵ": "کواڵۆنی ستانداردی نێودەوڵەتی فرە خاڵی پارێزراو",
           "ڕێڕەوی زەوی": "هێڵی V لەگەڵ قوفڵی دژە بەرزکردنەوەی دەروازە",
           "گرەنتی": "10 ساڵ گرەنتی لەسەر شاسی و بەرگری بەرامبەر کەشوهەوا"
         }
       },
       "en": {
-        "name": "Dual-Tone Driveway Gate with Central Vertical Warm Timber Siding",
+        "name": "Two-Tone Architectural Driveway Gate with Warm Center Wood Siding",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Elevate your perimeter boundary with this striking bi-chromatic architectural gate. Showcasing a harmonious interplay of dark charcoal architectural aluminum flanks framing a prominent central bay of warm vertical timber, this gate delivers warmth, prestige, and contemporary modern character to modern villa courtyards.\n\nThe central timber siding is precision-milled from sustainably sourced kiln-dried Western Red Cedar or Thermo-Treated Ash, treated with non-leaching hydrophobic natural oils that prevent warping, cupping, or drying out under punishing sun conditions. The surrounding aluminum chassis is fully TIG-welded and reinforced with concealed structural gusset plates to prevent sag over large opening spans.\n\nIntegrated with concealed top and bottom guide wheels, dual-sided security locksets, and universal motor bracket mounts, this gate ensures whisper-silent automated sliding action, long-lasting weather durability, and uncompromising privacy.",
+        "description": "This premium architectural gate features graphite grey aluminum framing flanking warm vertical wood center cladding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Two-Tone Aesthetic: Dark Charcoal Architectural Metal Flanked by Warm Natural Timber",
           "Sustainably Sourced Kiln-Dried Timber Slats Protected with Hydrophobic UV Sealant",
@@ -3235,32 +3233,32 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Frame Depth": "95 mm Structural Aluminum Box Profile",
           "Timber Material": "Kiln-Dried Western Red Cedar or Thermo-Treated Ash (Class 1 Durability)",
           "Surface Coating": "Qualicoat Class 2 Electrostatic Matte Charcoal (RAL 7021)",
-          "Hardware Prep": "European Euro-Profile Mortise Cylinder Housing",
+          "Hardware Prep": "Architectural Standard Euro-Profile Mortise Cylinder Housing",
           "Bottom Rail": "Heavy-Duty Inverted V Ground Track with Integrated Anti-Lift Pin",
           "Warranty": "10-Year Anti-Corrosion & Frame Rigidity Guarantee"
         }
       }
     },
-    "kurdishName": "دەروازەی دوو ڕەنگ بە تێکەڵەی ئەلەمنیۆمی گرافیتی و تەختەی سروشتی لە ناوەڕاست",
-    "arabicDescription": "ارتقِ بمدخل فيلتك مع هذه البوابة المعمارية ثنائية التدرج اللوني التي توازن بين صلابة المعدن وحيوية الطبيعة. تتميز البوابة بإطار جانبي من الألمنيوم الرمادي الغرافيتي الداكن المطفي الذي يحتضن في وسطه قسماً بارزاً من شرائح الخشب الطبيعي الرأسي الدافئ، مما يمنح المدخل فخامة معمارية استثنائية وطابعاً حيوياً يجذب الأنظار.\n\nتم تصنيع القطع الخشبية المركزية من خشب الأرز الأحمر المجفف بالفرن أو خشب الأش المعالج حرارياً، والمشبع بزيوت نباتية عازلة للماء تمنع التواء الخشب أو انكماشه وتغير لونه تحت تأثير حرارة الشمس اللافحة. كما تم تدعيم هيكل الألمنيوم المحيط بلحام المتطورة عالية المتانة غير مرئي وصفائح تقوية داخلية لمنع أي هبوط على المدى البعيد.\n\nزُوّدت البوابة ببكرات توجيه سفلية وعلوية مانعة للاحتكاك، وأقفال أمان أوروبية مزدوجة، وحوامل محركات سحب كهربائية، لتضمن حركة انزلاق هادئة وسلسة للغاية، مقاومة عالية لعوامل الطقس، وخصوصية تامة داخل حديقة منزلك.",
-    "kurdishDescription": "دەروازەیەکی نایاب کە تێکەڵەی جوانی ڕەنگی گرافیتی تۆخی ئەلەمنیۆم و داری سروشتی گەرم لە ناوەڕاستدا پیشان دەدات بۆ بەخشینی دیمەنێکی مۆدێرن و شکۆدار بە حەوشەی ڤێلاکەت.\n\nدارەکەی ناوەڕاست لە دار ئەشی چارەسەرکراو بە گەرما دروستکراوە بە زەیتی دژە ئاو کە ناهێڵێت لەبەر تیشکی خۆری توند قڵیش یان خوار بێت. چوارچێوەی ئەلەمنیۆمەکە بە تەواوی لە ناوەوە لەحیم کراوە بەبێ دەرکەوتن بۆ ڕێگری لە دابەزین لە مەودای پاندا.\n\nبە تایەی جووڵاوی نەرم و قفڵی ئەمنی ئەوروپی کار دەکات، و هەموو ئامادەکارییەکی بۆ کراوە بۆ بەستنی مۆتۆری کارەبایی سحاب بە بێدەنگی."
+    "kurdishName": "دەروازەی دوو-ڕەنگی دەرەوە بە تەختەی گەرمی ناوەڕاست",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ إطار الألمنيوم الرمادي الداكن المحيط بكسوة الخشب الطبيعي الوسطية الدافئة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە ئەلەمنیۆمی ڕەساسی تۆخ لەگەڵ تەختەی سروشتیی گەرم لە ناوەڕاستدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-dr-30",
-    "name": "Commercial Showroom Panoramic Double Glass Partition Door with Frosted Privacy Bands",
-    "arabicName": "أبواب صالات ومعارض زجاجية بانورامية مزدوجة بشرائط خصوصية بلورية مثلجة",
+    "name": "Glass Partition System for Offices and Companies",
+    "arabicName": "نظام قواطع وأبواب زجاجية للمكاتب والشركات",
     "category": "doors",
     "division": "doors",
     "subCategory": "Commercial & Showroom Glass Doors",
     "modelNumber": "DH-DR-30",
     "material": "High-Grade Architectural 6063-T6 Aluminum with Anti-Corrosion Electrostatic Powder Coating",
     "brand": "Doorhome Architectural",
-    "image": "/products-assets/doors/photo_30_2026-09-26_07-36-01.jpg",
-    "fallbackImage": "/products-assets/doors/photo_30_2026-09-26_07-36-01.jpg",
+    "image": "/uploads/38e5c8dc-3834-4830-beb8-4928718d9f30.jpg",
+    "fallbackImage": "/uploads/38e5c8dc-3834-4830-beb8-4928718d9f30.jpg",
     "features": [
       "Panoramic Oversized Glass Aperture Maximizing Natural Daylight & Interior Storefront Views",
       "Horizontal Frosted Architectural Etched Privacy Bands at Visual Height for Subtle Discretion",
-      "Commercial Dorma/Geze Heavy-Duty Hydraulic Floor Springs Supporting Leaves up to 250 kg",
+      "Commercial Concealed Heavy-Duty Hydraulic Heavy-Duty Hydraulic Floor Springs Supporting Leaves up to 250 kg",
       "Full-Height 2400 mm Brushed Marine Stainless Steel 316 Tubular Pull Handles",
       "Acoustic Magnetic Perimeter Gaskets Providing 32 dB Acoustic Speech Confidentiality"
     ],
@@ -3268,20 +3266,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Glass Specification": "12 mm Low-Iron Monolithic Tempered Safety Glass with Polished Edges",
       "Floor Pivot System": "Concealed Heavy-Duty Hydraulic Spring Box with 90° Hold-Open",
       "Perimeter Framing": "Slimline 45 mm Architectural Aluminum Top/Bottom Rail Clamp System",
-      "Handles": "Grade 316 Brushed Stainless Steel (38 mm Diameter x 2000 mm Length)",
+      "Handles": "High-Grade Marine Stainless Steel Brushed Stainless Steel (38 mm Diameter x 2000 mm Length)",
       "Acoustic Rating": "Rw 32 dB Airborne Sound Insulation",
       "Cycle Testing": "Certified for Over 500,000 Heavy Commercial Traffic Cycles (EN 1154)"
     },
-    "description": "Create an unforgettable, light-flooded architectural entrance for corporate headquarters, luxury vehicle showrooms, or contemporary villa foyers with this panoramic double glass door system. Featuring oversized ultra-clear low-iron tempered safety glass panels framed by ultra-slimline structural aluminum stiles and accented by custom horizontal frosted privacy bands, this system combines grand panoramic transparency with discrete visual shielding at eye level.\n\nEngineered with heavy-duty concealed hydraulic floor pivot springs (Dorma or Geze), each glass door leaf swings with weightless fluidity in both directions and features adjustable 90-degree hold-open positioning with controlled soft-close hydraulic buffering. The glass panels are 12 mm monolithic tempered glass with CNC-polished bevel edges, held rigidly within precision mechanical compression clamps that require no messy adhesives.\n\nComplete with floor-to-ceiling brushed stainless steel 316 tubular pull handles, magnetic perimeter acoustic draft seals, and heavy-duty concealed bottom deadbolts, this door system delivers an unmatched standard of corporate prestige, acoustic privacy, and durability.",
+    "description": "This modern interior glass partition system is purposefully designed for corporate offices, executive suites, conference rooms, and commercial centers. Engineered with 10mm heavy-duty tempered safety glass or an insulated double-glazed configuration, it provides acoustic privacy while allowing daylight to flow freely between spaces.\n\nEquipped with premium certified hardware and concealed hydraulic floor pivot hinges, the door swings smoothly in both directions with controlled soft-close and 90-degree hold-open positioning. Elegant horizontal frosted privacy bands provide visual discretion at eye level while preserving an open, prestigious corporate environment.\n\nThe minimal aluminum framing delivers lasting durability and seamless integration into modern workspaces, clinics, and residential zoning areas. It represents the perfect combination of contemporary styling, acoustic comfort, and effortless daily performance.",
     "translations": {
       "ar": {
-        "name": "أبواب صالات ومعارض زجاجية بانورامية مزدوجة بشرائط خصوصية بلورية مثلجة",
+        "name": "نظام قواطع وأبواب زجاجية للمكاتب والشركات",
         "subCategory": "أبواب المعارض والمقرات التجارية والفلل الزجاجية",
-        "description": "امنح مقرات الشركات الفاخرة، معارض السيارات الراقية، أو بهو الفلل المعمارية الحديثة مدخلاً بانورامياً استثنائياً يفيض بالنور والأناقة. يتميز نظام الأبواب الزجاجية المزدوجة بألواح زجاجية ضخمة فائقة النقاء ذات إطارات ألمنيوم نحيفة للغاية، تتوسطها خطوط أفقية مثلجة مصنفرة توفر خصوصية بصرية ذكية عند مستوى النظر مع الحفاظ على شفافية الرؤية البانورامية للمساحات الداخلية.\n\nيعمل النظام بماكينات هيدروليكية أرضية مخفية من كبرى الشركات العالمية (الألمانية الرائدة عالمياً / الألمانية المتطورة)، مما يتيح للدرفتين الحركة بسلاسة متناهية في كلا الاتجاهين مع ميزة التثبيت بزاوية 90 درجة والإغلاق الهيدروليكي الهادئ والمحكوم. صُنعت الألواح من زجاج سيكوريت مقسى سماكة 12 ملم بحواف مصقولة بالكمبيوتر ومثبتة بمرابط ضغط ميكانيكية متطورة خالية من أي مواد لاصقة مشوهة.\n\nتأتي الأبواب مزودة بمقابض أنبوبية عمودية فاخرة ممتدة بكامل الارتفاع من الستانلس ستيل 316 المصقول، وجوانات مغناطيسية عازلة للغبار والصوت، وقفل أمان أرضي مخفي، لتوفر أعلى معايير الفخامة التجارية والعزل الصوتي والمتانة الدائمة.",
+        "description": "صُمم هذا النظام المعماري من القواطع والأبواب الزجاجية الداخلية خصيصاً للمكاتب التنفيذية والشركات وقاعات الاجتماعات والمراكز التجارية الحديثة. يتوفر بزجاج سيكوريت مقسى عالي المتانة سماكة 10 ملم أو بنظام الزجاج المزدوج العازل، مما يوفر هدوءاً وخصوصية صوتية ممتازة مع تدفق كامل للضوء الطبيعي.\n\nيتميز النظام بإكسسوارات ومفصلات هيدروليكية فائقة الدقة مدمجة بالأرضية، تتيح فتح الباب بسلاسة في الاتجاهين مع خاصية التثبيت والإغلاق الهادئ والمحكوم. تمنح الشرائط الأفقية المصنفرة خصوصية بصرية ذكية وأنيقة للمكاتب دون التأثير على رحابة المكان.\n\nتمنح الإطارات المعدنية النحيفة تصميماً راقياً يناسب بيئات العمل الاحترافية والمستشفيات والعيادات والتقسيمات الداخلية للمنازل المعاصرة. يجمع بين الفخامة المعمارية والعزل المريح والاعتمادية الطويلة بأقل قدر من الصيانة.",
         "features": [
           "فتحة زجاجية بانورامية واسعة تعزز تدفق الضوء الطبيعي وتبرز جمال المعارض والصالات الداخلية",
           "خطوط مثلجة أفقية محفورة بدقة بالليزر توفر الخصوصية التامة عند مستوى النظر",
-          "ماكينات إغلاق هيدروليكية أرضية مخفية من دورما الألمانية أو غيزه الألمانية تتحمل أوزاناً حتى 250 كجم للدرفة",
+          "ماكينات إغلاق هيدروليكية أرضية مخفية من الأنظمة الهيدروليكية المعتمدة عالية الدقة أو المفصلات المعمارية المعتمدة عالية الدقة تتحمل أوزاناً حتى 250 كجم للدرفة",
           "مقابض ستانلس ستيل بحري 316 طولية فاخرة بارتفاع 2400 ملم مقاومة لعلامات الأصابع",
           "جوانات مغناطيسية محيطية عازلة تمنع تسرب الهواء والغبار وتخفض الضوضاء بمقدار 32 ديسيبل"
         ],
@@ -3289,19 +3287,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "مواصفات الزجاج": "12 ملم زجاج سيكوريت مقسى نقي جداً - بحواف مشطوفة ومصقولة",
           "ماكينة الحركة الأرضية": "علبة هيدروليكية مخفية في الأرض مع تثبيت 90 درجة وإغلاق هادئ",
           "الإطار المحيط": "نظام مرابط ألمنيوم نحيف 45 ملم علوي وسفلي فائق القوة",
-          "المقابض": "ستانلس ستيل 316 مصقول (قطر 38 ملم وبطول 2000 ملم)",
+          "المقابض": "الفولاذ المقاوم للصدأ البحري عالي المتانة مصقول (قطر 38 ملم وبطول 2000 ملم)",
           "مستوى عزل الصوت": "تخفيض الضوضاء المنقولة بمقدار 32 ديسيبل",
           "اختبارات التحمل": "معتمد لتحمل أكثر من 500,000 دورة فتح وإغلاق وفق معيار 1154"
-        }
+        },
+        "title": "نظام قواطع وأبواب زجاجية للمكاتب والشركات"
       },
       "ckb": {
-        "name": "دەرگای شووشەی پانۆرامای دوو باڵ بۆ پێشانگا و هۆڵ بە شریتی تەڵخی تایبەت",
+        "name": "سیستەمی دیواری جیاکەرەوە و دەرگای شووشەیی بۆ ئۆفیس و کۆمپانیاکان",
         "subCategory": "دەرگای شووشەی بازرگانی و پێشانگا و ڤێلا",
-        "description": "دەروازەیەکی شووشەیی پانۆرامای شاهانە بۆ پێشانگای فەخم، کۆمپانیا گەورەکان، یان پێشوازی ڤێلا مۆدێرنەکان کە ڕووناکی تەواوی سروشتی دەهێنێتە ژوورەوە. شووشەی سێکۆریتی 12 ملم بە شریتی تەڵخی لەسەر ئاستی چاو بۆ پاراستنی تایبەتمەندی بەبێ لەدەستدانی جوانی.\n\nبە جەکی ژێرزەوی هیدرۆلیکی پێشکەوتووی دورما الألمانية یان غيزه الألمانية کار دەکات کە بە هەردوو لادا زۆر بە نەرمی دەکرێتەوە و لە 90 پلەدا دەوەستێت بە بێدەنگی. شووشەکان بە قەراغی پۆڵیشکراوی بالتحكم الرقمي فائق الدقة و کڵامپی بەهێز جێگیرکراون.\n\nدەسکی درێژی ستانلێس ستیلی 316 لە زەوییەوە تا سەقف، لەگەڵ لاستیکی موگناتیسی دژە دەنگ و تۆز، بۆ بەخشینی بەرزترین ئاستی جوانی بازرگانی و پارێزگاری.",
+        "description": "ئەم سیستمە مۆدێرنەی دیواری جیاکەرەوە و دەرگای شووشەیی ناوخۆیی بە تایبەتی بۆ ئۆفیسی کۆمپانیاکان، ژووری بەڕێوەبەران، هۆڵی کۆبوونەوە و سەنتەرە بازرگانییەکان دیزاین کراوە. بە شوشەی سیکیوریتی بەهێزی ١٠ ملم یان شوشەی دووجۆڕی عازل بەردەستە، کە ئارامی و تایبەتمەندی دەنگی دابین دەکات لەگەڵ بڵاوبوونەوەی ڕووناکی سروشتی.\n\nبە ئەکسسوارات و مەکینەی هایدرۆلیکی پێشکەوتوو لەسەر زەوی کار دەکات، کە دەرگاکە بە نەرمی بە هەردوو لادا دەکرێتەوە و بە هێمنی دادەخرێتەوە. شریتە تەڵخە شیکەکان تایبەتمەندی و پارێزگاری لە بینین دابین دەکەن بەبێ تێکدانی کراوەیی و ڕووناکیی ژینگەی کار.\n\nچوارچێوەی ئەلەمنیۆمی تەنک دیمەنێکی سەرنجڕاکێش بە ئۆفیسەکان، کلینیکەکان و بەشە ناوخۆییەکانی ماڵ دەبەخشێت. تێکەڵەیەکی نموونەییە لە جوانی هاوچەرخ، ئارامی دەنگی، و کارکردنی متمانەپێکراو بۆ ساڵانی درێژ.",
         "features": [
           "شووشەی فراوانی پانۆراما بۆ هێنانی ڕۆشنایی سروشتی و پیشاندانی ناوەوەی پێشانگا",
           "هێڵی تەڵخی هەڵکۆڵراو بە شێوازی مۆدێرن بۆ پاراستنی تایبەتمەندی لە ئاستی چاودا",
-          "جەکی هیدرۆلیکی ژێرزەوی ئەوروپی بۆ کێشی تا 250 کگم بۆ هەر باڵێک",
+          "جەکی هیدرۆلیکی ژێرزەوی ستانداردی نێودەوڵەتی بۆ کێشی تا 250 کگم بۆ هەر باڵێک",
           "دەسکی درێژی ستانلێس ستیلی 316 بە بەرزی 2400 ملم دژە پەنجەمۆر",
           "لاستیکی موگناتیسی دەوروبەر بۆ ڕێگری لە دەنگ و تۆز بە بڕی 32 دیبل"
         ],
@@ -3312,16 +3311,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "دەسکەکان": "ستانلێس ستیلی دەریاوانی 316 (تیرەی 38 ملم و درێژی 2000 ملم)",
           "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 32 دیبل",
           "تاقیکردنەوە": "بڕوانامەی زیاتر لە 500,000 جار کرانەوە بەپێی 1154"
-        }
+        },
+        "title": "سیستەمی دیواری جیاکەرەوە و دەرگای شووشەیی بۆ ئۆفیس و کۆمپانیاکان"
       },
       "en": {
-        "name": "Commercial Showroom Panoramic Double Glass Partition Door with Frosted Privacy Bands",
+        "name": "Glass Partition System for Offices and Companies",
         "subCategory": "Commercial & Showroom Glass Doors",
-        "description": "Create an unforgettable, light-flooded architectural entrance for corporate headquarters, luxury vehicle showrooms, or contemporary villa foyers with this panoramic double glass door system. Featuring oversized ultra-clear low-iron tempered safety glass panels framed by ultra-slimline structural aluminum stiles and accented by custom horizontal frosted privacy bands, this system combines grand panoramic transparency with discrete visual shielding at eye level.\n\nEngineered with heavy-duty concealed hydraulic floor pivot springs (Dorma or Geze), each glass door leaf swings with weightless fluidity in both directions and features adjustable 90-degree hold-open positioning with controlled soft-close hydraulic buffering. The glass panels are 12 mm monolithic tempered glass with CNC-polished bevel edges, held rigidly within precision mechanical compression clamps that require no messy adhesives.\n\nComplete with floor-to-ceiling brushed stainless steel 316 tubular pull handles, magnetic perimeter acoustic draft seals, and heavy-duty concealed bottom deadbolts, this door system delivers an unmatched standard of corporate prestige, acoustic privacy, and durability.",
+        "description": "This modern interior glass partition system is purposefully designed for corporate offices, executive suites, conference rooms, and commercial centers. Engineered with 10mm heavy-duty tempered safety glass or an insulated double-glazed configuration, it provides acoustic privacy while allowing daylight to flow freely between spaces.\n\nEquipped with premium certified hardware and concealed hydraulic floor pivot hinges, the door swings smoothly in both directions with controlled soft-close and 90-degree hold-open positioning. Elegant horizontal frosted privacy bands provide visual discretion at eye level while preserving an open, prestigious corporate environment.\n\nThe minimal aluminum framing delivers lasting durability and seamless integration into modern workspaces, clinics, and residential zoning areas. It represents the perfect combination of contemporary styling, acoustic comfort, and effortless daily performance.",
         "features": [
           "Panoramic Oversized Glass Aperture Maximizing Natural Daylight & Interior Storefront Views",
           "Horizontal Frosted Architectural Etched Privacy Bands at Visual Height for Subtle Discretion",
-          "Commercial Dorma/Geze Heavy-Duty Hydraulic Floor Springs Supporting Leaves up to 250 kg",
+          "Commercial Concealed Heavy-Duty Hydraulic Heavy-Duty Hydraulic Floor Springs Supporting Leaves up to 250 kg",
           "Full-Height 2400 mm Brushed Marine Stainless Steel 316 Tubular Pull Handles",
           "Acoustic Magnetic Perimeter Gaskets Providing 32 dB Acoustic Speech Confidentiality"
         ],
@@ -3329,20 +3329,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Glass Specification": "12 mm Low-Iron Monolithic Tempered Safety Glass with Polished Edges",
           "Floor Pivot System": "Concealed Heavy-Duty Hydraulic Spring Box with 90° Hold-Open",
           "Perimeter Framing": "Slimline 45 mm Architectural Aluminum Top/Bottom Rail Clamp System",
-          "Handles": "Grade 316 Brushed Stainless Steel (38 mm Diameter x 2000 mm Length)",
+          "Handles": "High-Grade Marine Stainless Steel Brushed Stainless Steel (38 mm Diameter x 2000 mm Length)",
           "Acoustic Rating": "Rw 32 dB Airborne Sound Insulation",
           "Cycle Testing": "Certified for Over 500,000 Heavy Commercial Traffic Cycles (EN 1154)"
-        }
+        },
+        "title": "Glass Partition System for Offices and Companies"
       }
     },
-    "kurdishName": "دەرگای شووشەی پانۆرامای دوو باڵ بۆ پێشانگا و هۆڵ بە شریتی تەڵخی تایبەت",
-    "arabicDescription": "امنح مقرات الشركات الفاخرة، معارض السيارات الراقية، أو بهو الفلل المعمارية الحديثة مدخلاً بانورامياً استثنائياً يفيض بالنور والأناقة. يتميز نظام الأبواب الزجاجية المزدوجة بألواح زجاجية ضخمة فائقة النقاء ذات إطارات ألمنيوم نحيفة للغاية، تتوسطها خطوط أفقية مثلجة مصنفرة توفر خصوصية بصرية ذكية عند مستوى النظر مع الحفاظ على شفافية الرؤية البانورامية للمساحات الداخلية.\n\nيعمل النظام بماكينات هيدروليكية أرضية مخفية من كبرى الشركات العالمية (الألمانية الرائدة عالمياً / الألمانية المتطورة)، مما يتيح للدرفتين الحركة بسلاسة متناهية في كلا الاتجاهين مع ميزة التثبيت بزاوية 90 درجة والإغلاق الهيدروليكي الهادئ والمحكوم. صُنعت الألواح من زجاج سيكوريت مقسى سماكة 12 ملم بحواف مصقولة بالكمبيوتر ومثبتة بمرابط ضغط ميكانيكية متطورة خالية من أي مواد لاصقة مشوهة.\n\nتأتي الأبواب مزودة بمقابض أنبوبية عمودية فاخرة ممتدة بكامل الارتفاع من الستانلس ستيل 316 المصقول، وجوانات مغناطيسية عازلة للغبار والصوت، وقفل أمان أرضي مخفي، لتوفر أعلى معايير الفخامة التجارية والعزل الصوتي والمتانة الدائمة.",
-    "kurdishDescription": "دەروازەیەکی شووشەیی پانۆرامای شاهانە بۆ پێشانگای فەخم، کۆمپانیا گەورەکان، یان پێشوازی ڤێلا مۆدێرنەکان کە ڕووناکی تەواوی سروشتی دەهێنێتە ژوورەوە. شووشەی سێکۆریتی 12 ملم بە شریتی تەڵخی لەسەر ئاستی چاو بۆ پاراستنی تایبەتمەندی بەبێ لەدەستدانی جوانی.\n\nبە جەکی ژێرزەوی هیدرۆلیکی پێشکەوتووی دورما الألمانية یان غيزه الألمانية کار دەکات کە بە هەردوو لادا زۆر بە نەرمی دەکرێتەوە و لە 90 پلەدا دەوەستێت بە بێدەنگی. شووشەکان بە قەراغی پۆڵیشکراوی بالتحكم الرقمي فائق الدقة و کڵامپی بەهێز جێگیرکراون.\n\nدەسکی درێژی ستانلێس ستیلی 316 لە زەوییەوە تا سەقف، لەگەڵ لاستیکی موگناتیسی دژە دەنگ و تۆز، بۆ بەخشینی بەرزترین ئاستی جوانی بازرگانی و پارێزگاری."
+    "kurdishName": "سیستەمی دیواری جیاکەرەوە و دەرگای شووشەیی بۆ ئۆفیس و کۆمپانیاکان",
+    "arabicDescription": "صُمم هذا النظام المعماري من القواطع والأبواب الزجاجية الداخلية خصيصاً للمكاتب التنفيذية والشركات وقاعات الاجتماعات والمراكز التجارية الحديثة. يتوفر بزجاج سيكوريت مقسى عالي المتانة سماكة 10 ملم أو بنظام الزجاج المزدوج العازل، مما يوفر هدوءاً وخصوصية صوتية ممتازة مع تدفق كامل للضوء الطبيعي.\n\nيتميز النظام بإكسسوارات ومفصلات هيدروليكية فائقة الدقة مدمجة بالأرضية، تتيح فتح الباب بسلاسة في الاتجاهين مع خاصية التثبيت والإغلاق الهادئ والمحكوم. تمنح الشرائط الأفقية المصنفرة خصوصية بصرية ذكية وأنيقة للمكاتب دون التأثير على رحابة المكان.\n\nتمنح الإطارات المعدنية النحيفة تصميماً راقياً يناسب بيئات العمل الاحترافية والمستشفيات والعيادات والتقسيمات الداخلية للمنازل المعاصرة. يجمع بين الفخامة المعمارية والعزل المريح والاعتمادية الطويلة بأقل قدر من الصيانة.",
+    "kurdishDescription": "ئەم سیستمە مۆدێرنەی دیواری جیاکەرەوە و دەرگای شووشەیی ناوخۆیی بە تایبەتی بۆ ئۆفیسی کۆمپانیاکان، ژووری بەڕێوەبەران، هۆڵی کۆبوونەوە و سەنتەرە بازرگانییەکان دیزاین کراوە. بە شوشەی سیکیوریتی بەهێزی ١٠ ملم یان شوشەی دووجۆڕی عازل بەردەستە، کە ئارامی و تایبەتمەندی دەنگی دابین دەکات لەگەڵ بڵاوبوونەوەی ڕووناکی سروشتی.\n\nبە ئەکسسوارات و مەکینەی هایدرۆلیکی پێشکەوتوو لەسەر زەوی کار دەکات، کە دەرگاکە بە نەرمی بە هەردوو لادا دەکرێتەوە و بە هێمنی دادەخرێتەوە. شریتە تەڵخە شیکەکان تایبەتمەندی و پارێزگاری لە بینین دابین دەکەن بەبێ تێکدانی کراوەیی و ڕووناکیی ژینگەی کار.\n\nچوارچێوەی ئەلەمنیۆمی تەنک دیمەنێکی سەرنجڕاکێش بە ئۆفیسەکان، کلینیکەکان و بەشە ناوخۆییەکانی ماڵ دەبەخشێت. تێکەڵەیەکی نموونەییە لە جوانی هاوچەرخ، ئارامی دەنگی، و کارکردنی متمانەپێکراو بۆ ساڵانی درێژ."
   },
   {
     "id": "door-dh-gt-32",
-    "name": "Sleek Minimalist Sliding Gate with Horizontal Panel Accents & Pedestrian Door",
-    "arabicName": "بوابة سحابة مينيمالية حديثة بألواح ألمنيوم أفقية وباب مشاة مندمج",
+    "name": "Sleek Minimalist Sliding Gate with Horizontal Panel Accents",
+    "arabicName": "بوابة سحابة بتصميم بسيط وألواح ألمنيوم انسيابية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3361,17 +3362,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Frame Thickness": "85 mm Heavy Structural Aluminum Core",
       "Panel Core": "High-Density Acoustic & Thermal Insulated Polyurethane Core",
-      "Pedestrian Hardware": "European Concealed Hinges with 12V Electric Release Strike",
+      "Pedestrian Hardware": "Architectural Standard Concealed Hinges with 12V Electric Release Strike",
       "Track & Rollers": "Machined Stainless Steel Wheels on Low-Profile Inverted V-Track",
       "Finish Standard": "Qualicoat Class 2 Fine Texture Anthracite Grey (RAL 7016)",
       "Automation Compatibility": "Pre-Drilled for All Major Rack-and-Pinion Sliding Operators"
     },
-    "description": "Embody modern minimalist discipline with this ultra-flush horizontal panel sliding driveway gate. Engineered with clean architectural lines and an integrated pedestrian wicket door that aligns on the exact same plane as the vehicular leaf, this gate presents an uninterrupted, monolithic security facade that complements rectilinear contemporary architecture.\n\nFabricated from precision-formed aluminum cassette panels with concealed interlock joints, each panel incorporates internal high-density polyurethane acoustic insulation that deadens external street vibrations and road chatter. The pedestrian door is equipped with an integrated concealed hinge system and an electromagnetic lock release compatible with smart home automation and video intercom stations.\n\nRiding on dual stainless steel sealed-bearing wheels over an inverted ground track, the entire structure moves with effortless, whisper-quiet grace. Protected by a Qualicoat Class 2 architectural powder coat, it guarantees decades of rust-free, color-fast performance under intense desert sun.",
+    "description": "This premium architectural gate features seamless horizontal paneling delivering ultimate privacy and refined minimalism, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحابة مينيمالية حديثة بألواح ألمنيوم أفقية وباب مشاة مندمج",
+        "name": "بوابة سحابة بتصميم بسيط وألواح ألمنيوم انسيابية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "جسّد أرقى مفاهيم العمارة المينيمالية الحديثة مع هذه البوابة السحابة فائقة الاستواء والنعومة. تتميز البوابة بخطوط معمارية نقية وباب مشاة مدمج على نفس مستوى السطح تماماً دون أي بروز، مما يمنح السور الخارجي واجهة أمنية موحدة ومصمتة تنسجم بشكل مثالي مع تصاميم الفلل العصرية ذات الكتل الهندسية المستقيمة.\n\nصُنعت الألواح من كاسيتات ألمنيوم دقيقة ذات مفاصل تعشيق مخفية، ومحشوة داخلياً برغوة البولي يوريثان عالية الكثافة التي تعزل ضوضاء الشارع وحركة السيارات الخارجية وتمتص الاهتزازات. كما تم تزويد باب المشاة بمفصلات مخفية بالكامل وقفل كهرومغناطيسي ذكي متوافق مع شاشات الإنتركوم والتحكم المنزلي الذكي.\n\nتنزلق البوابة على عجلات ستانلس ستيل ذات محامل كروية مغلقة فوق سكة أرضية انسيابية بحركة بالغة النعومة والهدوء. كما طُليت ببودرة إلكتروستاتيكية معتمدة وفق تصنيف عالي الجودة المعتمد دولياً للمقاومة المناخية العالمي لضمان ثبات اللون ومقاومة الصدأ وحرارة الصيف الشديدة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الأفقية الانسيابية التي توفر الخصوصية التامة بمظهر بسيط وأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "باب مشاة مدمج على نفس مستوى السطح بالكامل دون أي بروز مشوه للواجهة",
           "ألواح ألمنيوم كاسيت معزولة بحشوة داخلية تخمد أصوات وضوضاء الشارع الخارجي",
@@ -3382,16 +3383,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "سماكة قطاع الإطار": "85 ملم ألمنيوم إنشائي مقوى عالي الصلابة",
           "حشوة الألواح": "بولي يوريثان عالي الكثافة عازل للصوت والحرارة",
-          "إكسسوارات باب المشاة": "مفصلات أوروبية مخفية مع كالون كهربائي 12 فولت",
+          "إكسسوارات باب المشاة": "مفصلات المعتمدة مخفية مع كالون كهربائي 12 فولت",
           "السكة والعجلات": "عجلات ستانلس ستيل مصقولة على سكة أرضية انسيابية مقلوبة",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي أنثراسايت (الرمادي الغرافيتي المعماري)",
           "التشغيل الآلي": "ثقوب مسبقة التجهيز لجميع محركات السحب الآلي المزودة بمسنن"
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی مۆدێرن بە تەختەی ئەلەمنیۆمی تەخت و دەرگای پیادەی تێکەڵکراو",
+        "name": "دەروازەی سلایدینگی سادە بە تەختەی ئەلەمنیۆمی نەرم",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی سحاب بە ستایلی مۆدێرنی تەخت کە دەرگای کەسی پیادەی بە شێوەیەکی تەواو هاوئاست لەگەڵ دەروازەی ئۆتۆمبێلدا تێدا دانراوە بەبێ ئەوەی هیچ دەرپەڕینێک هەبێت، بۆ دروستکردنی دیوارێکی پارێزراو و جوانی ڕەنگاوڕەنگ بۆ ڤێلاکەت.\n\nلە کواڵتی ئەلەمنیۆمی ئەستوور بە عازلی پۆلیۆریتان لە ناوەوە دروستکراوە کە ڕێگری لە دەنگی دەرەوە و گەرمای بەرز دەکات. دەرگای پیادەکە لۆک و نێری شاراوەی هەیە لەگەڵ کواڵۆنی کارەبایی بۆ بەستنەوە بە ئینتەرکۆم.\n\nبە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی دەجووڵێت، و بۆیاخی ئەوروپی پلە یەکی لەسەرە کە هەرگیز لەبەر هەتاوی توند ڕەنگی ناگۆڕێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ئاسۆیی نەرم کە تایبەتمەندی تەواو بە شێوازێکی سادە دابین دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دەرگای پیادەی تەواو هاوئاست لەگەڵ ڕووی دەروازەکە بەبێ تێکدانی هێڵەکان",
           "تەبەقەی ئەلەمنیۆمی عازلکراو بۆ نەهێشتنی دەنگ و ژاوەژاوی شەقام",
@@ -3402,16 +3403,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "ئەستووری چوارچێوە": "85 ملم ئەلەمنیۆمی پتەوی ئەندازیاری",
           "عازلی ناوەکی": "فۆمی پۆلیۆریتانی چڕ بۆ دەنگ و گەرما",
-          "ئیکسسواراتی پیادە": "نێری ئەوروپی شاراوە لەگەڵ کواڵۆنی کارەبایی 12V",
+          "ئیکسسواراتی پیادە": "نێری ستانداردی نێودەوڵەتی شاراوە لەگەڵ کواڵۆنی کارەبایی 12V",
           "ڕێڕەو و تایە": "تایەی ستانلێس ستیل لەسەر ڕێڕەوی Vی نزم",
           "جۆری بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ئەنتراسایت (الرمادي الغرافيتي المعماري)",
           "گونجاوی مۆتۆر": "ئامادەکراوە بۆ هەموو جۆرە مۆتۆرێکی سحابی ددانەدار"
         }
       },
       "en": {
-        "name": "Sleek Minimalist Sliding Gate with Horizontal Panel Accents & Pedestrian Door",
+        "name": "Sleek Minimalist Sliding Gate with Horizontal Panel Accents",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Embody modern minimalist discipline with this ultra-flush horizontal panel sliding driveway gate. Engineered with clean architectural lines and an integrated pedestrian wicket door that aligns on the exact same plane as the vehicular leaf, this gate presents an uninterrupted, monolithic security facade that complements rectilinear contemporary architecture.\n\nFabricated from precision-formed aluminum cassette panels with concealed interlock joints, each panel incorporates internal high-density polyurethane acoustic insulation that deadens external street vibrations and road chatter. The pedestrian door is equipped with an integrated concealed hinge system and an electromagnetic lock release compatible with smart home automation and video intercom stations.\n\nRiding on dual stainless steel sealed-bearing wheels over an inverted ground track, the entire structure moves with effortless, whisper-quiet grace. Protected by a Qualicoat Class 2 architectural powder coat, it guarantees decades of rust-free, color-fast performance under intense desert sun.",
+        "description": "This premium architectural gate features seamless horizontal paneling delivering ultimate privacy and refined minimalism, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Flush-Coplanar Integrated Pedestrian Wicket Door Preserving Unbroken Facade Lines",
           "Acoustic Insulated Aluminum Cassette Panels Dampening Exterior Road Noise",
@@ -3422,21 +3423,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "Frame Thickness": "85 mm Heavy Structural Aluminum Core",
           "Panel Core": "High-Density Acoustic & Thermal Insulated Polyurethane Core",
-          "Pedestrian Hardware": "European Concealed Hinges with 12V Electric Release Strike",
+          "Pedestrian Hardware": "Architectural Standard Concealed Hinges with 12V Electric Release Strike",
           "Track & Rollers": "Machined Stainless Steel Wheels on Low-Profile Inverted V-Track",
           "Finish Standard": "Qualicoat Class 2 Fine Texture Anthracite Grey (RAL 7016)",
           "Automation Compatibility": "Pre-Drilled for All Major Rack-and-Pinion Sliding Operators"
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی مۆدێرن بە تەختەی ئەلەمنیۆمی تەخت و دەرگای پیادەی تێکەڵکراو",
-    "arabicDescription": "جسّد أرقى مفاهيم العمارة المينيمالية الحديثة مع هذه البوابة السحابة فائقة الاستواء والنعومة. تتميز البوابة بخطوط معمارية نقية وباب مشاة مدمج على نفس مستوى السطح تماماً دون أي بروز، مما يمنح السور الخارجي واجهة أمنية موحدة ومصمتة تنسجم بشكل مثالي مع تصاميم الفلل العصرية ذات الكتل الهندسية المستقيمة.\n\nصُنعت الألواح من كاسيتات ألمنيوم دقيقة ذات مفاصل تعشيق مخفية، ومحشوة داخلياً برغوة البولي يوريثان عالية الكثافة التي تعزل ضوضاء الشارع وحركة السيارات الخارجية وتمتص الاهتزازات. كما تم تزويد باب المشاة بمفصلات مخفية بالكامل وقفل كهرومغناطيسي ذكي متوافق مع شاشات الإنتركوم والتحكم المنزلي الذكي.\n\nتنزلق البوابة على عجلات ستانلس ستيل ذات محامل كروية مغلقة فوق سكة أرضية انسيابية بحركة بالغة النعومة والهدوء. كما طُليت ببودرة إلكتروستاتيكية معتمدة وفق تصنيف عالي الجودة المعتمد دولياً للمقاومة المناخية العالمي لضمان ثبات اللون ومقاومة الصدأ وحرارة الصيف الشديدة.",
-    "kurdishDescription": "دەروازەیەکی نایابی سحاب بە ستایلی مۆدێرنی تەخت کە دەرگای کەسی پیادەی بە شێوەیەکی تەواو هاوئاست لەگەڵ دەروازەی ئۆتۆمبێلدا تێدا دانراوە بەبێ ئەوەی هیچ دەرپەڕینێک هەبێت، بۆ دروستکردنی دیوارێکی پارێزراو و جوانی ڕەنگاوڕەنگ بۆ ڤێلاکەت.\n\nلە کواڵتی ئەلەمنیۆمی ئەستوور بە عازلی پۆلیۆریتان لە ناوەوە دروستکراوە کە ڕێگری لە دەنگی دەرەوە و گەرمای بەرز دەکات. دەرگای پیادەکە لۆک و نێری شاراوەی هەیە لەگەڵ کواڵۆنی کارەبایی بۆ بەستنەوە بە ئینتەرکۆم.\n\nبە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی دەجووڵێت، و بۆیاخی ئەوروپی پلە یەکی لەسەرە کە هەرگیز لەبەر هەتاوی توند ڕەنگی ناگۆڕێت."
+    "kurdishName": "دەروازەی سلایدینگی سادە بە تەختەی ئەلەمنیۆمی نەرم",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الأفقية الانسيابية التي توفر الخصوصية التامة بمظهر بسيط وأنيق، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ئاسۆیی نەرم کە تایبەتمەندی تەواو بە شێوازێکی سادە دابین دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-33",
-    "name": "Luxury Estate Black Aluminum Gate with Side Pedestrian Door",
-    "arabicName": "بوابة قصر سوداء فخمة بشرائح ألمنيوم معزولة وباب مدخل شخصي جانبي",
+    "name": "Luxury Estate Black Aluminum Gate with Side Pedestrian Access",
+    "arabicName": "بوابة قصر سوداء فخمة مع باب مدخل جانبي للأفراد",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3450,22 +3451,22 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Multi-Chamber Extruded Aluminum Horizontal Slat Panels Offering Uncompromising Rigidity",
       "Dedicated Stanchion Integrated with Biometric Access, Intercom & Concealed Wiring Channels",
       "Certified Qualicoat Class 2 Ultra-Matte Deep Black Finish Resisting Airborne Grit Abrasion",
-      "Heavy-Duty Rack-Driven Automated Sliding Mechanism with Obstacle Detection Safety System"
+      "Heavy-Duty Rack-Driven Automated Sliding Mechanism with Obالمعتمدةle Detection Safety System"
     ],
     "specs": {
       "Main Gate Frame": "100 mm x 60 mm High-Tensile Structural Aluminum Section",
       "Pedestrian Stanchion": "Integrated 150 mm Architectural Aluminum Column with Smart Housing",
       "Slat Design": "Interlocking 90 mm Extruded Slats with Concealed Expansion Joints",
       "Surface Coating": "Qualicoat Class 2 Ultra-Matte Black (AkzoNobel D2525)",
-      "Security Hardware": "European High-Security Mortise Deadbolt & Fail-Secure Electric Strike",
+      "Security Hardware": "Architectural Standard High-Security Mortise Deadbolt & Fail-Secure Electric Strike",
       "Automation System": "Pre-Configured for Heavy-Duty Motor Operators up to 1,200 kg"
     },
-    "description": "Make an assertive architectural impression with this grand estate black aluminum perimeter entry suite. Featuring an automated sliding vehicular gate paired with an autonomous side pedestrian security portal, this ensemble combines robust structural security with the sleek, clean-edged elegance demanded by luxury private estates.\n\nThe solid horizontal infill panels are precision-extruded from architectural 6063-T6 aluminum with reinforced internal multi-chamber ribbing, providing superior torsion resistance against heavy wind loads. The adjacent pedestrian portal features an integrated architectural stanchion housing digital access controls, a biometric fingerprint reader, and video camera integration with concealed cabling conduits.\n\nTreated with a specialized 25-micron Qualicoat Class 2 ultra-matte black powder coating, the surface repels airborne sand abrasion, water staining, and solar discoloration, maintaining its rich satin finish through all seasons.",
+    "description": "This premium architectural gate features heavy-duty architectural black aluminum built for monumental residential portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة قصر سوداء فخمة بشرائح ألمنيوم معزولة وباب مدخل شخصي جانبي",
+        "name": "بوابة قصر سوداء فخمة مع باب مدخل جانبي للأفراد",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "اصنع انطباعاً معمارياً مهيباً يعكس فخامة قصرك الخاص مع هذه المنظومة الأمنية المتكاملة بالألمنيوم الأسود الفاخر. تجمع المنظومة بين بوابة سحابة عريضة لدخول السيارات وباب مشاة أمني جانبي مستقل ومطابق تماماً في لغة التصميم، لتمنح المدخل حماية متكاملة ومظهراً فخماً يليق بالمجمعات والقصور السكنية الراقية.\n\nصُنعت الشرائح الأفقية المصمتة من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة مسحوبة ومعززة بأضلاع داخلية متعددة الحجرات تمنح الألواح مقاومة استثنائية ضد عواصف الرياح الشديدة وتمنع أي انحناء. ويحتوي عمود باب المشاة الجانبي على حجرة معمارية مدمجة مخصصة لأجهزة الدخول الذكي، قارئ بصمة الإصبع، وكاميرات المراقبة مع مسارات تمديد أسلاك مخفية بالكامل.\n\nعولجت البوابة بطلاء بودرة إلكتروستاتيكية كلاس 2 بسماكة 25 ميكرون بلون أسود فاحم مطفي يقاوم خدوش الرمال المتطايرة وبقع المياه والحرارة الشديدة، ليحافظ المدخل على رونقه وملمسه الحريري الفاخر على مدار فصول السنة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ هيكل الألمنيوم الأسود الثقيل المصمم للمداخل الفاخرة والقصور الراقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "منظومة دخول متكاملة للقصور: بوابة مركبات سحابة وباب مشاة جانبي متطابق بأعلى درجات الفخامة",
           "شرائح ألمنيوم أفقية متعددة الحجرات توفر صلابة إنشائية مطلقة ومقاومة لضغط الرياح",
@@ -3478,14 +3479,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "عمود المشاة المعماري": "عمود ألمنيوم 150 ملم مدمج مع علبة الأجهزة الذكية",
           "تصميم الشرائح": "شرائح متداخلة عرض 90 ملم مع فواصل تمدد حراري مخفية",
           "نوع الطلاء الخارجي": "طلاء بودرة حراري كلاس 2 أسود فاحم",
-          "أقفال الأمان": "قفل أمان أوروبي متعدد النقاط مع كالون كهربائي محكم الإغلاق",
+          "أقفال الأمان": "قفل أمان المعتمد متعدد النقاط مع كالون كهربائي محكم الإغلاق",
           "نظام المحركات": "مهيأة للربط مع محركات السحب الثقيلة حتى وزن 1200 كجم"
         }
       },
       "ckb": {
-        "name": "دەروازەی ڕەشی فەخمی ڤێلا بە شریتی ئەلەمنیۆمی ئەستوور و دەرگای کەسی تەنیشت",
+        "name": "دەروازەی کۆشکی ڕەشی شیک بە دەرگای تەنیشتی پیادە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی شاهانەی ڕەشی مات بۆ کۆشک و ڤێلا گەورەکان کە دەروازەی سحابی ئۆتۆمبێل لەگەڵ دەرگای کەسی پیادە لە تەنیشتیدا پێکەوە دەبەستێتەوە بە بەرزترین ئاستی جوانی و پتەوی.\n\nتەختە ئاسۆییەکانی لە ئەلەمنیۆمی فرە ژووری بەهێز دروستکراون بۆ ڕێگری تەواو لە لاربوونەوە بەرامبەر بای توند. کۆڵەکەی تەنیشت دەرگای پیادەکە شوێنی تایبەتی بۆ ئامێری پەنجەمۆر و کامێرای چاودێری تێدایە بە وایەری شاراوە.\n\nبۆیاخی ڕەشی ماتی ئەوروپی کوالیکۆت کلاسی 2ی لەسەرە کە دژە شووشتنی لم و خۆری توندە، و بۆ هەموو وەرزەکان جوانی و ڕەنگی خۆی دەپارێزێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە پەیکەری ئەلەمنیۆمی قورسی ڕەش کە بۆ دەروازە گەورەکانی نیشتەجێبوون دروستکراوە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "سیستەمی تەواوی شاهانە: دەروازەی سحابی ئۆتۆمبێل و دەرگای پیادەی تەنیشت بە هەمان نەخش",
           "تەبەقەی ئەلەمنیۆمی فرە ژوور بۆ بەرزترین ئاستی ڕاوەستان بەرامبەر با",
@@ -3498,39 +3499,39 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "کۆڵەکەی پیادە": "کۆڵەکەی ئەلەمنیۆمی 150 ملم لەگەڵ کەیسی ئامێرە زیرەکەکان",
           "دیزاینی شریتەکان": "شریتی تێکەڵکراوی 90 ملم بە درزی تێپەڕبوونی گەرمی شاراوە",
           "جۆری بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەشی مات",
-          "قفڵی سەلامەتی": "کواڵۆنی ئەوروپی فرە خاڵ لەگەڵ کواڵۆنی کارەبایی",
+          "قفڵی سەلامەتی": "کواڵۆنی ستانداردی نێودەوڵەتی فرە خاڵ لەگەڵ کواڵۆنی کارەبایی",
           "سیستەمی مۆتۆر": "ئامادەکراو بۆ مۆتۆری کێشی قورس تا 1200 کگم"
         }
       },
       "en": {
-        "name": "Luxury Estate Black Aluminum Gate with Side Pedestrian Door",
+        "name": "Luxury Estate Black Aluminum Gate with Side Pedestrian Access",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Make an assertive architectural impression with this grand estate black aluminum perimeter entry suite. Featuring an automated sliding vehicular gate paired with an autonomous side pedestrian security portal, this ensemble combines robust structural security with the sleek, clean-edged elegance demanded by luxury private estates.\n\nThe solid horizontal infill panels are precision-extruded from architectural 6063-T6 aluminum with reinforced internal multi-chamber ribbing, providing superior torsion resistance against heavy wind loads. The adjacent pedestrian portal features an integrated architectural stanchion housing digital access controls, a biometric fingerprint reader, and video camera integration with concealed cabling conduits.\n\nTreated with a specialized 25-micron Qualicoat Class 2 ultra-matte black powder coating, the surface repels airborne sand abrasion, water staining, and solar discoloration, maintaining its rich satin finish through all seasons.",
+        "description": "This premium architectural gate features heavy-duty architectural black aluminum built for monumental residential portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Grand Estate Architecture: Automated Vehicle Gate Paired with Matching Side Pedestrian Portal",
           "Multi-Chamber Extruded Aluminum Horizontal Slat Panels Offering Uncompromising Rigidity",
           "Dedicated Stanchion Integrated with Biometric Access, Intercom & Concealed Wiring Channels",
           "Certified Qualicoat Class 2 Ultra-Matte Deep Black Finish Resisting Airborne Grit Abrasion",
-          "Heavy-Duty Rack-Driven Automated Sliding Mechanism with Obstacle Detection Safety System"
+          "Heavy-Duty Rack-Driven Automated Sliding Mechanism with Obالمعتمدةle Detection Safety System"
         ],
         "specs": {
           "Main Gate Frame": "100 mm x 60 mm High-Tensile Structural Aluminum Section",
           "Pedestrian Stanchion": "Integrated 150 mm Architectural Aluminum Column with Smart Housing",
           "Slat Design": "Interlocking 90 mm Extruded Slats with Concealed Expansion Joints",
           "Surface Coating": "Qualicoat Class 2 Ultra-Matte Black (AkzoNobel D2525)",
-          "Security Hardware": "European High-Security Mortise Deadbolt & Fail-Secure Electric Strike",
+          "Security Hardware": "Architectural Standard High-Security Mortise Deadbolt & Fail-Secure Electric Strike",
           "Automation System": "Pre-Configured for Heavy-Duty Motor Operators up to 1,200 kg"
         }
       }
     },
-    "kurdishName": "دەروازەی ڕەشی فەخمی ڤێلا بە شریتی ئەلەمنیۆمی ئەستوور و دەرگای کەسی تەنیشت",
-    "arabicDescription": "اصنع انطباعاً معمارياً مهيباً يعكس فخامة قصرك الخاص مع هذه المنظومة الأمنية المتكاملة بالألمنيوم الأسود الفاخر. تجمع المنظومة بين بوابة سحابة عريضة لدخول السيارات وباب مشاة أمني جانبي مستقل ومطابق تماماً في لغة التصميم، لتمنح المدخل حماية متكاملة ومظهراً فخماً يليق بالمجمعات والقصور السكنية الراقية.\n\nصُنعت الشرائح الأفقية المصمتة من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة مسحوبة ومعززة بأضلاع داخلية متعددة الحجرات تمنح الألواح مقاومة استثنائية ضد عواصف الرياح الشديدة وتمنع أي انحناء. ويحتوي عمود باب المشاة الجانبي على حجرة معمارية مدمجة مخصصة لأجهزة الدخول الذكي، قارئ بصمة الإصبع، وكاميرات المراقبة مع مسارات تمديد أسلاك مخفية بالكامل.\n\nعولجت البوابة بطلاء بودرة إلكتروستاتيكية كلاس 2 بسماكة 25 ميكرون بلون أسود فاحم مطفي يقاوم خدوش الرمال المتطايرة وبقع المياه والحرارة الشديدة، ليحافظ المدخل على رونقه وملمسه الحريري الفاخر على مدار فصول السنة.",
-    "kurdishDescription": "دەروازەیەکی شاهانەی ڕەشی مات بۆ کۆشک و ڤێلا گەورەکان کە دەروازەی سحابی ئۆتۆمبێل لەگەڵ دەرگای کەسی پیادە لە تەنیشتیدا پێکەوە دەبەستێتەوە بە بەرزترین ئاستی جوانی و پتەوی.\n\nتەختە ئاسۆییەکانی لە ئەلەمنیۆمی فرە ژووری بەهێز دروستکراون بۆ ڕێگری تەواو لە لاربوونەوە بەرامبەر بای توند. کۆڵەکەی تەنیشت دەرگای پیادەکە شوێنی تایبەتی بۆ ئامێری پەنجەمۆر و کامێرای چاودێری تێدایە بە وایەری شاراوە.\n\nبۆیاخی ڕەشی ماتی ئەوروپی کوالیکۆت کلاسی 2ی لەسەرە کە دژە شووشتنی لم و خۆری توندە، و بۆ هەموو وەرزەکان جوانی و ڕەنگی خۆی دەپارێزێت."
+    "kurdishName": "دەروازەی کۆشکی ڕەشی شیک بە دەرگای تەنیشتی پیادە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ هيكل الألمنيوم الأسود الثقيل المصمم للمداخل الفاخرة والقصور الراقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە پەیکەری ئەلەمنیۆمی قورسی ڕەش کە بۆ دەروازە گەورەکانی نیشتەجێبوون دروستکراوە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-34",
-    "name": "Double Swing Villa Gate with Silver Horizontal Reveal Lines",
-    "arabicName": "بوابة فيلا مزدوجة بلون فضي مع خطوط سوداء هندسية تباينية رائعة",
+    "name": "Double Swing Modern Villa Gate with Metallic Accent Reveal Lines",
+    "arabicName": "بوابة فيلا مزدوجة بخطوط فاصلة فضية أنيقة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3542,7 +3543,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "features": [
       "Symmetrical Double Swing Architecture Visually Expanding Wide Villa Driveway Portals",
       "Precision-Machined Anodized Silver Reveal Lines Creating Striking Linear Facade Contrast",
-      "Heavy-Duty 3D Adjustable European Pivot Hinges with Sealed Needle Bearings Supporting 600 kg",
+      "Heavy-Duty 3D Adjustable Architectural Standard Pivot Hinges with Sealed Needle Bearings Supporting 600 kg",
       "Concealed Subterranean Drop-Bolts Anchoring Dual Leaves Against High Wind Pressures",
       "Pre-Engineered for Surface Electro-Mechanical Swing Arms or In-Ground Concealed Motors"
     ],
@@ -3554,36 +3555,36 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Leaf Opening Range": "Configurable from 90° to 125° Opening Angles",
       "Wind Certification": "Class C4 High-Velocity Windstorm Resistance"
     },
-    "description": "Infuse contemporary visual contrast into your property gateway with this high-contrast double swing gate. Featuring dark charcoal-finished structural leaves accented by crisp, anodized silver horizontal reveal grooves, this symmetrical gate delivers dynamic linear rhythm that visually broadens the entrance portal of modern luxury residences.\n\nEngineered with continuous internal aluminum sub-frames, each swing leaf is structurally balanced to rotate smoothly on heavy-duty European pivot hinges equipped with sealed roller bearings and 3D micro-adjustment screws. The anodized silver grooves are precision-machined into the aluminum panels and treated with a 20-micron anodizing layer that resists oxidation, pitting, and tarnishing even in humid or coastal environments.\n\nFitted with concealed bottom drop-pins and prepped for surface-mount electro-mechanical swing arms or discreet underground hydraulic operators, this gate delivers effortless ceremonial opening motion with uncompromising structural integrity.",
+    "description": "This premium architectural gate features contemporary double-leaf swing gate accented by subtle silver geometric reveals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة فيلا مزدوجة بلون فضي مع خطوط سوداء هندسية تباينية رائعة",
+        "name": "بوابة فيلا مزدوجة بخطوط فاصلة فضية أنيقة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف تبايناً بصرياً معاصراً لمدخل فيلتك مع هذه البوابة المزدوجة المتطورة بدرفتين متماثلتين. تتميز البوابة بسطحها الداكن الفاخر المزين بخطوط أفقية هندسية من الألمنيوم المؤكسد الفضي اللامع، مما يمنح المدخل إيقاعاً خطياً جذاباً يبرز اتساع المدخل ويضفي طابعاً هندسياً راقياً على الواجهة الخارجية للفيلا.\n\nصُممت البوابة بهيكل ألمنيوم داخلي مقوى وموزع الأحمال، لتدور كل درفة بسلاسة مطلقة على مفصلات محورية أوروبية ثقيلة مزودة برولمان بلي محكم ومسامير ضبط ثلاثية الأبعاد تتيح موازنة الدرف بدقة متناهية. وتمت معالجة الخطوط الفضية بطبقة أنودة سماكة 20 ميكرون تمنع التآكل والصدأ وتغير اللمعان حتى في البيئات الرطبة والقريبة من السواحل.\n\nتم تزويد البوابة بترباس أرضي مخفي يحكم ثباتها ضد الرياح القوية، مع جاهزية كاملة لتركيب أذرع الفتح الكهربائية السطحية أو المحركات الهيدروليكية الأرضية المخفية، لتمنحك حركة فتح احتفالية فاخرة ومتانة تدوم لعقود.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرفتان المزدوجتان المزخرفتان بفواصل فضية هندسية تضفي عمقاً بصرياً، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم متناظر بدرفتين مزدوجتين يبرز اتساع المدخل ويمنح الواجهة هيبة هندسية لافتة",
           "خطوط أفقية فضية مؤكسدة بدقة تمنح تبايناً معمارياً جذاباً ضد الخلفية الداكنة",
-          "مفصلات محورية أوروبية قابلة للتعديل ثلاثي الأبعاد تتحمل أوزاناً حتى 600 كجم للدرفة",
+          "مفصلات محورية المعتمدة قابلة للتعديل ثلاثي الأبعاد تتحمل أوزاناً حتى 600 كجم للدرفة",
           "ترباس تثبيت أرضي مخفي يمنح الدرف ثباتاً صلباً ضد ضغط الرياح والعواصف",
-          "جاهزية كاملة لتركيب أذرع الفتح الكهروميكانيكية أو المحركات الأرضية المخفية"
+          "جاهزية كاملة لالمعتمدب أذرع الفتح الكهروميكانيكية أو المحركات الأرضية المخفية"
         ],
         "specs": {
           "أبعاد قطاع الإطار": "90 ملم × 60 ملم ألمنيوم إنشائي مقوى المعمارية المعالجة حرارياً عالية الصلابة",
           "الخطوط الفضية التباينية": "مجارٍ أفقية عرض 15 ملم مؤكسدة باللون الفضي الساتان (20 ميكرون)",
           "طلاء الهيكل الأساسي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي فحمي مطفي (المواصفات المعمارية 7024)",
-          "المفصلات والقطع": "مفصلات محورية أوروبية ثقيلة مزودة بنقاط تشحيم ومحامل محكمة",
+          "المفصلات والقطع": "مفصلات محورية المعتمدة ثقيلة مزودة بنقاط تشحيم ومحامل محكمة",
           "زاوية فتح الدرف": "قابلة للضبط من 90 درجة وحتى 125 درجة للداخل أو الخارج",
           "مقاومة الرياح": "معتمدة لتحمل العواصف الشديدة وفق تصنيف الفئة C4"
         }
       },
       "ckb": {
-        "name": "دەروازەی دوو باڵی ڤێلا بە هێڵی زیوی مۆدێرن و ڕەنگی تۆخ",
+        "name": "دەروازەی جووت باڵی ڤێلا بە هێڵی کانزایی جیاکەرەوە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی دوو باڵی زۆر فەخم بۆ ڤێلا کە هێڵی ئاسۆیی ئەلەمنیۆمی زیوی بریقەداری تێدایە لەسەر ڕوویەکی خەڵوزی تۆخ بۆ دروستکردنی دیمەنێکی مۆدێرن و فراوانکردنی دیمەنی دەروازەی سەرەکی.\n\nهەردوو باڵەکە لەسەر نێری گەورەی ئەوروپی بە ڕۆلەری پارێزراو دەسووڕێنەوە کە بە سێ ئاراستە دەستکاری دەکرێت بۆ ڕێکخستنی تەواو. هێڵە زیوییەکان بە چینی ئەنۆدایزی 20 مایکرۆن پارێزراون دژە ژەنگ و ڕەشبوون لە هەموو کەشوهەوایەکدا.\n\nلە خوارەوە کێلۆنی شاراوەی هەیە بۆ زەوی دژە ڕەشەبا، لەگەڵ ئامادەکاری تەواو بۆ بەستنی باڵی مۆتۆری کارەبایی سەر زەوی یان مۆتۆری شاراوەی ژێرزەوی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دوو باڵی هاوچەرخ کە بە هێڵی زیوی جوان نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی دوو باڵی یەکسان کە دەروازەی ڤێلاکەت فراوانتر و جوانتر پیشان دەدات",
           "هێڵی ئاسۆیی ئەنۆدایزکراوی زیوی بە تەنیشت ڕووی تۆخ بۆ جیاوازییەکی جوان",
-          "نێری ئەوروپی بەهێز بە توانای ڕێکخستنی سێ لایەنە و هەڵگرتنی تا 600 کگم",
+          "نێری ستانداردی نێودەوڵەتی بەهێز بە توانای ڕێکخستنی سێ لایەنە و هەڵگرتنی تا 600 کگم",
           "کێلۆنی ژێرەوەی شاراوە بۆ جێگیرکردنی دەروازەکە لە کاتی بای بەهێزدا",
           "ئامادەکراو بۆ باڵی کارەبایی یان مۆتۆری هیدرۆلیکی شاراوەی ژێرزەوی"
         ],
@@ -3597,13 +3598,13 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Double Swing Villa Gate with Silver Horizontal Reveal Lines",
+        "name": "Double Swing Modern Villa Gate with Metallic Accent Reveal Lines",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Infuse contemporary visual contrast into your property gateway with this high-contrast double swing gate. Featuring dark charcoal-finished structural leaves accented by crisp, anodized silver horizontal reveal grooves, this symmetrical gate delivers dynamic linear rhythm that visually broadens the entrance portal of modern luxury residences.\n\nEngineered with continuous internal aluminum sub-frames, each swing leaf is structurally balanced to rotate smoothly on heavy-duty European pivot hinges equipped with sealed roller bearings and 3D micro-adjustment screws. The anodized silver grooves are precision-machined into the aluminum panels and treated with a 20-micron anodizing layer that resists oxidation, pitting, and tarnishing even in humid or coastal environments.\n\nFitted with concealed bottom drop-pins and prepped for surface-mount electro-mechanical swing arms or discreet underground hydraulic operators, this gate delivers effortless ceremonial opening motion with uncompromising structural integrity.",
+        "description": "This premium architectural gate features contemporary double-leaf swing gate accented by subtle silver geometric reveals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Symmetrical Double Swing Architecture Visually Expanding Wide Villa Driveway Portals",
           "Precision-Machined Anodized Silver Reveal Lines Creating Striking Linear Facade Contrast",
-          "Heavy-Duty 3D Adjustable European Pivot Hinges with Sealed Needle Bearings Supporting 600 kg",
+          "Heavy-Duty 3D Adjustable Architectural Standard Pivot Hinges with Sealed Needle Bearings Supporting 600 kg",
           "Concealed Subterranean Drop-Bolts Anchoring Dual Leaves Against High Wind Pressures",
           "Pre-Engineered for Surface Electro-Mechanical Swing Arms or In-Ground Concealed Motors"
         ],
@@ -3617,14 +3618,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی دوو باڵی ڤێلا بە هێڵی زیوی مۆدێرن و ڕەنگی تۆخ",
-    "arabicDescription": "أضف تبايناً بصرياً معاصراً لمدخل فيلتك مع هذه البوابة المزدوجة المتطورة بدرفتين متماثلتين. تتميز البوابة بسطحها الداكن الفاخر المزين بخطوط أفقية هندسية من الألمنيوم المؤكسد الفضي اللامع، مما يمنح المدخل إيقاعاً خطياً جذاباً يبرز اتساع المدخل ويضفي طابعاً هندسياً راقياً على الواجهة الخارجية للفيلا.\n\nصُممت البوابة بهيكل ألمنيوم داخلي مقوى وموزع الأحمال، لتدور كل درفة بسلاسة مطلقة على مفصلات محورية أوروبية ثقيلة مزودة برولمان بلي محكم ومسامير ضبط ثلاثية الأبعاد تتيح موازنة الدرف بدقة متناهية. وتمت معالجة الخطوط الفضية بطبقة أنودة سماكة 20 ميكرون تمنع التآكل والصدأ وتغير اللمعان حتى في البيئات الرطبة والقريبة من السواحل.\n\nتم تزويد البوابة بترباس أرضي مخفي يحكم ثباتها ضد الرياح القوية، مع جاهزية كاملة لتركيب أذرع الفتح الكهربائية السطحية أو المحركات الهيدروليكية الأرضية المخفية، لتمنحك حركة فتح احتفالية فاخرة ومتانة تدوم لعقود.",
-    "kurdishDescription": "دەروازەیەکی دوو باڵی زۆر فەخم بۆ ڤێلا کە هێڵی ئاسۆیی ئەلەمنیۆمی زیوی بریقەداری تێدایە لەسەر ڕوویەکی خەڵوزی تۆخ بۆ دروستکردنی دیمەنێکی مۆدێرن و فراوانکردنی دیمەنی دەروازەی سەرەکی.\n\nهەردوو باڵەکە لەسەر نێری گەورەی ئەوروپی بە ڕۆلەری پارێزراو دەسووڕێنەوە کە بە سێ ئاراستە دەستکاری دەکرێت بۆ ڕێکخستنی تەواو. هێڵە زیوییەکان بە چینی ئەنۆدایزی 20 مایکرۆن پارێزراون دژە ژەنگ و ڕەشبوون لە هەموو کەشوهەوایەکدا.\n\nلە خوارەوە کێلۆنی شاراوەی هەیە بۆ زەوی دژە ڕەشەبا، لەگەڵ ئامادەکاری تەواو بۆ بەستنی باڵی مۆتۆری کارەبایی سەر زەوی یان مۆتۆری شاراوەی ژێرزەوی."
+    "kurdishName": "دەروازەی جووت باڵی ڤێلا بە هێڵی کانزایی جیاکەرەوە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرفتان المزدوجتان المزخرفتان بفواصل فضية هندسية تضفي عمقاً بصرياً، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دوو باڵی هاوچەرخ کە بە هێڵی زیوی جوان نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-38",
-    "name": "Minimalist Horizontal Slat Gate Built into Natural Travertine Stone Portal",
-    "arabicName": "بوابة شرائح أفقية ناعمة مدمجة في مدخل بوابة حجر الترافرتين الطبيعي",
+    "name": "Minimalist Horizontal Slat Gate Integrated with Natural Stone Portals",
+    "arabicName": "بوابة شرائح أفقية مدمجة بأناقة مع واجهات الحجر الطبيعي",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3648,12 +3649,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Surface Coating": "Qualicoat Class 2 Architectural Graphite Black (Fine Texture)",
       "Drive Mechanism": "Concealed In-Wall or Subterranean Rack-and-Pinion Sliding Drive"
     },
-    "description": "Achieve pure architectural harmony between structural metalwork and organic masonry with this minimalist horizontal slat gate. Specifically proportioned to sit flush within monolithic natural Travertine, limestone, or honed granite gate portals, this gate creates an understated boundary that lets natural stone textures and clean metal geometries speak in unison.\n\nThe horizontal slats are extruded from structural 6063-T6 aluminum with continuous 10 mm shadow gaps that provide subtle daylight transparency from within while obstructing direct street sightlines. Concealed within the masonry jambs are heavy-duty stainless steel wall-mount guide tracks and whisper-silent nylon roller bearings that eliminate visible metal posts, allowing the gate to emerge seamlessly from the natural stone recess.\n\nFinished in a low-sheen architectural graphite powder coating that mimics the tactile quality of blackened iron without its vulnerability to rust, this gate is the definitive choice for modern minimalist and organic-modern luxury homes.",
+    "description": "This premium architectural gate features flush horizontal louvers tailored to mount within natural stone masonry portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة شرائح أفقية ناعمة مدمجة في مدخل بوابة حجر الترافرتين الطبيعي",
+        "name": "بوابة شرائح أفقية مدمجة بأناقة مع واجهات الحجر الطبيعي",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حقق تناغماً معمارياً نقياً يجمع بين دقة المشغولات المعدنية وفخامة الحجر الطبيعي مع هذه البوابة الأفقية المينيمالية. صُممت البوابة بأبعاد هندسية دقيقة لتندمج بسلاسة تامة داخل فتحات بوابات حجر الترافرتين أو الحجر الجيري أو الغرانيت المصقول، مما يمنح السور مظهراً متجانساً يبرز جمال عروق الحجر الطبيعي ونقاء الخطوط المعدنية المستقيمة.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة مع فواصل ظلية متناسقة بعرض 10 ملم تمنح إطلالة نهارية خفيفة من الداخل مع حجب الرؤية تماماً عن الشارع. تم إخفاء مسارات الانزلاق والبكرات المصنوعة من النايلون الصناعي فائق الكثافة داخل تجاويف الحجر الجانبية، مما يلغي الحاجة للأعمدة المعدنية الظاهرة لتخرج البوابة كأنها تنبثق بسلاسة من قلب الحجر الطبيعي.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معمارية بملمس الحديد الأسود المطفي تحاكي فخامة المشغولات الكلاسيكية دون التعرض لخطر الصدأ، لتكون الخيار المثالي للفلل العصرية الفاخرة ذات الواجهات الحجرية الراقية.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتناسقة المصممة لتتكامل بسلاسة مع بوابات الحجر الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "اندماج غاطس متقن مصمم خصيصاً للتناغم مع بوابات حجر الترافرتين والحجر الطبيعي الفاخر",
           "فواصل ظلية هندسية بعرض 10 ملم تضمن الخصوصية وتسمح بمرور النسيم الخفيف",
@@ -3671,9 +3672,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی شریتی ئاسۆیی مۆدێرن بە جێگیربوون لە ناو بەردی تەراڤێرتینی سروشتی",
+        "name": "دەروازەی شریتی ئاسۆیی کە بە جوانی لەگەڵ بەردی سروشتی دەگونجێت",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی مۆدێرنی نایاب کە بە تەواوی لەگەڵ دیواری بەردی تەراڤێرتین یان مەڕمەڕی سروشتی کۆدەبێتەوە بەبێ ئەوەی هیچ کۆڵەکەیەکی ناشیرینی ئاسن لە دەرەوە دەربکەوێت، بۆ ئەوەی جوانی بەردە سروشتییەکە و ئەلەمنیۆمەکە وەک یەک پارچە دەربکەون.\n\nشریتەکانی ئەلەمنیۆم بە درزی 10 ملم ڕیزکراون کە هەوای فێنک تێپەڕ دەکەن و ڕێگە لە بینینی ناوەوە دەگرن. تەواوی ڕێڕەو و ڕۆلەرەکان لە ناو بەردەکەدا شاردراونەتەوە بۆ جووڵەی نەرم و بێدەنگ بەبێ ئەوەی هیچ کانزایەک لە قەراغەکان دەربکەوێت.\n\nبۆیاخی ڕەنگی ئاسنی ماتی لەسەرە کە جوانی ئاسنی ڕەش دەبەخشێت بەبێ ئەوەی هەرگیز ژەنگ بکات، ئەمەش هەڵبژاردەیەکی ناوازەیە بۆ ڤێلا نوێیەکان کە بەردی گرانبەهایان تێدا بەکارهاتووە.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە ئاسۆییەکان کە بە تەواوی لەگەڵ دەروازەی بەردی سروشتی یەکدەگرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "تێکەڵبوونی تەواو لەگەڵ بەردی تەراڤێرتین و بەردی سروشتی بەبێ دەرکەوتنی کۆڵەکە",
           "درزی 10 ملمی ئاسۆیی بۆ هاتوچۆی هەوا و پاراستنی نهێنی حەوشە لە چاوی خەڵک",
@@ -3691,9 +3692,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Minimalist Horizontal Slat Gate Built into Natural Travertine Stone Portal",
+        "name": "Minimalist Horizontal Slat Gate Integrated with Natural Stone Portals",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Achieve pure architectural harmony between structural metalwork and organic masonry with this minimalist horizontal slat gate. Specifically proportioned to sit flush within monolithic natural Travertine, limestone, or honed granite gate portals, this gate creates an understated boundary that lets natural stone textures and clean metal geometries speak in unison.\n\nThe horizontal slats are extruded from structural 6063-T6 aluminum with continuous 10 mm shadow gaps that provide subtle daylight transparency from within while obstructing direct street sightlines. Concealed within the masonry jambs are heavy-duty stainless steel wall-mount guide tracks and whisper-silent nylon roller bearings that eliminate visible metal posts, allowing the gate to emerge seamlessly from the natural stone recess.\n\nFinished in a low-sheen architectural graphite powder coating that mimics the tactile quality of blackened iron without its vulnerability to rust, this gate is the definitive choice for modern minimalist and organic-modern luxury homes.",
+        "description": "This premium architectural gate features flush horizontal louvers tailored to mount within natural stone masonry portals, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Flush Portal Integration Designed Specifically for Natural Travertine & Limestone Masonry",
           "Subtle 10 mm Airflow Shadow Gaps Delivering Internal Ambient Visibility with Street Privacy",
@@ -3711,14 +3712,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی شریتی ئاسۆیی مۆدێرن بە جێگیربوون لە ناو بەردی تەراڤێرتینی سروشتی",
-    "arabicDescription": "حقق تناغماً معمارياً نقياً يجمع بين دقة المشغولات المعدنية وفخامة الحجر الطبيعي مع هذه البوابة الأفقية المينيمالية. صُممت البوابة بأبعاد هندسية دقيقة لتندمج بسلاسة تامة داخل فتحات بوابات حجر الترافرتين أو الحجر الجيري أو الغرانيت المصقول، مما يمنح السور مظهراً متجانساً يبرز جمال عروق الحجر الطبيعي ونقاء الخطوط المعدنية المستقيمة.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة مع فواصل ظلية متناسقة بعرض 10 ملم تمنح إطلالة نهارية خفيفة من الداخل مع حجب الرؤية تماماً عن الشارع. تم إخفاء مسارات الانزلاق والبكرات المصنوعة من النايلون الصناعي فائق الكثافة داخل تجاويف الحجر الجانبية، مما يلغي الحاجة للأعمدة المعدنية الظاهرة لتخرج البوابة كأنها تنبثق بسلاسة من قلب الحجر الطبيعي.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معمارية بملمس الحديد الأسود المطفي تحاكي فخامة المشغولات الكلاسيكية دون التعرض لخطر الصدأ، لتكون الخيار المثالي للفلل العصرية الفاخرة ذات الواجهات الحجرية الراقية.",
-    "kurdishDescription": "دەروازەیەکی مۆدێرنی نایاب کە بە تەواوی لەگەڵ دیواری بەردی تەراڤێرتین یان مەڕمەڕی سروشتی کۆدەبێتەوە بەبێ ئەوەی هیچ کۆڵەکەیەکی ناشیرینی ئاسن لە دەرەوە دەربکەوێت، بۆ ئەوەی جوانی بەردە سروشتییەکە و ئەلەمنیۆمەکە وەک یەک پارچە دەربکەون.\n\nشریتەکانی ئەلەمنیۆم بە درزی 10 ملم ڕیزکراون کە هەوای فێنک تێپەڕ دەکەن و ڕێگە لە بینینی ناوەوە دەگرن. تەواوی ڕێڕەو و ڕۆلەرەکان لە ناو بەردەکەدا شاردراونەتەوە بۆ جووڵەی نەرم و بێدەنگ بەبێ ئەوەی هیچ کانزایەک لە قەراغەکان دەربکەوێت.\n\nبۆیاخی ڕەنگی ئاسنی ماتی لەسەرە کە جوانی ئاسنی ڕەش دەبەخشێت بەبێ ئەوەی هەرگیز ژەنگ بکات، ئەمەش هەڵبژاردەیەکی ناوازەیە بۆ ڤێلا نوێیەکان کە بەردی گرانبەهایان تێدا بەکارهاتووە."
+    "kurdishName": "دەروازەی شریتی ئاسۆیی کە بە جوانی لەگەڵ بەردی سروشتی دەگونجێت",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية المتناسقة المصممة لتتكامل بسلاسة مع بوابات الحجر الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە ئاسۆییەکان کە بە تەواوی لەگەڵ دەروازەی بەردی سروشتی یەکدەگرن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-40",
-    "name": "Modern Charcoal Sliding Gate with Stainless Horizontal Strips & Glass Side Door",
-    "arabicName": "بوابة سحابة بلون الفحم مع خطوط ستانلس براقة وباب مشاة بزجاج مثلج",
+    "name": "Charcoal Sliding Gate with Stainless Accent Strips and Glass Sidelight",
+    "arabicName": "بوابة سحابة فحمية بشرائط ستانلس ونافذة زجاجية جانبية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3737,17 +3738,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Driveway Chassis": "100 mm x 50 mm Heavy Aluminum Structural Beam",
       "Pedestrian Glazing": "10 mm (5+5 mm) Tempered Laminated Acid-Etched Safety Glass",
-      "Inlay Trim": "Grade 316 Brushed Stainless Steel Horizontal Strips",
+      "Inlay Trim": "High-Grade Marine Stainless Steel Brushed Stainless Steel Horizontal Strips",
       "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Grey (RAL 7016)",
-      "Pedestrian Lock": "European STAC Euro-Groove Lock with Integrated 12V Pulse Strike",
+      "Pedestrian Lock": "Architectural Standard المعتمدة Euro-Groove Lock with Integrated 12V Pulse Strike",
       "Drive Wheels": "Dual Polyurethane-Tread Steel Bearing Wheels on Inverted Ground Rail"
     },
-    "description": "Showcase contemporary architectural panache with this charcoal sliding gate and matching frosted glass pedestrian portal. The expansive driveway gate combines horizontal dark charcoal aluminum louvers accented by brushed marine stainless steel pinstriping, while the adjacent pedestrian portal features a full-height insert of 10 mm tempered laminated frosted glass, creating a radiant beacon for welcoming evening guests.\n\nConstructed upon a high-tensile 100 mm aluminum box chassis, the main gate incorporates internal structural corner cleats that maintain rigid squareness across wide 5-meter spans. The pedestrian gate includes an integrated electric release mortise lock wired internally through weather-sealed conduits, ready for seamless connection to smart intercom touchscreens and mobile unlock apps.\n\nEngineered with high-load polyurethane-coated ground rollers and overhead guide brackets, this gate suite ensures whisper-quiet sliding, superior perimeter defense, and breathtaking curbside luxury.",
+    "description": "This premium architectural gate features deep charcoal sliding panels detailed with polished stainless lines and glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحابة بلون الفحم مع خطوط ستانلس براقة وباب مشاة بزجاج مثلج",
+        "name": "بوابة سحابة فحمية بشرائط ستانلس ونافذة زجاجية جانبية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أبرز فخامة واجهة منزلك مع هذه المنظومة العصرية المزدوجة التي تجمع بين بوابة سيارات بلون الفحم وباب مشاة جانبي زجاجي مضيء. تتميز بوابة السيارات بشرائح ألمنيوم فحمية أفقية مطعمة بخطوط رفيعة من الستانلس ستيل البحري المصقول، بينما يتألق باب المشاة بلوح زجاجي مصفح مصنفر سماكة 10 ملم يمتد بكامل الارتفاع ليعمل كمنارة مضيئة ودافئة تستقبل الضيوف ليلاً.\n\nتم بناء البوابة الرئيسية على جسر ألمنيوم صندوقي مقوى سماكة 100 ملم مزود بروابط زوايا داخلية مصبوبة تحافظ على استقامة البوابة وتمنع أي هبوط على مدى فتحات عريضة تصل إلى 5 أمتار. ويحتوي باب المشاة على قفل أمان كهربائي مدمج مع تمديدات داخلية معزولة تماماً ضد الماء، جاهزة للربط الفوري مع شاشات الإنتركوم الذكية وتطبيقات فتح الأبواب عن بُعد.\n\nتعمل البوابة بعجلات سفلية مغلفة بطبقة بوليمرية ممتصة للصدمات وبكرات توجيه علوية ناعمة، لتضمن حركة انزلاق فائقة الهدوء، أماناً محكماً، وإطلالة ساحرة ترفع من قيمة عقارك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب بلون الفحم المطعمة بخطوط الستانلس اللامعة والزجاج الجانبي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "منظومة مدخل متكاملة: بوابة سيارات بلون الفحم مع باب مشاة جانبي بزجاج مصنفر مضيء وساحر",
           "خطوط أفقية براقة من الستانلس ستيل البحري 316 المقاوم للصدأ تضفي لمسة من الأناقة العاكسة",
@@ -3760,14 +3761,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "زجاج باب المشاة": "10 ملم (5+5) زجاج أمان مقسى ومصفح معالج بحمض الصنفرة الحريري",
           "شرائط الزينة": "ستانلس ستيل بحري 316 مصقول ومقاوم للملوحة والرطوبة",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي فحمي مطفي (الرمادي الغرافيتي المعماري)",
-          "قفل المشاة": "قفل أوروبي الإسبانية المعتمدة متعدد النقاط مع كالون كهربائي 12 فولت نبضي",
+          "قفل المشاة": "قفل المعتمدة المتطورة المعتمدة متعدد النقاط مع كالون كهربائي 12 فولت نبضي",
           "عجلات الانزلاق": "عجلات ستانلس ستيل مغلفة بطبقة بولي يوريثان لحركة صامتة تماماً"
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی خەڵوزی بە هێڵی ستانلێس ستیل و دەرگای پیادەی شووشەی تەڵخ",
+        "name": "دەروازەی سلایدینگی خەڵوزی بە شریتی ستیل و شووشەی تەنیشت",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر شیک و سەردەمی بۆ ڤێلا کە دەروازەی ئۆتۆمبێلی خەڵوزی لەگەڵ دەرگای پیادەی شووشەی تەڵخی جوان پێکەوە گرێداوە. دەروازەی ئۆتۆمبێلەکە هێڵی ستانلێس ستیلی دەریاوانی تێدایە، و دەرگای کەسییەکە شووشەی پارێزراوی تەڵخی هەیە کە لە شەواندا دەدرەوشێتەوە و میوانەکان بە گەرمی پێشوازی دەکات.\n\nلەسەر شاسییەکی ئەلەمنیۆمی ئەستووری 100 ملم دروستکراوە کە چەسپاوی تەواوی هەیە و تا 5 مەتر بەبێ دابەزین دەمێنێتەوە. دەرگای پیادەکە قفڵی کارەبایی ناوەکی تێدایە کە بە ئاسانی بە ئینتەرکۆم و مۆبایلەوە دەبەسترێتەوە.\n\nبە تایەی تایبەتی پۆلیۆریتان لەسەر هێڵی زەوی دەجووڵێت بەبێ دەنگ، لەگەڵ بەرزترین ئاستی پارێزگاری و جوانی بۆ دەروازەی سەرەکی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی ڕەنگی خەڵوزی بە هێڵی ستیل و شووشەی جوان تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "سیستەمی دوو بەش: دەروازەی ئۆتۆمبێلی خەڵوزی لەگەڵ دەرگای پیادەی شووشەی تەڵخی ڕووناک",
           "هێڵی ستانلێس ستیلی دەریاوانی 316 بۆ دروستکردنی بریقەیەکی جوان و مۆدێرن",
@@ -3780,14 +3781,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "شووشەی دەرگای پیادە": "10 ملم (5+5) شووشەی لامینەیتی تەڵخی پارێزراو",
           "هێڵی نەخش": "ستانلێس ستیلی دەریاوانی پلە 316ی بریقەدار",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی خەڵوزی مات (الرمادي الغرافيتي المعماري)",
-          "قفڵی پیادە": "قفڵی ئەوروپی فرە خاڵی الإسبانية المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
+          "قفڵی پیادە": "قفڵی ستانداردی نێودەوڵەتی فرە خاڵی المعتمدة المتطورة المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
           "تایەی سحاب": "تایەی ستانلێس ستیل بە ڕووپۆشی پۆلیۆریتان بۆ جووڵەی بێدەنگ"
         }
       },
       "en": {
-        "name": "Modern Charcoal Sliding Gate with Stainless Horizontal Strips & Glass Side Door",
+        "name": "Charcoal Sliding Gate with Stainless Accent Strips and Glass Sidelight",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Showcase contemporary architectural panache with this charcoal sliding gate and matching frosted glass pedestrian portal. The expansive driveway gate combines horizontal dark charcoal aluminum louvers accented by brushed marine stainless steel pinstriping, while the adjacent pedestrian portal features a full-height insert of 10 mm tempered laminated frosted glass, creating a radiant beacon for welcoming evening guests.\n\nConstructed upon a high-tensile 100 mm aluminum box chassis, the main gate incorporates internal structural corner cleats that maintain rigid squareness across wide 5-meter spans. The pedestrian gate includes an integrated electric release mortise lock wired internally through weather-sealed conduits, ready for seamless connection to smart intercom touchscreens and mobile unlock apps.\n\nEngineered with high-load polyurethane-coated ground rollers and overhead guide brackets, this gate suite ensures whisper-quiet sliding, superior perimeter defense, and breathtaking curbside luxury.",
+        "description": "This premium architectural gate features deep charcoal sliding panels detailed with polished stainless lines and glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Two-Part Boundary Suite: Modern Charcoal Driveway Gate Paired with Frosted Glass Side Door",
           "Brushed Marine Stainless Steel 316 Horizontal Accents Adding Crisp Reflective Detail",
@@ -3798,21 +3799,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "Driveway Chassis": "100 mm x 50 mm Heavy Aluminum Structural Beam",
           "Pedestrian Glazing": "10 mm (5+5 mm) Tempered Laminated Acid-Etched Safety Glass",
-          "Inlay Trim": "Grade 316 Brushed Stainless Steel Horizontal Strips",
+          "Inlay Trim": "High-Grade Marine Stainless Steel Brushed Stainless Steel Horizontal Strips",
           "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Grey (RAL 7016)",
-          "Pedestrian Lock": "European STAC Euro-Groove Lock with Integrated 12V Pulse Strike",
+          "Pedestrian Lock": "Architectural Standard المعتمدة Euro-Groove Lock with Integrated 12V Pulse Strike",
           "Drive Wheels": "Dual Polyurethane-Tread Steel Bearing Wheels on Inverted Ground Rail"
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی خەڵوزی بە هێڵی ستانلێس ستیل و دەرگای پیادەی شووشەی تەڵخ",
-    "arabicDescription": "أبرز فخامة واجهة منزلك مع هذه المنظومة العصرية المزدوجة التي تجمع بين بوابة سيارات بلون الفحم وباب مشاة جانبي زجاجي مضيء. تتميز بوابة السيارات بشرائح ألمنيوم فحمية أفقية مطعمة بخطوط رفيعة من الستانلس ستيل البحري المصقول، بينما يتألق باب المشاة بلوح زجاجي مصفح مصنفر سماكة 10 ملم يمتد بكامل الارتفاع ليعمل كمنارة مضيئة ودافئة تستقبل الضيوف ليلاً.\n\nتم بناء البوابة الرئيسية على جسر ألمنيوم صندوقي مقوى سماكة 100 ملم مزود بروابط زوايا داخلية مصبوبة تحافظ على استقامة البوابة وتمنع أي هبوط على مدى فتحات عريضة تصل إلى 5 أمتار. ويحتوي باب المشاة على قفل أمان كهربائي مدمج مع تمديدات داخلية معزولة تماماً ضد الماء، جاهزة للربط الفوري مع شاشات الإنتركوم الذكية وتطبيقات فتح الأبواب عن بُعد.\n\nتعمل البوابة بعجلات سفلية مغلفة بطبقة بوليمرية ممتصة للصدمات وبكرات توجيه علوية ناعمة، لتضمن حركة انزلاق فائقة الهدوء، أماناً محكماً، وإطلالة ساحرة ترفع من قيمة عقارك.",
-    "kurdishDescription": "دەروازەیەکی زۆر شیک و سەردەمی بۆ ڤێلا کە دەروازەی ئۆتۆمبێلی خەڵوزی لەگەڵ دەرگای پیادەی شووشەی تەڵخی جوان پێکەوە گرێداوە. دەروازەی ئۆتۆمبێلەکە هێڵی ستانلێس ستیلی دەریاوانی تێدایە، و دەرگای کەسییەکە شووشەی پارێزراوی تەڵخی هەیە کە لە شەواندا دەدرەوشێتەوە و میوانەکان بە گەرمی پێشوازی دەکات.\n\nلەسەر شاسییەکی ئەلەمنیۆمی ئەستووری 100 ملم دروستکراوە کە چەسپاوی تەواوی هەیە و تا 5 مەتر بەبێ دابەزین دەمێنێتەوە. دەرگای پیادەکە قفڵی کارەبایی ناوەکی تێدایە کە بە ئاسانی بە ئینتەرکۆم و مۆبایلەوە دەبەسترێتەوە.\n\nبە تایەی تایبەتی پۆلیۆریتان لەسەر هێڵی زەوی دەجووڵێت بەبێ دەنگ، لەگەڵ بەرزترین ئاستی پارێزگاری و جوانی بۆ دەروازەی سەرەکی."
+    "kurdishName": "دەروازەی سلایدینگی خەڵوزی بە شریتی ستیل و شووشەی تەنیشت",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب بلون الفحم المطعمة بخطوط الستانلس اللامعة والزجاج الجانبي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی ڕەنگی خەڵوزی بە هێڵی ستیل و شووشەی جوان تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-42",
-    "name": "Contoured Wave Privacy Gate with Dynamic Curved Louvers & Integrated Pedestrian Door",
-    "arabicName": "بوابة الخصوصية بانحناءات موجية انسيابية مع باب مشاة مدمج بسلاسة",
+    "name": "Contoured Wave Privacy Gate with Dynamic Louver Geometry",
+    "arabicName": "بوابة الخصوصية بتصميم موجي انسيابي وشرائح متتالية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3836,12 +3837,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Wind Drag Reduction": "Up to 35% Reduction in Wind Loading Versus Flat Solid Panels",
       "Automation Prep": "Reinforced Mounting Rails for High-Torque Electric Sliding Actuators"
     },
-    "description": "Infuse your boundary line with dynamic kinetic motion through this parametric curved louver gate. Featuring custom-rolled aerodynamic aluminum slats shaped into a continuous sinusoidal wave profile, this gate transforms with changing perspective, delivering 100% total visual seclusion from the outside while creating an ever-shifting play of natural light and shadow throughout the day.\n\nThe curved profile geometry directs high-velocity crosswinds smoothly around the face of the gate, dissipating wind pressure that typically threatens flat residential gates. Embedded seamlessly within the undulating wave pattern is a fully functional pedestrian wicket door, engineered with precision tight-clearance reveals so the door becomes invisible within the continuous wave facade when shut.\n\nConstructed from aircraft-grade 6063-T6 aluminum and coated with an ultra-durable Qualicoat Class 2 fine-texture finish, this gate delivers exceptional structural resilience, whisper-quiet motor operation, and unmatched architectural distinction.",
+    "description": "This premium architectural gate features dynamic wave-contoured louvers that provide complete privacy with artistic flair, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة الخصوصية بانحناءات موجية انسيابية مع باب مشاة مدمج بسلاسة",
+        "name": "بوابة الخصوصية بتصميم موجي انسيابي وشرائح متتالية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف إلى سور فيلتك لمسة حركية مستوحاة من العمارة البارامترية الحديثة مع هذه البوابة ذات الشرائح الموجية الانسيابية. تتميز البوابة بشرائح ألمنيوم مقوسة بدقة على شكل موجات جيبية متتالية، تتغير ظلالها باستمرار مع حركة الشمس على مدار اليوم، مما يوفر خصوصية بصرية كاملة بنسبة 100% مع إحساس بصري ديناميكي مفعم بالحيوية والرقي.\n\nيعمل التصميم الموجي المبتكر على تشتيت تيارات الرياح العاتية وتمريرها بسلاسة حول سطح البوابة، مما يقلل من مقاومة الرياح وضغطها الذي يؤثر عادة على البوابات التقليدية المستوية. كما تم دمج باب المشاة داخل التموجات الهندسية بخلوصات ميكانيكية فائقة الدقة ليختفي الباب تماماً داخل التصميم العام عند إغلاقه دون أي خطوط فاصلة مشوهة.\n\nصُنعت البوابة من سبائك ألمنيوم الطيران المعمارية المعالجة حرارياً عالية الصلابة عالية المتانة والمطلية ببودرة إلكتروستاتيكية كلاس 2 المقاومة لبهتان اللون، لتضمن متانة إنشائية فائقة، حركة انزلاق آلية صامتة، وتفرداً معمارياً لا مثيل له.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المنحنية بانسيابية موجية توفر الخصوصية المطلقة بلمسة فنية مميزة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح موجية انسيابية بارامترية تخلق تأثيرات ضوء وظل متغيرة ومبهرة على مدار اليوم",
           "تصميم أيروديناميكي يشتت ضغط الرياح العاتية ويمنع اهتزاز البوابة أثناء العواصف",
@@ -3852,16 +3853,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "مواصفات الشرائح الموجية": "شرائح ألمنيوم مقوسة انسيابية خاصة بخطوة تموج 120 ملم",
           "عمق الهيكل الإنشائي": "100 ملم قطاع ألمنيوم صندوقي مع دعامات زاويّة مقواة",
-          "تجهيزات باب المشاة": "مفصلات أوروبية مخفية مع كالون كهربائي مدمج بدون أسلاك ظاهرة",
+          "تجهيزات باب المشاة": "مفصلات المعتمدة مخفية مع كالون كهربائي مدمج بدون أسلاك ظاهرة",
           "نوع الطلاء الخارجي": "بودرة إلكتروستاتيكية كلاس 2 معتمدة رمادي أنثراسايت (الرمادي الغرافيتي المعماري)",
           "تقليل مقاومة الرياح": "تخفيض إجهاد الرياح بنسبة تصل إلى 35% مقارنة بالألواح المصمتة",
           "جاهزية المحركات": "قواعد تثبيت مدعمة مسبقاً لمحركات السحب الآلي ذات العزم العالي"
         }
       },
       "ckb": {
-        "name": "دەروازەی شەپۆلی مۆدێرن بە شریتی چەماوە و دەرگای پیادەی شاراوە",
+        "name": "دەروازەی تایبەتمەندی بە دیزاینی شەپۆلی نەرم",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی هونەری بە دیزاینی شەپۆلی کە شریتەکانی ئەلەمنیۆم بە شێوەیەکی کەوانەیی دروستکراون و لەگەڵ تیشکی خۆردا سێبەر و ڕووناکییەکی ناوازە دروست دەکەن، هاوکات 100% نهێنی حەوشە دەپارێزن لە چاوی دەرەوە.\n\nشێوە شەپۆلییەکەی وادەکات بای بەهێز بە ئاسانی بە سەریدا تێپەڕێت بەبێ ئەوەی زەبر بخاتە سەر مۆتۆر یان کۆڵەکەکان. دەرگای کەسی پیادە بە شێوەیەکی وەستایانە لە ناو شەپۆلەکاندا شاردراوەتەوە کە کاتێک دادەخرێت کەس هەستی پێناکات.\n\nلە ئەلەمنیۆمی فڕۆکەوانی المعمارية المعالجة حرارياً عالية الصلابة بە بۆیاخی ئەوروپی پلە یەک دروستکراوە بۆ ئەوەی هەرگیز ژەنگ نەکات و بە نەرمی و بێدەنگی لەسەر مۆتۆری خۆکار کار بکات.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە کەوانەییە شەپۆلییەکان کە پاراستنی بینین بە شێوازێکی هونەری دەبەخشن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی شەپۆلی بارامێتری کە دیمەنێکی جوڵاو و سێبەری ناوازە دەبەخشێت بە درێژایی ڕۆژ",
           "دیزاینی ئایرۆداینامیک کە بەرگری بەرامبەر بای بەهێز کەم دەکاتەوە و ڕێگری لە لەرینەوە دەکات",
@@ -3872,16 +3873,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "شێوازی شریتەکان": "شریتی ئەلەمنیۆمی چەماوەی تایبەت بە مەودای 120 ملم",
           "قووڵایی چوارچێوە": "100 ملم ئەلەمنیۆمی سندوقی پتەو بە بەستەری سووچ",
-          "ئیکسسواراتی پیادە": "نێری ئەوروپی شاراوە لەگەڵ کواڵۆنی کارەبایی ناوەکی",
+          "ئیکسسواراتی پیادە": "نێری ستانداردی نێودەوڵەتی شاراوە لەگەڵ کواڵۆنی کارەبایی ناوەکی",
           "جۆری بۆیاخ": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ئەنتراسایت (الرمادي الغرافيتي المعماري)",
           "کەمکردنەوەی با": "کەمکردنەوەی زەبری با بە ڕێژەی 35% بەراورد بە دەروازەی تەخت",
           "ئامادەکاری مۆتۆر": "هێڵی بەهێزکراو بۆ مۆتۆری سحابی بەهێز"
         }
       },
       "en": {
-        "name": "Contoured Wave Privacy Gate with Dynamic Curved Louvers & Integrated Pedestrian Door",
+        "name": "Contoured Wave Privacy Gate with Dynamic Louver Geometry",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Infuse your boundary line with dynamic kinetic motion through this parametric curved louver gate. Featuring custom-rolled aerodynamic aluminum slats shaped into a continuous sinusoidal wave profile, this gate transforms with changing perspective, delivering 100% total visual seclusion from the outside while creating an ever-shifting play of natural light and shadow throughout the day.\n\nThe curved profile geometry directs high-velocity crosswinds smoothly around the face of the gate, dissipating wind pressure that typically threatens flat residential gates. Embedded seamlessly within the undulating wave pattern is a fully functional pedestrian wicket door, engineered with precision tight-clearance reveals so the door becomes invisible within the continuous wave facade when shut.\n\nConstructed from aircraft-grade 6063-T6 aluminum and coated with an ultra-durable Qualicoat Class 2 fine-texture finish, this gate delivers exceptional structural resilience, whisper-quiet motor operation, and unmatched architectural distinction.",
+        "description": "This premium architectural gate features dynamic wave-contoured louvers that provide complete privacy with artistic flair, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Parametric Sinusoidal Curved Louvers Delivering Dynamic Kinetic Light & Shadow Effects",
           "Aerodynamic Wave Geometry Dissipating High-Velocity Crosswinds & Sail-Effect Drag",
@@ -3899,14 +3900,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی شەپۆلی مۆدێرن بە شریتی چەماوە و دەرگای پیادەی شاراوە",
-    "arabicDescription": "أضف إلى سور فيلتك لمسة حركية مستوحاة من العمارة البارامترية الحديثة مع هذه البوابة ذات الشرائح الموجية الانسيابية. تتميز البوابة بشرائح ألمنيوم مقوسة بدقة على شكل موجات جيبية متتالية، تتغير ظلالها باستمرار مع حركة الشمس على مدار اليوم، مما يوفر خصوصية بصرية كاملة بنسبة 100% مع إحساس بصري ديناميكي مفعم بالحيوية والرقي.\n\nيعمل التصميم الموجي المبتكر على تشتيت تيارات الرياح العاتية وتمريرها بسلاسة حول سطح البوابة، مما يقلل من مقاومة الرياح وضغطها الذي يؤثر عادة على البوابات التقليدية المستوية. كما تم دمج باب المشاة داخل التموجات الهندسية بخلوصات ميكانيكية فائقة الدقة ليختفي الباب تماماً داخل التصميم العام عند إغلاقه دون أي خطوط فاصلة مشوهة.\n\nصُنعت البوابة من سبائك ألمنيوم الطيران المعمارية المعالجة حرارياً عالية الصلابة عالية المتانة والمطلية ببودرة إلكتروستاتيكية كلاس 2 المقاومة لبهتان اللون، لتضمن متانة إنشائية فائقة، حركة انزلاق آلية صامتة، وتفرداً معمارياً لا مثيل له.",
-    "kurdishDescription": "دەروازەیەکی نایابی هونەری بە دیزاینی شەپۆلی کە شریتەکانی ئەلەمنیۆم بە شێوەیەکی کەوانەیی دروستکراون و لەگەڵ تیشکی خۆردا سێبەر و ڕووناکییەکی ناوازە دروست دەکەن، هاوکات 100% نهێنی حەوشە دەپارێزن لە چاوی دەرەوە.\n\nشێوە شەپۆلییەکەی وادەکات بای بەهێز بە ئاسانی بە سەریدا تێپەڕێت بەبێ ئەوەی زەبر بخاتە سەر مۆتۆر یان کۆڵەکەکان. دەرگای کەسی پیادە بە شێوەیەکی وەستایانە لە ناو شەپۆلەکاندا شاردراوەتەوە کە کاتێک دادەخرێت کەس هەستی پێناکات.\n\nلە ئەلەمنیۆمی فڕۆکەوانی المعمارية المعالجة حرارياً عالية الصلابة بە بۆیاخی ئەوروپی پلە یەک دروستکراوە بۆ ئەوەی هەرگیز ژەنگ نەکات و بە نەرمی و بێدەنگی لەسەر مۆتۆری خۆکار کار بکات."
+    "kurdishName": "دەروازەی تایبەتمەندی بە دیزاینی شەپۆلی نەرم",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المنحنية بانسيابية موجية توفر الخصوصية المطلقة بلمسة فنية مميزة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە کەوانەییە شەپۆلییەکان کە پاراستنی بینین بە شێوازێکی هونەری دەبەخشن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-44",
-    "name": "Double Swing Gate with Natural Vertical Hardwood Slats & Matte Black Frame",
-    "arabicName": "بوابة درفتين بشرائح خشب طبيعي معالج محاطة بهيكل ألمنيوم أسود مطفي",
+    "name": "Double Swing Gate with Natural Vertical Hardwood Slats and Black Frame",
+    "arabicName": "بوابة مزدوجة بشرائح خشبية طبيعية وهيكل أسود متين",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -3919,7 +3920,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Handcrafted Genuine FSC-Certified African Iroko Hardwood Slats with Rich Natural Grain",
       "Micro-Pigmented Hydrophobic UV Oil Barrier Protecting Wood from Desert Bleaching & Splitting",
       "Heavy-Duty Structural Jet-Black 6063-T6 Aluminum Chassis with Fully Concealed Fasteners",
-      "Multi-Axis Heavy-Duty European Pivot Hinges with Integrated Maintenance Grease Ports",
+      "Multi-Axis Heavy-Duty Architectural Standard Pivot Hinges with Integrated Maintenance Grease Ports",
       "Pre-Engineered Actuator Brackets for Articulated Arm or Underground Hydraulic Motor Operators"
     ],
     "specs": {
@@ -3930,18 +3931,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Hinge System": "Stainless Steel Grease-Lubricated Pivot Bearings (Capacity 700 kg per Pair)",
       "Warranty": "10-Year Structural Frame Integrity Guarantee"
     },
-    "description": "Embrace the warmth of organic nature married to clean industrial framing with this double swing villa gate. Featuring individually mounted vertical slats of genuine kiln-dried African Iroko or Teak hardwood set within a heavy-gauge jet-black aluminum perimeter chassis, this gate introduces natural elegance, rich grain texture, and high-status curbside appeal to luxury homes.\n\nEach hardwood slat is vacuum-impregnated with hydrophobic exterior oils containing micro-fine UV-absorbing pigments that shield against solar bleaching, dimensional warping, and seasonal cracking. The perimeter structural aluminum frame is fabricated with concealed internal corner cleats and marine-grade stainless fasteners, ensuring absolute structural squareness and zero frame sagging over decades.\n\nEquipped with adjustable stainless pivot hinges with integrated grease fittings, ground drop-bolts, and pre-drilled actuator brackets, this double gate operates with silky smoothness under either manual operation or high-speed automated linear swing motors.",
+    "description": "This premium architectural gate features warm vertical hardwood slats bordered by a robust matte black aluminum frame, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة درفتين بشرائح خشب طبيعي معالج محاطة بهيكل ألمنيوم أسود مطفي",
+        "name": "بوابة مزدوجة بشرائح خشبية طبيعية وهيكل أسود متين",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "احتضن دفء الطبيعة الأصيلة المتناغمة مع فخامة الهيكل الصناعي العصري مع هذه البوابة المزدوجة بدرفتين متماثلتين. تتميز البوابة بشرائح رأسية من خشب الإيروكو الإفريقي الطبيعي أو خشب التيك المجفف بالفرن، والمثبتة بعناية داخل إطار ألمنيوم هيكلي عريض باللون الأسود الفاحم المطفي، مما يمنح مدخل فيلتك فخامة طبيعية لا تقاوم وإحساساً راقياً بالترحاب والأصالة.\n\nتمت معالجة كل شريحة خشبية بالتشبيع المفرغ بزيوت بحرية عازلة للماء ومزودة بجزيئات دقيقة تمتص الأشعة فوق البنفسجية وتحمي الخشب من الجفاف، التشقق، وتغير اللون في حرارة الصيف الشديدة. وتم تجميع إطار الألمنيوم بزوايا داخلية مصبوبة وبراغي ستانلس ستيل بحرية مخفية بالكامل لضمان بقاء الدرف مستقيمة ومحايدة للأبد دون أي ترهل أو ميلان.\n\nزُوّدت البوابة بمفصلات محورية أوروبية قابلة للتشحيم والتعديل، وترباس أرضي لتثبيت الدرف، وقواعد مهيأة لتركيب أذرع الفتح الكهربائية، لتمنحك حركة فتح دورانية بالغة السلاسة سواء بالتشغيل اليدوي أو عبر محركات الفتح الآلي الذكية.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الخشب الصلب الطبيعي المعالج المحاطة بهيكل ألمنيوم أسود مطفي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح خشب إيروكو إفريقي طبيعي مجفف بالفرن ومعالج بزيوت بحرية مانعة للتشقق",
           "طبقة حماية بوليمرية مشبعة تقاوم أشعة الشمس الحارقة وتمنع بهتان لون الخشب الطبيعي",
           "هيكل ألمنيوم إنشائي متين سماكة 100 ملم باللون الأسود المطفي بمسامير مخفية بالكامل",
-          "مفصلات محورية أوروبية ثقيلة قابلة للتشحيم والتعديل تتحمل حتى 700 كجم للدرف",
-          "قواعد مسبقة التجهيز لتركيب أذرع الفتح الكهربائية السطحية أو المحركات الأرضية المخفية"
+          "مفصلات محورية المعتمدة ثقيلة قابلة للتشحيم والتعديل تتحمل حتى 700 كجم للدرف",
+          "قواعد مسبقة التجهيز لالمعتمدب أذرع الفتح الكهربائية السطحية أو المحركات الأرضية المخفية"
         ],
         "specs": {
           "أبعاد قطاع الإطار": "100 ملم × 50 ملم قطاع ألمنيوم إنشائي عالي الصلابة",
@@ -3953,9 +3954,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی دوو باڵ بە تەختەی سروشتی ستوونی و چوارچێوەی ئەلەمنیۆمی ڕەشی مات",
+        "name": "دەروازەی جووت باڵ بە داری سروشتی ستوونی و چوارچێوەی ڕەش",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر جوان و شاهانەی دوو باڵ کە گەرمی داری سروشتی و پتەوی ئەلەمنیۆمی ڕەشی ماتی تێدا کۆکراوەتەوە. تەختە ستوونییەکانی لە داری سروشتی ئیرۆکۆی ئەفریقی یان تیکی وشککراو لە فڕن دروستکراون و لە ناو چوارچێوەیەکی ئەلەمنیۆمی ڕەشی فەخمی 100 ملم جێگیرکراون.\n\nهەموو تەختەکان بە زەیتی دەریایی دژە ئاو و تیشکی خۆر چارەسەر کراون بۆ ئەوەی هەرگیز قڵیش نەبەن یان ڕەنگیان کەم نەبێتەوە لە گەرمای بیاباندا. چوارچێوەی ئەلەمنیۆمەکە بە شێوەی زانستی لە ناوەوە لەحیم و قوفڵ کراوە بۆ ئەوەی تا دەیان ساڵ بەبێ هیچ خواربوونێک بمێنێتەوە.\n\nلەسەر نێری گەورەی ئەوروپی سووڕاوە بە شوێنی ڕۆنکاری دەسووڕێتەوە، لەگەڵ هەموو ئامادەکارییەک بۆ بەستنی باڵی مۆتۆری کارەبایی بە کرانەوەیەکی زۆر نەرم و بێدەنگ.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەقی سروشتیی ستوونی بە چوارچێوەیەکی بەهێزی ڕەشی مات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "تەختەی سروشتی ئیرۆکۆی ئەفریقی چارەسەرکراو بە شێوازی دەستی بۆ جوانییەکی تایبەت",
           "پارێزراو بە ڕۆنی دەریایی دژە تیشکی خۆر بۆ ڕێگری لە قڵیشان و تێکچوونی دار",
@@ -3973,14 +3974,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Double Swing Gate with Natural Vertical Hardwood Slats & Matte Black Frame",
+        "name": "Double Swing Gate with Natural Vertical Hardwood Slats and Black Frame",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Embrace the warmth of organic nature married to clean industrial framing with this double swing villa gate. Featuring individually mounted vertical slats of genuine kiln-dried African Iroko or Teak hardwood set within a heavy-gauge jet-black aluminum perimeter chassis, this gate introduces natural elegance, rich grain texture, and high-status curbside appeal to luxury homes.\n\nEach hardwood slat is vacuum-impregnated with hydrophobic exterior oils containing micro-fine UV-absorbing pigments that shield against solar bleaching, dimensional warping, and seasonal cracking. The perimeter structural aluminum frame is fabricated with concealed internal corner cleats and marine-grade stainless fasteners, ensuring absolute structural squareness and zero frame sagging over decades.\n\nEquipped with adjustable stainless pivot hinges with integrated grease fittings, ground drop-bolts, and pre-drilled actuator brackets, this double gate operates with silky smoothness under either manual operation or high-speed automated linear swing motors.",
+        "description": "This premium architectural gate features warm vertical hardwood slats bordered by a robust matte black aluminum frame, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Handcrafted Genuine FSC-Certified African Iroko Hardwood Slats with Rich Natural Grain",
           "Micro-Pigmented Hydrophobic UV Oil Barrier Protecting Wood from Desert Bleaching & Splitting",
           "Heavy-Duty Structural Jet-Black 6063-T6 Aluminum Chassis with Fully Concealed Fasteners",
-          "Multi-Axis Heavy-Duty European Pivot Hinges with Integrated Maintenance Grease Ports",
+          "Multi-Axis Heavy-Duty Architectural Standard Pivot Hinges with Integrated Maintenance Grease Ports",
           "Pre-Engineered Actuator Brackets for Articulated Arm or Underground Hydraulic Motor Operators"
         ],
         "specs": {
@@ -3993,14 +3994,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی دوو باڵ بە تەختەی سروشتی ستوونی و چوارچێوەی ئەلەمنیۆمی ڕەشی مات",
-    "arabicDescription": "احتضن دفء الطبيعة الأصيلة المتناغمة مع فخامة الهيكل الصناعي العصري مع هذه البوابة المزدوجة بدرفتين متماثلتين. تتميز البوابة بشرائح رأسية من خشب الإيروكو الإفريقي الطبيعي أو خشب التيك المجفف بالفرن، والمثبتة بعناية داخل إطار ألمنيوم هيكلي عريض باللون الأسود الفاحم المطفي، مما يمنح مدخل فيلتك فخامة طبيعية لا تقاوم وإحساساً راقياً بالترحاب والأصالة.\n\nتمت معالجة كل شريحة خشبية بالتشبيع المفرغ بزيوت بحرية عازلة للماء ومزودة بجزيئات دقيقة تمتص الأشعة فوق البنفسجية وتحمي الخشب من الجفاف، التشقق، وتغير اللون في حرارة الصيف الشديدة. وتم تجميع إطار الألمنيوم بزوايا داخلية مصبوبة وبراغي ستانلس ستيل بحرية مخفية بالكامل لضمان بقاء الدرف مستقيمة ومحايدة للأبد دون أي ترهل أو ميلان.\n\nزُوّدت البوابة بمفصلات محورية أوروبية قابلة للتشحيم والتعديل، وترباس أرضي لتثبيت الدرف، وقواعد مهيأة لتركيب أذرع الفتح الكهربائية، لتمنحك حركة فتح دورانية بالغة السلاسة سواء بالتشغيل اليدوي أو عبر محركات الفتح الآلي الذكية.",
-    "kurdishDescription": "دەروازەیەکی زۆر جوان و شاهانەی دوو باڵ کە گەرمی داری سروشتی و پتەوی ئەلەمنیۆمی ڕەشی ماتی تێدا کۆکراوەتەوە. تەختە ستوونییەکانی لە داری سروشتی ئیرۆکۆی ئەفریقی یان تیکی وشککراو لە فڕن دروستکراون و لە ناو چوارچێوەیەکی ئەلەمنیۆمی ڕەشی فەخمی 100 ملم جێگیرکراون.\n\nهەموو تەختەکان بە زەیتی دەریایی دژە ئاو و تیشکی خۆر چارەسەر کراون بۆ ئەوەی هەرگیز قڵیش نەبەن یان ڕەنگیان کەم نەبێتەوە لە گەرمای بیاباندا. چوارچێوەی ئەلەمنیۆمەکە بە شێوەی زانستی لە ناوەوە لەحیم و قوفڵ کراوە بۆ ئەوەی تا دەیان ساڵ بەبێ هیچ خواربوونێک بمێنێتەوە.\n\nلەسەر نێری گەورەی ئەوروپی سووڕاوە بە شوێنی ڕۆنکاری دەسووڕێتەوە، لەگەڵ هەموو ئامادەکارییەک بۆ بەستنی باڵی مۆتۆری کارەبایی بە کرانەوەیەکی زۆر نەرم و بێدەنگ."
+    "kurdishName": "دەروازەی جووت باڵ بە داری سروشتی ستوونی و چوارچێوەی ڕەش",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الخشب الصلب الطبيعي المعالج المحاطة بهيكل ألمنيوم أسود مطفي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تەختەی ڕەقی سروشتیی ستوونی بە چوارچێوەیەکی بەهێزی ڕەشی مات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-46",
-    "name": "Modern Sliding Driveway Gate with Wide Horizontal Aluminum Panels",
-    "arabicName": "بوابة سحاب عصرية بألواح ألمنيوم عريضة انسيابية وقفل أمان أوتوماتيكي",
+    "name": "Modern Sliding Driveway Gate with Wide Aluminum Panels",
+    "arabicName": "بوابة سحاب عصرية بألواح ألمنيوم عريضة ومصمتة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4024,12 +4025,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Ground Rail": "Low-Profile Inverted V-Track in Hot-Dip Galvanized Steel",
       "Wind Load Rating": "Class C4 High-Velocity Wind Tested (EN 13241)"
     },
-    "description": "Project monolithic architectural strength and minimalist purity with this wide-panel sliding driveway gate. Composed of massive 200 mm wide horizontal aluminum cladding planks seamlessly stacked with crisp micro-bevel joints, this gate delivers absolute privacy, robust barrier defense, and a clean planar aesthetic tailored for high-end contemporary residences.\n\nEach panel features an internal multi-flange structural extrusion that maximizes bending resistance across continuous single-leaf spans up to 6.5 meters. Integrated within the bottom guide rail are dual encapsulated stainless steel track wheels riding on an inverted V-ground profile, providing whisper-silent, vibration-free travel even when operating in high-wind desert environments.\n\nFinished in a fine-textured Qualicoat Class 2 dark graphite powder coating, the gate repels fine airborne dust, resist fingernail and key scratching, and is pre-configured with steel gear racks for plug-and-play electric sliding motor integration.",
+    "description": "This premium architectural gate features broad architectural aluminum panels engineered for heavy-duty smooth sliding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحاب عصرية بألواح ألمنيوم عريضة انسيابية وقفل أمان أوتوماتيكي",
+        "name": "بوابة سحاب عصرية بألواح ألمنيوم عريضة ومصمتة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "جسّد القوة المعمارية والصلابة المينيمالية النقية مع هذه البوابة السحابة ذات الألواح العريضة الفاخرة. تتكون البوابة من ألواح ألمنيوم أفقية ضخمة بعرض 200 ملم متراصة بسلاسة مع فواصل هندسية مشطوفة بدقة متناهية، مما يمنح فيلتك خصوصية مطلقة، حماية أمنية منيعة، ومظهراً معمارياً متراصاً يلائم أفخم الفلل والتصاميم العصرية الحديثة.\n\nيحتوي كل لوح على أضلاع تسليح داخلية متعددة الحجرات ترفع من مقاومة الانحناء على امتداد فتحات واسعة تصل إلى 6.5 أمتار للدرفة الواحدة دون أي ارتخاء. كما تم تزويد السكة السفلية بعجلات ستانلس ستيل مزدوجة محكمة الإغلاق تسير على مسار مقلوب بزاوية، لتمنح البوابة حركة انزلاق بالغة الهدوء والانسيابية حتى أثناء هبوب الرياح والعواصف الصحراوية.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معمارية كلاس 2 بلون غرافيتي داكن مطفي ناعم يقاوم تراكم الغبار والخدوش الناتجة عن المفاتيح، مع تزويدها بمسنن سحب فولاذي مدمج مسبقاً لتوصيل محركات السحب الأوتوماتيكية فوراً.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح الألمنيوم المعمارية العريضة المصممة لحركة سحب ناعمة وقوة استثنائية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "ألواح ألمنيوم عريضة ضخمة بعرض 200 ملم تضمن حجب الرؤية وعزل الفناء بالكامل بنسبة 100%",
           "أضلاع تسليح داخلية متعددة تمنع أي انحناء أو ميلان على مسافات فتح واسعة تصل إلى 6.5 أمتار",
@@ -4047,9 +4048,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی مۆدێرن بە تەختەی ئەلەمنیۆمی پان و سیستەمی ئۆتۆماتیک",
+        "name": "دەروازەی سلایدینگی مۆدێرن بە لەوحەی پان و ئەستوور",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر بەهێز و گەورەی سحاب بە تەختەی ئەلەمنیۆمی پاتی 200 ملم کە پارێزگاری و نهێنی تەواو بە حەوشەی ڤێلاکەت دەبەخشێت بەبێ ئەوەی لە دەرەوە هیچ شتێک ببینرێت، بە دیزاینێکی مۆدێرنی تەخت بۆ ڤێلا ناوازەکان.\n\nهەر تەختەیەک لە ناوەوە بەهێزکراوە بە چەندین پەڕەی ئەلەمنیۆم بۆ ئەوەی تا 6.5 مەتر بە یەک باڵ کار بکات بەبێ ئەوەی خوار بێت یان دابەزێت. تایەکانی لە ستانلێس ستیلی دژە ژەنگ دروستکراون و لەسەر هێڵی زەوی بە بێدەنگی و نەرمی تەواو دەجووڵێن تەنانەت لە کاتی بای توندیشدا.\n\nبە بۆیاخی گرافیتی ماتی کوالیکۆت کلاسی 2 بۆیاخ کراوە کە دژە شووشت و تۆزە، و گێڕی ئاسنی لێبەستراوە بۆ بەستنی خێرای مۆتۆری کارەبایی سحاب.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەلەمنیۆمییە پانەکان کە بۆ جوڵەیەکی نەرم و بەهێزی بێوێنە دروستکراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "تەختەی پان و ئەستووری ئەلەمنیۆمی 200 ملم بۆ شاردنەوەی 100%ی ناو حەوشە",
           "پێکهاتەی ناوەکی بەهێزکراو بۆ ڕێگری لە خواربوون لە مەودای تا 6.5 مەتر",
@@ -4067,9 +4068,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Modern Sliding Driveway Gate with Wide Horizontal Aluminum Panels",
+        "name": "Modern Sliding Driveway Gate with Wide Aluminum Panels",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Project monolithic architectural strength and minimalist purity with this wide-panel sliding driveway gate. Composed of massive 200 mm wide horizontal aluminum cladding planks seamlessly stacked with crisp micro-bevel joints, this gate delivers absolute privacy, robust barrier defense, and a clean planar aesthetic tailored for high-end contemporary residences.\n\nEach panel features an internal multi-flange structural extrusion that maximizes bending resistance across continuous single-leaf spans up to 6.5 meters. Integrated within the bottom guide rail are dual encapsulated stainless steel track wheels riding on an inverted V-ground profile, providing whisper-silent, vibration-free travel even when operating in high-wind desert environments.\n\nFinished in a fine-textured Qualicoat Class 2 dark graphite powder coating, the gate repels fine airborne dust, resist fingernail and key scratching, and is pre-configured with steel gear racks for plug-and-play electric sliding motor integration.",
+        "description": "This premium architectural gate features broad architectural aluminum panels engineered for heavy-duty smooth sliding, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Massive 200 mm Horizontal Extruded Aluminum Cassette Panels Providing 100% Solid Seclusion",
           "Multi-Flange Internal Extrusion Ribs Resisting Wind Deflection Across Spans up to 6.5 Meters",
@@ -4087,14 +4088,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی مۆدێرن بە تەختەی ئەلەمنیۆمی پان و سیستەمی ئۆتۆماتیک",
-    "arabicDescription": "جسّد القوة المعمارية والصلابة المينيمالية النقية مع هذه البوابة السحابة ذات الألواح العريضة الفاخرة. تتكون البوابة من ألواح ألمنيوم أفقية ضخمة بعرض 200 ملم متراصة بسلاسة مع فواصل هندسية مشطوفة بدقة متناهية، مما يمنح فيلتك خصوصية مطلقة، حماية أمنية منيعة، ومظهراً معمارياً متراصاً يلائم أفخم الفلل والتصاميم العصرية الحديثة.\n\nيحتوي كل لوح على أضلاع تسليح داخلية متعددة الحجرات ترفع من مقاومة الانحناء على امتداد فتحات واسعة تصل إلى 6.5 أمتار للدرفة الواحدة دون أي ارتخاء. كما تم تزويد السكة السفلية بعجلات ستانلس ستيل مزدوجة محكمة الإغلاق تسير على مسار مقلوب بزاوية، لتمنح البوابة حركة انزلاق بالغة الهدوء والانسيابية حتى أثناء هبوب الرياح والعواصف الصحراوية.\n\nطُليت البوابة ببودرة إلكتروستاتيكية معمارية كلاس 2 بلون غرافيتي داكن مطفي ناعم يقاوم تراكم الغبار والخدوش الناتجة عن المفاتيح، مع تزويدها بمسنن سحب فولاذي مدمج مسبقاً لتوصيل محركات السحب الأوتوماتيكية فوراً.",
-    "kurdishDescription": "دەروازەیەکی زۆر بەهێز و گەورەی سحاب بە تەختەی ئەلەمنیۆمی پاتی 200 ملم کە پارێزگاری و نهێنی تەواو بە حەوشەی ڤێلاکەت دەبەخشێت بەبێ ئەوەی لە دەرەوە هیچ شتێک ببینرێت، بە دیزاینێکی مۆدێرنی تەخت بۆ ڤێلا ناوازەکان.\n\nهەر تەختەیەک لە ناوەوە بەهێزکراوە بە چەندین پەڕەی ئەلەمنیۆم بۆ ئەوەی تا 6.5 مەتر بە یەک باڵ کار بکات بەبێ ئەوەی خوار بێت یان دابەزێت. تایەکانی لە ستانلێس ستیلی دژە ژەنگ دروستکراون و لەسەر هێڵی زەوی بە بێدەنگی و نەرمی تەواو دەجووڵێن تەنانەت لە کاتی بای توندیشدا.\n\nبە بۆیاخی گرافیتی ماتی کوالیکۆت کلاسی 2 بۆیاخ کراوە کە دژە شووشت و تۆزە، و گێڕی ئاسنی لێبەستراوە بۆ بەستنی خێرای مۆتۆری کارەبایی سحاب."
+    "kurdishName": "دەروازەی سلایدینگی مۆدێرن بە لەوحەی پان و ئەستوور",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح الألمنيوم المعمارية العريضة المصممة لحركة سحب ناعمة وقوة استثنائية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەلەمنیۆمییە پانەکان کە بۆ جوڵەیەکی نەرم و بەهێزی بێوێنە دروستکراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-dr-47",
-    "name": "Luxury Architectural Pivot Villa Entrance Door in Thermal Aluminum & Treated Teak",
-    "arabicName": "باب فيلا محوري فاخر من خشب التيك المعالج وألمنيوم ثيرمال بريك",
+    "name": "Architectural Pivot Entrance Door in Treated Wood and Aluminum",
+    "arabicName": "باب مدخل محوري فاخر من الخشب المعالج والألمنيوم",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Entrance Pivot Doors",
@@ -4105,7 +4106,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "fallbackImage": "/products-assets/doors/photo_47_2026-09-26_07-36-01.jpg",
     "features": [
       "Monumental Oversized Pivot Architecture Spanning Heights up to 3.5m and Widths up to 2.0m",
-      "Heavy-Duty Concealed Floor Pivot Bearing System (FritsJurgens / Dorma) Supporting 500 kg Leaves",
+      "Heavy-Duty Concealed Floor Pivot Bearing System (FritsJurgens / Concealed Heavy-Duty Hydraulic) Supporting 500 kg Leaves",
       "High-Performance Polyamide Thermal Break Core Delivering Elite Thermal Insulation (Ud < 0.95 W/m²K)",
       "Integrated Smart Biometric Fingerprint Access & Motorized Multi-Point Deadbolt Security",
       "Full-Height Recessed Architectural Titanium Pull Handle with Concealed Warm 3000K LED Glow"
@@ -4114,19 +4115,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Door Leaf Depth": "100 mm Multi-Chamber Thermal Break Aluminum Panel",
       "Cladding Material": "Vacuum-Treated Kiln-Dried Burmese Teak with Marine Nanotech Sealant",
       "Pivot Mechanism": "Concealed Heavy-Duty FritsJurgens System M+ Hydraulic Pivot (500 kg Load)",
-      "Thermal Performance": "Ud = 0.92 W/m²K (European EN ISO 10077-1 Compliance)",
+      "Thermal Performance": "Ud = 0.92 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
       "Acoustic Rating": "Rw 42 dB High-Performance Sound Isolation",
       "Locking System": "KFV / Winkhaus Motorized Multi-Point Auto-Lock with Smart Biometric Integration"
     },
-    "description": "Make an unforgettable grand entrance into your villa with this monumental architectural pivot entrance door. Spanning heroic heights up to 3.5 meters and widths up to 2.0 meters on a single monumental rotating leaf, this door marries heavy-duty polyamide thermal break aluminum engineering with the organic warmth of hand-selected, kiln-dried Burmese Teak cladding, establishing an unmatched statement of luxury, security, and prestige for modern master residences.\n\nEngineered around an ultra-heavy-duty concealed German/Dutch floor pivot system (FritsJurgens or Dorma) rated for leaves up to 500 kg, the door rotates with fingertip ease and features soft hydraulic damping, 90-degree hold-open positioning, and adjustable self-closing control. The insulated aluminum leaf core incorporates multi-stage expanded polyurethane and aerogel barriers, delivering exceptional thermal insulation (Ud < 0.95 W/m²K) and superior acoustic dampening (Rw 42 dB) against desert heat and street noise.\n\nEquipped with an integrated multi-point motorized automatic lock with anti-panic release, biometric fingerprint reader, digital keypad, and full-height recessed black titanium pull handle with concealed warm ambient LED glow lighting, this door delivers the ultimate grand arrival experience.",
+    "description": "This grand architectural pivot door makes an extraordinary statement at the main entrance of private residences, corporate headquarters, and luxury venues. Engineered with a heavy-duty concealed vertical pivot axis, the door rotates with effortless grace despite its monumental scale and solid construction.\n\nCombining natural treated weather-resistant teak wood paneling with a heavy-duty structural aluminum core, it offers exceptional thermal insulation and complete protection against harsh desert sunlight, dust, and wind. The design is complemented by a full-height brushed metallic pull handle and multi-point perimeter locking.\n\nEvery detail is crafted for long-term stability and timeless prestige. It transforms the entrance into an architectural focal point, offering superior acoustic comfort, certified security, and an unforgettable sense of arrival.",
     "translations": {
       "ar": {
-        "name": "باب فيلا محوري فاخر من خشب التيك المعالج وألمنيوم ثيرمال بريك",
+        "name": "باب مدخل محوري فاخر من الخشب المعالج والألمنيوم",
         "subCategory": "أبواب المداخل المحورية للفلل المعمارية",
-        "description": "اصنع مدخلاً ملكياً مهيباً لا يُنسى لفيلاك الخاصة مع هذا الباب المحوري المعماري العملاق. يمتد الباب بارتفاعات شاهقة تصل إلى 3.5 أمتار وعرض يصل إلى مترين في درفة واحدة مهيبة تدور بسلاسة مطلقة، حيث يدمج بين هندسة قطاعات الألمنيوم العازلة للحرارة (ثيرمال بريك) ودفء كسوة خشب التيك البورمي الطبيعي المجفف بالفرن، ليشكل رمزاً معمارياً للفخامة والأمان المطلق والهيبة الاستثنائية التي تليق بأفخم القصور والفلل العصرية.\n\nيرتكز الباب على ماكينة دوران محورية أرضية مخفية ألمانية/هولندية فائقة التحمل (أو الألمانية الرائدة عالمياً) مخصصة لتحمل أوزان تصل إلى 500 كجم، مما يتيح فتح الدرفة الضخمة بلمسة إصبع واحدة مع نظام فرملة هيدروليكية ناعمة، تثبيت عند زاوية 90 درجة، وإغلاق ذاتي محكوم. يحتوي قلب الباب الداخلي على حشوات بولي يوريثان عالية الكثافة مع عوازل أيروجيل لتوفير عزل حراري فائق (معامل العزل الحراري < 0.95) وعزل صوتي استثنائي (42 ديسيبل) يعزل حرارة الصيف الشديدة وضوضاء الشارع تماماً.\n\nزُوّد الباب بنظام قفل أوتوماتيكي متعدد النقاط يعمل بمحرك كهربائي، مع قارئ بصمة مدمج، لوحة مفاتيح رقمية، ومقبض طولي غاطس من التيتانيوم الأسود مزود بإضاءة ليد دافئة مخفية تتوهج برقي عند الاقتراب.",
+        "description": "يشكل هذا الباب المحوري المعماري الفاخر بصمة استثنائية عند المدخل الرئيسي للمنازل ومقرات الشركات والمباني المتميزة. صُمم بمحور دوران رأسي مخفي فائق التحمل، مما يتيح للدرفة الكبيرة الدوران بانسيابية وخفة متناهية رغم وزنها ومتانتها الهيكلية.\n\nيجمع التصميم بين جمال ألواح الخشب الطبيعي المعالج المقاوم للعوامل الجوية وهيكل الألمنيوم المتين، ليوفر عزلاً حرارياً وصوتياً متقدماً وحماية كاملة ضد الشمس والحرارة والغبار. يكتمل المظهر بمقبض رأسي أنيق ممتد وقفل أمني متعدد النقاط.\n\nصُنعت كافة مكونات الباب لضمان المتانة الدائمة والجمال المعماري الخالد. يمنح المدخل حضوراً مهيباً وأماناً موثوقاً يعكس الفخامة والجودة العالية للمكان.",
         "features": [
           "تصميم محوري عملاق بأبعاد شاهقة تصل إلى ارتفاع 3.5 م وعرض 2 م في درفة واحدة مهيبة",
-          "ماكينة دوران أرضية هيدروليكية مخفية (الهولندية الفاخرة / دورما الألمانية) تتحمل أوزاناً تصل إلى 500 كجم",
+          "ماكينة دوران أرضية هيدروليكية مخفية (الهولندية الفاخرة / الأنظمة الهيدروليكية المعتمدة عالية الدقة) تتحمل أوزاناً تصل إلى 500 كجم",
           "عزل حراري فائق بقطاعات ثيرمال بريك من مادة البولي أميد لتوفير الطاقة (معامل العزل الحراري < 0.95)",
           "نظام أمان ذكي مدمج بقفل أوتوماتيكي محرك متعدد النقاط وقارئ بصمة إصبع متطور",
           "مقبض تيتانيوم غاطس بكامل الارتفاع مع إضاءة ليد دافئة مخفية متوهجة ترحب بالضيوف"
@@ -4135,15 +4136,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "سماكة درفة الباب": "100 ملم لوح ألمنيوم متعدد الحجرات معزول حرارياً العازل للحرارة والصوت",
           "مواصفات الكسوة": "خشب تيك بورمي طبيعي معالج بالضغط ومحمي بزيوت النانو البحرية",
           "ماكينة الدوران المحورية": "نظام هيدروليكي مخفي الهولندية الفاخرة M+ يتحمل 500 كجم",
-          "معامل العزل الحراري": "معامل العزل الحراري = 0.92 W/m²K (مطابق للمواصفة الأوروبية 10077-1)",
+          "معامل العزل الحراري": "معامل العزل الحراري = 0.92 W/m²K (مطابق للمواصفة المعمارية المعتمدة 10077-1)",
           "مستوى عزل الصوت": "تخفيض الضوضاء الخارجية بمقدار 42 ديسيبل",
-          "نظام الإقفال الذكي": "قفل محرك أوتوماتيكي كي إف في الألمانية / وينكهاوس الألمانية متعدد النقاط مع قارئ بصمة"
+          "نظام الإقفال الذكي": "قفل محرك أوتوماتيكي كي إف في المعتمدة عالية الدقة / وينكهاوس المعتمدة عالية الدقة متعدد النقاط مع قارئ بصمة"
         }
       },
       "ckb": {
-        "name": "دەرگای سەرەکی سووڕاوەی شاهانەی ڤێلا بە دار تیکی چارەسەرکراو و ئەلەمنیۆمی ثێرمال برێک",
+        "name": "دەرگای سەرەکی تەوەرەیی شاهانە لە دار و ئەلەمنیۆم",
         "subCategory": "دەرگای سەرەکی سووڕاوەی نژیاروانی",
-        "description": "دەرگایەکی سەرەکی سووڕاوەی زۆر گەورە و شاهانە بۆ پێشوازی ڤێلاکەت کە دەتوانێت تا بەرزی 3.5 مەتر و پانی 2 مەتر دروست بکرێت بە یەک باڵی سووڕاوە بەبێ ماندووبوون. تێکەڵەی ئەلەمنیۆمی ثێرمال برێکی عازلی گەرما و داری تیکی بۆرمایی سروشتییە کە شکۆ و پارێزگارییەکی بێ وێنە بە ڤێلاکەت دەبەخشێت.\n\nبە جەکی شاراوەی ژێرزەوی الهولندية الفاخرةی هۆڵەندی یان دورما الألمانية کار دەکات کە کێشی تا 500 کگم هەڵدەگرێت و بە تەنها یەک پەنجە دەکرێتەوە و لە 90 پلەدا دەوەستێت بە بێدەنگی. لە ناوەوە عازلی چڕی هەیە کە 100% گەرمای بیابان و دەنگی دەرەوە دەبڕێت.\n\nقفڵی زیرەکی کارەبایی فرە خاڵی هەیە بە پەنجەمۆر و کۆد، لەگەڵ دەسکی درێژی تیتانیۆمی ڕەش کە لە ناوەوە لیدی زەردی دڵڕفێنی تێدایە.",
+        "description": "ئەم دەرگا تەوەرەییە سەرنجڕاکێشە دیمەنێکی ناوازە و شکۆدار بە دەروازەی سەرەکی ماڵەکان، بارەگای کۆمپانیاکان و بینا تایبەتەکان دەبەخشێت. بە مەکینەی تەوەرەیی ستوونی قورس دروستکراوە کە وا دەکات دەرگایەکی گەورە و بەهێز بە نەرمی و بە پەنجەیەک بخولێتەوە.\n\nتێکەڵکردنی تەختەی سروشتیی چارەسەرکراو لەگەڵ پەیکەری ئەلەمنیۆمی ئەستوور، عەزلێکی تەواو لە گەرمی، دەنگ، تۆز و تیشکی خۆر دابین دەکات. دیزاینەکەی بە دەسکێکی بەرزی ستوونی شیک و قوفڵی فرە-خاڵ تەواو کراوە.\n\nهەموو وردەکارییەکی بۆ بەردەوامی و مانەوەی درێژخایەن ئەندازیاری کراوە. دەروازەی چوونەژوورەوە دەکاتە شوێنێکی سەرنجڕاکێش کە ئاسایش، متمانە و فەخامەت بەیەکەوە کۆدەکاتەوە.",
         "features": [
           "دیزاینی سووڕاوەی زۆر گەورە تا بەرزی 3.5 مەتر و پانی 2 مەتر لە یەک باڵی شاهانەدا",
           "سیستەمی جەکی هیدرۆلیکی ژێرزەوی شاراوە بە توانای هەڵگرتنی تا 500 کگم",
@@ -4155,18 +4156,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "ئەستووری باڵی دەرگا": "100 ملم ئەلەمنیۆمی فرە ژووری عازلکراوی العازل للحرارة والصوت",
           "داری ڕووکار": "داری تیکی بۆرمایی چارەسەرکراو بە ڕۆنی نانۆ دژە ئاو و هەتاو",
           "میکانیزمی سووڕانەوە": "جەکی هیدرۆلیکی الهولندية الفاخرة M+ بەرگەی 500 کگم دەگرێت",
-          "عازلی گەرما": "معامل العزل الحراري = 0.92 W/m²K (بەپێی ستانداردی ئەوروپی 10077-1)",
+          "عازلی گەرما": "معامل العزل الحراري = 0.92 W/m²K (بەپێی ستانداردی ستانداردی نێودەوڵەتی 10077-1)",
           "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 42 دیبل",
-          "سیستەمی قفڵ": "قفڵی زیرەکی كي إف في الألمانية / وينكهاوس الألمانيةی ئەڵمانی بە پەنجەمۆر"
+          "سیستەمی قفڵ": "قفڵی زیرەکی كي إف في المعتمدة عالية الدقة / وينكهاوس المعتمدة عالية الدقةی کوالیتی بەرز بە پەنجەمۆر"
         }
       },
       "en": {
-        "name": "Luxury Architectural Pivot Villa Entrance Door in Thermal Aluminum & Treated Teak",
+        "name": "Architectural Pivot Entrance Door in Treated Wood and Aluminum",
         "subCategory": "Architectural Entrance Pivot Doors",
-        "description": "Make an unforgettable grand entrance into your villa with this monumental architectural pivot entrance door. Spanning heroic heights up to 3.5 meters and widths up to 2.0 meters on a single monumental rotating leaf, this door marries heavy-duty polyamide thermal break aluminum engineering with the organic warmth of hand-selected, kiln-dried Burmese Teak cladding, establishing an unmatched statement of luxury, security, and prestige for modern master residences.\n\nEngineered around an ultra-heavy-duty concealed German/Dutch floor pivot system (FritsJurgens or Dorma) rated for leaves up to 500 kg, the door rotates with fingertip ease and features soft hydraulic damping, 90-degree hold-open positioning, and adjustable self-closing control. The insulated aluminum leaf core incorporates multi-stage expanded polyurethane and aerogel barriers, delivering exceptional thermal insulation (Ud < 0.95 W/m²K) and superior acoustic dampening (Rw 42 dB) against desert heat and street noise.\n\nEquipped with an integrated multi-point motorized automatic lock with anti-panic release, biometric fingerprint reader, digital keypad, and full-height recessed black titanium pull handle with concealed warm ambient LED glow lighting, this door delivers the ultimate grand arrival experience.",
+        "description": "This grand architectural pivot door makes an extraordinary statement at the main entrance of private residences, corporate headquarters, and luxury venues. Engineered with a heavy-duty concealed vertical pivot axis, the door rotates with effortless grace despite its monumental scale and solid construction.\n\nCombining natural treated weather-resistant teak wood paneling with a heavy-duty structural aluminum core, it offers exceptional thermal insulation and complete protection against harsh desert sunlight, dust, and wind. The design is complemented by a full-height brushed metallic pull handle and multi-point perimeter locking.\n\nEvery detail is crafted for long-term stability and timeless prestige. It transforms the entrance into an architectural focal point, offering superior acoustic comfort, certified security, and an unforgettable sense of arrival.",
         "features": [
           "Monumental Oversized Pivot Architecture Spanning Heights up to 3.5m and Widths up to 2.0m",
-          "Heavy-Duty Concealed Floor Pivot Bearing System (FritsJurgens / Dorma) Supporting 500 kg Leaves",
+          "Heavy-Duty Concealed Floor Pivot Bearing System (FritsJurgens / Concealed Heavy-Duty Hydraulic) Supporting 500 kg Leaves",
           "High-Performance Polyamide Thermal Break Core Delivering Elite Thermal Insulation (Ud < 0.95 W/m²K)",
           "Integrated Smart Biometric Fingerprint Access & Motorized Multi-Point Deadbolt Security",
           "Full-Height Recessed Architectural Titanium Pull Handle with Concealed Warm 3000K LED Glow"
@@ -4175,20 +4176,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Door Leaf Depth": "100 mm Multi-Chamber Thermal Break Aluminum Panel",
           "Cladding Material": "Vacuum-Treated Kiln-Dried Burmese Teak with Marine Nanotech Sealant",
           "Pivot Mechanism": "Concealed Heavy-Duty FritsJurgens System M+ Hydraulic Pivot (500 kg Load)",
-          "Thermal Performance": "Ud = 0.92 W/m²K (European EN ISO 10077-1 Compliance)",
+          "Thermal Performance": "Ud = 0.92 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
           "Acoustic Rating": "Rw 42 dB High-Performance Sound Isolation",
           "Locking System": "KFV / Winkhaus Motorized Multi-Point Auto-Lock with Smart Biometric Integration"
         }
       }
     },
-    "kurdishName": "دەرگای سەرەکی سووڕاوەی شاهانەی ڤێلا بە دار تیکی چارەسەرکراو و ئەلەمنیۆمی ثێرمال برێک",
-    "arabicDescription": "اصنع مدخلاً ملكياً مهيباً لا يُنسى لفيلاك الخاصة مع هذا الباب المحوري المعماري العملاق. يمتد الباب بارتفاعات شاهقة تصل إلى 3.5 أمتار وعرض يصل إلى مترين في درفة واحدة مهيبة تدور بسلاسة مطلقة، حيث يدمج بين هندسة قطاعات الألمنيوم العازلة للحرارة (ثيرمال بريك) ودفء كسوة خشب التيك البورمي الطبيعي المجفف بالفرن، ليشكل رمزاً معمارياً للفخامة والأمان المطلق والهيبة الاستثنائية التي تليق بأفخم القصور والفلل العصرية.\n\nيرتكز الباب على ماكينة دوران محورية أرضية مخفية ألمانية/هولندية فائقة التحمل (أو الألمانية الرائدة عالمياً) مخصصة لتحمل أوزان تصل إلى 500 كجم، مما يتيح فتح الدرفة الضخمة بلمسة إصبع واحدة مع نظام فرملة هيدروليكية ناعمة، تثبيت عند زاوية 90 درجة، وإغلاق ذاتي محكوم. يحتوي قلب الباب الداخلي على حشوات بولي يوريثان عالية الكثافة مع عوازل أيروجيل لتوفير عزل حراري فائق (معامل العزل الحراري < 0.95) وعزل صوتي استثنائي (42 ديسيبل) يعزل حرارة الصيف الشديدة وضوضاء الشارع تماماً.\n\nزُوّد الباب بنظام قفل أوتوماتيكي متعدد النقاط يعمل بمحرك كهربائي، مع قارئ بصمة مدمج، لوحة مفاتيح رقمية، ومقبض طولي غاطس من التيتانيوم الأسود مزود بإضاءة ليد دافئة مخفية تتوهج برقي عند الاقتراب.",
-    "kurdishDescription": "دەرگایەکی سەرەکی سووڕاوەی زۆر گەورە و شاهانە بۆ پێشوازی ڤێلاکەت کە دەتوانێت تا بەرزی 3.5 مەتر و پانی 2 مەتر دروست بکرێت بە یەک باڵی سووڕاوە بەبێ ماندووبوون. تێکەڵەی ئەلەمنیۆمی ثێرمال برێکی عازلی گەرما و داری تیکی بۆرمایی سروشتییە کە شکۆ و پارێزگارییەکی بێ وێنە بە ڤێلاکەت دەبەخشێت.\n\nبە جەکی شاراوەی ژێرزەوی الهولندية الفاخرةی هۆڵەندی یان دورما الألمانية کار دەکات کە کێشی تا 500 کگم هەڵدەگرێت و بە تەنها یەک پەنجە دەکرێتەوە و لە 90 پلەدا دەوەستێت بە بێدەنگی. لە ناوەوە عازلی چڕی هەیە کە 100% گەرمای بیابان و دەنگی دەرەوە دەبڕێت.\n\nقفڵی زیرەکی کارەبایی فرە خاڵی هەیە بە پەنجەمۆر و کۆد، لەگەڵ دەسکی درێژی تیتانیۆمی ڕەش کە لە ناوەوە لیدی زەردی دڵڕفێنی تێدایە."
+    "kurdishName": "دەرگای سەرەکی تەوەرەیی شاهانە لە دار و ئەلەمنیۆم",
+    "arabicDescription": "يشكل هذا الباب المحوري المعماري الفاخر بصمة استثنائية عند المدخل الرئيسي للمنازل ومقرات الشركات والمباني المتميزة. صُمم بمحور دوران رأسي مخفي فائق التحمل، مما يتيح للدرفة الكبيرة الدوران بانسيابية وخفة متناهية رغم وزنها ومتانتها الهيكلية.\n\nيجمع التصميم بين جمال ألواح الخشب الطبيعي المعالج المقاوم للعوامل الجوية وهيكل الألمنيوم المتين، ليوفر عزلاً حرارياً وصوتياً متقدماً وحماية كاملة ضد الشمس والحرارة والغبار. يكتمل المظهر بمقبض رأسي أنيق ممتد وقفل أمني متعدد النقاط.\n\nصُنعت كافة مكونات الباب لضمان المتانة الدائمة والجمال المعماري الخالد. يمنح المدخل حضوراً مهيباً وأماناً موثوقاً يعكس الفخامة والجودة العالية للمكان.",
+    "kurdishDescription": "ئەم دەرگا تەوەرەییە سەرنجڕاکێشە دیمەنێکی ناوازە و شکۆدار بە دەروازەی سەرەکی ماڵەکان، بارەگای کۆمپانیاکان و بینا تایبەتەکان دەبەخشێت. بە مەکینەی تەوەرەیی ستوونی قورس دروستکراوە کە وا دەکات دەرگایەکی گەورە و بەهێز بە نەرمی و بە پەنجەیەک بخولێتەوە.\n\nتێکەڵکردنی تەختەی سروشتیی چارەسەرکراو لەگەڵ پەیکەری ئەلەمنیۆمی ئەستوور، عەزلێکی تەواو لە گەرمی، دەنگ، تۆز و تیشکی خۆر دابین دەکات. دیزاینەکەی بە دەسکێکی بەرزی ستوونی شیک و قوفڵی فرە-خاڵ تەواو کراوە.\n\nهەموو وردەکارییەکی بۆ بەردەوامی و مانەوەی درێژخایەن ئەندازیاری کراوە. دەروازەی چوونەژوورەوە دەکاتە شوێنێکی سەرنجڕاکێش کە ئاسایش، متمانە و فەخامەت بەیەکەوە کۆدەکاتەوە."
   },
   {
     "id": "door-dh-gt-48",
     "name": "Full Privacy Louvered Sliding Driveway Gate in Anthracite Grey",
-    "arabicName": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسايت أنيق",
+    "arabicName": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسيت",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4202,7 +4203,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Extruded 6063-T6 Heavy-Gauge Structural Frame with Fully Concealed Mechanical Lock Joints",
       "Super-Durable Qualicoat Class 2 Anthracite Grey Fine-Texture Finish Resisting UV Degradation",
       "Shielded Bearing Stainless Steel Ground Rollers Delivering Effortless, Low-Friction Travel",
-      "Pre-Engineered for Seamless Integration with European High-Cycle Automated Gate Operators"
+      "Pre-Engineered for Seamless Integration with Architectural Standard High-Cycle Automated Gate Operators"
     ],
     "specs": {
       "Frame Dimensions": "100 mm Structural Aluminum Perimeter Box Section",
@@ -4212,18 +4213,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Wind Load Capacity": "Class C4 High-Velocity Gale Resistance (EN 12424)",
       "Span Capacity": "Custom Fabricated for Single Leaves up to 6.0 Meters Wide"
     },
-    "description": "Ensure total boundary seclusion without compromising on sleek architectural sophistication with this full privacy louvered sliding driveway gate. Finished in an ultra-durable architectural Anthracite Grey (RAL 7016), the gate features continuous precision-aligned chevron louvers that completely block horizontal lines-of-sight from passing street traffic while promoting natural airflow to cool interior vehicle courtyards.\n\nFabricated from heavy-wall 6063-T6 architectural aluminum, each louver is mechanically locked into dedicated structural side mullions without visible weld spatter, preserving crisp edge definition. The lower horizontal structural box girder houses heavy-duty dual stainless steel wheels equipped with double-shielded needle bearings, gliding with effortless fluidity over a surface-mounted low-profile stainless steel ground track.\n\nPre-engineered with internal steel reinforcement backing plates and pre-threaded raceways for motor drive racks and safety photo-eyes, this gate delivers lifetime resistance against desert corrosion, blistering heat, and wind fatigue.",
+    "description": "This premium architectural gate features angled privacy louvers blocking sightlines while permitting natural airflow, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسايت أنيق",
+        "name": "بوابة سحابة بشرائح حماية خصوصية كاملة بلون رمادي أنثراسيت",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "احصل على خصوصية تامة وحماية محكمة لسور فيلتك مع هذه البوابة السحابة المصممة بشرائح شفرية تحجب الرؤية بالكامل. تتميز البوابة بطلاء إلكتروستاتيكي فاخر بلون رمادي أنثراسايت أنيق (الرمادي الغرافيتي المعماري المعتمد)، وتحتوي على شرائح ألمنيوم متتالية مائلة تحجب الرؤية بنسبة 100% عن المارة في الشارع، مع السماح بمرور النسيم الطبيعي لتبريد كراج السيارات الداخلي ومنع احتباس الحرارة.\n\nتم تصنيع البوابة من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة عالية السماكة، حيث تم تثبيت كل شريحة داخل مجارٍ هيكلية جانبية بدون أي لحامات ظاهرة للحفاظ على حدة وجمال الخطوط المعمارية. ويحتوي الجسر السفلي الصندوقي المقوى على عجلات ستانلس ستيل مزدوجة ذات محامل محكمة تنزلق بسلاسة متناهية على سكة أرضية منخفضة الارتفاع مصنوعة من الستانلس ستيل المصقول.\n\nزُوّدت البوابة بصفائح فولاذية داخلية مخفية وقنوات أسلاك معزولة لتثبيت مسننات السحب الآلي وحساسات الأمان الضوئية، لتمنحك متانة فائقة تقاوم حرارة الصيف الحارقة، الصدأ، والرياح الشديدة على مدى عقود.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة بزاوية هندسية تحجب الرؤية تماماً مع السماح بمرور الهواء، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح شفرية مائلة توفر خصوصية بصرية كاملة بنسبة 100% مع تهوية طبيعية ممتازة للكراج",
           "هيكل إنشائي عالي السماكة من سبائك المعمارية المعالجة حرارياً عالية الصلابة بتثبيت ميكانيكي متطور خالي من اللحام المشوه",
           "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي أنثراسايت فائق المقاومة لأشعة الشمس والبهتان",
           "عجلات سفلية من الستانلس ستيل بمحامل محكمة تمنح حركة انزلاق انسيابية خالية من الاحتكاك",
-          "جاهزية كاملة للربط مع محركات السحب الآلي الأوروبية ذات التشغيل المكثف"
+          "جاهزية كاملة للربط مع محركات السحب الآلي المعمارية المعتمدة ذات التشغيل المكثف"
         ],
         "specs": {
           "أبعاد قطاع الإطار": "100 ملم قطاع ألمنيوم إنشائي صندوقي مقوى",
@@ -4235,15 +4236,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی ئەلەمنیۆمی ئەنتراسایت بە شریتی پاراستنی تەواوەتی نهێنی",
+        "name": "دەروازەی سلایدینگی شریتی پارێزراوی تەواو بە ڕەنگی ئەنتراسیت",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی سحاب بە ڕەنگی ئەنتراسایتی مات (الرمادي الغرافيتي المعماري) کە شریتی تایبەتی ئەلەمنیۆمی هەیە بۆ شاردنەوەی 100%ی ناو حەوشەی ڤێلاکەت بەبێ ئەوەی لە دەرەوە هیچ شتێک دیار بێت، هاوکات ڕێگە بە هەوای فێنک دەدات بسووڕێتەوە بۆ کەمکردنەوەی گەرمای حەوشە.\n\nلە ئەلەمنیۆمی ئەستووری المعمارية المعالجة حرارياً عالية الصلابة بە بەستەری شاراوەی ناوەکی دروستکراوە بەبێ دەرکەوتنی هیچ شوێنەوارێکی لەحیم بۆ پاراستنی جوانییە نژیاروانییەکەی. لە خوارەوە تایەی ستانلێس ستیلی دژە ژەنگی هەیە کە لەسەر هێڵی زەوی بە نەرمی و بە بێدەنگی دەڕوات.\n\nهەموو شوێنی بەستنی مۆتۆری خۆکاری سحابی تێدا ئامادەکراوە بە پەڕەی ئاسنی ناوەکی، و بەرگرییەکی تەواوی هەیە بەرامبەر گەرمای بەرز و تۆز.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە لارە ئەندازیارییەکان کە بینین دادەخەن بەڵام ڕێگە بە هەوا دەدەن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "شریتی لاری تایبەت بۆ پاراستنی 100%ی نهێنی ناو حەوشە و هاتوچۆی هەوای سروشتی",
           "چوارچێوەی ئەلەمنیۆمی ئەستوور بە بەستەری شاراوە بەبێ هیچ لەحیمێکی ناشیرین",
           "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە ڕەنگی ئەنتراسایتی مات دژە تیشکی خۆر",
           "تایەی ستانلێس ستیل بە ڕۆلەری پارێزراو بۆ جووڵەی نەرم لەسەر زەوی",
-          "ئامادەکاری تەواو بۆ بەستنی هەموو جۆرە مۆتۆرێکی سحابی ئەوروپی"
+          "ئامادەکاری تەواو بۆ بەستنی هەموو جۆرە مۆتۆرێکی سحابی ستانداردی نێودەوڵەتی"
         ],
         "specs": {
           "ئەندازەی چوارچێوە": "100 ملم پڕۆفایلی سندوقی ئەلەمنیۆمی پتەو",
@@ -4257,13 +4258,13 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "en": {
         "name": "Full Privacy Louvered Sliding Driveway Gate in Anthracite Grey",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Ensure total boundary seclusion without compromising on sleek architectural sophistication with this full privacy louvered sliding driveway gate. Finished in an ultra-durable architectural Anthracite Grey (RAL 7016), the gate features continuous precision-aligned chevron louvers that completely block horizontal lines-of-sight from passing street traffic while promoting natural airflow to cool interior vehicle courtyards.\n\nFabricated from heavy-wall 6063-T6 architectural aluminum, each louver is mechanically locked into dedicated structural side mullions without visible weld spatter, preserving crisp edge definition. The lower horizontal structural box girder houses heavy-duty dual stainless steel wheels equipped with double-shielded needle bearings, gliding with effortless fluidity over a surface-mounted low-profile stainless steel ground track.\n\nPre-engineered with internal steel reinforcement backing plates and pre-threaded raceways for motor drive racks and safety photo-eyes, this gate delivers lifetime resistance against desert corrosion, blistering heat, and wind fatigue.",
+        "description": "This premium architectural gate features angled privacy louvers blocking sightlines while permitting natural airflow, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Full-Privacy Chevron Aluminum Louvers Ensuring 100% Visual Seclusion & Continuous Airflow",
           "Extruded 6063-T6 Heavy-Gauge Structural Frame with Fully Concealed Mechanical Lock Joints",
           "Super-Durable Qualicoat Class 2 Anthracite Grey Fine-Texture Finish Resisting UV Degradation",
           "Shielded Bearing Stainless Steel Ground Rollers Delivering Effortless, Low-Friction Travel",
-          "Pre-Engineered for Seamless Integration with European High-Cycle Automated Gate Operators"
+          "Pre-Engineered for Seamless Integration with Architectural Standard High-Cycle Automated Gate Operators"
         ],
         "specs": {
           "Frame Dimensions": "100 mm Structural Aluminum Perimeter Box Section",
@@ -4275,14 +4276,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی ئەلەمنیۆمی ئەنتراسایت بە شریتی پاراستنی تەواوەتی نهێنی",
-    "arabicDescription": "احصل على خصوصية تامة وحماية محكمة لسور فيلتك مع هذه البوابة السحابة المصممة بشرائح شفرية تحجب الرؤية بالكامل. تتميز البوابة بطلاء إلكتروستاتيكي فاخر بلون رمادي أنثراسايت أنيق (الرمادي الغرافيتي المعماري المعتمد)، وتحتوي على شرائح ألمنيوم متتالية مائلة تحجب الرؤية بنسبة 100% عن المارة في الشارع، مع السماح بمرور النسيم الطبيعي لتبريد كراج السيارات الداخلي ومنع احتباس الحرارة.\n\nتم تصنيع البوابة من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة عالية السماكة، حيث تم تثبيت كل شريحة داخل مجارٍ هيكلية جانبية بدون أي لحامات ظاهرة للحفاظ على حدة وجمال الخطوط المعمارية. ويحتوي الجسر السفلي الصندوقي المقوى على عجلات ستانلس ستيل مزدوجة ذات محامل محكمة تنزلق بسلاسة متناهية على سكة أرضية منخفضة الارتفاع مصنوعة من الستانلس ستيل المصقول.\n\nزُوّدت البوابة بصفائح فولاذية داخلية مخفية وقنوات أسلاك معزولة لتثبيت مسننات السحب الآلي وحساسات الأمان الضوئية، لتمنحك متانة فائقة تقاوم حرارة الصيف الحارقة، الصدأ، والرياح الشديدة على مدى عقود.",
-    "kurdishDescription": "دەروازەیەکی نایابی سحاب بە ڕەنگی ئەنتراسایتی مات (الرمادي الغرافيتي المعماري) کە شریتی تایبەتی ئەلەمنیۆمی هەیە بۆ شاردنەوەی 100%ی ناو حەوشەی ڤێلاکەت بەبێ ئەوەی لە دەرەوە هیچ شتێک دیار بێت، هاوکات ڕێگە بە هەوای فێنک دەدات بسووڕێتەوە بۆ کەمکردنەوەی گەرمای حەوشە.\n\nلە ئەلەمنیۆمی ئەستووری المعمارية المعالجة حرارياً عالية الصلابة بە بەستەری شاراوەی ناوەکی دروستکراوە بەبێ دەرکەوتنی هیچ شوێنەوارێکی لەحیم بۆ پاراستنی جوانییە نژیاروانییەکەی. لە خوارەوە تایەی ستانلێس ستیلی دژە ژەنگی هەیە کە لەسەر هێڵی زەوی بە نەرمی و بە بێدەنگی دەڕوات.\n\nهەموو شوێنی بەستنی مۆتۆری خۆکاری سحابی تێدا ئامادەکراوە بە پەڕەی ئاسنی ناوەکی، و بەرگرییەکی تەواوی هەیە بەرامبەر گەرمای بەرز و تۆز."
+    "kurdishName": "دەروازەی سلایدینگی شریتی پارێزراوی تەواو بە ڕەنگی ئەنتراسیت",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة بزاوية هندسية تحجب الرؤية تماماً مع السماح بمرور الهواء، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە لارە ئەندازیارییەکان کە بینین دادەخەن بەڵام ڕێگە بە هەوا دەدەن تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-50",
-    "name": "Modern Villa Gate with Horizontal Privacy Louvers & Matching Pedestrian Entry",
-    "arabicName": "بوابة فيلا متناسقة بشرائح خصوصية مائلة وباب مشاة مستقل بنفس التصميم",
+    "name": "Modern Privacy Gate with Angled Louvers and Integrated Pedestrian Door",
+    "arabicName": "بوابة خصوصية بشرائح مائلة وباب مشاة مدمج متناسق",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4294,7 +4295,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "features": [
       "Unified Entrance Ensemble: Automated Driveway Gate & Matching Hinged Pedestrian Wicket Gate",
       "Acoustic Vibration-Dampened Horizontal Louvers Eliminating Wind Rattle & Whistling",
-      "Pedestrian Door Pre-Fitted with European Multi-Point Deadbolt & 12V Electric Strike",
+      "Pedestrian Door Pre-Fitted with Architectural Standard Multi-Point Deadbolt & 12V Electric Strike",
       "Concealed Heavy-Duty Overhead/Floor Hydraulic Closer on Pedestrian Leaf with Hold-Open",
       "Qualicoat Class 2 Fine-Texture Architectural Powder Coating Immune to Harsh Desert Sun"
     ],
@@ -4303,19 +4304,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Pedestrian Door": "1,100 mm Width x 2,200 mm Height Single Hinged Leaf",
       "Louver Configuration": "75 mm Extruded 6063-T6 Aluminum Louvers with 12 mm Reveal",
       "Surface Coating": "Qualicoat Class 2 Architectural Powder Coat (Anthracite Grey RAL 7016)",
-      "Pedestrian Hardware": "STAC European Euro-Groove Lock with Electric Strike Prep",
+      "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Groove Lock with Electric Strike Prep",
       "Drive Preparation": "Universal Motor Bracket Pre-Welded to Structural Bottom Girder"
     },
-    "description": "Establish complete architectural harmony across your property line with this dual-gate perimeter ensemble. Featuring an automated wide sliding vehicle gate flanked by an independent matching pedestrian wicket gate, both elements share identical precision-spaced horizontal louvers in a low-sheen architectural finish, creating an expansive, cohesive frontage for modern residences.\n\nThe horizontal slats are extruded from structural 6063-T6 aluminum with integrated acoustic vibration dampeners that eliminate whistling and rattling during high-wind desert sandstorms. The pedestrian gate features a heavy-duty concealed closer with 90-degree hold-open, an integrated European multi-point mortise lock, and an electric release strike compatible with video intercom systems.\n\nCoated in a 25-micron Qualicoat Class 2 electrostatic architectural finish, this gate package offers uncompromising protection against UV fading, surface chalking, and airborne desert grit, delivering pristine aesthetics for decades.",
+    "description": "This premium architectural gate features coordinated angled louvers spanning both main vehicle gate and pedestrian entry, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة فيلا متناسقة بشرائح خصوصية مائلة وباب مشاة مستقل بنفس التصميم",
+        "name": "بوابة خصوصية بشرائح مائلة وباب مشاة مدمج متناسق",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حقق وحدة معمارية متكاملة لمدخل فيلتك مع هذه المنظومة المزدوجة التي تجمع بين بوابة السيارات وباب المشاة المستقل. تتميز المنظومة ببوابة سحابة آلية عريضة لدخول المركبات بجانبها باب مشاة شخصي مستقل يحمل نفس لغة التصميم والشرائح الأفقية المتناسقة، مما يمنح الواجهة الخارجية امتداداً معمارياً موحداً وفخماً يعزز من أناقة وقيمة الفيلا.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة المعماري مع جوانات داخلية عازلة للاهتزاز تمنع أي صفير أو طقطقة ناتجة عن الرياح القوية والعواصف الرملية. كما تم تزويد باب المشاة بماكينة إغلاق هيدروليكية ناعمة مع خاصية التثبيت عند 90 درجة، وقفل أوروبي متعدد النقاط، وكالون كهربائي ذكي متوافق تماماً مع شاشات الإنتركوم وكاميرات المراقبة.\n\nطُليت المنظومة بالكامل ببودرة إلكتروستاتيكية كلاس 2 بسماكة 25 ميكرون تضمن حماية دائمة ضد أشعة الشمس الحارقة وبهتان الألوان وخدوش الرمال المتطايرة، لتحافظ على جمالها وملمسها الأنيق على مدار السنين.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة المتناسقة التي تمتد عبر بوابة المركبات وباب المشاة المدمج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "منظومة مدخل موحدة: بوابة سيارات سحابة وباب مشاة شخصي مستقل بنفس الشرائح والتصميم الراقي",
           "شرائح أفقية مزودة بجوانات داخلية عازلة تمنع الاهتزاز والصفير أثناء هبوب الرياح والعواصف",
-          "باب المشاة مزود مسبقاً بقفل أوروبي متعدد النقاط وكالون كهربائي 12 فولت للإنتركوم",
+          "باب المشاة مزود مسبقاً بقفل المعتمد متعدد النقاط وكالون كهربائي 12 فولت للإنتركوم",
           "ماكينة إغلاق هيدروليكية ناعمة لباب المشاة مع ميزة التثبيت بزاوية 90 درجة لتسهيل الدخول",
           "طلاء بودرة إلكتروستاتيكي كلاس 2 فائق التحمل ضد أشعة الشمس الصحراوية والحرارة العالية"
         ],
@@ -4324,18 +4325,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "أبعاد باب المشاة": "عرض 1100 ملم بارتفاع 2200 ملم درفة مفصلية واحدة",
           "مواصفات الشرائح": "شرائح ألمنيوم مسحوب المعمارية المعالجة حرارياً عالية الصلابة عرض 75 ملم مع فواصل ظلية 12 ملم",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي أنثراسايت مطفي (الرمادي الغرافيتي المعماري)",
-          "إكسسوارات باب المشاة": "قفل أمان أوروبي الإسبانية المعتمدة مع تجهيز كامل لكالون كهربائي 12V",
+          "إكسسوارات باب المشاة": "قفل أمان المعتمدة المتطورة المعتمدة مع تجهيز كامل لكالون كهربائي 12V",
           "تجهيزات المحركات": "قاعدة محرك فولاذية ملحومة مسبقاً في الجسر السفلي الإنشائي"
         }
       },
       "ckb": {
-        "name": "دەروازەی ڤێلا بە شریتی ئاسۆیی لەگەڵ دەرگای کەسی پیادە بە هەمان دیزاین",
+        "name": "دەروازەی مۆدێرن بە شریتی پارێزراو و دەرگای پیادەی یەکگرتوو",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "سیستەمێکی نایابی دەروازە کە دەروازەی سحابی ئۆتۆمبێل و دەرگای کەسی پیادە بە هەمان دیزاین و شریتی ئاسۆیی پێکەوە کۆدەکاتەوە بۆ بەخشینی دیمەنێکی فراوان و یەکگرتوو بە ڕووبەری بەردەم ڤێلاکەت.\n\nشریتەکانی ئەلەمنیۆم لە ناوەوە لاستیکی دژە لەرینەوەیان تێدایە بۆ ئەوەی لە کاتی ڕەشەبادا هیچ دەنگ و فیکەیەک دروست نەکەن. دەرگای پیادەکە جەکی هیدرۆلیکی نەرمی لەسەرە کە بە هێمنی دادەخرێت و لە 90 پلەدا دەوەستێت، لەگەڵ قفڵی ئەوروپی و کواڵۆنی کارەبایی بۆ ئینتەرکۆم.\n\nبە بۆیاخی ئەوروپی کوالیکۆت کلاسی 2 بۆیاخ کراوە بۆ پاراستنی هەمیشەیی بەرامبەر گەرمای بەرز و خۆری توند بەبێ ئەوەی ڕەنگی تێکبچێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە پارێزراوە یەکگرتووەکان بەسەر دەروازەی ئۆتۆمبێل و دەرگای پیادەدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "سیستەمی تەواوی یەکگرتوو: دەروازەی ئۆتۆمبێل و دەرگای کەسی بە هەمان شریت و کوالێتی",
           "شریتی ئاسۆیی بە لاستیکی تایبەتی دژە لەرینەوە بۆ نەهێشتنی دەنگ لە کاتی با",
-          "دەرگای پیادە ئامادەکراوە بە قفڵی فرە خاڵی ئەوروپی و کواڵۆنی کارەبایی 12V",
+          "دەرگای پیادە ئامادەکراوە بە قفڵی فرە خاڵی ستانداردی نێودەوڵەتی و کواڵۆنی کارەبایی 12V",
           "جەکی هیدرۆلیکی نەرم بۆ دەرگای پیادە بە وەستانی 90 پلە بۆ ئاسانکاری هاتوچۆ",
           "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 کە بەرگەی گەرمای بیابان و خۆر دەگرێت"
         ],
@@ -4344,18 +4345,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "ئەندازەی دەرگای پیادە": "پانی 1100 ملم لەگەڵ بەرزی 2200 ملم یەک باڵ",
           "قەبارەی شریتەکان": "شریتی 75 ملم ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة بە درزی 12 ملم",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ئەنتراسایت مات (الرمادي الغرافيتي المعماري)",
-          "ئیکسسواراتی پیادە": "قفڵی ئەوروپی الإسبانية المعتمدة لەگەڵ کواڵۆنی کارەبایی ئینتەرکۆم",
+          "ئیکسسواراتی پیادە": "قفڵی ستانداردی نێودەوڵەتی المعتمدة المتطورة المعتمدة لەگەڵ کواڵۆنی کارەبایی ئینتەرکۆم",
           "ئامادەکاری مۆتۆر": "پایەی مۆتۆر لە کارگە لەحیم کراوە لەسەر شاسی خوارەوە"
         }
       },
       "en": {
-        "name": "Modern Villa Gate with Horizontal Privacy Louvers & Matching Pedestrian Entry",
+        "name": "Modern Privacy Gate with Angled Louvers and Integrated Pedestrian Door",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Establish complete architectural harmony across your property line with this dual-gate perimeter ensemble. Featuring an automated wide sliding vehicle gate flanked by an independent matching pedestrian wicket gate, both elements share identical precision-spaced horizontal louvers in a low-sheen architectural finish, creating an expansive, cohesive frontage for modern residences.\n\nThe horizontal slats are extruded from structural 6063-T6 aluminum with integrated acoustic vibration dampeners that eliminate whistling and rattling during high-wind desert sandstorms. The pedestrian gate features a heavy-duty concealed closer with 90-degree hold-open, an integrated European multi-point mortise lock, and an electric release strike compatible with video intercom systems.\n\nCoated in a 25-micron Qualicoat Class 2 electrostatic architectural finish, this gate package offers uncompromising protection against UV fading, surface chalking, and airborne desert grit, delivering pristine aesthetics for decades.",
+        "description": "This premium architectural gate features coordinated angled louvers spanning both main vehicle gate and pedestrian entry, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Unified Entrance Ensemble: Automated Driveway Gate & Matching Hinged Pedestrian Wicket Gate",
           "Acoustic Vibration-Dampened Horizontal Louvers Eliminating Wind Rattle & Whistling",
-          "Pedestrian Door Pre-Fitted with European Multi-Point Deadbolt & 12V Electric Strike",
+          "Pedestrian Door Pre-Fitted with Architectural Standard Multi-Point Deadbolt & 12V Electric Strike",
           "Concealed Heavy-Duty Overhead/Floor Hydraulic Closer on Pedestrian Leaf with Hold-Open",
           "Qualicoat Class 2 Fine-Texture Architectural Powder Coating Immune to Harsh Desert Sun"
         ],
@@ -4364,19 +4365,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Pedestrian Door": "1,100 mm Width x 2,200 mm Height Single Hinged Leaf",
           "Louver Configuration": "75 mm Extruded 6063-T6 Aluminum Louvers with 12 mm Reveal",
           "Surface Coating": "Qualicoat Class 2 Architectural Powder Coat (Anthracite Grey RAL 7016)",
-          "Pedestrian Hardware": "STAC European Euro-Groove Lock with Electric Strike Prep",
+          "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Groove Lock with Electric Strike Prep",
           "Drive Preparation": "Universal Motor Bracket Pre-Welded to Structural Bottom Girder"
         }
       }
     },
-    "kurdishName": "دەروازەی ڤێلا بە شریتی ئاسۆیی لەگەڵ دەرگای کەسی پیادە بە هەمان دیزاین",
-    "arabicDescription": "حقق وحدة معمارية متكاملة لمدخل فيلتك مع هذه المنظومة المزدوجة التي تجمع بين بوابة السيارات وباب المشاة المستقل. تتميز المنظومة ببوابة سحابة آلية عريضة لدخول المركبات بجانبها باب مشاة شخصي مستقل يحمل نفس لغة التصميم والشرائح الأفقية المتناسقة، مما يمنح الواجهة الخارجية امتداداً معمارياً موحداً وفخماً يعزز من أناقة وقيمة الفيلا.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة المعماري مع جوانات داخلية عازلة للاهتزاز تمنع أي صفير أو طقطقة ناتجة عن الرياح القوية والعواصف الرملية. كما تم تزويد باب المشاة بماكينة إغلاق هيدروليكية ناعمة مع خاصية التثبيت عند 90 درجة، وقفل أوروبي متعدد النقاط، وكالون كهربائي ذكي متوافق تماماً مع شاشات الإنتركوم وكاميرات المراقبة.\n\nطُليت المنظومة بالكامل ببودرة إلكتروستاتيكية كلاس 2 بسماكة 25 ميكرون تضمن حماية دائمة ضد أشعة الشمس الحارقة وبهتان الألوان وخدوش الرمال المتطايرة، لتحافظ على جمالها وملمسها الأنيق على مدار السنين.",
-    "kurdishDescription": "سیستەمێکی نایابی دەروازە کە دەروازەی سحابی ئۆتۆمبێل و دەرگای کەسی پیادە بە هەمان دیزاین و شریتی ئاسۆیی پێکەوە کۆدەکاتەوە بۆ بەخشینی دیمەنێکی فراوان و یەکگرتوو بە ڕووبەری بەردەم ڤێلاکەت.\n\nشریتەکانی ئەلەمنیۆم لە ناوەوە لاستیکی دژە لەرینەوەیان تێدایە بۆ ئەوەی لە کاتی ڕەشەبادا هیچ دەنگ و فیکەیەک دروست نەکەن. دەرگای پیادەکە جەکی هیدرۆلیکی نەرمی لەسەرە کە بە هێمنی دادەخرێت و لە 90 پلەدا دەوەستێت، لەگەڵ قفڵی ئەوروپی و کواڵۆنی کارەبایی بۆ ئینتەرکۆم.\n\nبە بۆیاخی ئەوروپی کوالیکۆت کلاسی 2 بۆیاخ کراوە بۆ پاراستنی هەمیشەیی بەرامبەر گەرمای بەرز و خۆری توند بەبێ ئەوەی ڕەنگی تێکبچێت."
+    "kurdishName": "دەروازەی مۆدێرن بە شریتی پارێزراو و دەرگای پیادەی یەکگرتوو",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح المائلة المتناسقة التي تمتد عبر بوابة المركبات وباب المشاة المدمج، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتە پارێزراوە یەکگرتووەکان بەسەر دەروازەی ئۆتۆمبێل و دەرگای پیادەدا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-dr-51",
-    "name": "Contemporary Villa Entrance Door with Vertical Natural Wood Paneling & Matte Surround",
-    "arabicName": "باب مدخل فيلا عصري بكسوة خشبية رأسية دافئة وإطار أسود عازل فخم",
+    "name": "Modern Entrance Door with Vertical Wood Paneling",
+    "arabicName": "باب مدخل عصري بشرائح خشبية رأسية وإطار ألمنيوم",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Entrance Doors",
@@ -4388,89 +4389,89 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "features": [
       "Handcrafted Genuine Kiln-Dried Teak or Thermo-Ash Vertical Timber Cladding with Marine UV Sealer",
       "Heavy-Duty 90 mm Polyamide Thermal Break Aluminum Chassis Delivering Superior Insulation (Ud < 1.1)",
-      "Triple Perimeter Continuous EPDM Magnetic Compression Seals for Zero Dust Ingress & Whisper Sealing",
+      "Triple Perimeter Continuous المطاط المعماري المقاوم للعوامل الجوية Magnetic Compression Seals for Zero Dust Ingress & Whisper Sealing",
       "Concealed 3D Micro-Adjustable Heavy-Duty Hinges Capable of Supporting 250 kg Leaves",
       "Integrated Smart Biometric Handle Compatible with Fingerprint, Mobile App & Keypad Access"
     ],
     "specs": {
       "Chassis Thickness": "90 mm Multi-Chamber Thermal Break Aluminum Profile",
-      "Timber Material": "Kiln-Dried Burmese Teak or Thermo-Treated European Ash (Class 1 Durability)",
-      "Thermal Performance": "Ud = 1.05 W/m²K (European EN ISO 10077-1 Compliance)",
+      "Timber Material": "Kiln-Dried Burmese Teak or Thermo-Treated Architectural Standard Ash (Class 1 Durability)",
+      "Thermal Performance": "Ud = 1.05 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
       "Acoustic Rating": "Rw 38 dB Acoustic Sound Insulation",
       "Hinge System": "Simonswerk TECTUS Concealed 3D Adjustable Hinges (Load Rating 250 kg)",
       "Locking System": "Winkhaus Auto-Locking Multi-Point Deadbolt with Electric Motor Strike"
     },
-    "description": "Create a warm, prestigious entrance sequence with this contemporary architectural hinged villa door. Featuring handcrafted vertical tongue-and-groove cladding of certified sustainable natural Teak or European Thermo-Ash set within a crisp, matte black thermal break aluminum frame, this door bridges organic craftsmanship with advanced European engineering.\n\nBeneath the genuine timber facade lies a structural 90 mm multi-chamber aluminum chassis filled with high-density polyurethane foam and aerogel thermal insulation. The system incorporates high-performance polyamide thermal break barriers that block scorching exterior heat, preventing thermal transfer into your air-conditioned foyer. Triple perimeter EPDM magnetic compression seals completely eliminate desert dust penetration and exterior wind whistling.\n\nEnhanced with an integrated European multi-point automatic deadbolt lock, smart biometric fingerprint handle integration, and heavy-duty 3D adjustable concealed hinges with a 180-degree opening arc, this door delivers unmatched luxury, security, and tactile perfection.",
+    "description": "This contemporary main entrance door combines the organic warmth of vertical timber paneling with a precision-engineered dark architectural aluminum frame. Designed to suit upscale residences, executive offices, and reception lounges, it delivers an inviting yet refined first impression.\n\nBuilt with high-density thermal break insulation and heavy-duty Architectural Standard hinges, the door effectively seals interiors against temperature extremes, road noise, and dust. The flush-mounted finish and sleek vertical lines create a balanced, architectural aesthetic that complements modern facade materials.\n\nEquipped with secure multi-point deadbolt mechanisms and an integrated ergonomic pull bar, this door guarantees smooth daily operation and lasting peace of mind with minimal upkeep.",
     "translations": {
       "ar": {
-        "name": "باب مدخل فيلا عصري بكسوة خشبية رأسية دافئة وإطار أسود عازل فخم",
+        "name": "باب مدخل عصري بشرائح خشبية رأسية وإطار ألمنيوم",
         "subCategory": "أبواب المداخل المعمارية الفاخرة للفلل",
-        "description": "امنح مدخل فيلتك دفئاً طبيعياً وهيبة معمارية لا تُضاهى مع هذا الباب المفصلي الفاخر المكسو بالخشب الطبيعي. يتميز الباب بكسوة رأسية متراصة بنظام التعشيق من خشب التيك البورمي الطبيعي أو خشب الأش المعالج حرارياً، والمحاطة بإطار ألمنيوم أسود مطفي عازل للحرارة (ثيرمال بريك)، ليجمع بين أصالة الحرفية الخشبية ودقة الهندسة المعمارية الأوروبية الحديثة.\n\nيحتضن قلب الباب هيكلاً داخلياً سماكة 90 ملم من الألمنيوم متعدد الحجرات والمحشو برغوة البولي يوريثان عالية الكثافة وعوازل الأيروجيل المتطورة. يحتوي الهيكل على جسور عزل حراري من مادة البولي أميد تمنع انتقال حرارة الصيف اللاهبة إلى بهو الفيلا المكيف تماماً، مع ثلاث طبقات من ربلات المطاطية الهندسية ثلاثية الإحكام المغناطيسية المحيطية التي تحكم إغلاق الباب بنسبة 100% وتمنع دخول الغبار والصفير نهائياً.\n\nزُوّد الباب بقفل أمان أوروبي متعدد النقاط يغلق تلقائياً، مع مقبض ذكي يدعم الفتح ببصمة الإصبع ورمز المرور وتطبيقات الهاتف، ومفصلات مخفية ثلاثية الأبعاد تدور بزاوية 180 درجة كاملة، لتوفر أعلى درجات الأمان والراحة والمتانة لبيتك.",
+        "description": "يجمع هذا الباب العصري بين دفء الخشب الطبيعي بشرائحه الرأسية الأنيقة وإطار الألمنيوم المعماري الداكن والمتين. صُمم ليلائم مداخل المنازل الحديثة والمكاتب التنفيذية وصالات الاستقبال، ليمنح المكان انطباعاً أولياً راقياً ومريحاً.\n\nمُزوّد بطبقات عزل حراري وصوتي عالية الكثافة ومفصلات المعتمدة قوية، مما يضمن إغلاقاً محكماً يحجب الحرارة الخارجية والضوضاء والغبار. ينسجم تصميمه المتناسق بخطوطه الرأسية بنعومة مع مختلف الواجهات الحجرية والخرسانية الحديثة.\n\nيحتوي الباب على نظام أقفال أمان متعددة النقاط ومقبض طولي مريح، ليضمن استخداماً يومياً سلساً وأماناً تاماً يدوم لسنوات طويلة بأقل قدر من الصيانة.",
         "features": [
           "كسوة خشب تيك طبيعي أو أش معالج حرارياً ومحمي بزيوت بحرية عازلة للأشعة فوق البنفسجية",
           "هيكل ألمنيوم إنشائي سماكة 90 ملم بنظام ثيرمال بريك عازل للحرارة والصوت (عزل حراري فائق الكفاءة)",
           "ثلاث طبقات من ربلات المطاط الهندسي ثلاثي الإحكام المغناطيسية تمنع تماماً تسرب ذرات الغبار وصوت الرياح",
-          "مفصلات أوروبية مخفية بالكامل قابلة للتعديل ثلاثي الأبعاد تتحمل درفاً حتى وزن 250 كجم",
+          "مفصلات المعتمدة مخفية بالكامل قابلة للتعديل ثلاثي الأبعاد تتحمل درفاً حتى وزن 250 كجم",
           "مقبض ذكي متطور مدمج بقارئ بصمة إصبع، شاشة لمس للأرقام السرية، وتطبيق للهاتف الذكي"
         ],
         "specs": {
           "سماكة قطاع الإطار": "90 ملم ألمنيوم ثيرمال بريك متعدد الحجرات عالي العزل",
-          "نوع الخشب الطبيعي": "خشب تيك بورمي أو أش أوروبي معالج حرارياً عالي المتانة والفخامة",
-          "معامل العزل الحراري": "معامل العزل الحراري = 1.05 W/m²K (مطابق للمواصفات القياسية الأوروبية)",
+          "نوع الخشب الطبيعي": "خشب تيك بورمي أو أش المعتمد معالج حرارياً عالي المتانة والفخامة",
+          "معامل العزل الحراري": "معامل العزل الحراري = 1.05 W/m²K (مطابق للمواصفات القياسية المعمارية المعتمدة)",
           "مستوى عزل الصوت": "تخفيض الضوضاء الخارجية بمقدار 38 ديسيبل",
-          "المفصلات": "مفصلات مخفية ألمانية الألمانية المخفية ثلاثية الأبعاد قابلة للتعديل ثلاثي الأبعاد",
-          "نظام الإقفال": "قفل وينكهاوس الألمانية أوتوماتيكي متعدد النقاط مع كالون كهربائي ذكي"
+          "المفصلات": "مفصلات مخفية المعتمدة عالية الدقة المخفية ثلاثية الأبعاد قابلة للتعديل ثلاثي الأبعاد",
+          "نظام الإقفال": "قفل وينكهاوس المعتمدة عالية الدقة أوتوماتيكي متعدد النقاط مع كالون كهربائي ذكي"
         }
       },
       "ckb": {
-        "name": "دەرگای سەرەکی ڤێلای مۆدێرن بە تەختەی ستوونی سروشتی و چوارچێوەی ئەلەمنیۆمی مات",
+        "name": "دەرگای مدخەلی مۆدێرن بە تەختەی ستوونی و چوارچێوەی ئەلەمنیۆم",
         "subCategory": "دەرگای سەرەکی نژیاروانی ڤێلاکان",
-        "description": "دەرگایەکی سەرەکی زۆر فەخم و جوان بۆ پێشوازی ڤێلاکەت کە تەختەی ستوونی لە داری تیکی بۆرمایی سروشتی یان ئەشی چارەسەرکراو لەگەڵ چوارچێوەی ئەلەمنیۆمی ڕەشی ماتی ثێرمال برێکی عازل پێکەوە دەبەستێتەوە بۆ دیمەنێکی گەرم و شاهانە.\n\nلە ناوەوە شاسییەکی ئەلەمنیۆمی ئەستووری 90 ملمی هەیە کە پڕکراوە لە فۆمی عازلی چڕ و کەمەربەندی پۆلیاماید بۆ ڕێگری تەواو لە هاتنەژوورەوەی گەرمای بیابان بۆ ناو هۆڵی پێشوازی. سێ چینی لاستیکی موگناتیسی المطاط الهندسي ثلاثي الإحكامی دەوروبەری هەیە بۆ ڕێگری لە بچووکترین تۆز و فیکەی با.\n\nقفڵی زیرەکی کارەبایی فرە خاڵی لەسەرە کە بە پەنجەمۆر و کۆد و مۆبایل دەکرێتەوە، لەگەڵ نێری شاراوەی 3D کە دەتوانێت تا 180 پلە بە تەواوی بکرێتەوە بە بێدەنگی.",
+        "description": "ئەم دەرگایە سەرەکییە هاوچەرخە گەرمیی تەختەی سروشتی و پتەویی چوارچێوەی ئەلەمنیۆمی داپۆشراوی مۆدێرن کۆدەکاتەوە. گونجاوە بۆ دەروازەی ماڵە مۆدێرنەکان، ئۆفیسەکان و هۆڵەکانی پێشوازی، دیمەنێکی سەرنجڕاکێش و بەفەخامەت دروست دەکات.\n\nبە عازلی گەرمی و دەنگی کوالیتی بەرز و نەرمەی بەهێزی ستانداردی نێودەوڵەتی دروستکراوە کە ڕێگری لە گەرمای هاوین، سەرمای زستان، تۆز و دەنگی دەرەوە دەکات. هێڵە ستوونییە ڕێکەکانی بە تەواوی لەگەڵ تەلارسازیی سەردەمدا دەگونجێن.\n\nبە سیستەمی قوفڵی ئەمنی فرە-خاڵ و دەسکی درێژی شیک دابین کراوە، بۆ بەخشینی کارکردنێکی ئاسان و متمانەپێکراو بۆ چەندین ساڵ.",
         "features": [
           "تەختەی ستوونی داری تیکی سروشتی چارەسەرکراو بە ڕۆنی نانۆ دژە تیشکی خۆر",
           "شاسی ئەلەمنیۆمی 90 ملمی العازل للحرارة والصوتی عازلی گەرما و دەنگ (عزل حراري فائق الكفاءة)",
           "سێ چینی لاستیکی موگناتیسی المطاط الهندسي ثلاثي الإحكام بۆ ڕێگری تەواو لە تۆز و هاتنی دەنگ",
-          "نێری ئەڵمانی شاراوەی 3D بە توانای هەڵگرتنی باڵ تا کێشی 250 کگم",
+          "نێری کوالیتی بەرز شاراوەی 3D بە توانای هەڵگرتنی باڵ تا کێشی 250 کگم",
           "دەسکی زیرەکی پێشکەوتوو بە پەنجەمۆر، کارتی ئەلیکترۆنی، و کۆدی نهێنی"
         ],
         "specs": {
           "ئەستووری چوارچێوە": "90 ملم ئەلەمنیۆمی فرە ژووری ثێرمال برێک",
           "جۆری داری سروشتی": "داری تیکی بۆرمایی وشککراو یان ئەشی چارەسەرکراو بە گەرما",
-          "عازلی گەرما": "معامل العزل الحراري = 1.05 W/m²K (بەپێی ستانداردی ئەوروپی 10077-1)",
+          "عازلی گەرما": "معامل العزل الحراري = 1.05 W/m²K (بەپێی ستانداردی ستانداردی نێودەوڵەتی 10077-1)",
           "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 38 دیبل",
-          "سیستەمی نێر": "نێری شاراوەی الألمانية المخفية ثلاثية الأبعادی ئەڵمانی بە ڕێکخستنی 3D",
-          "سیستەمی قفڵ": "قفڵی فرە خاڵی وينكهاوس الألمانيةی ئەڵمانی بە کواڵۆنی کارەبایی زیرەک"
+          "سیستەمی نێر": "نێری شاراوەی المعتمدة عالية الدقة المخفية ثلاثية الأبعادی کوالیتی بەرز بە ڕێکخستنی 3D",
+          "سیستەمی قفڵ": "قفڵی فرە خاڵی وينكهاوس المعتمدة عالية الدقةی کوالیتی بەرز بە کواڵۆنی کارەبایی زیرەک"
         }
       },
       "en": {
-        "name": "Contemporary Villa Entrance Door with Vertical Natural Wood Paneling & Matte Surround",
+        "name": "Modern Entrance Door with Vertical Wood Paneling",
         "subCategory": "Architectural Entrance Doors",
-        "description": "Create a warm, prestigious entrance sequence with this contemporary architectural hinged villa door. Featuring handcrafted vertical tongue-and-groove cladding of certified sustainable natural Teak or European Thermo-Ash set within a crisp, matte black thermal break aluminum frame, this door bridges organic craftsmanship with advanced European engineering.\n\nBeneath the genuine timber facade lies a structural 90 mm multi-chamber aluminum chassis filled with high-density polyurethane foam and aerogel thermal insulation. The system incorporates high-performance polyamide thermal break barriers that block scorching exterior heat, preventing thermal transfer into your air-conditioned foyer. Triple perimeter EPDM magnetic compression seals completely eliminate desert dust penetration and exterior wind whistling.\n\nEnhanced with an integrated European multi-point automatic deadbolt lock, smart biometric fingerprint handle integration, and heavy-duty 3D adjustable concealed hinges with a 180-degree opening arc, this door delivers unmatched luxury, security, and tactile perfection.",
+        "description": "This contemporary main entrance door combines the organic warmth of vertical timber paneling with a precision-engineered dark architectural aluminum frame. Designed to suit upscale residences, executive offices, and reception lounges, it delivers an inviting yet refined first impression.\n\nBuilt with high-density thermal break insulation and heavy-duty Architectural Standard hinges, the door effectively seals interiors against temperature extremes, road noise, and dust. The flush-mounted finish and sleek vertical lines create a balanced, architectural aesthetic that complements modern facade materials.\n\nEquipped with secure multi-point deadbolt mechanisms and an integrated ergonomic pull bar, this door guarantees smooth daily operation and lasting peace of mind with minimal upkeep.",
         "features": [
           "Handcrafted Genuine Kiln-Dried Teak or Thermo-Ash Vertical Timber Cladding with Marine UV Sealer",
           "Heavy-Duty 90 mm Polyamide Thermal Break Aluminum Chassis Delivering Superior Insulation (Ud < 1.1)",
-          "Triple Perimeter Continuous EPDM Magnetic Compression Seals for Zero Dust Ingress & Whisper Sealing",
+          "Triple Perimeter Continuous المطاط المعماري المقاوم للعوامل الجوية Magnetic Compression Seals for Zero Dust Ingress & Whisper Sealing",
           "Concealed 3D Micro-Adjustable Heavy-Duty Hinges Capable of Supporting 250 kg Leaves",
           "Integrated Smart Biometric Handle Compatible with Fingerprint, Mobile App & Keypad Access"
         ],
         "specs": {
           "Chassis Thickness": "90 mm Multi-Chamber Thermal Break Aluminum Profile",
-          "Timber Material": "Kiln-Dried Burmese Teak or Thermo-Treated European Ash (Class 1 Durability)",
-          "Thermal Performance": "Ud = 1.05 W/m²K (European EN ISO 10077-1 Compliance)",
+          "Timber Material": "Kiln-Dried Burmese Teak or Thermo-Treated Architectural Standard Ash (Class 1 Durability)",
+          "Thermal Performance": "Ud = 1.05 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
           "Acoustic Rating": "Rw 38 dB Acoustic Sound Insulation",
           "Hinge System": "Simonswerk TECTUS Concealed 3D Adjustable Hinges (Load Rating 250 kg)",
           "Locking System": "Winkhaus Auto-Locking Multi-Point Deadbolt with Electric Motor Strike"
         }
       }
     },
-    "kurdishName": "دەرگای سەرەکی ڤێلای مۆدێرن بە تەختەی ستوونی سروشتی و چوارچێوەی ئەلەمنیۆمی مات",
-    "arabicDescription": "امنح مدخل فيلتك دفئاً طبيعياً وهيبة معمارية لا تُضاهى مع هذا الباب المفصلي الفاخر المكسو بالخشب الطبيعي. يتميز الباب بكسوة رأسية متراصة بنظام التعشيق من خشب التيك البورمي الطبيعي أو خشب الأش المعالج حرارياً، والمحاطة بإطار ألمنيوم أسود مطفي عازل للحرارة (ثيرمال بريك)، ليجمع بين أصالة الحرفية الخشبية ودقة الهندسة المعمارية الأوروبية الحديثة.\n\nيحتضن قلب الباب هيكلاً داخلياً سماكة 90 ملم من الألمنيوم متعدد الحجرات والمحشو برغوة البولي يوريثان عالية الكثافة وعوازل الأيروجيل المتطورة. يحتوي الهيكل على جسور عزل حراري من مادة البولي أميد تمنع انتقال حرارة الصيف اللاهبة إلى بهو الفيلا المكيف تماماً، مع ثلاث طبقات من ربلات المطاطية الهندسية ثلاثية الإحكام المغناطيسية المحيطية التي تحكم إغلاق الباب بنسبة 100% وتمنع دخول الغبار والصفير نهائياً.\n\nزُوّد الباب بقفل أمان أوروبي متعدد النقاط يغلق تلقائياً، مع مقبض ذكي يدعم الفتح ببصمة الإصبع ورمز المرور وتطبيقات الهاتف، ومفصلات مخفية ثلاثية الأبعاد تدور بزاوية 180 درجة كاملة، لتوفر أعلى درجات الأمان والراحة والمتانة لبيتك.",
-    "kurdishDescription": "دەرگایەکی سەرەکی زۆر فەخم و جوان بۆ پێشوازی ڤێلاکەت کە تەختەی ستوونی لە داری تیکی بۆرمایی سروشتی یان ئەشی چارەسەرکراو لەگەڵ چوارچێوەی ئەلەمنیۆمی ڕەشی ماتی ثێرمال برێکی عازل پێکەوە دەبەستێتەوە بۆ دیمەنێکی گەرم و شاهانە.\n\nلە ناوەوە شاسییەکی ئەلەمنیۆمی ئەستووری 90 ملمی هەیە کە پڕکراوە لە فۆمی عازلی چڕ و کەمەربەندی پۆلیاماید بۆ ڕێگری تەواو لە هاتنەژوورەوەی گەرمای بیابان بۆ ناو هۆڵی پێشوازی. سێ چینی لاستیکی موگناتیسی المطاط الهندسي ثلاثي الإحكامی دەوروبەری هەیە بۆ ڕێگری لە بچووکترین تۆز و فیکەی با.\n\nقفڵی زیرەکی کارەبایی فرە خاڵی لەسەرە کە بە پەنجەمۆر و کۆد و مۆبایل دەکرێتەوە، لەگەڵ نێری شاراوەی 3D کە دەتوانێت تا 180 پلە بە تەواوی بکرێتەوە بە بێدەنگی."
+    "kurdishName": "دەرگای مدخەلی مۆدێرن بە تەختەی ستوونی و چوارچێوەی ئەلەمنیۆم",
+    "arabicDescription": "يجمع هذا الباب العصري بين دفء الخشب الطبيعي بشرائحه الرأسية الأنيقة وإطار الألمنيوم المعماري الداكن والمتين. صُمم ليلائم مداخل المنازل الحديثة والمكاتب التنفيذية وصالات الاستقبال، ليمنح المكان انطباعاً أولياً راقياً ومريحاً.\n\nمُزوّد بطبقات عزل حراري وصوتي عالية الكثافة ومفصلات المعتمدة قوية، مما يضمن إغلاقاً محكماً يحجب الحرارة الخارجية والضوضاء والغبار. ينسجم تصميمه المتناسق بخطوطه الرأسية بنعومة مع مختلف الواجهات الحجرية والخرسانية الحديثة.\n\nيحتوي الباب على نظام أقفال أمان متعددة النقاط ومقبض طولي مريح، ليضمن استخداماً يومياً سلساً وأماناً تاماً يدوم لسنوات طويلة بأقل قدر من الصيانة.",
+    "kurdishDescription": "ئەم دەرگایە سەرەکییە هاوچەرخە گەرمیی تەختەی سروشتی و پتەویی چوارچێوەی ئەلەمنیۆمی داپۆشراوی مۆدێرن کۆدەکاتەوە. گونجاوە بۆ دەروازەی ماڵە مۆدێرنەکان، ئۆفیسەکان و هۆڵەکانی پێشوازی، دیمەنێکی سەرنجڕاکێش و بەفەخامەت دروست دەکات.\n\nبە عازلی گەرمی و دەنگی کوالیتی بەرز و نەرمەی بەهێزی ستانداردی نێودەوڵەتی دروستکراوە کە ڕێگری لە گەرمای هاوین، سەرمای زستان، تۆز و دەنگی دەرەوە دەکات. هێڵە ستوونییە ڕێکەکانی بە تەواوی لەگەڵ تەلارسازیی سەردەمدا دەگونجێن.\n\nبە سیستەمی قوفڵی ئەمنی فرە-خاڵ و دەسکی درێژی شیک دابین کراوە، بۆ بەخشینی کارکردنێکی ئاسان و متمانەپێکراو بۆ چەندین ساڵ."
   },
   {
     "id": "door-dh-gt-52",
-    "name": "Heavy-Duty Black Steel Security Gate with Modern Translucent Window Grid",
-    "arabicName": "بوابة حماية صلبة عالية الأمان باللون الأسود ونافذة مربعات زجاجية",
+    "name": "Heavy-Duty Security Gate with Modern Translucent Window Grid",
+    "arabicName": "بوابة أمان عالية التحمل بنوافذ زجاجية مضيئة وشبكة هندسية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4494,18 +4495,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Roller System": "Dual Heavy-Load Steel V-Rollers with Lubricated Sealed Bearings",
       "Impact Certification": "Engineered for High-Security Residential Estate Perimeters"
     },
-    "description": "Combine fortress-grade perimeter defense with refined architectural transparency through this heavy-duty security driveway gate. Constructed from reinforced structural aluminum box profiles with an internal galvanized steel reinforcement skeleton, this gate is crowned by an upper architectural grid of translucent safety glass vision ports, introducing balanced natural light while preventing sightline intrusion.\n\nThe lower privacy section is built from interlocked double-skin aluminum cassette panels capable of resisting direct vehicular impacts and tampering. The upper window grid incorporates 10 mm tempered laminated frosted glass panes seated within UV-stabilized Neoprene glazing gaskets that maintain an airtight, dustproof seal against howling sandstorms.\n\nCoated with a multi-stage Qualicoat Class 2 textured electrostatic black powder finish, this gate repels harsh environmental oxidation. Equipped with heavy-duty ground track rollers rated for high-frequency cycling and universal motor mountings, it ensures effortless automated perimeter protection.",
+    "description": "This premium architectural gate features high-security structural panels detailed with a grid of frosted safety glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة حماية صلبة عالية الأمان باللون الأسود ونافذة مربعات زجاجية",
+        "name": "بوابة أمان عالية التحمل بنوافذ زجاجية مضيئة وشبكة هندسية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "اجمع بين قوة التحصين الأمني الفولاذي والأناقة المعمارية العصرية الشفافة مع هذه البوابة الأمنية الفاخرة. تم بناء البوابة من قطاعات ألمنيوم صندوقية مقواة بقلب داخلي من الحديد المجلفن فائق الصلابة، يعلوها شريط معماري أنيق من مربعات الزجاج المصنفر المصفح الذي يسمح بنفاذ الضوء الطبيعي مع حجب الرؤية ومنع المتطفلين من كشف داخل الفيلا.\n\nصُمم القسم السفلي من ألواح ألمنيوم مزدوجة الجدار متداخلة تقاوم الصدمات المباشرة ومحاولات الاقتحام والخلع. بينما ثُبتت مربعات الزجاج المصفح سماكة 10 ملم داخل جوانات نيوبرين معالجة ضد أشعة الشمس لتمنع تماماً دخول الغبار الصحراوي ورذاذ مياه الأمطار.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون أسود مطفي ناعم يقاوم الأكسدة والصدأ وظروف الطقس القاسية، مع تزويدها بعجلات سفلية فولاذية فائقة التحمل ونقاط تثبيت جاهزة للمحركات الآلية، لتمنحك أماناً لا يلين وتشغيلاً سلساً على مدار الساعة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الإنشائية فائقة الأمان المطعمة بشبكة نوافذ زجاجية مصنفرة راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "هيكل هجين فائق القوة يدمج بين صلابة الألمنيوم الإنشائي ودعامات الحديد المجلفن الداخلية",
           "شبكة مربعات علوية فاخرة بزجاج أمان مصفح ومقسى مصنفر سماكة 10 ملم يمرر الضوء بأمان",
           "قسم سفلي مصمت بجدار ألمنيوم مزدوج يقاوم الصدمات العنيفة ومحاولات الاقتحام",
           "جوانات نيوبرين مطاطية محكمة تمنع دخول الغبار الناعم وتسرب مياه الأمطار تماماً",
-          "جاهزية كاملة للربط مع محركات السحب الآلي الإيطالية ذات الاستخدام المكثف (و)"
+          "جاهزية كاملة للربط مع محركات السحب الآلي المعتمدة عالية الأداء ذات الاستخدام المكثف (و)"
         ],
         "specs": {
           "عمق الهيكل الإنشائي": "100 ملم قطاع هجين من الألمنيوم والحديد المجلفن المقوى",
@@ -4517,9 +4518,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ئەمنی بەهێزی ڕەش بە تۆڕی پەنجەرەی شووشەی تەڵخی مۆدێرن",
+        "name": "دەروازەی ئەمنی بەهێز بە تۆڕی پەنجەرەی ڕووناک",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ئەمنی زۆر پتەو کە هێزی قەڵا و جوانی مۆدێرن پێکەوە کۆدەکاتەوە. پێکهاتەی ئەلەمنیۆمی ئەستوور بە شاسی ئاسنی گالڤانایزکراو لە ناوەوە بەهێزکراوە، و لە بەشی سەرەوە تۆڕێکی ئەندازیاری لە پەنجەرەی شووشەی تەڵخی تێدایە بۆ هێنانی ڕووناکی سروشتی بەبێ لەدەستدانی پاراستن.\n\nبەشی خوارەوە لە تەبەقەی ئەلەمنیۆمی دوو دیواری دروستکراوە کە بەرگەی بەرزترین زەبر و دەستکاری دەگرێت. پەنجەرەکان شووشەی لامینەیتی 10 ملمی تێدایە بە لاستیکی نیۆپرین بەستراون کە بە تەواوی ڕێگری لە هاتنەژوورەوەی تۆزی بیابان و ئاوی باران دەکەن.\n\nبۆیاخی ڕەشی ماتی کوالیکۆت کلاسی 2ی لەسەرە کە دژە ژەنگ و خۆرە، و بە تایەی پۆڵایینی بەهێز لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەجووڵێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەمنییە قورسەکان کە بە پەنجەرەی شووشەی سیکیوریتی نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "پێکهاتەی هایبرید بە تێکەڵەی ئەلەمنیۆم و شاسی ئاسنی گالڤانایزکراو بۆ بەرزترین ئاستی پاراستن",
           "تۆڕی پەنجەرەی سەرەوە بە شووشەی لامینەیتی 10 ملم تەڵخ بۆ ڕووناکی جوان",
@@ -4537,9 +4538,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Heavy-Duty Black Steel Security Gate with Modern Translucent Window Grid",
+        "name": "Heavy-Duty Security Gate with Modern Translucent Window Grid",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Combine fortress-grade perimeter defense with refined architectural transparency through this heavy-duty security driveway gate. Constructed from reinforced structural aluminum box profiles with an internal galvanized steel reinforcement skeleton, this gate is crowned by an upper architectural grid of translucent safety glass vision ports, introducing balanced natural light while preventing sightline intrusion.\n\nThe lower privacy section is built from interlocked double-skin aluminum cassette panels capable of resisting direct vehicular impacts and tampering. The upper window grid incorporates 10 mm tempered laminated frosted glass panes seated within UV-stabilized Neoprene glazing gaskets that maintain an airtight, dustproof seal against howling sandstorms.\n\nCoated with a multi-stage Qualicoat Class 2 textured electrostatic black powder finish, this gate repels harsh environmental oxidation. Equipped with heavy-duty ground track rollers rated for high-frequency cycling and universal motor mountings, it ensures effortless automated perimeter protection.",
+        "description": "This premium architectural gate features high-security structural panels detailed with a grid of frosted safety glass, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Heavy-Duty Hybrid Chassis Combining Structural Aluminum with Internal Galvanized Steel Skeletons",
           "Upper Architectural Window Grid Glazed with 10 mm Tempered Laminated Translucent Safety Glass",
@@ -4557,14 +4558,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی ئەمنی بەهێزی ڕەش بە تۆڕی پەنجەرەی شووشەی تەڵخی مۆدێرن",
-    "arabicDescription": "اجمع بين قوة التحصين الأمني الفولاذي والأناقة المعمارية العصرية الشفافة مع هذه البوابة الأمنية الفاخرة. تم بناء البوابة من قطاعات ألمنيوم صندوقية مقواة بقلب داخلي من الحديد المجلفن فائق الصلابة، يعلوها شريط معماري أنيق من مربعات الزجاج المصنفر المصفح الذي يسمح بنفاذ الضوء الطبيعي مع حجب الرؤية ومنع المتطفلين من كشف داخل الفيلا.\n\nصُمم القسم السفلي من ألواح ألمنيوم مزدوجة الجدار متداخلة تقاوم الصدمات المباشرة ومحاولات الاقتحام والخلع. بينما ثُبتت مربعات الزجاج المصفح سماكة 10 ملم داخل جوانات نيوبرين معالجة ضد أشعة الشمس لتمنع تماماً دخول الغبار الصحراوي ورذاذ مياه الأمطار.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون أسود مطفي ناعم يقاوم الأكسدة والصدأ وظروف الطقس القاسية، مع تزويدها بعجلات سفلية فولاذية فائقة التحمل ونقاط تثبيت جاهزة للمحركات الآلية، لتمنحك أماناً لا يلين وتشغيلاً سلساً على مدار الساعة.",
-    "kurdishDescription": "دەروازەیەکی ئەمنی زۆر پتەو کە هێزی قەڵا و جوانی مۆدێرن پێکەوە کۆدەکاتەوە. پێکهاتەی ئەلەمنیۆمی ئەستوور بە شاسی ئاسنی گالڤانایزکراو لە ناوەوە بەهێزکراوە، و لە بەشی سەرەوە تۆڕێکی ئەندازیاری لە پەنجەرەی شووشەی تەڵخی تێدایە بۆ هێنانی ڕووناکی سروشتی بەبێ لەدەستدانی پاراستن.\n\nبەشی خوارەوە لە تەبەقەی ئەلەمنیۆمی دوو دیواری دروستکراوە کە بەرگەی بەرزترین زەبر و دەستکاری دەگرێت. پەنجەرەکان شووشەی لامینەیتی 10 ملمی تێدایە بە لاستیکی نیۆپرین بەستراون کە بە تەواوی ڕێگری لە هاتنەژوورەوەی تۆزی بیابان و ئاوی باران دەکەن.\n\nبۆیاخی ڕەشی ماتی کوالیکۆت کلاسی 2ی لەسەرە کە دژە ژەنگ و خۆرە، و بە تایەی پۆڵایینی بەهێز لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەجووڵێت."
+    "kurdishName": "دەروازەی ئەمنی بەهێز بە تۆڕی پەنجەرەی ڕووناک",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح الإنشائية فائقة الأمان المطعمة بشبكة نوافذ زجاجية مصنفرة راقية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحە ئەمنییە قورسەکان کە بە پەنجەرەی شووشەی سیکیوریتی نەخشێنراون تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-53",
     "name": "Wide Horizontal Slat Villa Gate with Frosted Architectural Glass Reveal",
-    "arabicName": "بوابة عريضة بشرائح ألمنيوم متتالية مع فاصل زجاجي مصنفر طولي وباب جانبي",
+    "arabicName": "بوابة فيلا بشرائح أفقية عريضة وفاصل زجاجي مصنفر",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4588,12 +4589,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Sliding Hardware": "Precision CNC-Machined Stainless Steel Wheels on Inverted V-Track",
       "Automation Readiness": "Internal Reinforced Steel Backing Plates for Motor Drive Racks"
     },
-    "description": "Introduce refined architectural rhythm to your villa arrival court with this wide-slat driveway gate system. The expansive vehicle leaf features 120 mm wide horizontal extruded aluminum planks interspaced with crisp shadow lines, interrupted by an asymmetric vertical reveal ribbon glazed with 10 mm translucent architectural frosted safety glass that catches daylight and glows gently when landscape lighting activates at dusk.\n\nEngineered on an ultra-rigid 100 mm structural aluminum box-frame chassis, this gate resists high wind torque and ground settlement. The frosted glass reveal is mechanically captured within rubberized Santoprene shock-absorbing gaskets, isolating the glazing from vehicular vibrations and thermal metal expansion. The adjacent matching pedestrian wicket gate shares identical slat heights and reveals for unbroken facade harmony.\n\nFinished in a Qualicoat Class 2 fine-texture electrostatic powder coating, the gate repels fine desert grit and resists salt-air oxidation. Dual sealed-bearing stainless steel track wheels and internal raceways for automatic motor racks ensure silky-smooth, whisper-quiet operation.",
+    "description": "This premium architectural gate features bold wide horizontal slats complemented by an illuminated frosted glass insert, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة عريضة بشرائح ألمنيوم متتالية مع فاصل زجاجي مصنفر طولي وباب جانبي",
+        "name": "بوابة فيلا بشرائح أفقية عريضة وفاصل زجاجي مصنفر",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف إيقاعاً معمارياً راقياً لمدخل فيلتك مع هذه البوابة الفاخرة ذات الشرائح الأفقية العريضة. تتميز البوابة بشرائح ألمنيوم مسحوبة بعرض 120 ملم تتخللها خطوط ظلية أنيقة، ويقطعها شريط رأسي غير متماثل من الزجاج المعماري المصنفر سماكة 10 ملم الذي يلتقط أشعة الشمس نهاراً ويتوهج بنعومة ساحرة عند تشغيل إضاءات الحديقة ليلاً.\n\nتم بناء البوابة على هيكل ألمنيوم صندوقي إنشائي فائق الصلابة سماكة 100 ملم ليقاوم عزم الرياح الشديدة وهبوط الأرضيات. ثُبت الشريط الزجاجي داخل جوانات مطاطية مرنة من السانتوبرين الممتصة للصدمات لعزل الزجاج عن أي اهتزازات ناتجة عن حركة السيارات أو التمدد الحراري للمعدن. كما يتطابق باب المشاة الجانبي تماماً في ارتفاعات الشرائح لضمان استمرارية بصرية خالية من أي نشاز.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون رمادي فحمي مطفي يقاوم خدوش الرمال والأكسدة، مع عجلات ستانلس ستيل مزدوجة محكمة ومسارات أسلاك مجهزة لمحركات السحب الآلي لتشغيل صامت وانسيابي.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية العريضة المزينة بفاصل زجاجي مصنفر يمرر الضوء بأناقة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "شرائح ألمنيوم أفقية عريضة بعرض 120 ملم تمنح واجهة الفيلا مظهراً عصرياً مهيباً",
           "شريط زجاجي رأسي مضيء من الزجاج المصفح المصنفر سماكة 10 ملم بجوانات ممتصة للصدمات",
@@ -4611,9 +4612,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی پان بە شریتی ئەلەمنیۆمی ئەستوور و هێڵی شووشەی تەڵخی ستوونی",
+        "name": "دەروازەی ڤێلا بە شریتی ئاسۆیی پان و شووشەی تەڵخی تەلارسازی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایابی ڤێلا بە شریتی ئاسۆیی ئەلەمنیۆمی پاتی 120 ملم لەگەڵ هێڵێکی ستوونی شووشەی تەڵخی پارێزراو کە لە شەودا لەگەڵ گڵۆپەکانی حەوشە دەدرەوشێتەوە و دیمەنێکی مۆدێرن و شاهانە دەبەخشێت.\n\nلەسەر شاسییەکی ئەلەمنیۆمی پتەوی 100 ملم دروستکراوە کە ڕێگری لە خواربوون و لەرینەوە دەکات بەرامبەر بای بەهێز. شووشەکە بە لاستیکی تایبەتی دژە زەبر بەستراوە بۆ ئەوەی هیچ زیانێکی پێ نەگات لە کاتی جووڵەدا. دەرگای کەسی پیادە بە هەمان شێواز و هێڵ دروستکراوە بۆ تەواوکردنی جوانییەکە.\n\nبۆیاخی ڕەساسی تۆخی ئەوروپی کوالیکۆت کلاسی 2ی لەسەرە دژە تۆز و خۆر، و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی دەجووڵێت بە مۆتۆری خۆکار.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی پان و بەهێز بە شووشەی تەڵخی تێپەڕێنەری ڕووناکی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "شریتی پاتی ئەلەمنیۆمی 120 ملم بۆ بەخشینی دیمەنێکی گەورە و سەردەمی بە ڤێلا",
           "هێڵی ستوونی شووشەی لامینەیتی 10 ملم تەڵخ بە لاستیکی دژە زەبر",
@@ -4633,7 +4634,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "en": {
         "name": "Wide Horizontal Slat Villa Gate with Frosted Architectural Glass Reveal",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Introduce refined architectural rhythm to your villa arrival court with this wide-slat driveway gate system. The expansive vehicle leaf features 120 mm wide horizontal extruded aluminum planks interspaced with crisp shadow lines, interrupted by an asymmetric vertical reveal ribbon glazed with 10 mm translucent architectural frosted safety glass that catches daylight and glows gently when landscape lighting activates at dusk.\n\nEngineered on an ultra-rigid 100 mm structural aluminum box-frame chassis, this gate resists high wind torque and ground settlement. The frosted glass reveal is mechanically captured within rubberized Santoprene shock-absorbing gaskets, isolating the glazing from vehicular vibrations and thermal metal expansion. The adjacent matching pedestrian wicket gate shares identical slat heights and reveals for unbroken facade harmony.\n\nFinished in a Qualicoat Class 2 fine-texture electrostatic powder coating, the gate repels fine desert grit and resists salt-air oxidation. Dual sealed-bearing stainless steel track wheels and internal raceways for automatic motor racks ensure silky-smooth, whisper-quiet operation.",
+        "description": "This premium architectural gate features bold wide horizontal slats complemented by an illuminated frosted glass insert, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Expansive 120 mm Wide Horizontal Aluminum Planks Delivering Bold Modern Facade Scale",
           "Asymmetrical Vertical 10 mm Frosted Safety Glass Light Ribbon with Silicone Dampening",
@@ -4651,14 +4652,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی پان بە شریتی ئەلەمنیۆمی ئەستوور و هێڵی شووشەی تەڵخی ستوونی",
-    "arabicDescription": "أضف إيقاعاً معمارياً راقياً لمدخل فيلتك مع هذه البوابة الفاخرة ذات الشرائح الأفقية العريضة. تتميز البوابة بشرائح ألمنيوم مسحوبة بعرض 120 ملم تتخللها خطوط ظلية أنيقة، ويقطعها شريط رأسي غير متماثل من الزجاج المعماري المصنفر سماكة 10 ملم الذي يلتقط أشعة الشمس نهاراً ويتوهج بنعومة ساحرة عند تشغيل إضاءات الحديقة ليلاً.\n\nتم بناء البوابة على هيكل ألمنيوم صندوقي إنشائي فائق الصلابة سماكة 100 ملم ليقاوم عزم الرياح الشديدة وهبوط الأرضيات. ثُبت الشريط الزجاجي داخل جوانات مطاطية مرنة من السانتوبرين الممتصة للصدمات لعزل الزجاج عن أي اهتزازات ناتجة عن حركة السيارات أو التمدد الحراري للمعدن. كما يتطابق باب المشاة الجانبي تماماً في ارتفاعات الشرائح لضمان استمرارية بصرية خالية من أي نشاز.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون رمادي فحمي مطفي يقاوم خدوش الرمال والأكسدة، مع عجلات ستانلس ستيل مزدوجة محكمة ومسارات أسلاك مجهزة لمحركات السحب الآلي لتشغيل صامت وانسيابي.",
-    "kurdishDescription": "دەروازەیەکی نایابی ڤێلا بە شریتی ئاسۆیی ئەلەمنیۆمی پاتی 120 ملم لەگەڵ هێڵێکی ستوونی شووشەی تەڵخی پارێزراو کە لە شەودا لەگەڵ گڵۆپەکانی حەوشە دەدرەوشێتەوە و دیمەنێکی مۆدێرن و شاهانە دەبەخشێت.\n\nلەسەر شاسییەکی ئەلەمنیۆمی پتەوی 100 ملم دروستکراوە کە ڕێگری لە خواربوون و لەرینەوە دەکات بەرامبەر بای بەهێز. شووشەکە بە لاستیکی تایبەتی دژە زەبر بەستراوە بۆ ئەوەی هیچ زیانێکی پێ نەگات لە کاتی جووڵەدا. دەرگای کەسی پیادە بە هەمان شێواز و هێڵ دروستکراوە بۆ تەواوکردنی جوانییەکە.\n\nبۆیاخی ڕەساسی تۆخی ئەوروپی کوالیکۆت کلاسی 2ی لەسەرە دژە تۆز و خۆر، و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی دەجووڵێت بە مۆتۆری خۆکار."
+    "kurdishName": "دەروازەی ڤێلا بە شریتی ئاسۆیی پان و شووشەی تەڵخی تەلارسازی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الأفقية العريضة المزينة بفاصل زجاجي مصنفر يمرر الضوء بأناقة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئاسۆیی پان و بەهێز بە شووشەی تەڵخی تێپەڕێنەری ڕووناکی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-54",
-    "name": "High-Contrast Modern Gate with Matte Black Horizontal Louvers & White Marble Columns",
-    "arabicName": "بوابة سوداء بتباين فاخر مع أعمدة الرخام الأبيض وباب مشاة مدمج",
+    "name": "High-Contrast Matte Black Gate Framed by Natural Marble Columns",
+    "arabicName": "بوابة سوداء فاخرة بتباين معماري جذاب مع الأعمدة الرخامية",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4682,12 +4683,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Ground Track": "Flush-Mounted Inverted V-Track in Hot-Dip Galvanized/Stainless Steel",
       "Wind Load Rating": "Class C4 Certified High-Velocity Resistance"
     },
-    "description": "Achieve a masterclass in high-contrast luxury architecture with this matte black driveway gate. Conceived specifically to be framed between brilliant white Carrara marble, Thassos stone, or off-white limestone boundary pillars, this gate uses dark, light-absorbing geometric horizontal louvers to create a dramatic architectural portal that elevates villa curb appeal.\n\nConstructed from aircraft-grade 6063-T6 structural aluminum, the horizontal slats feature aerodynamic drop-blade contours that provide zero sightline penetration while naturally venting strong gusts, suppressing vibration and wear on drive components. Integrated within the masonry jambs are concealed stainless steel guide brackets with low-friction polymer guide wheels that keep the gate securely upright without visible upper rails.\n\nThe electrostatic powder coating is a certified Qualicoat Class 2 ultra-matte black finish, formulated to resist extreme thermal shock, saline coastal fog, and UV radiation without fading, glossing, or chalking.",
+    "description": "This premium architectural gate features deep matte black horizontal slats designed to contrast against light stone pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سوداء بتباين فاخر مع أعمدة الرخام الأبيض وباب مشاة مدمج",
+        "name": "بوابة سوداء فاخرة بتباين معماري جذاب مع الأعمدة الرخامية",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حقق تحفة معمارية بالغة التباين والفخامة مع هذه البوابة السوداء المطفية المصممة للفلل الراقية. صُممت البوابة خصيصاً لتثبيتها بين أعمدة الرخام الأبيض الفاخر (مثل رخام كرارا أو ثاسوس أو الحجر الجيري الأبيض)، حيث تخلق شرائح الألمنيوم السوداء الماصة للضوء تبايناً معمارياً دراماتيكياً مذهلاً يبرز فخامة مدخل الفيلا من النظرة الأولى.\n\nصُنعت الشرائح من سبائك ألمنيوم الطيران المعمارية المعالجة حرارياً عالية الصلابة بتصميم شفرات انسيابية تحجب الرؤية تماماً بنسبة 100% مع السماح لتيارات الرياح بالمرور بسلاسة لتقليل الضغط على المحركات وأعمدة التثبيت. وتم إخفاء بكرات التوجيه العلوية المصنوعة من البوليمر داخل أكتاف الرخام لتثبيت البوابة رأسياً دون الحاجة لأي جسور علوية مشوهة للتصميم.\n\nعولجت البوابة بطلاء بودرة إلكتروستاتيكية كلاس 2 فائق السواد والمقاومة للصدمات الحرارية الشديدة والأشعة فوق البنفسجية، ليحافظ السطح على سواده الفاحم وملمسه المخملي دون أي بهتان أو تآكل عبر السنين.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء المطفية التي تشكل تبايناً معمارياً مبهراً مع الأعمدة الحجرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم فخم مخصص لإحداث تباين بصري ساحر مع أعمدة الرخام الأبيض والحجر الطبيعي الفاتح",
           "شرائح شفرية انسيابية توفر خصوصية كاملة بنسبة 100% وتقلل من مقاومة الرياح والعواصف",
@@ -4705,9 +4706,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ڕەشی فەخم بۆ نێوان کۆڵەکەی مەڕمەڕی سپی بە شریتی ئاسۆیی",
+        "name": "دەروازەی ڕەشی فەخامەت بە شێوازی جوان لەگەڵ ستوونی مەڕمەڕ",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ڕەشی ماتی زۆر شاهانە کە بە تایبەتی دیزاین کراوە بۆ نێوان کۆڵەکەی مەڕمەڕی سپی یان بەردی ڕۆشن، بۆ دروستکردنی جیاوازییەکی جوان و سەرنجڕاکێش کە لە دوورەوە شکۆی ڤێلاکەت پیشان دەدات.\n\nشریتەکانی ئەلەمنیۆم لە جۆری المعمارية المعالجة حرارياً عالية الصلابة دروستکراون بە شێوەیەکی ئایرۆداینامیک کە 100% ناوەوە دەشارنەوە و ناهێڵن با زەبر لە دەروازەکە بدات. ڕۆلەرەکانی ڕاگرتن لە ناو مەڕمەڕەکەدا شاردراونەتەوە بۆ ئەوەی هیچ ئاسنێکی زیادە لە سەرەوە دیار نەبێت.\n\nبۆیاخی ڕەشی ماتی کوالیکۆت کلاسی 2ی لەسەرە کە دژە گەرمای بەرز و گۆڕانی کەشوهەوایە، و لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەڕوات.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی ماتی کە دیمەنێکی سەرنجڕاکێش لەگەڵ ستوونی بەردی مەڕمەڕ دروست دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاین کراوە بە تایبەتی بۆ دروستکردنی دیمەنێکی فەخم لە نێوان کۆڵەکەی مەڕمەڕی سپی",
           "شریتی ئاسۆیی کە 100% نهێنی حەوشە دەپارێزێت و بەرگری با کەم دەکاتەوە",
@@ -4725,9 +4726,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "High-Contrast Modern Gate with Matte Black Horizontal Louvers & White Marble Columns",
+        "name": "High-Contrast Matte Black Gate Framed by Natural Marble Columns",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Achieve a masterclass in high-contrast luxury architecture with this matte black driveway gate. Conceived specifically to be framed between brilliant white Carrara marble, Thassos stone, or off-white limestone boundary pillars, this gate uses dark, light-absorbing geometric horizontal louvers to create a dramatic architectural portal that elevates villa curb appeal.\n\nConstructed from aircraft-grade 6063-T6 structural aluminum, the horizontal slats feature aerodynamic drop-blade contours that provide zero sightline penetration while naturally venting strong gusts, suppressing vibration and wear on drive components. Integrated within the masonry jambs are concealed stainless steel guide brackets with low-friction polymer guide wheels that keep the gate securely upright without visible upper rails.\n\nThe electrostatic powder coating is a certified Qualicoat Class 2 ultra-matte black finish, formulated to resist extreme thermal shock, saline coastal fog, and UV radiation without fading, glossing, or chalking.",
+        "description": "This premium architectural gate features deep matte black horizontal slats designed to contrast against light stone pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Engineered Specifically for High-Contrast Integration with White Marble & Limestone Gateposts",
           "Aerodynamic Drop-Blade Louvers Delivering 100% Sightline Privacy & Low Wind Resistance",
@@ -4745,14 +4746,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی ڕەشی فەخم بۆ نێوان کۆڵەکەی مەڕمەڕی سپی بە شریتی ئاسۆیی",
-    "arabicDescription": "حقق تحفة معمارية بالغة التباين والفخامة مع هذه البوابة السوداء المطفية المصممة للفلل الراقية. صُممت البوابة خصيصاً لتثبيتها بين أعمدة الرخام الأبيض الفاخر (مثل رخام كرارا أو ثاسوس أو الحجر الجيري الأبيض)، حيث تخلق شرائح الألمنيوم السوداء الماصة للضوء تبايناً معمارياً دراماتيكياً مذهلاً يبرز فخامة مدخل الفيلا من النظرة الأولى.\n\nصُنعت الشرائح من سبائك ألمنيوم الطيران المعمارية المعالجة حرارياً عالية الصلابة بتصميم شفرات انسيابية تحجب الرؤية تماماً بنسبة 100% مع السماح لتيارات الرياح بالمرور بسلاسة لتقليل الضغط على المحركات وأعمدة التثبيت. وتم إخفاء بكرات التوجيه العلوية المصنوعة من البوليمر داخل أكتاف الرخام لتثبيت البوابة رأسياً دون الحاجة لأي جسور علوية مشوهة للتصميم.\n\nعولجت البوابة بطلاء بودرة إلكتروستاتيكية كلاس 2 فائق السواد والمقاومة للصدمات الحرارية الشديدة والأشعة فوق البنفسجية، ليحافظ السطح على سواده الفاحم وملمسه المخملي دون أي بهتان أو تآكل عبر السنين.",
-    "kurdishDescription": "دەروازەیەکی ڕەشی ماتی زۆر شاهانە کە بە تایبەتی دیزاین کراوە بۆ نێوان کۆڵەکەی مەڕمەڕی سپی یان بەردی ڕۆشن، بۆ دروستکردنی جیاوازییەکی جوان و سەرنجڕاکێش کە لە دوورەوە شکۆی ڤێلاکەت پیشان دەدات.\n\nشریتەکانی ئەلەمنیۆم لە جۆری المعمارية المعالجة حرارياً عالية الصلابة دروستکراون بە شێوەیەکی ئایرۆداینامیک کە 100% ناوەوە دەشارنەوە و ناهێڵن با زەبر لە دەروازەکە بدات. ڕۆلەرەکانی ڕاگرتن لە ناو مەڕمەڕەکەدا شاردراونەتەوە بۆ ئەوەی هیچ ئاسنێکی زیادە لە سەرەوە دیار نەبێت.\n\nبۆیاخی ڕەشی ماتی کوالیکۆت کلاسی 2ی لەسەرە کە دژە گەرمای بەرز و گۆڕانی کەشوهەوایە، و لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەڕوات."
+    "kurdishName": "دەروازەی ڕەشی فەخامەت بە شێوازی جوان لەگەڵ ستوونی مەڕمەڕ",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح السوداء المطفية التي تشكل تبايناً معمارياً مبهراً مع الأعمدة الحجرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ڕەشی ماتی کە دیمەنێکی سەرنجڕاکێش لەگەڵ ستوونی بەردی مەڕمەڕ دروست دەکات تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-61",
-    "name": "Modern Horizontal Privacy Gate with Warm Natural Wood Pedestrian Inlay",
-    "arabicName": "بوابة خصوصية بشرائح أفقية داكنة مع باب مشاة مكسو بخشب التيك الدافئ",
+    "name": "Horizontal Privacy Gate with Warm Natural Wood Pedestrian Inlay",
+    "arabicName": "بوابة خصوصية بشرائح أفقية داكنة وتطعيم خشبي لباب المشاة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4765,7 +4766,7 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Intuitive Facade Zoning: Sleek Charcoal Metal Vehicular Span with Warm Hardwood Pedestrian Inlay",
       "100% Sightline Privacy Interlocking Extruded Aluminum Slats with Vibration-Dampening Gaskets",
       "Kiln-Dried African Iroko Hardwood Siding Sealed with UV-Inhibiting Marine Teak Oils",
-      "Integrated Pedestrian Door Pre-Fitted with European Multi-Point Deadbolt & Electric Strike",
+      "Integrated Pedestrian Door Pre-Fitted with Architectural Standard Multi-Point Deadbolt & Electric Strike",
       "Super-Durable Qualicoat Class 2 Fine-Texture Charcoal Powder Finish Resisting Harsh UV Sun"
     ],
     "specs": {
@@ -4773,20 +4774,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Slat Dimensions": "80 mm Wide Horizontal Aluminum Planks",
       "Timber Specification": "20 mm Thick Kiln-Dried African Iroko Slats (Vacuum-Impregnated)",
       "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Grey (RAL 7016)",
-      "Pedestrian Hardware": "STAC European Euro-Groove Lock with Integrated 12V Electric Release",
+      "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Groove Lock with Integrated 12V Electric Release",
       "Sliding Rollers": "Machined Stainless Steel Wheels on Inverted Galvanized Ground V-Track"
     },
-    "description": "Achieve intuitive architectural zoning between vehicular and human entrances with this modern privacy gate. Featuring continuous horizontal extruded aluminum slats in a deep charcoal powder finish, the gate integrates a distinct pedestrian wicket door accented with genuine kiln-dried Iroko or Teak hardwood vertical slats, creating an inviting visual beacon for approaching family and guests.\n\nThe horizontal aluminum louvers are precision-extruded with interlocking anti-rattle tongue-and-groove profiles that block 100% of street sightlines while delivering exceptional wind deflection. The pedestrian timber inlay is seated within a thermal expansion sub-frame lined with EPDM buffers that absorb seasonal swelling and shrinkage without stressing the surrounding aluminum chassis.\n\nEquipped with an integrated European multi-point mortise lock, electric buzzer release, and heavy-duty dual-bearing bottom sliding wheels, this gate delivers effortless security, rich natural warmth, and dependable everyday convenience.",
+    "description": "This premium architectural gate features sleek dark aluminum slats paired with a warm treated wood pedestrian portal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة خصوصية بشرائح أفقية داكنة مع باب مشاة مكسو بخشب التيك الدافئ",
+        "name": "بوابة خصوصية بشرائح أفقية داكنة وتطعيم خشبي لباب المشاة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حقق تمييزاً معمارياً ذكياً بين مدخل السيارات وباب المشاة مع هذه البوابة العصرية الفاخرة. تتميز البوابة بشرائح ألمنيوم أفقية متتالية بلون رمادي فحمي مطفي، يتخللها باب مشاة شخصي مدمج مكسو بشرائح رأسية من خشب الإيروكو أو التيك الطبيعي الدافئ المجفف بالفرن، مما يمنح الضيوف إحساساً فورياً بالترحاب والأناقة الطبيعية.\n\nصُنعت شرائح الألمنيوم بنظام تعشيق متداخل محكم يمنع الرؤية تماماً بنسبة 100% ويشتت ضغط الرياح العاتية. وثُبتت الألواح الخشبية داخل إطار فرعي معزول بربلات المطاطية الهندسية ثلاثية الإحكام المرنة التي تمتص حركات تمدد وانكماش الخشب مع تغير الفصول دون التأثير على استقامة هيكل الألمنيوم الأساسي.\n\nتأتي البوابة مزودة بقفل أمان أوروبي متعدد النقاط لباب المشاة مع كالون كهربائي متوافق مع الإنتركوم، وعجلات انزلاق سفلية مزدوجة من الستانلس ستيل، لتضمن أماناً محكماً وسهولة فائقة في الاستخدام اليومي.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الداكنة المتناسقة مع باب الأفراد المكسو بالخشب الطبيعي الدافئ، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تمييز معماري ذكي: بوابة مركبات أفقية داكنة مع باب مشاة مكسو بخشب طبيعي دافئ جذاب",
           "خصوصية بصرية كاملة بنسبة 100% بشرائح ألمنيوم متداخلة مع جوانات مانعة للاهتزاز",
           "خشب إيروكو إفريقي طبيعي مجفف ومعالج بزيوت بحرية عازلة للأشعة فوق البنفسجية",
-          "باب مشاة مجهز مسبقاً بقفل أوروبي متعدد النقاط وكالون كهربائي للربط مع الإنتركوم",
+          "باب مشاة مجهز مسبقاً بقفل المعتمد متعدد النقاط وكالون كهربائي للربط مع الإنتركوم",
           "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي فحمي فائق المقاومة لحرارة وشمس الصيف"
         ],
         "specs": {
@@ -4794,19 +4795,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "مقاس الشرائح": "شرائح أفقية متداخلة عرض 80 ملم ألمنيوم مسحوب",
           "مواصفات الخشب": "خشب إيروكو إفريقي مجفف بالفرن سماكة 20 ملم معالج بالزيوت الواقية",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي فحمي مطفي (الرمادي الغرافيتي المعماري)",
-          "قفل باب المشاة": "قفل أوروبي الإسبانية المعتمدة متعدد النقاط مع كالون كهربائي 12 فولت",
+          "قفل باب المشاة": "قفل المعتمدة المتطورة المعتمدة متعدد النقاط مع كالون كهربائي 12 فولت",
           "عجلات الانزلاق": "عجلات ستانلس ستيل مصقولة على سكة أرضية مقلوبة مجلفنة"
         }
       },
       "ckb": {
-        "name": "دەروازەی نهێنی ئاسۆیی بە ڕەنگی تۆخ و دەرگای پیادەی تەختەی سروشتی",
+        "name": "دەروازەی شریتی ئاسۆیی تاریک بە دەرگای پیادەی تەختەی سروشتی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر شیک کە دەروازەی ئۆتۆمبێلی بە شریتی ئەلەمنیۆمی ئاسۆیی تۆخ لەگەڵ دەرگای کەسی پیادە بە تەختەی داری سروشتی ئیرۆکۆی گەرم جیاکردووەتەوە بۆ دروستکردنی دیمەنێکی گەرم و ڕێڕەوێکی دیاریکراو بۆ میوانەکان.\n\nشریتەکانی ئەلەمنیۆم بە شێوازی قوفڵبوون دروستکراون کە 100% ناو حەوشە دەشارنەوە و بەرگەی بای بەهێز دەگرن. دارە سروشتییەکە لە چوارچێوەیەکی تایبەتدا دانراوە بە لاستیکی المطاط الهندسي ثلاثي الإحكام بۆ ئەوەی لە کاتی گەرما و سەرمادا خوار نەبێت و بە جوانی بمێنێتەوە.\n\nدەرگای پیادەکە قفڵی فرە خاڵی ئەوروپی و کواڵۆنی کارەبایی ئینتەرکۆمی لەسەرە، لەگەڵ تایەی ستانلێس ستیل بۆ جووڵەی نەرم لەسەر هێڵی زەوی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی تاریک لەگەڵ دەرگای پیادەی تەختەی سروشتیی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "جیاکردنەوەی زیرەکانە: دەروازەی ئۆتۆمبێل بە ڕەنگی خەڵوزی لەگەڵ دەرگای پیادەی تەختەی سروشتی",
           "100% پاراستنی نهێنی حەوشە بە شریتی تێکەڵکراوی ئەلەمنیۆم لەگەڵ لاستیکی دژە دەنگ",
           "تەختەی داری ئیرۆکۆی ئەفریقی وشککراو و چارەسەرکراو بە ڕۆنی دژە تیشکی خۆر",
-          "دەرگای پیادە ئامادەکراوە بە قفڵی ئەوروپی فرە خاڵ و کواڵۆنی کارەبایی ئینتەرکۆم",
+          "دەرگای پیادە ئامادەکراوە بە قفڵی ستانداردی نێودەوڵەتی فرە خاڵ و کواڵۆنی کارەبایی ئینتەرکۆم",
           "بۆیاخی پۆودەری کوالیکۆت کلاسی 2 بە ڕەنگی خەڵوزی مات دژە گەرمای بەرز"
         ],
         "specs": {
@@ -4814,19 +4815,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "قەبارەی شریتەکان": "شریتی ئاسۆیی 80 ملم ئەلەمنیۆمی ئەستوور",
           "تایبەتمەندی تەختە": "داری ئیرۆکۆی ئەفریقی وشککراو لە فڕن ئەستووری 20 ملم",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی خەڵوزی مات (الرمادي الغرافيتي المعماري)",
-          "قفڵی پیادە": "قفڵی ئەوروپی الإسبانية المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
+          "قفڵی پیادە": "قفڵی ستانداردی نێودەوڵەتی المعتمدة المتطورة المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
           "تایەی سحاب": "تایەی ستانلێس ستیل لەسەر ڕێڕەوی Vی گالڤانایزکراوی زەوی"
         }
       },
       "en": {
-        "name": "Modern Horizontal Privacy Gate with Warm Natural Wood Pedestrian Inlay",
+        "name": "Horizontal Privacy Gate with Warm Natural Wood Pedestrian Inlay",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Achieve intuitive architectural zoning between vehicular and human entrances with this modern privacy gate. Featuring continuous horizontal extruded aluminum slats in a deep charcoal powder finish, the gate integrates a distinct pedestrian wicket door accented with genuine kiln-dried Iroko or Teak hardwood vertical slats, creating an inviting visual beacon for approaching family and guests.\n\nThe horizontal aluminum louvers are precision-extruded with interlocking anti-rattle tongue-and-groove profiles that block 100% of street sightlines while delivering exceptional wind deflection. The pedestrian timber inlay is seated within a thermal expansion sub-frame lined with EPDM buffers that absorb seasonal swelling and shrinkage without stressing the surrounding aluminum chassis.\n\nEquipped with an integrated European multi-point mortise lock, electric buzzer release, and heavy-duty dual-bearing bottom sliding wheels, this gate delivers effortless security, rich natural warmth, and dependable everyday convenience.",
+        "description": "This premium architectural gate features sleek dark aluminum slats paired with a warm treated wood pedestrian portal, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Intuitive Facade Zoning: Sleek Charcoal Metal Vehicular Span with Warm Hardwood Pedestrian Inlay",
           "100% Sightline Privacy Interlocking Extruded Aluminum Slats with Vibration-Dampening Gaskets",
           "Kiln-Dried African Iroko Hardwood Siding Sealed with UV-Inhibiting Marine Teak Oils",
-          "Integrated Pedestrian Door Pre-Fitted with European Multi-Point Deadbolt & Electric Strike",
+          "Integrated Pedestrian Door Pre-Fitted with Architectural Standard Multi-Point Deadbolt & Electric Strike",
           "Super-Durable Qualicoat Class 2 Fine-Texture Charcoal Powder Finish Resisting Harsh UV Sun"
         ],
         "specs": {
@@ -4834,19 +4835,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Slat Dimensions": "80 mm Wide Horizontal Aluminum Planks",
           "Timber Specification": "20 mm Thick Kiln-Dried African Iroko Slats (Vacuum-Impregnated)",
           "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Grey (RAL 7016)",
-          "Pedestrian Hardware": "STAC European Euro-Groove Lock with Integrated 12V Electric Release",
+          "Pedestrian Hardware": "المعتمدة Architectural Standard Euro-Groove Lock with Integrated 12V Electric Release",
           "Sliding Rollers": "Machined Stainless Steel Wheels on Inverted Galvanized Ground V-Track"
         }
       }
     },
-    "kurdishName": "دەروازەی نهێنی ئاسۆیی بە ڕەنگی تۆخ و دەرگای پیادەی تەختەی سروشتی",
-    "arabicDescription": "حقق تمييزاً معمارياً ذكياً بين مدخل السيارات وباب المشاة مع هذه البوابة العصرية الفاخرة. تتميز البوابة بشرائح ألمنيوم أفقية متتالية بلون رمادي فحمي مطفي، يتخللها باب مشاة شخصي مدمج مكسو بشرائح رأسية من خشب الإيروكو أو التيك الطبيعي الدافئ المجفف بالفرن، مما يمنح الضيوف إحساساً فورياً بالترحاب والأناقة الطبيعية.\n\nصُنعت شرائح الألمنيوم بنظام تعشيق متداخل محكم يمنع الرؤية تماماً بنسبة 100% ويشتت ضغط الرياح العاتية. وثُبتت الألواح الخشبية داخل إطار فرعي معزول بربلات المطاطية الهندسية ثلاثية الإحكام المرنة التي تمتص حركات تمدد وانكماش الخشب مع تغير الفصول دون التأثير على استقامة هيكل الألمنيوم الأساسي.\n\nتأتي البوابة مزودة بقفل أمان أوروبي متعدد النقاط لباب المشاة مع كالون كهربائي متوافق مع الإنتركوم، وعجلات انزلاق سفلية مزدوجة من الستانلس ستيل، لتضمن أماناً محكماً وسهولة فائقة في الاستخدام اليومي.",
-    "kurdishDescription": "دەروازەیەکی زۆر شیک کە دەروازەی ئۆتۆمبێلی بە شریتی ئەلەمنیۆمی ئاسۆیی تۆخ لەگەڵ دەرگای کەسی پیادە بە تەختەی داری سروشتی ئیرۆکۆی گەرم جیاکردووەتەوە بۆ دروستکردنی دیمەنێکی گەرم و ڕێڕەوێکی دیاریکراو بۆ میوانەکان.\n\nشریتەکانی ئەلەمنیۆم بە شێوازی قوفڵبوون دروستکراون کە 100% ناو حەوشە دەشارنەوە و بەرگەی بای بەهێز دەگرن. دارە سروشتییەکە لە چوارچێوەیەکی تایبەتدا دانراوە بە لاستیکی المطاط الهندسي ثلاثي الإحكام بۆ ئەوەی لە کاتی گەرما و سەرمادا خوار نەبێت و بە جوانی بمێنێتەوە.\n\nدەرگای پیادەکە قفڵی فرە خاڵی ئەوروپی و کواڵۆنی کارەبایی ئینتەرکۆمی لەسەرە، لەگەڵ تایەی ستانلێس ستیل بۆ جووڵەی نەرم لەسەر هێڵی زەوی."
+    "kurdishName": "دەروازەی شریتی ئاسۆیی تاریک بە دەرگای پیادەی تەختەی سروشتی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ شرائح الألمنيوم الداكنة المتناسقة مع باب الأفراد المكسو بالخشب الطبيعي الدافئ، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ئەلەمنیۆمی تاریک لەگەڵ دەرگای پیادەی تەختەی سروشتیی گەرم تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-62",
-    "name": "Luxury Estate Double Swing Gate with Alternating Natural Wood & Anodized Metallic Tiles",
-    "arabicName": "بوابة قصر مزدوجة بتصميم فسيفسائي فاخر يجمع بين الخشب والمعدن المؤكسد",
+    "name": "Double Swing Estate Gate with Mosaic Natural Wood and Metal Tiles",
+    "arabicName": "بوابة قصر مزدوجة بتصميم فسيفسائي يجمع بين الخشب والمعدن",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4870,17 +4871,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Opening Capacity": "Configurable from 90° to 120° Opening Angles with Soft-Stop",
       "Automation Prep": "Factory Prepped for Underground Hydraulic Drive Arms"
     },
-    "description": "Make an unforgettable grand entrance into your private estate with this artisanal double swing gate. Featuring an avant-garde mosaic of alternating geometric cassette tiles—pairing genuine vacuum-treated Burmese Teak with custom champagne and bronze anodized textured aluminum panels—this gate blurs the line between high-security perimeter engineering and sculptural fine art.\n\nEngineered with a heavy-duty concealed perimeter frame of 100 mm structural 6063-T6 aluminum, each swinging leaf rotates on heavy-duty multi-axis needle bearing pivot hinges rated for up to 600 kg. Each wood and metallic cassette is individually isolated with dielectric Neoprene gaskets that accommodate natural expansion while dampening road vibrations and buffeting winds.\n\nFinished with marine-grade ceramic topcoats and compatible with concealed in-ground hydraulic swing gate operators (BFT Sub / FAAC S800), this gate delivers a ceremonial, whisper-silent opening sequence that announces true architectural luxury.",
+    "description": "This premium architectural gate features alternating tiles of treated natural timber and precision-anodized metal panels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة قصر مزدوجة بتصميم فسيفسائي فاخر يجمع بين الخشب والمعدن المؤكسد",
+        "name": "بوابة قصر مزدوجة بتصميم فسيفسائي يجمع بين الخشب والمعدن",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "اصنع مدخلاً ملكياً لا يُنسى لقصرك الخاص مع هذه البوابة المزدوجة ذات التصميم الفسيفسائي الفني المبتكر. تتميز البوابة بتداخل هندسي ساحر بين مربعات كاسيت من خشب التيك البورمي الطبيعي المعالج بالضغط وألواح ألمنيوم مؤكسدة بتدرجات الشامبانيا والبرونز الفاخرة، لتتحول البوابة من مجرد حاجز أمني إلى عمل فني معماري مجسم يأسر الألباب.\n\nتم بناء الهيكل الأساسي من قطاعات ألمنيوم صندوقية مقواة سماكة 100 ملم، لتدور كل درفة بسلاسة مطلقة على مفصلات محورية ألمانية مزودة برولمان بلي إبري تتحمل أوزاناً حتى 600 كجم للدرفة. وتم عزل كل بلاطة خشبية ومعدنية بجوانات نيوبرين مرنة تسمح بالتمدد الطبيعي وتمتص اهتزازات الرياح والسيارات دون أي صوت.\n\nطُليت الأجزاء بطبقات نانو سيراميك بحرية، مع جاهزية كاملة للربط مع محركات الدوران الهيدروليكية الأرضية المخفية بالكامل (الإيطالية المعتمدة فائقة التحمل / الإيطالية الأوتوماتيكية فائقة التحمل)، لتمنحك حركة فتح احتفالية بالغة الفخامة والهدوء في كل مرة تصل فيها إلى قصرك.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح المتبادلة بين الخشب الطبيعي المعالج والألمنيوم المؤكسد فائق الفخامة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم فسيفسائي هندسي فني يجمع بين بلاطات خشب التيك البورمي وألواح الألمنيوم الشامبانيا المؤكسدة",
           "هيكل إنشائي مخفي فائق القوة يتحمل فتحات المداخل العريضة للقصور والمزارع الفاخرة",
           "جوانات نيوبرين عازلة خلف كل بلاطة تمتص الاهتزازات وتسمح بالتمدد والانكماش الطبيعي",
-          "مفصلات محورية ألمانية بمحامل إبرية فائقة الدقة تتحمل 600 كجم للدرفة الواحدة بحركة بالغة النعومة",
+          "مفصلات محورية المعتمدة بمحامل إبرية فائقة الدقة تتحمل 600 كجم للدرفة الواحدة بحركة بالغة النعومة",
           "جاهزية كاملة للمحركات الهيدروليكية الأرضية المخفية تماماً تحت الأرض لمنظر نقي خالي من الأذرع الظاهرة"
         ],
         "specs": {
@@ -4889,18 +4890,18 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "الألواح المعدنية": "ألمنيوم مؤكسد بطبقة 20 ميكرون بتدرجات لون الشامبانيا والبرونز",
           "نظام المفصلات": "مفصلات محورية بمحامل إبرية قابلة للتشحيم وضبط الموازنة ثلاثي الأبعاد",
           "زاوية الفتح": "قابلة للضبط من 90 درجة إلى 120 درجة مع فرملة هيدروليكية ناعمة",
-          "التشغيل الآلي": "تجهيز مسبق في المصنع لتركيب أذرع الدوران الهيدروليكية الأرضية"
+          "التشغيل الآلي": "تجهيز مسبق في المصنع لالمعتمدب أذرع الدوران الهيدروليكية الأرضية"
         }
       },
       "ckb": {
-        "name": "دەروازەی شاهانەی دوو باڵ بە دیزاینی مۆزاییکی دار تیک و ئەلەمنیۆمی شامپاین",
+        "name": "دەروازەی کۆشکی جووت باڵ بە مۆزاییکی تەختەی سروشتی و کانزا",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر نایاب و شاهانەی دوو باڵ بۆ کۆشک و ڤێلا گەورەکان کە نەخشێکی مۆزاییکی ناوازە لە نێوان پارچەکانی داری تیکی بۆرمایی سروشتی و ئەلەمنیۆمی ڕەنگی شامپاین و برۆنزی ئەنۆدایزکراو پێشکەش دەکات، کە وەک تابلۆیەکی هونەری سەرنجڕاکێش دەردەکەوێت.\n\nشاسییەکی ئەلەمنیۆمی 100 ملمی شاردراوەی هەیە و لەسەر نێری گەورەی ئەڵمانی دەسووڕێتەوە کە کێشی تا 600 کگم هەڵدەگرێت بۆ هەر باڵێک. هەموو پارچە تەختە و کانزاکان بە لاستیکی نیۆپرین جیاکراونەتەوە بۆ ڕێگری لە دەنگ و ڕێگەدان بە گۆڕانی کەشوهەوا بەبێ شێواندنی شێوەکەی.\n\nبە تەواوی گونجاوە بۆ مۆتۆری هیدرۆلیکی شاراوەی ژێرزەوی کە هیچ پارچەیەکی لە سەرەوە دیار نییە و بە بێدەنگی و نەرمی تەواو دەکرێتەوە.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی مۆزاییکی تەختەی سروشتیی چارەسەرکراو و ئەلەمنیۆمی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی مۆزاییکی ناوازە: تێکەڵەی پارچەکانی دار تیکی بۆرمایی و ئەلەمنیۆمی شامپاین",
           "شاسییەکی پتەوی شاراوە کە دەتوانێت دەروازەی زۆر پان بە دوو باڵ دابپۆشێت",
           "لاستیکی نیۆپرین لە پشتی هەر پارچەیەک بۆ نەهێشتنی دەنگ و لەرینەوەی با",
-          "نێری ئەڵمانی سووڕاوەی بەهێز بە توانای هەڵگرتنی تا 600 کگم بۆ هەر باڵێک بە نەرمی",
+          "نێری کوالیتی بەرز سووڕاوەی بەهێز بە توانای هەڵگرتنی تا 600 کگم بۆ هەر باڵێک بە نەرمی",
           "ئامادەکراو بۆ مۆتۆری هیدرۆلیکی شاراوەی ژێرزەوی بەبێ دەرکەوتنی باڵی مۆتۆر"
         ],
         "specs": {
@@ -4913,9 +4914,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Luxury Estate Double Swing Gate with Alternating Natural Wood & Anodized Metallic Tiles",
+        "name": "Double Swing Estate Gate with Mosaic Natural Wood and Metal Tiles",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Make an unforgettable grand entrance into your private estate with this artisanal double swing gate. Featuring an avant-garde mosaic of alternating geometric cassette tiles—pairing genuine vacuum-treated Burmese Teak with custom champagne and bronze anodized textured aluminum panels—this gate blurs the line between high-security perimeter engineering and sculptural fine art.\n\nEngineered with a heavy-duty concealed perimeter frame of 100 mm structural 6063-T6 aluminum, each swinging leaf rotates on heavy-duty multi-axis needle bearing pivot hinges rated for up to 600 kg. Each wood and metallic cassette is individually isolated with dielectric Neoprene gaskets that accommodate natural expansion while dampening road vibrations and buffeting winds.\n\nFinished with marine-grade ceramic topcoats and compatible with concealed in-ground hydraulic swing gate operators (BFT Sub / FAAC S800), this gate delivers a ceremonial, whisper-silent opening sequence that announces true architectural luxury.",
+        "description": "This premium architectural gate features alternating tiles of treated natural timber and precision-anodized metal panels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Artisanal Geometric Facade: Alternating Burmese Teak Hardwood Tiles & Champagne Anodized Panels",
           "Heavy-Duty Concealed Perimeter Chassis Capable of Spanning Wide Double-Leaf Estate Entrances",
@@ -4933,14 +4934,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی شاهانەی دوو باڵ بە دیزاینی مۆزاییکی دار تیک و ئەلەمنیۆمی شامپاین",
-    "arabicDescription": "اصنع مدخلاً ملكياً لا يُنسى لقصرك الخاص مع هذه البوابة المزدوجة ذات التصميم الفسيفسائي الفني المبتكر. تتميز البوابة بتداخل هندسي ساحر بين مربعات كاسيت من خشب التيك البورمي الطبيعي المعالج بالضغط وألواح ألمنيوم مؤكسدة بتدرجات الشامبانيا والبرونز الفاخرة، لتتحول البوابة من مجرد حاجز أمني إلى عمل فني معماري مجسم يأسر الألباب.\n\nتم بناء الهيكل الأساسي من قطاعات ألمنيوم صندوقية مقواة سماكة 100 ملم، لتدور كل درفة بسلاسة مطلقة على مفصلات محورية ألمانية مزودة برولمان بلي إبري تتحمل أوزاناً حتى 600 كجم للدرفة. وتم عزل كل بلاطة خشبية ومعدنية بجوانات نيوبرين مرنة تسمح بالتمدد الطبيعي وتمتص اهتزازات الرياح والسيارات دون أي صوت.\n\nطُليت الأجزاء بطبقات نانو سيراميك بحرية، مع جاهزية كاملة للربط مع محركات الدوران الهيدروليكية الأرضية المخفية بالكامل (الإيطالية المعتمدة فائقة التحمل / الإيطالية الأوتوماتيكية فائقة التحمل)، لتمنحك حركة فتح احتفالية بالغة الفخامة والهدوء في كل مرة تصل فيها إلى قصرك.",
-    "kurdishDescription": "دەروازەیەکی زۆر نایاب و شاهانەی دوو باڵ بۆ کۆشک و ڤێلا گەورەکان کە نەخشێکی مۆزاییکی ناوازە لە نێوان پارچەکانی داری تیکی بۆرمایی سروشتی و ئەلەمنیۆمی ڕەنگی شامپاین و برۆنزی ئەنۆدایزکراو پێشکەش دەکات، کە وەک تابلۆیەکی هونەری سەرنجڕاکێش دەردەکەوێت.\n\nشاسییەکی ئەلەمنیۆمی 100 ملمی شاردراوەی هەیە و لەسەر نێری گەورەی ئەڵمانی دەسووڕێتەوە کە کێشی تا 600 کگم هەڵدەگرێت بۆ هەر باڵێک. هەموو پارچە تەختە و کانزاکان بە لاستیکی نیۆپرین جیاکراونەتەوە بۆ ڕێگری لە دەنگ و ڕێگەدان بە گۆڕانی کەشوهەوا بەبێ شێواندنی شێوەکەی.\n\nبە تەواوی گونجاوە بۆ مۆتۆری هیدرۆلیکی شاراوەی ژێرزەوی کە هیچ پارچەیەکی لە سەرەوە دیار نییە و بە بێدەنگی و نەرمی تەواو دەکرێتەوە."
+    "kurdishName": "دەروازەی کۆشکی جووت باڵ بە مۆزاییکی تەختەی سروشتی و کانزا",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الألواح المتبادلة بين الخشب الطبيعي المعالج والألمنيوم المؤكسد فائق الفخامة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی مۆزاییکی تەختەی سروشتیی چارەسەرکراو و ئەلەمنیۆمی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-65",
-    "name": "High-Security Vertical Slat Aluminum Gate with Seamlessly Integrated Pedestrian Access",
-    "arabicName": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب مشاة مدمج بدون فواصل",
+    "name": "High-Security Vertical Slat Aluminum Gate with Integrated Access",
+    "arabicName": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب دخول متكامل",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -4960,16 +4961,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Frame Thickness": "100 mm Structural Aluminum Perimeter Chassis",
       "Vertical Fins": "60 mm Deep x 25 mm Wide Heavy-Wall Extruded Aluminum Slats",
       "Fin Spacing": "Calibrated 40 mm Anti-Climb Clearance",
-      "Pedestrian Hardware": "Concealed Heavy-Duty European Pivot Hinges & Integrated Electric Strike",
+      "Pedestrian Hardware": "Concealed Heavy-Duty Architectural Standard Pivot Hinges & Integrated Electric Strike",
       "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Graphite (RAL 7024)",
       "Automation System": "Heavy-Duty Inverted V Ground Track with Steel Drive Rack Integration"
     },
-    "description": "Marry rigorous anti-climb security with refined contemporary minimalism through this high-security vertical slat gate. Featuring continuous, precision-spaced vertical extruded aluminum fins extending across the full height of the property entrance, this gate incorporates an invisible-seam pedestrian wicket door that blends flawlessly into the vertical rhythm when closed, presenting an impenetrable, uniform architectural barricade.\n\nThe vertical fins are spaced at calibrated tight intervals that prevent footholds for climbing while ensuring generous daylight and airflow transmission. Engineered from structural 6063-T6 aluminum box sections with concealed internal tie-rods, the gate resists lateral pry-bar deflection and ramming forces. The integrated pedestrian portal features concealed European pivot hinges and a heavy-duty electric strike with internal wiring raceways.\n\nFinished in a Qualicoat Class 2 textured electrostatic architectural powder coating, this gate provides lifetime immunity against desert sand corrosion, surface oxidation, and color fading, delivering effortless security for modern estates.",
+    "description": "This premium architectural gate features closely spaced vertical aluminum slats providing maximum privacy and strength, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب مشاة مدمج بدون فواصل",
+        "name": "بوابة ألمنيوم أمنية بشرائح رأسية متقاربة مع باب دخول متكامل",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "اجمع بين أعلى معايير الحماية الأمنية المانعة للتسلق والأناقة المينيمالية المعاصرة مع هذه البوابة ذات الشرائح الرأسية. تتميز البوابة بشرائح ألمنيوم رأسية متتالية ومتقاربة بدقة تمتد بكامل ارتفاع المدخل، وتحتضن في ثناياها باب مشاة مدمج بفواصل غير مرئية يختفي تماماً داخل إيقاع الخطوط الرأسية عند إغلاقه، ليظهر المدخل كحاجز أمني معماري موحد وفائق الهيبة.\n\nتمت موازنة المسافات بين الشرائح الرأسية بدقة هندسية تمنع وضع القدمين أو التسلق نهائياً، مع السماح بمرور الضوء الطبيعي وتيارات الهواء النقية. صُنعت الشرائح من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة معززة بقضبان شد داخلية مخفية تقاوم محاولات الخلع أو الصدمات العنيفة. ويحتوي باب المشاة على مفصلات محورية أوروبية مخفية وكالون كهربائي ذكي مع تمديدات أسلاك معزولة داخل الهيكل.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون غرافيتي مطفي مقاوم للخدش والأكسدة وعواصف الرمال، لتمنح فيلتك حصناً أمنياً منيعاً ومظهراً معمارياً راقياً يدوم لسنوات طويلة.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المتراصة بدقة لتوفير أعلى درجات الحماية والخصوصية البصرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم أمني بشرائح رأسية مانعة للتسلق يوفر أقصى درجات الحماية والردع الأمني لمحيط الفيلا",
           "باب مشاة مدمج بسلاسة تامة يختفي داخل التصميم الرأسي عند إغلاقه للحفاظ على نقاء الواجهة",
@@ -4981,15 +4982,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "سماكة الإطار الهيكلي": "100 ملم قطاع ألمنيوم إنشائي صندوقي مقوى المعمارية المعالجة حرارياً عالية الصلابة",
           "مقاس الشرائح الرأسية": "عمق 60 ملم × عرض 25 ملم ألمنيوم مسحوب عالي الكثافة",
           "المسافة بين الشرائح": "خلوص أمني 40 ملم مانع للتسلق ومقاوم للاختراق",
-          "إكسسوارات باب المشاة": "مفصلات محورية أوروبية مخفية مع كالون كهربائي 12 فولت",
+          "إكسسوارات باب المشاة": "مفصلات محورية المعتمدة مخفية مع كالون كهربائي 12 فولت",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي غرافيتي مطفي (المواصفات المعمارية 7024)",
           "نظام السحب الآلي": "سكة سفلية مقلوبة مع مسنن سحب فولاذي مدمج"
         }
       },
       "ckb": {
-        "name": "دەروازەی ئەمنی ئەلەمنیۆم بە شریتی ستوونی دژە سەرکەوتن و دەرگای پیادەی شاراوە",
+        "name": "دەروازەی ئەلەمنیۆمی ئەمنی بە شریتی ستوونی و دەرگای چوونەژوورەوە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ئەمنی بەهێز بە شریتی ستوونی ئەلەمنیۆم کە بە شێوازێک دروستکراوە کە ڕێگری تەواو لە سەرکەوتن و بازدان دەکات، هاوکات دەرگای کەسی پیادەی بە شێوەیەکی شاراوە تێدا جێگیرکراوە کە کاتێک دادەخرێت بە تەواوی لەگەڵ هێڵە ستوونییەکان یەک دەگرێت.\n\nمەودای نێوان شریتەکان زۆر بە وردی دیاریکراوە تا کەس نەتوانێت قاچی لێبنێت، بەڵام ڕووناکی و هەوای فێنک بە ئاسانی تێپەڕ دەبێت. لە ئەلەمنیۆمی ئەستووری المعمارية المعالجة حرارياً عالية الصلابة بە شیشی ئاسنی ناوەکی دروستکراوە بۆ ڕێگری لە شکاندن و زەبر. دەرگای پیادەکە نێری شاراوە و قفڵی کارەبایی ئینتەرکۆمی تێدایە.\n\nبۆیاخی پۆودەری کوالیکۆت کلاسی 2 ڕەساسی تۆخی لەسەرە کە دژە ژەنگ و خۆرە، و بە مۆتۆری خۆکاری سحاب لەسەر هێڵی زەوی کار دەکات.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی بەهێز و نزیک لەیەک بۆ بەرزترین ئاستی پاراستن و تایبەتمەندی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی ستوونی دژە سەرکەوتن بۆ بەرزترین ئاستی پارێزگاری لە دەوروبەری ڤێلا",
           "دەرگای پیادەی شاراوە کە کاتێک دادەخرێت هیچ جیاوازییەک لەگەڵ هێڵە ستوونییەکان نابینرێت",
@@ -5001,15 +5002,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "ئەستووری چوارچێوە": "100 ملم ئەلەمنیۆمی سندوقی پتەوی المعمارية المعالجة حرارياً عالية الصلابة",
           "قەبارەی شریتەکان": "60 ملم قووڵایی × 25 ملم پانی ئەلەمنیۆمی ئەستوور",
           "مەودای نێوان شریت": "40 ملم بۆشایی ئەمنی دژە سەرکەوتن",
-          "ئیکسسواراتی پیادە": "نێری شاراوەی ئەوروپی لەگەڵ کواڵۆنی کارەبایی 12V",
+          "ئیکسسواراتی پیادە": "نێری شاراوەی ستانداردی نێودەوڵەتی لەگەڵ کواڵۆنی کارەبایی 12V",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 گرافیتی مات (المواصفات المعمارية 7024)",
           "سیستەمی مۆتۆر": "ڕێڕەوی Vی زەوی لەگەڵ گێڕی ئاسنی بەهێز"
         }
       },
       "en": {
-        "name": "High-Security Vertical Slat Aluminum Gate with Seamlessly Integrated Pedestrian Access",
+        "name": "High-Security Vertical Slat Aluminum Gate with Integrated Access",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Marry rigorous anti-climb security with refined contemporary minimalism through this high-security vertical slat gate. Featuring continuous, precision-spaced vertical extruded aluminum fins extending across the full height of the property entrance, this gate incorporates an invisible-seam pedestrian wicket door that blends flawlessly into the vertical rhythm when closed, presenting an impenetrable, uniform architectural barricade.\n\nThe vertical fins are spaced at calibrated tight intervals that prevent footholds for climbing while ensuring generous daylight and airflow transmission. Engineered from structural 6063-T6 aluminum box sections with concealed internal tie-rods, the gate resists lateral pry-bar deflection and ramming forces. The integrated pedestrian portal features concealed European pivot hinges and a heavy-duty electric strike with internal wiring raceways.\n\nFinished in a Qualicoat Class 2 textured electrostatic architectural powder coating, this gate provides lifetime immunity against desert sand corrosion, surface oxidation, and color fading, delivering effortless security for modern estates.",
+        "description": "This premium architectural gate features closely spaced vertical aluminum slats providing maximum privacy and strength, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Anti-Climb Vertical Aluminum Fin Architecture Delivering Maximum Perimeter Deterrence",
           "Seamless Integrated Pedestrian Wicket Door Virtually Invisible When Closed for Facade Purity",
@@ -5021,20 +5022,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Frame Thickness": "100 mm Structural Aluminum Perimeter Chassis",
           "Vertical Fins": "60 mm Deep x 25 mm Wide Heavy-Wall Extruded Aluminum Slats",
           "Fin Spacing": "Calibrated 40 mm Anti-Climb Clearance",
-          "Pedestrian Hardware": "Concealed Heavy-Duty European Pivot Hinges & Integrated Electric Strike",
+          "Pedestrian Hardware": "Concealed Heavy-Duty Architectural Standard Pivot Hinges & Integrated Electric Strike",
           "Surface Coating": "Qualicoat Class 2 Fine-Texture Charcoal Graphite (RAL 7024)",
           "Automation System": "Heavy-Duty Inverted V Ground Track with Steel Drive Rack Integration"
         }
       }
     },
-    "kurdishName": "دەروازەی ئەمنی ئەلەمنیۆم بە شریتی ستوونی دژە سەرکەوتن و دەرگای پیادەی شاراوە",
-    "arabicDescription": "اجمع بين أعلى معايير الحماية الأمنية المانعة للتسلق والأناقة المينيمالية المعاصرة مع هذه البوابة ذات الشرائح الرأسية. تتميز البوابة بشرائح ألمنيوم رأسية متتالية ومتقاربة بدقة تمتد بكامل ارتفاع المدخل، وتحتضن في ثناياها باب مشاة مدمج بفواصل غير مرئية يختفي تماماً داخل إيقاع الخطوط الرأسية عند إغلاقه، ليظهر المدخل كحاجز أمني معماري موحد وفائق الهيبة.\n\nتمت موازنة المسافات بين الشرائح الرأسية بدقة هندسية تمنع وضع القدمين أو التسلق نهائياً، مع السماح بمرور الضوء الطبيعي وتيارات الهواء النقية. صُنعت الشرائح من قطاعات ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة معززة بقضبان شد داخلية مخفية تقاوم محاولات الخلع أو الصدمات العنيفة. ويحتوي باب المشاة على مفصلات محورية أوروبية مخفية وكالون كهربائي ذكي مع تمديدات أسلاك معزولة داخل الهيكل.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون غرافيتي مطفي مقاوم للخدش والأكسدة وعواصف الرمال، لتمنح فيلتك حصناً أمنياً منيعاً ومظهراً معمارياً راقياً يدوم لسنوات طويلة.",
-    "kurdishDescription": "دەروازەیەکی ئەمنی بەهێز بە شریتی ستوونی ئەلەمنیۆم کە بە شێوازێک دروستکراوە کە ڕێگری تەواو لە سەرکەوتن و بازدان دەکات، هاوکات دەرگای کەسی پیادەی بە شێوەیەکی شاراوە تێدا جێگیرکراوە کە کاتێک دادەخرێت بە تەواوی لەگەڵ هێڵە ستوونییەکان یەک دەگرێت.\n\nمەودای نێوان شریتەکان زۆر بە وردی دیاریکراوە تا کەس نەتوانێت قاچی لێبنێت، بەڵام ڕووناکی و هەوای فێنک بە ئاسانی تێپەڕ دەبێت. لە ئەلەمنیۆمی ئەستووری المعمارية المعالجة حرارياً عالية الصلابة بە شیشی ئاسنی ناوەکی دروستکراوە بۆ ڕێگری لە شکاندن و زەبر. دەرگای پیادەکە نێری شاراوە و قفڵی کارەبایی ئینتەرکۆمی تێدایە.\n\nبۆیاخی پۆودەری کوالیکۆت کلاسی 2 ڕەساسی تۆخی لەسەرە کە دژە ژەنگ و خۆرە، و بە مۆتۆری خۆکاری سحاب لەسەر هێڵی زەوی کار دەکات."
+    "kurdishName": "دەروازەی ئەلەمنیۆمی ئەمنی بە شریتی ستوونی و دەرگای چوونەژوورەوە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المتراصة بدقة لتوفير أعلى درجات الحماية والخصوصية البصرية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی بەهێز و نزیک لەیەک بۆ بەرزترین ئاستی پاراستن و تایبەتمەندی تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-66",
     "name": "Modern Dark Sliding Gate with Integrated Sidelight Pedestrian Portal",
-    "arabicName": "بوابة سحابة داكنة فخمة بجوار مدخل مشاة زجاجي معمارِي مضيء",
+    "arabicName": "بوابة سحابة داكنة مع مدخل مشاة زجاجي معماري متناسق",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -5055,15 +5056,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Slat Dimensions": "85 mm Wide Horizontal Extruded Privacy Louvers",
       "Pedestrian Glazing": "10 mm (5+5 mm) Smoked Grey Laminated Tempered Safety Glass",
       "Surface Coating": "Qualicoat Class 2 Volcanic Charcoal Matte Finish (RAL 7021)",
-      "Lock Mechanism": "European STAC Euro-Groove Lock with Integrated 12V Solenoid Strike",
+      "Lock Mechanism": "Architectural Standard المعتمدة Euro-Groove Lock with Integrated 12V Solenoid Strike",
       "Automation Hardware": "Heavy-Duty Inverted V Ground Track with Steel Drive Rack Integration"
     },
-    "description": "Make an understated yet profoundly luxurious perimeter statement with this modern dark sliding gate ensemble. Featuring continuous horizontal extruded aluminum privacy slats in a deep volcanic charcoal finish, this system is paired with an adjacent pedestrian sidelight portal featuring 10 mm tempered laminated smoked privacy glass, creating a sophisticated translucent arrival sequence.\n\nEngineered upon a monolithic 100 mm structural 6063-T6 aluminum beam, the sliding driveway leaf spans up to 6 meters with zero middle deflection. The adjacent pedestrian portal incorporates integrated internal conduits pre-wired for digital keypad entry, biometric fingerprint scanners, and an electromagnetic lock release integrated into the architectural aluminum jamb.\n\nThe surface is coated with a super-durable Qualicoat Class 2 fine-textured powder coat that repels desert sand abrasion and intense UV radiation. Dual sealed-bearing stainless steel ground rollers running on a precision stainless steel inverted V-track ensure whisper-silent, effortless automation.",
+    "description": "This premium architectural gate features wide dark sliding panels with an adjacent full-height architectural glass pedestrian door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سحابة داكنة فخمة بجوار مدخل مشاة زجاجي معمارِي مضيء",
+        "name": "بوابة سحابة داكنة مع مدخل مشاة زجاجي معماري متناسق",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "أضف إلى مدخل فيلتك فخامة هادئة وتصميماً معمارياً استثنائياً مع هذه المنظومة السحابة المتطورة. تتميز البوابة بشرائح ألمنيوم أفقية متتالية بلون رمادي بركاني داكن مطفي، يتكامل معها مدخل مشاة جانبي فاخر مزود بلوح زجاجي مصفح مدخن سماكة 10 ملم يوفر خصوصية راقية ويمرر الضوء بأسلوب معاصر يجذب الأنظار.\n\nتم بناء درفة السيارات على جسر ألمنيوم إنشائي صلب سماكة 100 ملم يتحمل مسافات فتح واسعة تصل إلى 6 أمتار دون أي انحناء. ويحتوي عمود مدخل المشاة على مسارات أسلاك داخلية مجهزة مسبقاً للربط مع لوحات المفاتيح الرقمية، قارئ البصمة البيومترية، والكالون الكهرومغناطيسي المدمج داخل كتف الألمنيوم دون أي تشويه بصري.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 فائقة التحمل ضد احتكاك الرمال وأشعة الشمس الحارقة، مع تزويدها بعجلات ستانلس ستيل بمحامل كروية محكمة تسير على سكة مقلوبة لضمان تشغيل آلي هادئ وسلس للغاية.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب الداكنة العريضة المجاورة لباب مشاة زجاجي بكامل الارتفاع، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "منظومة معمارية متكاملة: بوابة سيارات سحابة داكنة مع مدخل مشاة بزجاج مدخن أنيق وراقٍ",
           "لوح زجاجي جانبي مصفح مدخن سماكة 10 ملم يمنح خصوصية بصرية ويمرر الضوء بفخامة",
@@ -5076,14 +5077,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "مقاس الشرائح": "شرائح ألمنيوم أفقية مسحوبة عرض 85 ملم تمنع الرؤية تماماً",
           "زجاج باب المشاة": "10 ملم (5+5) زجاج أمان مصفح ومقسى بلون رمادي مدخن",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي بركاني مطفي (المواصفات المعمارية 7021)",
-          "نظام الإقفال": "قفل أوروبي الإسبانية المعتمدة متعدد النقاط مع كالون كهرومغناطيسي 12 فولت",
+          "نظام الإقفال": "قفل المعتمدة المتطورة المعتمدة متعدد النقاط مع كالون كهرومغناطيسي 12 فولت",
           "السكة والعجلات": "سكة مقلوبة ستانلس ستيل مع مسنن سحب فولاذي مدمج"
         }
       },
       "ckb": {
-        "name": "دەروازەی سحابی تۆخی فەخم لەگەڵ دەرگای پیادەی شووشەی دووکەڵی مۆدێرن",
+        "name": "دەروازەی سلایدینگی تاریک لەگەڵ دەرگای پیادەی شووشەیی شیک",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر شیک و سەردەمی بۆ ڤێلا کە دەروازەی سحابی ئۆتۆمبێلی ڕەنگی خەڵوزی برکانی لەگەڵ دەرگای پیادەی شووشەی دووکەڵی 10 ملم پێکەوە دەبەستێتەوە بۆ پێشکەشکردنی دیمەنێکی سەرنجڕاکێش و ڕۆشن بەبێ لەدەستدانی پاراستن.\n\nجەستەی سەرەکی لەسەر جسرێکی ئەلەمنیۆمی 100 ملم دروستکراوە کە دەتوانێت تا پانی 6 مەتر بەبێ هیچ خواربوونێک کار بکات. کۆڵەکەی دەرگای پیادەکە کەناڵی ناوەکی بۆ وایەری پەنجەمۆر و کیپادی ژمارە و کواڵۆنی کارەبایی تێدایە بە شێوەیەکی تەواو شاراوە.\n\nبۆیاخی کوالیکۆت کلاسی 2ی لەسەرە کە بەرگەی خۆر و لم دەگرێت، و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی بە مۆتۆری خۆکار دەجووڵێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی پان لەگەڵ دەرگایەکی تەنیشتی شووشەیی درێژ بۆ پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "سیستەمی تەواوی دەروازە: دەروازەی ئۆتۆمبێلی خەڵوزی لەگەڵ دەرگای پیادەی شووشەی دووکەڵی جوان",
           "شووشەی لامینەیتی 10 ملمی دووکەڵی بۆ ڕووناکی و پاراستنی نهێنی بە شێوازێکی مۆدێرن",
@@ -5096,14 +5097,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "قەبارەی شریتەکان": "شریتی 85 ملم ئەلەمنیۆمی ئاسۆیی تۆکمە",
           "شووشەی پیادە": "10 ملم (5+5) شووشەی لامینەیتی سێکۆریتی دووکەڵی",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی خەڵوزی برکانی (المواصفات المعمارية 7021)",
-          "قفڵی پیادە": "قفڵی ئەوروپی الإسبانية المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
+          "قفڵی پیادە": "قفڵی ستانداردی نێودەوڵەتی المعتمدة المتطورة المعتمدة لەگەڵ کواڵۆنی کارەبایی 12V",
           "سیستەمی مۆتۆر": "ڕێڕەوی V لەگەڵ گێڕی ئاسنی بۆ مۆتۆری سحاب"
         }
       },
       "en": {
         "name": "Modern Dark Sliding Gate with Integrated Sidelight Pedestrian Portal",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Make an understated yet profoundly luxurious perimeter statement with this modern dark sliding gate ensemble. Featuring continuous horizontal extruded aluminum privacy slats in a deep volcanic charcoal finish, this system is paired with an adjacent pedestrian sidelight portal featuring 10 mm tempered laminated smoked privacy glass, creating a sophisticated translucent arrival sequence.\n\nEngineered upon a monolithic 100 mm structural 6063-T6 aluminum beam, the sliding driveway leaf spans up to 6 meters with zero middle deflection. The adjacent pedestrian portal incorporates integrated internal conduits pre-wired for digital keypad entry, biometric fingerprint scanners, and an electromagnetic lock release integrated into the architectural aluminum jamb.\n\nThe surface is coated with a super-durable Qualicoat Class 2 fine-textured powder coat that repels desert sand abrasion and intense UV radiation. Dual sealed-bearing stainless steel ground rollers running on a precision stainless steel inverted V-track ensure whisper-silent, effortless automation.",
+        "description": "This premium architectural gate features wide dark sliding panels with an adjacent full-height architectural glass pedestrian door, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Two-Part Architectural Suite: Dark Charcoal Sliding Gate & Smoked Privacy Glass Pedestrian Portal",
           "10 mm Tempered Laminated Smoked Glass Sidelight Providing Elegant Daylight Transparency",
@@ -5116,19 +5117,19 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Slat Dimensions": "85 mm Wide Horizontal Extruded Privacy Louvers",
           "Pedestrian Glazing": "10 mm (5+5 mm) Smoked Grey Laminated Tempered Safety Glass",
           "Surface Coating": "Qualicoat Class 2 Volcanic Charcoal Matte Finish (RAL 7021)",
-          "Lock Mechanism": "European STAC Euro-Groove Lock with Integrated 12V Solenoid Strike",
+          "Lock Mechanism": "Architectural Standard المعتمدة Euro-Groove Lock with Integrated 12V Solenoid Strike",
           "Automation Hardware": "Heavy-Duty Inverted V Ground Track with Steel Drive Rack Integration"
         }
       }
     },
-    "kurdishName": "دەروازەی سحابی تۆخی فەخم لەگەڵ دەرگای پیادەی شووشەی دووکەڵی مۆدێرن",
-    "arabicDescription": "أضف إلى مدخل فيلتك فخامة هادئة وتصميماً معمارياً استثنائياً مع هذه المنظومة السحابة المتطورة. تتميز البوابة بشرائح ألمنيوم أفقية متتالية بلون رمادي بركاني داكن مطفي، يتكامل معها مدخل مشاة جانبي فاخر مزود بلوح زجاجي مصفح مدخن سماكة 10 ملم يوفر خصوصية راقية ويمرر الضوء بأسلوب معاصر يجذب الأنظار.\n\nتم بناء درفة السيارات على جسر ألمنيوم إنشائي صلب سماكة 100 ملم يتحمل مسافات فتح واسعة تصل إلى 6 أمتار دون أي انحناء. ويحتوي عمود مدخل المشاة على مسارات أسلاك داخلية مجهزة مسبقاً للربط مع لوحات المفاتيح الرقمية، قارئ البصمة البيومترية، والكالون الكهرومغناطيسي المدمج داخل كتف الألمنيوم دون أي تشويه بصري.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 فائقة التحمل ضد احتكاك الرمال وأشعة الشمس الحارقة، مع تزويدها بعجلات ستانلس ستيل بمحامل كروية محكمة تسير على سكة مقلوبة لضمان تشغيل آلي هادئ وسلس للغاية.",
-    "kurdishDescription": "دەروازەیەکی زۆر شیک و سەردەمی بۆ ڤێلا کە دەروازەی سحابی ئۆتۆمبێلی ڕەنگی خەڵوزی برکانی لەگەڵ دەرگای پیادەی شووشەی دووکەڵی 10 ملم پێکەوە دەبەستێتەوە بۆ پێشکەشکردنی دیمەنێکی سەرنجڕاکێش و ڕۆشن بەبێ لەدەستدانی پاراستن.\n\nجەستەی سەرەکی لەسەر جسرێکی ئەلەمنیۆمی 100 ملم دروستکراوە کە دەتوانێت تا پانی 6 مەتر بەبێ هیچ خواربوونێک کار بکات. کۆڵەکەی دەرگای پیادەکە کەناڵی ناوەکی بۆ وایەری پەنجەمۆر و کیپادی ژمارە و کواڵۆنی کارەبایی تێدایە بە شێوەیەکی تەواو شاراوە.\n\nبۆیاخی کوالیکۆت کلاسی 2ی لەسەرە کە بەرگەی خۆر و لم دەگرێت، و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی بە مۆتۆری خۆکار دەجووڵێت."
+    "kurdishName": "دەروازەی سلایدینگی تاریک لەگەڵ دەرگای پیادەی شووشەیی شیک",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ ألواح السحب الداكنة العريضة المجاورة لباب مشاة زجاجي بكامل الارتفاع، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە لەوحەی سلایدینگی پان لەگەڵ دەرگایەکی تەنیشتی شووشەیی درێژ بۆ پیادە تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-71",
-    "name": "Two-Tone Architectural Gate with Warm Natural Timber Paneling & Slate Grey Aluminum",
-    "arabicName": "بوابة معمارية بدرجتين لونيتين تجمع بين ألواح الخشب الدافئة ورمادي الإردواز",
+    "name": "Two-Tone Architectural Gate with Natural Timber and Slate Aluminum",
+    "arabicName": "بوابة معمارية بتناغم الخشب الطبيعي والألمنيوم الرمادي",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -5148,36 +5149,36 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Frame Dimensions": "95 mm x 55 mm Heavy-Wall Structural Aluminum",
       "Timber Specifications": "22 mm Thick Kiln-Dried African Teak or Thermo-Ash Planks",
       "Surface Coating": "Qualicoat Class 2 Fine-Texture Slate Grey (RAL 7015)",
-      "Hardware Prep": "STAC European Euro-Groove Multi-Point Mortise Lock Case",
+      "Hardware Prep": "المعتمدة Architectural Standard Euro-Groove Multi-Point Mortise Lock Case",
       "Hinge System": "Stainless Steel 3D Micro-Adjustable Pivot Bearings (Capacity 500 kg per Leaf)",
       "Warranty": "10-Year Structural Frame & Wood Anti-Rot Guarantee"
     },
-    "description": "Harmonize organic natural warmth with crisp modern geometry through this two-tone architectural entrance gate. Featuring vertical planks of genuine kiln-dried African Teak or Thermo-Ash framed within a low-sheen Slate Grey structural aluminum surround, this gate delivers rich material warmth, prestige, and contemporary modern character to modern villa facades.\n\nThe genuine timber panels are vacuum-impregnated with non-film-forming hydrophobic oils containing nano-pigments that shield against intense desert sun and seasonal warping. The perimeter 6063-T6 structural aluminum frame is engineered with concealed expansion joints and internal acoustic rubber buffers that absorb metal expansion chatter during rapid temperature shifts between day and night.\n\nEquipped with heavy-duty adjustable European hinges, concealed magnetic stops, and universal motor bracket mounts, this gate ensures whisper-silent operation, exceptional perimeter defense, and timeless architectural appeal.",
+    "description": "This premium architectural gate features harmonious split composition blending warm timber paneling with slate aluminum, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة معمارية بدرجتين لونيتين تجمع بين ألواح الخشب الدافئة ورمادي الإردواز",
+        "name": "بوابة معمارية بتناغم الخشب الطبيعي والألمنيوم الرمادي",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حقق تناغماً ساحراً بين دفء الطبيعة الأصيلة ونقاء الهندسة المعمارية الحديثة مع هذه البوابة ثنائية التدرج اللوني. تتميز البوابة بألواح رأسية من خشب التيك الإفريقي أو الأش المعالج حرارياً والمجفف بالفرن، والمحاطة بإطار ألمنيوم هيكلي بلون رمادي الإردواز المطفي، مما يمنح واجهة فيلتك فخامة طبيعية لا تقاوم وإحساساً راقياً بالحداثة والأصالة.\n\nتمت معالجة الألواح الخشبية بالتشبيع المفرغ بزيوت بحرية عازلة للماء ومزودة بجزيئات النانو العاكسة للأشعة فوق البنفسجية لحماية الخشب من الجفاف والتشقق وتغير اللون في حرارة الصيف الشديدة. وتم تزويد إطار الألمنيوم المعمارية المعالجة حرارياً عالية الصلابة بفواصل تمدد مخفية وجوانات نيوبرين مطاطية تمتص أصوات التمدد الحراري الناتجة عن التغير المفاجئ في درجات الحرارة بين الليل والنهار.\n\nزُوّدت البوابة بمفصلات محورية أوروبية قابلة للتعديل بدقة ومصدات مغناطيسية ناعمة وقواعد جاهزة للمحركات، لتمنحك حركة فتح بالغة السلاسة، أماناً محكماً، وجمالاً معمارياً يزداد رونقاً مع مرور السنين.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ المزيج المعماري المتناسق بين ألواح الخشب الدافئة ومعدن الألمنيوم الرمادي الرصين، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "تصميم لوني ثنائي فاخر يجمع بين دفء الخشب الطبيعي الرأسي وأناقة ألمنيوم رمادي الإردواز",
           "خشب تيك إفريقي طبيعي مشبع بزيوت النانو البحرية العازلة لحرارة الشمس والرطوبة",
           "هيكل ألمنيوم إنشائي المعمارية المعالجة حرارياً عالية الصلابة عالي المتانة مزود بفواصل تمدد حراري مخفية بالكامل",
           "جوانات نيوبرين مطاطية عازلة تمتص الاهتزازات وتمنع أي طقطقة ناتجة عن التمدد الحراري",
-          "جاهزية كاملة لتركيب أذرع الفتح الكهربائية السطحية أو المحركات الهيدروليكية الأرضية"
+          "جاهزية كاملة لالمعتمدب أذرع الفتح الكهربائية السطحية أو المحركات الهيدروليكية الأرضية"
         ],
         "specs": {
           "أبعاد قطاع الإطار": "95 ملم × 55 ملم قطاع ألمنيوم إنشائي صندوقي مقوى",
           "مواصفات الخشب": "ألواح خشب تيك إفريقي أو أش معالج حرارياً بسماكة 22 ملم مجفف بالفرن",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي إردواز مطفي (المواصفات المعمارية 7015)",
-          "تجهيزات الإقفال": "قفل أمان أوروبي الإسبانية المعتمدة متعدد النقاط مع سلندر يورو مقاوم للنسخ",
+          "تجهيزات الإقفال": "قفل أمان المعتمدة المتطورة المعتمدة متعدد النقاط مع سلندر يورو مقاوم للنسخ",
           "المفصلات": "محامل دوران ستانلس ستيل قابلة للضبط ثلاثي الأبعاد (تتحمل 500 كجم للدرفة)",
           "الضمان": "ضمان 10 سنوات على سلامة الهيكل الإنشائي ومقاومة الخشب للتلف"
         }
       },
       "ckb": {
-        "name": "دەروازەی نژیاروانی دوو ڕەنگ بە تەختەی سروشتی و ئەلەمنیۆمی ڕەساسی",
+        "name": "دەروازەی تەلارسازی بە تێکەڵەی تەختەی سروشتی و ئەلەمنیۆمی ڕەساسی",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نایاب کە گەرمی داری سروشتی و ئەلەمنیۆمی ڕەساسی ماتی تێدا کۆکراوەتەوە بۆ دروستکردنی دیمەنێکی مۆدێرن و شکۆدار بۆ دەروازەی ڤێلاکەت.\n\nتەختە سروشتییەکانی لە داری تیکی ئەفریقی وشککراو دروستکراون بە زەیتی نانۆی دژە تیشکی خۆر بۆ ئەوەی لە گەرمای بیاباندا تێکنەچن. چوارچێوەی ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة لە ناوەوە لاستیکی نیۆپرینی تێدایە بۆ هەڵمژینی دەنگی گەرما و سەرما بەبێ ئەوەی هیچ دەنگێکی لەرینەوە دروست ببێت.\n\nلەسەر نێری سووڕاوەی بەهێزی ئەوروپی دەسووڕێتەوە لەگەڵ ئامادەکاری تەواو بۆ بەستنی باڵی مۆتۆری کارەبایی یان مۆتۆری هیدرۆلیکی ژێرزەوی.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تێکەڵەیەکی تەلارسازیی جوان لەنێوان داری سروشتی و ئەلەمنیۆمی ڕەساسی تۆخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاینی دوو ڕەنگی فەخم: تێکەڵەی تەختەی ستوونی سروشتی و ئەلەمنیۆمی ڕەساسی مات",
           "داری تیکی ئەفریقی چارەسەرکراو بە ڕۆنی نانۆ دژە تیشکی خۆر و شێ",
@@ -5189,15 +5190,15 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "ئەندازەی چوارچێوە": "95 ملم × 55 ملم ئەلەمنیۆمی سندوقی پتەو",
           "تایبەتمەندی تەختە": "تەختەی 22 ملم ئەستووری تیکی ئەفریقی وشککراو لە فڕن",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی ڕەساسی مات (المواصفات المعمارية 7015)",
-          "ئامادەکاری قفڵ": "کواڵۆنی ئەوروپی فرە خاڵی الإسبانية المعتمدة",
+          "ئامادەکاری قفڵ": "کواڵۆنی ستانداردی نێودەوڵەتی فرە خاڵی المعتمدة المتطورة المعتمدة",
           "نێرەکان": "نێری سووڕاوەی ستانلێس ستیلی 3D (بەرگەی 500 کگم دەگرێت بۆ هەر باڵێک)",
           "گرەنتی": "10 ساڵ گرەنتی لەسەر شاسی و نەپووکانەوەی دار"
         }
       },
       "en": {
-        "name": "Two-Tone Architectural Gate with Warm Natural Timber Paneling & Slate Grey Aluminum",
+        "name": "Two-Tone Architectural Gate with Natural Timber and Slate Aluminum",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Harmonize organic natural warmth with crisp modern geometry through this two-tone architectural entrance gate. Featuring vertical planks of genuine kiln-dried African Teak or Thermo-Ash framed within a low-sheen Slate Grey structural aluminum surround, this gate delivers rich material warmth, prestige, and contemporary modern character to modern villa facades.\n\nThe genuine timber panels are vacuum-impregnated with non-film-forming hydrophobic oils containing nano-pigments that shield against intense desert sun and seasonal warping. The perimeter 6063-T6 structural aluminum frame is engineered with concealed expansion joints and internal acoustic rubber buffers that absorb metal expansion chatter during rapid temperature shifts between day and night.\n\nEquipped with heavy-duty adjustable European hinges, concealed magnetic stops, and universal motor bracket mounts, this gate ensures whisper-silent operation, exceptional perimeter defense, and timeless architectural appeal.",
+        "description": "This premium architectural gate features harmonious split composition blending warm timber paneling with slate aluminum, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Two-Tone Architectural Facade: Natural Kiln-Dried Hardwood Paired with Slate Grey Aluminum",
           "Vacuum-Impregnated African Teak Cladding Shielded with Hydrophobic UV Nano-Sealer",
@@ -5209,20 +5210,20 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
           "Frame Dimensions": "95 mm x 55 mm Heavy-Wall Structural Aluminum",
           "Timber Specifications": "22 mm Thick Kiln-Dried African Teak or Thermo-Ash Planks",
           "Surface Coating": "Qualicoat Class 2 Fine-Texture Slate Grey (RAL 7015)",
-          "Hardware Prep": "STAC European Euro-Groove Multi-Point Mortise Lock Case",
+          "Hardware Prep": "المعتمدة Architectural Standard Euro-Groove Multi-Point Mortise Lock Case",
           "Hinge System": "Stainless Steel 3D Micro-Adjustable Pivot Bearings (Capacity 500 kg per Leaf)",
           "Warranty": "10-Year Structural Frame & Wood Anti-Rot Guarantee"
         }
       }
     },
-    "kurdishName": "دەروازەی نژیاروانی دوو ڕەنگ بە تەختەی سروشتی و ئەلەمنیۆمی ڕەساسی",
-    "arabicDescription": "حقق تناغماً ساحراً بين دفء الطبيعة الأصيلة ونقاء الهندسة المعمارية الحديثة مع هذه البوابة ثنائية التدرج اللوني. تتميز البوابة بألواح رأسية من خشب التيك الإفريقي أو الأش المعالج حرارياً والمجفف بالفرن، والمحاطة بإطار ألمنيوم هيكلي بلون رمادي الإردواز المطفي، مما يمنح واجهة فيلتك فخامة طبيعية لا تقاوم وإحساساً راقياً بالحداثة والأصالة.\n\nتمت معالجة الألواح الخشبية بالتشبيع المفرغ بزيوت بحرية عازلة للماء ومزودة بجزيئات النانو العاكسة للأشعة فوق البنفسجية لحماية الخشب من الجفاف والتشقق وتغير اللون في حرارة الصيف الشديدة. وتم تزويد إطار الألمنيوم المعمارية المعالجة حرارياً عالية الصلابة بفواصل تمدد مخفية وجوانات نيوبرين مطاطية تمتص أصوات التمدد الحراري الناتجة عن التغير المفاجئ في درجات الحرارة بين الليل والنهار.\n\nزُوّدت البوابة بمفصلات محورية أوروبية قابلة للتعديل بدقة ومصدات مغناطيسية ناعمة وقواعد جاهزة للمحركات، لتمنحك حركة فتح بالغة السلاسة، أماناً محكماً، وجمالاً معمارياً يزداد رونقاً مع مرور السنين.",
-    "kurdishDescription": "دەروازەیەکی نایاب کە گەرمی داری سروشتی و ئەلەمنیۆمی ڕەساسی ماتی تێدا کۆکراوەتەوە بۆ دروستکردنی دیمەنێکی مۆدێرن و شکۆدار بۆ دەروازەی ڤێلاکەت.\n\nتەختە سروشتییەکانی لە داری تیکی ئەفریقی وشککراو دروستکراون بە زەیتی نانۆی دژە تیشکی خۆر بۆ ئەوەی لە گەرمای بیاباندا تێکنەچن. چوارچێوەی ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة لە ناوەوە لاستیکی نیۆپرینی تێدایە بۆ هەڵمژینی دەنگی گەرما و سەرما بەبێ ئەوەی هیچ دەنگێکی لەرینەوە دروست ببێت.\n\nلەسەر نێری سووڕاوەی بەهێزی ئەوروپی دەسووڕێتەوە لەگەڵ ئامادەکاری تەواو بۆ بەستنی باڵی مۆتۆری کارەبایی یان مۆتۆری هیدرۆلیکی ژێرزەوی."
+    "kurdishName": "دەروازەی تەلارسازی بە تێکەڵەی تەختەی سروشتی و ئەلەمنیۆمی ڕەساسی",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ المزيج المعماري المتناسق بين ألواح الخشب الدافئة ومعدن الألمنيوم الرمادي الرصين، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە تێکەڵەیەکی تەلارسازیی جوان لەنێوان داری سروشتی و ئەلەمنیۆمی ڕەساسی تۆخ تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-dr-72",
-    "name": "Modern Villa Entrance Door with Full-Height Architectural Glass Sidelight & Extended Pull Handle",
-    "arabicName": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع ومقبض طولي فاخر",
+    "name": "Contemporary Villa Entrance Door with Full-Height Sidelight",
+    "arabicName": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Entrance Doors",
@@ -5235,23 +5236,23 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Harmonized Entrance Composition: Insulated Solid Door Leaf Paired with Full-Height Sidelight Window",
       "28 mm Low-E Acoustic Double Glazing Flooding the Foyer with Natural Daylight with Total Privacy",
       "Heavy-Duty Polyamide Thermal Break Engineering Achieving Outstanding Thermal Efficiency (Ud < 0.98)",
-      "Triple Continuous EPDM Compression Seals for Certified Air, Dust & High-Wind Tightness",
+      "Triple Continuous المطاط المعماري المقاوم للعوامل الجوية Compression Seals for Certified Air, Dust & High-Wind Tightness",
       "Full-Height 2200 mm Architectural Pull Handle with Integrated Biometric Fingerprint Recognition"
     ],
     "specs": {
       "Leaf Thickness": "90 mm Multi-Chamber Thermal Break Composite Aluminum Panel",
-      "Sidelight Glazing": "28 mm (6 mm Toughened Low-E + 16 mm Argon + 6 mm Acoustic Laminated)",
-      "Thermal Performance": "Ud = 0.96 W/m²K (European EN ISO 10077-1 Compliance)",
+      "Sidelight Glazing": "28 mm (6 mm Toughened Low-E + 16 mm Dry Insulated Air + 6 mm Acoustic Laminated)",
+      "Thermal Performance": "Ud = 0.96 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
       "Acoustic Rating": "Rw 40 dB Acoustic Road Noise Reduction",
-      "Locking System": "German KFV Motorized Multi-Point Auto-Lock with Smart Biometric Integration",
+      "Locking System": "Precision KFV Motorized Multi-Point Auto-Lock with Smart Biometric Integration",
       "Finish Standard": "Qualicoat Class 2 Fine-Texture Matte Graphite (RAL 7024)"
     },
-    "description": "Make an unforgettable first impression with this contemporary villa entrance door system with matching full-height glass sidelight. Featuring an insulated solid flush entrance leaf in deep matte graphite paired with an adjacent architectural sidelight glazed with 28 mm acoustic low-E double safety glass, this composition bathes your interior reception foyer in soft natural light while providing total thermal defense.\n\nEngineered with advanced polyamide thermal break profiles and an aerogel-insulated aluminum core, the system achieves an elite thermal insulation rating (Ud < 0.98 W/m²K). Continuous triple perimeter EPDM compression seals form an airtight, dust-tight barrier against extreme desert sandstorms and howling exterior winds, while providing exceptional 40 dB acoustic sound isolation.\n\nEnhanced with an extended 2200 mm brushed stainless steel 316 architectural pull handle with integrated biometric fingerprint recognition, and secured with a German KFV motorized multi-point automatic deadbolt lock, this entrance door represents the peak of modern residential security and luxury.",
+    "description": "This striking entrance door system features a full-height architectural glass sidelight that bathes interior foyers in natural daylight while maintaining secure, insulated protection. It is a favored choice for modern villas, company offices, and luxury residential projects.\n\nThe door leaf combines a reinforced thermal core with horizontal decorative reveals and a full-length architectural pull handle. The matching glass sidelight is engineered with heavy-duty safety glass, providing an open, spacious welcome without sacrificing energy efficiency or privacy.\n\nEngineered for exceptional durability against weather extremes, the system incorporates magnetic perimeter seals and multi-point perimeter locks, ensuring quiet operation, superior insulation, and dependable everyday security.",
     "translations": {
       "ar": {
-        "name": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع ومقبض طولي فاخر",
+        "name": "باب مدخل فيلا عصري مع زجاج جانبي بكامل الارتفاع",
         "subCategory": "أبواب المداخل المعمارية الفاخرة للفلل",
-        "description": "اصنع انطباعاً أولياً مبهراً لا يُنسى مع هذا الباب العصري الفاخر المزود بنافذة زجاجية جانبية بكامل الارتفاع. يتميز النظام بدرفة باب مصمتة معزولة بلون غرافيتي مطفي تتكامل مع نافذة زجاجية جانبية بكامل الارتفاع مزودة بزجاج مزدوج عازل للصوت والحرارة سماكة 28 ملم معالج بطبقات منخفض الانبعاثية الحرارية، مما يغمر بهو الاستقبال بالضوء الطبيعي الناعم مع حماية تامة ضد الحرارة.\n\nتم بناء الباب بنظام قطاعات الألمنيوم العازلة للحرارة (ثيرمال بريك) والمحشوة بالأيروجيل لتوفير عزل حراري فائق (معامل العزل الحراري < 0.98) يمنع هدر الطاقة الكهربائية. وتضمن ثلاث طبقات متواصلة من ربلات المطاطية الهندسية ثلاثية الإحكام إحكاماً تاماً ضد عواصف الغبار الصحراوية والرياح الشديدة، مع عزل صوتي متطور يصل إلى 40 ديسيبل يعزل أصوات الشارع الخارجية تماماً.\n\nزُوّد الباب بمقبض طولي فاخر بطول 2200 ملم من الستانلس ستيل 316 المدمج به قارئ بصمة إصبع ذكي، وقفل ألماني كهربائي أوتوماتيكي الألمانية فائقة الأمان متعدد النقاط، ليجسد أعلى معايير الأمان والرفاهية لمدخل منزلك.",
+        "description": "يتميز هذا النظام المتكامل لباب المدخل بوجود نافذة زجاجية جانبية بكامل الارتفاع تغمر بهو المدخل بالضوء الطبيعي مع الحفاظ على أعلى درجات الأمان والعزل. يُعد خياراً مثالياً للمنازل الحديثة ومكاتب الشركات والمشاريع السكنية الراقية.\n\nتجمع درفة الباب بين العزل الحراري المتقدم والخطوط الأفقية المعمارية الأنيقة ومقبض سحب رأسي فاخر. تم تزويد الواجهة الزجاجية الجانبية بزجاج أمان مزدوج عازل يمنح شعوراً بالاتساع والرحابة دون المساس بكفاءة الطاقة أو الخصوصية.\n\nصُمم النظام ليقاوم أقسى الظروف الجوية بفضل الجوانات المطاطية المحكمة وأنظمة الأقفال المتعددة النقاط، مما يوفر أداءً هادئاً وسلساً وأماناً مستمراً على مدار السنين.",
         "features": [
           "منظومة مدخل متكاملة: درفة باب مصمتة معزولة تتناغم مع نافذة زجاجية جانبية بكامل الارتفاع",
           "زجاج مزدوج عازل للحرارة والصوت سماكة 28 ملم يغمر بهو الفيلا بنور النهار الطبيعي",
@@ -5262,16 +5263,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "سماكة درفة الباب": "90 ملم لوح ألمنيوم مركب متعدد الحجرات عازل حرارياً العازل للحرارة والصوت",
           "زجاج النافذة الجانبية": "28 ملم (6 ملم منخفض الانبعاثية الحرارية + 16 ملم أرجون + 6 ملم مصفح عازل للصوت)",
-          "معامل العزل الحراري": "معامل العزل الحراري = 0.96 W/m²K (مطابق للمواصفات القياسية الأوروبية)",
+          "معامل العزل الحراري": "معامل العزل الحراري = 0.96 W/m²K (مطابق للمواصفات القياسية المعمارية المعتمدة)",
           "مستوى عزل الصوت": "تخفيض الضوضاء الخارجية بمقدار 40 ديسيبل",
-          "نظام الإقفال الذكي": "قفل ألماني كهربائي كي إف في الألمانية متعدد النقاط يغلق تلقائياً مع قارئ بصمة",
+          "نظام الإقفال الذكي": "قفل المعتمد كهربائي كي إف في المعتمدة عالية الدقة متعدد النقاط يغلق تلقائياً مع قارئ بصمة",
           "نوع الطلاء الخارجي": "طلاء بودرة إلكتروستاتيكي كلاس 2 غرافيتي مطفي ناعم (المواصفات المعمارية 7024)"
         }
       },
       "ckb": {
-        "name": "دەرگای سەرەکی ڤێلا بە پەنجەرەی شووشەی تەواو بەرزایی و دەسکی درێژی ستانلێس",
+        "name": "دەرگای مدخەلی ڤێلا بە شوشەی درێژی تەنیشت و دیزاینی مۆدێرن",
         "subCategory": "دەرگای سەرەکی نژیاروانی ڤێلاکان",
-        "description": "دەرگایەکی سەرەکی زۆر فەخم و تایبەت بۆ ڤێلا کە باڵی دەرگای عازلکراوی تۆکمە لەگەڵ پەنجەرەی شووشەی تەنیشت بە تەواوی بەرزی دەرگاکە پێکەوە دەبەستێتەوە بۆ هێنانی ڕووناکی سروشتی بۆ ناو هۆڵی پێشوازی بەبێ لەدەستدانی عازلی گەرما.\n\nبە تەکنەلۆژیای پێشکەوتووی ثێرمال برێک و فۆمی ئایرۆجێل دروستکراوە کە ڕێگری تەواو لە گەرمای بیابان دەکات (معامل العزل الحراري < 0.98). سێ چینی لاستیکی المطاط الهندسي ثلاثي الإحكامی هەیە بۆ ڕێگری تەواو لە تۆزی بیابان و فیکەی با لە کاتی ڕەشەبادا لەگەڵ بڕینی دەنگ بە بڕی 40 دیبل.\n\nدەسکی درێژی ستانلێس ستیلی 316 بە بەرزی 2200 ملم بە پەنجەمۆری زیرەک، لەگەڵ قفڵی ئەڵمانی كي إف في الألمانيةی فرە خاڵی کارەبایی کە بە شێوەیەکی ئۆتۆماتیکی دادەخرێت.",
+        "description": "ئەم سیستمە دەرگایە تایبەتمەندە بە بوونی پەنجەرەیەکی شووشەیی درێژ لە تەنیشتیەوە کە بە درێژایی ڕۆژ ڕووناکی سروشتی دەهێنێتە ناو هۆڵی پێشوازی بەبێ کەمکردنەوەی ئاستی ئاسایش و عەزل. هەڵبژاردنێکی زۆر گونجاوە بۆ ڤێلا هاوچەرخەکان و بارەگای کۆمپانیاکان.\n\nدەرگاکە لە پەیکەری ئەلەمنیۆمی بەهێزی عازل و هێڵە ئەندازەییەکان پێکهاتووە لەگەڵ دەسکی درێژی ستیلی شیک. شووشەی تەنیشتی بە شووشەی پارێزراوی دووجۆڕ دروستکراوە کە هەستی فراوانی و دڵڕفێنی بە شوێنەکە دەبەخشێت.\n\nبەرگەی هەموو کەشوهەوایەک دەگرێت بەهۆی بەربەستی لاستیکی موگناتیسی و قوفڵی فرە-خاڵ، ئاسایشی تەواو و کارکردنی نەرم و بێدەنگ بۆ ماڵەکەت دابین دەکات.",
         "features": [
           "سیستەمی تەواوی پێشوازی: دەرگای تۆکمەی عازلکراو لەگەڵ پەنجەرەی تەنیشت بە تەواوی بەرزی",
           "شووشەی دوو قاتی 28 ملمی منخفض الانبعاثية الحرارية بۆ هێنانی ڕووناکی ڕۆژ لەگەڵ عازلی دەنگ",
@@ -5281,42 +5282,42 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         ],
         "specs": {
           "ئەستووری باڵی دەرگا": "90 ملم ئەلەمنیۆمی فرە ژووری العازل للحرارة والصوت بە عازلی چڕ",
-          "شووشەی تەنیشت": "28 ملم (6 ملم منخفض الانبعاثية الحرارية + 16 ملم ئارگۆن + 6 ملم لامینەیتی دەنگبڕ)",
+          "شووشەی تەنیشت": "28 ملم (6 ملم منخفض الانبعاثية الحرارية + 16 ملم عەزلی دووقات + 6 ملم لامینەیتی دەنگبڕ)",
           "عازلی گەرما": "معامل العزل الحراري = 0.96 W/m²K (بەپێی ستانداردی 10077-1)",
           "عازلی دەنگ": "کەمکردنەوەی دەنگ بە بڕی 40 دیبل",
-          "سیستەمی قفڵ": "قفڵی ئەڵمانی كي إف في الألمانيةی کارەبایی ئۆتۆماتیکی بە پەنجەمۆر",
+          "سیستەمی قفڵ": "قفڵی کوالیتی بەرز كي إف في المعتمدة عالية الدقةی کارەبایی ئۆتۆماتیکی بە پەنجەمۆر",
           "بۆیاخی ڕووکار": "پۆودەری کوالیکۆت کلاسی 2 گرافیتی مات (المواصفات المعمارية 7024)"
         }
       },
       "en": {
-        "name": "Modern Villa Entrance Door with Full-Height Architectural Glass Sidelight & Extended Pull Handle",
+        "name": "Contemporary Villa Entrance Door with Full-Height Sidelight",
         "subCategory": "Architectural Entrance Doors",
-        "description": "Make an unforgettable first impression with this contemporary villa entrance door system with matching full-height glass sidelight. Featuring an insulated solid flush entrance leaf in deep matte graphite paired with an adjacent architectural sidelight glazed with 28 mm acoustic low-E double safety glass, this composition bathes your interior reception foyer in soft natural light while providing total thermal defense.\n\nEngineered with advanced polyamide thermal break profiles and an aerogel-insulated aluminum core, the system achieves an elite thermal insulation rating (Ud < 0.98 W/m²K). Continuous triple perimeter EPDM compression seals form an airtight, dust-tight barrier against extreme desert sandstorms and howling exterior winds, while providing exceptional 40 dB acoustic sound isolation.\n\nEnhanced with an extended 2200 mm brushed stainless steel 316 architectural pull handle with integrated biometric fingerprint recognition, and secured with a German KFV motorized multi-point automatic deadbolt lock, this entrance door represents the peak of modern residential security and luxury.",
+        "description": "This striking entrance door system features a full-height architectural glass sidelight that bathes interior foyers in natural daylight while maintaining secure, insulated protection. It is a favored choice for modern villas, company offices, and luxury residential projects.\n\nThe door leaf combines a reinforced thermal core with horizontal decorative reveals and a full-length architectural pull handle. The matching glass sidelight is engineered with heavy-duty safety glass, providing an open, spacious welcome without sacrificing energy efficiency or privacy.\n\nEngineered for exceptional durability against weather extremes, the system incorporates magnetic perimeter seals and multi-point perimeter locks, ensuring quiet operation, superior insulation, and dependable everyday security.",
         "features": [
           "Harmonized Entrance Composition: Insulated Solid Door Leaf Paired with Full-Height Sidelight Window",
           "28 mm Low-E Acoustic Double Glazing Flooding the Foyer with Natural Daylight with Total Privacy",
           "Heavy-Duty Polyamide Thermal Break Engineering Achieving Outstanding Thermal Efficiency (Ud < 0.98)",
-          "Triple Continuous EPDM Compression Seals for Certified Air, Dust & High-Wind Tightness",
+          "Triple Continuous المطاط المعماري المقاوم للعوامل الجوية Compression Seals for Certified Air, Dust & High-Wind Tightness",
           "Full-Height 2200 mm Architectural Pull Handle with Integrated Biometric Fingerprint Recognition"
         ],
         "specs": {
           "Leaf Thickness": "90 mm Multi-Chamber Thermal Break Composite Aluminum Panel",
-          "Sidelight Glazing": "28 mm (6 mm Toughened Low-E + 16 mm Argon + 6 mm Acoustic Laminated)",
-          "Thermal Performance": "Ud = 0.96 W/m²K (European EN ISO 10077-1 Compliance)",
+          "Sidelight Glazing": "28 mm (6 mm Toughened Low-E + 16 mm Dry Insulated Air + 6 mm Acoustic Laminated)",
+          "Thermal Performance": "Ud = 0.96 W/m²K (Architectural Standard EN ISO 10077-1 Compliance)",
           "Acoustic Rating": "Rw 40 dB Acoustic Road Noise Reduction",
-          "Locking System": "German KFV Motorized Multi-Point Auto-Lock with Smart Biometric Integration",
+          "Locking System": "Precision KFV Motorized Multi-Point Auto-Lock with Smart Biometric Integration",
           "Finish Standard": "Qualicoat Class 2 Fine-Texture Matte Graphite (RAL 7024)"
         }
       }
     },
-    "kurdishName": "دەرگای سەرەکی ڤێلا بە پەنجەرەی شووشەی تەواو بەرزایی و دەسکی درێژی ستانلێس",
-    "arabicDescription": "اصنع انطباعاً أولياً مبهراً لا يُنسى مع هذا الباب العصري الفاخر المزود بنافذة زجاجية جانبية بكامل الارتفاع. يتميز النظام بدرفة باب مصمتة معزولة بلون غرافيتي مطفي تتكامل مع نافذة زجاجية جانبية بكامل الارتفاع مزودة بزجاج مزدوج عازل للصوت والحرارة سماكة 28 ملم معالج بطبقات منخفض الانبعاثية الحرارية، مما يغمر بهو الاستقبال بالضوء الطبيعي الناعم مع حماية تامة ضد الحرارة.\n\nتم بناء الباب بنظام قطاعات الألمنيوم العازلة للحرارة (ثيرمال بريك) والمحشوة بالأيروجيل لتوفير عزل حراري فائق (معامل العزل الحراري < 0.98) يمنع هدر الطاقة الكهربائية. وتضمن ثلاث طبقات متواصلة من ربلات المطاطية الهندسية ثلاثية الإحكام إحكاماً تاماً ضد عواصف الغبار الصحراوية والرياح الشديدة، مع عزل صوتي متطور يصل إلى 40 ديسيبل يعزل أصوات الشارع الخارجية تماماً.\n\nزُوّد الباب بمقبض طولي فاخر بطول 2200 ملم من الستانلس ستيل 316 المدمج به قارئ بصمة إصبع ذكي، وقفل ألماني كهربائي أوتوماتيكي الألمانية فائقة الأمان متعدد النقاط، ليجسد أعلى معايير الأمان والرفاهية لمدخل منزلك.",
-    "kurdishDescription": "دەرگایەکی سەرەکی زۆر فەخم و تایبەت بۆ ڤێلا کە باڵی دەرگای عازلکراوی تۆکمە لەگەڵ پەنجەرەی شووشەی تەنیشت بە تەواوی بەرزی دەرگاکە پێکەوە دەبەستێتەوە بۆ هێنانی ڕووناکی سروشتی بۆ ناو هۆڵی پێشوازی بەبێ لەدەستدانی عازلی گەرما.\n\nبە تەکنەلۆژیای پێشکەوتووی ثێرمال برێک و فۆمی ئایرۆجێل دروستکراوە کە ڕێگری تەواو لە گەرمای بیابان دەکات (معامل العزل الحراري < 0.98). سێ چینی لاستیکی المطاط الهندسي ثلاثي الإحكامی هەیە بۆ ڕێگری تەواو لە تۆزی بیابان و فیکەی با لە کاتی ڕەشەبادا لەگەڵ بڕینی دەنگ بە بڕی 40 دیبل.\n\nدەسکی درێژی ستانلێس ستیلی 316 بە بەرزی 2200 ملم بە پەنجەمۆری زیرەک، لەگەڵ قفڵی ئەڵمانی كي إف في الألمانيةی فرە خاڵی کارەبایی کە بە شێوەیەکی ئۆتۆماتیکی دادەخرێت."
+    "kurdishName": "دەرگای مدخەلی ڤێلا بە شوشەی درێژی تەنیشت و دیزاینی مۆدێرن",
+    "arabicDescription": "يتميز هذا النظام المتكامل لباب المدخل بوجود نافذة زجاجية جانبية بكامل الارتفاع تغمر بهو المدخل بالضوء الطبيعي مع الحفاظ على أعلى درجات الأمان والعزل. يُعد خياراً مثالياً للمنازل الحديثة ومكاتب الشركات والمشاريع السكنية الراقية.\n\nتجمع درفة الباب بين العزل الحراري المتقدم والخطوط الأفقية المعمارية الأنيقة ومقبض سحب رأسي فاخر. تم تزويد الواجهة الزجاجية الجانبية بزجاج أمان مزدوج عازل يمنح شعوراً بالاتساع والرحابة دون المساس بكفاءة الطاقة أو الخصوصية.\n\nصُمم النظام ليقاوم أقسى الظروف الجوية بفضل الجوانات المطاطية المحكمة وأنظمة الأقفال المتعددة النقاط، مما يوفر أداءً هادئاً وسلساً وأماناً مستمراً على مدار السنين.",
+    "kurdishDescription": "ئەم سیستمە دەرگایە تایبەتمەندە بە بوونی پەنجەرەیەکی شووشەیی درێژ لە تەنیشتیەوە کە بە درێژایی ڕۆژ ڕووناکی سروشتی دەهێنێتە ناو هۆڵی پێشوازی بەبێ کەمکردنەوەی ئاستی ئاسایش و عەزل. هەڵبژاردنێکی زۆر گونجاوە بۆ ڤێلا هاوچەرخەکان و بارەگای کۆمپانیاکان.\n\nدەرگاکە لە پەیکەری ئەلەمنیۆمی بەهێزی عازل و هێڵە ئەندازەییەکان پێکهاتووە لەگەڵ دەسکی درێژی ستیلی شیک. شووشەی تەنیشتی بە شووشەی پارێزراوی دووجۆڕ دروستکراوە کە هەستی فراوانی و دڵڕفێنی بە شوێنەکە دەبەخشێت.\n\nبەرگەی هەموو کەشوهەوایەک دەگرێت بەهۆی بەربەستی لاستیکی موگناتیسی و قوفڵی فرە-خاڵ، ئاسایشی تەواو و کارکردنی نەرم و بێدەنگ بۆ ماڵەکەت دابین دەکات."
   },
   {
     "id": "door-dh-gt-73",
-    "name": "Monolithic Matte Black Driveway Gate Framed by Polished Black Marble Columns",
-    "arabicName": "بوابة سوداء مصمتة فخمة بإطار أعمدة الرخام الأسود المصقول الفاخر",
+    "name": "Monolithic Matte Black Driveway Gate Framed by Stone Portals",
+    "arabicName": "بوابة سوداء مصمتة فاخرة بإطار الأعمدة الحجرية المصقولة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -5340,12 +5341,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Bottom Track & Rollers": "Machined Marine Stainless Steel Rollers on Inverted V-Track",
       "Wind Load Rating": "Class C4 Gale Force Tested (EN 12424)"
     },
-    "description": "Exude absolute architectural authority and monolithic permanence with this jet-black sliding driveway gate. Conceived to be mounted flush between polished Marquina black marble or honed black granite gateposts, this gate features continuous horizontal flush-interlocking aluminum cassettes that absorb exterior light, creating a deep, void-like silhouette of unmatched sophistication.\n\nConstructed upon a heavy-duty 100 mm structural 6063-T6 aluminum box chassis, the gate incorporates internal diagonal tension rods and laser-welded structural ribs that prevent center deflection and thermal bowing across single-leaf spans up to 6.5 meters. Concealed within the masonry gateposts are low-friction top guide rollers that hold the gate rigidly upright with zero visible brackets or guide posts.\n\nProtected by a multi-stage Qualicoat Class 2 fine-texture electrostatic jet black powder finish, this gate repels sandstorm friction, resists hand oils and road grime, and glides with whisper-quiet grace on dual heavy-duty stainless steel ground track wheels.",
+    "description": "This premium architectural gate features solid monolithic matte black leaves designed to sit flush between polished pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة سوداء مصمتة فخمة بإطار أعمدة الرخام الأسود المصقول الفاخر",
+        "name": "بوابة سوداء مصمتة فاخرة بإطار الأعمدة الحجرية المصقولة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "جسّد الهيبة المعمارية المطلقة والصلابة الهندسية النقية مع هذه البوابة السحابة السوداء المصمتة. صُممت البوابة خصيصاً لتتوسط أعمدة الرخام الأسود المصقول (مثل رخام ماركينا الإسباني أو الغرانيت الأسود)، حيث تتميز بألواح ألمنيوم كاسيت متداخلة بسطح أملس غاطس يمتص الضوء ليخلق كتلة معمارية أحادية سوداء تعكس أعلى درجات الفخامة والوقار.\n\nتم بناء البوابة على هيكل ألمنيوم إنشائي صندوقي سماكة 100 ملم مزود بقضبان شد قطرية داخلية وأضلاع ملحومة بالليزر تمنع أي انحناء أو تقوس في منتصف البوابة على مدى مسافات فتح واسعة تصل إلى 6.5 أمتار للدرفة الواحدة. وثُبتت بكرات التوجيه العلوية داخل تجاويف أعمدة الرخام لتثبيت البوابة رأسياً بدون الحاجة لأي أعمدة دعم معدنية ظاهرة.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون أسود فاحم مطفي ناعم يقاوم احتكاك عواصف الرمال والزيوت والأشعة فوق البنفسجية، وتنزلق بهدوء مطلق على عجلات ستانلس ستيل فائقة التحمل.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرف المصمتة باللون الأسود المطفي المصممة لتتوسط الأعمدة الحجرية الفخمة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "كتلة معمارية أحادية مصممة خصيصاً لتتكامل بفخامة مع أعمدة الرخام الأسود والغرانيت المصقول",
           "ألواح كاسيت ألمنيوم متداخلة بسطح مستوٍ توفر خصوصية وحماية أمنية كاملة بنسبة 100%",
@@ -5363,9 +5364,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی ڕەشی تۆکمەی شاهانە بۆ نێوان کۆڵەکەی مەڕمەڕی ڕەشی بریقەدار",
+        "name": "دەروازەی ڕەشی بێ هێڵ بە چوارچێوەی بەردی پۆڵیشکراو",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی ڕەشی ماتی زۆر شاهانە و تۆکمە کە بە تایبەتی دیزاین کراوە بۆ نێوان کۆڵەکەی مەڕمەڕی ڕەشی مارکینا یان گرانیتی بریقەدار، بۆ دروستکردنی شکۆ و هەیبەتێکی بێ وێنە بەبێ ئەوەی هیچ کون یان درزێک لە ڕووەکەیدا هەبێت.\n\nشاسییەکی ئەلەمنیۆمی ئەستووری 100 ملمی هەیە بە شیشی بەهێزکردنی ناوەکی کە تا 6.5 مەتر بە یەک باڵ کار دەکات بەبێ ئەوەی لە ناوەڕاستدا دابەزێت. ڕۆلەرەکانی سەرەوە لە ناو مەڕمەڕەکەدا شاردراونەتەوە بۆ ئەوەی هیچ ئاسنێکی زیادە لە سەرەوە دیار نەبێت.\n\nبۆیاخی ڕەشی ماتی فەخمی کوالیکۆت کلاسی 2ی لەسەرە کە دژە تیشکی خۆر و لمە، و بە تایەی ستانلێس ستیل لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەجووڵێت.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەرگای تەواو داپۆشراوی ڕەشی ماتی کە لەنێوان ستوونی بەردی شیکدا دادەنرێت تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "دیزاین کراوە بە تایبەتی بۆ دروستکردنی شکۆ لەگەڵ کۆڵەکەی مەڕمەڕی ڕەشی فەخم",
           "تەبەقەی ئەلەمنیۆمی کەسیتی تەخت بۆ شاردنەوەی 100%ی ناو حەوشە و پاراستنی تەواو",
@@ -5383,9 +5384,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Monolithic Matte Black Driveway Gate Framed by Polished Black Marble Columns",
+        "name": "Monolithic Matte Black Driveway Gate Framed by Stone Portals",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Exude absolute architectural authority and monolithic permanence with this jet-black sliding driveway gate. Conceived to be mounted flush between polished Marquina black marble or honed black granite gateposts, this gate features continuous horizontal flush-interlocking aluminum cassettes that absorb exterior light, creating a deep, void-like silhouette of unmatched sophistication.\n\nConstructed upon a heavy-duty 100 mm structural 6063-T6 aluminum box chassis, the gate incorporates internal diagonal tension rods and laser-welded structural ribs that prevent center deflection and thermal bowing across single-leaf spans up to 6.5 meters. Concealed within the masonry gateposts are low-friction top guide rollers that hold the gate rigidly upright with zero visible brackets or guide posts.\n\nProtected by a multi-stage Qualicoat Class 2 fine-texture electrostatic jet black powder finish, this gate repels sandstorm friction, resists hand oils and road grime, and glides with whisper-quiet grace on dual heavy-duty stainless steel ground track wheels.",
+        "description": "This premium architectural gate features solid monolithic matte black leaves designed to sit flush between polished pillars, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Monolithic Architectural Silhouette Designed Specifically for Black Marble & Granite Gateposts",
           "Flush-Interlocking Aluminum Cassette Facade Providing 100% Solid Perimeter Privacy",
@@ -5403,14 +5404,14 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی ڕەشی تۆکمەی شاهانە بۆ نێوان کۆڵەکەی مەڕمەڕی ڕەشی بریقەدار",
-    "arabicDescription": "جسّد الهيبة المعمارية المطلقة والصلابة الهندسية النقية مع هذه البوابة السحابة السوداء المصمتة. صُممت البوابة خصيصاً لتتوسط أعمدة الرخام الأسود المصقول (مثل رخام ماركينا الإسباني أو الغرانيت الأسود)، حيث تتميز بألواح ألمنيوم كاسيت متداخلة بسطح أملس غاطس يمتص الضوء ليخلق كتلة معمارية أحادية سوداء تعكس أعلى درجات الفخامة والوقار.\n\nتم بناء البوابة على هيكل ألمنيوم إنشائي صندوقي سماكة 100 ملم مزود بقضبان شد قطرية داخلية وأضلاع ملحومة بالليزر تمنع أي انحناء أو تقوس في منتصف البوابة على مدى مسافات فتح واسعة تصل إلى 6.5 أمتار للدرفة الواحدة. وثُبتت بكرات التوجيه العلوية داخل تجاويف أعمدة الرخام لتثبيت البوابة رأسياً بدون الحاجة لأي أعمدة دعم معدنية ظاهرة.\n\nطُليت البوابة ببودرة إلكتروستاتيكية كلاس 2 معتمدة بلون أسود فاحم مطفي ناعم يقاوم احتكاك عواصف الرمال والزيوت والأشعة فوق البنفسجية، وتنزلق بهدوء مطلق على عجلات ستانلس ستيل فائقة التحمل.",
-    "kurdishDescription": "دەروازەیەکی ڕەشی ماتی زۆر شاهانە و تۆکمە کە بە تایبەتی دیزاین کراوە بۆ نێوان کۆڵەکەی مەڕمەڕی ڕەشی مارکینا یان گرانیتی بریقەدار، بۆ دروستکردنی شکۆ و هەیبەتێکی بێ وێنە بەبێ ئەوەی هیچ کون یان درزێک لە ڕووەکەیدا هەبێت.\n\nشاسییەکی ئەلەمنیۆمی ئەستووری 100 ملمی هەیە بە شیشی بەهێزکردنی ناوەکی کە تا 6.5 مەتر بە یەک باڵ کار دەکات بەبێ ئەوەی لە ناوەڕاستدا دابەزێت. ڕۆلەرەکانی سەرەوە لە ناو مەڕمەڕەکەدا شاردراونەتەوە بۆ ئەوەی هیچ ئاسنێکی زیادە لە سەرەوە دیار نەبێت.\n\nبۆیاخی ڕەشی ماتی فەخمی کوالیکۆت کلاسی 2ی لەسەرە کە دژە تیشکی خۆر و لمە، و بە تایەی ستانلێس ستیل لەسەر هێڵی زەوی بە نەرمی و بە مۆتۆری خۆکار دەجووڵێت."
+    "kurdishName": "دەروازەی ڕەشی بێ هێڵ بە چوارچێوەی بەردی پۆڵیشکراو",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الدرف المصمتة باللون الأسود المطفي المصممة لتتوسط الأعمدة الحجرية الفخمة، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە دەرگای تەواو داپۆشراوی ڕەشی ماتی کە لەنێوان ستوونی بەردی شیکدا دادەنرێت تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-74",
-    "name": "Architectural Estate Gate with CNC Laser-Cut Geometric Screens & Natural Timber Framing",
-    "arabicName": "بوابة قصر معمارية بنقوش قص ليزر هندسية مفرغة وأطر خشبية دافئة",
+    "name": "Architectural Gate with Laser-Cut Geometric Screens and Timber Framing",
+    "arabicName": "بوابة معمارية بنقوش ليزر هندسية وإطار خشبي طبيعي",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -5429,17 +5430,17 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
     "specs": {
       "Screen Material": "5 mm Solid 5052-H32 Architectural Aluminum Plate (Fiber Laser Cut)",
       "Timber Perimeter": "120 mm x 60 mm Solid Kiln-Dried Burmese Teak / African Iroko",
-      "Hardware Prep": "STAC European Heavy-Duty Mortise Lock & Euro-Cylinder Housing",
+      "Hardware Prep": "المعتمدة Architectural Standard Heavy-Duty Mortise Lock & Euro-Cylinder Housing",
       "Wood Treatment": "Triple-Coat Vacuum-Impregnated Exterior Marine Teak Oil with UV Blockers",
       "Metal Coating": "Qualicoat Class 2 Fine-Texture Architectural Charcoal (RAL 7024)",
       "Weight Capacity": "Engineered for Leaves up to 700 kg per Section"
     },
-    "description": "Celebrate bespoke artisan craftsmanship and monumental contemporary luxury with this CNC laser-cut architectural estate gate. Featuring intricate, precision-milled geometric aluminum screens set within a structural border of solid kiln-dried Burmese Teak or African Iroko, this gate reinterprets classic architectural latticework through state-of-the-art digital fabrication.\n\nThe central screens are precision-cut from 5 mm solid architectural aluminum plate using high-definition fiber laser technology, producing razor-sharp edge definition with zero thermal dross. The surrounding timber chassis is assembled with mortise-and-tenon structural joinery and reinforced with concealed internal stainless steel tie-rods that provide immense structural rigidity while accommodating natural wood breathing.\n\nCoated with super-durable Qualicoat Class 2 architectural powder coats and protected with marine-grade hydrophobic wood oils, this gate delivers museum-grade curbside prestige, weather resilience, and automated perimeter security.",
+    "description": "This premium architectural gate features precision CNC laser-cut aluminum latticework framed by treated natural hardwood, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة قصر معمارية بنقوش قص ليزر هندسية مفرغة وأطر خشبية دافئة",
+        "name": "بوابة معمارية بنقوش ليزر هندسية وإطار خشبي طبيعي",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "احتفِ بجمال الحرفية المعمارية الراقية والتقنيات الرقمية المتقدمة مع هذه البوابة المصممة بنقوش قص الليزر الهندسية الفاخرة. تتميز البوابة بلوحات ألمنيوم مركزية مفرغة بنقوش هندسية معمارية مقصوصة بالليزر فائق الدقة ومحاطة بأطر عريضة من خشب التيك البورمي أو الإيروكو الإفريقي الطبيعي المجفف بالفرن، لتعيد إحياء فن المشربيات والزخارف الهندسية بأسلوب عصري حديث يليق بأفخم القصور.\n\nتم قص اللوحات من صفائح ألمنيوم صلبة سماكة 5 ملم باستخدام أحدث تقنيات الليزر الليفي، مما يمنح الحواف دقة متناهية ونعومة فائقة. وجُمعت الأطر الخشبية بنظام التعشيق الهيكلي المعزز بقضبان شد داخلية من الستانلس ستيل لتمنح البوابة صلابة جبارة تمنع أي هبوط مع السماح للخشب بالتنفس.\n\nعولجت الأجزاء المعدنية ببودرة إلكتروستاتيكية كلاس 2 والخشب بزيوت بحرية عازلة للماء والأشعة فوق البنفسجية، لتمنح مدخل قصرك وقاراً متحفياً استثنائياً وأماناً دائماً يدوم لأجيال.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ النقوش الهندسية المفرغة بقص الليزر عالي الدقة والمحاطة بإطار من الخشب الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "نقوش هندسية معمارية مفرغة بالليزر سماكة 5 ملم تمنح مشهداً بصرياً ساحراً مع تهوية طبيعية",
           "إطار خشبي عريض وضخم من خشب التيك البورمي الطبيعي المجمع بنظام التعشيق الحرفي المتقن",
@@ -5450,16 +5451,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "مواصفات اللوحات المنقوشة": "صفائح ألمنيوم صلبة 5052-H32 سماكة 5 ملم مقصوصة بألياف الليزر",
           "أبعاد الإطار الخشبي": "120 ملم × 60 ملم خشب تيك بورمي أو إيروكو طبيعي مجفف بالفرن",
-          "تجهيزات الإقفال": "قفل أمان أوروبي الإسبانية المعتمدة متعدد النقاط مع سلندر يورو مقاوم للنسخ",
+          "تجهيزات الإقفال": "قفل أمان المعتمدة المتطورة المعتمدة متعدد النقاط مع سلندر يورو مقاوم للنسخ",
           "معالجة الخشب": "تشبيع مفرغ ثلاثي الطبقات بزيوت التيك البحرية مع حماية",
           "طلاء المعدن": "طلاء بودرة إلكتروستاتيكي كلاس 2 رمادي فحمي مطفي (المواصفات المعمارية 7024)",
           "قدرة التحمل": "مصممة لتحمل أوزان درف البوابات حتى 700 كجم للدرفة"
         }
       },
       "ckb": {
-        "name": "دەروازەی شاهانەی قەسر بە نەخشی لەیزەری ئەندازیاری و چوارچێوەی داری سروشتی",
+        "name": "دەروازەی تەلارسازی بە نەخشی لێزەری ئەندازەیی و چوارچێوەی تەختە",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی زۆر فەخم و ناوازە کە نەخشی ئەندازیاری بڕدراو بە لەیزەری ورد لەگەڵ چوارچێوەی داری تیکی بۆرمایی یان ئیرۆکۆی سروشتی پێکەوە دەبەستێتەوە بۆ پێشکەشکردنی دیمەنێکی مێژوویی و مۆدێرن بە بەرزترین ئاستی جوانی بۆ قەسر و ڤێلا گەورەکان.\n\nنەخشەکان لە پەڕەی ئەلەمنیۆمی ئەستووری 5 ملم بە تەکنەلۆژیای پێشکەوتووی لەیزەری فایبەر بڕدراون بە سووچی زۆر ساف و بێگەرد. چوارچێوە تەختەییەکە بە شێوازی نەریتی لەحیم و قوفڵ کراوە و لە ناوەوە شیشی ستانلێس ستیلی هەیە بۆ ئەوەی هەرگیز خوار نەبێت.\n\nبە ڕۆنی دەریایی دژە خۆر و بۆیاخی کوالیکۆت کلاسی 2 پارێزراوە، و بە شێوازی سحاب یان دوو باڵ لەگەڵ مۆتۆری خۆکاری کارەبایی کار دەکات.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی ئەندازەیی بڕینی لەیزەری لەگەڵ چوارچێوەی تەختەی سروشتیی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "نەخشی ئەندازیاری تایبەت بڕدراو بە لەیزەری 5 ملم بۆ دیمەنێکی سەرنجڕاکێش و هاتوچۆی هەوا",
           "چوارچێوەی ئەستووری داری تیکی بۆرمایی دەستکرد بە کواڵتی زۆر بەرز",
@@ -5470,16 +5471,16 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "ماددەی نەخشەکان": "ئەلەمنیۆمی ئەندازیاری 5052-H32 ئەستووری 5 ملم بڕدراو بە لەیزەر",
           "چوارچێوەی دار": "120 ملم × 60 ملم داری تیکی بۆرمایی یان ئیرۆکۆی ئەفریقی وشککراو",
-          "ئامادەکاری قفڵ": "کواڵۆنی ئەوروپی فرە خاڵی الإسبانية المعتمدة",
+          "ئامادەکاری قفڵ": "کواڵۆنی ستانداردی نێودەوڵەتی فرە خاڵی المعتمدة المتطورة المعتمدة",
           "چارەسەری دار": "سێ چینی زەیتی دەریایی دژە ئاو و تیشکی خۆر",
           "بۆیاخی کانزا": "پۆودەری کوالیکۆت کلاسی 2 ڕەنگی خەڵوزی مات (المواصفات المعمارية 7024)",
           "بەرگەی کێش": "گونجاو بۆ دەستە دەروازە تا کێشی 700 کگم"
         }
       },
       "en": {
-        "name": "Architectural Estate Gate with CNC Laser-Cut Geometric Screens & Natural Timber Framing",
+        "name": "Architectural Gate with Laser-Cut Geometric Screens and Timber Framing",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Celebrate bespoke artisan craftsmanship and monumental contemporary luxury with this CNC laser-cut architectural estate gate. Featuring intricate, precision-milled geometric aluminum screens set within a structural border of solid kiln-dried Burmese Teak or African Iroko, this gate reinterprets classic architectural latticework through state-of-the-art digital fabrication.\n\nThe central screens are precision-cut from 5 mm solid architectural aluminum plate using high-definition fiber laser technology, producing razor-sharp edge definition with zero thermal dross. The surrounding timber chassis is assembled with mortise-and-tenon structural joinery and reinforced with concealed internal stainless steel tie-rods that provide immense structural rigidity while accommodating natural wood breathing.\n\nCoated with super-durable Qualicoat Class 2 architectural powder coats and protected with marine-grade hydrophobic wood oils, this gate delivers museum-grade curbside prestige, weather resilience, and automated perimeter security.",
+        "description": "This premium architectural gate features precision CNC laser-cut aluminum latticework framed by treated natural hardwood, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Bespoke CNC Laser-Cut 5 mm Aluminum Geometric Screens Providing Visual Drama & Airflow",
           "Heavy Solid Kiln-Dried Burmese Teak Framing Handcrafted with Mortise-and-Tenon Joinery",
@@ -5490,21 +5491,21 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         "specs": {
           "Screen Material": "5 mm Solid 5052-H32 Architectural Aluminum Plate (Fiber Laser Cut)",
           "Timber Perimeter": "120 mm x 60 mm Solid Kiln-Dried Burmese Teak / African Iroko",
-          "Hardware Prep": "STAC European Heavy-Duty Mortise Lock & Euro-Cylinder Housing",
+          "Hardware Prep": "المعتمدة Architectural Standard Heavy-Duty Mortise Lock & Euro-Cylinder Housing",
           "Wood Treatment": "Triple-Coat Vacuum-Impregnated Exterior Marine Teak Oil with UV Blockers",
           "Metal Coating": "Qualicoat Class 2 Fine-Texture Architectural Charcoal (RAL 7024)",
           "Weight Capacity": "Engineered for Leaves up to 700 kg per Section"
         }
       }
     },
-    "kurdishName": "دەروازەی شاهانەی قەسر بە نەخشی لەیزەری ئەندازیاری و چوارچێوەی داری سروشتی",
-    "arabicDescription": "احتفِ بجمال الحرفية المعمارية الراقية والتقنيات الرقمية المتقدمة مع هذه البوابة المصممة بنقوش قص الليزر الهندسية الفاخرة. تتميز البوابة بلوحات ألمنيوم مركزية مفرغة بنقوش هندسية معمارية مقصوصة بالليزر فائق الدقة ومحاطة بأطر عريضة من خشب التيك البورمي أو الإيروكو الإفريقي الطبيعي المجفف بالفرن، لتعيد إحياء فن المشربيات والزخارف الهندسية بأسلوب عصري حديث يليق بأفخم القصور.\n\nتم قص اللوحات من صفائح ألمنيوم صلبة سماكة 5 ملم باستخدام أحدث تقنيات الليزر الليفي، مما يمنح الحواف دقة متناهية ونعومة فائقة. وجُمعت الأطر الخشبية بنظام التعشيق الهيكلي المعزز بقضبان شد داخلية من الستانلس ستيل لتمنح البوابة صلابة جبارة تمنع أي هبوط مع السماح للخشب بالتنفس.\n\nعولجت الأجزاء المعدنية ببودرة إلكتروستاتيكية كلاس 2 والخشب بزيوت بحرية عازلة للماء والأشعة فوق البنفسجية، لتمنح مدخل قصرك وقاراً متحفياً استثنائياً وأماناً دائماً يدوم لأجيال.",
-    "kurdishDescription": "دەروازەیەکی زۆر فەخم و ناوازە کە نەخشی ئەندازیاری بڕدراو بە لەیزەری ورد لەگەڵ چوارچێوەی داری تیکی بۆرمایی یان ئیرۆکۆی سروشتی پێکەوە دەبەستێتەوە بۆ پێشکەشکردنی دیمەنێکی مێژوویی و مۆدێرن بە بەرزترین ئاستی جوانی بۆ قەسر و ڤێلا گەورەکان.\n\nنەخشەکان لە پەڕەی ئەلەمنیۆمی ئەستووری 5 ملم بە تەکنەلۆژیای پێشکەوتووی لەیزەری فایبەر بڕدراون بە سووچی زۆر ساف و بێگەرد. چوارچێوە تەختەییەکە بە شێوازی نەریتی لەحیم و قوفڵ کراوە و لە ناوەوە شیشی ستانلێس ستیلی هەیە بۆ ئەوەی هەرگیز خوار نەبێت.\n\nبە ڕۆنی دەریایی دژە خۆر و بۆیاخی کوالیکۆت کلاسی 2 پارێزراوە، و بە شێوازی سحاب یان دوو باڵ لەگەڵ مۆتۆری خۆکاری کارەبایی کار دەکات."
+    "kurdishName": "دەروازەی تەلارسازی بە نەخشی لێزەری ئەندازەیی و چوارچێوەی تەختە",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ النقوش الهندسية المفرغة بقص الليزر عالي الدقة والمحاطة بإطار من الخشب الطبيعي، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە نەخشی ئەندازەیی بڕینی لەیزەری لەگەڵ چوارچێوەی تەختەی سروشتیی بەهێز تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   },
   {
     "id": "door-dh-gt-77",
-    "name": "Architectural Vertical Louver Gate with Integrated Warm Ambient LED Light Channels",
-    "arabicName": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة من الأسفل",
+    "name": "Vertical Louver Gate with Integrated Warm Ambient LED Light Channels",
+    "arabicName": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة",
     "category": "doors",
     "division": "doors",
     "subCategory": "Architectural Driveway Gates",
@@ -5528,12 +5529,12 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
       "Surface Coating": "Qualicoat Class 2 Architectural Graphite Black (RAL 9005)",
       "Drive System": "Heavy-Duty Ground Inverted V-Track with Steel Rack-and-Pinion Mount"
     },
-    "description": "Transform your villa perimeter into an illuminated nocturnal masterpiece with this vertical louver gate system. Engineered with rhythmic vertical extruded aluminum louvers finished in deep graphite black, this gate incorporates concealed internal channels housing waterproof IP67 low-voltage warm 3000K LED neon light strips that wash the driveway threshold in a soft architectural glow at nightfall.\n\nThe vertical louvers are precision-extruded from structural 6063-T6 aluminum with anti-climb calibrated spacing that prevents climbing footholds while maintaining natural airflow. The concealed LED channels feature silicone-encapsulated frosted light diffusers that eliminate harsh diode hot spots, producing a continuous, uniform vertical ribbon of soft ambient light.\n\nComplete with concealed internal wiring raceways, heavy-duty stainless steel track rollers, and compatibility with leading European sliding gate motors, this gate delivers heroic curbside security, breathtaking evening aesthetics, and unmatched luxury appeal.",
+    "description": "This premium architectural gate features vertical architectural louvers illuminated by concealed weatherproof warm LED channels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
     "translations": {
       "ar": {
-        "name": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة من الأسفل",
+        "name": "بوابة شرائح رأسية معمارية مع قنوات إضاءة ليد دافئة متوهجة",
         "subCategory": "بوابات المداخل ومواقف الفلل المعمارية",
-        "description": "حوّل محيط فيلتك الخارجي إلى تحفة معمارية مضيئة تأسر الألباب ليلاً مع هذه البوابة ذات الشرائح الرأسية المضيئة. تتميز البوابة بشرائح ألمنيوم رأسية متناسقة بلون غرافيتي أسود مطفي، تحتوي في داخلها على قنوات مخفية تحتضن أشرطة إضاءة ليد نيون دافئة بحرارة 3000 كلفن ومعزولة بتصنيف المعزولة تماماً المقاومة للماء والأتربة ضد الماء، لتغمر أرضية المدخل ومسار السيارات بهالة من النور الساحر عند الغسق.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة بمسافات تقارب هندسية مانعة للتسلق تماماً مع السماح بمرور نسيم الهواء الطبيعي. وزُوّدت قنوات الإضاءة بناشرات سيليكونية مصنفرة تمنع ظهور نقاط الليد الفردية، لتوفر خطوط إضاءة عمودية ناعمة ومتصلة تبدو كأعمدة من النور المعماري المتوهج.\n\nتتضمن البوابة مسارات تمديد أسلاك مخفية بالكامل، وعجلات ستانلس ستيل فائقة النعومة، مع توافق كامل مع حساسات الغروب وأنظمة المنزل الذكي ومحركات السحب الآلي، لتمنحك أماناً فائقاً وإطلالة ليلية تسلب الأنظار.",
+        "description": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المعمارية المزودة بقنوات إضاءة ليد دافئة مخفية ومقاومة للعوامل الجوية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
         "features": [
           "قنوات إضاءة ليد معمارية رأسية مدمجة ومخفية بحرارة لونية دافئة 3000 كلفن ومقاومة للماء بتصنيف المعزولة تماماً ضد الماء والأتربة",
           "ناشرات سيليكونية مصنفرة تمنح خطوط إضاءة انسيابية متصلة وخالية تماماً من النقاط الساطعة المزعجة",
@@ -5551,9 +5552,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "ckb": {
-        "name": "دەروازەی شریتی ستوونی بە ڕووناکیی لیدی زەردی دڵڕفێنی ژێرەوە",
+        "name": "دەروازەی شریتی ستوونی بە ڕووناکیی لیدی زەردی دڵڕفێن",
         "subCategory": "دەروازە و دەرگای سەرەکی ڤێلاکان",
-        "description": "دەروازەیەکی نژیاروانی زۆر دڵڕفێن بە شریتی ستوونی ئەلەمنیۆمی ڕەشی گرافیتی کە قەناڵی تایبەتی لیدی زەردی 3000Kی تێدایە و بە پلەی المعزولة تماماً ضد الماء والأتربة دژە ئاوە، کە لە شەواندا دەوروبەری ڤێلاکەت بە هێڵی ڕووناکیی نەرم و شاهانە دەڕازێنێتەوە.\n\nشریتە ستوونییەکان بە شێوازی دژە سەرکەوتن بە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة دروستکراون و ڕێگە لە هەڵزنان دەگرن هاوکات هەوای فێنک تێپەڕ دەکەن. شوێنی لیدەکان بە لاستیکی سیلیکۆنی تەڵخ داپۆشراوە بۆ ئەوەی ڕووناکییەکی یەکپارچەی نەرم پیشان بدات بەبێ ئەوەی خاڵی لید دیار بێت.\n\nوایەرەکانی لە ناوەوە بە تەواوی شاردراونەتەوە و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی بە مۆتۆری خۆکار دەڕوات لەگەڵ هەموو ئامادەکارییەک بۆ بەستنەوە بە سیستەمی ماڵی زیرەک.",
+        "description": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی سەرنجڕاکێش بە کەناڵی ڕووناکیی لیدی زەردی دژە-کەشوهەوا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە.",
         "features": [
           "قەناڵی لیدی زەردی 3000Kی شاراوەی ستوونی بە پاراستنی دژە ئاوی المعزولة تماماً ضد الماء والأتربة",
           "پەردەی سیلیکۆنی تەڵخ بۆ دروستکردنی هێڵی ڕووناکیی نەرمی یەکپارچە بەبێ خاڵ",
@@ -5571,9 +5572,9 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       },
       "en": {
-        "name": "Architectural Vertical Louver Gate with Integrated Warm Ambient LED Light Channels",
+        "name": "Vertical Louver Gate with Integrated Warm Ambient LED Light Channels",
         "subCategory": "Architectural Driveway Gates",
-        "description": "Transform your villa perimeter into an illuminated nocturnal masterpiece with this vertical louver gate system. Engineered with rhythmic vertical extruded aluminum louvers finished in deep graphite black, this gate incorporates concealed internal channels housing waterproof IP67 low-voltage warm 3000K LED neon light strips that wash the driveway threshold in a soft architectural glow at nightfall.\n\nThe vertical louvers are precision-extruded from structural 6063-T6 aluminum with anti-climb calibrated spacing that prevents climbing footholds while maintaining natural airflow. The concealed LED channels feature silicone-encapsulated frosted light diffusers that eliminate harsh diode hot spots, producing a continuous, uniform vertical ribbon of soft ambient light.\n\nComplete with concealed internal wiring raceways, heavy-duty stainless steel track rollers, and compatibility with leading European sliding gate motors, this gate delivers heroic curbside security, breathtaking evening aesthetics, and unmatched luxury appeal.",
+        "description": "This premium architectural gate features vertical architectural louvers illuminated by concealed weatherproof warm LED channels, delivering an exceptional balance of security, privacy, and contemporary exterior elegance. Built from heavy-duty structural aluminum profiles with marine-grade powder coating, it withstands intense sunlight, sandstorms, and seasonal temperature swings without fading or corroding.\n\nIdeal for luxury villas, private estates, residential compounds, and corporate entryways, the gate can be configured for automated sliding or swing operation. Smooth, whisper-quiet motorization ensures effortless daily convenience, compatible with smart remote controls, intercoms, and keypad systems.\n\nEvery structural joint and weld is engineered for lifelong durability and low maintenance, ensuring your property entrance maintains its prestigious appearance and dependable security year after year.",
         "features": [
           "Integrated Concealed Waterproof IP67 Warm 3000K Architectural LED Vertical Light Channels",
           "Silicone-Encapsulated Frosted Diffusers Producing a Continuous, Hot-Spot Free Ambient Glow",
@@ -5591,8 +5592,8 @@ export const PRODUCTION_PRODUCTS_SEED: ProductItem[] = [
         }
       }
     },
-    "kurdishName": "دەروازەی شریتی ستوونی بە ڕووناکیی لیدی زەردی دڵڕفێنی ژێرەوە",
-    "arabicDescription": "حوّل محيط فيلتك الخارجي إلى تحفة معمارية مضيئة تأسر الألباب ليلاً مع هذه البوابة ذات الشرائح الرأسية المضيئة. تتميز البوابة بشرائح ألمنيوم رأسية متناسقة بلون غرافيتي أسود مطفي، تحتوي في داخلها على قنوات مخفية تحتضن أشرطة إضاءة ليد نيون دافئة بحرارة 3000 كلفن ومعزولة بتصنيف المعزولة تماماً المقاومة للماء والأتربة ضد الماء، لتغمر أرضية المدخل ومسار السيارات بهالة من النور الساحر عند الغسق.\n\nصُنعت الشرائح من ألمنيوم المعمارية المعالجة حرارياً عالية الصلابة بمسافات تقارب هندسية مانعة للتسلق تماماً مع السماح بمرور نسيم الهواء الطبيعي. وزُوّدت قنوات الإضاءة بناشرات سيليكونية مصنفرة تمنع ظهور نقاط الليد الفردية، لتوفر خطوط إضاءة عمودية ناعمة ومتصلة تبدو كأعمدة من النور المعماري المتوهج.\n\nتتضمن البوابة مسارات تمديد أسلاك مخفية بالكامل، وعجلات ستانلس ستيل فائقة النعومة، مع توافق كامل مع حساسات الغروب وأنظمة المنزل الذكي ومحركات السحب الآلي، لتمنحك أماناً فائقاً وإطلالة ليلية تسلب الأنظار.",
-    "kurdishDescription": "دەروازەیەکی نژیاروانی زۆر دڵڕفێن بە شریتی ستوونی ئەلەمنیۆمی ڕەشی گرافیتی کە قەناڵی تایبەتی لیدی زەردی 3000Kی تێدایە و بە پلەی المعزولة تماماً ضد الماء والأتربة دژە ئاوە، کە لە شەواندا دەوروبەری ڤێلاکەت بە هێڵی ڕووناکیی نەرم و شاهانە دەڕازێنێتەوە.\n\nشریتە ستوونییەکان بە شێوازی دژە سەرکەوتن بە ئەلەمنیۆمی المعمارية المعالجة حرارياً عالية الصلابة دروستکراون و ڕێگە لە هەڵزنان دەگرن هاوکات هەوای فێنک تێپەڕ دەکەن. شوێنی لیدەکان بە لاستیکی سیلیکۆنی تەڵخ داپۆشراوە بۆ ئەوەی ڕووناکییەکی یەکپارچەی نەرم پیشان بدات بەبێ ئەوەی خاڵی لید دیار بێت.\n\nوایەرەکانی لە ناوەوە بە تەواوی شاردراونەتەوە و بە تایەی ستانلێس ستیلی بێدەنگ لەسەر هێڵی زەوی بە مۆتۆری خۆکار دەڕوات لەگەڵ هەموو ئامادەکارییەک بۆ بەستنەوە بە سیستەمی ماڵی زیرەک."
+    "kurdishName": "دەروازەی شریتی ستوونی بە ڕووناکیی لیدی زەردی دڵڕفێن",
+    "arabicDescription": "تتميز هذه البوابة المعمارية الفاخرة بـ الشرائح الرأسية المعمارية المزودة بقنوات إضاءة ليد دافئة مخفية ومقاومة للعوامل الجوية، مما يوفر توازناً استثنائياً بين الأمان والخصوصية والجمال الخارجي المعاصر. صُنعت من مقاطع ألمنيوم إنشائية متينة ومطلية بدهان حراري عالي الجودة يقاوم حرارة الصيف الشديدة والعواصف الرملية والرطوبة دون بهتان أو تآكل.\n\nتُعد خياراً مثالياً للفلل والقصور والمجمعات السكنية الراقية ومداخل الشركات، حيث يمكن تجهيزها للعمل بنظام السحب الآلي أو الفتح المزدوج السلس. تضمن المحركات الكهربائية الهادئة تشغيلاً سلساً ومريحاً يومياً، مع توافق كامل مع أجهزة التحكم الذكية والإنتركم.\n\nتم تنفيذ جميع التوصيلات والمفاصل الهيكلية بدقة فائقة لضمان المتانة الدائمة والاعتمادية الطويلة بأقل جهد صيانة، لتبقى واجهة مدخل عقارك رمزاً للفخامة والأمان الراسخ عبر السنين.",
+    "kurdishDescription": "ئەم دەروازە نژیاروانییە سەرنجڕاکێشە بە شریتی ستوونی سەرنجڕاکێش بە کەناڵی ڕووناکیی لیدی زەردی دژە-کەشوهەوا تایبەتمەندە، کە هاوسەنگییەکی نایاب لەنێوان ئاسایش، تایبەتمەندی و جوانیی دەرەوەی هاوچەرخدا دابین دەکات. لە ئەلەمنیۆمی ئەستوور و بۆیەی گەرمی کوالیتی بەرز دروستکراوە کە بەرگەی تیشکی توندی خۆر، تۆز و گۆڕانی کەشوهەوا دەگرێت بێ ئەوەی تێکبچێت.\n\nهەڵبژاردنێکی نایابە بۆ ڤێلا، کۆشک، کۆمەڵگە نیشتەجێبوونەکان و بارەگای کۆمپانیاکان، و دەکرێت بە سیستەمی سلایدینگی کارەبایی یان جووت باڵی نەرم دابنرێت. مەکینەی کارەبایی بێدەنگ کارکردنی ڕۆژانەی زۆر ئاسان دەکات لەگەڵ کۆنتڕۆڵی دووری و ئینتەرکۆم.\n\nهەموو جومگە و بەستەرەکان بە وردی بۆ بەردەوامی و تەمەنی درێژ ئەندازیاری کراون بە کەمترین پێویستی بە چاککردنەوە، تا دەروازەی ماڵەکەت هەمیشە وەک هێمایەکی فەخامەت و ئاسایش بمێنێتەوە."
   }
 ];

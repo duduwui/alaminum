@@ -43,7 +43,7 @@ const INITIAL_REVIEWS: ClientReview[] = [
     role: 'مهندس معماري ومقاول فلل',
     rating: 5,
     date: '2026-09-26',
-    comment: 'تم تنفيذ قطاعات شبابيك Lorenzo 70LS وأبواب سحاب بانورامية لفيلا في المنصور. دقة زوايا الألمنيوم وكبس الهيدروليك لا غبار عليها، وعزل الحرارة والصوت دبل كلاس ممتاز جداً.',
+    comment: 'تم تنفيذ قطاعات شبابيك Panoramic System وأبواب سحاب بانورامية لفيلا في المنصور. دقة زوايا الألمنيوم وكبس الهيدروليك لا غبار عليها، وعزل الحرارة والصوت دبل كلاس ممتاز جداً.',
     categories: { quality: 5, speed: 5, engineering: 5, installation: 5 },
     verified: true
   },
@@ -65,7 +65,7 @@ const INITIAL_REVIEWS: ClientReview[] = [
     role: 'طبيب استشاري',
     rating: 5,
     date: '2026-09-18',
-    comment: 'شبابيك uPVC Deceuninck Legend 80 سداسية الحجرات عزلت صوت الشارع العام والضوضاء تماماً، وأجهزة التكييف أصبحت تبرد بسرعة وبأقل استهلاك. تعامل راقي وضمان رسمي 10 سنوات.',
+    comment: 'شبابيك uPVC Multi-Chamber Acoustic سداسية الحجرات عزلت صوت الشارع العام والضوضاء تماماً، وأجهزة التكييف أصبحت تبرد بسرعة وبأقل استهلاك. تعامل راقي وضمان رسمي 10 سنوات.',
     categories: { quality: 5, speed: 4, engineering: 5, installation: 5 },
     verified: true
   },
@@ -87,7 +87,7 @@ const INITIAL_REVIEWS: ClientReview[] = [
     role: 'صاحب مجمع سكني',
     rating: 5,
     date: '2026-09-10',
-    comment: 'أفضل شركة للألمنيوم والدرابزين الزجاجي في العراق. التزام تام بالمواعيد وإكسسوارات STAC الإسبانية الأصلية تعمل بسلاسة عالية.',
+    comment: 'أفضل شركة للألمنيوم والدرابزين الزجاجي في العراق. التزام تام بالمواعيد وإكسسوارات Architectural Hardware المعتمدة الأصلية تعمل بسلاسة عالية.',
     categories: { quality: 5, speed: 5, engineering: 5, installation: 5 },
     verified: true
   }
@@ -277,7 +277,7 @@ export const ReviewsRatingPage: React.FC<{
       qualityLabel: 'جودة قطاعات الألمنيوم والزجاج:',
       speedLabel: 'الالتزام بمواعيد التوريد والتسليم:',
       engLabel: 'المعاينة والاستشارة الهندسية:',
-      instLabel: 'دقة ونظافة التركيب الميداني:',
+      instLabel: 'دقة ونظافة المعتمدب الميداني:',
       nameLabel: 'الاسم الكريم *',
       namePh: 'مثال: م. سرمد الزبيدي',
       cityLabel: 'المحافظة / المدينة *',

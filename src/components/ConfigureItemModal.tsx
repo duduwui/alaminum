@@ -36,7 +36,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
     product.colors && product.colors.length > 0 ? product.colors[0] : 'Anthracite Grey'
   );
   const [selectedGlazing, setSelectedGlazing] = useState<string>(
-    'Double Glazed Low-E Argon (6+16Ar+6mm)'
+    'Double Glazed Low-E Insulated Air (6+16Ar+6mm)'
   );
   const [selectedOpening, setSelectedOpening] = useState<string>(
     product.category === 'aluminum' ? 'Heavy Lift & Slide Glide' : 'Tilt & Turn European Sash'
@@ -48,7 +48,7 @@ export const ConfigureItemModal: React.FC<ConfigureItemModalProps> = ({
   const glazingOptions = [
     {
       id: 'double-low-e',
-      label: 'Double Glazed Low-E Argon (6+16Ar+6mm)',
+      label: 'Double Glazed Low-E Insulated Air (6+16Ar+6mm)',
       desc: 'Standard high-performance solar control for Iraqi climate'
     },
     {

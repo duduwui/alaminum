@@ -32,36 +32,36 @@ export interface LocalizedItem {
 
 export const SHOWCASE_TEXT_BY_LANG: Record<string, { title: string; subtitle: string; estimateBtn: string; specsBtn: string; inspectHint: string }> = {
   "en": {
-    "title": "2 Official European Architectural Catalogues & Hardware Systems",
-    "subtitle": "Explore and download certified technical engineering catalogues from WIEK Belgium and STAC Spain, featuring precision fenestration hardware and monumental sliding solutions.",
+    "title": "Official Architectural Engineering Catalogues & Hardware Systems",
+    "subtitle": "Explore and download certified technical engineering catalogues featuring precision fenestration hardware and monumental sliding solutions.",
     "estimateBtn": "Download PDF",
     "specsBtn": "Open Catalogue",
     "inspectHint": "Click card to inspect system"
   },
   "ar": {
-    "title": "الكتالوجات المعمارية والأنظمة الأوروبية المعتمدة",
-    "subtitle": "وصول مباشر وتحميل للكتالوجات الفنية الشاملة لشركة WIEK بلجيكا وSTAC إسبانيا مع أدق التفاصيل الهندسية للأبواب والنوافذ والأنظمة البانورامية.",
+    "title": "الكتالوجات الهندسية والأنظمة المعمارية المعتمدة",
+    "subtitle": "وصول مباشر وتحميل للكتالوجات الفنية الهندسية الشاملة مع أدق التفاصيل التقنية للأبواب والنوافذ والأنظمة البانورامية.",
     "estimateBtn": "تحميل الكتالوج",
     "specsBtn": "تصفح الكتالوج",
     "inspectHint": "اضغط لمعاينة تفاصيل النظام"
   },
   "ckb": {
-    "title": "کەتەلۆگە ئەندازیارییە باوەڕپێکراوەکانی ئەوروپا بۆ دەرگا و پەنجەرە",
-    "subtitle": "گەڕان و داگرتنی ڕاستەوخۆی کەتەلۆگی تەکنیکی فەرمی لە WIEKی بەلجیکی و STACی ئیسپانی لەگەڵ هەموو وردەکارییە ئەندازیارییەکان.",
+    "title": "کەتەلۆگە ئەندازیارییە باوەڕپێکراوەکان بۆ دەرگا و پەنجەرە",
+    "subtitle": "گەڕان و داگرتنی ڕاستەوخۆی کەتەلۆگی تەکنیکی فەرمی بە هەموو وردەکارییە ئەندازیارییەکان بۆ دەرگا و پەنجەرە.",
     "estimateBtn": "داگرتنی کەتەلۆگ",
     "specsBtn": "کردنەوەی کەتەلۆگ",
     "inspectHint": "کلیک بکە بۆ بینینی سیستەمەکە"
   },
   "kmr": {
-    "title": "Katalogên Fermî yên Mîmarî yên Ewropî ji bo Derî û Pencereyan",
-    "subtitle": "Katalogên teknîkî yên fermî yên WIEK (Belçîka) û STAC (Spanya) bi tevahiya taybetmendiyan vekin an daxînin.",
+    "title": "Katalogên Fermî yên Mîmarî ji bo Derî û Pencereyan",
+    "subtitle": "Katalogên teknîkî yên fermî bi tevahiya taybetmendiyan vekin an daxînin.",
     "estimateBtn": "Katalogê Daxîne",
     "specsBtn": "Katalogê Veke",
     "inspectHint": "Ji bo dîtina hûrguliyan bitikîne"
   },
   "tr": {
-    "title": "Resmi Avrupa Mimari Sistem Katalogları ve Donanım Çözümleri",
-    "subtitle": "Belçika WIEK ve İspanya STAC firmalarının onaylı teknik mimari kataloglarına doğrudan erişin, detaylı çizim ve sistemleri inceleyin veya indirin.",
+    "title": "Resmi Mimari Sistem Katalogları ve Donanım Çözümleri",
+    "subtitle": "Onaylı teknik mimari kataloglara doğrudan erişin, detaylı çizim ve sistemleri inceleyin veya indirin.",
     "estimateBtn": "Kataloğu İndir",
     "specsBtn": "Kataloğu Aç",
     "inspectHint": "İncelemek için karta tıklayın"
@@ -84,7 +84,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-minimal-handles": {
       "title": "STAC Minimalist Ergonomic Handles",
-      "brand": "STAC Spain",
+      "brand": "STAC Hardware",
       "category": "Monolithic 6063-T5 Series",
       "badge": "Aerospace Grade",
       "description": "Aerospace-grade aluminum monolithic forming with 0 mm redundant protrusion and CNC precision milling, seamlessly integrating with thermal window profiles.",
@@ -108,7 +108,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "STAC DELTA Minimalist Lift & Slide System",
-      "brand": "STAC Spain",
+      "brand": "STAC Hardware",
       "category": "Architectural Lift & Slide Series",
       "badge": "UNE-EN 1670 Grade 4",
       "description": "Minimalist aerodynamic lines with integrated flush finger pull (9.5 mm depth footprint) engineered for smooth maneuvering of heavy sliding panels with superior anti-burglary security.",
@@ -122,7 +122,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
   "ar": {
     "wiek-hidden-hinge": {
       "title": "نظام WIEK للمفصلات المخفية (Tilt & Turn)",
-      "brand": "WIEK SYSTEM بلجيكا",
+      "brand": "WIEK Architectural",
       "category": "أنظمة النوافذ المخفية المعمارية",
       "badge": "مفصلات مخفية 180°",
       "description": "مفصلات مخفية بالكامل مدمجة داخل قطاع الألمنيوم والـ uPVC مصممة للمشاريع المودرن الفاخرة بتحمل وزن يصل إلى 130 كغم مع نقاط إغلاق محكمة.",
@@ -133,8 +133,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-minimal-handles": {
-      "title": "مقابض STAC المينيماليست المدمجة",
-      "brand": "STAC إسبانيا",
+      "title": "المقابض المعمارية المينيماليست المدمجة",
+      "brand": "STAC Architectural",
       "category": "سلسلة ألمنيوم 6063-T5 الموحدة",
       "badge": "ألمنيوم طيران مدمج",
       "description": "مقابض معمارية مصنوعة بكتلة ألمنيوم موحدة بدون أي بروز زائد (0 مم) بمكائن CNC دقيقة لتنسجم تماماً مع قطاعات النوافذ الحرارية العصرية.",
@@ -146,7 +146,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "wiek-bifold": {
       "title": "أنظمة WIEK للأبواب القابلة للطي (Bi-Fold)",
-      "brand": "WIEK SYSTEM بلجيكا",
+      "brand": "WIEK Architectural",
       "category": "إكسسوارات الأبواب المطوية",
       "badge": "رولرات ستانلس ستيل",
       "description": "أنظمة حركة انسيابية للأبواب القابلة للطي متعددة الضلف برولرات فولاذية صامتة وتروس أمان مركزية متعددة النقاط لتحقيق أوسع انفتاح بانورامي.",
@@ -157,8 +157,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "نظام STAC DELTA للأبواب البانورامية (Lift & Slide)",
-      "brand": "STAC إسبانيا",
+      "title": "نظام الأبواب البانورامية المتقدم (Lift & Slide)",
+      "brand": "STAC Architectural",
       "category": "سلسلة الرفع والسحب المعمارية",
       "badge": "معتمد UNE-EN 1670",
       "description": "خطوط معمارية مينيماليست مدمجة مع مقبض سحب خارجي غاطس بعمق 9.5 مم فقط، مصممة لتحريك الضلف البانورامية الثقيلة بسلاسة فائقة مع حماية قصوى ضد التآكل والسطو.",
@@ -183,8 +183,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-minimal-handles": {
-      "title": "دەسکە مۆدێرنەکانی STAC",
-      "brand": "STACی ئیسپانی",
+      "title": "دەسکە مۆدێرنە تەلارسازییەکان",
+      "brand": "STACی نژیاروانی",
       "category": "ئەلۆمنیۆمی فڕۆکەوانی",
       "badge": "سفر میلیمەتر بەرزایی",
       "description": "دەسکی تەلارسازی بێ بەرزایی زیادە (0 مم) بە ئەلۆمنیۆمی فڕۆکەوانی 6063-T5 و بڕینی وردی CNC بۆ گونجان لەگەڵ پرۆفایلە مۆدێرنەکان.",
@@ -208,7 +208,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "stac-lift-slide": {
       "title": "سیستەمی دەسکی DELTAی ئیسپانی (Lift & Slide)",
-      "brand": "STACی ئیسپانی",
+      "brand": "STACی نژیاروانی",
       "category": "سلایدینگی پانۆراما بۆ شوشەی گەورە",
       "badge": "ستانداردی UNE-EN 1670",
       "description": "دیزاینی مۆدێرنی کەمینە لەگەڵ دەسکی دەرەکی دابەزێنراو بە قووڵی تەنها ٩.٥ ملم بۆ خلیسکاندنی ئاسانی دەرگای گەورە بە پاراستنی تەواو لە ژەنگ و دزی.",
@@ -233,8 +233,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-minimal-handles": {
-      "title": "Destikên Mînîmalîst ên STAC",
-      "brand": "STAC Spanya",
+      "title": "Destikên Mînîmalîst ên Mîmarî",
+      "brand": "STAC Hardware",
       "category": "Rêzeya Alumînyûma 6063-T5",
       "badge": "Asta Fezayî",
       "description": "Destikên mîmarî yên bêyî zêdebûna derketinê (0 mm) bi hevrêziya teknolojiya CNC ya herî pêşketî.",
@@ -257,8 +257,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "Mekanîzmaya Lift & Slide ya STAC",
-      "brand": "STAC Spanya",
+      "title": "Mekanîzmaya Lift & Slide ya Mîmarî",
+      "brand": "STAC Hardware",
       "category": "Sûrme yên Panoramîk",
       "badge": "Heta 400 kg",
       "description": "Gearboxên bilindkirin û xişandinê yên giran ji bo paceyên dêw ên heta 400 kg.",
@@ -272,7 +272,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
   "tr": {
     "wiek-hidden-hinge": {
       "title": "WIEK Gizli Menteşe Çift Açılım Sistemi",
-      "brand": "WIEK SYSTEM Belçika",
+      "brand": "WIEK Architectural",
       "category": "Gizli Pencere Mimarisi",
       "badge": "180° Gizli Menteşe",
       "description": "Minimalist modern mimari için tasarlanmış 130 kg kanat taşıma kapasiteli ve tam gizli çift açılım pencere donanımı.",
@@ -283,11 +283,11 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-minimal-handles": {
-      "title": "STAC Minimalist Ergonomik Kollar",
-      "brand": "STAC İspanya",
+      "title": "Minimalist Ergonomik Mimari Kollar",
+      "brand": "STAC Hardware",
       "category": "6063-T5 Alüminyum Serisi",
       "badge": "Havacılık Standardı",
-      "description": "0 mm çıkıntısız monoblok gövde ve CNC hassas işleme ile profille kusursuz bütünleşen İspanyol tasarım pencere kolları.",
+      "description": "0 mm çıkıntısız monoblok gövde ve CNC hassas işleme ile profille kusursuz bütünleşen Mimari tasarım pencere kolları.",
       "specs": [
         { "label": "Malzeme", "val": "6063-T5 Alüminyum" },
         { "label": "Çıkıntı", "val": "0 mm Düz" },
@@ -296,7 +296,7 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
     },
     "wiek-bifold": {
       "title": "WIEK Katlanır Kapı Donanım Sistemi (Bi-Fold)",
-      "brand": "WIEK SYSTEM Belçika",
+      "brand": "WIEK Architectural",
       "category": "Katlanır Kapı Sistemleri",
       "badge": "Ağır Hizmet Rulman",
       "description": "Paslanmaz çelik sessiz rulmanlı taşıyıcılar ve merkezi çok noktalı emniyet dişlileriyle senkronize katlanır kapı mekanizması.",
@@ -307,8 +307,8 @@ export const ITEM_LOCALES: Record<string, Record<string, LocalizedItem>> = {
       ]
     },
     "stac-lift-slide": {
-      "title": "STAC Ağır Hizmet Hebeschiebe Mekanizması",
-      "brand": "STAC İspanya",
+      "title": "Ağır Hizmet Hebeschiebe Mimari Mekanizması",
+      "brand": "STAC Hardware",
       "category": "Anıtsal Sürme Sistemleri",
       "badge": "400 kg'a Kadar",
       "description": "Zeminden tavana kadar anıtsal cam açıklıkları için 400 kg kanat kapasiteli, polyamid termal bariyerli kaldırmalı sürme dişli seti.",
@@ -326,7 +326,7 @@ const SHOWCASE_PRODUCTS = [
     id: "wiek-hidden-hinge",
     title: "WIEK Concealed Tilt & Turn System",
     brand: "WIEK SYSTEM",
-    origin: "Belgium 🇧🇪",
+    origin: "Architectural Grade",
     category: "Concealed Hardware",
     image: "/assets/showcase/wiek_hidden_hinge-04.png",
     fallbackImage: "/assets/catalogs/wiek_page-04.png",
@@ -342,8 +342,8 @@ const SHOWCASE_PRODUCTS = [
   {
     id: "stac-minimal-handles",
     title: "STAC Minimalist Window Handles & Cremones",
-    brand: "STAC Spain",
-    origin: "Spain 🇪🇸",
+    brand: "STAC Hardware",
+    origin: "Architectural Grade",
     category: "Monolithic 6063-T5 Series",
     image: "/assets/showcase/stac_window_handles-044.png",
     fallbackImage: "/assets/catalogs/stac_page-004.png",
@@ -360,7 +360,7 @@ const SHOWCASE_PRODUCTS = [
     id: "wiek-bifold",
     title: "WIEK Heavy-Duty Bi-Folding Door System",
     brand: "WIEK SYSTEM",
-    origin: "Belgium 🇧🇪",
+    origin: "Architectural Grade",
     category: "Bi-Folding & Panoramic Hardware",
     image: "/assets/showcase/wiek_bifold_door-34.png",
     fallbackImage: "/assets/catalogs/wiek_page-01.png",
@@ -376,8 +376,8 @@ const SHOWCASE_PRODUCTS = [
   {
     id: "stac-lift-slide",
     title: "STAC DELTA Minimalist Lift & Slide System",
-    brand: "STAC Spain",
-    origin: "Spain 🇪🇸",
+    brand: "STAC Hardware",
+    origin: "Architectural Grade",
     category: "Architectural Lift & Slide Series",
     image: "/assets/showcase/stac_lift_slide-108.png",
     fallbackImage: "/assets/showcase/stac_lift_slide-108.png",

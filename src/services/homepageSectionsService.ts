@@ -7,7 +7,14 @@ export interface HomepageSectionConfig {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = "winhome_homepage_sections_v2";
+const STORAGE_KEY = "winhome_homepage_sections_v3";
+
+try {
+  if (typeof window !== "undefined") {
+    localStorage.removeItem("winhome_homepage_sections_v2");
+    localStorage.removeItem("winhome_homepage_sections_v1");
+  }
+} catch {}
 const DELETED_KEYS_STORAGE_KEY = "winhome_deleted_homepage_sections_v1";
 export const HOMEPAGE_SECTIONS_UPDATED_EVENT = "winhome_homepage_sections_updated";
 

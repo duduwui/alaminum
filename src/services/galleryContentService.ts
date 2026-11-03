@@ -13,7 +13,14 @@ export interface GalleryMediaItem {
   translations?: Record<string, { name?: string; title?: string; description?: string }>;
 }
 
-const STORAGE_KEY = 'winhome_admin_gallery_images_v7';
+const STORAGE_KEY = 'winhome_admin_gallery_images_v8';
+
+try {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_gallery_images_v7');
+    localStorage.removeItem('winhome_admin_gallery_images_v6');
+  }
+} catch {}
 export const GALLERY_UPDATED_EVENT = 'cms_gallery_updated';
 
 try {

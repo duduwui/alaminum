@@ -21,12 +21,12 @@ const FAQ_ITEMS: FaqItem[] = [
       tr: "Irak'ta ısı ve ses yalıtımlı en iyi alüminyum pencere sistemleri hangileridir?"
     },
     answer: {
-      ar: 'تعد أنظمة الألمنيوم الحراري (Thermal Break) مثل Lorenzo 70LS و 58TT وأنظمة Alumil الأفضل لمناخ العراق الصيفي الحار. تتميز هذه الأنظمة بوجود فاصل عازل من البولي أميد (Polyamide) وزجاج مزدوج دبل كلاس معبأ بغاز الآرجون مع طبقة عاكسة Low-E لمنع انتقال حرارة الصيف التي تفوق 50° مئوية، وعزل الضوضاء الخارجية حتى 42 ديسيبل.',
-      ckb: 'سیستەمی ئەلەمنیۆمی کپس و عازلی گەرمی (Thermal Break) وەک Lorenzo 70LS و 58TT باشترین هەڵبژاردەیە بۆ کەشوهەوای توندی عێراق و کوردستان. بە بەربەستی پۆلیەماید و جامی دەبڵ گڵاسی ئارگۆن دار، ڕێگری لە گەرمای سەروو ٥٠ پلە دەکات و دەنگی دەرەوە بە تەواوی عەزل دەکات.',
-      en: 'Thermal-break aluminum systems such as Lorenzo 70LS, Lorenzo 58TT, and Alumil are the premier choice for Iraq’s extreme 50°C+ summer climate. They feature polyamide thermal barrier strips and argon-filled Low-E double glazing to eliminate heat transfer and achieve up to 42 dB acoustic noise reduction.',
-      tr: "Lorenzo 70LS, 58TT ve Alumil gibi termal bariyerli (Thermal Break) alüminyum sistemler, Irak'ın 50°C'yi aşan aşırı sıcak iklimi için en üstün çözümdür. Poliamid ısı yalıtım bariyerleri ve argon gazlı Low-E çift cam sayesinde ısı geçişini engeller ve 42 dB'e kadar ses yalıtımı sağlar."
+      ar: 'تعد أنظمة الألمنيوم الحراري (Thermal Break) المعمارية فائقة المتانة الأفضل لمناخ العراق الصيفي الحار. تتميز هذه الأنظمة بوجود فاصل عازل من البولي أميد (Polyamide) وزجاج مزدوج دبل كلاس المعزول بتقنية العزل المزدوج مع طبقة عاكسة Low-E لمنع انتقال حرارة الصيف التي تفوق 50° مئوية، وعزل الضوضاء الخارجية حتى 42 ديسيبل.',
+      ckb: 'سیستەمی ئەلەمنیۆمی کپس و عازلی گەرمی (Thermal Break) پێشکەوتوو باشترین هەڵبژاردەیە بۆ کەشوهەوای توندی عێراق و کوردستان. بە بەربەستی پۆلیەماید و جامی دەبڵ گڵاسی عازل، ڕێگری لە گەرمای سەروو ٥٠ پلە دەکات و دەنگی دەرەوە بە تەواوی عەزل دەکات.',
+      en: 'Thermal-break aluminum systems architectural systems are the premier choice for Iraq’s extreme 50°C+ summer climate. They feature polyamide thermal barrier strips and hermetically insulated Low-E double glazing to eliminate heat transfer and achieve up to 42 dB acoustic noise reduction.',
+      tr: "termal bariyerli (Thermal Break) alüminyum sistemler, Irak'ın 50°C'yi aşan aşırı sıcak iklimi için en üstün çözümdür. Poliamid ısı yalıtım bariyerleri ve yüksek yalıtımlı Low-E çift cam sayesinde ısı geçişini engeller ve 42 dB'e kadar ses yalıtımı sağlar."
     },
-    keywords: ['أفضل شبابيك ألمنيوم', 'عزل حراري', 'thermal break', 'lorenzo 70ls', 'عازل صوت', 'پەنجەرەی ئەلەمنیۆم', 'عەزلی گەرمی']
+    keywords: ['أفضل شبابيك ألمنيوم', 'عزل حراري', 'thermal break', 'lift and slide', 'عازل صوت', 'پەنجەرەی ئەلەمنیۆم', 'عەزلی گەرمی']
   },
   {
     id: 'faq-upvc-vs-aluminum',
@@ -38,12 +38,12 @@ const FAQ_ITEMS: FaqItem[] = [
       tr: "Irak iklimi için hangisi daha iyi: Isı yalıtımlı Alüminyum mu yoksa uPVC mi?"
     },
     answer: {
-      ar: 'كلا الخيارين ممتاز وفقاً للاستخدام: نوافذ uPVC (مثل Deceuninck Legend 80 سداسية الحجرات) تتفوق في أعلى كفاءة عزل حراري تام وتوفير استهلاك التكييف للفتحات القياسية. بينما يتفوق الألمنيوم الحراري (Thermal Break) في القوة الهيكلية الفائقة للواجهات الزجاجية العملاقة والأبواب السحاب البانورامية الكبيرة مع مقاومة أبدية لأشعة الشمس والرياح.',
-      ckb: 'هەردووکیان بەپێی شوێن نایابن: پرۆفایلی uPVC (وەک Deceuninck Legend 80 شەش خانەیی) زۆرترین عەزلی گەرمی و ساردکردنەوە دابین دەکات بۆ پەنجەرەی ئاسایی. بەڵام ئەلەمنیۆمی گەرمایی (Thermal Break) بۆ دەرگای پانۆرامای گەورە و ڕووکاری باڵەخانەی بەرز باشترینە و خۆڕاگری بێسنوورە.',
-      en: 'Both systems excel based on architectural application: Multi-chamber uPVC (such as 6-chamber Deceuninck Legend 80) delivers maximum thermal insulation and energy savings for standard window openings. Thermal-break aluminum excels in structural rigidity for monumental panoramic sliding doors and oversized curtain wall facades.',
-      tr: 'Her iki sistem de kullanım amacına göre mükemmeldir: Deceuninck Legend 80 gibi 6 odacıklı uPVC profiller standart pencerelerde maksimum ısı yalıtımı sağlar. Isı yalıtımlı alüminyum ise devasa panoramik sürme kapılar ve giydirme cepheler için yüksek mukavemet ve şıklık sunar.'
+      ar: 'كلا الخيارين ممتاز وفقاً للاستخدام: نوافذ uPVC (سداسية الحجرات عالية الأداء) تتفوق في أعلى كفاءة عزل حراري تام وتوفير استهلاك التكييف للفتحات القياسية. بينما يتفوق الألمنيوم الحراري (Thermal Break) في القوة الهيكلية الفائقة للواجهات الزجاجية العملاقة والأبواب السحاب البانورامية الكبيرة مع مقاومة أبدية لأشعة الشمس والرياح.',
+      ckb: 'هەردووکیان بەپێی شوێن نایابن: پرۆفایلی uPVC (شەش خانەیی پێشکەوتوو) زۆرترین عەزلی گەرمی و ساردکردنەوە دابین دەکات بۆ پەنجەرەی ئاسایی. بەڵام ئەلەمنیۆمی گەرمایی (Thermal Break) بۆ دەرگای پانۆرامای گەورە و ڕووکاری باڵەخانەی بەرز باشترینە و خۆڕاگری بێسنوورە.',
+      en: 'Both systems excel based on architectural application: Multi-chamber uPVC (6-chamber acoustic systems) delivers maximum thermal insulation and energy savings for standard window openings. Thermal-break aluminum excels in structural rigidity for monumental panoramic sliding doors and oversized curtain wall facades.',
+      tr: 'Her iki sistem de kullanım amacına göre mükemmeldir: 6 odacıklı uPVC profiller standart pencerelerde maksimum ısı yalıtımı sağlar. Isı yalıtımlı alüminyum ise devasa panoramik sürme kapılar ve giydirme cepheler için yüksek mukavemet ve şıklık sunar.'
     },
-    keywords: ['upvc vs aluminum', 'مقارنة المنيوم وبي في سي', 'deceuninck legend 80', 'عزل التكييف', 'یو پی ڤی سی']
+    keywords: ['upvc vs aluminum', 'مقارنة المنيوم وبي في سي', 'multichamber upvc', 'عزل التكييف', 'یو پی ڤی سی']
   },
   {
     id: 'faq-glass-stairs',
@@ -72,12 +72,12 @@ const FAQ_ITEMS: FaqItem[] = [
       tr: 'Lift & Slide panoramik sürme kapıların özellikleri ve avantajları nelerdir?'
     },
     answer: {
-      ar: 'تتميز أبواب Lift & Slide (مثل Lorenzo 70LS) بقدرتها على حمل أجنحة زجاجية ضخمة تصل إلى 400 كغم للضلفة الواحدة وبارتفاعات حتى 3.2 متر. يوفر نظام الرفع والانزلاق سلاسة خيالية بلمسة يد، مع عتبة أرضية منخفضة مستوية وعزل كامل ضد الغبار والعواصف الرملية ومياه الأمطار بفضل حشوات EPDM المتواصلة.',
-      ckb: 'دەرگای لیفت ئەند سلاید (وەک Lorenzo 70LS) توانای هەڵگرتنی جامی قورس تا ٤٠٠ کگم بۆ هەر قاپاغێک هەیە بە بەرزی ٣.٢ مەتر. بە دەست لێدانێکی ئاسان دەجوڵێت، خوارەوەی تەختە لەگەڵ زەوی، و بە تەواوی ڕێگری لە تۆزوخۆڵ و باران دەکات بە لاستیکی EPDM.',
-      en: 'Lift & Slide systems (such as Lorenzo 70LS) support oversized sashes weighing up to 400 kg each with heights up to 3.2 meters. The lifting gear ensures effortless fingertip sliding, flush floor thresholds, and 100% weather sealing against dust storms and heavy rain.',
-      tr: "Lift & Slide sistemleri (Lorenzo 70LS gibi), kanat başına 400 kg'a kadar ağırlık ve 3.2 metreye varan yükseklikleri destekler. Sıfır eşik seçeneği, parmak ucuyla zahmetsiz kayma ve kesintisiz EPDM contalarla kum fırtınası ve yağmura karşı tam sızdırmazlık sağlar."
+      ar: 'تتميز أبواب Lift & Slide (المعمارية المتقدمة) بقدرتها على حمل أجنحة زجاجية ضخمة تصل إلى 400 كغم للضلفة الواحدة وبارتفاعات حتى 3.2 متر. يوفر نظام الرفع والانزلاق سلاسة خيالية بلمسة يد، مع عتبة أرضية منخفضة مستوية وعزل كامل ضد الغبار والعواصف الرملية ومياه الأمطار بفضل حشوات العزل المعمارية المتواصلة.',
+      ckb: 'دەرگای لیفت ئەند سلاید (پێشکەوتوو) توانای هەڵگرتنی جامی قورس تا ٤٠٠ کگم بۆ هەر قاپاغێک هەیە بە بەرزی ٣.٢ مەتر. بە دەست لێدانێکی ئاسان دەجوڵێت، خوارەوەی تەختە لەگەڵ زەوی، و بە تەواوی ڕێگری لە تۆزوخۆڵ و باران دەکات بە لاستیکی عازلی تایبەت.',
+      en: 'Lift & Slide systems (heavy-duty systems) support oversized sashes weighing up to 400 kg each with heights up to 3.2 meters. The lifting gear ensures effortless fingertip sliding, flush floor thresholds, and 100% weather sealing against dust storms and heavy rain.',
+      tr: "Lift & Slide sistemleri , kanat başına 400 kg'a kadar ağırlık ve 3.2 metreye varan yükseklikleri destekler. Sıfır eşik seçeneği, parmak ucuyla zahmetsiz kayma ve kesintisiz mimari contalarla kum fırtınası ve yağmura karşı tam sızdırmazlık sağlar."
     },
-    keywords: ['ابواب سحاب', 'lift and slide', 'lorenzo 70ls', 'ابواب بانوراما', 'دەرگای سلاید', 'panoramic sliding doors']
+    keywords: ['ابواب سحاب', 'lift and slide', 'lift and slide', 'ابواب بانوراما', 'دەرگای سلاید', 'panoramic sliding doors']
   },
   {
     id: 'faq-curtain-wall',
@@ -106,10 +106,10 @@ const FAQ_ITEMS: FaqItem[] = [
       tr: "Pencere, kapı ve cam merdiven fiyatları nedir? Tüm Irak vilayetlerine montaj yapıyor musunuz?"
     },
     answer: {
-      ar: 'تحدد الأسعار بناءً على المقاسات الهندسية الدقيقة، نوع القطاع (ألمنيوم حراري أو uPVC)، مواصفات الزجاج (دبل، تربل، سيكوريت)، ونوع الإكسسوارات الأوروبية. تقدم شركة Doorhome (باب المنزل) زيارة هندسية مجانية لأخذ القياسات، وخدمة التصنيع والتوصيل والتركيب المعتمد في أربيل، بغداد، السليمانية، دهوك، كركوك، البصرة، وجميع مدن العراق مع ضمان مصنعي يصل إلى 10 سنوات.',
-      ckb: 'نرخەکان بەپێی قەبارەی ئەندازیاری، جۆری پرۆفایل (ئەلەمنیۆم یان uPVC)، جۆری جام، و دەسکی ئەوروپی دیاری دەکرێت. کۆمپانیای دەرگای ماڵ (Doorhome) پێوانەکردنی بێبەرامبەر و گەیاندن و دانان لە هەولێر، بەغدا، سلێمانی، دهۆک، کەرکووک و تەواوی عێراق ئەنجام دەدات لەگەڵ گرەنتی تا ١٠ ساڵ.',
-      en: 'Pricing is calculated based on exact structural dimensions, profile system (Thermal-break aluminum vs uPVC), glass specifications (double/triple Low-E laminated), and European hardware. Doorhome provides on-site laser measurements, fabrication, delivery, and certified installation across Erbil, Baghdad, Sulaymaniyah, Duhok, Kirkuk, and all Iraq governorates with up to a 10-year factory warranty.',
-      tr: "Fiyatlar; hassas ölçüler, seçilen profil sistemi (ısı yalıtımlı alüminyum veya uPVC), cam konfigürasyonu ve Avrupa aksesuarlarına göre belirlenir. Doorhome, Erbil, Bağdat, Süleymaniye, Duhok, Kerkük ve tüm Irak genelinde yerinde lazer ölçümü, üretim, nakliye ve 10 yıla varan resmi garantiyle montaj hizmeti sunmaktadır."
+      ar: 'تحدد الأسعار بناءً على المقاسات الهندسية الدقيقة، نوع القطاع (ألمنيوم حراري أو uPVC)، مواصفات الزجاج (دبل، تربل، سيكوريت)، ونوع الإكسسوارات المعمارية المعتمدة. تقدم شركة Doorhome (باب المنزل) زيارة هندسية مجانية لأخذ القياسات، وخدمة التصنيع والتوصيل والتركيب المعتمد في أربيل، بغداد، السليمانية، دهوك، كركوك، البصرة، وجميع مدن العراق مع ضمان مصنعي يصل إلى 10 سنوات.',
+      ckb: 'نرخەکان بەپێی قەبارەی ئەندازیاری، جۆری پرۆفایل (ئەلەمنیۆم یان uPVC)، جۆری جام، و دەسکی تەلارسازیی باوەڕپێکراو دیاری دەکرێت. کۆمپانیای دەرگای ماڵ (Doorhome) پێوانەکردنی بێبەرامبەر و گەیاندن و دانان لە هەولێر، بەغدا، سلێمانی، دهۆک، کەرکووک و تەواوی عێراق ئەنجام دەدات لەگەڵ گرەنتی تا ١٠ ساڵ.',
+      en: 'Pricing is calculated based on exact structural dimensions, profile system (Thermal-break aluminum vs uPVC), glass specifications (double/triple Low-E laminated), and certified architectural hardware. Doorhome provides on-site laser measurements, fabrication, delivery, and certified installation across Erbil, Baghdad, Sulaymaniyah, Duhok, Kirkuk, and all Iraq governorates with up to a 10-year factory warranty.',
+      tr: "Fiyatlar; hassas ölçüler, seçilen profil sistemi (ısı yalıtımlı alüminyum veya uPVC), cam konfigürasyonu ve onaylı mimari aksesuarlara göre belirlenir. Doorhome, Erbil, Bağdat, Süleymaniye, Duhok, Kerkük ve tüm Irak genelinde yerinde lazer ölçümü, üretim, nakliye ve 10 yıla varan resmi garantiyle montaj hizmeti sunmaktadır."
     },
     keywords: ['اسعار شبابيك المنيوم', 'اسعار درج زجاجي', 'توصيل بغداد اربيل', 'ضمان 10 سنوات', 'نرخی پەنجەرە', 'window prices iraq']
   },
@@ -123,10 +123,10 @@ const FAQ_ITEMS: FaqItem[] = [
       tr: 'Ücretsiz yerinde keşif ve resmi garanti hizmeti veriyor musunuz?'
     },
     answer: {
-      ar: 'نعم، يقوم مهندسونا المتخصصون بزيارة موقع المشروع لأخذ القياسات بالليزر ودراسة أحمال الرياح والعزل المناسب مجاناً. كما نوفر شهادة ضمان رسمية على ثبات ألوان القطاعات، العزل الحراري، عدم تكثف بخار الماء داخل الزجاج المزدوج، وجودة عمل آليات الإغلاق الأوروبية.',
-      ckb: 'بەڵێ، ئەندازیارانی ئێمە سەردانی شوێنی پڕۆژە دەکەن بۆ پێوانەکردنی لەیزەری و دیاریکردنی باشترین عەزل بەبێ بەرامبەر. هەروەها بڕوانامەی گرەنتی فەرمی پێشکەش دەکرێت بۆ پاراستنی ڕەنگ، عەزلی گەرمی، جامی دبل گڵاس و قوفڵە ئەوروپییەکان.',
-      en: 'Yes. Our senior fenestration engineers visit your project site for laser surveying, wind load evaluation, and thermal design at no extra charge. Every project includes an official warranty certificate covering profile powder coating, thermal break performance, hermetic double-glazing seal, and European multipoint locking mechanisms.',
-      tr: 'Evet. Uzman mühendislerimiz lazer ölçümü ve rüzgar/ısı analizleri için şantiyenizi ücretsiz ziyaret eder. Her projede profil kaplaması, ısı yalıtımı, çift cam sızdırmazlığı ve Avrupa kilit mekanizmaları için resmi garanti sertifikası verilir.'
+      ar: 'نعم، يقوم مهندسونا المتخصصون بزيارة موقع المشروع لأخذ القياسات بالليزر ودراسة أحمال الرياح والعزل المناسب مجاناً. كما نوفر شهادة ضمان رسمية على ثبات ألوان القطاعات، العزل الحراري، عدم تكثف بخار الماء داخل الزجاج المزدوج، وجودة عمل آليات الإغلاق المعمارية المعتمدة.',
+      ckb: 'بەڵێ، ئەندازیارانی ئێمە سەردانی شوێنی پڕۆژە دەکەن بۆ پێوانەکردنی لەیزەری و دیاریکردنی باشترین عەزل بەبێ بەرامبەر. هەروەها بڕوانامەی گرەنتی فەرمی پێشکەش دەکرێت بۆ پاراستنی ڕەنگ، عەزلی گەرمی، جامی دبل گڵاس و قوفڵە باوەڕپێکراوەکان.',
+      en: 'Yes. Our senior fenestration engineers visit your project site for laser surveying, wind load evaluation, and thermal design at no extra charge. Every project includes an official warranty certificate covering profile powder coating, thermal break performance, hermetic double-glazing seal, and multipoint certified locking mechanisms.',
+      tr: 'Evet. Uzman mühendislerimiz lazer ölçümü ve rüzgar/ısı analizleri için şantiyenizi ücretsiz ziyaret eder. Her projede profil kaplaması, ısı yalıtımı, çift cam sızdırmazlığı ve emniyet kilit mekanizmaları için resmi garanti sertifikası verilir.'
     },
     keywords: ['معاينة مجانية', 'ضمان رسمي', 'قياسات ليزر', 'پێوانەکردن', 'garanti']
   }

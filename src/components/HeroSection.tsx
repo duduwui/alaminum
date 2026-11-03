@@ -15,35 +15,35 @@ const HERO_QUOTES_BY_LANG: Record<string, string[]> = {
   "en": [
     "Modern architectural design.",
     "Smart fenestration solutions.",
-    "Reliable European quality.",
+    "Reliable certified architectural quality.",
     "Extreme 50°C climate protection.",
     "Precision CNC fabrication."
   ],
   "en-GB": [
     "Modern architectural design.",
     "Smart fenestration solutions.",
-    "Reliable European quality.",
+    "Reliable certified architectural quality.",
     "Extreme 50°C climate protection.",
     "Precision CNC fabrication."
   ],
   "en-US": [
     "Modern architectural design.",
     "Smart fenestration solutions.",
-    "Reliable European quality.",
+    "Reliable certified architectural quality.",
     "Extreme 50°C climate protection.",
     "Precision CNC fabrication."
   ],
   "ar": [
     "تصميم معماري عصري وحديث.",
     "حلول هندسية ذكية للأبواب والنوافذ.",
-    "جودة أوروبية موثوقة ومعتمدة.",
+    "جودة معمارية موثوقة ومعتمدة.",
     "حماية فائقة في درجات حرارة 50°م.",
     "تصنيع دقيق بتقنية CNC في أربيل."
   ],
   "ckb": [
     "نەخشەسازی تەلارسازیی مۆدێرن.",
     "چارەسەری زیرەکی پەنجەرە و دەرگا.",
-    "کوالێتی باوەڕپێکراوی ئەوروپی.",
+    "کوالێتی ئەندازیاریی باوەڕپێکراو.",
     "پاراستنی تەواو لە پلەی گەرمای ٥٠°C.",
     "دروستکراوی ورد بە سی ئێن سی لە هەولێر."
   ],
@@ -237,31 +237,31 @@ const HERO_CONTENT_BY_LANG: Record<string, { title: string; exploreBtn: string }
     "exploreBtn": "See All Products"
   },
   "en-GB": {
-    "title": "European Fenestration & Architectural Systems",
+    "title": "Architectural Fenestration & Door Systems",
     "exploreBtn": "See All Products"
   },
   "en-US": {
-    "title": "European Fenestration & Architectural Systems",
+    "title": "Architectural Fenestration & Door Systems",
     "exploreBtn": "See All Products"
   },
   "ar": {
-    "title": "الأنظمة المعمارية والأبواب والنوافذ الأوروبية",
+    "title": "الأنظمة المعمارية المتطورة للأبواب والنوافذ",
     "exploreBtn": "تصفح جميع المنتجات"
   },
   "ckb": {
-    "title": "سیستەمی ئەندازیاری پەنجەرە و دەرگای ئەوروپی",
+    "title": "سیستەمی ئەندازیاری پێشکەوتووی پەنجەرە و دەرگا",
     "exploreBtn": "بینینی هەموو بەرهەمەکان"
   },
   "kmr": {
-    "title": "Pergalên Mîmarî û Pencereyên Ewropî",
+    "title": "Pergalên Mîmarî û Pencereyên Nûjen",
     "exploreBtn": "Hemû Berheman Bibîne"
   },
   "tr": {
-    "title": "Avrupa Doğrama ve Mimari Sistemleri",
+    "title": "Mimari Doğrama ve Kapı Sistemleri",
     "exploreBtn": "Tüm Ürünleri İnceleyin"
   },
   "de": {
-    "title": "Europäische Fenster- & Architektursysteme",
+    "title": "Moderne Fenster- & Architektursysteme",
     "exploreBtn": "Alle Produkte anzeigen"
   },
   "fr": {

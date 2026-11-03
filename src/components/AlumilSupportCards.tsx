@@ -40,7 +40,7 @@ export const AlumilSupportCards: React.FC<AlumilSupportCardsProps> = ({
       tag: 'CONSULTATION',
       title: 'Architectural Specs & BIM/CAD',
       description:
-        'Request complete engineering specs, profile cross-sections, STAC/Comunello hardware diagrams, and certified laboratory test reports from our engineers.',
+        'Request complete engineering specs, profile cross-sections, Architectural Hardware/Comunello hardware diagrams, and certified laboratory test reports from our engineers.',
       linkText: 'Contact Technical Desk',
       action: () => onNavigate('contact'),
       icon: FileDown,

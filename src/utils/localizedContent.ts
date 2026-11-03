@@ -11,7 +11,7 @@ interface LocalizedProductInfo {
 const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>> = {
   it: {
       "legend-80": {
-            "name": "Deceuninck Legend 80 Passivhaus",
+            "name": "Deceuninck Multi-Chamber Acoustic Passivhaus",
             "description": "Il massimo dell'isolamento termico e acustico. Progettato con profondità 80 mm e 6 camere interne per resistere a temperature estive oltre i 50°C.",
             "subCategory": "Isolamento Termico Elevato",
             "features": [
@@ -146,12 +146,12 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
             ]
       },
       "low-e-double": {
-            "name": "Vetrocamera Isolante Basso-Emissivo con Gas Argon",
+            "name": "Vetrocamera Isolante Basso-Emissivo con Gas Insulated Air",
             "description": "Doppio o triplo vetrocamera ad alte prestazioni per respingere i raggi ultravioletti e conservare la temperatura interna.",
             "subCategory": "Vetro Tecnico e Glazing",
             "features": [
                   "Rivestimento magnetronico basso-emissivo Low-E",
-                  "Intercapedine riempita con gas Argon al 90%",
+                  "Intercapedine riempita con gas Insulated Air al 90%",
                   "Canalina calda Warm Edge per eliminare la condensa"
             ]
       },
@@ -183,8 +183,8 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
             ]
       },
       "stac-multipoint": {
-            "name": "Chiusura Multipunto Europea STAC",
-            "description": "Ferramenta di chiusura perimetrale certificata spagnola STAC per garantire ermeticità e massima sicurezza.",
+            "name": "Chiusura Multipunto Europea Architectural",
+            "description": "Ferramenta di chiusura perimetrale certificata spagnola Architectural per garantire ermeticità e massima sicurezza.",
             "subCategory": "Ferramenta e Meccanismi",
             "features": [
                   "Perni di chiusura a fungo antieffrazione",
@@ -192,7 +192,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
             ]
       },
       "master-handles": {
-            "name": "Maniglie Architettoniche di Design Master Italy",
+            "name": "Maniglie Architettoniche di Design Architectural Master",
             "description": "Maniglie ergonomiche di fabbricazione italiana per porte e finestre, resistenti all'uso intensivo.",
             "subCategory": "Maniglie e Maniglioni",
             "features": [
@@ -201,7 +201,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
             ]
       },
       "comunello-rollers": {
-            "name": "Carrelli di Scorrimento Rinforzati Comunello",
+            "name": "Carrelli di Scorrimento Rinforzati Heavy-Duty",
             "description": "Carrelli doppi regolabili in acciaio inox e polimeri tecnici per porte scorrevoli pesanti fino a 400 kg.",
             "subCategory": "Carrelli e Cuscinetti",
             "features": [
@@ -455,14 +455,14 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
   },
   ar: {
     'legend-80': {
-      name: 'شبابيك ديكونينك ليجند 80',
+      name: 'شبابيك متعدد الحجرات ليجند 80',
       description: 'قمة العزل الحراري والصوتي. مصمم بعمق 80 ملم و 6 حجرات داخلية لتحمل حرارة صيف أربيل التي تتجاوز 50 درجة مئوية.',
       subCategory: 'عزل حراري فائق',
       features: [
         'تصميم هندسي بـ 6 حجرات لتوفير أقصى كفاءة طاقة بستاندارد باسيڤ هاوس',
         'مطاط EPDM ثلاثي لإحكام عزل الهواء والضوضاء والغبار',
         'يدعم زجاجاً ثلاثياً معزولاً بسماكة تصل إلى 52 ملم',
-        'مفصلات أوروبية شديدة التحمل للأوزان والارتفاعات العالية',
+        'مفصلات المعمارية المعتمدةة شديدة التحمل للأوزان والارتفاعات العالية',
         'مقاوم لأشعة الشمس فوق البنفسجية والعواصف الرملية'
       ]
     },
@@ -561,7 +561,7 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
     },
     'shutters': {
       name: 'شترات ألمنيوم معزولة وستائر حماية',
-      description: 'شترات ألمنيوم محقونة بالفوم العازل بمحركات إيطالية وسومفي للتحكم في الضوء والحرارة والخصوصية.',
+      description: 'شترات ألمنيوم محقونة بالفوم العازل بمحركات المعتمدةة وسومفي للتحكم في الضوء والحرارة والخصوصية.',
       subCategory: 'تظليل وحماية',
       features: [
         'محركات سومفي وكومونيللو أصلية مع ريموت كنترول لاسلكي',
@@ -601,23 +601,23 @@ const PRODUCT_LOCALIZATIONS: Record<string, Record<string, LocalizedProductInfo>
       ]
     },
     'acc-window-line': {
-      name: 'إكسسوارات ومقابض النوافذ الأوروبية',
+      name: 'إكسسوارات ومقابض النوافذ المعمارية المعتمدة',
       description: 'مجموعات ميكانيكية متكاملة للنوافذ المفصلية والقلاب وأذرع الاحتكاك ومفاتيح الإغلاق المحيطية.',
       subCategory: 'ميكانيكا النوافذ',
       features: [
-        'إكسسوارات أوروبية معتمدة من ماستر إيطاليا وفورني',
+        'إكسسوارات المعمارية المعتمدةة معتمدة من ماستر المعتمدةا وفورني',
         'طلاء فضي ثلاثي الكروم مقاوم للتآكل والرطوبة',
         'مفصلات ثلاثية الأبعاد لضبط ضغط إحكام المطاط بدقة'
       ]
     },
     'acc-door-line': {
       name: 'إكسسوارات ومفصلات الأبواب الثقيلة',
-      description: 'مفصلات 3D قابلة للضبط، أقفال محيطية أوتوماتيكية، وأسطوانات أمان أوروبية عالية التحمل.',
+      description: 'مفصلات 3D قابلة للضبط، أقفال محيطية أوتوماتيكية، وأسطوانات أمان المعمارية المعتمدةة عالية التحمل.',
       subCategory: 'أنظمة الأبواب',
       features: [
         'مختبر لأكثر من 200,000 دورة فتح وإغلاق',
         'يتحمل أوزان أبواب تصل إلى 160 كجم للضلفة',
-        'أسطوانات أمان أوروبية مضادة للحفر والكسر'
+        'أسطوانات أمان المعمارية المعتمدةة مضادة للحفر والكسر'
       ]
     },
     'acc-sliding-line': {

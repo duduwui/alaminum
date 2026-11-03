@@ -14,7 +14,7 @@ export const AlumilProjectsList: React.FC<AlumilProjectsListProps> = ({ onViewAl
       category: 'RESIDENTIAL',
       title: 'Luxury Villa in Empire World',
       location: 'Empire World, Erbil',
-      system: 'Lorenzo 70LS Minimal & Facade 50F',
+      system: 'Panoramic System Minimal & Facade 50F',
       image: './assets/doorhome/03-2.jpg',
       description: 'Expansive 3.2m minimalist sliding spans seamlessly connecting living areas with outdoor pool terraces.'
     },
@@ -23,7 +23,7 @@ export const AlumilProjectsList: React.FC<AlumilProjectsListProps> = ({ onViewAl
       category: 'RESIDENTIAL',
       title: 'Dream City Private Residence',
       location: 'Dream City, Erbil',
-      system: 'Legend 80 6-Chamber Triple Glazed uPVC',
+      system: 'Multi-Chamber Acoustic 6-Chamber Triple Glazed uPVC',
       image: './assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg',
       description: 'Passive house standard acoustic fenestration delivering 45 dB noise isolation.'
     },

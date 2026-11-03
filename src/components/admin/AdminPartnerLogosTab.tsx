@@ -202,7 +202,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
               type="text"
               value={newLogo.country || ''}
               onChange={(e) => setNewLogo({ ...newLogo, country: e.target.value })}
-              placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'مثال: اليونان، ألمانيا، إيطاليا' : 'e.g. Greece, Germany, Italy'}
+              placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'مثال: أنظمة معمارية، قطاعات عازلة' : 'e.g. Architectural, Thermal'}
               className="w-full px-3 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-red-500 font-bold"
             />
           </div>
@@ -289,7 +289,7 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                   <input
                     type="text"
                     value={logo.country || ''}
-                    placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'الدولة (مثال: إيطاليا)' : 'Country (e.g. Italy)'}
+                    placeholder={currentLanguage.code === 'ar' || currentLanguage.code === 'ckb' ? 'التصنيف (مثال: أنظمة معمارية)' : 'Category (e.g. Architectural)'}
                     onChange={(e) => {
                       const updated = [...partnerLogos];
                       updated[idx] = { ...updated[idx], country: e.target.value };

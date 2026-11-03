@@ -24,24 +24,24 @@ const SLIDES: SlideItem[] = [
     category: 'ARCHITECTURAL INNOVATION',
     title: 'Minimalist Panorama & German Engineering',
     description:
-      'Lorenzo 70LS & Alumil Panorama sliding systems engineered for Iraqi climate extremes up to 50°C. Ultra-slim sightlines with heavy-load thermal sliding.',
+      'Panoramic System & Alumil Panorama sliding systems engineered for Iraqi climate extremes up to 50°C. Ultra-slim sightlines with heavy-load thermal sliding.',
     btnText: 'Explore System',
-    image: './assets/showcase/showcase_lorenzo70ls_1789926091155.jpg',
+    image: './assets/showcase/showcase_Panoramic System70ls_1789926091155.jpg',
     fallbackImage: './assets/doorhome/03-2.jpg',
     thumbImage: './assets/doorhome/03-2.jpg',
-    thumbTitle: 'Lorenzo 70LS Minimal'
+    thumbTitle: 'Panoramic System Minimal'
   },
   {
     id: 'slide-2',
     category: 'SUSTAINABILITY & PASSIVHAUS',
-    title: 'Legend 80: Achieving Thermal & Acoustic Comfort',
+    title: 'Multi-Chamber Acoustic: Achieving Thermal & Acoustic Comfort',
     description:
       'Class-leading 80mm profile depth with 6 insulation chambers and triple continuous EPDM gaskets. Eliminates ambient city noise by up to 45 dB.',
     btnText: 'Discover uPVC Series',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
     fallbackImage: './assets/doorhome/4-2.jpg',
     thumbImage: './assets/doorhome/4-2.jpg',
-    thumbTitle: 'Legend 80 Acoustic'
+    thumbTitle: 'Multi-Chamber Acoustic Acoustic'
   },
   {
     id: 'slide-3',

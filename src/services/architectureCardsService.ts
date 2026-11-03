@@ -34,8 +34,15 @@ export interface ArchitectureShowcaseItem {
 export const ARCH_CARDS_STORAGE_KEY = 'winhome_cms_arch_cards';
 export const ARCH_CARDS_UPDATED_EVENT = 'cms_arch_cards_updated';
 
-export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase_v2';
+export const ARCH_SHOWCASE_STORAGE_KEY = 'winhome_cms_arch_showcase_v3';
 export const ARCH_SHOWCASE_UPDATED_EVENT = 'cms_arch_showcase_updated';
+
+try {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_cms_arch_showcase_v2');
+    localStorage.removeItem('winhome_cms_arch_showcase');
+  }
+} catch {}
 
 export const DEFAULT_CATALOGUE_CARDS: ArchitectureCatalogueCard[] = [
   {

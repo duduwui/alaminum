@@ -4,7 +4,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "gallery-proj-polycarb-transparent-shutter",
     "title": "Luxury Villa Garden Pavilion Transparent Polycarbonate Shutter Installation",
-    "description": "Custom installation by Doorhome architectural team featuring transparent polycarbonate rolling shutters for an outdoor villa pavilion and veranda. Provides all-weather shelter against wind and dust while preserving full panoramic landscape views.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Custom installation by Doorhome architectural team featuring transparent polycarbonate rolling shutters for an outdoor villa pavilion and veranda. Provides all-weather shelter against wind and dust while preserving full panoramic landscape views.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/transparent_polycarbonate_rolling_shutter.png",
     "translations": {
       "ar": {
@@ -26,7 +26,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "gallery-proj-black-zip-screen-shutter",
     "title": "Architectural Motorized Black Zip Screen Facade Shutter Installation Project",
-    "description": "Turnkey exterior facade drop zip-screen project executed with precision by Doorhome installation engineers. Features automated flame-retardant black mesh providing solar control, insect barrier, cold air protection, and dust resistance.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Turnkey exterior facade drop zip-screen project executed with precision by Doorhome installation engineers. Features automated flame-retardant black mesh providing solar control, insect barrier, cold air protection, and dust resistance.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/exterior_black_zip_screen_shutter.png",
     "translations": {
       "ar": {
@@ -48,12 +48,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-1",
     "title": "Precision On-Site Installation by Certified Doorhome Technicians",
-    "description": "Every window and door is installed with millimeter precision by our trained in-house crew. We ensure perfect leveling, seamless operation, and airtight insulation for complete peace of mind.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Every window and door is installed with millimeter precision by our trained in-house crew. We ensure perfect leveling, seamless operation, and airtight insulation for complete peace of mind.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/dbca27fe-933e-4dc9-b374-b77ea4e214c1.jpg",
     "translations": {
       "ar": {
         "title": "تركيب هندسي دقيق بأيدي فريق باب المنزل المتخصص",
-        "description": "يقوم فريقنا الفني المدرب بتركيب الأبواب والشبابيك بأعلى درجات الدقة المليمترية، مع ضمان التوازن المثالي والعزل التام ضد الهواء والأتربة والضوضاء لراحة بال تدوم طويلاً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "يقوم فريقنا الفني المدرب بتركيب الأبواب والشبابيك بأعلى درجات الدقة المليمترية، مع ضمان التوازن المثالي والعزل التام ضد الهواء والأتربة والضوضاء لراحة بال تدوم طويلاً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دابەستنی ئەندازیاری ورد لەلایەن تیمی پسپۆڕی دەرگای ماڵ",
@@ -70,12 +70,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-2",
     "title": "Walkable Structural Glass Roofs & Architectural Skylights",
-    "description": "Engineered multi-layer tempered laminated glass designed to bear heavy structural loads while flooding your home with crystal-clear natural daylight and zero leak risk.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered multi-layer tempered laminated glass designed to bear heavy structural loads while flooding your home with crystal-clear natural daylight and zero leak risk.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/746f7fc1-3995-4a56-bbcb-1ba48e689f1d.mp4",
     "translations": {
       "ar": {
         "title": "أسقف زجاجية إنشائية قابلة للمشي وسكاي لايت متطور",
-        "description": "زجاج سيكوريت مصفح متعدد الطبقات يتحمل الأوزان العالية مع عزل حراري فائق ومقاومة تامة للتسرب، ليمنح مساحتك إضاءة طبيعية ساحرة بأعلى معايير الأمان الإنشائي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "زجاج سيكوريت مصفح متعدد الطبقات يتحمل الأوزان العالية مع عزل حراري فائق ومقاومة تامة للتسرب، ليمنح مساحتك إضاءة طبيعية ساحرة بأعلى معايير الأمان الإنشائي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "سەقفی جامی ئەندازیاری پتەو و سکای‌لایتی مۆدێرن",
@@ -93,12 +93,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-3",
     "title": "Rigorous Weatherproof Sealing & Field Testing",
-    "description": "Every custom roof and skylight undergoes intensive on-site sealing checks and quality audits to guarantee maximum resistance against Iraqi summer heat, dust storms, and heavy rain.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Every custom roof and skylight undergoes intensive on-site sealing checks and quality audits to guarantee maximum resistance against Iraqi summer heat, dust storms, and heavy rain.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/e61a2f89-73ee-43b4-9ae3-b58edc8b57e9.jpg",
     "translations": {
       "ar": {
         "title": "اختبارات عزل المياه والطقس في موقع العمل",
-        "description": "تخضع جميع تركيباتنا الخارجية لفحوصات دقيقة ومستمرة لضمان عزل مائي وحراري كامل 100%، وتوفير أقصى درجات الحماية من حرارة الصيف وعواصف الغبار وأمطار الشتاء.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "تخضع جميع تركيباتنا الخارجية لفحوصات دقيقة ومستمرة لضمان عزل مائي وحراري كامل 100%، وتوفير أقصى درجات الحماية من حرارة الصيف وعواصف الغبار وأمطار الشتاء.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پشکنینی دژە ئاو و تاقیکردنەوەی کوالێتی لە شوێنی کار",
@@ -115,12 +115,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-4",
     "title": "Doorhome Premium Engineering: Built for Iraqi Climate Extremes",
-    "description": "Combining high-performance European thermal profiles with sound-dampening acoustic double glazing, crafted to keep your interior comfortable, quiet, and energy-efficient all year.",
+    "description": "Combining high-performance Architectural thermal profiles with sound-dampening acoustic double glazing, crafted to keep your interior comfortable, quiet, and energy-efficient all year.",
     "src": "/uploads/12c6d25c-c1d7-48f4-8fca-4eff4a88f9d5.mp4",
     "translations": {
       "ar": {
         "title": "هندسة باب المنزل المتميزة: مصممة لتحديات المناخ العراقي",
-        "description": "نجمع بين قطاعات الألمنيوم والـ يو بي في سي عالي العزل الأوروبية العازلة للحرارة والزجاج المزدوج العازل للصوت، لنضمن لك بيئة هادئة وباردة صيفاً ودافئة شتاءً مع توفير الطاقة."
+        "description": "نجمع بين قطاعات الألمنيوم والـ يو بي في سي عالي العزل المعمارية المعتمدة العازلة للحرارة والزجاج المزدوج العازل للصوت، لنضمن لك بيئة هادئة وباردة صيفاً ودافئة شتاءً مع توفير الطاقة."
       },
       "ckb": {
         "title": "ئەندازیاری پێشکەوتووی دەرگای ماڵ: بەرگەگری کەشوهەوای عێراق و کوردستان",
@@ -138,7 +138,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-5",
     "title": "Care & Protection: Doorhome Specialized Logistics Team",
-    "description": "Your investment is safe with us! Our dedicated delivery crew meticulously wraps every frame and glass panel with heavy-duty protective film and impact-resistant corner cushions, ensuring pristine, scratch-free arrival at your villa or project.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Your investment is safe with us! Our dedicated delivery crew meticulously wraps every frame and glass panel with heavy-duty protective film and impact-resistant corner cushions, ensuring pristine, scratch-free arrival at your villa or project.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/09f485a2-bcda-434e-ba3b-026a84be68bf.jpg",
     "translations": {
       "ar": {
@@ -160,12 +160,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-6",
     "title": "Architectural Pyramid Glass Skylights & Custom Atriums",
-    "description": "Transform your ceilings into dramatic light wells. Engineered with structural thermal break aluminum and high-performance Low-E solar control glass to reduce heat gain while maximizing daylight.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Transform your ceilings into dramatic light wells. Engineered with structural thermal break aluminum and high-performance Low-E solar control glass to reduce heat gain while maximizing daylight.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/00580030-6081-4004-8980-24a3e47f5e24.jpg",
     "translations": {
       "ar": {
         "title": "سكاي لايت هرمي هندسي وقباب زجاجية متميزة",
-        "description": "حوّل سقف منزلك إلى واحة من الضوء الطبيعي مع قباب السكاي لايت الهرمية المصنوعة من قطاعات الألمنيوم المعزولة وزجاج منخفض الانبعاثية الحرارية العاكس للحرارة والموفر للطاقة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حوّل سقف منزلك إلى واحة من الضوء الطبيعي مع قباب السكاي لايت الهرمية المصنوعة من قطاعات الألمنيوم المعزولة وزجاج منخفض الانبعاثية الحرارية العاكس للحرارة والموفر للطاقة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "سکای‌لایتی هەڕەمی و قوبەی جامی تەلارسازی",
@@ -182,12 +182,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-7",
     "title": "Signature Modern Villa Facades & Custom Panoramic Windows",
-    "description": "Complete turnkey architectural solutions for modern villas. Large-format thermal sliding systems and floor-to-ceiling glass designed to complement contemporary Iraqi architecture.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Complete turnkey architectural solutions for modern villas. Large-format thermal sliding systems and floor-to-ceiling glass designed to complement contemporary Iraqi architecture.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/uploads/40499425-a7f0-47b5-b6e5-a6f07d5e182f.jpg",
     "translations": {
       "ar": {
         "title": "واجهات فلل عصرية فخمة وشبابيك بانورامية متكاملة",
-        "description": "حلول معمارية شاملة للفلل العصرية تجمع بين الواجهات الزجاجية الشاهقة والأبواب السحاب البانورامية العازلة، لتمنح منزلك فخامة لا تُضاهى وتناغماً معمارياً ساحراً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حلول معمارية شاملة للفلل العصرية تجمع بين الواجهات الزجاجية الشاهقة والأبواب السحاب البانورامية العازلة، لتمنح منزلك فخامة لا تُضاهى وتناغماً معمارياً ساحراً.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری ڤێلای مۆدێرن و پەنجەرەی پانۆرامای تایبەت",
@@ -204,12 +204,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-8",
     "title": "Frameless Tempered Glass Stair Balustrades & Railings",
-    "description": "Create an open, airy feeling inside your home. Our structural tempered laminated glass railings provide maximum strength, safety, and crystal clarity with clean hidden fixtures.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Create an open, airy feeling inside your home. Our structural tempered laminated glass railings provide maximum strength, safety, and crystal clarity with clean hidden fixtures.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_8_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين وسلالم زجاجية سيكوريت عصرية بدون إطار",
-        "description": "امنح منزلك اتساعاً وأناقة لا حدود لها مع درابزينات السلالم المصنوعة من زجاج السيكوريت المصفح فائق الشفافية والمثبت بنظام مخفي يضمن أقصى معايير الأمان.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "امنح منزلك اتساعاً وأناقة لا حدود لها مع درابزينات السلالم المصنوعة من زجاج السيكوريت المصفح فائق الشفافية والمثبت بنظام مخفي يضمن أقصى معايير الأمان.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی شووشەی سێکۆریت و پلیکانی مۆدێرنی بێ چوارچێوە",
@@ -226,12 +226,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-9",
     "title": "Motorized Retractable Pergolas & Glass Patio Enclosures",
-    "description": "Enjoy your outdoor terrace all year long. Featuring motorized insulated aluminum louvers, integrated atmospheric LED lighting, and smooth sliding glass windbreaks.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Enjoy your outdoor terrace all year long. Featuring motorized insulated aluminum louvers, integrated atmospheric LED lighting, and smooth sliding glass windbreaks.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_9_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "برجولات متحركة معزولة وإغلاقات زجاجية للحدائق والتراسات",
-        "description": "استمتع بحديقتك وتراسك طوال فصول السنة مع أنظمة البرجولات الأوتوماتيكية ذات الشفرات المعزولة، مع إضاءات الإضاءة الحديثة الموفرة للطاقة مدمجة وزجاج سحاب متحرك يحميك من الرياح والأتربة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "استمتع بحديقتك وتراسك طوال فصول السنة مع أنظمة البرجولات الأوتوماتيكية ذات الشفرات المعزولة، مع إضاءات الإضاءة الحديثة الموفرة للطاقة مدمجة وزجاج سحاب متحرك يحميك من الرياح والأتربة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەرگۆلای ئەلەمنیۆمی جوڵاو و شووشەی باخچە و تراس",
@@ -248,12 +248,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-10",
     "title": "Modern Architectural Aluminum Slat Privacy Gates",
-    "description": "Elevate your property security and curb appeal with heavy-duty vertical aluminum slat gates. Custom-fabricated with weather-resistant electrostatic powder coating for lifetime durability.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Elevate your property security and curb appeal with heavy-duty vertical aluminum slat gates. Custom-fabricated with weather-resistant electrostatic powder coating for lifetime durability.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_10_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "بوابات ألمنيوم خارجية عصري بتصميم شرائح عمودية للخصوصية",
-        "description": "أضف لمسة فخامة وأمان لمحيط فيلتك مع بوابات الألمنيوم العصرية المقاومة للصدأ وعوامل الجو، مطلية بطلاء حراري كهرستاتيكي فائق الجودة يضمن ثبات اللون مدى الحياة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أضف لمسة فخامة وأمان لمحيط فيلتك مع بوابات الألمنيوم العصرية المقاومة للصدأ وعوامل الجو، مطلية بطلاء حراري كهرستاتيكي فائق الجودة يضمن ثبات اللون مدى الحياة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەروازەی ئەلەمنیۆمی مۆدێرن بە دیزاینی پەردەیی بۆ پاراستنی تایبەتمەندی",
@@ -270,12 +270,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-vid-1",
     "title": "Live Showroom Demo: High-Performance Sliding Systems",
-    "description": "Feel the effortless featherlight glide! Our thermal sliding window systems feature multi-point German security locks, reinforced anti-lift tracks, and airtight perimeter seals.",
+    "description": "Feel the effortless featherlight glide! Our thermal sliding window systems feature multi-point Precision security locks, reinforced anti-lift tracks, and airtight perimeter seals.",
     "src": "/products-assets/video_2026-09-26_07-36-00 (10).mp4",
     "translations": {
       "ar": {
         "title": "تجربة عملية من المعرض: سلاسة حركة أنظمة السلايدينغ",
-        "description": "شاهد خفة وسلاسة حركة أنظمة السلايدينغ العازلة؛ مصممة بعجلات انزلاق أوروبية مانعة للاحتكاك، وأقفال أمان متعددة النقاط، مع عزل كامل لمنع دخول أصغر ذرات الغبار."
+        "description": "شاهد خفة وسلاسة حركة أنظمة السلايدينغ العازلة؛ مصممة بعجلات انزلاق معمارية معتمدة مانعة للاحتكاك، وأقفال أمان متعددة النقاط، مع عزل كامل لمنع دخول أصغر ذرات الغبار."
       },
       "ckb": {
         "title": "نمایشی ڕاستەوخۆ لە پیشانگامان: سیستەمی سلایدینگی نەرم و پێشکەوتوو",
@@ -293,12 +293,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-13",
     "title": "Heavy-Duty Louvered Driveway & Entrance Gate Systems",
-    "description": "Designed for luxury homes demanding the highest grade of security and privacy. Precision fabricated with reinforced internal steel cores and smooth automatic sliding mechanisms.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Designed for luxury homes demanding the highest grade of security and privacy. Precision fabricated with reinforced internal steel cores and smooth automatic sliding mechanisms.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_13_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "بوابات مداخل وسيارات ثقيلة بتصميم لوفر عصري",
-        "description": "مصممة للفلل والمشاريع الراقية التي تبحث عن أقصى درجات الأمان والخصوصية، مدعمة بهيكل داخلي قوي ومتوافقة تماماً مع محركات الفتح الإلكترونية الذكية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مصممة للفلل والمشاريع الراقية التي تبحث عن أقصى درجات الأمان والخصوصية، مدعمة بهيكل داخلي قوي ومتوافقة تماماً مع محركات الفتح الإلكترونية الذكية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەروازەی قورسی سەیارە و پیادە بە دیزاینی لۆڤەری مۆدێرن",
@@ -327,7 +327,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "تشغيل آلي صامت لنظام ستائر الحماية الخارجية للتراسات والحدائق",
-        "description": "فيديو توضيحي لتشغيل نظام الستائر الخارجية المتحركة في تراس فيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة النزول الهادئة وثبات القماش المشدود داخل مجاري التوجيه لمقاومة الرياح والغبار.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "فيديو توضيحي لتشغيل نظام الستائر الخارجية المتحركة في تراس فيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة النزول الهادئة وثبات القماش المشدود داخل مجاري التوجيه لمقاومة الرياح والغبار.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "کارکردنی نەرمی سیستەمی پەردەی دەرەوەی باخچە بە مۆتۆری خۆکار",
@@ -350,7 +350,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "أبراج سكنية فاخرة بشرفات زجاجية معمارية وكواسر شمس من تنفيذ باب المنزل",
-        "description": "مشروع برج سكني فاخر يبرز الشرفات الزجاجية الإنشائية الآمنة وأنظمة أبواب السحب العازلة للحرارة وكواسر الشمس المصنعة والمثبتة بأعلى المعايير الهندسية من قبل شركة باب المنزل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع برج سكني فاخر يبرز الشرفات الزجاجية الإنشائية الآمنة وأنظمة أبواب السحب العازلة للحرارة وكواسر الشمس المصنعة والمثبتة بأعلى المعايير الهندسية من قبل شركة باب المنزل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "باڵەخانەی نیشتەجێبوونی شاهانە بە باڵکۆنی شووشەیی و شریتی خۆرپارێز",
@@ -373,7 +373,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "نظام إغلاق الشرفات والتراسات الزجاجية الشفافة المتحركة آلياً",
-        "description": "فيديو توثيقي لجلسة خارجية وتراس لفيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة الإغلاق الآلي السلسة للشرائح الشفافة لتحويل الجلسة الخارجية إلى مساحة مغلقة ومكيفة بكفاءة عالية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "فيديو توثيقي لجلسة خارجية وتراس لفيلا خاصة من تنفيذ شركة باب المنزل، يوضح حركة الإغلاق الآلي السلسة للشرائح الشفافة لتحويل الجلسة الخارجية إلى مساحة مغلقة ومكيفة بكفاءة عالية.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "سیستەمی داخستنی تێراسی شووشەیی جووڵاوی کارەبایی لە کاتی کارکردندا",
@@ -395,7 +395,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "مظلة سقفية متحركة آلياً لتراس وروف علوي لفيلا مطلة على الحديقة",
-        "description": "نظام مظلات سقفية متحركة أوتوماتيكياً نفذته شركة باب المنزل لروف وتراس علوي في فيلا خاصة، يوفر حماية ديناميكية ذكية من أشعة الشمس المباشرة مع إمكانية الفتح والإغلاق بلمسة زر واحدة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نظام مظلات سقفية متحركة أوتوماتيكياً نفذته شركة باب المنزل لروف وتراس علوي في فيلا خاصة، يوفر حماية ديناميكية ذكية من أشعة الشمس المباشرة مع إمكانية الفتح والإغلاق بلمسة زر واحدة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "سەقفی جووڵاوی کارەبایی بۆ تێراسی سەرەوەی ڤێلا بە دیمەنی باخچە",
@@ -406,7 +406,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-villa-patio-zip-screens",
     "title": "Villa Garden Living Pavilion with Motorized Architectural Zip-Screen Enclosure",
-    "location": "Erbil - Italian Village",
+    "location": "Erbil - Certified Village",
     "system": "Doorhome Automated Exterior Zip-Screen Drop Shades & Weather Barriers",
     "category": "villa",
     "src": "/products-assets/unclears/photo_70_2026-09-26_07-36-01.jpg",
@@ -417,7 +417,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "جلسة حديقة خارجية لفيلا خاصة بستائر زيب سكرين المعمارية الأوتوماتيكية",
-        "description": "مشروع جلسة وتراس خارجي فاخر لفيلا سكنية نفذته شركة باب المنزل، مزود بستائر خارجية متحركة آلياً ومقاومة للرياح توفر حماية متكاملة للجلسات العائلية من حرارة الشمس الحارقة والغبار وتمنح خصوصية تامة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع جلسة وتراس خارجي فاخر لفيلا سكنية نفذته شركة باب المنزل، مزود بستائر خارجية متحركة آلياً ومقاومة للرياح توفر حماية متكاملة للجلسات العائلية من حرارة الشمس الحارقة والغبار وتمنح خصوصية تامة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دانیشتنی باخچەی ڤێلا بە سیستەمی پەردەی کارەبایی زیپ سکرین",
@@ -439,7 +439,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "فيلا سكنية حديثة بتطعيمات خشبية معمارية قيد الإنجاز بشركة باب المنزل",
-        "description": "مشروع بناء وتجهيز فيلا سكنية خاصة تنفذها شركة باب المنزل، يجمع تصميمها الخارجي بين دفء الكسوات الخشبية العصرية والألواح الحجرية الرمادية مع فتحات زجاجية واسعة مجهزة لتركيب أحدث أنظمة النوافذ العازلة للحرارة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع بناء وتجهيز فيلا سكنية خاصة تنفذها شركة باب المنزل، يجمع تصميمها الخارجي بين دفء الكسوات الخشبية العصرية والألواح الحجرية الرمادية مع فتحات زجاجية واسعة مجهزة لتركيب أحدث أنظمة النوافذ العازلة للحرارة.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڤێلای هاوچەرخی نیشتەجێبوون بە نەخشی دار لە جێبەجێکردنی دەرگای ماڵ",
@@ -461,7 +461,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "مشروع تنفيذ الواجهات المعمارية والنوافذ المقوسة لفيلا سكنية مستقلة",
-        "description": "مراحل التنفيذ الإنشائي والمعماري لفيلا سكنية فاخرة بإشراف شركة باب المنزل، حيث تم إعداد وتركيب الإطارات الهيكلية العازلة لتثبيت النوافذ المقوسة المزدوجة العازلة للحرارة وسط تكسيات الحجر الطبيعي الفاخر.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مراحل التنفيذ الإنشائي والمعماري لفيلا سكنية فاخرة بإشراف شركة باب المنزل، حيث تم إعداد وتركيب الإطارات الهيكلية العازلة لتثبيت النوافذ المقوسة المزدوجة العازلة للحرارة وسط تكسيات الحجر الطبيعي الفاخر.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پڕۆژەی جێبەجێکردنی ڕووبەری ئەندازیاری و پەنجەرەی کەوانەیی بۆ ڤێلا",
@@ -483,7 +483,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "مشروع فيلا سكنية حديثة قيد التنفيذ والإنجاز بإشراف شركة باب المنزل",
-        "description": "توثيق ميداني لمشروع فيلا سكنية راقية قيد التنفيذ المباشر من قبل الفرق الهندسية المتخصصة لشركة باب المنزل، يبرز دقة تثبيت أطر النوافذ المعمارية المقوسة وواجهات الألمنيوم العازلة مع لافتة الإنجاز الرسمية للشركة في موقع العمل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "توثيق ميداني لمشروع فيلا سكنية راقية قيد التنفيذ المباشر من قبل الفرق الهندسية المتخصصة لشركة باب المنزل، يبرز دقة تثبيت أطر النوافذ المعمارية المقوسة وواجهات الألمنيوم العازلة مع لافتة الإنجاز الرسمية للشركة في موقع العمل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پڕۆژەی ڤێلای نیشتەجێبوونی مۆدێرن لە جێبەجێکردنی کۆمپانیای دەرگای ماڵ",
@@ -505,7 +505,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "فيلا سكنية عصرية فاخرة بواجهات زجاجية بانورامية وباب مدخل ضخم",
-        "description": "مشروع فيلا سكنية حديثة نفذته شركة باب المنزل، يتميز بتكسيات حجرية معاصرة وواجهات زجاجية سحابة بانورامية بكامل الارتفاع مع باب مدخل رئيسي ضخم بارتفاع مزدوج مكسو بالخشب الطبيعي المعالج.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع فيلا سكنية حديثة نفذته شركة باب المنزل، يتميز بتكسيات حجرية معاصرة وواجهات زجاجية سحابة بانورامية بكامل الارتفاع مع باب مدخل رئيسي ضخم بارتفاع مزدوج مكسو بالخشب الطبيعي المعالج.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڤێلای مۆدێرنی نیشتەجێبوون بە ڕووبەری شووشەی پانۆراما و دەرگای سەرەکی گەورە",
@@ -527,7 +527,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "translations": {
       "ar": {
         "title": "قصر سكني فاخر بتصميم كلاسيكي ملكي مع واجهات ونوافذ مقوسة",
-        "description": "مشروع متكامل نفذته شركة باب المنزل لقصر سكني فخم، يشمل تصنيع وتركيب النوافذ المعمارية المقوسة العازلة للحرارة، والواجهة الزجاجية البانورامية بالمدخل الرئيسي بكامل الارتفاع، مع أنظمة عزل متطورة تجمع بين الفخامة الملكية والأمان العالي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "مشروع متكامل نفذته شركة باب المنزل لقصر سكني فخم، يشمل تصنيع وتركيب النوافذ المعمارية المقوسة العازلة للحرارة، والواجهة الزجاجية البانورامية بالمدخل الرئيسي بكامل الارتفاع، مع أنظمة عزل متطورة تجمع بين الفخامة الملكية والأمان العالي.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "قەسری شاهانەی نیشتەجێبوون بە شێوازی کلاسیکی و پەنجەرەی کەوانەیی",
@@ -560,12 +560,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-15",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #15",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_15_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #15",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #15",
@@ -574,20 +574,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "Frameless Glass Spigot System",
     "year": "2024",
     "glassArea": "810 m²"
   },
   {
     "id": "proj-photo-16",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #16",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #16",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_16_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #16",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #16",
@@ -597,14 +597,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "180 m²"
   },
   {
     "id": "proj-photo-17",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #17",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
     "src": "/products-assets/photo_17_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -626,12 +626,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-18",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #18",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_18_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #18",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #18",
@@ -648,12 +648,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-19",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #19",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_19_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #19",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #19",
@@ -669,13 +669,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-20",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #20",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #20",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_20_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #20",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #20",
@@ -685,7 +685,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "360 m²"
   },
@@ -707,7 +707,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "405 m²"
   },
@@ -736,12 +736,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-23",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #23",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_23_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #23",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #23",
@@ -757,13 +757,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-24",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #24",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #24",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_24_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #24",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #24",
@@ -773,14 +773,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Dream City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "540 m²"
   },
   {
     "id": "proj-photo-25",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #25",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
     "src": "/products-assets/photo_25_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -802,12 +802,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-26",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #26",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_26_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #26",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #26",
@@ -824,12 +824,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-27",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #27",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_27_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #27",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #27",
@@ -838,20 +838,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "10+10+10mm Laminated Securit Glass",
     "year": "2024",
     "glassArea": "675 m²"
   },
   {
     "id": "proj-photo-28",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #28",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #28",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_28_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #28",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #28",
@@ -861,7 +861,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "720 m²"
   },
@@ -883,7 +883,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "765 m²"
   },
@@ -912,12 +912,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-31",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #31",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_31_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #31",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #31",
@@ -933,13 +933,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-32",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #32",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #32",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_32_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #32",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #32",
@@ -949,14 +949,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "225 m²"
   },
   {
     "id": "proj-photo-33",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #33",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
     "src": "/products-assets/photo_33_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -978,12 +978,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-34",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #34",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_34_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #34",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #34",
@@ -1000,12 +1000,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-35",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #35",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_35_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #35",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #35",
@@ -1021,13 +1021,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-36",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #36",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #36",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_36_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #36",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #36",
@@ -1037,7 +1037,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Dream City, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "405 m²"
   },
@@ -1059,7 +1059,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "450 m²"
   },
@@ -1088,12 +1088,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-39",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #39",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_39_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #39",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #39",
@@ -1102,20 +1102,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "Frameless Glass Spigot System",
     "year": "2024",
     "glassArea": "540 m²"
   },
   {
     "id": "proj-photo-40",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #40",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #40",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_40_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #40",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #40",
@@ -1125,14 +1125,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "585 m²"
   },
   {
     "id": "proj-photo-41",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #41",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
     "src": "/products-assets/photo_41_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -1154,12 +1154,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-42",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #42",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_42_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #42",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #42",
@@ -1176,12 +1176,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-43",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #43",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_43_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #43",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #43",
@@ -1197,13 +1197,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-44",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #44",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #44",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_44_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #44",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #44",
@@ -1213,7 +1213,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "765 m²"
   },
@@ -1235,7 +1235,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "810 m²"
   },
@@ -1264,12 +1264,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-47",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #47",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_47_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #47",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #47",
@@ -1285,13 +1285,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-48",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #48",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #48",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_48_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #48",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #48",
@@ -1301,14 +1301,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Dream City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "270 m²"
   },
   {
     "id": "proj-photo-49",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #49",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
     "src": "/products-assets/photo_49_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -1330,12 +1330,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-50",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #50",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_50_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #50",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #50",
@@ -1352,12 +1352,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-51",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #51",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_51_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #51",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #51",
@@ -1366,20 +1366,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "10+10+10mm Laminated Securit Glass",
     "year": "2024",
     "glassArea": "405 m²"
   },
   {
     "id": "proj-photo-52",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #52",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #52",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_52_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #52",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #52",
@@ -1389,7 +1389,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "450 m²"
   },
@@ -1411,7 +1411,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "495 m²"
   },
@@ -1440,12 +1440,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-55",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #55",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_55_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #55",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #55",
@@ -1461,13 +1461,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-56",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #56",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #56",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_56_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #56",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #56",
@@ -1477,14 +1477,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "630 m²"
   },
   {
     "id": "proj-photo-57",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #57",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
     "src": "/products-assets/photo_57_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -1506,12 +1506,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-58",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #58",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_58_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #58",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #58",
@@ -1528,12 +1528,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-59",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #59",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_59_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #59",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #59",
@@ -1549,13 +1549,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-60",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #60",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #60",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_60_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #60",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #60",
@@ -1565,7 +1565,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Dream City, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "810 m²"
   },
@@ -1587,7 +1587,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Al-Jadriya, Baghdad",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "180 m²"
   },
@@ -1616,12 +1616,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-63",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #63",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_63_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #63",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #63",
@@ -1630,20 +1630,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "Frameless Glass Spigot System",
     "year": "2024",
     "glassArea": "270 m²"
   },
   {
     "id": "proj-photo-64",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #64",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #64",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_64_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #64",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #64",
@@ -1653,14 +1653,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "315 m²"
   },
   {
     "id": "proj-photo-65",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #65",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Sarchinar, Sulaymaniyah.",
     "src": "/products-assets/photo_65_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -1682,12 +1682,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-66",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #66",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_66_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #66",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #66",
@@ -1704,12 +1704,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-67",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #67",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_67_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #67",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #67",
@@ -1725,13 +1725,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-68",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #68",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #68",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_68_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #68",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #68",
@@ -1741,7 +1741,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "495 m²"
   },
@@ -1763,7 +1763,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Duhok Hills, Duhok",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "540 m²"
   },
@@ -1792,12 +1792,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-71",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #71",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Mansour, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_71_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #71",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في المنصور، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #71",
@@ -1813,13 +1813,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-72",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #72",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #72",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Dream City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_72_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #72",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في دريم سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #72",
@@ -1829,14 +1829,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Dream City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "675 m²"
   },
   {
     "id": "proj-photo-73",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #73",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Al-Jadriya, Baghdad.",
     "src": "/products-assets/photo_73_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -1858,12 +1858,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-74",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #74",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Gulan Street, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_74_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #74",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في شارع كولان، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #74",
@@ -1880,12 +1880,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-75",
     "title": "Cantilevered Tempered Glass Stairs & Frameless Railings #75",
-    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Italian Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Structural floating glass steps with stainless steel concealed fixtures and crystal-clear frameless glass balustrades. Fabricated and installed at Certified Village II, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_75_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درج وسلالم زجاجية معلقة ودرابزين سيكوريت 10+10 ملم #75",
-        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في القرية الإيطالية 2، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "سلالم زجاجية كابولية معلقة بتثبيت مخفي فائق الأمان مع درابزين زجاجي بدون إطار. تم التنفيذ والتركيب في مجمع سكني راقٍ، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پلیکانی جامی هەڵواسراو و محاجەرەی شووشەی سێکۆریت #75",
@@ -1894,20 +1894,20 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     },
     "mediaType": "image",
     "category": "villa",
-    "location": "Italian Village II, Erbil",
+    "location": "Certified Village II, Erbil",
     "system": "10+10+10mm Laminated Securit Glass",
     "year": "2024",
     "glassArea": "810 m²"
   },
   {
     "id": "proj-photo-76",
-    "title": "Deceuninck Legend 80 6-Chamber Acoustic uPVC Windows #76",
-    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Multi-Chamber Acoustic 6-Chamber Acoustic uPVC Windows #76",
+    "description": "High-performance multi-chamber tilt-and-turn windows providing 45 dB acoustic isolation from heavy city noise. Fabricated and installed at English Village, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_76_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "شبابيك بي في سي عازلة للصوت والحرارة 80 #76",
-        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس معبأ بغاز الآرجون لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "نوافذ يو بي في سي عالي العزل بـ 6 غرف عزل حراري وزجاج دبل كلاس بتقنية العزل الحراري المزدوج لعزل الضوضاء والحرارة. تم التنفيذ والتركيب في القرية الإنجليزية، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "پەنجەرەی یو پی ڤی سی ٦-خانەیی ديكونينك العالمية عەزلی دەنگ و گەرمی #76",
@@ -1917,7 +1917,7 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "English Village, Erbil",
-    "system": "Deceuninck Legend 80 uPVC",
+    "system": "Multi-Chamber Acoustic uPVC",
     "year": "2023",
     "glassArea": "180 m²"
   },
@@ -1939,19 +1939,19 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "doors",
     "location": "Sarchinar, Sulaymaniyah",
-    "system": "Lorenzo 70LS Lift & Slide",
+    "system": "Panoramic System Lift & Slide",
     "year": "2024",
     "glassArea": "225 m²"
   },
   {
     "id": "proj-photo-78",
     "title": "Corporate Showroom Panoramic Glass Entrances & Facade #78",
-    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Commercial facade installation featuring floor-to-ceiling glass and heavy-duty automatic sliding entrance systems. Fabricated and installed at Royal City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_78_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات وأبواب زجاجية للمعارض والمباني التجارية #78",
-        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "تنفيذ واجهات زجاجية واسعة للمعارض والشركات مع أبواب دخول أوتوماتيكية متطورة. تم التنفيذ والتركيب في رويال سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکار و دەرگای جامی بۆ مۆڵ و باڵەخانە بازرگانییەکان #78",
@@ -1968,12 +1968,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-79",
     "title": "Modern Swimming Pool & Terrace Frameless Glass Railings #79",
-    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Ultra-clear tempered glass railings with marine-grade 316 stainless steel spigots for luxury villas. Fabricated and installed at Al-Yarmouk, Baghdad.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_79_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "درابزين زجاجي بدون إطار للمسابح والتراسات الخارجية #79",
-        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "حواجز زجاجية سيكوريت عالي الشفافية مع قواعد ستانلس ستيل 316 مقاوم للصدأ. تم التنفيذ والتركيب في اليرموك، بغداد.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "محاجەرەی جامی بێ چوارچێوە بۆ مەلەوانگە و تەراس #79",
@@ -1989,13 +1989,13 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   },
   {
     "id": "proj-photo-80",
-    "title": "Luxury Villa Lorenzo 70LS Lift & Slide Doors #80",
-    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "title": "Luxury Villa Panoramic System Lift & Slide Doors #80",
+    "description": "Monumental thermal-break sliding doors with zero-threshold design connecting interior living spaces to outdoor gardens. Fabricated and installed at Vank City, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/doors/photo_14_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "أبواب سحاب بانورامية عازلة للحرارة 70 للسحب المعماري لفيلا عصري #80",
-        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "أبواب سحاب حرارية بفتحات واسعة وعتبة أرضية مستوية لمنع الغبار وتوفير إطلالة بانورامية كاملة. تم التنفيذ والتركيب في فانك سيتي، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "دەرگای سلایدینگی پانۆرامای عەزلی گەرمی لورنزو 70 للسحب المعماري بۆ ڤێلا #80",
@@ -2005,14 +2005,14 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
     "mediaType": "image",
     "category": "villa",
     "location": "Vank City, Erbil",
-    "system": "Lorenzo 70LS Thermal Aluminum",
+    "system": "Panoramic System Thermal Aluminum",
     "year": "2023",
     "glassArea": "360 m²"
   },
   {
     "id": "proj-photo-81",
     "title": "Architectural Minimalist Pivot Villa Entrance Door #81",
-    "description": "Oversized grand entrance pivot door engineered with European STAC multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
+    "description": "Oversized grand entrance pivot door engineered with Architectural Architectural multi-point locking and concealed pivot hinges. Fabricated and installed at Duhok Hills, Duhok.",
     "src": "/products-assets/photo_81_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
@@ -2034,12 +2034,12 @@ export const MASTER_GALLERY_ITEMS: GalleryMediaItem[] = [
   {
     "id": "proj-photo-82",
     "title": "High-Span Curtain Wall 50F Structural Glass Facade #82",
-    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced European fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
+    "description": "Engineered mullion-transom structural curtain wall engineered for Class C5 wind resistance with solar-reflective double glazing. Fabricated and installed at Empire World, Erbil.\n\nExecuted and supervised from blueprint to handover by Doorhome's certified specialized engineering team. Our professional site engineers and technicians handled the precise structural surveying, advanced Architectural fabrication, and meticulous on-site installation with absolute craftsmanship, guaranteeing complete thermal isolation, structural integrity, and flawless architectural elegance.",
     "src": "/products-assets/photo_82_2026-09-26_07-36-01.jpg",
     "translations": {
       "ar": {
         "title": "واجهات زجاجية كيرتن وول 50 للواجهات الزجاجية استركشر للمباني والفلل #82",
-        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث المعايير الأوروبية، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
+        "description": "واجهات زجاجية كيرتن وول مقاومة لأحمال الرياح والحرارة العالية مع تصريف مياه داخلي دقيق. تم التنفيذ والتركيب في إمباير وورلد، أربيل.\n\nتم تنفيذ هذا المشروع المعماري بالكامل بإشراف وإدارة فريق عمل شركة باب المنزل الهندسي المتخصص. تولى مهندسونا وفنيونا المحترفون كافة مراحل العمل الميداني بدءاً من الرفع المساحي الهندسي الدقيق، مروراً بتصنيع القطاعات وفق أحدث أحدث المعايير المعمارية المعتمدة، وانتهاءً بالتركيب المتقن على أرض الموقع بأعلى درجات الدقة والحرفية الهندسية، مع ضمان الإحكام التام ضد تسرب الهواء والمياه وعزل درجات الحرارة القاسية."
       },
       "ckb": {
         "title": "ڕوکاری جامی ستونداری 50 للواجهات الزجاجية بۆ باڵەخانە و ڤێلا #82",

@@ -1,11 +1,12 @@
 import { ProductItem } from '../data/winhomeData';
 import { HOMEPAGE_SECTION_ITEMS_SEED } from '../data/homepageSectionItemsSeed';
 
-const STORAGE_KEY = 'winhome_homepage_section_slides_v4';
+const STORAGE_KEY = 'winhome_homepage_section_slides_v5';
 export const SECTION_ITEMS_UPDATED_EVENT = 'winhome_section_items_updated';
 
 try {
   if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_homepage_section_slides_v4');
     localStorage.removeItem('winhome_homepage_section_slides_v3');
     localStorage.removeItem('winhome_homepage_section_slides_v2');
   }

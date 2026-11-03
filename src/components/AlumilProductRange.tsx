@@ -26,10 +26,10 @@ export const AlumilProductRange: React.FC<AlumilProductRangeProps> = ({
         'Shape your single-family home (detached or semi-detached) based on your inspiration and select among advanced architectural systems by Doorhome. Aesthetically upgrade your space, enhance natural lighting, ensure thermal comfort and energy savings, and shield your home in terms of security.',
       items: [
         {
-          id: 'lorenzo-70ls',
-          name: 'Windows & Doors (Lorenzo 70LS)',
+          id: 'Panoramic System-70ls',
+          name: 'Windows & Doors (Panoramic System)',
           category: 'Windows & Doors',
-          image: './assets/showcase/showcase_lorenzo70ls_1789926091155.jpg',
+          image: './assets/showcase/showcase_Panoramic System70ls_1789926091155.jpg',
           fallback: './assets/doorhome/03-2.jpg'
         },
         {
@@ -103,10 +103,10 @@ export const AlumilProductRange: React.FC<AlumilProductRangeProps> = ({
           fallback: './assets/doorhome/3-2.jpg'
         },
         {
-          id: 'lorenzo-70ls',
+          id: 'Panoramic System-70ls',
           name: 'Monumental Sliding Spans',
           category: 'Windows & Doors',
-          image: './assets/showcase/showcase_lorenzo70ls_1789926091155.jpg',
+          image: './assets/showcase/showcase_Panoramic System70ls_1789926091155.jpg',
           fallback: './assets/doorhome/03-2.jpg'
         },
         {

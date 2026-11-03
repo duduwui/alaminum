@@ -40,7 +40,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
   onUpdateArchCards
 }) => {
   // -------------------------------------------------------------
-  // SECTION 1: PDF Architecture Catalogue Cards (WIEK & STAC etc.)
+  // SECTION 1: PDF Architecture Catalogue Cards
   // -------------------------------------------------------------
   const [cards, setCards] = useState<ArchitectureCatalogueCard[]>(() => {
     if (archCards && archCards.length > 0) return archCards;
@@ -469,7 +469,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
       />
 
       {/* ========================================================================= */}
-      {/* SECTION 1: PDF ARCHITECTURE CARDS (European Catalogues: WIEK, STAC, etc.) */}
+      {/* SECTION 1: PDF ARCHITECTURE CARDS */}
       {/* ========================================================================= */}
       <section className="bg-white p-5 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100">
@@ -1057,7 +1057,7 @@ export const AdminArchCardsTab: React.FC<AdminArchCardsTabProps> = ({
                   autoFocus
                   value={newShowcaseTitle}
                   onChange={(e) => setNewShowcaseTitle(e.target.value)}
-                  placeholder="مثال: نظام STAC الأندلسي العازل للصوت"
+                  placeholder="مثال: نظام السحب والرفع المعماري العازل للصوت"
                   className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white text-slate-900 font-bold text-sm outline-none focus:border-red-600 focus:ring-2 focus:ring-red-100 transition-all"
                 />
               </div>

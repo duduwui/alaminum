@@ -143,24 +143,24 @@ export const PARTNER_LOGOS = [
   {
     src: "./assets/doorhome/4-1.png",
     fallbackSrc: "http://doorhome.co/wp-content/uploads/2018/12/4-1.png",
-    alt: "Lorenzoline",
-    title: "Lorenzoline Aluminum Systems",
+    alt: "Panoramic Systemline",
+    title: "Panoramic Systemline Aluminum Systems",
     country: "Turkey / Europe",
     category: "Aluminum Profiles"
   },
   {
     src: "./assets/doorhome/5-2.png",
     fallbackSrc: "http://doorhome.co/wp-content/uploads/2018/12/5-2.png",
-    alt: "Comunello",
-    title: "Comunello Window Automation",
+    alt: "Architectural Heavy-Duty",
+    title: "Architectural Heavy-Duty Window Automation",
     country: "Italy",
     category: "Automation & Fittings"
   },
   {
     src: "./assets/doorhome/6-2.png",
     fallbackSrc: "http://doorhome.co/wp-content/uploads/2018/12/6-2.png",
-    alt: "STAC",
-    title: "STAC Architectural Hardware",
+    alt: "Architectural Hardware",
+    title: "Architectural Hardware Architectural Hardware",
     country: "Spain",
     category: "Hardware & Polyamides"
   },
@@ -201,11 +201,11 @@ export const PARTNER_LOGOS = [
 export const WINDOWS_PRODUCTS: ProductItem[] = [
   {
     id: "legend-80",
-    name: "Deceuninck Legend 80 Passive Series",
+    name: "Multi-Chamber Acoustic Passive Series",
     category: "windows",
     division: "windows",
     subCategory: "Ultra Thermal Performance",
-    modelNumber: "Legend 80",
+    modelNumber: "Multi-Chamber Acoustic",
     material: "يو بي في سي عالي العزل المقاومة للمناخ القاسي Severe Climate",
     brand: "Deceuninck",
     origin: "Deceuninck • Belgium / Erbil Plant",
@@ -250,7 +250,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
         description: "قمة الأداء الحراري والصوتي. مصمم بعمق 80 ملم و 6 غرف عزل داخلية لمقاومة حرارة صيف العراق الشديدة فوق 50 درجة مئوية.",
         subCategory: "عزل حراري فائق 6 غرف",
         features: [
-          "تصميم 6 غرف عزل يطابق أعلى المعايير المعمارية الأوروبية",
+          "تصميم 6 غرف عزل يطابق أعلى أعلى المعايير المعمارية العالمية",
           "نظام عزل ثلاثي مع جوان ضغط وسطي مانع للصوت والأتربة",
           "يدعم الزجاج الثلاثي السميك حتى 52 ملم",
           "مفصلات فولاذية متطورة تتحمل الأحمال العالية للنوافذ الكبيرة"
@@ -438,15 +438,15 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     }
   },
   {
-    id: "lorenzo-60t",
-    name: "Lorenzo 60T Thermal Casement Window",
+    id: "Panoramic System-60t",
+    name: "Panoramic System 60T Thermal Casement Window",
     category: "windows",
     division: "windows",
     subCategory: "Thermal Casement Windows",
-    modelNumber: "Lorenzo 60T",
+    modelNumber: "Panoramic System 60T",
     material: "Thermal Break Aluminum",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Erbil Plant",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Erbil Plant",
     rating: 4.8,
     reviewsCount: 64,
     discountBadge: "15% OFF",
@@ -480,7 +480,7 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
     translations: {
       ar: {
         name: "نافذة لورينزو 60T ألمنيوم عازل حرارياً",
-        description: "نافذة مفصلية من الألمنيوم العازل حرارياً بجسر بولياميد 24 ملم مع أقفال أمان أوروبية محيطية متعددة النقاط.",
+        description: "نافذة مفصلية من الألمنيوم العازل حرارياً بجسر بولياميد 24 ملم مع أقفال أمان معمارية معتمدة محيطية متعددة النقاط.",
         subCategory: "ألمنيوم عازل حرارياً"
       },
       ckb: {
@@ -494,15 +494,15 @@ export const WINDOWS_PRODUCTS: ProductItem[] = [
 
 export const DOORS_PRODUCTS: ProductItem[] = [
   {
-    id: "lorenzo-70ls",
-    name: "Lorenzoline 70 للسحب المعماري السحاب والرفع المعماري Doors",
+    id: "Panoramic System-70ls",
+    name: "Panoramic Systemline 70 للسحب المعماري السحاب والرفع المعماري Doors",
     category: "doors",
     division: "doors",
     subCategory: "Panoramic السحاب والرفع المعماري",
-    modelNumber: "Lorenzo 70 للسحب المعماري",
+    modelNumber: "Panoramic System 70 للسحب المعماري",
     material: "Thermal Break Aluminum (Polyamide 24mm)",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Doorhome Erbil",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Doorhome Erbil",
     rating: 5.0,
     reviewsCount: 220,
     discountBadge: "16% OFF",
@@ -603,7 +603,7 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     translations: {
       ar: {
         name: "هيبي-شيبه 76 فائق العزل أبواب سحب ورفع يو بي في سي عالي العزل فائقة العزل",
-        description: "أبواب شرفة وتراس بانورامية بآلية الرفع الألمانية السحاب والرفع المعماري تضمن إحكام الإغلاق التام ضد الأتربة ومياه الأمطار والرياح مع سهولة فائقة لحركة الضلف الثقيلة.",
+        description: "أبواب شرفة وتراس بانورامية بآلية الرفع السحاب والرفع المعماري المعتمد تضمن إحكام الإغلاق التام ضد الأتربة ومياه الأمطار والرياح مع سهولة فائقة لحركة الضلف الثقيلة.",
         subCategory: "أبواب بانورامية عازلة"
       },
       ckb: {
@@ -621,8 +621,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     subCategory: "Concertina Bi-Fold",
     modelNumber: "77BF",
     material: "Thermal Break Aluminum",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Erbil Plant",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Erbil Plant",
     rating: 4.9,
     reviewsCount: 95,
     discountBadge: "17% OFF",
@@ -719,8 +719,8 @@ export const DOORS_PRODUCTS: ProductItem[] = [
     subCategory: "Minimalist Patio Sliders",
     modelNumber: "Slimline 45",
     material: "Architectural Aluminum",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Doorhome",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Doorhome",
     rating: 4.9,
     reviewsCount: 88,
     discountBadge: "14% OFF",
@@ -797,7 +797,7 @@ export const OUTDOOR_PRODUCTS: ProductItem[] = [
     specs: {
       "Louvre Rotation": "0° - 135°",
       "Max Span": "6000 x 4500 mm per module",
-      "Automation": "Somfy / Comunello compatible"
+      "Automation": "Somfy / Architectural Heavy-Duty compatible"
     },
     translations: {
       ar: {
@@ -823,8 +823,8 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     subCategory: "Commercial Façades",
     modelNumber: "Façade 50F",
     material: "Extruded Structural Aluminum 6060-T6",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Doorhome Erbil",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Doorhome Erbil",
     rating: 5.0,
     reviewsCount: 88,
     discountBadge: "16% OFF",
@@ -876,8 +876,8 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     subCategory: "Commercial Façades",
     modelNumber: "Façade 50F",
     material: "Extruded Aluminum & Low-E Glass",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Doorhome Erbil",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Doorhome Erbil",
     rating: 4.9,
     reviewsCount: 65,
     discountBadge: "15% OFF",
@@ -903,8 +903,8 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     subCategory: "Glass Roofs & Atriums",
     modelNumber: "SkyRoof 50",
     material: "Thermally Broken Aluminum & Double/Triple Glass",
-    brand: "Lorenzoline",
-    origin: "Lorenzoline • Europe / Doorhome Erbil",
+    brand: "Panoramic Systemline",
+    origin: "Panoramic Systemline • Europe / Doorhome Erbil",
     rating: 4.9,
     reviewsCount: 52,
     discountBadge: "18% OFF",
@@ -951,7 +951,7 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     division: "glass",
     subCategory: "Architectural Solar Glass",
     modelNumber: "Low-E 2X",
-    material: "Argon Filled Solar Safety Glass",
+    material: "Insulated Air Filled Solar Safety Glass",
     brand: "Doorhome Glass Plant",
     origin: "Doorhome • Erbil Modern Glass Plant",
     rating: 5.0,
@@ -961,7 +961,7 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     soldCount: "1,200+ units",
     image: "/products-assets/photo_82_2026-09-26_07-36-01.jpg",
     fallbackImage: "./assets/doorhome/photo_2023-07-03_15-41-20-1280x820.jpg",
-    description: "Automated argon-gas filled double and triple insulated glass units with acoustic PVB interlayers and solar reflective Low-E coatings.",
+    description: "Automated Insulated Air-gas filled double and triple insulated glass units with acoustic PVB interlayers and solar reflective Low-E coatings.",
     depth: "24mm - 52mm",
     insulationValue: "Ug = 1.0 W/m²K",
     acousticValue: "Rw = 44 dB",
@@ -971,7 +971,7 @@ export const GLASS_PRODUCTS: ProductItem[] = [
     currency: "USD",
     pricing: { unitPrice: 95, pricePerSqm: 95, currency: "USD" },
     features: [
-      "90% Argon gas filling for reduced thermal conductivity",
+      "90% Insulated Air gas filling for reduced thermal conductivity",
       "Reflects 70% of infrared solar heat radiation",
       "Warm-edge spacer technology preventing perimeter condensation"
     ],
@@ -1147,14 +1147,14 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
   },
   {
     id: "stac-multipoint",
-    name: "STAC Spain Multipoint Security Lock",
+    name: "Architectural Hardware Spain Multipoint Security Lock",
     category: "accessories",
     division: "accessories",
     subCategory: "Locks & Security",
-    modelNumber: "STAC Safe-254",
+    modelNumber: "Architectural Hardware Safe-254",
     material: "Certified Zinc Alloy & Stainless Gears",
-    brand: "STAC Spain",
-    origin: "STAC • Spain / Doorhome Hub",
+    brand: "Architectural Hardware Spain",
+    origin: "Architectural Hardware • Spain / Doorhome Hub",
     rating: 5.0,
     reviewsCount: 280,
     discountBadge: "19% OFF",
@@ -1174,12 +1174,12 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     ],
     translations: {
       ar: {
-        name: "أقفال أمان STAC الإسبانية المحيطية متعددة النقاط",
-        description: "أقفال وتروس أمان محيطية متعددة النقاط برؤوس فطرية مانعة للخلع والسطو، مطابقة لمعايير الأمان الأوروبية ومقاومة للرياح والغبار.",
+        name: "أقفال أمان Architectural Hardware المعتمدة المحيطية متعددة النقاط",
+        description: "أقفال وتروس أمان محيطية متعددة النقاط برؤوس فطرية مانعة للخلع والسطو، مطابقة لمعايير الأمان المعمارية المعتمدة ومقاومة للرياح والغبار.",
         subCategory: "أقفال الأمان متعددة النقاط"
       },
       ckb: {
-        name: "سیستەمی قفڵی ئەمنی چەند خاڵی STACی ئیسپانی",
+        name: "سیستەمی قفڵی ئەمنی چەند خاڵی Architectural Hardwareی ئیسپانی",
         description: "قفڵی دژە دزی و چەند خاڵی بۆ پەنجەرە و دەرگای سحاب و باڵکۆن بە بەرگری زۆر بەرز بەرامبەر شکان و دزەکردنی هەوا.",
         subCategory: "قفڵی ئەمنی دەورەبەری"
       }
@@ -1210,7 +1210,7 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     currency: "USD",
     pricing: { unitPrice: 140, pricePerSqm: 140, currency: "USD" },
     features: [
-      "Somfy & Comunello tubular motor automation with wireless wall remotes",
+      "Somfy & Architectural Heavy-Duty tubular motor automation with wireless wall remotes",
       "High-density PU foam core for thermal insulation and noise reduction",
       "Plisse retractable pleated insect meshes for windows and wide sliding doors"
     ],
@@ -1239,10 +1239,10 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     category: "accessories",
     division: "accessories",
     subCategory: "Architectural Handles",
-    modelNumber: "Hoppe / STAC",
+    modelNumber: "Hoppe / Architectural Hardware",
     material: "Inox 316 & Anodized Alloy",
-    brand: "Hoppe / STAC",
-    origin: "Hoppe Germany & STAC Spain",
+    brand: "Hoppe / Architectural Hardware",
+    origin: "Hoppe Germany & Architectural Hardware Spain",
     rating: 5.0,
     reviewsCount: 420,
     discountBadge: "22% OFF",
@@ -1275,14 +1275,14 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
   },
   {
     id: "comunello-rollers",
-    name: "Comunello Italy Heavy Tandem Rollers",
+    name: "Architectural Heavy-Duty Italy Heavy Tandem Rollers",
     category: "accessories",
     division: "accessories",
     subCategory: "Sliding Rollers",
-    modelNumber: "Comunello 400",
+    modelNumber: "Architectural Heavy-Duty 400",
     material: "Stainless Steel & Needle Bearings",
-    brand: "Comunello",
-    origin: "Comunello • Italy / Erbil Hub",
+    brand: "Architectural Heavy-Duty",
+    origin: "Architectural Heavy-Duty • Italy / Erbil Hub",
     rating: 5.0,
     reviewsCount: 175,
     discountBadge: "19% OFF",
@@ -1302,7 +1302,7 @@ export const ACCESSORIES_PRODUCTS: ProductItem[] = [
     ],
     translations: {
       ar: {
-        name: "رولرات كومونيلو الإيطالية للضلف البانورامية الثقيلة",
+        name: "رولرات الأنظمة المعتمدة المعمارية المعتمدة للضلف البانورامية الثقيلة",
         description: "رولرات تروس كروية فولاذية مزدوجة مصممة لتحريك الضلف الزجاجية البانورامية العملاقة حتى وزن 400 كغم بسلاسة استثنائية وهدوء تام.",
         subCategory: "رولرات الأبواب السحابة الثقيلة"
       },
@@ -1355,8 +1355,8 @@ export const BROCHURES_DATA: BrochureItem[] = [
   },
   {
     id: "brochure-stac-general",
-    title: "STAC Spain General Hardware & Accessories Catalogue",
-    brand: "STAC Spain",
+    title: "Architectural Hardware Spain General Hardware & Accessories Catalogue",
+    brand: "Architectural Hardware Spain",
     origin: "Spain",
     coverImage: "/assets/showcase/stac_p-000.png",
     fallbackCover: "/assets/showcase/stac_p-000.png",
@@ -1373,7 +1373,7 @@ export const BROCHURES_DATA: BrochureItem[] = [
     origin: "Belgium",
     coverImage: "./assets/doorhome/brouchour-deceuninck-1-1000x1000.jpg",
     fallbackCover: "https://doorhome.co/wp-content/uploads/2023/08/brouchour-deceuninck-1-1000x1000.jpg",
-    description: "Detailed technical drawings, chamber sections, static calculations, and energy certification for Legend 80, Legend Art, and Everest Max systems.",
+    description: "Detailed technical drawings, chamber sections, static calculations, and energy certification for Multi-Chamber Acoustic, Legend Art, and Everest Max systems.",
     pages: 124,
     fileSize: "18.4 MB",
     downloadUrl: "#",
@@ -1393,12 +1393,12 @@ export const BROCHURES_DATA: BrochureItem[] = [
     highlights: ["Concealed hinge specs", "Cycle test reports", "Automation wiring", "Handle finishes"]
   },
   {
-    id: "brochure-lorenzoline",
-    title: "Lorenzoline Architectural Aluminum Systems",
-    brand: "Lorenzoline",
+    id: "brochure-Panoramic Systemline",
+    title: "Panoramic Systemline Architectural Aluminum Systems",
+    brand: "Panoramic Systemline",
     origin: "Europe",
-    coverImage: "./assets/doorhome/lorenzoline-brochure2-01-1000x1000.jpg",
-    fallbackCover: "https://doorhome.co/wp-content/uploads/2023/08/lorenzoline-brochure2-01-1000x1000.jpg",
+    coverImage: "./assets/doorhome/Panoramic Systemline-brochure2-01-1000x1000.jpg",
+    fallbackCover: "https://doorhome.co/wp-content/uploads/2023/08/Panoramic Systemline-brochure2-01-1000x1000.jpg",
     description: "Thermal break aluminum profiles, curtain wall stick systems, skylights, and monumental sliding systems for residential and commercial projects.",
     pages: 148,
     fileSize: "22.1 MB",
@@ -1407,8 +1407,8 @@ export const BROCHURES_DATA: BrochureItem[] = [
   },
   {
     id: "brochure-comunello",
-    title: "Comunello Window Automation & Gate Hardware",
-    brand: "Comunello",
+    title: "Architectural Heavy-Duty Window Automation & Gate Hardware",
+    brand: "Architectural Heavy-Duty",
     origin: "Italy",
     coverImage: "./assets/doorhome/brouchour-comunello-2-1-1000x1000.jpg",
     fallbackCover: "https://doorhome.co/wp-content/uploads/2023/08/brouchour-comunello-2-1-1000x1000.jpg",

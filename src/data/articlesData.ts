@@ -47,14 +47,14 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'العازل حرارياً Aluminum Windows: Beating Iraq’s 50°C Summer Heat'
     },
     summary: {
-      ar: 'دليل هندسي متكامل يوضح كيف تعمل حواجز البولي أميد العازلة والزجاج المزدوج مع غاز الآرجون على منع انتقال حرارة الصيف القائظ إلى داخل منزلك.',
+      ar: 'دليل هندسي متكامل يوضح كيف تعمل حواجز البولي أميد العازلة والزجاج المزدوج مع غاز العزل المزدوج على منع انتقال حرارة الصيف القائظ إلى داخل منزلك.',
       ckb: 'ڕێبەرێکی ئەندازیاری تەواو کە ڕوونی دەکاتەوە چۆن بەربەستی پۆلیەماید و جامی دبل ئارگۆن ڕێگری لە گەرمای هاوین دەکەن.',
-      en: 'An engineering deep dive into how polyamide thermal barriers and argon double glazing block scorching 50°C summer heat in Iraqi homes.'
+      en: 'An engineering deep dive into how polyamide thermal barriers and Insulated Air double glazing block scorching 50°C summer heat in Iraqi homes.'
     },
     readingTime: '5 min read',
     date: '2026-09-25',
     author: 'Doorhome Architectural Team',
-    image: './assets/showcase/showcase_lorenzo70ls_1789926091155.jpg',
+    image: './assets/showcase/showcase_Panoramic System70ls_1789926091155.jpg',
     tags: ['العازل حرارياً', 'شبابيك ألمنيوم', 'لورنزو 70 للسحب المعماري', 'عزل حراري', 'عراق'],
     keySpecs: [
       { label: 'Uf Thermal Insulation', value: '1.3 W/m²K' },
@@ -73,7 +73,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'أنظمة لورنزو 70 للسحب المعماري و 58 المعزول المعتمدة لدى شركة باب المنزل',
-          body: 'نستخدم قطاعات لورنزو الأوروبية المصممة خصيصاً لمناخ الشرق الأوسط، والتي تجمع بين خفة الوزن ومتانة التحمل ومظهر المقاطع النحيفة (Minimalist Sightlines)، مما يسمح بنفاذ أقصى قدر من الإضاءة الطبيعية مع عزل حراري مثالي.'
+          body: 'نستخدم قطاعات لورنزو المعماري معتمدة المصممة خصيصاً لمناخ الشرق الأوسط، والتي تجمع بين خفة الوزن ومتانة التحمل ومظهر المقاطع النحيفة (Minimalist Sightlines)، مما يسمح بنفاذ أقصى قدر من الإضاءة الطبيعية مع عزل حراري مثالي.'
         }
       ],
       en: [
@@ -86,8 +86,8 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
           body: 'A thermal break profile mechanically locks an insulating structural polyamide strip (PA66 GF25) between the exterior and interior aluminum extrusions. This breaks the thermal bridge completely, stopping conductive heat transfer.'
         },
         {
-          heading: 'Certified Lorenzoline Systems at Doorhome',
-          body: 'Doorhome specifies لورنزو 70 للسحب المعماري and 58 المعزول profiles engineered with 24mm polyamide insulation strips and multi-point STAC perimeter seals, delivering industry-leading U-values and unmatched durability.'
+          heading: 'Certified Panoramic Systemline Systems at Doorhome',
+          body: 'Doorhome specifies لورنزو 70 للسحب المعماري and 58 المعزول profiles engineered with 24mm polyamide insulation strips and multi-point Architectural Hardware perimeter seals, delivering industry-leading U-values and unmatched durability.'
         }
       ]
     }
@@ -173,7 +173,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
     tags: ['يو بي في سي عالي العزل', 'المنيوم', 'مقارنة', 'ديكونينك', 'لورنزو', 'عزل صوت'],
     keySpecs: [
-      { label: 'Best for Small/Med Windows', value: 'يو بي في سي عالي العزل 6-Chamber (Legend 80)' },
+      { label: 'Best for Small/Med Windows', value: 'يو بي في سي عالي العزل 6-Chamber (Multi-Chamber Acoustic)' },
       { label: 'Best for Giant Sliding Doors', value: 'Thermal Aluminum (70LS)' },
       { label: 'Lifespan', value: '40+ Years Maintenance Free' }
     ],
@@ -181,7 +181,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'العزل الحراري: لمن الغلبة؟',
-          body: 'يتفوق نظام يو بي في سي عالي العزل متعدد الحجرات (مثل ديكونينك Legend 80 سداسي الحجرات) في العزل الحراري بنسبة تفوق معظم قطاعات الألمنيوم العادية، لأن مادة البوليمر لا توصل الحرارة بطبيعتها. في المقابل، فإن الألمنيوم المزود بكسر حراري بولي أميد 24 ملم يقترب جداً من نفس كفاءة العزل مع تفوق هائل في المتانة الهيكلية.'
+          body: 'يتفوق نظام يو بي في سي عالي العزل متعدد الحجرات (مثل ديكونينك Multi-Chamber Acoustic سداسي الحجرات) في العزل الحراري بنسبة تفوق معظم قطاعات الألمنيوم العادية، لأن مادة البوليمر لا توصل الحرارة بطبيعتها. في المقابل، فإن الألمنيوم المزود بكسر حراري بولي أميد 24 ملم يقترب جداً من نفس كفاءة العزل مع تفوق هائل في المتانة الهيكلية.'
         },
         {
           heading: 'المتانة الهيكلية والفتحات البانورامية الضخمة',
@@ -203,7 +203,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
         },
         {
           heading: 'The Hybrid Villa Recommendation',
-          body: 'Leading architects combine both: Deploying ديكونينك Legend 80 يو بي في سي عالي العزل for upper-floor bedrooms to maximize acoustic insulation, and لورنزو 70 للسحب المعماري aluminum for ground-floor panoramic garden terraces.'
+          body: 'Leading architects combine both: Deploying ديكونينك Multi-Chamber Acoustic يو بي في سي عالي العزل for upper-floor bedrooms to maximize acoustic insulation, and لورنزو 70 للسحب المعماري aluminum for ground-floor panoramic garden terraces.'
         }
       ]
     }
@@ -339,7 +339,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'نظام بنك الألمنيوم المستمر (Base Shoe System)',
-          body: 'يتميز هذا النظام بتثبيت مجرى ألمنيوم قوي على الأرضية أو في جانب الخرسانة، وتركيب الزجاج بداخله باستخدام أوتاد ضبط ميكانيكية دون الحاجة لأي ثقوب في الزجاج. يوفر رؤية بانورامية نقية 100% بدون أي أعمدة فاصلة.'
+          body: 'يتميز هذا النظام بتثبيت مجرى ألمنيوم قوي على الأرضية أو في جانب الخرسانة، ومعتمدب الزجاج بداخله باستخدام أوتاد ضبط ميكانيكية دون الحاجة لأي ثقوب في الزجاج. يوفر رؤية بانورامية نقية 100% بدون أي أعمدة فاصلة.'
         },
         {
           heading: 'نظام سبیكوت الستانلس ستيل (Stainless Steel Spigots)',
@@ -505,13 +505,13 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'سر الزجاج غير المتماثل (Asymmetric Glazing)',
-          body: 'إذا كانت طبقتا الزجاج المزدوج بنفس السماكة (مثلاً 6 ملم + 6 ملم)، فإنهما تهتزان بنفس التردد الصوتي وتنقلان الضوضاء. في شركة باب المنزل نستخدم تركيبة غير متماثلة مثل (6 ملم خارجي + فاصل غاز آرجون 16 ملم + 8.76 ملم زجاج لاميناتي مع طبقة سكون Acoustic PVB داخلي)، مما يكسر موجات الصوت ويخفض الضوضاء بنسبة تصل إلى 85%.'
+          body: 'إذا كانت طبقتا الزجاج المزدوج بنفس السماكة (مثلاً 6 ملم + 6 ملم)، فإنهما تهتزان بنفس التردد الصوتي وتنقلان الضوضاء. في شركة باب المنزل نستخدم معتمدبة غير متماثلة مثل (6 ملم خارجي + فاصل غاز آرجون 16 ملم + 8.76 ملم زجاج لاميناتي مع طبقة سكون Acoustic PVB داخلي)، مما يكسر موجات الصوت ويخفض الضوضاء بنسبة تصل إلى 85%.'
         }
       ],
       en: [
         {
           heading: 'The Asymmetric Glass Thickness Rule',
-          body: 'Symmetric glass layers vibrate at the same resonant frequency, transmitting sound. By pairing a 6mm outer pane with an 8.76mm acoustic laminated inner pane across a 16mm argon gap, acoustic resonance is disrupted.'
+          body: 'Symmetric glass layers vibrate at the same resonant frequency, transmitting sound. By pairing a 6mm outer pane with an 8.76mm acoustic laminated inner pane across a 16mm Insulated Air gap, acoustic resonance is disrupted.'
         }
       ]
     }
@@ -520,18 +520,18 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
   // 11. منخفض الانبعاثية الحرارية Glazing & الغاز الخامل العازل
   {
     id: 'art-11',
-    slug: 'low-e-double-triple-glazing-argon-gas',
+    slug: 'low-e-double-triple-glazing-Insulated Air-gas',
     category: 'glass',
     categoryLabel: { ar: 'الزجاج المعماري', ckb: 'جامی ئەندازیاری', en: 'Architectural Glazing' },
     title: {
-      ar: 'زجاج منخفض الانبعاثية الحرارية المزدوج وغاز الآرجون: العلم وراء عكس الأشعة تحت الحمراء وخفض فاتورة الكهرباء',
+      ar: 'زجاج منخفض الانبعاثية الحرارية المزدوج وغاز العزل المزدوج: العلم وراء عكس الأشعة تحت الحمراء وخفض فاتورة الكهرباء',
       ckb: 'جامی لۆو-ئی منخفض الانبعاثية الحرارية و گازی ئارگۆن: زانستی عەزل و کەمکردنەوەی خەرجی کارەبا',
       en: 'منخفض الانبعاثية الحرارية Double Glazing & الغاز الخامل العازل Gas: Solar Control Science & Energy Efficiency'
     },
     summary: {
-      ar: 'كيف تعكس طبقات أكسيد الفضة المجهرية حرارة الشمس دون حجب الضوء، ودور غاز الآرجون في منع انتقال الحرارة بالتوصيل.',
+      ar: 'كيف تعكس طبقات أكسيد الفضة المجهرية حرارة الشمس دون حجب الضوء، ودور غاز العزل المزدوج في منع انتقال الحرارة بالتوصيل.',
       ckb: 'چۆن چینی نانۆیی زیو ڕێگری لە گەرمی دەکات بەبێ کەمکردنەوەی ڕووناکی.',
-      en: 'Understanding microscopic silver oxide solar coatings and inert argon gas thermal resistance in desert environments.'
+      en: 'Understanding microscopic silver oxide solar coatings and inert Insulated Air gas thermal resistance in desert environments.'
     },
     readingTime: '5 min read',
     date: '2026-09-15',
@@ -554,16 +554,16 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 12. European Hardware - STAC Spain
+  // 12. European Hardware - Architectural Hardware Spain
   {
     id: 'art-12',
     slug: 'stac-spain-multipoint-security-locking-systems',
     category: 'hardware',
     categoryLabel: { ar: 'إكسسوارات وأقفال', ckb: 'قوفڵ و دەسک', en: 'Hardware' },
     title: {
-      ar: 'إكسسوارات STAC الإسبانية: أقفال الأمان متعددة النقاط ومقاومة الاقتحام',
+      ar: 'إكسسوارات Architectural Hardware المعتمدة: أقفال الأمان متعددة النقاط ومقاومة الاقتحام',
       ckb: 'ئێکسسواراتی ستاکی ئیسپانی: قوفڵی فرە-خاڵ بۆ پاراستنی ئەوپەڕی ماڵ',
-      en: 'STAC Spain Multipoint Security Gears: Certified Anti-Burglary Performance'
+      en: 'Architectural Hardware Spain Multipoint Security Gears: Certified Anti-Burglary Performance'
     },
     summary: {
       ar: 'أهمية آليات القفل المتعدد على محيط الشباك والباب لمنع الاقتحام، وضمان الضغط المحكم لمنع تسرب الهواء والغبار.',
@@ -574,18 +574,18 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-14',
     author: 'باب المنزل Hardware Dept',
     image: './assets/doorhome/brouchour-stac-1-1000x1000.jpg',
-    tags: ['STAC Spain', 'أقفال أمان', 'إكسسوارات شبابيك', 'مفصلات أوروبية'],
+    tags: ['Architectural Hardware Spain', 'أقفال أمان', 'إكسسوارات شبابيك', 'مفصلات معماري معتمدة'],
     sections: {
       ar: [
         {
           heading: 'لماذا القفل بنقطة واحدة لم يعد كافياً؟',
-          body: 'الأقفال التقليدية تغلق في نقطة واحدة بالمنتصف، مما يترك الزوايا العليا والسفلى عرضة للتسريب والخلع. تعتمد STAC على مسارات متحركة تقفل في 4 إلى 8 نقاط على كامل محيط الإطار ببراغي فولاذية لا يمكن كسرها بسهولة.'
+          body: 'الأقفال التقليدية تغلق في نقطة واحدة بالمنتصف، مما يترك الزوايا العليا والسفلى عرضة للتسريب والخلع. تعتمد Architectural Hardware على مسارات متحركة تقفل في 4 إلى 8 نقاط على كامل محيط الإطار ببراغي فولاذية لا يمكن كسرها بسهولة.'
         }
       ],
       en: [
         {
           heading: 'Why Single-Point Locks Fail',
-          body: 'Single latch latches leave sash corners vulnerable to pry bars and air leaks. STAC multi-point perimeter systems lock into reinforced steel keeps along all four edges.'
+          body: 'Single latch latches leave sash corners vulnerable to pry bars and air leaks. Architectural Hardware multi-point perimeter systems lock into reinforced steel keeps along all four edges.'
         }
       ]
     }
@@ -596,14 +596,14 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     id: 'art-13',
     slug: 'master-italy-handles-comunello-heavy-rollers',
     category: 'hardware',
-    categoryLabel: { ar: 'إكسسوارات إيطالية', ckb: 'کەرەستەی ئیتاڵی', en: 'Italian Hardware' },
+    categoryLabel: { ar: 'إكسسوارات معتمدة', ckb: 'کەرەستەی ئیتاڵی', en: 'Italian Hardware' },
     title: {
-      ar: 'مقابض Master Italy وعجلات Comunello: الدقة الميكانيكية الإيطالية للأبواب الثقيلة',
+      ar: 'مقابض Master Italy وعجلات Comunello: الدقة الميكانيكية المعتمدة للأبواب الثقيلة',
       ckb: 'دەسکی ماستەری ئیتاڵی و ڕۆڵەری کۆمۆنێللۆ: کوالێتی بەرز بۆ دەرگای قورس',
       en: 'Master Italy Ergonomic Handles & Comunello Tandem Stainless Rollers'
     },
     summary: {
-      ar: 'عجلات السحب المزدوجة التي تتحمل ضلفاً زجاجية بوزن 400 كغم، والمقابض الإيطالية المصقولة المقاومة للخدش والتآكل.',
+      ar: 'عجلات السحب المزدوجة التي تتحمل ضلفاً زجاجية بوزن 400 كغم، والمقابض المعتمدة المصقولة المقاومة للخدش والتآكل.',
       ckb: 'ڕۆڵەری بەهێزی دەرگای سلاید و دەسکی دژە ڕووشان بۆ ساڵانێکی درێژ.',
       en: 'Stainless steel dual-bearing roller engineering capable of sustaining 400kg patio doors with zero maintenance friction.'
     },
@@ -615,7 +615,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     sections: {
       ar: [
         {
-          heading: 'الهندسة الإيطالية في خدمة الأبواب الضخمة',
+          heading: 'الهندسة المعتمدة في خدمة الأبواب الضخمة',
           body: 'عجلات Comunello المصنوعة من الستانلس ستيل المقاوم للصدأ مع محامل كروية دقيقة تضمن انزلاق الأبواب البانورامية الكبيرة لسنوات طويلة دون صوت أو اهتزاز.'
         }
       ],
@@ -858,16 +858,16 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     }
   },
 
-  // 20. ديكونينك Legend 80
+  // 20. ديكونينك Multi-Chamber Acoustic
   {
     id: 'art-20',
     slug: 'deceuninck-legend-80-passive-house-upvc-iraq',
     category: 'upvc',
     categoryLabel: { ar: 'نوافذ يو بي في سي عالي العزل', ckb: 'پەنجەرەی یو پی ڤی سی', en: 'يو بي في سي عالي العزل Windows' },
     title: {
-      ar: 'نظام ديكونينك ليجند 80 (ديكونينك Legend 80): معيار المنازل السلبية الألمانية في العراق',
+      ar: 'نظام ديكونينك ليجند 80 (ديكونينك Multi-Chamber Acoustic): معيار المنازل السلبية المعتمدة في العراق',
       ckb: 'دیکۆنیک لیجەند ٨٠: ستانداردی ئەڵمانی بۆ پەنجەرەی عەزلی تەواو',
-      en: 'ديكونينك Legend 80: The 6-Chamber German Passive House Standard in Iraq'
+      en: 'ديكونينك Multi-Chamber Acoustic: The 6-Chamber German Passive House Standard in Iraq'
     },
     summary: {
       ar: 'عمق إطار 80 ملم، 6 حجرات عزل هوائية، وثلاث حشوات إحكام مطاطية تحقق أقصى درجات حفظ التبريد والهدوء الصوتي.',
@@ -878,12 +878,12 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-06',
     author: 'باب المنزل يو بي في سي عالي العزل Department',
     image: './assets/showcase/showcase_legend80_1789926007847.jpg',
-    tags: ['ديكونينك', 'Legend 80', 'يو بي في سي عالي العزل', 'عزل حراري', 'المانيا'],
+    tags: ['ديكونينك', 'Multi-Chamber Acoustic', 'يو بي في سي عالي العزل', 'عزل حراري', 'المانيا'],
     sections: {
       ar: [
         {
           heading: 'هندسة الـ 6 حجرات الداخلية',
-          body: 'تحتوي قطاعات Legend 80 على ست غرف هوائية منفصلة داخل البروفايل، تعمل كمصائد حرارية تمنع انتقال الحرارة بالكامل وتمنح الشباك تصنيف A+ في كفاءة الطاقة.'
+          body: 'تحتوي قطاعات Multi-Chamber Acoustic على ست غرف هوائية منفصلة داخل البروفايل، تعمل كمصائد حرارية تمنع انتقال الحرارة بالكامل وتمنح الشباك تصنيف A+ في كفاءة الطاقة.'
         }
       ],
       en: [
@@ -907,7 +907,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'Class S Severe Climate Certification: Why It Is Crucial for Iraq يو بي في سي عالي العزل Profiles'
     },
     summary: {
-      ar: 'كيف تضمن شهادة Class S المعتمدة أوروبياً عدم اصفرار البروفايل أو تفتته أو انحنائه تحت أشعة الشمس فوق البنفسجية في صيف العراق.',
+      ar: 'كيف تضمن شهادة Class S المعتمدة معماري معتمداً عدم اصفرار البروفايل أو تفتته أو انحنائه تحت أشعة الشمس فوق البنفسجية في صيف العراق.',
       ckb: 'چۆن دڵنیا دەبیتەوە پەنجەرەی يو بي في سي عالي العزل لە بەر خۆردا زەرد نابێت و ناشکێت.',
       en: 'Understanding European EN 12608 Class S formulation with titanium dioxide stabilization against harsh solar UV radiation.'
     },
@@ -952,12 +952,12 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
     date: '2026-09-04',
     author: 'باب المنزل Field Survey Team',
     image: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
-    tags: ['قياس ليزري', 'معاينة هندسية', 'تركيب شبابيك', 'دقة المصنع'],
+    tags: ['قياس ليزري', 'معاينة هندسية', 'معتمدب شبابيك', 'دقة المصنع'],
     sections: {
       ar: [
         {
           heading: 'لا مجال للتقدير العشوائي في الفتحات المعمارية',
-          body: 'الفتحات الخرسانية في مشاريع البناء نادراً ما تكون مستقيمة تماماً. مهندسونا يستخدمون أجهزة قياس ليزرية ثلاثية الأبعاد لفحص الاستقامة الرأسية والأفقية والأقطار، مما يضمن تركيباً محكماً بدون فراغات تتسرب منها المياه أو الهواء.'
+          body: 'الفتحات الخرسانية في مشاريع البناء نادراً ما تكون مستقيمة تماماً. مهندسونا يستخدمون أجهزة قياس ليزرية ثلاثية الأبعاد لفحص الاستقامة الرأسية والأفقية والأقطار، مما يضمن معتمدباً محكماً بدون فراغات تتسرب منها المياه أو الهواء.'
         }
       ],
       en: [
@@ -1018,7 +1018,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'Window & Door Cost Guide in Iraq: What Dictates Prices per Square Meter?'
     },
     summary: {
-      ar: 'العوامل الحقيقية المؤثرة في سعر المتر المربع: سماكة الألمنيوم، نوع الكسر الحراري، الزجاج العازل، الإكسسوارات الأوروبية، والضمان.',
+      ar: 'العوامل الحقيقية المؤثرة في سعر المتر المربع: سماكة الألمنيوم، نوع الكسر الحراري، الزجاج العازل، الإكسسوارات المعماري معتمدة، والضمان.',
       ckb: 'فاکتەرە سەرەکییەکانی دیاریکردنی نرخی پەنجەرە و دەرگا لە عێراقدا.',
       en: 'A transparent breakdown of profile extrusion weight, thermal polyamide width, glass configurations, and hardware lifecycle costs.'
     },
@@ -1031,13 +1031,13 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'لماذا تتفاوت الأسعار في السوق العراقي؟',
-          body: 'يتفاجأ الكثير من العملاء باختلاف أسعار المتر المربع بين الشركات. الفارق يكمن في: سماكة جدار الألمنيوم (1.4 ملم مقابل 2.0 ملم)، جودة الزجاج (عادي مقابل منخفض الانبعاثية الحرارية معبأ بغاز الآرجون)، ونوعية الإكسسوارات (صينية رخيصة مقابل إسبانية وإيطالية مضمونة 25,000 دورة فتح وإغلاق).'
+          body: 'يتفاجأ الكثير من العملاء باختلاف أسعار المتر المربع بين الشركات. الفارق يكمن في: سماكة جدار الألمنيوم (1.4 ملم مقابل 2.0 ملم)، جودة الزجاج (عادي مقابل منخفض الانبعاثية الحرارية معبأ بغاز العزل المزدوج)، ونوعية الإكسسوارات (صينية رخيصة مقابل معتمدة ومعتمدة مضمونة 25,000 دورة فتح وإغلاق).'
         }
       ],
       en: [
         {
           heading: 'Understanding Price Variations in the Iraqi Market',
-          body: 'Square meter quotes vary significantly based on aluminum wall thickness (1.4mm vs 2.0mm structural grade), European certification, double-glazing gas fills, and premium Spanish STAC hardware.'
+          body: 'Square meter quotes vary significantly based on aluminum wall thickness (1.4mm vs 2.0mm structural grade), European certification, double-glazing gas fills, and premium Spanish Architectural Hardware hardware.'
         }
       ]
     }
@@ -1166,7 +1166,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       en: 'Smart Digital Access for Aluminum Villa Doors: Biometrics, Face ID & App Control'
     },
     summary: {
-      ar: 'فتح الأبواب ببصمة الإصبع، التعرف على الوجه، رمز الدخول، أو تطبيق الهاتف مع الحفاظ على القفل الميكانيكي الأوروبي عالي الأمان.',
+      ar: 'فتح الأبواب ببصمة الإصبع، التعرف على الوجه، رمز الدخول، أو تطبيق الهاتف مع الحفاظ على القفل الميكانيكي المعماري معتمد عالي الأمان.',
       ckb: 'کردنەوەی دەرگا بە پەنجەمۆر و مۆبایل بە ئەوپەڕی سەلامەتی.',
       en: 'Seamlessly embedding mortise smart locks with biometric sensors into thermal break aluminum profiles.'
     },
@@ -1179,7 +1179,7 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'وداعاً لنسيان المفاتيح',
-          body: 'ندمج أقفال الأمان الذكية الأوروبية داخل قطاعات الألمنيوم بشكل أنيق متناسق، مع إمكانية فتح الباب للضيوف عن بعد عبر الهاتف وتوثيق سجل الدخول.'
+          body: 'ندمج أقفال الأمان الذكية المعماري معتمدة داخل قطاعات الألمنيوم بشكل أنيق متناسق، مع إمكانية فتح الباب للضيوف عن بعد عبر الهاتف وتوثيق سجل الدخول.'
         }
       ],
       en: [
@@ -1258,11 +1258,11 @@ export const ARCHITECTURAL_ARTICLES: ArchitecturalArticle[] = [
       ar: [
         {
           heading: 'الهندسة التي تبدأ من المصنع وليس من الورشة',
-          body: 'في شركة باب المنزل، تخضع جميع القطاعات لقص وتفريز آلي باستخدام ماكينات CNC رباعية المحاور، مع كبس الزوايا بضغط هيدروليكي وحقن إيبوكسي ألماني (2-Part Corner Adhesive)، مما يجعل الزوايا كتلة واحدة صلبة لا تنفصل أو تتسرب منها المياه أبداً.'
+          body: 'في شركة باب المنزل، تخضع جميع القطاعات لقص وتفريز آلي باستخدام ماكينات CNC رباعية المحاور، مع كبس الزوايا بضغط هيدروليكي وحقن إيبوكسي معتمد (2-Part Corner Adhesive)، مما يجعل الزوايا كتلة واحدة صلبة لا تنفصل أو تتسرب منها المياه أبداً.'
         },
         {
           heading: 'الضمان الرسمي ودعم ما بعد البيع في كل محافظات العراق',
-          body: 'نقدم لجميع عملائنا شهادة ضمان رسمية لمدة 10 سنوات تغطي ثبات الألوان، العزل الحراري، عدم تكثف بخار الماء داخل الزجاج المزدوج، وجودة عمل آليات الإغلاق الأوروبية، مع فريق صيانة سريع يغطي أربيل، بغداد، السليمانية، دهوك، وكافة المحافظات.'
+          body: 'نقدم لجميع عملائنا شهادة ضمان رسمية لمدة 10 سنوات تغطي ثبات الألوان، العزل الحراري، عدم تكثف بخار الماء داخل الزجاج المزدوج، وجودة عمل آليات الإغلاق المعماري معتمدة، مع فريق صيانة سريع يغطي أربيل، بغداد، السليمانية، دهوك، وكافة المحافظات.'
         }
       ],
       en: [

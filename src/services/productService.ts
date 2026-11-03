@@ -11,7 +11,14 @@ import {
   onSnapshot
 } from '../config/firebase';
 
-const STORAGE_KEY = 'winhome_admin_products_v15';
+const STORAGE_KEY = 'winhome_admin_products_v16';
+
+try {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('winhome_admin_products_v15');
+    localStorage.removeItem('winhome_admin_products_v14');
+  }
+} catch {}
 const DELETED_PRODUCTS_KEY = 'winhome_deleted_product_ids';
 const COLLECTION_NAME = 'products';
 export const PRODUCTS_UPDATED_EVENT = 'winhome_products_updated';
