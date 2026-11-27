@@ -207,8 +207,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
     if (onSignOut) {
       onSignOut();
     } else {
-      window.location.hash = '';
-      onBackToHome();
+      window.location.hash = '#admin';
     }
   };
 

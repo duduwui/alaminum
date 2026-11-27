@@ -448,7 +448,10 @@ export default function App() {
     logoutUser();
     setIsAdminAuthenticated(false);
     setAdminSessionStatus('missing');
-    handleBackToHome();
+    setSelectedProduct(null);
+    setActiveTab('admin');
+    window.location.hash = '#admin';
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   // Cart Management Handlers
