@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Plus, Trash2, Edit, Play, Layers, Package, Check, X, AlertCircle, Loader2 } from 'lucide-react';
+import { Search, Plus, Trash2, Edit, Play, Layers, Package, Check, X, AlertCircle, Loader2, Image as ImageIcon } from 'lucide-react';
 import { ProductItem } from '../../data/winhomeData';
 import { getLocalizedProduct } from '../../utils/localizedContent';
 import { AdminCategoryItem, createCategoryFromArabic } from '../../services/adminCategoryService';
@@ -427,7 +427,7 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
                                     </span>
                                   </span>
                                 </>
-                              ) : (
+                              ) : (prod.image || prod.fallbackImage) ? (
                                 <img
                                   src={prod.image || prod.fallbackImage}
                                   alt={localized.name}
@@ -439,6 +439,10 @@ export const AdminProductsTab: React.FC<AdminProductsTabProps> = ({
                                     }
                                   }}
                                 />
+                              ) : (
+                                <div className="h-full w-full flex items-center justify-center bg-slate-100 text-slate-400">
+                                  <ImageIcon className="w-5 h-5 opacity-40" />
+                                </div>
                               )}
                             </a>
                             <button

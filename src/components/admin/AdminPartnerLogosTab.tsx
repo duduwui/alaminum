@@ -914,36 +914,17 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                       </div>
 
                       {/* Button Text */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div>
-                          <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                            نص زر التحميل
-                          </label>
-                          <input
-                            type="text"
-                            value={cardBtnAr}
-                            onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
-                            placeholder="فتح الكتالوج (PDF)"
-                            className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-red-500 text-slate-900 font-bold text-xs outline-none"
-                          />
-                        </div>
-
-                        <div>
-                          <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                            اسم الملف أو الملاحظة
-                          </label>
-                          <input
-                            type="text"
-                            value={card.fileName || ''}
-                            onChange={(e) => {
-                              const updated = [...cards];
-                              updated[idx] = { ...updated[idx], fileName: e.target.value };
-                              persistCards(updated);
-                            }}
-                            placeholder="مثال: wiek-systems-2026.pdf"
-                            className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-red-500 text-slate-900 font-medium text-xs outline-none font-mono"
-                          />
-                        </div>
+                      <div>
+                        <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                          نص زر التحميل
+                        </label>
+                        <input
+                          type="text"
+                          value={cardBtnAr}
+                          onChange={(e) => handleUpdateCardField(idx, 'buttonText', e.target.value)}
+                          placeholder="فتح الكتالوج (PDF)"
+                          className="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-red-500 text-slate-900 font-bold text-xs outline-none"
+                        />
                       </div>
                     </div>
 

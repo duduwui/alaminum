@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowLeft, Search, X } from 'lucide-react';
+import { ArrowLeft, Search, X, Image as ImageIcon } from 'lucide-react';
 import { ProductItem } from '../data/winhomeData';
 import { loadLocalProducts, subscribeToLocalProducts } from '../services/productService';
 import {
@@ -186,7 +186,7 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
                         loop
                         className="h-full w-full object-cover"
                       />
-                    ) : (
+                    ) : (product.image || product.fallbackImage) ? (
                       <img
                         src={product.image || product.fallbackImage}
                         alt=""
@@ -196,6 +196,13 @@ export const ProductShopPage: React.FC<ProductShopPageProps> = ({
                           if (product.fallbackImage && event.currentTarget.src !== product.fallbackImage) event.currentTarget.src = product.fallbackImage;
                         }}
                       />
+                    ) : (
+                      <div className="h-full w-full flex flex-col items-center justify-center bg-slate-100 text-slate-400 p-4">
+                        <ImageIcon className="w-10 h-10 opacity-30 mb-1" />
+                        <span className="text-[11px] font-bold text-slate-400">
+                          {currentLanguage.code === 'ar' ? 'بدون صورة' : currentLanguage.code === 'ckb' ? 'بێ وێنە' : 'No Image'}
+                        </span>
+                      </div>
                     )}
                   </div>
                   <div className="space-y-2 p-4">

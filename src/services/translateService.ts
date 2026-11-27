@@ -81,7 +81,7 @@ export const autoTranslateText = async (
     }
   }
 
-  // 2. Google Translate Client API endpoint (free, ultra-fast)
+  // 2. Google Translate Client API endpoint (free, ultra-fast, native NMT)
   try {
     const langMap: Record<string, string> = {
       ckb: 'ckb', // Kurdish Sorani
@@ -94,19 +94,18 @@ export const autoTranslateText = async (
       en: 'en'
     };
     const tl = langMap[targetLang] || targetLang;
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${tl}&dt=t&q=${encodeURIComponent(clean)}`;
+    const url = `https://clients5.google.com/translate_a/t?client=dict-chrome-ex&sl=auto&tl=${tl}&q=${encodeURIComponent(clean)}`;
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
 
     const response = await fetch(url, { signal: controller.signal });
     clearTimeout(timeoutId);
 
     if (response.ok) {
       const data = await response.json();
-      if (Array.isArray(data) && Array.isArray(data[0])) {
-        const translated = data[0].map((item: any) => item[0]).join('').trim();
-        if (translated) return translated;
+      if (Array.isArray(data) && Array.isArray(data[0]) && typeof data[0][0] === 'string' && data[0][0].trim()) {
+        return data[0][0].trim();
       }
     }
   } catch (e) {

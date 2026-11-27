@@ -836,7 +836,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         category: formCategory,
         division: formCategory,
         image: formImage.trim(),
-        fallbackImage: './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg',
+        fallbackImage: formImage.trim() || '',
         description: safeDesc,
         basePrice: formSellingPrice,
         currency: 'USD',
@@ -907,7 +907,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         videoUrl: videoUrl,
         fallbackImage: isVideo
           ? data.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')
-          : (data.image || existing?.fallbackImage || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg'),
+          : (data.image || existing?.fallbackImage || ''),
         description: safeDesc,
         arabicName: arName,
         arabicDescription: arDesc,
@@ -927,7 +927,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
         videoUrl: isVideo ? data.image : undefined,
         fallbackImage: isVideo
           ? data.image.replace(/\.(mp4|webm|mov)(\?|#|$)/i, '.poster.jpg$1')
-          : (data.image || './assets/doorhome/photo_2023-07-03_15-40-04-1104x720.jpg'),
+          : (data.image || ''),
         description: safeDesc,
         basePrice: 0,
         currency: 'USD',
