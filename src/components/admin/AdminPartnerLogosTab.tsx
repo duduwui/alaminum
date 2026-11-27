@@ -199,6 +199,29 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
     }
   };
 
+  const [catalogsSaving, setCatalogsSaving] = useState(false);
+
+  const handleSaveAllCatalogs = async () => {
+    setCatalogsSaving(true);
+    try {
+      persistCards(cards);
+      await saveSharedCmsSection('archCards', cards);
+      onSaveFeedback(
+        currentLanguage.code === 'ar'
+          ? '✓ تم حفظ الكتالوجات ونشرها في الموقع بنجاح!'
+          : '✓ Architectural catalogues saved and published to website!'
+      );
+    } catch (e: any) {
+      onSaveFeedback(
+        currentLanguage.code === 'ar'
+          ? 'فشل الحفظ: ' + (e?.message || 'خطأ في الاتصال')
+          : 'Failed to save: ' + (e?.message || 'Network error')
+      );
+    } finally {
+      setCatalogsSaving(false);
+    }
+  };
+
   const handleUpdateCardField = (
     index: number,
     field: 'title' | 'desc' | 'buttonText' | 'pdfUrl' | 'image',
@@ -997,6 +1020,27 @@ export const AdminPartnerLogosTab: React.FC<AdminPartnerLogosTabProps> = ({
                 </div>
               );
             })}
+          </div>
+
+          {/* Save Button for Catalogs */}
+          <div className="flex justify-end pt-4 pb-8">
+            <button
+              type="button"
+              disabled={catalogsSaving}
+              onClick={handleSaveAllCatalogs}
+              className="px-7 py-3 bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white font-extrabold text-sm rounded-xl shadow-md shadow-red-600/20 transition-all cursor-pointer flex items-center gap-2"
+            >
+              <Save className="w-4 h-4" />
+              <span>
+                {catalogsSaving
+                  ? currentLanguage.code === 'ar'
+                    ? 'جاري حفظ الكتالوجات...'
+                    : 'Saving Catalogues...'
+                  : currentLanguage.code === 'ar'
+                  ? 'حفظ ونشر الكتالوجات في الموقع'
+                  : 'Save Catalogues to Website'}
+              </span>
+            </button>
           </div>
         </div>
       )}
