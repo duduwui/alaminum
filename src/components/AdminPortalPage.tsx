@@ -1418,7 +1418,7 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
               {activeSection === 'products' && (currentLanguage.code === 'ar' ? 'إدارة المنتجات والكتالوج' : currentLanguage.code === 'ckb' ? 'بەڕێوەبردنی بەرهەمەکان' : 'Products & Catalog')}
               {activeSection === 'users' && (t('admin_tab_users') || 'Administrator Accounts')}
               {activeSection === 'cms' && (currentLanguage.code === 'ar' ? 'معرض المشاريع والوسائط' : currentLanguage.code === 'ckb' ? 'پڕۆژەکان و کارۆسێل' : 'CMS & Gallery')}
-              {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والشركاء' : currentLanguage.code === 'ckb' ? 'لۆگۆی هاوبەشەکان' : 'Partner Brands & Flags')}
+              {activeSection === 'logos' && (currentLanguage.code === 'ar' ? 'العلامات والكتالوجات الهندسية' : currentLanguage.code === 'ckb' ? 'هاوبەشەکان و کەتەلۆگەکان' : 'Partner Brands & Catalogues')}
             </h2>
           </div>
 
@@ -1552,6 +1552,8 @@ export const AdminPortalPage: React.FC<AdminPortalPageProps> = ({
           <AdminPartnerLogosTab
             partnerLogos={partnerLogos}
             setPartnerLogos={setPartnerLogos}
+            archCards={archCards}
+            setArchCards={setArchCards}
             onUploadMedia={uploadCmsMediaFile}
             onSaveFeedback={(msg) => {
               setCmsSaveFeedback(msg);

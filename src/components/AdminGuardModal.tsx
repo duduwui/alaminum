@@ -106,7 +106,7 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
           <form onSubmit={handleSubmit} dir="ltr" className="space-y-4" autoComplete="off">
             {/* Username / Email Field */}
             <div className="space-y-1.5 text-start">
-              <label htmlFor="admin-email" className="block text-xs font-black uppercase tracking-wider text-slate-600">
+              <label htmlFor="admin-email" className="sr-only">
                 Admin Username or Email
               </label>
               <div className="relative">
@@ -116,7 +116,7 @@ export function AdminGuardModal({ isOpen, onSuccess, onCancel, onClose }: AdminG
                   type="text"
                   required
                   autoFocus
-                  placeholder="admin or admin@doorhome.company"
+                  placeholder="example@doorhome.company"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);

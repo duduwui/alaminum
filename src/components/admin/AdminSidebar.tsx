@@ -163,10 +163,10 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
                     <Globe className={`w-4 h-4 ${activeSection === 'logos' ? 'text-red-600' : 'text-white'}`} />
                     <span>
                       {currentLanguage.code === 'ar'
-                        ? 'العلامات والشركاء'
+                        ? 'العلامات والكتالوجات'
                         : currentLanguage.code === 'ckb'
-                        ? 'لۆگۆی هاوبەشەکان'
-                        : 'Partner Brands & Flags'}
+                        ? 'هاوبەشەکان و کەتەلۆگ'
+                        : 'Brands & Catalogues'}
                     </span>
                   </div>
                   <span
@@ -259,7 +259,7 @@ export const AdminSidebar: React.FC<AdminSidebarProps> = ({
             activeSection === 'logos' ? 'bg-white text-red-700 shadow-sm' : 'text-white/90 hover:bg-white/10'
           }`}
         >
-          {currentLanguage.code === 'ar' ? 'العلامات والشركاء' : 'Partner Brands'} ({logosCount})
+          {currentLanguage.code === 'ar' ? 'العلامات والكتالوجات' : 'Brands & Catalogues'} ({logosCount})
         </button>
         {onSignOut && (
           <button
